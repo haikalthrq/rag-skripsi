@@ -1,0 +1,1101 @@
+================================================================================
+CARA KERJA MAXMIN SEMANTIC CHUNKING
+Efficient Document Processing for RAG Applications
+================================================================================
+
+REFERENSI PAPER
+---------------
+Title: Max-Min Semantic Chunking of Documents for RAG application
+Authors: Kiss, Csaba; Nagy, Marcell; Szilágyi, Péter
+Year: 2025
+Publication: arXiv preprint arXiv:2210.15505
+
+================================================================================
+RINGKASAN
+================================================================================
+
+MaxMin Chunking adalah metode semantic chunking yang menggunakan similarity 
+threshold dinamis untuk mengelompokkan kalimat-kalimat menjadi paragraf/chunks 
+berdasarkan kesamaan semantik. 
+
+Metode ini mengkombinasikan:
+- Fixed threshold (parameter tetap)
+- Adaptive threshold (menyesuaikan dengan ukuran cluster)
+- Min-max similarity tracking
+
+Keunggulan:
+✓ Chunks lebih semantically coherent
+✓ Ukuran chunks lebih natural (tidak fixed size)
+✓ Cocok untuk RAG (Retrieval-Augmented Generation) applications
+✓ Preserves semantic boundaries
+
+================================================================================
+KONSEP DASAR
+================================================================================
+
+MASALAH DENGAN CHUNKING TRADISIONAL
+------------------------------------
+1. Fixed-size chunking (e.g., 512 tokens):
+   - Memotong kalimat di tengah-tengah
+   - Tidak mempertimbangkan semantic boundaries
+   - Kehilangan konteks
+
+2. Sentence-based chunking:
+   - Terlalu kecil untuk context
+   - Tidak mengelompokkan kalimat yang related
+
+3. Paragraph-based chunking:
+   - Bergantung pada formatting dokumen
+   - Paragraf bisa terlalu panjang atau pendek
+
+SOLUSI: MAXMIN SEMANTIC CHUNKING
+---------------------------------
+Mengelompokkan kalimat berdasarkan semantic similarity dengan threshold 
+yang adaptif:
+- Kalimat yang semantically similar digabung dalam satu chunk
+- Threshold menyesuaikan dengan ukuran cluster yang sedang dibentuk
+- Balance antara coherence dan chunk size
+
+================================================================================
+ALGORITMA MAXMIN CHUNKING
+================================================================================
+
+INPUT
+-----
+1. sentences: list[str]
+   - List kalimat yang sudah di-tokenize
+   - Contoh: hasil dari nltk.sent_tokenize(text)
+
+2. embeddings: np.array
+   - Sentence embeddings dengan shape (n_sentences, embedding_dim)
+   - Contoh: dari BAAI/bge-base-en-v1.5 model
+   - Dimensi typical: 768 untuk BERT-based models
+
+3. Parameters:
+   - fixed_threshold: float = 0.6
+   - c: float = 0.9
+   - init_constant: float = 1.5
+
+OUTPUT
+------
+paragraphs: list[list[str]]
+- List of paragraphs/chunks
+- Setiap paragraph adalah list of sentences
+
+================================================================================
+DETAIL ALGORITMA
+================================================================================
+
+STRUKTUR DATA UTAMA
+--------------------
+1. current_paragraph: list[str]
+   - Paragraph yang sedang dibentuk
+   - Dimulai dengan sentence pertama
+
+2. cluster_start, cluster_end: int
+   - Index range dari cluster saat ini
+   - Digunakan untuk slice embeddings
+
+3. pairwise_min: float
+   - Minimum pairwise similarity dalam cluster
+   - Tracking nilai minimum similarity
+   - Initialized: -inf
+
+4. paragraphs: list[list[str]]
+   - Collection of completed paragraphs
+   - Output final
+
+LANGKAH-LANGKAH ALGORITMA
+--------------------------
+
+STEP 0: INITIALIZATION
+----------------------
+```
+paragraphs = []
+current_paragraph = [sentences[0]]  # Start dengan sentence pertama
+cluster_start = 0
+cluster_end = 1
+pairwise_min = -inf
+```
+
+STEP 1: ITERASI UNTUK SETIAP SENTENCE (i = 1 hingga n-1)
+---------------------------------------------------------
+
+A. Ambil embeddings dari current cluster
+   ```
+   cluster_embeddings = embeddings[cluster_start:cluster_end]
+   ```
+
+B. CASE 1: Cluster memiliki lebih dari 1 sentence
+   -----------------------------------------------
+   Kondisi: cluster_end - cluster_start > 1
+   
+   1. Hitung similarity antara sentence baru dengan semua sentence di cluster:
+      ```
+      new_sentence_similarities = cosine_similarity(
+          embeddings[i].reshape(1, -1), 
+          cluster_embeddings
+      )[0]
+      ```
+      
+   2. Hitung adjusted threshold:
+      ```
+      adjusted_threshold = pairwise_min * c * sigmoid(cluster_size - 1)
+      
+      dimana:
+      - cluster_size = cluster_end - cluster_start
+      - sigmoid(x) = 1 / (1 + exp(-x))
+      ```
+      
+      Penjelasan:
+      - Threshold meningkat seiring cluster membesar (via sigmoid)
+      - Dikali dengan pairwise_min (similarity minimum dalam cluster)
+      - Dikali dengan coefficient c (default: 0.9)
+      
+   3. Ambil maximum similarity:
+      ```
+      new_sentence_similarity = max(new_sentence_similarities)
+      ```
+      
+   4. Update pairwise_min:
+      ```
+      pairwise_min = min(
+          min(new_sentence_similarities), 
+          pairwise_min
+      )
+      ```
+      
+      Ini adalah MIN dari semua similarity yang pernah dihitung!
+
+C. CASE 2: Cluster hanya memiliki 1 sentence
+   ------------------------------------------
+   Kondisi: cluster_end - cluster_start == 1
+   
+   1. Set adjusted_threshold = 0
+      (Threshold tidak ada untuk cluster size 1)
+      
+   2. Hitung similarity:
+      ```
+      pairwise_min = cosine_similarity(
+          embeddings[i].reshape(1, -1), 
+          cluster_embeddings
+      )[0]
+      ```
+      Ini adalah scalar value (similarity dengan 1 sentence)
+      
+   3. Apply initial constant:
+      ```
+      new_sentence_similarity = init_constant * pairwise_min
+      ```
+      
+      Penjelasan:
+      - init_constant (default: 1.5) memberikan "boost" 
+      - Membuat sentence ke-2 lebih mudah bergabung
+      - Menghindari single-sentence paragraphs
+
+D. DECISION: Gabung atau Pisah?
+   -----------------------------
+   ```
+   final_threshold = max(adjusted_threshold, fixed_threshold)
+   
+   if new_sentence_similarity > final_threshold:
+       # GABUNG: Tambahkan ke current paragraph
+       current_paragraph.append(sentences[i])
+       cluster_end += 1
+   else:
+       # PISAH: Start new paragraph
+       paragraphs.append(current_paragraph)
+       current_paragraph = [sentences[i]]
+       cluster_start = i
+       cluster_end = i + 1
+       pairwise_min = -inf  # Reset
+   ```
+
+STEP 2: FINALIZATION
+--------------------
+```
+paragraphs.append(current_paragraph)  # Append paragraph terakhir
+return paragraphs
+```
+
+================================================================================
+FUNGSI HELPER
+================================================================================
+
+SIGMOID FUNCTION
+----------------
+```python
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+```
+
+Karakteristik:
+- Input: cluster_size - 1 (jumlah sentence di cluster minus 1)
+- Output: nilai 0 hingga 1
+- Smooth transition dari 0 ke 1
+
+Peran dalam algoritma:
+- Cluster size kecil → sigmoid kecil → threshold rendah → mudah gabung
+- Cluster size besar → sigmoid besar → threshold tinggi → sulit gabung
+- Efek: Mencegah cluster terlalu besar
+
+Contoh nilai:
+```
+cluster_size | sigmoid(cluster_size - 1)
+-------------|-------------------------
+1            | 0.5     (sigmoid(0))
+2            | 0.73    (sigmoid(1))
+3            | 0.88    (sigmoid(2))
+5            | 0.98    (sigmoid(4))
+10           | 0.9999  (sigmoid(9))
+```
+
+COSINE SIMILARITY
+-----------------
+Formula:
+```
+similarity = (A · B) / (||A|| * ||B||)
+```
+
+Properti:
+- Range: -1 hingga 1 (untuk normalized vectors)
+- Range: 0 hingga 1 (untuk embeddings yang umum digunakan)
+- 1 = identical vectors
+- 0 = orthogonal (tidak ada kesamaan)
+
+Implementasi:
+- Menggunakan sklearn.metrics.pairwise.cosine_similarity
+- Input: embeddings matrix
+- Output: similarity matrix atau vector
+
+================================================================================
+PARAMETER TUNING
+================================================================================
+
+1. fixed_threshold (default: 0.6)
+   -------------------------------
+   Threshold minimum untuk menggabungkan sentence.
+   
+   Efek:
+   - Lebih tinggi (0.7-0.8): Chunks lebih kecil, lebih coherent
+   - Lebih rendah (0.4-0.5): Chunks lebih besar, less strict
+   
+   Rekomendasi:
+   - General documents: 0.6
+   - Technical documents: 0.7 (butuh precision tinggi)
+   - Narrative text: 0.5 (lebih flowing)
+
+2. c (coefficient, default: 0.9)
+   ------------------------------
+   Coefficient untuk adjusted threshold.
+   
+   Efek:
+   - Lebih tinggi (0.95-1.0): Threshold adaptif lebih aggressive
+   - Lebih rendah (0.7-0.85): Threshold adaptif lebih lenient
+   
+   Rekomendasi:
+   - Balanced chunking: 0.9
+   - Prefer larger chunks: 0.8
+   - Prefer smaller chunks: 0.95
+
+3. init_constant (default: 1.5)
+   -----------------------------
+   Boost factor untuk sentence kedua dalam cluster.
+   
+   Efek:
+   - Lebih tinggi (1.8-2.0): Lebih mudah untuk start paragraph
+   - Lebih rendah (1.2-1.4): Lebih strict untuk start paragraph
+   
+   Rekomendasi:
+   - Avoid single sentences: 1.5-1.8
+   - Allow single sentences: 1.0-1.2
+   - Strong paragraph formation: 1.8-2.0
+
+================================================================================
+EMBEDDING MODELS
+================================================================================
+
+RECOMMENDED MODELS
+------------------
+
+1. BAAI/bge-base-en-v1.5
+   - Dimension: 768
+   - Language: English
+   - Quality: Excellent
+   - Use: General purpose
+
+2. all-MiniLM-L6-v2
+   - Dimension: 384
+   - Language: English
+   - Quality: Good
+   - Use: Faster processing
+
+3. multilingual-e5-base
+   - Dimension: 768
+   - Language: 100+ languages
+   - Quality: Excellent
+   - Use: Multilingual documents
+
+4. sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+   - Dimension: 384
+   - Language: 50+ languages
+   - Quality: Good
+   - Use: Multilingual, faster
+
+EMBEDDING CONFIGURATION
+-----------------------
+```python
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+
+model_name = "BAAI/bge-base-en-v1.5"
+model_kwargs = {'device': 'cuda'}  # or 'cpu'
+encode_kwargs = {'normalize_embeddings': False}
+
+hf = HuggingFaceEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
+)
+
+# Generate embeddings
+embeddings = np.array(hf.embed_documents(sentences))
+```
+
+Catatan:
+- normalize_embeddings=False: preserve magnitude information
+- device='cuda': gunakan GPU untuk faster embedding
+- device='cpu': jika tidak ada GPU
+
+================================================================================
+CONTOH EKSEKUSI STEP-BY-STEP
+================================================================================
+
+CONTOH INPUT
+------------
+Sentences:
+1. "Anna lived in a village."
+2. "She loved adventure."
+3. "One day, she found a book."
+4. "The book showed a map."
+5. "She followed the map to a cave."
+6. "The cave was beautiful."
+
+Embeddings: [e1, e2, e3, e4, e5, e6] (simplified, sebenarnya vectors)
+
+EXECUTION TRACE
+---------------
+
+Initialization:
+- current_paragraph = [s1]
+- cluster_start = 0, cluster_end = 1
+- pairwise_min = -inf
+
+--- Iterasi i=1 (s2: "She loved adventure") ---
+cluster_size = 1
+→ CASE 2: cluster size == 1
+similarity = cosine(e2, e1) = 0.75
+new_similarity = 1.5 * 0.75 = 1.125
+final_threshold = max(0, 0.6) = 0.6
+Decision: 1.125 > 0.6 → GABUNG
+current_paragraph = [s1, s2]
+cluster_end = 2
+
+--- Iterasi i=2 (s3: "One day, she found a book") ---
+cluster_size = 2
+→ CASE 1: cluster size > 1
+similarities = [cosine(e3, e1), cosine(e3, e2)] = [0.65, 0.70]
+new_similarity = max([0.65, 0.70]) = 0.70
+pairwise_min = min(0.65, -inf) = 0.65
+adjusted_threshold = 0.65 * 0.9 * sigmoid(1) = 0.65 * 0.9 * 0.73 = 0.43
+final_threshold = max(0.43, 0.6) = 0.6
+Decision: 0.70 > 0.6 → GABUNG
+current_paragraph = [s1, s2, s3]
+cluster_end = 3
+
+--- Iterasi i=3 (s4: "The book showed a map") ---
+cluster_size = 3
+→ CASE 1: cluster size > 1
+similarities = [0.62, 0.68, 0.85]
+new_similarity = 0.85
+pairwise_min = min(0.62, 0.65) = 0.62
+adjusted_threshold = 0.62 * 0.9 * sigmoid(2) = 0.62 * 0.9 * 0.88 = 0.49
+final_threshold = max(0.49, 0.6) = 0.6
+Decision: 0.85 > 0.6 → GABUNG
+current_paragraph = [s1, s2, s3, s4]
+cluster_end = 4
+
+--- Iterasi i=4 (s5: "She followed the map to a cave") ---
+cluster_size = 4
+similarities = [0.45, 0.48, 0.55, 0.78]
+new_similarity = 0.78
+pairwise_min = min(0.45, 0.62) = 0.45
+adjusted_threshold = 0.45 * 0.9 * sigmoid(3) = 0.45 * 0.9 * 0.95 = 0.38
+final_threshold = max(0.38, 0.6) = 0.6
+Decision: 0.78 > 0.6 → GABUNG
+current_paragraph = [s1, s2, s3, s4, s5]
+cluster_end = 5
+
+--- Iterasi i=5 (s6: "The cave was beautiful") ---
+cluster_size = 5
+similarities = [0.30, 0.35, 0.40, 0.45, 0.75]
+new_similarity = 0.75
+pairwise_min = min(0.30, 0.45) = 0.30
+adjusted_threshold = 0.30 * 0.9 * sigmoid(4) = 0.30 * 0.9 * 0.98 = 0.26
+final_threshold = max(0.26, 0.6) = 0.6
+Decision: 0.75 > 0.6 → GABUNG
+current_paragraph = [s1, s2, s3, s4, s5, s6]
+
+Finalization:
+paragraphs.append(current_paragraph)
+
+HASIL AKHIR
+-----------
+Paragraph 1:
+- "Anna lived in a village."
+- "She loved adventure."
+- "One day, she found a book."
+- "The book showed a map."
+- "She followed the map to a cave."
+- "The cave was beautiful."
+
+(Dalam contoh ini semua kalimat bergabung dalam 1 paragraph)
+
+================================================================================
+ANALISIS THRESHOLD DINAMIS
+================================================================================
+
+KENAPA THRESHOLD ADAPTIF?
+--------------------------
+
+Fixed Threshold Saja (tanpa adaptif):
+❌ Cluster bisa terlalu besar
+❌ Tidak ada "pressure" untuk stop
+❌ Kurang sensitive terhadap semantic drift
+
+Adaptive Threshold (MaxMin approach):
+✅ Cluster size mempengaruhi threshold
+✅ Pairwise_min tracking mencegah semantic drift
+✅ Balance antara coherence dan size
+
+KOMPONEN THRESHOLD
+------------------
+
+1. Fixed Threshold (0.6)
+   - Baseline minimum
+   - Always enforced
+   - Ensures minimum quality
+
+2. Adaptive Threshold = pairwise_min * c * sigmoid(cluster_size - 1)
+   
+   a. pairwise_min:
+      - MIN dari semua pairwise similarities dalam cluster
+      - Jika ada 1 sentence yang kurang cocok, min turun
+      - Efek: Threshold lebih sulit tercapai
+      
+   b. c (coefficient):
+      - Scaling factor
+      - Control aggressiveness dari adaptasi
+      
+   c. sigmoid(cluster_size - 1):
+      - Meningkat dengan cluster size
+      - Cluster besar → threshold tinggi
+      - Efek: Pressure untuk stop growing
+
+FINAL THRESHOLD
+---------------
+```
+final_threshold = max(fixed_threshold, adaptive_threshold)
+```
+
+Artinya:
+- Threshold tidak pernah di bawah fixed_threshold
+- Adaptive threshold bisa lebih tinggi dari fixed
+- Cluster besar cenderung punya threshold lebih tinggi
+
+EFEK PADA CLUSTERING
+---------------------
+
+Early sentences (cluster kecil):
+- Sigmoid kecil → adaptive threshold rendah
+- final_threshold ≈ fixed_threshold
+- Mudah untuk bergabung
+
+Middle sentences (cluster sedang):
+- Sigmoid meningkat
+- adaptive_threshold mulai naik
+- Moderate difficulty untuk bergabung
+
+Late sentences (cluster besar):
+- Sigmoid hampir 1
+- adaptive_threshold bisa > fixed_threshold
+- Sulit untuk bergabung (jika pairwise_min turun)
+
+SEMANTIC DRIFT PROTECTION
+--------------------------
+pairwise_min adalah kunci untuk mencegah semantic drift:
+
+Contoh:
+```
+Cluster: [s1, s2, s3] dengan similarities:
+- sim(s1, s2) = 0.8
+- sim(s1, s3) = 0.75
+- sim(s2, s3) = 0.78
+
+pairwise_min = 0.75  (minimum dari semua)
+
+Sentence baru s4:
+- sim(s4, s1) = 0.70  ← Ini yang menjadi pairwise_min baru
+- sim(s4, s2) = 0.82
+- sim(s4, s3) = 0.85
+
+new_similarity = 0.85 (max)
+pairwise_min = min(0.70, 0.75) = 0.70  ← Turun!
+
+adjusted_threshold = 0.70 * 0.9 * sigmoid(3)
+                   = 0.70 * 0.9 * 0.95
+                   = 0.60
+
+Meskipun s4 punya high similarity dengan s2 dan s3,
+threshold juga naik karena pairwise_min turun!
+```
+
+Efek:
+- Jika sentence baru kurang cocok dengan salah satu sentence lama,
+  threshold ikut naik
+- Mencegah cluster drift ke topik yang berbeda
+- Maintain semantic coherence
+
+================================================================================
+KEUNGGULAN MAXMIN CHUNKING
+================================================================================
+
+1. SEMANTIC COHERENCE
+   -------------------
+   ✓ Chunks didasarkan pada semantic similarity
+   ✓ Kalimat dalam satu chunk semantically related
+   ✓ Cocok untuk retrieval tasks
+
+2. ADAPTIVE CHUNK SIZE
+   --------------------
+   ✓ Chunk size menyesuaikan dengan content
+   ✓ Tidak fixed-size (lebih natural)
+   ✓ Balance antara coherence dan context length
+
+3. SEMANTIC DRIFT PROTECTION
+   --------------------------
+   ✓ pairwise_min tracking mencegah topik drift
+   ✓ Cluster tidak grow unbounded
+   ✓ Maintain topic consistency
+
+4. SIMPLE & EFFICIENT
+   -------------------
+   ✓ Single-pass algorithm (O(n) complexity)
+   ✓ Tidak perlu clustering algorithm yang complex
+   ✓ Fast execution
+
+5. TUNABLE PARAMETERS
+   -------------------
+   ✓ 3 parameters untuk fine-tuning
+   ✓ Can adapt to different document types
+   ✓ Balanced default values
+
+6. RAG-FRIENDLY
+   -------------
+   ✓ Chunks semantically meaningful
+   ✓ Good for vector database indexing
+   ✓ Retrieval results lebih relevant
+
+================================================================================
+KETERBATASAN
+================================================================================
+
+1. DEPENDENCY ON EMBEDDINGS
+   -------------------------
+   ✗ Quality tergantung pada embedding model
+   ✗ Different models → different results
+   ✗ Embedding generation bisa lambat untuk dokumen besar
+
+2. SEQUENTIAL PROCESSING
+   ----------------------
+   ✗ Greedy approach (tidak optimal global)
+   ✗ Order-dependent (sentence order matters)
+   ✗ Tidak bisa re-arrange sentences
+
+3. PARAMETER SENSITIVITY
+   ----------------------
+   ✗ Optimal parameters vary by document type
+   ✗ Perlu tuning untuk best results
+   ✗ No automatic parameter selection
+
+4. SINGLE-PASS LIMITATION
+   -----------------------
+   ✗ Tidak ada backtracking
+   ✗ Early decisions mempengaruhi late decisions
+   ✗ Mungkin tidak optimal untuk semua cases
+
+5. MEMORY REQUIREMENTS
+   --------------------
+   ✗ Perlu menyimpan semua embeddings in memory
+   ✗ Large documents → high memory usage
+   ✗ Embedding dimension affects memory
+
+================================================================================
+PERBANDINGAN DENGAN METODE LAIN
+================================================================================
+
+┌─────────────────────┬──────────────┬────────────┬────────────┬──────────┐
+│ METODE              │ SEMANTIC     │ ADAPTIVE   │ COMPLEXITY │ QUALITY  │
+│                     │ AWARENESS    │ SIZE       │            │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ Fixed-size          │ ✗ No         │ ✗ No       │ O(n)       │ Low      │
+│ (token/char count)  │              │            │ Very fast  │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ Sentence-based      │ ✗ No         │ ✗ No       │ O(n)       │ Low      │
+│ (1 sentence/chunk)  │              │            │ Very fast  │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ Paragraph-based     │ ✗ No         │ ~ Depends  │ O(n)       │ Medium   │
+│ (split by \n\n)     │              │ on format  │ Very fast  │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ Recursive           │ ~ Partial    │ ✓ Yes      │ O(n log n) │ Medium   │
+│ (LangChain)         │              │            │ Fast       │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ MaxMin Chunking     │ ✓✓ Yes       │ ✓ Yes      │ O(n*d)     │ High     │
+│ (this method)       │ Strong       │            │ Medium     │          │
+├─────────────────────┼──────────────┼────────────┼────────────┼──────────┤
+│ Clustering-based    │ ✓✓ Yes       │ ✓ Yes      │ O(n²) or   │ High     │
+│ (K-means, etc)      │              │            │ worse      │          │
+│                     │              │            │ Slow       │          │
+└─────────────────────┴──────────────┴────────────┴────────────┴──────────┘
+
+Complexity notes:
+- n = number of sentences
+- d = embedding dimension (untuk similarity calculation)
+
+DETAIL PERBANDINGAN
+-------------------
+
+vs Fixed-size Chunking:
++ MaxMin: Semantic boundaries preserved
++ MaxMin: Better retrieval performance
+- Fixed: Faster execution
+- Fixed: Simpler implementation
+
+vs Recursive Chunking (LangChain):
++ MaxMin: Pure semantic approach
++ MaxMin: Better coherence
+~ Similar: Adaptive sizing
+- Recursive: No embedding needed (faster)
+
+vs Clustering-based:
++ MaxMin: Much faster (single-pass)
++ MaxMin: Simpler algorithm
+~ Similar: Semantic awareness
+- Clustering: Potentially better global optimization
+
+================================================================================
+USE CASES
+================================================================================
+
+IDEAL USE CASES
+---------------
+✓ RAG (Retrieval-Augmented Generation) applications
+✓ Semantic search systems
+✓ Question-answering over documents
+✓ Document summarization with context
+✓ Knowledge base construction
+✓ Long-form content processing
+✓ Academic paper processing
+✓ Technical documentation chunking
+
+LESS SUITABLE USE CASES
+-----------------------
+✗ Real-time processing (embedding overhead)
+✗ Structured data (tables, lists)
+✗ Code files (different semantics)
+✗ Very short documents (< 10 sentences)
+✗ Documents with critical fixed-size requirements
+✗ Languages not supported by embedding model
+
+================================================================================
+IMPLEMENTATION EXAMPLE
+================================================================================
+
+FULL PIPELINE
+-------------
+
+```python
+import numpy as np
+import nltk
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+from maxmin_chunker import process_sentences
+
+# 1. Setup embedding model
+model_name = "BAAI/bge-base-en-v1.5"
+model_kwargs = {'device': 'cuda'}  # or 'cpu'
+encode_kwargs = {'normalize_embeddings': False}
+
+hf = HuggingFaceEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
+)
+
+# 2. Load document
+with open("document.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+
+# 3. Split into sentences
+nltk.download('punkt')
+sentences = nltk.sent_tokenize(text)
+
+# 4. Generate embeddings
+print(f"Generating embeddings for {len(sentences)} sentences...")
+embeddings = np.array(hf.embed_documents(sentences))
+print(f"Embeddings shape: {embeddings.shape}")
+
+# 5. Apply MaxMin chunking
+paragraphs = process_sentences(
+    sentences, 
+    embeddings,
+    fixed_threshold=0.6,  # Adjust as needed
+    c=0.9,                # Adjust as needed
+    init_constant=1.5     # Adjust as needed
+)
+
+# 6. Output results
+print(f"\nGenerated {len(paragraphs)} chunks:")
+for i, paragraph in enumerate(paragraphs, 1):
+    chunk_text = ' '.join(paragraph)
+    print(f"\n--- Chunk {i} ({len(paragraph)} sentences) ---")
+    print(chunk_text[:200] + "..." if len(chunk_text) > 200 else chunk_text)
+
+# 7. Statistics
+chunk_sizes = [len(p) for p in paragraphs]
+print(f"\nStatistics:")
+print(f"  Total chunks: {len(paragraphs)}")
+print(f"  Avg sentences/chunk: {np.mean(chunk_sizes):.2f}")
+print(f"  Min sentences/chunk: {np.min(chunk_sizes)}")
+print(f"  Max sentences/chunk: {np.max(chunk_sizes)}")
+```
+
+BATCH PROCESSING
+----------------
+
+```python
+def process_document_batch(documents, hf_embeddings):
+    """Process multiple documents with MaxMin chunking."""
+    all_chunks = []
+    
+    for doc_id, text in enumerate(documents):
+        # Tokenize
+        sentences = nltk.sent_tokenize(text)
+        
+        # Embed
+        embeddings = np.array(hf_embeddings.embed_documents(sentences))
+        
+        # Chunk
+        paragraphs = process_sentences(sentences, embeddings)
+        
+        # Add metadata
+        for chunk_id, paragraph in enumerate(paragraphs):
+            all_chunks.append({
+                'doc_id': doc_id,
+                'chunk_id': chunk_id,
+                'text': ' '.join(paragraph),
+                'sentences': paragraph,
+                'num_sentences': len(paragraph)
+            })
+    
+    return all_chunks
+
+# Usage
+documents = [doc1, doc2, doc3, ...]
+chunks = process_document_batch(documents, hf)
+```
+
+================================================================================
+TIPS & BEST PRACTICES
+================================================================================
+
+1. EMBEDDING MODEL SELECTION
+   --------------------------
+   ✓ Use domain-specific models when available
+   ✓ Test multiple models for your use case
+   ✓ Consider model size vs quality tradeoff
+   ✓ Ensure model supports your document language
+
+2. PARAMETER TUNING
+   ----------------
+   ✓ Start with defaults (0.6, 0.9, 1.5)
+   ✓ Tune fixed_threshold first
+   ✓ Evaluate on representative sample
+   ✓ Monitor chunk size distribution
+   
+   Evaluation metrics:
+   - Average chunk size
+   - Chunk size variance
+   - Retrieval performance (for RAG)
+   - Human evaluation of coherence
+
+3. PREPROCESSING
+   -------------
+   ✓ Clean text before sentence splitting
+   ✓ Remove excessive whitespace
+   ✓ Handle special characters appropriately
+   ✓ Consider document structure (headers, etc.)
+
+4. SENTENCE SPLITTING
+   ------------------
+   ✓ Use NLTK for English (punkt tokenizer)
+   ✓ Use spaCy for multiple languages
+   ✓ Handle abbreviations correctly
+   ✓ Check sentence quality after splitting
+
+5. MEMORY OPTIMIZATION
+   -------------------
+   ✓ Process long documents in sections
+   ✓ Use batch embedding generation
+   ✓ Clear embeddings after use
+   ✓ Consider streaming for very large docs
+
+6. PERFORMANCE OPTIMIZATION
+   ------------------------
+   ✓ Use GPU for embedding generation
+   ✓ Batch process multiple documents
+   ✓ Cache embeddings if re-processing
+   ✓ Profile code for bottlenecks
+
+7. QUALITY ASSURANCE
+   -----------------
+   ✓ Manually inspect sample chunks
+   ✓ Check for very small chunks (< 2 sentences)
+   ✓ Check for very large chunks (> 15 sentences)
+   ✓ Validate semantic coherence
+   
+8. POST-PROCESSING
+   ---------------
+   ✓ Consider merging very small chunks
+   ✓ Consider splitting very large chunks
+   ✓ Add chunk metadata (ID, position, etc.)
+   ✓ Store with original document reference
+
+================================================================================
+EVALUATION METRICS
+================================================================================
+
+INTRINSIC METRICS
+-----------------
+
+1. Chunk Size Statistics
+   ```
+   - Mean chunk size (sentences)
+   - Standard deviation
+   - Min/max chunk size
+   - Distribution histogram
+   ```
+
+2. Semantic Coherence
+   ```
+   - Intra-chunk similarity (avg similarity within chunk)
+   - Inter-chunk similarity (avg similarity between chunks)
+   - Ratio: intra-chunk / inter-chunk (higher is better)
+   ```
+
+3. Boundary Quality
+   ```
+   - Similarity at boundaries
+   - Semantic gap between consecutive chunks
+   ```
+
+EXTRINSIC METRICS (for RAG)
+---------------------------
+
+1. Retrieval Performance
+   ```
+   - Precision@k
+   - Recall@k
+   - MRR (Mean Reciprocal Rank)
+   - NDCG (Normalized Discounted Cumulative Gain)
+   ```
+
+2. End-to-End Quality
+   ```
+   - Answer quality (human evaluation)
+   - Factual accuracy
+   - Completeness
+   - Relevance
+   ```
+
+IMPLEMENTATION EXAMPLE
+----------------------
+
+```python
+def evaluate_chunks(paragraphs, embeddings_per_sentence):
+    """Calculate intrinsic metrics for chunks."""
+    
+    # Chunk size stats
+    chunk_sizes = [len(p) for p in paragraphs]
+    stats = {
+        'mean_size': np.mean(chunk_sizes),
+        'std_size': np.std(chunk_sizes),
+        'min_size': np.min(chunk_sizes),
+        'max_size': np.max(chunk_sizes)
+    }
+    
+    # Semantic coherence
+    intra_sims = []
+    inter_sims = []
+    
+    # Calculate chunk embeddings (mean of sentence embeddings)
+    chunk_embeddings = []
+    idx = 0
+    for paragraph in paragraphs:
+        chunk_emb = embeddings_per_sentence[idx:idx+len(paragraph)].mean(axis=0)
+        chunk_embeddings.append(chunk_emb)
+        
+        # Intra-chunk similarity
+        if len(paragraph) > 1:
+            chunk_sims = cosine_similarity(
+                embeddings_per_sentence[idx:idx+len(paragraph)]
+            )
+            # Get upper triangle (avoid diagonal)
+            intra_sims.extend(chunk_sims[np.triu_indices_from(chunk_sims, k=1)])
+        
+        idx += len(paragraph)
+    
+    # Inter-chunk similarity
+    chunk_embeddings = np.array(chunk_embeddings)
+    if len(chunk_embeddings) > 1:
+        inter_sim_matrix = cosine_similarity(chunk_embeddings)
+        # Get upper triangle (avoid diagonal)
+        inter_sims = inter_sim_matrix[np.triu_indices_from(inter_sim_matrix, k=1)]
+    
+    stats['intra_chunk_sim'] = np.mean(intra_sims) if intra_sims else 0
+    stats['inter_chunk_sim'] = np.mean(inter_sims) if inter_sims else 0
+    stats['coherence_ratio'] = (stats['intra_chunk_sim'] / stats['inter_chunk_sim'] 
+                                 if stats['inter_chunk_sim'] > 0 else float('inf'))
+    
+    return stats
+```
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Chunks terlalu kecil (banyak single-sentence chunks)
+SOLUTION:
+  - Increase init_constant (e.g., 1.8 or 2.0)
+  - Decrease fixed_threshold (e.g., 0.5)
+  - Check embedding quality
+
+PROBLEM: Chunks terlalu besar
+SOLUTION:
+  - Increase fixed_threshold (e.g., 0.7)
+  - Increase c coefficient (e.g., 0.95)
+  - Check for topic drift in chunks
+
+PROBLEM: Inconsistent chunk sizes
+SOLUTION:
+  - This is expected behavior (adaptive sizing)
+  - If too much variance, adjust c parameter
+  - Consider post-processing to merge/split outliers
+
+PROBLEM: Poor semantic coherence
+SOLUTION:
+  - Try different embedding model
+  - Check sentence splitting quality
+  - Increase fixed_threshold
+  - Verify document language matches model
+
+PROBLEM: Slow processing
+SOLUTION:
+  - Use GPU for embeddings
+  - Batch process sentences
+  - Use smaller/faster embedding model
+  - Process document in sections
+
+PROBLEM: Memory issues
+SOLUTION:
+  - Process document in chunks
+  - Use smaller embedding dimension
+  - Clear variables after use
+  - Stream process for very large docs
+
+================================================================================
+FUTURE ENHANCEMENTS
+================================================================================
+
+POTENTIAL IMPROVEMENTS
+----------------------
+
+1. Multi-pass Algorithm
+   - Allow backtracking and refinement
+   - Global optimization instead of greedy
+
+2. Hierarchical Chunking
+   - Create chunk hierarchies
+   - Multi-level semantic grouping
+
+3. Overlap Support
+   - Allow overlapping chunks for context
+   - Configurable overlap size
+
+4. Dynamic Parameter Selection
+   - Auto-tune parameters based on document
+   - Machine learning for parameter optimization
+
+5. Multi-modal Support
+   - Handle images, tables, code
+   - Different chunking strategies per modality
+
+6. Constraint-based Chunking
+   - Respect max/min chunk size constraints
+   - Balance semantic coherence with size requirements
+
+7. Topic Modeling Integration
+   - Use topic coherence as additional signal
+   - Chunk boundaries align with topic shifts
+
+================================================================================
+DEPENDENCIES
+================================================================================
+
+REQUIRED
+--------
+- numpy: Array operations and numerical computing
+- scikit-learn: Cosine similarity calculation
+- Embedding model library (e.g., langchain-huggingface)
+- Sentence tokenizer (e.g., nltk, spaCy)
+
+OPTIONAL
+--------
+- torch/tensorflow: For embedding model (depends on model choice)
+- CUDA: For GPU acceleration
+- pandas: For data analysis and evaluation
+
+INSTALLATION
+------------
+```bash
+pip install numpy scikit-learn nltk
+pip install langchain-huggingface sentence-transformers
+pip install torch  # For GPU support
+python -m nltk.downloader punkt
+```
+
+================================================================================
+REFERENCES
+================================================================================
+
+Paper:
+  Kiss, Csaba, Nagy, Marcell, & Szilágyi, Péter (2025). 
+  "Max-Min Semantic Chunking of Documents for RAG application."
+  arXiv preprint arXiv:2210.15505.
+
+Related Work:
+  - Sentence-BERT (Reimers & Gurevych, 2019)
+  - BGE Embeddings (BAAI, 2023)
+  - RAG (Retrieval-Augmented Generation) - Lewis et al., 2020
+
+Source Code:
+  - maxmin_chunker.py
+  - example_usage.ipynb

@@ -1,0 +1,664 @@
+================================================================================
+CHROMADB DOCUMENTATION
+AI-Native Open-Source Vector Database
+================================================================================
+
+OVERVIEW
+--------
+ChromaDB adalah vector database open-source yang berfokus pada produktivitas 
+dan kemudahan penggunaan developer. ChromaDB dirancang khusus untuk aplikasi 
+AI dan dilisensikan di bawah Apache 2.0.
+
+FITUR UTAMA
+-----------
+- AI-native vector database
+- Open-source dengan lisensi Apache 2.0
+- Fokus pada developer productivity
+- Integrasi seamless dengan LangChain
+- Dukungan untuk deployment lokal dan cloud
+- Full-text search capabilities
+
+CHROMA CLOUD
+-------------
+Chroma Cloud menyediakan layanan serverless vector dan full-text search yang:
+- Sangat cepat dan cost-effective
+- Scalable dan mudah digunakan
+- Menyediakan $5 kredit gratis untuk uji coba
+- Setup database dalam waktu kurang dari 30 detik
+
+================================================================================
+SETUP & INSTALASI
+================================================================================
+
+INSTALASI PACKAGE
+------------------
+Untuk menggunakan ChromaDB dengan LangChain, install package berikut:
+
+```bash
+pip install -qU "langchain-chroma>=0.1.2"
+```
+
+CREDENTIALS & ENVIRONMENT VARIABLES
+------------------------------------
+
+1. PENGGUNAAN LOKAL (Tanpa Credentials)
+   Untuk penggunaan lokal, tidak diperlukan credentials khusus.
+   Package installation sudah cukup untuk memulai.
+
+2. CHROMA CLOUD (Dengan Credentials)
+   Set environment variables berikut untuk Chroma Cloud:
+   - CHROMA_TENANT: Tenant ID Anda
+   - CHROMA_DATABASE: Nama database
+   - CHROMA_API_KEY: API key Chroma Cloud
+
+   Setup menggunakan Chroma CLI:
+   ```bash
+   chroma db connect [db_name] --env-file
+   ```
+
+3. LANGSMITH TRACING (Optional)
+   Untuk monitoring dan tracing model calls:
+   ```python
+   os.environ["LANGSMITH_API_KEY"] = getpass.getpass("Enter your LangSmith API key: ")
+   os.environ["LANGSMITH_TRACING"] = "true"
+   ```
+
+================================================================================
+INISIALISASI CHROMADB
+================================================================================
+
+SETUP DASAR - EMBEDDINGS
+-------------------------
+Pertama, siapkan embedding model yang akan digunakan:
+
+```python
+from langchain_openai import OpenAIEmbeddings
+
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+```
+
+--------------------------------------------------------------------------------
+METODE 1: INISIALISASI LANGSUNG DARI CHROMA CLASS
+--------------------------------------------------------------------------------
+
+OPSI A: Running Locally (In-Memory)
+------------------------------------
+Untuk eksperimen tanpa data persistence:
+
+```python
+from langchain_chroma import Chroma
+
+vector_store = Chroma(
+    collection_name="example_collection",
+    embedding_function=embeddings,
+)
+```
+
+Kelebihan:
+- Sangat cepat untuk prototyping
+- Tidak memerlukan setup file system
+- Cocok untuk testing dan development
+
+Kekurangan:
+- Data hilang setelah program berhenti
+- Tidak cocok untuk production
+
+OPSI B: Running Locally (with Data Persistence)
+------------------------------------------------
+Untuk menyimpan data secara permanen:
+
+```python
+from langchain_chroma import Chroma
+
+vector_store = Chroma(
+    collection_name="example_collection",
+    embedding_function=embeddings,
+    persist_directory="./chroma_langchain_db",
+)
+```
+
+Kelebihan:
+- Data tersimpan di disk
+- Bisa diakses kembali setelah restart
+- Cocok untuk production
+
+Parameter persist_directory:
+- Menentukan lokasi penyimpanan data
+- Data otomatis di-save setiap ada perubahan
+- Bisa digunakan untuk multiple sessions
+
+OPSI C: Connecting to a Chroma Server
+--------------------------------------
+Untuk koneksi ke Chroma server yang sudah berjalan:
+
+```python
+from langchain_chroma import Chroma
+
+vector_store = Chroma(
+    collection_name="example_collection",
+    embedding_function=embeddings,
+    host="localhost",
+)
+```
+
+Start Chroma server terlebih dahulu:
+```bash
+chroma run
+```
+
+Parameter tambahan untuk custom deployment:
+- port: Port number untuk koneksi
+- ssl: Enable/disable SSL connection
+- headers: Custom headers untuk authentication
+
+OPSI D: Chroma Cloud
+--------------------
+Untuk menggunakan Chroma Cloud dengan credentials:
+
+```python
+from langchain_chroma import Chroma
+
+vector_store = Chroma(
+    collection_name="example_collection",
+    embedding_function=embeddings,
+    chroma_cloud_api_key=os.getenv("CHROMA_API_KEY"),
+    tenant=os.getenv("CHROMA_TENANT"),
+    database=os.getenv("CHROMA_DATABASE"),
+)
+```
+
+--------------------------------------------------------------------------------
+METODE 2: INISIALISASI DARI CHROMA CLIENT
+--------------------------------------------------------------------------------
+
+Metode ini memberikan kontrol lebih terhadap underlying database.
+
+OPSI A: Running Locally (In-Memory)
+------------------------------------
+```python
+import chromadb
+
+client = chromadb.Client()
+```
+
+OPSI B: Running Locally (with Data Persistence)
+------------------------------------------------
+```python
+import chromadb
+
+client = chromadb.PersistentClient(path="./chroma_langchain_db")
+```
+
+OPSI C: Connecting to a Chroma Server
+--------------------------------------
+```python
+import chromadb
+
+client = chromadb.HttpClient(host="localhost", port=8000, ssl=False)
+```
+
+OPSI D: Chroma Cloud
+--------------------
+```python
+import chromadb
+
+client = chromadb.CloudClient()
+```
+
+AKSES DATABASE & BUAT COLLECTION
+---------------------------------
+```python
+# Get or create collection
+collection = client.get_or_create_collection("collection_name")
+
+# Add documents
+collection.add(ids=["1", "2", "3"], documents=["a", "b", "c"])
+```
+
+BUAT VECTORSTORE DARI CLIENT
+-----------------------------
+```python
+from langchain_chroma import Chroma
+
+vector_store_from_client = Chroma(
+    client=client,
+    collection_name="collection_name",
+    embedding_function=embeddings,
+)
+```
+
+================================================================================
+MENGELOLA VECTOR STORE
+================================================================================
+
+MENAMBAH DOKUMEN KE VECTOR STORE
+---------------------------------
+
+Gunakan fungsi add_documents() untuk menambahkan dokumen:
+
+```python
+from uuid import uuid4
+from langchain_core.documents import Document
+
+# Contoh dokumen
+document_1 = Document(
+    page_content="I had chocolate chip pancakes and scrambled eggs for breakfast this morning.",
+    metadata={"source": "tweet"},
+    id=1,
+)
+
+document_2 = Document(
+    page_content="The weather forecast for tomorrow is cloudy and overcast, with a high of 62 degrees.",
+    metadata={"source": "news"},
+    id=2,
+)
+
+document_3 = Document(
+    page_content="Building an exciting new project with LangChain - come check it out!",
+    metadata={"source": "tweet"},
+    id=3,
+)
+
+document_4 = Document(
+    page_content="Robbers broke into the city bank and stole $1 million in cash.",
+    metadata={"source": "news"},
+    id=4,
+)
+
+document_5 = Document(
+    page_content="Wow! That was an amazing movie. I can't wait to see it again.",
+    metadata={"source": "tweet"},
+    id=5,
+)
+
+document_6 = Document(
+    page_content="Is the new iPhone worth the price? Read this review to find out.",
+    metadata={"source": "website"},
+    id=6,
+)
+
+document_7 = Document(
+    page_content="The top 10 soccer players in the world right now.",
+    metadata={"source": "website"},
+    id=7,
+)
+
+document_8 = Document(
+    page_content="LangGraph is the best framework for building stateful, agentic applications!",
+    metadata={"source": "tweet"},
+    id=8,
+)
+
+document_9 = Document(
+    page_content="The stock market is down 500 points today due to fears of a recession.",
+    metadata={"source": "news"},
+    id=9,
+)
+
+document_10 = Document(
+    page_content="I have a bad feeling I am going to get deleted :(",
+    metadata={"source": "tweet"},
+    id=10,
+)
+
+# Kumpulkan semua dokumen
+documents = [
+    document_1, document_2, document_3, document_4, document_5,
+    document_6, document_7, document_8, document_9, document_10,
+]
+
+# Generate unique IDs
+uuids = [str(uuid4()) for _ in range(len(documents))]
+
+# Add documents to vector store
+vector_store.add_documents(documents=documents, ids=uuids)
+```
+
+STRUKTUR DOCUMENT
+-----------------
+Setiap Document memiliki:
+- page_content: Isi teks dokumen
+- metadata: Dictionary berisi informasi tambahan (source, timestamp, dll)
+- id: Unique identifier untuk dokumen
+
+UPDATE DOKUMEN DI VECTOR STORE
+-------------------------------
+
+Gunakan update_document() atau update_documents() untuk memperbarui dokumen:
+
+```python
+# Update single document
+updated_document_1 = Document(
+    page_content="I had chocolate chip pancakes and fried eggs for breakfast this morning.",
+    metadata={"source": "tweet"},
+    id=1,
+)
+
+vector_store.update_document(document_id=uuids[0], document=updated_document_1)
+
+# Update multiple documents
+updated_document_2 = Document(
+    page_content="The weather forecast for tomorrow is sunny and warm, with a high of 82 degrees.",
+    metadata={"source": "news"},
+    id=2,
+)
+
+vector_store.update_documents(
+    ids=uuids[:2], 
+    documents=[updated_document_1, updated_document_2]
+)
+```
+
+HAPUS DOKUMEN DARI VECTOR STORE
+--------------------------------
+
+Gunakan delete() untuk menghapus dokumen:
+
+```python
+# Delete by document ID
+vector_store.delete(ids=uuids[-1])
+
+# Delete multiple documents
+vector_store.delete(ids=[uuids[0], uuids[1], uuids[2]])
+```
+
+================================================================================
+QUERY VECTOR STORE
+================================================================================
+
+METODE QUERY LANGSUNG
+----------------------
+
+1. SIMILARITY SEARCH
+--------------------
+Mencari dokumen yang paling mirip dengan query:
+
+```python
+results = vector_store.similarity_search(
+    "LangChain provides abstractions to make working with LLMs easy",
+    k=2,
+    filter={"source": "tweet"},
+)
+
+for res in results:
+    print(f"* {res.page_content} [{res.metadata}]")
+```
+
+Parameter:
+- query: Teks query
+- k: Jumlah hasil yang dikembalikan (default: 4)
+- filter: Filter berdasarkan metadata
+
+2. SIMILARITY SEARCH WITH SCORE
+--------------------------------
+Similarity search dengan skor kemiripan:
+
+```python
+results = vector_store.similarity_search_with_score(
+    "Will it be hot tomorrow?", 
+    k=1, 
+    filter={"source": "news"}
+)
+
+for res, score in results:
+    print(f"* [SIM={score:3f}] {res.page_content} [{res.metadata}]")
+```
+
+Output:
+- Dokumen hasil pencarian
+- Score: Skor similarity (semakin rendah semakin mirip)
+
+3. SEARCH BY VECTOR
+--------------------
+Mencari dokumen berdasarkan vector embedding:
+
+```python
+results = vector_store.similarity_search_by_vector(
+    embedding=embeddings.embed_query("I love green eggs and ham!"), 
+    k=1
+)
+
+for doc in results:
+    print(f"* {doc.page_content} [{doc.metadata}]")
+```
+
+Berguna ketika:
+- Sudah memiliki vector embedding
+- Ingin search berdasarkan embedding langsung
+
+4. METODE SEARCH LAINNYA
+-------------------------
+ChromaDB juga mendukung:
+- MMR Search (Maximal Marginal Relevance)
+- Search dengan custom scoring
+- Hybrid search (vector + keyword)
+
+Untuk detail lengkap, lihat API reference ChromaDB.
+
+QUERY MENGGUNAKAN RETRIEVER
+----------------------------
+
+Mengubah vector store menjadi retriever untuk integrasi dengan chains:
+
+```python
+# Buat retriever
+retriever = vector_store.as_retriever(
+    search_type="mmr", 
+    search_kwargs={"k": 1, "fetch_k": 5}
+)
+
+# Gunakan retriever
+results = retriever.invoke(
+    "Stealing from the bank is a crime", 
+    filter={"source": "news"}
+)
+```
+
+PARAMETER RETRIEVER
+-------------------
+
+1. search_type: Jenis pencarian
+   - "similarity": Similarity search (default)
+   - "mmr": Maximal Marginal Relevance
+   - "similarity_score_threshold": Similarity dengan threshold
+
+2. search_kwargs: Parameter tambahan
+   - k: Jumlah dokumen yang dikembalikan
+   - fetch_k: Jumlah dokumen untuk MMR (hanya untuk MMR)
+   - score_threshold: Minimum score (untuk similarity_score_threshold)
+   - filter: Filter metadata
+
+CONTOH PENGGUNAAN RETRIEVER
+----------------------------
+
+```python
+# Similarity search
+retriever_similarity = vector_store.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 3}
+)
+
+# MMR search (diversity)
+retriever_mmr = vector_store.as_retriever(
+    search_type="mmr",
+    search_kwargs={"k": 3, "fetch_k": 10}
+)
+
+# Similarity with threshold
+retriever_threshold = vector_store.as_retriever(
+    search_type="similarity_score_threshold",
+    search_kwargs={"score_threshold": 0.5, "k": 3}
+)
+```
+
+PERBEDAAN METODE SEARCH
+------------------------
+
+1. SIMILARITY SEARCH
+   - Mengembalikan k dokumen terdekat
+   - Hasil bisa sangat mirip satu sama lain
+   - Cepat dan sederhana
+
+2. MMR SEARCH
+   - Mengutamakan diversity hasil
+   - Menghindari hasil yang terlalu redundan
+   - fetch_k dokumen di-fetch terlebih dahulu
+   - k dokumen terbaik dipilih dengan mempertimbangkan diversity
+
+3. SIMILARITY SCORE THRESHOLD
+   - Hanya mengembalikan dokumen dengan score >= threshold
+   - Bisa mengembalikan kurang dari k dokumen
+   - Berguna untuk filtering hasil berkualitas rendah
+
+================================================================================
+USE CASES & BEST PRACTICES
+================================================================================
+
+KAPAN MENGGUNAKAN IN-MEMORY VS PERSISTENT
+------------------------------------------
+
+IN-MEMORY (Tanpa Persistence):
+- Prototyping dan testing
+- Development cepat
+- Data tidak perlu disimpan
+- RAM cukup besar
+
+PERSISTENT (Dengan Persistence):
+- Production deployment
+- Data perlu diakses kembali
+- Multiple sessions
+- Long-term storage
+
+KAPAN MENGGUNAKAN LOCAL VS CLOUD
+---------------------------------
+
+LOCAL:
+- Full control atas infrastructure
+- Data sensitivity/privacy concerns
+- Cost optimization
+- Sudah ada infrastructure
+
+CLOUD (Chroma Cloud):
+- Scalability otomatis
+- Zero infrastructure management
+- Pay-as-you-go model
+- Rapid prototyping
+
+TIPS OPTIMASI QUERY
+--------------------
+
+1. Gunakan Filter Metadata
+   - Kurangi search space
+   - Lebih cepat dan akurat
+   - Contoh: filter berdasarkan source, date, category
+
+2. Pilih k yang Tepat
+   - k terlalu kecil: Mungkin miss hasil relevan
+   - k terlalu besar: Slower dan banyak hasil tidak relevan
+   - Mulai dengan k=3-5, adjust sesuai kebutuhan
+
+3. Gunakan MMR untuk Diversity
+   - Hindari hasil redundan
+   - Lebih baik untuk exploration
+   - Set fetch_k = 3-5x dari k
+
+4. Set Score Threshold
+   - Filter hasil berkualitas rendah
+   - Hindari false positives
+   - Experiment untuk find optimal threshold
+
+BEST PRACTICES METADATA
+------------------------
+
+1. Struktur Metadata yang Konsisten
+   ```python
+   metadata = {
+       "source": "news",
+       "date": "2024-11-16",
+       "category": "finance",
+       "author": "John Doe",
+   }
+   ```
+
+2. Gunakan Metadata untuk Filtering
+   - Filter berdasarkan time range
+   - Filter berdasarkan source/category
+   - Multi-level filtering
+
+3. Index Metadata yang Sering Di-filter
+   - Improve query performance
+   - Reduce search time
+
+INTEGRASI DENGAN LANGCHAIN CHAINS
+----------------------------------
+
+```python
+from langchain.chains import RetrievalQA
+from langchain_openai import ChatOpenAI
+
+# Setup LLM
+llm = ChatOpenAI(model="gpt-4", temperature=0)
+
+# Setup retriever
+retriever = vector_store.as_retriever(
+    search_type="mmr",
+    search_kwargs={"k": 3, "fetch_k": 10}
+)
+
+# Buat QA chain
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=retriever,
+    return_source_documents=True,
+)
+
+# Query
+result = qa_chain({"query": "What are the latest news about finance?"})
+print(result["result"])
+print("\nSource Documents:")
+for doc in result["source_documents"]:
+    print(f"- {doc.page_content[:100]}...")
+```
+
+================================================================================
+TROUBLESHOOTING & COMMON ISSUES
+================================================================================
+
+ISSUE 1: "Collection already exists"
+-------------------------------------
+Solusi:
+```python
+# Option 1: Delete existing collection
+client.delete_collection("collection_name")
+
+# Option 2: Get existing collection
+vector_store = Chroma(
+    client=client,
+    collection_name="collection_name",
+    embedding_function=embeddings,
+)
+```
+
+ISSUE 2: Memory Issues dengan Large Dataset
+--------------------------------------------
+Solusi:
+- Gunakan persistent storage
+- Batch processing untuk add documents
+- Gunakan Chroma server deployment
+- Consider Chroma Cloud untuk scalability
+
+ISSUE 3: Slow Query Performance
+--------------------------------
+Solusi:
+- Gunakan metadata filtering
+- Reduce k value
+- Enable indexing
+- Consider pre-filtering data
+
+ISSUE 4: Embedding Dimension Mismatch
+--------------------------------------
+Solusi:
+- Pastikan embedding model consistency
+- Recreate collection dengan embedding function yang benar
+- Check embedding dimension compatibility

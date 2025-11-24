@@ -1,0 +1,1429 @@
+================================================================================
+CARA KERJA RECURSIVECHARACTERTEXTSPLITTER
+LangChain Text Splitters
+================================================================================
+
+SUMBER
+------
+Library: langchain-text-splitters
+Path: libs/text-splitters/langchain_text_splitters/character.py
+Base Class: libs/text-splitters/langchain_text_splitters/base.py
+
+================================================================================
+RINGKASAN
+================================================================================
+
+RecursiveCharacterTextSplitter adalah text splitter yang membagi teks secara 
+rekursif menggunakan hierarki separator/pemisah. Dimulai dari separator yang 
+paling "natural" (seperti double newline), dan jika chunk masih terlalu besar, 
+akan mencoba separator berikutnya dalam hierarki.
+
+Keunggulan:
+✓ Mempertahankan struktur natural dokumen
+✓ Prioritas separator yang masuk akal (paragraf → baris → spasi → karakter)
+✓ Flexible untuk berbagai tipe dokumen
+✓ Dukungan untuk bahasa pemrograman spesifik
+✓ Balance antara chunk size dan semantic coherence
+
+Kasus Penggunaan Utama:
+✓ RAG (Retrieval-Augmented Generation) applications
+✓ Text processing untuk LLMs
+✓ Document indexing untuk vector databases
+✓ Code splitting dengan language-specific separators
+
+================================================================================
+KONSEP DASAR
+================================================================================
+
+MASALAH DENGAN SPLITTING SEDERHANA
+-----------------------------------
+1. Fixed character split:
+   ❌ Memotong di tengah kata atau kalimat
+   ❌ Kehilangan konteks
+   ❌ Tidak semantic-aware
+
+2. Simple separator split:
+   ❌ Chunk size tidak konsisten
+   ❌ Tidak ada fallback jika separator tidak ada
+   ❌ Bisa terlalu besar atau terlalu kecil
+
+SOLUSI: RECURSIVE SPLITTING
+----------------------------
+Menggunakan hierarki separator dengan pendekatan rekursif:
+1. Coba split dengan separator pertama (paling natural)
+2. Jika hasil split masih > chunk_size, rekursi ke separator berikutnya
+3. Merge chunks kecil sampai mendekati chunk_size (dengan overlap)
+4. Fallback sampai ke character level jika perlu
+
+================================================================================
+HIERARKI SEPARATOR DEFAULT
+================================================================================
+
+DEFAULT SEPARATORS (untuk teks umum)
+-------------------------------------
+1. "\n\n"    - Double newline (paragraf)
+2. "\n"      - Single newline (baris)
+3. " "       - Space (kata)
+4. ""        - Empty string (karakter individual)
+
+FILOSOFI HIERARKI
+-----------------
+Prioritas tinggi → rendah:
+- Pisahkan di paragraph boundaries (paling natural)
+- Jika paragraph terlalu besar, pisahkan di line boundaries
+- Jika line terlalu besar, pisahkan di word boundaries
+- Jika word terlalu besar, pisahkan di character level
+
+Ini menjaga semantic coherence sebisa mungkin.
+
+================================================================================
+ALGORITMA RECURSIVE SPLITTING
+================================================================================
+
+INPUT PARAMETERS
+----------------
+1. text: str
+   - Text yang akan di-split
+
+2. separators: list[str] = ["\n\n", "\n", " ", ""]
+   - Hierarki separator (priority order)
+
+3. chunk_size: int = 4000
+   - Maximum size per chunk (dalam characters atau tokens)
+
+4. chunk_overlap: int = 200
+   - Overlap antara chunks (untuk maintain context)
+
+5. length_function: Callable = len
+   - Fungsi untuk mengukur panjang text
+   - Bisa diganti dengan token counter
+
+6. keep_separator: bool | "start" | "end" = True
+   - Apakah separator disimpan dalam chunk
+   - True/"start": separator di awal chunk
+   - "end": separator di akhir chunk
+   - False: separator dihapus
+
+7. is_separator_regex: bool = False
+   - Apakah separator adalah regex pattern
+
+OUTPUT
+------
+chunks: list[str]
+- List of text chunks dengan size ≤ chunk_size
+- Dengan overlap sesuai chunk_overlap
+
+================================================================================
+DETAIL ALGORITMA
+================================================================================
+
+HIGH-LEVEL FLOW
+---------------
+```
+split_text(text, separators=["\n\n", "\n", " ", ""])
+  ↓
+  _split_text(text, separators)
+    ↓
+    1. Pilih separator yang cocok
+    2. Split text dengan separator terpilih
+    3. Untuk setiap split:
+       - Jika size < chunk_size: simpan (good split)
+       - Jika size >= chunk_size: rekursi dengan separator berikutnya
+    4. Merge good splits dengan _merge_splits()
+    5. Return chunks
+```
+
+STEP-BY-STEP ALGORITHM
+-----------------------
+
+STEP 1: PILIH SEPARATOR YANG COCOK
+-----------------------------------
+```python
+def _split_text(text, separators):
+    # Iterasi dari separator pertama
+    separator = separators[-1]  # Default: separator terakhir
+    new_separators = []
+    
+    for i, _s in enumerate(separators):
+        # Escape jika bukan regex
+        separator_ = _s if is_separator_regex else re.escape(_s)
+        
+        # Jika empty string, gunakan ini
+        if not _s:
+            separator = _s
+            break
+        
+        # Jika separator ditemukan dalam text
+        if re.search(separator_, text):
+            separator = _s
+            new_separators = separators[i + 1:]  # Sisanya untuk rekursi
+            break
+```
+
+Logika:
+- Cari separator pertama yang ADA dalam text
+- Separator yang dipilih akan digunakan untuk split
+- Separator setelahnya disimpan untuk potential recursion
+
+STEP 2: SPLIT TEXT DENGAN SEPARATOR
+------------------------------------
+```python
+# Tentukan pattern (regex atau literal)
+separator_ = separator if is_separator_regex else re.escape(separator)
+
+# Split dengan keep_separator option
+splits = _split_text_with_regex(text, separator_, keep_separator)
+```
+
+Fungsi `_split_text_with_regex`:
+```python
+def _split_text_with_regex(text, separator, keep_separator):
+    if separator:
+        if keep_separator:
+            # Split dan keep separator
+            splits_ = re.split(f"({separator})", text)
+            
+            if keep_separator == "end":
+                # Gabung separator dengan chunk sebelumnya
+                splits = [splits_[i] + splits_[i+1] 
+                         for i in range(0, len(splits_)-1, 2)]
+            else:  # "start" atau True
+                # Gabung separator dengan chunk sesudahnya
+                splits = [splits_[i] + splits_[i+1] 
+                         for i in range(1, len(splits_), 2)]
+            
+            # Handle odd number of splits
+            if len(splits_) % 2 == 0:
+                splits += splits_[-1:]
+        else:
+            # Split dan buang separator
+            splits = re.split(separator, text)
+    else:
+        # Empty separator: split ke characters
+        splits = list(text)
+    
+    # Filter empty strings
+    return [s for s in splits if s]
+```
+
+STEP 3: PROSES SETIAP SPLIT (RECURSIVE LOGIC)
+----------------------------------------------
+```python
+final_chunks = []
+good_splits = []
+
+# Separator untuk merge (jika tidak keep, re-insert)
+separator_ = "" if keep_separator else separator
+
+for s in splits:
+    # Cek apakah split size OK
+    if length_function(s) < chunk_size:
+        # Size OK, simpan di good_splits
+        good_splits.append(s)
+    else:
+        # Size terlalu besar!
+        
+        # 1. Merge good_splits dulu (jika ada)
+        if good_splits:
+            merged_text = _merge_splits(good_splits, separator_)
+            final_chunks.extend(merged_text)
+            good_splits = []
+        
+        # 2. Handle split yang terlalu besar
+        if not new_separators:
+            # Tidak ada separator lagi, append as-is (forced)
+            final_chunks.append(s)
+        else:
+            # Ada separator lagi, REKURSI!
+            other_chunks = _split_text(s, new_separators)
+            final_chunks.extend(other_chunks)
+
+# Jangan lupa merge good_splits terakhir
+if good_splits:
+    merged_text = _merge_splits(good_splits, separator_)
+    final_chunks.extend(merged_text)
+
+return final_chunks
+```
+
+STEP 4: MERGE SPLITS (_merge_splits)
+-------------------------------------
+Ini adalah bagian penting untuk menggabungkan chunks kecil dan add overlap.
+
+```python
+def _merge_splits(splits, separator):
+    separator_len = length_function(separator)
+    
+    docs = []              # Hasil final
+    current_doc = []       # Chunk yang sedang dibangun
+    total = 0              # Total length current_doc
+    
+    for d in splits:
+        len_ = length_function(d)
+        
+        # Cek apakah menambah 'd' akan melebihi chunk_size
+        separator_len_to_add = separator_len if len(current_doc) > 0 else 0
+        
+        if total + len_ + separator_len_to_add > chunk_size:
+            # Akan melebihi chunk_size!
+            
+            # Warning jika current chunk sudah terlalu besar
+            if total > chunk_size:
+                logger.warning(
+                    f"Created chunk of size {total}, "
+                    f"larger than specified {chunk_size}"
+                )
+            
+            # Save current_doc jika ada
+            if len(current_doc) > 0:
+                doc = _join_docs(current_doc, separator)
+                if doc is not None:
+                    docs.append(doc)
+                
+                # OVERLAP LOGIC: Pop dari awal sampai size OK
+                while total > chunk_overlap or (
+                    total + len_ + separator_len_to_add > chunk_size 
+                    and total > 0
+                ):
+                    # Remove item pertama dari current_doc
+                    removed_len = length_function(current_doc[0])
+                    removed_sep = separator_len if len(current_doc) > 1 else 0
+                    total -= removed_len + removed_sep
+                    current_doc = current_doc[1:]
+        
+        # Tambahkan 'd' ke current_doc
+        current_doc.append(d)
+        total += len_ + separator_len_to_add
+    
+    # Save chunk terakhir
+    doc = _join_docs(current_doc, separator)
+    if doc is not None:
+        docs.append(doc)
+    
+    return docs
+```
+
+Overlap Logic Detail:
+```
+Jika chunk_size=100, chunk_overlap=20:
+
+Chunk 1: [a, b, c, d]  (total: 90)
+        ↓ Melebihi size
+        Save: "a b c d"
+        
+        Pop 'a', 'b' sampai total ≤ 20 (overlap)
+        Keep: [c, d]  (total: 30)
+        
+Chunk 2: [c, d, e, f]  (total: 95)
+        ↓
+        Save: "c d e f"
+        
+        Pop 'c' sampai total ≤ 20
+        Keep: [d, e, f]
+
+Dan seterusnya...
+```
+
+Efek overlap:
+- Context preservation antar chunks
+- Useful untuk retrieval (lebih banyak "entry points")
+- Trade-off: redundansi vs completeness
+
+================================================================================
+CONTOH EKSEKUSI STEP-BY-STEP
+================================================================================
+
+EXAMPLE INPUT
+-------------
+```python
+text = """This is paragraph one.
+It has multiple lines.
+
+This is paragraph two.
+Also with lines.
+
+Final paragraph here."""
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=50,
+    chunk_overlap=10,
+    separators=["\n\n", "\n", " ", ""]
+)
+```
+
+EXECUTION TRACE
+---------------
+
+_split_text(text, ["\n\n", "\n", " ", ""])
+│
+├─ STEP 1: Pilih separator
+│  - Coba "\n\n": FOUND! (ada dalam text)
+│  - separator = "\n\n"
+│  - new_separators = ["\n", " ", ""]
+│
+├─ STEP 2: Split dengan "\n\n"
+│  splits = [
+│    "This is paragraph one.\nIt has multiple lines.",
+│    "This is paragraph two.\nAlso with lines.",
+│    "Final paragraph here."
+│  ]
+│
+├─ STEP 3: Process each split
+│  
+│  Split 0: "This is paragraph one.\nIt has multiple lines." (length=48)
+│  ├─ 48 < 50: OK, add to good_splits
+│  
+│  Split 1: "This is paragraph two.\nAlso with lines." (length=42)
+│  ├─ 42 < 50: OK, add to good_splits
+│  
+│  Split 2: "Final paragraph here." (length=21)
+│  ├─ 21 < 50: OK, add to good_splits
+│
+└─ STEP 4: Merge good_splits
+   good_splits = [split0, split1, split2]
+   
+   _merge_splits([split0, split1, split2], "\n\n")
+   │
+   ├─ Process split0 (len=48):
+   │  total=0, can add? 0+48 = 48 < 50: YES
+   │  current_doc = [split0], total = 48
+   │
+   ├─ Process split1 (len=42):
+   │  total=48, can add? 48+42+2 = 92 > 50: NO
+   │  ├─ Save current_doc: ["This is paragraph one.\nIt has multiple lines."]
+   │  ├─ Apply overlap: keep last part
+   │  │  Pop until total ≤ 10
+   │  │  After pop: current_doc = [], total = 0
+   │  └─ Add split1: current_doc = [split1], total = 42
+   │
+   ├─ Process split2 (len=21):
+   │  total=42, can add? 42+21+2 = 65 > 50: NO
+   │  ├─ Save: ["This is paragraph two.\nAlso with lines."]
+   │  ├─ Apply overlap: current_doc = [], total = 0
+   │  └─ Add split2: current_doc = [split2], total = 21
+   │
+   └─ Save final: ["Final paragraph here."]
+
+HASIL FINAL
+-----------
+chunks = [
+    "This is paragraph one.\nIt has multiple lines.",
+    "This is paragraph two.\nAlso with lines.",
+    "Final paragraph here."
+]
+```
+
+CONTOH DENGAN RECURSION
+-----------------------
+```python
+text = "This is a very long paragraph without any newlines and it exceeds the chunk size limit so we need to recursively split it."
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=30,
+    chunk_overlap=5,
+    separators=["\n\n", "\n", " ", ""]
+)
+```
+
+Execution:
+```
+_split_text(text, ["\n\n", "\n", " ", ""])
+│
+├─ STEP 1: Try "\n\n": NOT FOUND
+├─ STEP 1: Try "\n": NOT FOUND
+├─ STEP 1: Try " ": FOUND!
+│  separator = " "
+│  new_separators = [""]
+│
+├─ STEP 2: Split with " "
+│  splits = ["This", "is", "a", "very", "long", "paragraph", ...]
+│
+├─ STEP 3: Process splits
+│  All splits < 30, so all go to good_splits
+│
+└─ STEP 4: Merge
+   _merge_splits(["This", "is", "a", "very", ...], " ")
+   
+   Chunk 1: "This is a very long"          (len=19)
+   - Add "paragraph"? 19+1+9=29 < 30: YES → len=29
+   - Add "without"? 29+1+7=37 > 30: NO, SAVE
+   
+   Apply overlap: keep "paragraph" (len=9 > overlap=5)
+   
+   Chunk 2: "paragraph without any"        (len=21)
+   - Add "newlines"? 21+1+8=30 = 30: YES
+   - Add "and"? 30+1+3=34 > 30: NO, SAVE
+   
+   Dan seterusnya...
+```
+
+Jika ada word yang > chunk_size:
+```
+Word: "verylongwordthatexceedschunksize" (len=35 > 30)
+
+_split_text("verylongword...", [" ", ""])
+├─ Try " ": NOT FOUND
+├─ Try "": FOUND (always matches)
+│
+├─ Split to characters: ["v","e","r","y", ...]
+│
+└─ Merge:
+   Chunk: "verylongwordthatexceedsch"    (len=26)
+   Chunk: "dschunksize"                   (len=11)
+```
+
+================================================================================
+LANGUAGE-SPECIFIC SEPARATORS
+================================================================================
+
+RecursiveCharacterTextSplitter mendukung separator khusus untuk berbagai 
+bahasa pemrograman.
+
+USAGE
+-----
+```python
+from langchain_text_splitters import (
+    RecursiveCharacterTextSplitter,
+    Language
+)
+
+# Python code splitter
+python_splitter = RecursiveCharacterTextSplitter.from_language(
+    language=Language.PYTHON,
+    chunk_size=500,
+    chunk_overlap=50
+)
+
+# JavaScript code splitter
+js_splitter = RecursiveCharacterTextSplitter.from_language(
+    language=Language.JS,
+    chunk_size=500,
+    chunk_overlap=50
+)
+```
+
+PYTHON SEPARATORS
+-----------------
+Priority order:
+```python
+[
+    "\nclass ",      # Class definitions
+    "\ndef ",        # Function definitions
+    "\n\tdef ",      # Indented methods
+    "\n\n",          # Blank lines
+    "\n",            # Lines
+    " ",             # Words
+    "",              # Characters
+]
+```
+
+Filosofi: Split di class/function boundaries pertama, lalu fallback ke 
+structure umum.
+
+JAVASCRIPT/TYPESCRIPT SEPARATORS
+--------------------------------
+```python
+[
+    "\nfunction ",   # Function definitions
+    "\nconst ",      # Const declarations
+    "\nlet ",        # Let declarations
+    "\nvar ",        # Var declarations
+    "\nclass ",      # Class definitions
+    "\nif ",         # Control flow
+    "\nfor ",
+    "\nwhile ",
+    "\nswitch ",
+    "\ncase ",
+    "\ndefault ",
+    "\n\n",
+    "\n",
+    " ",
+    "",
+]
+```
+
+TypeScript tambahan:
+```python
+[
+    "\nenum ",       # Enum definitions
+    "\ninterface ",  # Interface definitions
+    "\nnamespace ",  # Namespace
+    "\ntype ",       # Type aliases
+    # ... rest sama dengan JS
+]
+```
+
+JAVA SEPARATORS
+---------------
+```python
+[
+    "\nclass ",      # Class definitions
+    "\npublic ",     # Public methods/fields
+    "\nprotected ",  # Protected
+    "\nprivate ",    # Private
+    "\nstatic ",     # Static
+    "\nif ",         # Control flow
+    "\nfor ",
+    "\nwhile ",
+    "\nswitch ",
+    "\ncase ",
+    "\n\n",
+    "\n",
+    " ",
+    "",
+]
+```
+
+C/C++ SEPARATORS
+----------------
+```python
+[
+    "\nclass ",      # Class definitions
+    "\nvoid ",       # Void functions
+    "\nint ",        # Int functions
+    "\nfloat ",      # Float functions
+    "\ndouble ",     # Double functions
+    "\nif ",         # Control flow
+    "\nfor ",
+    "\nwhile ",
+    "\nswitch ",
+    "\ncase ",
+    "\n\n",
+    "\n",
+    " ",
+    "",
+]
+```
+
+SUPPORTED LANGUAGES
+-------------------
+- Python (Language.PYTHON)
+- JavaScript (Language.JS)
+- TypeScript (Language.TS)
+- Java (Language.JAVA)
+- C (Language.C)
+- C++ (Language.CPP)
+- Go (Language.GO)
+- Kotlin (Language.KOTLIN)
+- PHP (Language.PHP)
+- Protocol Buffers (Language.PROTO)
+- reStructuredText (Language.RST)
+- Ruby (Language.RUBY)
+- Elixir (Language.ELIXIR)
+- Dan masih banyak lagi...
+
+Lihat source code untuk daftar lengkap!
+
+================================================================================
+PARAMETER KONFIGURASI
+================================================================================
+
+CHUNK SIZE
+----------
+chunk_size: int = 4000
+
+Maksimum panjang setiap chunk (default: characters).
+
+Considerations:
+- LLM context window: biasanya 2000-4000 tokens aman
+- Retrieval quality: chunk lebih kecil → lebih precise, tapi less context
+- Chunk lebih besar → more context, tapi less precise retrieval
+
+Recommendations:
+- Short Q&A: 500-1000
+- General RAG: 1000-2000
+- Long context: 2000-4000
+- Code: 200-500 (per function/class)
+
+CHUNK OVERLAP
+-------------
+chunk_overlap: int = 200
+
+Overlap antara chunks (untuk context preservation).
+
+Considerations:
+- Overlap lebih besar → better context, tapi more redundancy
+- Overlap lebih kecil → less redundancy, tapi might lose context
+- Typical: 10-20% dari chunk_size
+
+Recommendations:
+- Minimal overlap: 50-100
+- Standard: 100-200
+- High context: 200-400
+- Ratio: 10-20% of chunk_size
+
+LENGTH FUNCTION
+---------------
+length_function: Callable[[str], int] = len
+
+Fungsi untuk mengukur panjang text.
+
+Options:
+1. Character count (default):
+   ```python
+   length_function=len
+   ```
+
+2. Token count (tiktoken):
+   ```python
+   splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+       encoding_name="cl100k_base",  # GPT-4
+       chunk_size=1000,
+       chunk_overlap=100
+   )
+   ```
+
+3. Token count (HuggingFace):
+   ```python
+   from transformers import AutoTokenizer
+   tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+   
+   splitter = RecursiveCharacterTextSplitter.from_huggingface_tokenizer(
+       tokenizer=tokenizer,
+       chunk_size=512,
+       chunk_overlap=50
+   )
+   ```
+
+Why tokens matter:
+- LLM pricing by tokens
+- LLM limits by tokens
+- More accurate size estimation
+
+KEEP SEPARATOR
+--------------
+keep_separator: bool | "start" | "end" = True
+
+Apakah separator disimpan dalam chunks.
+
+Options:
+- True atau "start": separator di awal chunk
+  ```
+  Input: "A\n\nB\n\nC"
+  Chunks: ["A", "\n\nB", "\n\nC"]
+  ```
+
+- "end": separator di akhir chunk
+  ```
+  Input: "A\n\nB\n\nC"
+  Chunks: ["A\n\n", "B\n\n", "C"]
+  ```
+
+- False: separator dihapus
+  ```
+  Input: "A\n\nB\n\nC"
+  Chunks: ["A", "B", "C"]
+  ```
+
+Recommendations:
+- Code: True (preserve indentation/structure)
+- Natural text: False atau "end"
+- Structured data: True
+
+IS SEPARATOR REGEX
+------------------
+is_separator_regex: bool = False
+
+Apakah separators adalah regex patterns.
+
+Usage:
+```python
+splitter = RecursiveCharacterTextSplitter(
+    separators=[
+        r"\n#{1,6} ",      # Markdown headers
+        r"\n\n",           # Paragraphs
+        r"\n",             # Lines
+        r" ",              # Words
+        r""                # Characters
+    ],
+    is_separator_regex=True,
+    chunk_size=1000
+)
+```
+
+ADD START INDEX
+---------------
+add_start_index: bool = False
+
+Tambahkan metadata start_index ke setiap chunk.
+
+Usage:
+```python
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=100,
+    add_start_index=True
+)
+documents = splitter.create_documents([text])
+
+# documents[0].metadata = {"start_index": 0}
+# documents[1].metadata = {"start_index": 95}  (overlap 5)
+```
+
+Useful untuk:
+- Locating chunks dalam original document
+- Debugging
+- Citation/reference tracking
+
+STRIP WHITESPACE
+----------------
+strip_whitespace: bool = True
+
+Strip whitespace dari awal dan akhir setiap chunk.
+
+Recommendations:
+- True (default): cleaner chunks
+- False: preserve exact formatting (code, poetry)
+
+================================================================================
+COMPARISON WITH OTHER SPLITTERS
+================================================================================
+
+┌──────────────────────┬─────────────┬──────────┬────────────┬──────────┐
+│ SPLITTER             │ SEMANTIC    │ FLEXIBLE │ COMPLEXITY │ USE CASE │
+│                      │ AWARE       │ SIZE     │            │          │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ CharacterTextSplitter│ ~ Partial   │ ✓ Yes    │ O(n)       │ Simple   │
+│ (single separator)   │ (1 sep)     │          │ Fast       │ docs     │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ RecursiveCharacter   │ ✓✓ Yes      │ ✓ Yes    │ O(n log n) │ General  │
+│ TextSplitter         │ (hierarchy) │          │ Medium     │ purpose  │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ TokenTextSplitter    │ ✗ No        │ ✓ Yes    │ O(n)       │ Token-   │
+│                      │             │          │ Medium     │ based    │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ SentenceTransformers │ ✓✓✓ Yes     │ ✓ Yes    │ O(n*d)     │ Semantic │
+│ Splitter             │ (embedding) │          │ Slow       │ search   │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ MarkdownHeader       │ ✓ Yes       │ ~ Varies │ O(n)       │ Markdown │
+│ TextSplitter         │ (headers)   │          │ Fast       │ docs     │
+├──────────────────────┼─────────────┼──────────┼────────────┼──────────┤
+│ PythonCodeText       │ ✓✓ Yes      │ ✓ Yes    │ O(n)       │ Python   │
+│ Splitter             │ (AST-based) │          │ Medium     │ code     │
+└──────────────────────┴─────────────┴──────────┴────────────┴──────────┘
+
+DETAIL COMPARISON
+-----------------
+
+vs CharacterTextSplitter:
++ Recursive: Better semantic boundaries
++ Recursive: Fallback mechanism
+~ Similar: Performance
+- Recursive: Slightly more complex
+
+vs TokenTextSplitter:
++ Recursive: Semantic-aware
++ Recursive: Natural boundaries
+~ Similar: Chunk size control
+- Token: Better for LLM token limits
+
+vs Semantic Splitters (MaxMin, SentenceTransformers):
++ Semantic: Perfect coherence
+- Recursive: Faster (no embeddings)
+- Recursive: Simpler (no model needed)
+~ Both: Good for RAG
+
+vs Language-Specific (Python, Markdown):
++ Specific: Perfect for that language
+~ Recursive: Can use language separators
+- Recursive: Not AST-based (Python)
+
+================================================================================
+KEUNGGULAN
+================================================================================
+
+1. NATURAL BOUNDARIES
+   -------------------
+   ✓ Prioritas separator yang masuk akal
+   ✓ Mempertahankan struktur dokumen
+   ✓ Tidak memotong di tengah konsep
+
+2. FLEXIBLE & ROBUST
+   ------------------
+   ✓ Fallback mechanism sampai character level
+   ✓ Handle berbagai tipe dokumen
+   ✓ Customizable separators
+
+3. BALANCE SIZE & COHERENCE
+   -------------------------
+   ✓ Chunk size mendekati target
+   ✓ Overlap untuk context preservation
+   ✓ Semantic boundaries preserved
+
+4. LANGUAGE SUPPORT
+   ----------------
+   ✓ Pre-configured separators untuk 15+ languages
+   ✓ Code-aware splitting
+   ✓ Easy to extend
+
+5. PERFORMANCE
+   -----------
+   ✓ Efficient O(n log n) dalam practice
+   ✓ No embedding computation
+   ✓ Simple string operations
+
+6. INTEGRATION
+   -----------
+   ✓ LangChain ecosystem
+   ✓ Token counter support (tiktoken, HF)
+   ✓ Document metadata
+
+================================================================================
+KETERBATASAN
+================================================================================
+
+1. NOT TRULY SEMANTIC
+   -------------------
+   ✗ Tidak menggunakan embeddings
+   ✗ Tidak memahami meaning
+   ✗ Hanya rule-based
+
+2. GREEDY APPROACH
+   ----------------
+   ✗ Tidak optimal global
+   ✗ Order-dependent
+   ✗ Local decisions
+
+3. SEPARATOR DEPENDENT
+   --------------------
+   ✗ Quality tergantung separator choice
+   ✗ Perlu tuning untuk document types
+   ✗ Might miss semantic boundaries
+
+4. CHUNK SIZE VARIANCE
+   --------------------
+   ✗ Chunk size bisa vary significantly
+   ✗ Tidak guaranteed exact size
+   ✗ Overlap bisa imperfect
+
+5. NO STRUCTURE UNDERSTANDING
+   ---------------------------
+   ✗ Tidak pahami document structure (untuk non-code)
+   ✗ Tidak detect sections automatically
+   ✗ Manual separator configuration
+
+================================================================================
+USE CASES
+================================================================================
+
+IDEAL USE CASES
+---------------
+✓ General text processing untuk RAG
+✓ Document indexing untuk vector databases
+✓ Code splitting (dengan language separators)
+✓ Long-form content processing
+✓ Batch document processing
+✓ LLM input preparation
+✓ Knowledge base construction
+✓ Multi-language documents
+
+LESS SUITABLE USE CASES
+-----------------------
+✗ Highly semantic-sensitive tasks (gunakan embedding-based)
+✗ Structured data extraction (gunakan specialized parsers)
+✗ Real-time streaming (overhead dari recursion)
+✗ Fixed-size requirements (gunakan TokenTextSplitter)
+✗ Complex document structure (gunakan structure-aware splitters)
+
+================================================================================
+IMPLEMENTATION EXAMPLES
+================================================================================
+
+BASIC USAGE
+-----------
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Initialize splitter
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    length_function=len,
+    is_separator_regex=False,
+)
+
+# Split text
+text = "Your long document text here..."
+chunks = splitter.split_text(text)
+
+# Or create documents with metadata
+documents = splitter.create_documents([text])
+```
+
+WITH CUSTOM SEPARATORS
+----------------------
+```python
+# Markdown-aware splitting
+markdown_splitter = RecursiveCharacterTextSplitter(
+    separators=[
+        "\n## ",      # H2 headers
+        "\n### ",     # H3 headers
+        "\n\n",       # Paragraphs
+        "\n",         # Lines
+        " ",          # Words
+        ""            # Characters
+    ],
+    chunk_size=500,
+    chunk_overlap=50
+)
+
+markdown_text = """
+## Introduction
+This is intro.
+
+## Methods
+Our methods here.
+
+### Data Collection
+Details about data.
+"""
+
+chunks = markdown_splitter.split_text(markdown_text)
+```
+
+WITH TOKEN COUNTING
+-------------------
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Using tiktoken (OpenAI)
+splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+    encoding_name="cl100k_base",  # GPT-4
+    chunk_size=1000,              # tokens, not characters!
+    chunk_overlap=100
+)
+
+# Using HuggingFace tokenizer
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+
+splitter = RecursiveCharacterTextSplitter.from_huggingface_tokenizer(
+    tokenizer=tokenizer,
+    chunk_size=512,
+    chunk_overlap=50
+)
+```
+
+LANGUAGE-SPECIFIC CODE SPLITTING
+---------------------------------
+```python
+from langchain_text_splitters import (
+    RecursiveCharacterTextSplitter,
+    Language
+)
+
+# Python code
+python_code = """
+class DataProcessor:
+    def __init__(self, data):
+        self.data = data
+    
+    def process(self):
+        return [x * 2 for x in self.data]
+
+def main():
+    processor = DataProcessor([1, 2, 3])
+    result = processor.process()
+    print(result)
+"""
+
+python_splitter = RecursiveCharacterTextSplitter.from_language(
+    language=Language.PYTHON,
+    chunk_size=200,
+    chunk_overlap=20
+)
+
+chunks = python_splitter.split_text(python_code)
+# Hasil: chunks di-split pada class/function boundaries
+```
+
+WITH METADATA
+-------------
+```python
+from langchain_core.documents import Document
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,
+    chunk_overlap=50,
+    add_start_index=True
+)
+
+# Original documents with metadata
+docs = [
+    Document(
+        page_content="Long text here...",
+        metadata={"source": "doc1.pdf", "page": 1}
+    ),
+    Document(
+        page_content="Another long text...",
+        metadata={"source": "doc2.pdf", "page": 1}
+    )
+]
+
+# Split documents (metadata preserved and enhanced)
+split_docs = splitter.split_documents(docs)
+
+# split_docs[0].metadata = {
+#     "source": "doc1.pdf",
+#     "page": 1,
+#     "start_index": 0
+# }
+```
+
+BATCH PROCESSING
+----------------
+```python
+def process_documents(file_paths, chunk_size=1000, chunk_overlap=200):
+    """Process multiple documents with RecursiveCharacterTextSplitter."""
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        add_start_index=True
+    )
+    
+    all_chunks = []
+    for file_path in file_paths:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            text = f.read()
+        
+        # Create documents with source metadata
+        docs = splitter.create_documents(
+            [text],
+            metadatas=[{"source": file_path}]
+        )
+        all_chunks.extend(docs)
+    
+    return all_chunks
+
+# Usage
+files = ["doc1.txt", "doc2.txt", "doc3.txt"]
+chunks = process_documents(files)
+```
+
+RAG PIPELINE
+------------
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+
+# 1. Load document
+with open("knowledge_base.txt", "r") as f:
+    text = f.read()
+
+# 2. Split into chunks
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    add_start_index=True
+)
+chunks = text_splitter.split_text(text)
+
+# 3. Create embeddings
+embeddings = OpenAIEmbeddings()
+
+# 4. Create vector store
+vectorstore = FAISS.from_texts(chunks, embeddings)
+
+# 5. Retrieve relevant chunks
+query = "What is the main topic?"
+relevant_docs = vectorstore.similarity_search(query, k=3)
+```
+
+================================================================================
+TIPS & BEST PRACTICES
+================================================================================
+
+1. CHOOSE APPROPRIATE CHUNK SIZE
+   ------------------------------
+   ✓ Consider LLM context window
+   ✓ Consider retrieval precision vs recall
+   ✓ Test different sizes for your use case
+   ✓ Use token counting for LLM applications
+
+   Guidelines:
+   - Q&A: 500-1000 characters
+   - Summarization: 1500-2500 characters
+   - General RAG: 1000-2000 characters
+   - Code: 200-500 characters
+
+2. SET APPROPRIATE OVERLAP
+   -----------------------
+   ✓ 10-20% of chunk_size typical
+   ✓ Higher overlap for critical applications
+   ✓ Lower overlap for large datasets
+   ✓ Test retrieval quality
+
+3. CUSTOMIZE SEPARATORS
+   --------------------
+   ✓ Add domain-specific separators
+   ✓ Consider document structure
+   ✓ Test with sample documents
+   ✓ Use regex for complex patterns
+
+4. USE LANGUAGE-SPECIFIC SPLITTERS
+   --------------------------------
+   ✓ For code, use from_language()
+   ✓ Better structure preservation
+   ✓ More meaningful chunks
+
+5. MONITOR CHUNK STATISTICS
+   -------------------------
+   ✓ Check chunk size distribution
+   ✓ Identify very large/small chunks
+   ✓ Validate semantic coherence
+   ✓ Measure retrieval performance
+
+   ```python
+   chunk_sizes = [len(chunk) for chunk in chunks]
+   print(f"Mean: {np.mean(chunk_sizes):.0f}")
+   print(f"Std: {np.std(chunk_sizes):.0f}")
+   print(f"Min: {min(chunk_sizes)}")
+   print(f"Max: {max(chunk_sizes)}")
+   ```
+
+6. PREPROCESSING
+   -------------
+   ✓ Clean text before splitting
+   ✓ Normalize whitespace
+   ✓ Handle special characters
+   ✓ Remove artifacts
+
+7. POSTPROCESSING
+   --------------
+   ✓ Filter very small chunks
+   ✓ Merge consecutive small chunks
+   ✓ Add metadata (source, page, section)
+   ✓ Deduplicate if needed
+
+8. TOKEN COUNTING
+   --------------
+   ✓ Use tiktoken for OpenAI models
+   ✓ Use HF tokenizer for other models
+   ✓ More accurate than character count
+   ✓ Aligns with LLM pricing
+
+9. TESTING
+   -------
+   ✓ Test with representative documents
+   ✓ Validate chunk coherence manually
+   ✓ Measure retrieval quality (precision/recall)
+   ✓ A/B test different configurations
+
+10. OPTIMIZATION
+    ------------
+    ✓ Cache split results if re-processing
+    ✓ Batch process documents
+    ✓ Profile for bottlenecks
+    ✓ Consider parallel processing
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Chunks terlalu besar atau terlalu kecil
+SOLUTION:
+  - Adjust chunk_size parameter
+  - Check separator effectiveness
+  - Use token counting instead of character counting
+  - Add intermediate separators
+
+PROBLEM: Poor semantic coherence
+SOLUTION:
+  - Customize separators untuk document type
+  - Increase chunk_overlap
+  - Use language-specific splitters
+  - Consider semantic splitters (embedding-based)
+
+PROBLEM: Chunks memotong di tengah konsep penting
+SOLUTION:
+  - Add domain-specific separators
+  - Increase chunk_size
+  - Increase overlap
+  - Preprocess document structure
+
+PROBLEM: Performance issues dengan dokumen besar
+SOLUTION:
+  - Process dalam batches
+  - Simplify separator hierarchy
+  - Pre-split dokumen ke sections
+  - Use simpler splitter jika semantic tidak critical
+
+PROBLEM: Overlap tidak bekerja seperti expected
+SOLUTION:
+  - Verify chunk_overlap < chunk_size
+  - Check _merge_splits logic
+  - Increase overlap size
+  - Test dengan sample kecil
+
+PROBLEM: Empty chunks atau duplicates
+SOLUTION:
+  - Enable strip_whitespace
+  - Filter chunks dengan len > 0
+  - Check separator configuration
+  - Validate input text quality
+
+================================================================================
+ADVANCED TOPICS
+================================================================================
+
+CUSTOM LENGTH FUNCTION
+----------------------
+```python
+# Example: Count words instead of characters
+def word_count(text):
+    return len(text.split())
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=100,      # 100 words
+    chunk_overlap=20,    # 20 words
+    length_function=word_count
+)
+```
+
+REGEX SEPARATORS
+----------------
+```python
+# Complex pattern matching
+splitter = RecursiveCharacterTextSplitter(
+    separators=[
+        r"\n#{1,6} ",           # Markdown headers
+        r"\n\*\*.*?\*\*\n",     # Bold text
+        r"\n```[\s\S]*?```\n",  # Code blocks
+        r"\n\n",
+        r"\n",
+        r"\. ",                 # Sentences
+        r" ",
+        r""
+    ],
+    is_separator_regex=True,
+    chunk_size=1000
+)
+```
+
+HYBRID APPROACHES
+-----------------
+```python
+# Combine recursive splitting dengan semantic filtering
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from sklearn.metrics.pairwise import cosine_similarity
+
+# 1. Split dengan recursive
+splitter = RecursiveCharacterTextSplitter(chunk_size=500)
+initial_chunks = splitter.split_text(text)
+
+# 2. Get embeddings
+embeddings = model.embed_documents(initial_chunks)
+
+# 3. Merge semantically similar adjacent chunks
+final_chunks = []
+current_chunk = initial_chunks[0]
+current_emb = embeddings[0]
+
+for i in range(1, len(initial_chunks)):
+    similarity = cosine_similarity(
+        [current_emb], 
+        [embeddings[i]]
+    )[0][0]
+    
+    if similarity > 0.8 and len(current_chunk) < 1000:
+        # Merge
+        current_chunk += " " + initial_chunks[i]
+        current_emb = model.embed_documents([current_chunk])[0]
+    else:
+        # Save and start new
+        final_chunks.append(current_chunk)
+        current_chunk = initial_chunks[i]
+        current_emb = embeddings[i]
+
+final_chunks.append(current_chunk)
+```
+
+================================================================================
+COMPARISON WITH MAXMIN CHUNKING
+================================================================================
+
+┌────────────────────────┬──────────────────┬────────────────────┐
+│ ASPECT                 │ RECURSIVE        │ MAXMIN             │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Semantic Awareness     │ ~ Rule-based     │ ✓✓ Embedding-based │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Speed                  │ ✓✓ Fast          │ ~ Medium (embed)   │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Setup Complexity       │ ✓ Simple         │ ~ Requires model   │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Chunk Coherence        │ ~ Good           │ ✓✓ Excellent       │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Size Control           │ ✓ Explicit       │ ✓ Adaptive         │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Structure Preservation │ ✓✓ Excellent     │ ~ Medium           │
+├────────────────────────┼──────────────────┼────────────────────┤
+│ Use Case               │ General purpose  │ RAG-focused        │
+└────────────────────────┴──────────────────┴────────────────────┘
+
+WHEN TO USE EACH
+----------------
+
+Use RecursiveCharacterTextSplitter when:
+✓ Speed is important
+✓ No embedding model available
+✓ Document has clear structure (code, markdown)
+✓ Simple setup preferred
+✓ Processing large volumes
+
+Use MaxMin Chunking when:
+✓ Semantic coherence critical
+✓ RAG application
+✓ Embedding model available
+✓ Willing to trade speed for quality
+✓ Documents without clear structure
+
+Hybrid Approach:
+✓ Use Recursive for initial split (fast, structure-aware)
+✓ Use MaxMin for refinement (semantic merging)
+✓ Best of both worlds
+
+================================================================================
+REFERENCES
+================================================================================
+
+Documentation:
+  - LangChain Text Splitters: https://python.langchain.com/docs/modules/data_connection/document_transformers/
+  - API Reference: https://api.python.langchain.com/en/latest/text_splitters/langchain_text_splitters.character.RecursiveCharacterTextSplitter.html
+
+Source Code:
+  - langchain_text_splitters/character.py
+  - langchain_text_splitters/base.py
+
+Related Components:
+  - CharacterTextSplitter: Simple single-separator splitting
+  - TokenTextSplitter: Token-based splitting
+  - MarkdownHeaderTextSplitter: Markdown structure-aware
+  - PythonCodeTextSplitter: Python AST-based splitting
+
+Related Papers:
+  - "Improving Retrieval Performance by Document Chunking" (2023)
+  - "Optimal Chunk Size for RAG Applications" (2024)
+
+================================================================================
+CONCLUSION
+================================================================================
+
+RecursiveCharacterTextSplitter adalah workhorse untuk text splitting di 
+LangChain ecosystem. Dengan pendekatan recursive dan hierarki separator yang 
+cerdas, ia menyediakan balance yang baik antara:
+
+✓ Speed & Performance
+✓ Structure preservation
+✓ Chunk size control
+✓ Flexibility & Customization
+
+Untuk most general-purpose applications, terutama yang melibatkan LLM input 
+preparation dan RAG systems, RecursiveCharacterTextSplitter adalah pilihan 
+yang solid dan reliable.
+
+Untuk semantic-critical applications, consider combining dengan embedding-based 
+approaches seperti MaxMin Chunking atau SentenceTransformer-based splitters.
+
+================================================================================
+EOF
+================================================================================

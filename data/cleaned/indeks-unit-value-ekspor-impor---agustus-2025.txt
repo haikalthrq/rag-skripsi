@@ -1,0 +1,2852 @@
+BADAN PUSAT STATISTIK
+INDEKS UNIT VALUE
+EKSPOR-IMPOR
+AGUSTUS 2025
+Volume 1, Nomor 8, 2025
+Katalog: 8202001
+Indeks Unit Value Ekspor-Impor,
+Agustus 2025
+Volume 1, Nomor 8, 2025
+Katalog: 8202001
+Nomor Publikasi: 06100.25038
+Ukuran Buku: 21 cm x 29,7 cm
+Jumlah Halaman: xvi+35 halaman
+Penyusun Naskah:
+Direktorat Statistik Distribusi
+Penyunting:
+Direktorat Statistik Distribusi
+Pembuat Kover:
+Direktorat Statistik Distribusi
+Penerbit:
+©Badan Pusat Statistik
+Sumber Ilustrasi:
+Canva, Freepik, Flaticon
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik.
+Tim Penyusun
+Pengarah:
+Sarpono
+Penanggung Jawab:
+Mila Hertinmalyana
+Penyunting:
+Sudarmanto
+Sapto Rakhmawan
+Pengolah Data dan Penulis Naskah:
+Mardiah
+Realita Eschachasthi
+Resti Denni Puspa Mira
+Restu Rahmat Sood
+Penata Letak:
+Seta Baehera
+Indeks Unit Value Ekspor-Impor, Agustus 2025
+Volume 1, Nomor 8, 2025
+Kata Pengantar
+Dengan penuh syukur dan rasa bangga, kami umumkan terbitnya publikasi
+Indeks Unit Value Ekspor-Impor Agustus 2025 yang dirilis secara rutin setiap bulan oleh Badan Pusat Statistik (BPS). Publikasi ini merupakan produk komplemen (by product) penyusunan statistik ekspor dan impor yang dihitung menggunakan tahun dasar 2023.
+Data utama yang disajikan dalam publikasi ini meliputi indeks harga ekspor dan impor dengan pendekatan unit value yang merupakan proksi dari harga ekspor dan impor barang. Di samping memuat metodologi penghitungan indeks, publikasi ini juga menyajikan grafik dan tabel indeks unit value ekspor-impor bulanan menurut kode Harmonized System (HS) 2-digit serta indeks unit value menurut ekspor-impor total, kelompok migas, dan kelompok nonmigas untuk periode Agustus 2024 hingga Agustus 2025.
+Apresiasi kami sampaikan kepada semua pihak yang telah terlibat dalam penyusunan publikasi ini, utamanya penyedia data yang secara berkelanjutan memberikan kontribusi dalam pengumpulan data. BPS terus berupaya untuk melakukan penyempurnaan dalam hal pengumpulan, penghitungan, maupun penyajian data. Oleh karena itu, kritik dan saran yang konstruktif kami harapkan untuk penyempurnaan publikasi di masa mendatang.
+Semoga publikasi ini dapat menjadi sumber referensi yang bermanfaat bagi para pengguna data dalam menyusun perencanaan dan kebijakan perdagangan internasional maupun analisis perkembangan perekonomian nasional.
+Jakarta, Oktober 2025
+Kepala Badan Pusat Statistik
+Amalia Adininggar Widyasanti v
+DAFTAR ISI
+Halaman
+KATA PENGANTAR ……………………………………………………………...
+v
+DAFTAR ISI……………………………………………………………………….
+vii
+DAFTAR TABEL…………………………………………………………………..
+ix
+DAFTAR GAMBAR……………………………………………………...
+xi
+INFOGRAFIS…………………………………………………………………...
+xv
+I. PENDAHULUAN……………………………………………………...
+II. METODOLOGI…………………………………………………………………
+1. Penentuan Tahun Dasar ………………………………………………
+2. Pemilihan Sampel Komoditas ………………………………………..
+3. Penghitungan Unit Value ……………………………………………...
+4. Penghitungan Indeks HS 2 Digit ……………………………………..
+III. RINGKASAN HASIL PENGHITUNGAN INDEKS UNIT VALUE ………...
+1. Indeks Unit Value Ekspor, Agustus 2025 …………………………….
+2. Indeks Unit Value Impor, Agustus 2025 ……………………………..
+IV. GAMBAR-GAMBAR …………………………………………………………
+V. TABEL-TABEL ………………………………………………………………..
+DAFTAR PUSTAKA ……………………………………………………………...
+vii
+Indeks Unit Value Ekspor-Impor, Agustus 2025
+Volume 1, Nomor 8, 2025
+ix
+Halaman
+Tabel 1
+Indeks Unit Value Ekspor Total, Migas, dan Nonmigas
+(2023=100), Januari 2024–Agustus 2025 ……………………...
+Tabel 2
+Indeks Unit Value Ekspor Menurut Kode HS 2 Digit
+(2023=100), Agustus 2024–Agustus 2025 ……………………...
+Tabel 3
+Indeks Unit Value Impor Total, Migas, dan Nonmigas
+(2023=100), Januari 2024–Agustus 2025 ………………………
+Tabel 4
+Indeks Unit Value Impor Menurut Kode HS 2 Digit (2023=100),
+Agustus 2024–Agustus 2025 …………………………………….
+Tabel 5
+Kode HS 2 Digit dan Deskripsinya …………………………….
+DAFTAR TABEL
+Halaman
+Gambar 1
+Infografis Indeks Unit Value Ekspor-Impor (2023=100), Agustus xv
+Gambar 2
+Perkembangan Indeks Unit Value Ekspor Menurut Total, Migas, dan Nonmigas, Agustus 2024–Agustus 2025
+Gambar 3
+Perkembangan Indeks Unit Value Ekspor Ikan, Krustasea, dan
+Moluska (HS 03); Susu, Mentega, dan Telur (HS 04); Pohon
+Hidup dan Bunga Potong (HS 06); Kopi, Teh, dan Rempah-
+Rempah (HS 09); serta Hasil Penggilingan (HS 11), Agustus
+2024–Agustus 2025
+Gambar 4
+Perkembangan Indeks Unit Value Ekspor Biji dan Buah
+Mengandung Minyak (HS 12); Lak, Getah, dan Damar (HS 13);
+Lemak dan Minyak Hewani/Nabati (HS 15); Olahan dari Daging,
+Ikan, Krustasea, dan Moluska (HS 16); serta Gula dan
+Kembang Gula (HS 17), Agustus 2024–Agustus 2025
+Gambar 5
+Perkembangan Indeks Unit Value Ekspor Olahan dari Tepung
+(HS 19); Olahan dari Sayuran, Buah, dan Kacang (HS 20);
+Berbagai Makanan Olahan (HS 21); Minuman, Alkohol, dan
+Cuka (HS 22); serta Ampas dan Sisa Industri Makanan (HS 23),
+Agustus 2024–Agustus 2025
+Gambar 6
+Perkembangan Indeks Unit Value Ekspor Tembakau dan Rokok
+(HS 24); Garam, Belerang, Batu, dan Semen (HS 25); Bijih
+Logam, Terak, dan Abu (HS 26); Bahan Bakar Mineral (HS 27); serta Pupuk (HS 31), Agustus 2024–Agustus 2025
+Gambar 7
+Perkembangan Indeks Unit Value Ekspor Sari Bahan Samak dan Celup (HS 32); Minyak Atsiri, Wewangian, dan Kosmetik
+(HS 33); Sabun dan Preparat Pembersih (HS 34); Perekat dan
+Enzim (HS 35); serta Berbagai Produk Kimia (HS 38), Agustus
+2024–Agustus 2025
+Gambar 8
+Perkembangan Indeks Unit Value Ekspor Plastik dan Barang dari Plastik (HS 39); Karet dan Barang dari Karet (HS 40);
+Barang dari Kulit Samak (HS 42); Kayu dan Barang dari Kayu
+(HS 44); serta Barang Anyaman (HS 46), Agustus 2024–
+Agustus 2025
+Gambar 9
+Perkembangan Indeks Unit Value Ekspor Pulp dari Kayu (HS
+47); Kertas, Karton, dan Barang Daripadanya (HS 48); Kapas
+(HS 52); Filamen Buatan (HS 54); serta Serat Stapel Buatan
+(HS 55), Agustus 2024–Agustus 2025
+xi
+DAFTAR GAMBAR
+vi xii
+Halaman
+Gambar 10
+Perkembangan Indeks Unit Value Ekspor Kain Kempa, Benang
+Khusus, dan Benang Pintal (HS 56); Karpet dan Tekstil Penutup
+Lantai Lainnya (HS 57); Kain Tenunan Khusus (HS 58); Kain
+Tekstil Dilapisi atau Dilaminasi (HS 59); serta Kain Rajutan (HS
+60), Agustus 2024–Agustus 2025
+Gambar 11
+Perkembangan Indeks Unit Value Ekspor Pakaian dan
+Aksesorinya (Rajutan) (HS 61); Pakaian dan Aksesorinya
+(Bukan Rajutan) (HS 62); Alas Kaki (HS 64); Barang dari Bulu
+Unggas, Bunga Artifisial, dan Wig (HS 67); serta Barang dari
+Batu, Semen, Asbes, atau Mika (HS 68), Agustus 2024–
+Agustus 2025
+Gambar 12
+Perkembangan Indeks Unit Value Ekspor Produk Keramik (HS
+69); Kaca dan Barang dari Kaca (HS 70); Logam Mulia dan
+Perhiasan/Permata (HS 71); Besi dan Baja (HS 72); serta
+Tembaga dan Barang Daripadanya (HS 74), Agustus 2024–
+Agustus 2025
+Gambar 13
+Perkembangan Indeks Unit Value Ekspor Nikel dan Barang
+Daripadanya (HS 75); Seng dan Barang Daripadanya (HS 79);
+Berbagai Barang Logam Tidak Mulia (HS 83); Mesin dan
+Peralatan Mekanis serta Bagiannya (HS 84); serta Mesin dan
+Perlengkapan Elektrik serta Bagiannya (HS 85), Agustus 2024–
+Agustus 2025
+Gambar 14
+Perkembangan Indeks Unit Value Ekspor Kendaraan dan
+Bagiannya (HS 87); Instrumen Musik dan Bagiannya (HS 92);
+Perabotan, Lampu, dan Alat Penerangan (HS 94); Mainan,
+Permainan dan Keperluan Olahraga (HS 95); serta Berbagai
+Barang Buatan Pabrik (HS 96), Agustus 2024–Agustus 2025
+Gambar 15
+Perkembangan Indeks Unit Value Impor Menurut Total, Migas, dan Nonmigas, Agustus 2024–Agustus 2025
+Gambar 16
+Perkembangan Indeks Unit Value Impor Binatang Hidup (HS
+01); Daging Hewan (HS 02); Ikan, Krustasea, dan Moluska (HS
+03); Susu, Mentega, dan Telur (HS 04); serta Produk Hewani
+(HS 05), Agustus 2024–Agustus 2025
+Gambar 17
+Perkembangan Indeks Unit Value Impor Sayuran (HS 07);
+Buah-buahan (HS 08); Kopi, Teh, dan Rempah-rempah (HS
+09); Serealia (HS 10); serta Hasil Penggilingan (HS 11),
+Agustus 2024–Agustus 2025
+Gambar 18
+Perkembangan Indeks Unit Value Impor Biji dan Buah
+Mengandung Minyak (HS 12); Olahan dari Daging, Ikan,
+Krustasea, dan Moluska (HS 16); Gula dan Kembang Gula (HS
+17); Olahan dari Tepung (HS 19); Olahan dari Sayuran, Buah, dan Kacang (HS 20), Agustus 2024–Agustus 2025
+xiii
+Halaman
+Gambar 19
+Perkembangan Indeks Unit Value Impor Berbagai Makanan
+Olahan (HS 21); Minuman, Alkohol, dan Cuka (HS 22); Ampas dan Sisa Industri Makanan (HS 23); Tembakau dan Rokok (HS
+24); serta Bijih Logam, Terak, dan Abu (HS 26), Agustus 2024–
+Agustus 2025
+Gambar 20
+Perkembangan Indeks Unit Value Impor Bahan Bakar Mineral
+(HS 27); Bahan Kimia Organik (HS 29); Sari Bahan Samak dan
+Celup (HS 32); Minyak Atsiri, Wewangian, dan Kosmetik (HS
+33); serta Sabun dan Preparat Pembersih (HS 34), Agustus
+2024–Agustus 2025
+Gambar 21
+Perkembangan Indeks Unit Value Impor Perekat dan Enzim (HS
+35); Barang Fotografi atau Sinematografi (HS 37); Plastik dan
+Barang dari Plastik (HS 39); Karet dan Barang dari Karet (HS
+40); serta Jangat dan Kulit Mentah/Samak (HS 41), Agustus
+2024–Agustus 2025
+Gambar 22
+Perkembangan Indeks Unit Value Impor Pulp dari Kayu (HS
+47); Kertas, Karton, dan Barang Daripadanya (HS 48); Wol,
+Bulu Hewan Halus atau Kasar (HS 51); Kapas (HS 52); serta
+Serat Tekstil Nabati Lainnya (HS 53), Agustus 2024–Agustus
+Gambar 23
+Perkembangan Indeks Unit Value Impor Filamen Buatan (HS
+54); Serat Stapel Buatan (HS 55); Kain Kempa, Benang
+Khusus, dan Benang Pintal (HS 56); Kain Tenunan Khusus (HS
+58); serta Kain Tekstil Dilapisi atau Dilaminasi (HS 59), Agustus
+2024–Agustus 2025
+Gambar 24
+Perkembangan Indeks Unit Value Impor Kain Rajutan (HS 60);
+Pakaian dan Aksesorinya (Rajutan) (HS 61); Produk Keramik
+(HS 69); Kaca dan Barang dari Kaca (HS 70); serta Logam
+Mulia dan Perhiasan/Permata (HS 71), Agustus 2024–Agustus
+Gambar 25
+Perkembangan Indeks Unit Value Impor Besi dan Baja (HS 72);
+Tembaga dan Barang Daripadanya (HS 74); Aluminium dan
+Barang Daripadanya (HS 76); Seng dan Barang Daripadanya
+(HS 79); serta Perkakas dan Peralatan dari Logam Tidak Mulia
+(HS 82), Agustus 2024–Agustus 2025
+Gambar 26
+Perkembangan Indeks Unit Value Impor Berbagai Barang
+Logam Tidak Mulia (HS 83); Mesin/Peralatan Mekanis dan
+Bagiannya (HS 84); Mesin/Perlengkapan Elektrik dan
+Bagiannya (HS 85); Kendaraan dan Bagiannya (HS 87); serta
+Instrumen Musik dan Bagiannya (HS 92), Agustus 2024–
+Agustus 2025
+Gambar 27
+Perkembangan Indeks Unit Value Impor Perabotan, Lampu, dan
+Alat Penerangan (HS 94); dan Berbagai Barang Buatan Pabrik
+(HS 96), Agustus 2024–Agustus 2025
+Komoditas Ekspor dengan Peningkatan
+Indeks Unit Value Tertinggi:
+Komoditas Impor dengan Peningkatan
+Indeks Unit Value Tertinggi:
+Wol, bulu hewan halus atau kasar (HS 51) naik menjadi
+119,62, dengan lonjakan 14,81
+poin m-to-m
+Indeks Unit Value Impor
+Total
+91,22
+Migas
+86,39
+2,30 poin m-to-m
+3,34 poin y-on-y
+0,32 poin m-to-m
+8,96 poin y-on-y
+92,44
+2,74 poin m-to-m
+1,98 poin y-on-y
+Nonmigas
+Indeks Unit Value Ekspor
+Total
+102,56
+Migas
+86,54
+0,95 poin m-to-m
+1,00 poin y-on-y
+7,40 poin m-to-m
+10,32 poin y-on-y
+103,60
+1,35 poin m-to-m
+1,75 poin y-on-y
+Nonmigas
+Sumber: PEB, Non-PEB, PIB, Non-PIB, diolah
+INDEKS UNIT VALUE
+EKSPOR-IMPOR, AGUSTUS 2025
+Tahun Dasar 2023
+Berbagai makanan olahan
+(HS 21) naik menjadi 144,97, dengan lonjakan 34,35 poin m-to-m
+Gambar 1 Infografis Indeks Unit Value Ekspor-Impor (2023=100), Agustus 2025
+xv
+I. PENDAHULUAN
+Indeks unit value ekspor-impor merupakan indeks yang menggambarkan perkembangan harga komoditas ekspor-impor di Indonesia. Indeks unit value ekspor-impor antara lain digunakan dalam penghitungan: (a). Produk Domestik
+Bruto (PDB) atas dasar harga konstan, terutama untuk komponen ekspor-
+impor dalam struktur PDB pengeluaran, dan (b). nilai tukar perdagangan
+(terms of trade), yaitu dengan membandingkan perkembangan indeks harga ekspor dan impor.
+Unit value merupakan rata-rata harga yang mengacu pada agregat suatu kelompok komoditas.
+Kelompok komoditas yang digunakan dalam penghitungan indeks unit value ekspor-impor adalah pengelompokan barang yang disusun oleh World Customs Organisations (WCO) yaitu Harmonized
+System (HS). Secara khusus kode HS yang digunakan adalah HS 8-digit menurut Buku Tarif Kepabeanan Indonesia (BTKI) tahun 2022 sebagaimana terdapat dalam Peraturan Menteri Keuangan (PMK) Nomor 26/PMK.010/2022
+tentang Penetapan Sistem Klasifikasi Barang dan Pembebanan Tarif Bea
+Masuk atas Barang Impor.
+Sumber data yang digunakan dalam penghitungan indeks unit value berasal dari hasil kompilasi statistik yang dilakukan Badan Pusat Statistik
+(BPS) terhadap dokumen kepabeanan yang berasal dari Direktorat Jenderal
+Bea dan Cukai (DJBC) Kementerian Keuangan.
+Penghitungan indeks unit value ekspor berasal dari dokumen
+Pemberitahuan Ekspor Barang (PEB) dan non-PEB. Dokumen PEB adalah dokumen yang diisi oleh eksportir dan telah diberikan ijin muat oleh Kantor
+Pengawsan dan Pelayanan Bea dan Cukai (KPPBC) yang selanjutnya dikirim ke BPS. Sedangkan dokumen non-PEB bersumber dari catatan instansi lain, yaitu data ekspor dari PT. POS Indonesia, dan data hasil survei ekspor di beberapa perbatasan laut Indonesia.
+PENDAHULUAN
+Sementara itu, pengumpulan data nilai dan berat komoditas impor berasal dari dokumen Pemberitahuan Impor Barang (PIB) kecuali dokumen
+BC 2.1 atau Pemberitahuan Impor Barang Khusus (PIBK). Dokumen PIB
+adalah dokumen yang diisi oleh importir dan telah diberikan ijin bongkar oleh
+KPPBC yang selanjutnya dikirim ke BPS.
+Dalam melakukan kompilasi, BPS tidak melakukan agregasi volume komoditi dalam bentuk satuan yang sesuai dengan komoditinya. Hal ini disebabkan beragamnya jenis satuan yang tercantum dalam dokumen PEB
+dan PIB untuk satu kode HS tertentu. Agregasi volume komoditi yang disajikan BPS hingga saat ini adalah berat bersih dengan jenis satuan kilogram (Kg). Dengan demikian unit value yang digunakan dalam penghitungan indeks unit value ekspor-impor merupakan pendekatan yaitu nilai ekspor dan impor komoditas dibagi berat bersih-nya.
+Pada publikasi indeks unit value ekspor-impor, data yang akan disajikan adalah: (a). indeks unit value total ekspor dan impor; (b). indeks unit value ekspor dan impor menurut kelompok migas dan nonmigas. Kelompok migas meliputi komoditas dengan kode HS 2709, 2710, 2711, 2712, 2713, dan 2715, sementara kelompok nonmigas adalah komoditas dengan kode HS selain itu; serta (c). indeks unit value ekspor dan impor kelompok barang HS 2-digit terpilih yang memenuhi kriteria.
+Dalam penyusunan indeks unit value ekspor-impor terdapat beberapa isu yang menjadi perhatian, yaitu:
+1.
+Heterogenitas
+Walaupun barang-barang yang dilaporkan pada dokumen PEB dan PIB
+menggunakan kode HS 8 digit, spesifikasinya masih sangat beragam sehingga tidak mungkin untuk mengetahui apakah perubahan unit value pada suatu bulan tertentu disebabkan karena adanya perubahan harga atau karena pergeseran komposisi barang.
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+2. Perubahan kualitas barang
+Adanya kemungkinan perubahan unit value bukan hanya merefleksikan perubahan harga tetapi merefleksikan perubahan kualitas barang.
+Pada dasarnya teknik yang digunakan dalam penghitungan indeks unit value ekspor-impor pada publikasi ini adalah teknik yang mencoba mengurangi dampak heterogenitas dari data yang digunakan, tetapi tidak ditujukan untuk mengurangi dampak adanya perubahan kualitas.
+PENDAHULUAN
+METODOLOGI
+Berkaitan dengan masalah heterogenitas, secara umum dalam penghitungan indeks unit value dilakukan beberapa langkah sebagai berikut: (a). mengumpulkan data nilai dan berat komoditas ekspor dan impor; (b). mengelompokkan komoditas- komoditas tersebut kedalam kelompok kode HS 2-digit; serta (c).
+menghitung banyaknya observasi unit value setiap kelompok barang.
+Penjelasan lebih rinci dari langkah-langkah teknis yang dilakukan adalah sebagai berikut:
+1.
+Penentuan Tahun Dasar
+Tahun dasar (base year) adalah waktu atau suatu periode ataupun tahun yang mempunyai angka indeks 100 yang digunakan sebagai dasar pembanding indeks di tahun berikutnya. Penentuan tahun dasar dapat disesuaikan dengan tahun dasar indeks lainnya atau tahun yang merupakan kondisi adanya perubahan struktur atau kegiatan ekonomi. Perubahan tahun dasar umunya dilakukan lima tahun sekali. Saat ini tahun dasar yang digunakan untuk penghitungan indeks unit value adalah tahun 2023.
+2. Pemilihan Sampel Komoditas
+Pemilihan sampel komoditas HS 8-digit dilakukan untuk setiap kelompok/subkelompok komoditas untuk masing-masing data ekspor dan impor. Untuk melakukan pemilihan sampel komoditas, dibutuhkan data nilai dan berat ekspor-impor bulanan.
+Syarat terpilihnya suatu komoditas masuk dalam sampel penghitungan indeks unit value ekspor-impor adalah sebagai berikut:
+a.
+Banyaknya transaksi komoditas ekspor-impor minimal 8 bulan pada tahun dasar .
+b.
+Banyaknya transaksi komoditas ekspor-impor minimal 16 bulan pada tahun 2022 dan 2024.
+II. METODOLOGI
+PENDAHULUAN
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+c.
+Nilai Closeness Percentage (CP) komoditas ekspor-impor minimal 60
+persen. CP merupakan salah satu cara untuk mengetahui kehomogenan suatu data, dengan formula:
+𝐶𝑃𝑖=
+𝑃𝑖−𝑠𝑡𝑑𝑒𝑣(𝑃)𝑖
+𝑃𝑖
+𝑥 100%
+dengan,
+𝐶𝑃𝑖
+= CP komoditas HS 8-digit ke-i
+𝑃
+= unit value
+ത𝑃
+= rata-rata unit value
+𝑠𝑡𝑑𝑒𝑣
+= standar deviasi
+𝑖
+= komoditas HS 8-digit ke-i
+Setelah sampel komoditas diperoleh, suatu kelompok/subkelompok komoditas akan terpilih mewakili kelompok/subkelompok komoditas jika memenuhi persyaratan sebagai berikut:
+a.
+Peranan nilai komoditas terpilih terhadap total nilai kelompok/subkelompok minimal 75 persen.
+b.
+Jumlah komoditas HS 8-digit dalam suatu kelompok/subkelompok komoditas minimal ada 4 komoditas.
+Sehubungan dengan adanya revisi data ekspor impor tahun 2021-2024, maka dilakukan penghitungan ulang pemilihan sampel komoditas yang mulai diterapkan sejak publikasi Juni 2025.
+Adapun hasil pemilihan sampel komoditas ekspor yaitu:
+a.
+Jumlah komoditas HS 8-digit yang terpilih menjadi sampel sebanyak
+1.215 komoditas, dengan rincian 6 komoditas merupakan anggota kelompok migas dan 1.209 merupakan anggota kelompok nonmigas.
+b.
+Pada kelompok HS 2-digit, diperoleh 60 komoditas terpilih. Termasuk didalamnya kelompok HS 47, 71, 75, dan 84 yang dimasukkan kedalam sampel. Meskipun share nilai sampel yang mewakili keempat kelompok tersebut tidak mencapai 75 persen namun keempat kelompok komoditas tersebut mempunyai peranan yang cukup besar terhadap total nilai ekspor nasional (diatas 1 persen).
+METODOLOGI
+Sementara itu, hasil dari tahapan pemilihan sampel komoditas impor:
+a.
+Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas b.
+Pada kelompok HS 2-digit, diperoleh 54 komoditas terpilih. Selain itu ditambahkan kelompok HS 10, 84 dan 85 meskipun share nilai sampel yang mewakili kedua kelompok tersebut tidak mencapai 75 persen.
+Disajikannya kelompok tersebut karena ketiganya merupakan kelompok dengan share terbesar terhadap total impor pada tahun
+2023. Sehingga secara keseluruhan terdapat 57 komoditas terpilih pada kelompok HS 2-digit.
+3. Penghitungan Unit Value
+Setelah sampel komoditas ditentukan, unit value untuk setiap produk
+(kode HS 8-digit) dihitung dengan membagi nilai dengan volume untuk setiap bulannya.
+4. Penghitungan Indeks HS 2-Digit
+Formula yang digunakan dalam menghitung indeks unit value ekspor-
+impor kelompok HS 2-digit yaitu menggunakan formula Indeks Fisher ideal:
+𝐼𝐹𝑗𝑡=
+𝐼𝐿𝑗𝑡 𝑥 𝐼𝑃𝑗𝑡
+𝐼𝐿𝑗𝑡=
+σ𝑖𝑃𝑖𝑗𝑡𝑄𝑖𝑗0
+σ𝑖𝑃𝑖𝑗0𝑄𝑖𝑗0
+𝐼𝑃𝑗𝑡=
+σ𝑖𝑃𝑖𝑗𝑡𝑄𝑖𝑗𝑡
+σ𝑖𝑃𝑖𝑗0𝑄𝑖𝑗𝑡
+dengan
+𝐼𝐹𝑗𝑡
+= Indeks Fisher kelompok j, periode t
+𝐼𝐿𝑗𝑡
+= Indeks Laspeyres kelompok j, periode t
+𝐼𝑃𝑗𝑡
+= Indeks Paasche kelompok j, periode t
+𝑃𝑖𝑗0
+= Unit value komoditas HS 8-digit ke i, kelompok j, pada tahun dasar
+𝑄𝑖𝑗0
+= Volume komoditas HS 8-digit ke i, kelompok j, pada tahun dasar
+𝑃𝑖𝑗𝑡
+= Unit value komoditas HS 8-digit ke i, kelompok j, periode t
+𝑄𝑖𝑗𝑡
+= Volume komoditas HS 8-digit ke i, kelompok j, periode t
+PENDAHULUAN
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Untuk memperoleh indeks bulanan dari keseluruhan kelompok barang maka digunakan rumus sebagai berikut:
+𝐼𝑚𝑡= ෍
+𝑗
+𝐼𝐹𝑗𝑚𝑡𝑤𝑗𝑚𝑡
+dengan
+𝐼𝑚𝑡
+= Indeks bulan m, tahun t
+𝐼𝐹𝑗𝑚𝑡 = Indeks Fisher kelompok j, bulan m, tahun t
+𝑤𝑗𝑚𝑡 = Penimbang (peranan nilai) kelompok j, bulan m, tahun t
+Sedangkan indeks tahunannya rumusannya sebagai berikut:
+𝐼𝑡= ෍
+𝑚
+𝐼𝑚𝑡𝑤𝑚𝑡
+dengan
+𝐼𝑡
+= Indeks tahun t
+𝐼𝑚𝑡
+= Indeks bulan m, tahun t
+𝑤𝑚𝑡
+= Penimbang (peranan nilai) bulan m, tahun t
+Pada dasarnya kode HS merupakan suatu pengelompokan barang dengan kategori tertentu. Sehingga komoditas yang masuk dalam kategori HS 8-digit dapat merupakan gabungan dari beberapa barang sejenis yang bisa saja rentang unit value-nya sangat berbeda. Artinya suatu kenaikan atau penurunan nilai indeks unit value bukan hanya berasal dari pergerakan harga barang melainkan juga dapat berasal dari perubahan komposisi jenis barang dalam satu kelompok
+HS.
+Selain itu, perubahan indeks unit value pada suatu komoditas dengan kode
+HS 8-digit yang sama juga dapat berasal dari perbedaan kualitas dan juga negara tujuan atau asal karena klasifikasi tidak dapat menggambarkan hal tersebut.
+Secara khusus, perbedaan negara tujuan atau asal barang juga berpengaruh terhadap harga barang. Untuk komoditas impor, nilai yang dicatat menggunakan konsep penilaian Cost, Insurance, and Freight (CIF) dimana nilai barang sudah termasuk biaya angkut dan asuransi. Perbedaan cara angkut menyebabkan biaya angkut berbeda yang secara langsung berpengaruh terhadap harga barang.
+RINGKASAN HASIL PENGHITUNGAN INDEKS UNIT VALUE
+III. RINGKASAN HASIL PENGHITUNGAN
+INDEKS UNIT VALUE
+1.
+Indeks Unit Value Ekspor, Agustus 2025
+Selama tahun 2024, indeks unit value ekspor tercatat sebesar 96,82 atau mengalami penurunan dari tahun dasar 2023 (2023=100). Hal ini dapat diartikan bahwa rata-rata harga ekspor tahun 2024 turun sebesar 3,18 poin dibandingkan tahun dasar 2023.
+Pada Agustus 2025 indeks unit value ekspor tercatat sebesar 102,56.
+Indeks tersebut naik 0,95 poin dibandingkan Juli 2025 yang sebesar 101,61.
+Kemudian, jika dibandingkan Agustus 2024, indeks unit value ekspor Agustus
+2025 mengalami peningkatan sebesar 1,00 poin. Perkembangan indeks unit value ekspor bulan Agustus 2024 sampai dengan Agustus 2025 dapat dilihat pada Tabel 1 dan Gambar 2.
+Jika dilihat menurut kelompoknya, pada Agustus 2025 indeks unit value ekspor migas tercatat sebesar 86,54, turun 7,40 poin dibandingkan Juli 2025
+yang sebesar 93,94. Sementara itu, indeks unit value ekspor nonmigas
+Agustus 2025 tercatat sebesar 103,60 atau 1,35 poin lebih tinggi dibandingkan bulan sebelumnya.
+Pada Agustus 2025, komoditas ekspor nonmigas yang mencatat kenaikan tertinggi dalam indeks unit value dibandingkan Juli 2025 adalah berbagai makanan olahan (HS 21), seng dan barang daripadanya (HS 79), dan biji dan buah mengandung minyak (HS 12).
+Indeks unit value ekspor produk berbagai makanan olahan (HS 21) pada
+Agustus 2025 tercatat sebesar 144,97. Angka ini menunjukkan peningkatan sebesar 34,35 poin dibandingkan Juli 2025, dan naik 40,25 poin dibandingkan
+Agustus 2024.
+PENDAHULUAN
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Indeks unit value ekspor produk seng dan barang daripadanya (HS 79)
+pada Agustus 2025 mencapai 121,54. Nilai indeks tersebut tercatat 26,10 poin lebih tinggi dibandingkan Juli 2025 yang sebesar 95,44. Jika dibandingkan dengan Agustus 2024, indeks unit value komoditas tersebut tercatat mengalami peningkatan 16,35 poin.
+Indeks unit value ekspor produk biji dan buah mengandung minyak (HS
+12) menempati posisi ketiga tertinggi dalam peningkatan bulan Agustus 2025, dengan nilai mencapai 109,34. Indeks ini meningkat sebesar 10,26 poin dibandingkan Juli 2025, serta 19,49 poin lebih tinggi dibandingkan Agustus
+Sementara itu, penurunan terdalam indeks unit value ekspor nonmigas pada Agustus 2025 dibandingkan Juli 2025 tercatat pada komoditas produk keramik (HS 69); pohon hidup dan bunga potong (HS 06); serta gula dan kembang gula (HS 17).
+Indeks unit value ekspor produk keramik (HS 69) pada Agustus 2025
+tercatat mencapai 98,20. Nilai tersebut turun sebesar 12,46 poin dibandingkan
+Juli 2025. Kemudian jika dibandingkan Agustus 2024, nilai indeks tersebut tercatat juga mengalami penurunan sebesar 3,33 poin.
+Indeks unit value ekspor pohon hidup dan bunga potong (HS 06) pada
+Agustus 2025 adalah sebesar 300,84. Indeks tersebut tercatat mengalami penurunan sebesar 11,83 poin terhadap Juli 2025. Jika dibandingkan dengan
+Agustus 2024, indeks tersebut naik 173,06 poin.
+Indeks unit value ekspor komoditas gula dan kembang gula (HS 17) pada
+Agustus 2025 tercatat sebesar 90,26. Nilai tersebut turun 10,96 poin dibandingkan Juli 2025, dan turun 13,38 poin jika dibandingkan Agustus 2024.
+RINGKASAN HASIL PENGHITUNGAN INDEKS UNIT VALUE
+2. Indeks Unit Value Impor, Agustus 2025
+Pada Agustus 2025, indeks unit value impor tercatat sebesar 91,22. Jika dibandingkan dengan Juli 2025 yang sebesar 88,92 maka indeks unit value impor mengalami peningkatan sebesar 2,30 poin. Sementara itu, jika indeks unit value Agustus 2025 dibandingkan dengan Agustus 2024 yang sebesar
+94,56 maka nilainya mengalami penurunan sebesar 3,34 poin. Perkembangan indeks unit value impor Agustus 2024 sampai dengan Agustus 2025 dapat dilihat pada Tabel 3 dan Gambar 15.
+Jika dilihat menurut jenisnya, secara month to month indeks unit value impor kelompok migas dan nonmigas sama-sama mengalami peningkatan.
+Untuk indeks unit value impor kelompok migas pada Agustus 2025 nilainya sebesar 86,39; mengalami peningkatan sebesar 0,32 poin dari Juli 2025.
+Sementara itu, indeks unit value impor kelompok nonmigas pada Agustus
+2025 sebesar 92,44; mengalami peningkatan 2,74 poin dibandingkan Juli
+2025. Sementara jika dibandingkan dengan Agustus 2024, indeks unit value impor kelompok migas dan non migas sama-sama mengalami penurunan masing-masing sebesar 8,96 poin dan 1,98 poin.
+Kelompok komoditas nonmigas yang indeksnya mengalami peningkatan tertinggi pada Agustus 2025 dibandingkan dengan Juli 2025 adalah wol, bulu hewan halus atau kasar (HS 51); serealia (HS 10); serta pakaian dan aksesorinya (rajutan) (HS 61).
+Indeks unit value impor wol, bulu hewan halus atau kasar (HS 51)
+mencatatkan nilai 119,62 pada Agustus 2025; angka tersebut naik 14,81 poin dibandingkan Juli 2025 yang sebesar 104,81. Jika dibandingkan antara
+Agustus 2025 dan Agustus 2024, indeks unit value impor HS 51 naik 25,34
+poin.
+PENDAHULUAN
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Peningkatan terbesar selanjutnya adalah serealia (HS 10) yang indeksnya mengalami kenaikan sebesar 13,68 poin dari 71,06 pada Juli 2025 menjadi
+84,74 pada Agustus 2025. Jika dibandingkan dengan Agustus 2024, nilai indeks unit value tersebut mengalami penurunan sebesar 4,58 poin.
+Selanjutnya, peningkatan tertinggi ketiga adalah pakaian dan aksesorinya
+(rajutan) (HS 61). Indeks tersebut mengalami kenaikan sebesar 12,52 poin dari 63,76 pada Juli 2025 menjadi 76,28 pada Agustus 2025. Jika dibandingkan dengan Agustus 2024, indeks unit value impor komoditas tersebut turun 28,57 poin.
+Sementara itu, kelompok komoditas nonmigas yang indeksnya mengalami penurunan terdalam pada Agustus 2025 dibandingkan dengan Juli 2025 yaitu instrumen musik dan bagiannya (HS 92); perkakas dan peralatan dari logam tidak mulia (HS 82); serta produk keramik (HS 69).
+Indeks unit value impor instrumen musik dan bagiannya (HS 92)
+mengalami penurunan menjadi 84,89 atau 13,59 poin lebih rendah dibandingkan Juli 2025 yang sebesar 98,48. Nilai indeks unit value impor komoditas tersebut mengalami penurunan sebesar 17,40 poin dibandingkan
+Agustus 2024 yang sebesar 102,29.
+Indeks unit value impor perkakas dan peralatan dari logam tidak mulia
+(HS 82) turun 13,10 poin dibandingkan Juli 2025 menjadi 71,08 pada Agustus
+2025. Jika dibandingkan dengan Agustus 2024, indeks unit value impor HS 82
+turun 19,69 poin.
+Indeks unit value impor produk keramik (HS 69) tercatat mengalami penurunan 12,04 poin dari 102,61 pada Juli 2025 menjadi 90,57 pada Agustus
+2025. Jika dibandingkan dengan Agustus 2024 indeks unit value impor komoditas tersebut turun 18,73 poin.
+GAMBAR-GAMBAR
+IV. GAMBAR–GAMBAR
+Gambar 2 Perkembangan Indeks Unit Value Ekspor Menurut Total, Migas, dan
+Nonmigas, Agustus 2024–Agustus 2025
+Gambar 3 Perkembangan Indeks Unit Value Ekspor Ikan, Krustasea, dan Moluska
+(HS 03); Susu, Mentega, dan Telur (HS 04); Pohon Hidup dan Bunga Potong (HS
+06); Kopi, Teh, dan Rempah-Rempah (HS 09); serta Hasil Penggilingan (HS 11),
+Agustus 2024–Agustus 2025
+80,00
+85,00
+90,00
+95,00
+100,00
+105,00
+110,00
+Total
+Migas
+Nonmigas
+50,00
+100,00
+150,00
+200,00
+250,00
+300,00
+350,00
+HS 03
+HS 04
+HS 06
+HS 09
+HS 11
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 4 Perkembangan Indeks Unit Value Ekspor Biji dan Buah Mengandung
+Minyak (HS 12); Lak, Getah, dan Damar (HS 13); Lemak dan Minyak
+Hewani/Nabati (HS 15); Olahan dari Daging, Ikan, Krustasea, dan Moluska (HS
+16); serta Gula dan Kembang Gula (HS 17), Agustus 2024–Agustus 2025
+Gambar 5 Perkembangan Indeks Unit Value Ekspor Olahan dari Tepung (HS 19);
+Olahan dari Sayuran, Buah, dan Kacang (HS 20); Berbagai Makanan Olahan (HS
+21); Minuman, Alkohol, dan Cuka (HS 22); serta Ampas dan Sisa Industri Makanan
+(HS 23), Agustus 2024–Agustus 2025
+50,00
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+150,00
+HS 12
+HS 13
+HS 15
+HS 16
+HS 17
+40,00
+60,00
+80,00
+100,00
+120,00
+140,00
+160,00
+HS 19
+HS 20
+HS 21
+HS 22
+HS 23
+GAMBAR-GAMBAR
+Gambar 6 Perkembangan Indeks Unit Value Ekspor Tembakau dan Rokok (HS
+24); Garam, Belerang, Batu, dan Semen (HS 25); Bijih Logam, Terak, dan Abu
+(HS 26); Bahan Bakar Mineral (HS 27); serta Pupuk (HS 31),
+Agustus 2024–Agustus 2025
+Gambar 7 Perkembangan Indeks Unit Value Ekspor Sari Bahan Samak dan Celup
+(HS 32); Minyak Atsiri, Wewangian, dan Kosmetik (HS 33); Sabun dan Preparat
+Pembersih (HS 34); Perekat dan Enzim (HS 35); serta Berbagai Produk Kimia (HS
+38), Agustus 2024–Agustus 2025
+0,00
+50,00
+100,00
+150,00
+200,00
+250,00
+HS 24
+HS 25
+HS 26
+HS 27
+HS 31
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 32
+HS 33
+HS 34
+HS 35
+HS 38
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 8 Perkembangan Indeks Unit Value Ekspor Plastik dan Barang dari Plastik
+(HS 39); Karet dan Barang dari Karet (HS 40); Barang dari Kulit Samak (HS 42);
+Kayu dan Barang dari Kayu (HS 44); serta Barang Anyaman (HS 46),
+Agustus 2024–Agustus 2025
+Gambar 9 Perkembangan Indeks Unit Value Ekspor Pulp dari Kayu (HS 47);
+Kertas, Karton, dan Barang Daripadanya (HS 48); Kapas (HS 52); Filamen
+Buatan (HS 54); serta Serat Stapel Buatan (HS 55), Agustus 2024–Agustus 2025
+40,00
+50,00
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 39
+HS 40
+HS 42
+HS 44
+HS 46
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 47
+HS 48
+HS 52
+HS 54
+HS 55
+GAMBAR-GAMBAR
+Gambar 10 Perkembangan Indeks Unit Value Ekspor Kain Kempa, Benang
+Khusus, dan Benang Pintal (HS 56); Karpet dan Tekstil Penutup Lantai Lainnya (HS
+57); Kain Tenunan Khusus (HS 58); Kain Tekstil Dilapisi atau Dilaminasi (HS 59); serta Kain Rajutan (HS 60), Agustus 2024–Agustus 2025
+Gambar 11 Perkembangan Indeks Unit Value Ekspor Pakaian dan Aksesorinya
+(Rajutan) (HS 61); Pakaian dan Aksesorinya (Bukan Rajutan) (HS 62); Alas
+Kaki (HS 64); Barang dari Bulu Unggas, Bunga Artifisial, dan Wig (HS 67); serta Barang dari Batu, Semen, Asbes, atau Mika (HS 68),
+Agustus 2024–Agustus 2025
+50,00
+70,00
+90,00
+110,00
+130,00
+150,00
+170,00
+190,00
+210,00
+230,00
+250,00
+HS 56
+HS 57
+HS 58
+HS 59
+HS 60
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+HS 61
+HS 62
+HS 64
+HS 67
+HS 68
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 12 Perkembangan Indeks Unit Value Ekspor Produk Keramik (HS 69);
+Kaca dan Barang dari Kaca (HS 70); Logam Mulia dan Perhiasan/Permata (HS
+71); Besi dan Baja (HS 72); serta Tembaga dan Barang Daripadanya (HS 74),
+Agustus 2024–Agustus 2025
+Gambar 13 Perkembangan Indeks Unit Value Ekspor Nikel dan Barang
+Daripadanya (HS 75); Seng dan Barang Daripadanya (HS 79); Berbagai Barang
+Logam Tidak Mulia (HS 83); Mesin dan Peralatan Mekanis serta Bagiannya (HS
+84); serta Mesin dan Perlengkapan Elektrik serta Bagiannya (HS 85),
+Agustus 2024–Agustus 2025
+50,00
+70,00
+90,00
+110,00
+130,00
+150,00
+170,00
+190,00
+210,00
+230,00
+250,00
+HS 69
+HS 70
+HS 71
+HS 72
+HS 74
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+HS 75
+HS 79
+HS 83
+HS 84
+HS 85
+GAMBAR-GAMBAR
+Gambar 14 Perkembangan Indeks Unit Value Ekspor Kendaraan dan Bagiannya
+(HS 87); Instrumen Musik dan Bagiannya (HS 92); Perabotan, Lampu, dan Alat
+Penerangan (HS 94); Mainan, Permainan dan Keperluan Olahraga (HS 95); serta Berbagai Barang Buatan Pabrik (HS 96), Agustus 2024–Agustus 2025
+Gambar 15 Perkembangan Indeks Unit Value Impor Menurut Total, Migas, dan
+Nonmigas, Agustus 2024–Agustus 2025
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+150,00
+HS 87
+HS 92
+HS 94
+HS 95
+HS 96
+80,00
+85,00
+90,00
+95,00
+100,00
+105,00
+Total
+Migas
+Nonmigas
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 16 Perkembangan Indeks Unit Value Impor Binatang Hidup (HS 01);
+Daging Hewan (HS 02); Ikan, Krustasea, dan Moluska (HS 03); Susu, Mentega, dan Telur (HS 04); serta Produk Hewani (HS 05), Agustus 2024–Agustus 2025
+Gambar 17 Perkembangan Indeks Unit Value Impor Sayuran (HS 07); Buah-
+buahan (HS 08); Kopi, Teh, dan Rempah-rempah (HS 09); Serealia (HS 10); serta
+Hasil Penggilingan (HS 11), Agustus 2024–Agustus 2025
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 07
+HS 08
+HS 09
+HS 10
+HS 11
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+HS 01
+HS 02
+HS 03
+HS 04
+HS 05
+GAMBAR-GAMBAR
+Gambar 18 Perkembangan Indeks Unit Value Impor Biji dan Buah Mengandung
+Minyak (HS 12); Olahan dari Daging, Ikan, Krustasea, dan Moluska (HS 16); Gula dan Kembang Gula (HS 17); Olahan dari Tepung (HS 19); Olahan dari Sayuran,
+Buah, dan Kacang (HS 20), Agustus 2024–Agustus 2025
+Gambar 19 Perkembangan Indeks Unit Value Impor Berbagai Makanan Olahan
+(HS 21); Minuman, Alkohol, dan Cuka (HS 22); Ampas dan Sisa Industri Makanan
+(HS 23); Tembakau dan Rokok (HS 24); serta Bijih Logam, Terak, dan Abu (HS
+26), Agustus 2024–Agustus 2025
+70,00
+75,00
+80,00
+85,00
+90,00
+95,00
+100,00
+105,00
+110,00
+115,00
+HS 12
+HS 16
+HS 17
+HS 19
+HS 20
+50,00
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+HS 21
+HS 22
+HS 23
+HS 24
+HS 26
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 20 Perkembangan Indeks Unit Value Impor Bahan Bakar Mineral (HS
+27); Bahan Kimia Organik (HS 29); Sari Bahan Samak dan Celup (HS 32); Minyak
+Atsiri, Wewangian, dan Kosmetik (HS 33); serta Sabun dan Preparat Pembersih
+(HS 34), Agustus 2024–Agustus 2025
+Gambar 21 Perkembangan Indeks Unit Value Impor Perekat dan Enzim (HS 35);
+Barang Fotografi atau Sinematografi (HS 37); Plastik dan Barang dari Plastik (HS
+39); Karet dan Barang dari Karet (HS 40); serta Jangat dan Kulit Mentah/Samak
+(HS 41), Agustus 2024–Agustus 2025
+70,00
+75,00
+80,00
+85,00
+90,00
+95,00
+100,00
+105,00
+110,00
+115,00
+120,00
+HS 27
+HS 29
+HS 32
+HS 33
+HS 34
+50,00
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+HS 35
+HS 37
+HS 39
+HS 40
+HS 41
+GAMBAR-GAMBAR
+Gambar 22 Perkembangan Indeks Unit Value Impor Pulp dari Kayu (HS 47);
+Kertas, Karton, dan Barang Daripadanya (HS 48); Wol, Bulu Hewan Halus atau
+Kasar (HS 51); Kapas (HS 52); serta Serat Tekstil Nabati Lainnya (HS 53),
+Agustus 2024–Agustus 2025
+Gambar 23 Perkembangan Indeks Unit Value Impor Filamen Buatan (HS 54);
+Serat Stapel Buatan (HS 55); Kain Kempa, Benang Khusus, dan Benang Pintal
+(HS 56); Kain Tenunan Khusus (HS 58); serta Kain Tekstil Dilapisi atau Dilaminasi
+(HS 59), Agustus 2024–Agustus 2025
+50,00
+60,00
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 47
+HS 48
+HS 51
+HS 52
+HS 53
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 54
+HS 55
+HS 56
+HS 58
+HS 59
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Gambar 24 Perkembangan Indeks Unit Value Impor Kain Rajutan (HS 60);
+Pakaian dan Aksesorinya (Rajutan) (HS 61); Produk Keramik (HS 69); Kaca dan
+Barang dari Kaca (HS 70); serta Logam Mulia dan Perhiasan/Permata (HS 71),
+Agustus 2024–Agustus 2025
+Gambar 25 Perkembangan Indeks Unit Value Impor Besi dan Baja (HS 72);
+Tembaga dan Barang Daripadanya (HS 74); Aluminium dan Barang Daripadanya
+(HS 76); Seng dan Barang Daripadanya (HS 79); serta Perkakas dan Peralatan dari Logam Tidak Mulia (HS 82), Agustus 2024–Agustus 2025
+60,00
+80,00
+100,00
+120,00
+140,00
+160,00
+180,00
+HS 60
+HS 61
+HS 69
+HS 70
+HS 71
+70,00
+75,00
+80,00
+85,00
+90,00
+95,00
+100,00
+105,00
+110,00
+115,00
+HS 72
+HS 74
+HS 76
+HS 79
+HS 82
+GAMBAR-GAMBAR
+Gambar 26 Perkembangan Indeks Unit Value Impor Berbagai Barang Logam
+Tidak Mulia (HS 83); Mesin/Peralatan Mekanis dan Bagiannya (HS 84);
+Mesin/Perlengkapan Elektrik dan Bagiannya (HS 85); Kendaraan dan Bagiannya
+(HS 87); serta Instrumen Musik dan Bagiannya (HS 92),
+Agustus 2024–Agustus 2025
+Gambar 27 Perkembangan Indeks Unit Value Impor Perabotan, Lampu, dan Alat
+Penerangan (HS 94); dan Berbagai Barang Buatan Pabrik (HS 96),
+Agustus 2024–Agustus 2025
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+140,00
+HS 83
+HS 84
+HS 85
+HS 87
+HS 92
+70,00
+80,00
+90,00
+100,00
+110,00
+120,00
+130,00
+HS 94
+HS 96
+TABEL-TABEL
+Tabel 1 Indeks Unit Value Ekspor Total, Migas, dan Nonmigas (2023=100),
+Januari 2024–Agustus 2025
+Bulan
+Total Ekspor
+Migas
+Nonmigas
+Januari
+86,21
+89,73
+98,50
+88,37
+85,68
+90,28
+Februari
+86,44
+90,34
+103,29
+90,08
+85,82
+90,62
+Maret
+89,26
+92,85
+95,59
+92,52
+88,96
+92,96
+April
+90,86
+94,42
+100,50
+90,71
+90,38
+94,99
+Mei
+95,01
+98,01
+106,93
+89,31
+94,44
+98,80
+Juni
+95,93
+100,53
+110,36
+98,35
+95,20
+101,04
+Juli
+100,31
+101,61
+110,51
+93,94
+99,66
+102,25
+Agustus
+101,56
+102,56
+96,86
+86,54
+101,85
+103,60
+September
+101,97
+95,86
+102,35
+Oktober
+103,43
+96,37
+103,90
+November
+103,66
+101,34
+103,86
+Desember
+102,95
+99,98
+103,21
+Tahunan
+96,82
+101,43
+96,67
+V. TABEL–TABEL
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Tabel 2 Indeks Unit Value Ekspor Menurut Kode HS 2 Digit (2023=100),
+Agustus 2024–Agustus 2025
+HS2
+Agt
+Sep
+Okt
+Nov
+Des
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+91,64
+91,46
+92,22
+96,58
+97,12
+103,19
+101,52
+102,52
+103,61
+103,69
+111,39
+101,33
+101,01
+87,11
+86,11
+81,89
+88,45
+79,90
+93,16
+101,88
+108,00
+82,15
+81,21
+69,34
+78,22
+80,70
+127,78
+74,31
+74,48
+100,79
+85,81
+84,20
+118,97
+168,25
+227,19
+286,41
+338,17
+312,67
+300,84
+130,25
+130,48
+137,16
+127,22
+122,65
+155,65
+148,10
+142,41
+137,96
+147,20
+141,47
+130,62
+123,11
+102,74
+105,44
+115,96
+101,78
+101,55
+93,93
+94,91
+102,25
+95,23
+93,47
+99,50
+96,67
+86,65
+89,85
+83,03
+99,64
+100,00
+109,43
+62,63
+66,99
+73,15
+73,21
+79,62
+100,53
+99,08
+109,34
+95,09
+86,65
+100,36
+97,78
+90,97
+57,60
+66,56
+69,59
+70,33
+64,73
+75,37
+92,49
+86,93
+106,21
+111,92
+124,94
+136,07
+140,28
+128,88
+119,64
+121,22
+120,99
+112,97
+117,48
+123,83
+126,32
+90,01
+91,97
+95,81
+97,11
+96,71
+98,11
+98,57
+98,01
+96,87
+91,94
+95,40
+96,06
+99,32
+103,64
+95,67
+96,25
+96,00
+96,77
+104,94
+105,64
+107,40
+103,09
+98,22
+99,77
+101,22
+90,26
+98,37
+98,68
+100,55
+97,84
+102,45
+104,95
+100,48
+100,62
+99,40
+100,74
+98,51
+99,33
+95,57
+105,39
+108,15
+113,80
+108,00
+107,32
+109,55
+112,04
+111,08
+113,55
+117,95
+124,13
+124,68
+126,21
+104,72
+106,08
+98,98
+103,55
+107,03
+111,63
+133,38
+111,92
+110,18
+118,20
+133,24
+110,62
+144,97
+98,86
+99,48
+100,17
+107,07
+95,03
+112,84
+92,21
+102,21
+106,88
+106,61
+98,71
+99,34
+98,99
+96,03
+93,95
+90,05
+91,58
+98,93
+87,96
+71,27
+49,69
+53,63
+52,22
+50,75
+51,16
+55,67
+100,19
+108,28
+102,02
+101,24
+101,14
+106,82
+106,48
+102,68
+105,62
+99,88
+118,24
+105,97
+113,68
+87,23
+89,52
+88,36
+88,58
+90,01
+76,99
+80,43
+79,53
+86,09
+88,65
+92,69
+92,95
+95,41
+123,91
+122,12
+119,21
+110,40
+116,07
+14,36
+14,15
+122,96
+124,22
+126,18
+126,20
+119,10
+117,84
+97,39
+99,12
+97,16
+92,44
+92,19
+64,62
+66,99
+73,62
+70,91
+72,21
+74,42
+81,90
+80,11
+77,99
+97,29
+98,07
+95,80
+99,83
+234,14
+80,12
+106,81
+110,18
+115,13
+110,31
+108,44
+105,05
+83,16
+90,17
+94,49
+91,02
+98,35
+78,34
+85,10
+83,62
+86,85
+82,06
+77,28
+79,30
+76,74
+94,31
+88,72
+89,43
+103,03
+83,07
+99,46
+115,87
+106,49
+109,95
+109,78
+101,50
+97,25
+100,87
+100,74
+105,83
+107,66
+110,81
+109,08
+92,39
+98,91
+103,19
+101,87
+105,12
+101,25
+103,01
+94,96
+99,67
+86,04
+102,77
+97,88
+120,36
+92,12
+90,77
+100,30
+80,05
+105,63
+91,01
+90,66
+92,91
+111,23
+119,03
+125,48
+129,24
+128,42
+117,42
+123,00
+124,97
+132,57
+130,86
+133,25
+129,24
+130,23
+106,46
+99,00
+99,36
+99,00
+89,84
+96,95
+94,52
+90,86
+96,00
+93,96
+92,95
+95,26
+97,41
+111,47
+117,43
+116,35
+117,61
+118,68
+124,03
+122,36
+125,87
+124,73
+120,04
+113,18
+111,16
+110,11
+93,53
+95,13
+93,26
+91,97
+88,99
+95,26
+88,83
+99,78
+92,85
+90,35
+96,51
+97,32
+102,26
+96,99
+96,71
+107,54
+100,62
+100,29
+92,50
+91,98
+94,31
+96,34
+104,70
+98,84
+102,63
+99,23
+104,05
+98,92
+97,26
+77,13
+101,29
+94,28
+47,05
+93,07
+100,24
+100,47
+99,22
+94,24
+98,66
+130,39
+124,64
+114,96
+108,75
+101,48
+80,70
+80,80
+86,87
+91,67
+99,56
+110,18
+114,00
+115,78
+INDEKS UNIT VALUE EKSPOR-IMPOR, Februari 2025
+Lanjutan Tabel 2
+TABEL-TABEL
+HS2
+Agt
+Sep
+Okt
+Nov
+Des
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+96,27
+96,82
+99,57
+96,40
+92,61
+81,31
+81,44
+81,58
+80,95
+80,90
+85,64
+87,55
+88,74
+97,45
+92,18
+93,92
+92,28
+98,81
+88,99
+84,93
+83,95
+88,33
+87,86
+86,33
+88,74
+88,17
+98,35
+102,44
+98,99
+101,30
+100,46
+99,64
+97,91
+97,32
+99,80
+92,96
+93,74
+98,30
+96,45
+103,00
+96,29
+103,81
+104,63
+105,90
+101,35
+99,01
+98,12
+96,95
+94,66
+92,95
+94,53
+95,35
+94,33
+91,51
+94,49
+95,08
+97,96
+98,71
+90,18
+90,22
+87,50
+90,89
+89,97
+96,01
+99,49
+95,68
+92,65
+94,90
+101,68
+94,94
+241,71
+88,58
+92,08
+83,43
+96,26
+91,38
+89,10
+91,86
+105,46
+109,62
+113,09
+107,83
+108,39
+108,17
+90,84
+88,22
+93,88
+102,06
+116,50
+89,32
+93,37
+93,78
+93,98
+95,80
+107,25
+99,10
+88,32
+83,79
+86,00
+59,17
+92,34
+91,86
+105,51
+103,15
+95,49
+89,26
+103,98
+89,66
+94,87
+96,93
+99,85
+112,04
+102,55
+96,84
+82,77
+86,06
+92,08
+101,45
+99,17
+101,99
+103,16
+100,69
+98,80
+67,04
+95,62
+96,92
+96,90
+94,94
+98,06
+99,78
+100,35
+99,31
+99,63
+98,42
+105,77
+97,14
+102,53
+102,10
+99,18
+96,99
+101,16
+97,91
+104,14
+92,61
+94,35
+86,05
+92,82
+94,15
+93,50
+94,92
+93,18
+95,23
+98,89
+97,59
+95,10
+98,50
+90,84
+73,39
+90,67
+89,93
+93,62
+84,87
+73,04
+75,59
+64,68
+82,95
+96,84
+78,38
+73,14
+91,03
+109,62
+120,94
+97,55
+91,22
+73,49
+89,80
+88,19
+89,67
+87,60
+86,91
+89,45
+83,70
+101,53
+101,61
+129,09
+94,67
+117,42
+107,91
+116,98
+109,13
+104,08
+103,89
+100,74
+110,66
+98,20
+95,97
+97,20
+97,90
+93,84
+81,98
+81,39
+91,41
+94,57
+92,58
+87,27
+84,99
+77,95
+82,15
+128,71
+141,61
+125,29
+126,51
+122,45
+134,52
+151,28
+133,10
+157,31
+225,51
+238,66
+229,46
+220,49
+92,04
+87,01
+88,80
+92,24
+91,76
+66,85
+66,67
+69,98
+75,88
+87,23
+80,51
+84,75
+87,89
+108,80
+109,46
+117,40
+113,43
+106,69
+110,76
+103,74
+107,74
+104,76
+108,18
+115,02
+118,91
+114,59
+86,73
+81,36
+98,49
+97,18
+104,41
+66,78
+68,17
+68,11
+75,72
+80,22
+85,10
+87,44
+89,94
+105,19
+98,59
+101,07
+99,57
+118,14
+106,07
+100,96
+97,29
+103,28
+109,35
+91,79
+95,44
+121,54
+93,91
+95,45
+96,28
+96,80
+88,22
+85,57
+94,11
+93,41
+93,45
+83,52
+102,13
+102,44
+92,99
+98,79
+99,31
+102,30
+101,80
+96,29
+97,16
+91,48
+88,24
+92,48
+103,32
+91,97
+96,59
+98,07
+103,97
+102,71
+104,69
+102,94
+107,04
+96,63
+94,31
+94,13
+107,44
+83,19
+108,80
+93,76
+87,11
+99,34
+101,02
+95,13
+94,92
+92,07
+99,35
+98,68
+100,52
+99,98
+100,78
+102,05
+100,12
+98,78
+104,87
+95,99
+110,48
+95,16
+84,82
+97,58
+101,55
+87,23
+93,14
+108,93
+104,42
+108,90
+119,09
+98,78
+101,83
+97,32
+100,34
+99,78
+95,08
+93,46
+94,26
+97,86
+92,64
+112,57
+96,43
+93,79
+102,77
+97,22
+99,11
+98,66
+96,08
+92,87
+92,14
+92,41
+101,25
+100,24
+99,03
+99,63
+104,12
+90,98
+137,57
+93,09
+100,94
+102,23
+100,10
+101,57
+97,49
+98,21
+101,71
+97,97
+94,57
+99,62
+Total
+Ekspor
+101,56
+101,97
+103,43
+103,66
+102,95
+89,73
+90,34
+92,85
+94,42
+98,01
+100,53
+101,61
+102,56
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Tabel 3 Indeks Unit Value Impor Total, Migas, dan Nonmigas (2023=100),
+Januari 2024–Agustus 2025
+Bulan
+Total Impor
+Migas
+Nonmigas
+Januari
+94,47
+93,38
+95,22
+90,45
+94,29
+94,14
+Februari
+95,46
+96,72
+99,55
+93,19
+94,41
+97,62
+Maret
+98,28
+96,40
+100,82
+89,92
+97,52
+98,10
+April
+98,15
+95,92
+103,05
+86,88
+96,82
+97,99
+Mei
+95,28
+90,91
+103,64
+82,74
+93,29
+92,93
+Juni
+94,17
+90,61
+99,62
+81,69
+92,67
+92,71
+Juli
+94,18
+88,92
+98,76
+86,07
+93,00
+89,70
+Agustus
+94,56
+91,22
+95,35
+86,39
+94,42
+92,44
+September
+92,93
+92,61
+93,05
+Oktober
+92,63
+90,63
+93,16
+November
+92,61
+89,36
+93,39
+Desember
+91,39
+89,97
+91,75
+Tahunan
+95,47
+96,60
+95,21
+TABEL-TABEL
+Tabel 4 Indeks Unit Value Impor Menurut Kode HS 2 Digit (2023=100),
+Agustus 2024–Agustus 2025
+HS2
+Agt
+Sep
+Okt
+Nov
+Des
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+84,67
+89,64
+90,68
+93,60
+97,80
+104,31
+98,55
+101,04
+99,34
+95,98
+97,52
+95,85
+95,61
+109,81
+106,13
+107,18
+100,44
+102,44
+91,65
+83,97
+94,22
+100,76
+102,97
+111,04
+116,89
+114,69
+90,81
+90,54
+92,34
+92,46
+93,68
+91,02
+95,99
+97,82
+96,98
+104,92
+99,02
+96,81
+94,85
+92,35
+92,20
+93,35
+92,72
+94,18
+89,60
+94,38
+99,63
+102,62
+100,15
+101,08
+99,69
+103,82
+108,91
+79,24
+78,14
+93,71
+77,26
+78,05
+100,92
+100,52
+118,50
+103,35
+116,38
+101,54
+92,85
+112,19
+115,28
+112,81
+117,67
+119,20
+114,48
+111,41
+109,43
+104,50
+96,73
+90,95
+87,41
+85,77
+104,63
+109,37
+104,07
+103,95
+98,91
+101,60
+96,02
+98,74
+101,68
+105,12
+112,42
+105,06
+116,18
+76,17
+82,18
+75,31
+78,11
+98,96
+91,22
+117,51
+130,41
+118,22
+120,62
+88,86
+78,39
+85,83
+89,32
+88,71
+86,42
+86,37
+87,78
+82,79
+69,86
+69,98
+71,10
+72,93
+71,78
+71,06
+84,74
+82,75
+81,08
+79,68
+77,34
+75,78
+74,17
+73,73
+72,69
+74,75
+73,40
+73,36
+74,18
+74,99
+89,16
+88,66
+92,18
+85,03
+82,02
+79,48
+76,31
+77,53
+80,39
+80,22
+80,79
+80,95
+80,53
+98,29
+106,64
+97,98
+93,98
+93,84
+95,01
+100,60
+97,82
+100,20
+101,82
+100,36
+98,99
+108,52
+92,36
+91,33
+92,86
+92,65
+97,49
+90,35
+92,71
+91,27
+92,64
+88,60
+85,99
+84,45
+83,57
+94,77
+91,40
+97,44
+92,75
+88,79
+93,60
+86,44
+83,56
+87,23
+88,73
+87,74
+90,85
+87,80
+90,68
+89,13
+87,46
+86,80
+87,11
+88,00
+90,54
+91,99
+90,86
+96,72
+92,14
+86,32
+83,72
+100,79
+99,17
+98,02
+98,64
+93,88
+97,35
+99,17
+99,44
+99,43
+100,67
+92,95
+97,12
+99,55
+112,27
+97,55
+109,51
+100,53
+86,89
+86,79
+90,37
+91,73
+107,69
+111,58
+113,21
+109,53
+106,76
+81,96
+79,76
+77,89
+76,86
+76,56
+75,25
+73,94
+71,64
+72,29
+69,97
+68,85
+68,22
+68,51
+116,18
+114,24
+122,94
+102,04
+106,06
+108,40
+103,86
+107,34
+110,12
+110,31
+117,24
+121,00
+122,59
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Lanjutan Tabel 4
+HS2
+Agt
+Sep
+Okt
+Nov
+Des
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+93,12
+94,13
+84,07
+83,11
+87,98
+115,06
+93,48
+82,46
+87,11
+80,53
+85,79
+86,07
+90,66
+92,86
+89,99
+88,29
+86,59
+87,37
+87,67
+89,30
+86,52
+83,31
+79,39
+77,83
+82,22
+82,14
+97,32
+91,64
+91,59
+81,89
+84,94
+88,37
+89,23
+92,04
+88,50
+80,23
+86,54
+84,91
+85,31
+92,66
+94,36
+91,24
+95,62
+86,14
+85,28
+93,72
+89,92
+96,76
+92,58
+95,02
+85,71
+88,71
+97,10
+101,34
+108,60
+98,65
+96,38
+95,98
+105,18
+113,63
+98,23
+98,74
+107,11
+96,68
+103,26
+97,10
+103,08
+100,42
+98,26
+100,72
+95,10
+94,75
+96,93
+96,65
+98,44
+100,09
+91,01
+98,36
+91,67
+90,12
+86,78
+87,58
+84,25
+83,19
+83,51
+84,02
+86,24
+85,27
+86,61
+82,91
+86,90
+90,81
+99,75
+94,83
+94,14
+56,06
+91,35
+113,01
+115,79
+106,20
+98,49
+93,60
+89,70
+96,85
+97,34
+98,71
+97,48
+95,40
+110,16
+94,49
+97,53
+96,14
+96,06
+93,90
+94,13
+91,32
+91,87
+99,70
+95,10
+97,35
+95,05
+96,55
+95,13
+92,68
+101,58
+91,80
+91,73
+92,68
+94,54
+93,37
+87,74
+95,55
+92,90
+95,85
+85,89
+89,85
+97,88
+100,54
+94,08
+86,16
+87,34
+84,80
+90,83
+103,66
+103,91
+102,74
+100,09
+102,16
+101,66
+97,74
+97,73
+98,96
+99,30
+99,84
+100,31
+96,97
+93,49
+54,83
+79,56
+93,54
+92,43
+93,39
+93,62
+91,86
+93,46
+91,15
+90,20
+91,48
+92,51
+94,28
+96,09
+87,77
+90,42
+99,87
+116,08
+127,35
+106,11
+113,35
+129,67
+120,85
+104,81
+119,62
+90,35
+88,73
+87,46
+86,97
+84,17
+83,74
+84,00
+84,54
+89,54
+82,34
+81,15
+79,11
+80,54
+105,98
+90,40
+89,58
+110,53
+104,74
+103,92
+110,19
+103,63
+99,75
+121,59
+107,53
+102,85
+112,45
+97,59
+91,44
+87,71
+88,14
+85,14
+88,69
+92,29
+94,74
+98,27
+83,92
+92,41
+87,06
+83,99
+101,92
+97,95
+99,47
+98,34
+97,71
+101,46
+96,32
+108,56
+98,51
+97,30
+101,65
+99,24
+96,11
+98,95
+94,92
+99,41
+98,86
+96,86
+94,52
+93,45
+93,11
+90,49
+89,91
+88,69
+83,95
+80,41
+TABEL-TABEL
+Lanjutan Tabel 4
+HS2
+Agt
+Sep
+Okt
+Nov
+Des
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+96,73
+106,77
+92,38
+93,00
+96,00
+131,82
+127,79
+121,61
+112,58
+115,07
+122,49
+117,35
+114,41
+93,00
+96,43
+96,20
+96,07
+92,76
+90,40
+99,74
+85,40
+95,89
+101,24
+88,27
+85,11
+84,48
+90,25
+93,05
+99,88
+100,46
+95,47
+95,03
+100,51
+97,08
+99,00
+91,37
+89,84
+92,91
+86,52
+104,85
+114,91
+106,68
+94,75
+93,17
+99,31
+86,25
+99,67
+90,21
+93,24
+81,77
+63,76
+76,28
+109,30
+107,06
+100,36
+99,42
+96,90
+96,67
+87,64
+115,19
+104,29
+97,69
+109,32
+102,61
+90,57
+92,06
+94,11
+95,87
+95,39
+85,58
+82,60
+86,94
+82,02
+84,07
+85,85
+84,51
+87,12
+90,19
+116,26
+129,62
+130,32
+136,20
+136,26
+136,90
+145,89
+150,20
+164,54
+167,12
+171,14
+169,00
+171,45
+91,52
+91,20
+89,69
+87,97
+86,79
+87,05
+86,73
+83,93
+83,17
+81,76
+82,52
+82,61
+82,40
+108,69
+107,32
+109,25
+109,57
+104,72
+102,27
+109,74
+111,50
+109,94
+108,68
+111,70
+112,52
+109,54
+105,87
+102,66
+101,80
+101,67
+99,21
+106,25
+109,08
+108,00
+107,39
+104,29
+99,00
+97,25
+92,49
+100,42
+99,33
+102,65
+108,96
+107,97
+108,66
+104,76
+102,69
+102,10
+98,62
+96,51
+93,89
+85,00
+90,77
+84,27
+79,26
+80,15
+82,21
+85,79
+101,44
+94,12
+88,77
+84,15
+84,42
+84,18
+71,08
+88,57
+92,62
+91,33
+88,47
+89,79
+83,64
+93,40
+98,54
+94,21
+83,09
+92,34
+90,06
+92,70
+94,60
+92,49
+92,51
+92,33
+90,13
+89,01
+99,68
+100,03
+90,57
+90,31
+88,24
+86,54
+92,79
+94,53
+96,78
+94,98
+101,14
+89,73
+118,37
+126,84
+128,22
+130,55
+118,47
+121,89
+108,21
+114,81
+90,46
+89,93
+89,72
+91,94
+88,37
+83,56
+89,53
+89,39
+85,55
+86,49
+83,18
+78,31
+83,63
+102,29
+116,48
+102,59
+95,92
+97,00
+96,76
+88,89
+111,89
+100,30
+91,02
+99,35
+98,48
+84,89
+90,35
+91,65
+92,32
+85,12
+79,19
+80,09
+86,55
+87,94
+82,95
+80,10
+86,39
+86,16
+87,24
+93,43
+93,62
+90,30
+89,83
+83,86
+94,36
+105,77
+126,76
+102,88
+98,03
+96,40
+84,87
+90,22
+Total
+Impor
+94,56
+92,93
+92,63
+92,61
+91,39
+93,38
+96,72
+96,40
+95,92
+90,91
+90,61
+88,92
+91,22
+INDEKS UNIT VALUE EKSPOR-IMPOR, AGUSTUS 2025
+Tabel 5 Kode HS 2 Digit dan Deskripsinya
+HS
+Deskripsi
+Binatang hidup
+Daging hewan
+Ikan, krustasea, dan moluska
+Susu, mentega, dan telur
+Produk hewani
+Pohon hidup dan bunga potong
+Sayuran
+Buah-buahan
+Kopi, teh, dan rempah-rempah
+Serealia
+Hasil penggilingan
+Biji dan buah mengandung minyak
+Lak, getah, dan damar
+Bahan anyaman nabati
+Lemak dan minyak hewani/nabati
+Olahan dari daging, ikan, krustasea, dan moluska
+Gula dan kembang gula
+Kakao dan olahannya
+Olahan dari tepung
+Olahan dari sayuran, buah, dan kacang
+Berbagai makanan olahan
+Minuman, alkohol, dan cuka
+Ampas dan sisa industri makanan
+Tembakau dan rokok
+Garam, belerang, batu, dan semen
+Bijih logam, terak, dan abu
+Bahan bakar mineral
+Bahan kimia anorganik
+Bahan kimia organik
+Produk farmasi
+Pupuk
+Sari bahan samak dan celup
+Minyak atsiri, wewangian, dan kosmetik
+Sabun dan preparat pembersih
+Perekat dan enzim
+Korek api, kembang api, dan bahan peledak
+Barang fotografi atau sinematografi
+Berbagai produk kimia
+Plastik dan barang dari plastik
+Karet dan barang dari karet
+Jangat dan kulit mentah/samak
+Barang dari kulit samak
+Kulit berbulu, bulu tiruan, dan barang daripadanya
+Kayu dan barang dari kayu
+Gabus dan barang dari gabus
+Barang anyaman
+Pulp dari kayu
+Kertas, karton, dan barang daripadanya
+Produk industri percetakan
+HS
+Deskripsi
+Sutra
+Wol, bulu hewan halus atau kasar
+Kapas
+Serat tekstil nabati lainnya
+Filamen buatan
+Serat stapel buatan
+Kain kempa, benang khusus, dan benang pintal
+Karpet dan tekstil penutup lantai lainnya
+Kain tenunan khusus
+Kain tekstil dilapisi atau dilaminasi
+Kain rajutan
+Pakaian dan aksesorinya (rajutan)
+Pakaian dan aksesorinya (bukan rajutan)
+Barang tekstil jadi lainnya
+Alas kaki
+Tutup kepala dan bagiannya
+Payung, tongkat, dan bagiannya
+Barang dari bulu unggas, bunga artifisial, dan wig
+Barang dari batu, semen, asbes, atau mika
+Produk keramik
+Kaca dan barang dari kaca
+Logam mulia dan perhiasan/permata
+Besi dan baja
+Barang dari besi dan baja
+Tembaga dan barang daripadanya
+Nikel dan barang daripadanya
+Aluminium dan barang daripadanya
+Timbal dan barang daripadanya
+Seng dan barang daripadanya
+Timah dan barang daripadanya
+Logam tidak mulia lainnya
+Perkakas dan peralatan dari logam tidak mulia
+Berbagai barang logam tidak mulia
+Mesin dan peralatan mekanis serta bagiannya
+Mesin dan perlengkapan elektrik serta bagiannya
+Kereta api, trem, dan bagiannya
+Kendaraan dan bagiannya
+Kendaraan udara dan bagiannya
+Kapal, perahu, dan struktur terapung
+Instrumen optik, fotografi, sinematografi, dan medis
+Jam dan arloji serta bagiannya
+Instrumen musik dan bagiannya
+Senjata dan amunisi serta bagiannya
+Perabotan, lampu, dan alat penerangan
+Mainan, permainan dan keperluan olahraga
+Berbagai barang buatan pabrik
+Karya seni, barang kolektor, dan barang antik
+Kendaraan bermotor dan komponennya
+(terbongkar tidak lengkap)
+Piranti lunak, barang digital dan barang kiriman
+DAFTAR PUSTAKA
+Daftar Pustaka
+Kementerian Keuangan Direktorat Jenderal Bea dan Cukai. 2022. Buku Tarif
+Kepabeanan Indonesia (BTKI).
+2022.html.
+United Nations Statistics Division (UNSD). 2010. International Merchandise Trade
+Statistics (IMTS) Concepts and Definitions.

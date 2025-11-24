@@ -1,0 +1,159 @@
+# ===================================
+# Python RAG Project - .gitignore
+# ===================================
+
+# Python
+# ------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environment
+# -------------------
+venv/
+ENV/
+env/
+.venv
+.env
+.virtualenv
+
+# Jupyter Notebook
+# ----------------
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# IDE & Editors
+# -------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Data Files - IMPORTANT!
+# -----------------------
+
+# Embeddings (bisa sangat besar)
+data/embeddings/**/*.npy
+data/embeddings/**/*.pkl
+data/embeddings/**/*.bin
+
+# Keep directory structure but ignore contents
+# (Gunakan .gitkeep untuk preserve empty folders)
+!data/raw/.gitkeep
+!data/cleaned/.gitkeep
+!data/cleaned_text/.gitkeep
+!data/chunked/element_based/.gitkeep
+!data/chunked/maxmin_semantic/.gitkeep
+!data/chunked/recursive/.gitkeep
+!data/embeddings/.gitkeep
+!data/chroma/.gitkeep
+
+# Models & Weights
+# ----------------
+models/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+model_weights/
+checkpoints/
+
+# Logs & Results
+# --------------
+!results/.gitkeep
+
+# Figures & Plots
+# ---------------
+!figures/.gitkeep
+
+# Testing
+# -------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type Checking
+# -------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Documentation
+# -------------
+site/
+.ropeproject
+
+# OS-specific
+# -----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+# ---------------
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Secrets & Credentials
+# ---------------------
+.env
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+*.key
+*.pem
+
+# Large Files
+# -----------
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Custom Project-Specific
+# ------------------------
+scratch/
+temp/
+experiments/
+archived/
+.specstory/

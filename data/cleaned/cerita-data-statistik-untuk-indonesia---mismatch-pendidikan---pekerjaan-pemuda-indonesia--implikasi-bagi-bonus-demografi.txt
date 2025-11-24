@@ -1,0 +1,516 @@
+CERITA DATA STATISTIK
+UNTUK INDONESIA
+Volume 2, Nomor 10, 2025
+Katalog: 1205057
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia:
+Implikasi bagi Bonus Demografi
+BADAN PUSAT STATISTIK
+Katalog: 1205057
+Nomor Publikasi: 07300.25023
+Ukuran Buku: 17,6 cm x 25 cm
+Jumlah Halaman: 28 halaman
+Penyusun Naskah: Direktorat Analisis dan Pengembangan Statistik
+Penyunting: Direktorat Analisis dan Pengembangan Statistik
+Pembuat Kover: Direktorat Analisis dan Pengembangan Statistik
+Penerbit: ©Badan Pusat Statistik
+Pencetak: Badan Pusat Statistik
+Sumber Ilustrasi: canva.com
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik
+CERITA DATA STATISTIK
+UNTUK INDONESIA
+MISMATCH PENDIDIKAN–PEKERJAAN PEMUDA INDONESIA:
+IMPLIKASI BAGI BONUS DEMOGRAFI
+Volume 2, Nomor 10, 2025
+Pengarah
+Muchammad Romzi
+Penanggung Jawab
+Muchammad Romzi
+Reviewer
+Agus Joko Pitoyo
+(Pusat Studi Kependudukan dan Kebijakan Universitas Gadjah Mada)
+Risni Julaeni Yuhan
+(Politeknik Statistika STIS, Badan Pusat Statistik)
+Weni Lidya Sukma
+(Direktorat Statistik Kependudukan dan Ketenagakerjaan, Badan Pusat Statistik)
+Penyunting
+Widyayanto Adinugroho
+Pengolah Data dan Penulis Naskah
+Dede Yoga Paramartha
+I Nyoman Setiawan
+Penata Letak
+I Nyoman Setiawan
+TIM PENYUSUN
+CERITA DATA STATISTIK UNTUK
+INDONESIA
+Volume 2, Nomor 10, 2025
+MISMATCH PENDIDIKAN–PEKERJAAN PEMUDA INDONESIA:
+IMPLIKASI BAGI BONUS DEMOGRAFI
+Cerita Data Statistik Untuk Indonesia Volume 01, Nomor 05, 2024
+CERDAS adalah artikel yang berfokus pada pemanfaatan sumber data alternatif dan statistik resmi untuk memberikan gagasan yang berkaitan dengan isu sosial ekonomi.
+Pembaca dipersilakan mengutip artikel CERDAS dengan menyebut sumber aslinya asalkan tidak untuk kepentingan komersial. Pandangan tulisan merupakan cerminan pemikiran dari penulis.
+Redaksi CERDAS
+Direktorat Analisis dan Pengembangan Statistik
+Badan Pusat Statistik
+DISCLAIMER
+Jakarta, Oktober 2025
+Kepala Badan Pusat Statistik
+Amalia Adininggar Widyasanti
+KATA PENGANTAR
+Kepada para Sahabat Data yang budiman,
+Puji syukur kehadirat Allah SWT yang telah memberikan rahmat dan hidayahNya atas selesainya buklet Cerita Data Statistik (CERDAS) Untuk Indonesia Edisi 2025.10. Buklet ini berisi artikel yang memanfaatkan sumber data inovatif dan statistik resmi untuk memberikan gagasan yang berkaitan dengan isu sosial ekonomi. Pada edisi kali ini, CERDAS
+Untuk Indonesia membahas tentang isu ketidaksesuaian antara pekerjaan dan pendidikan di kalangan pemuda.
+Indonesia menghadapi tantangan bonus demografi ketika TPT pemuda dua kali lipat lebih tinggi dari nasional. Salah satu penyebabnya adalah vertical mismatch, dengan kondisi lebih dari sepertiga pemuda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikan.
+Kondisi overeducated dan undereducated menimbulkan wage penalty dan inefisiensi ekonomi.
+Pemuda perempuan, berpendidikan tinggi, atau tinggal di Jawa dan perkotaan cenderung lebih lambat memperoleh pekerjaan. Sementara itu, overeducated lebih cepat bekerja karena fleksibilitas sektor informal, sedangkan undereducated membutuhkan waktu lebih lama akibat perpindahan antar sektor. Ijazah formal saja tidak cukup, perlu penguasaan digital, peningkatan sertifikasi, dan pelatihan yang relevan untuk mengurangi risiko mismatch.
+Buklet ini tidak sekadar sekumpulan angka, tetapi juga menggali esensi dari tiap-tiap nilai statistik. Ulasannya disampaikan dalam bentuk cerita data agar mudah dipahami dan menginspirasi kita untuk menciptakan perubahan yang lebih baik bagi masa depan
+Indonesia, khususnya dalam pencapaian Tujuan Pembangunan
+Berkelanjutan (SDGs).
+Selamat membaca, menyelami, dan menemukan inspirasi.
+DAFTAR ISI
+CERITA DATA STATISTIK UNTUK
+INDONESIA
+Volume 2, Nomor 10, 2025
+Ledakan Pemuda: Bonus Demografi atau Bom Waktu����������������������������8
+Pendidikan Tinggi, Kerja Rendah? Fenomena Vertical Mismatch �����������������10
+Menunggu di Pintu Kerja: Survival Analysis Pencari Kerja�����������������������12
+Mimpi vs Realita: Apa Kata Data?��������������������������������������������13
+Mengapa Bisa Begitu? Mengurai Akar Masalah��������������������������������19
+Referensi������������������������������������������������������������������21
+Lampiran������������������������������������������������������������������23
+MISMATCH PENDIDIKAN–PEKERJAAN PEMUDA INDONESIA:
+IMPLIKASI BAGI BONUS DEMOGRAFI
+IKHTISAR
+Indonesia menghadapi tantangan bonus demografi, ketika jumlah penduduk usia produktif melimpah tetapi Tingkat Pengangguran Terbuka (TPT) pemuda justru dua kali lipat lebih tinggi dibandingkan TPT nasional. Salah satu akar masalahnya adalah fenomena vertical mismatch dimana lebih dari sepertiga (36,36 persen)
+angkatan kerja muda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.
+Kondisi overeducated maupun undereducated nyatanya menyebabkan kerugian jangka panjang berupa “wage penalty”, yaitu upah pekerja cenderung stagnan dan akhirnya lebih rendah dibandingkan rekan mereka yang bekerja di bidang yang sesuai. Fenomena ini merupakan bentuk inefisiensi masif dalam perekonomian.
+Status mismatch berpengaruh besar terhadap lama waktu mencari pekerjaan atau transisi kerja. Pemuda overeducated lebih cepat kembali bekerja, sedangkan pemuda undereducated cenderung lebih lambat.
+Faktor demografi, sosial, dan ekonomi ikut menentukan peluang mendapatkan pekerjaan. Pemuda perempuan, tinggal di Pulau Jawa atau perkotaan, serta yang berpendidikan lebih tinggi justru lebih lambat masuk ke pasar kerja. Pemuda sudah/pernah kawin atau dengan pengalaman di sektor utama (pertanian, perdagangan, industri pengolahan) lebih cepat mendapat pekerjaan.
+Pengalaman lintas sektor dapat memengaruhi durasi pencarian kerja. Pemuda undereducated lebih banyak berpindah antar sektor sehingga membutuhkan waktu yang lebih lama dalam mencari kerja. Pemuda overeducated cenderung bertahan di sektor yang sama sehingga transisinya lebih cepat.
+Percepatan kerja pada pemuda overeducated umumnya terjadi karena fleksibilitas sektor informal yang identik dengan upah rendah, perlindungan terbatas, dan prospek kerja yang kurang menjanjikan.
+Analisis membuktikan bahwa ijazah formal saja tidak lagi cukup untuk menjamin kesesuaian kerja. Faktor-faktor yang terbukti signifikan mengurangi risiko mismatch adalah “sinyal” kompetensi tambahan seperti penguasaan teknologi digital, kepemilikan sertifikasi keahlian, dan partisipasi dalam program pelatihan relevan seperti Kartu Prakerja.
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+Ledakan Pemuda: Bonus Demografi atau Bom Waktu
+Indonesia saat ini berada di tengah periode emas yang disebut sebagai “bonus demografi”, sebuah fase di mana jumlah penduduk usia produktif (15–64 tahun) jauh melampaui populasi non-produktif. Secara teori, ini adalah jendela peluang langka untuk melesatkan pertumbuhan ekonomi dan kesejahteraan bangsa. Namun, di balik narasi optimis ini, tersembunyi sebuah paradoks yang mengkhawatirkan.
+Ketika jumlah pemuda1 melimpah, mengapa justru tingkat pengangguran di kalangan mereka menjadi yang paling tinggi dibandingkan kelompok usia lainnya?
+Data
+Badan
+Pusat
+Statistik
+(BPS)
+menunjukkan dinamika yang menarik terkait Tingkat Pengangguran Terbuka (TPT)
+di Indonesia selama 2017–2024. Secara umum, TPT nasional untuk penduduk usia kerja (15 tahun ke atas) terus mengalami
+Merujuk pada
+Undang-Undang
+Republik
+Indonesia Nomor 40 Tahun 2009 tentang
+Kepemudaan, pemuda adalah warga negara
+Indonesia yang berusia 16 (enam belas) sampai dengan 30 (tiga puluh) tahun.
+tren penurunan, dari 5,56 persen pada 2017
+menjadi hanya 4,91 persen pada Februari
+2024. Angka ini mencerminkan adanya perbaikan kondisi pasar tenaga kerja pasca pandemi, meskipun fluktuasi sempat terjadi pada 2020 akibat guncangan ekonomi global dan domestik.
+Namun, ketika lensa diperbesar ke kelompok pemuda, situasinya memperlihatkan tantangan yang lebih serius. Pada 2024, TPT
+pemuda masih berada di level 12,24 persen, lebih dari dua kali lipat TPT nasional. Bahkan, jika menengok ke belakang, tren pengangguran pemuda pernah melonjak hingga hampir
+15,7 persen pada 2020, beriringan dengan dampak pandemi yang menutup banyak peluang kerja baru.
+Perbedaan tajam antara TPT nasional dan TPT pemuda menyingkap adanya ketidakselarasan antara pertumbuhan kesempatan kerja dengan kebutuhan pemuda. Pemuda yang baru lulus pendidikan menengah maupun tinggi sering kali menghadapi “jebakan transisi”, yakni kesenjangan keterampilan, minimnya pengalaman kerja, hingga keterbatasan akses informasi pasar kerja. Dengan kata lain, meskipun perekonomian nasional berhasil
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2017–2024
+Gambar 1 Tren Perkembangan TPT Penduduk Usia 15 Tahun ke Atas dan TPT Pemuda, 2017–
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi menurun pada 2024. Angka ini menandakan bahwa jalur kewirausahaan formal kelas menengah belum menjadi pilihan dominan di kalangan pemuda, meskipun bonus demografi tengah berlangsung. Keterbatasan akses terhadap modal, rendahnya literasi keuangan, serta minimnya dukungan ekosistem kewirausahaan berkontribusi terhadap rendahnya partisipasi ini. Padahal, literatur internasional menegaskan bahwa kewirausahaan pemuda berperan penting dalam menciptakan lapangan kerja, memperkuat inovasi, serta mengurangi ketergantungan pada sektor informal di negara berkembang (RSD Journal 2019;
+UNDP Indonesia 2021).
+Di sisi lain, hambatan struktural dan sosial-
+ekologis membuat kewirausahaan pemuda sulit berkembang secara berkelanjutan. Studi menunjukkan bahwa faktor-faktor seperti pendidikan kewirausahaan, pengalaman praktis, serta adaptasi teknologi merupakan determinan utama keberhasilan wirausaha muda di era digital (Zuraidah, Maudya, dan
+Mufidaturrohmah
+2022).
+Namun, tanpa kebijakan yang mendukung—seperti kemudahan perizinan bisnis, inkubasi menekan angka pengangguran secara umum, tantangan utama justru terletak pada penciptaan lapangan kerja yang layak bagi generasi muda. Kondisi ini penting dicermati, mengingat pemuda merupakan bonus demografi yang seharusnya menjadi motor penggerak produktivitas bangsa, bukan justru terjebak dalam siklus pengangguran.
+Ketidakselarasan ini diperparah dengan fakta bahwa persentase pemuda yang terjun sebagai wirausahawan kerah putih2
+(white-collar) masih sangat rendah, bahkan menyentuh titik terendah dalam tiga tahun terakhir.
+Padahal, kemandirian pemuda melalui wirausaha adalah salah satu pilar penting untuk mengoptimalkan bonus demografi. Persentase pemuda Indonesia yang berusaha di sektor white collar sepanjang
+2017–2024
+hanya bergerak pada kisaran 0,39–0,53 persen, dengan kecenderungan stagnan dan bahkan
+Wirausahawan kerah putih didefinisikan sebagai pemuda yang bekerja dengan status berusaha
+(baik itu berusaha sendiri, berusaha dengan dibantu buruh tidak tetap, atau berusaha dengan dibantu buruh tetap), dengan jenis pekerjaan white collar (tenaga profesional atau teknisi, kepemimpinan atau ketatalaksanaan, pejabat pelaksana, atau tenaga tata usaha)
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2017–2024
+Gambar 2 Persentase Pemuda Bekerja dengan Status Berusaha White Collar, 2017–2024
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+wirausaha, serta akses kredit bagi pemuda—
+kecenderungan mereka untuk masuk ke sektor white collar akan tetap terbatas. Dengan demikian, rendahnya proporsi pemuda dalam wirausaha formal memperlihatkan adanya potensi bonus demografi yang belum terkelola optimal, dan jika dibiarkan, akan mengurangi daya saing ekonomi Indonesia dalam jangka panjang.
+Kondisi ini tak pelak memunculkan pertanyaan fundamental: Apakah sistem pendidikan kita sudah selaras dengan kebutuhan pasar kerja yang dinamis?
+Pendidikan Tinggi, Kerja Rendah?
+Fenomena Vertical Mismatch
+Salah satu manifestasi paling nyata dari ketidakselarasan pada isu yang sebelumnya telah diangkat adalah fenomena vertical mismatch atau kesenjangan kualifikasi vertikal dari tenaga kerja. Kasus ini adalah sebuah kondisi struktural di pasar kerja di mana tingkat pendidikan formal yang dimiliki seorang pekerja tidak sesuai dengan tingkat pendidikan yang secara umum dibutuhkan untuk pekerjaannya (ILO 2022). Fenomena ini memiliki dua sisi: overeducated (pendidikan berlebih), di mana pekerja memiliki kualifikasi lebih tinggi dari yang disyaratkan, dan undereducated (pendidikan kurang), di mana kualifikasi pekerja lebih rendah. Contoh jamak kasus klasik overeducated yang kita temui adalah seorang sarjana yang bekerja sebagai staf administrasi atau kasir.
+Fenomena mismatch pendidikan dan pekerjaan di kalangan angkatan kerja muda
+Indonesia bukanlah sekadar persoalan anekdot individu, melainkan persoalan struktural yang mengakar dalam sistem pasar tenaga kerja. Data menunjukkan bahwa hanya sekitar 64,64 persen pekerja muda yang bekerja sesuai dengan kualifikasi pendidikannya, sementara 22,36 persen mengalami overeducated dan 13 persen undereducated. Kondisi ini berarti terdapat
+35,36 persen pekerja muda yang tidak berada pada posisi kerja yang sesuai dengan tingkat pendidikan mereka, mencerminkan ketidaksesuaian antara pasokan keterampilan lulusan dengan permintaan riil dunia kerja. Fenomena ini sejalan dengan teori job-skill mismatch yang menekankan bahwa ketidakselarasan antara pendidikan dan kebutuhan kerja dapat menimbulkan inefisiensi dalam pasar tenaga kerja serta berdampak pada rendahnya produktivitas individu maupun ekonomi secara keseluruhan
+(Quintini 2011).
+Fenomena mismatch pendidikan-pekerjaan di kalangan angkatan kerja muda Indonesia terus menjadi persoalan signifikan yang tidak hanya mempengaruhi kesejahteraan individu tetapi juga produktivitas nasional.
+Sebagai contoh, penelitian Khoiruddin menunjukkan bahwa pekerja muda dengan tingkat pendidikan yang lebih tinggi lebih rentan mengalami overeducated, terutama di wilayah dengan peluang kerja pada sektor industri dan jasa terbatas. Selain itu, ditemukan bahwa pekerja yang mengalami overeducated menerima upah yang lebih rendah hingga sekitar 7,57 persen dibanding pekerja yang pekerjaannya sesuai dengan pendidikan mereka. Selain itu, mismatch juga memengaruhi durasi pengangguran
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja
+Nasional Agustus 2024, diolah
+Gambar 3 Persentase
+Pekerja
+Pemuda
+Berdasarkan Status Mismatch,
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 11
+terjadi ledakan jumlah lulusan perguruan tinggi seperti yang terjadi di Indonesia para sarjana ini akan mengisi posisi teratas dalam antrean, bahkan untuk pekerjaan yang sebenarnya tidak memerlukan gelar sarjana. Akibatnya, mereka “menggeser”
+para lulusan dengan tingkat pendidikan lebih rendah, menciptakan efek domino mismatch di seluruh spektrum pasar kerja. Fenomena ini juga memicu apa yang disebut “inflasi kredensial,” di mana nilai sebuah ijazah menurun karena jumlah pemegangnya terlalu banyak, sehingga standar kualifikasi untuk suatu pekerjaan terus meningkat tanpa diiringi peningkatan kompleksitas pekerjaan itu sendiri.
+Dampaknya tidak bisa dianggap remeh. Bagi individu, overeducated seringkali berkorelasi dengan kepuasan kerja yang lebih rendah dan upah yang lebih kecil (wage penalty)
+dibandingkan rekan mereka dengan tingkat pendidikan yang sama namun bekerja di bidang yang sesuai. Bagi perekonomian nasional, mismatch dalam skala besar adalah bentuk inefisiensi masif atau dengan kata lain dan peluang kerja formal versus informal, terutama dalam periode ketidakstabilan ekonomi seperti masa pandemi COVID-19
+(Wicaksono
+2023).
+Studi tersebut menyimpulkan bahwa pendidikan vokasi dan pelatihan membantu menekan risiko pengangguran di sektor formal bagi pemuda, meskipun tetap ada tekanan tinggi untuk sektor informal.
+Secara teoretis, fenomena ini menantang asumsi dasar dari Teori Modal Manusia
+(Becker, 1964) yang menyatakan bahwa pendidikan adalah investasi untuk meningkatkan produktivitas. Jika teori ini berlaku sempurna, seharusnya tidak ada mismatch yang persisten. Penjelasan yang lebih kuat datang dari Teori Persaingan Kerja
+(Job Competition Model) yang digagas oleh
+Lester Thurow. Menurut Thurow, pekerja tidak bersaing untuk upah, melainkan untuk lowongan pekerjaan yang tersedia.
+Pemberi kerja akan membuat antrean kandidat berdasarkan sinyal “kemampuan untuk dilatih” (trainability), di mana tingkat pendidikan menjadi sinyal utamanya. Ketika
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 4 Perbandingan Upah Rata-rata Bulanan Pekerja Muda Indonesia Menurut Status
+Mismatch, 2024
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+sebuah pemborosan investasi pendidikan dan kegagalan dalam mengalokasikan talenta terbaik bangsa secara optimal.
+Temuan grafik yang menunjukkan bahwa pekerja overeducated memperoleh keunggulan upah pada awal karier namun kemudian tertinggal dibandingkan pekerja matched. Fakta ini menegaskan bahwa overeducated bukan hanya fenomena sementara, melainkan menciptakan penalti jangka panjang baik dalam bentuk stagnasi karier maupun penurunan daya saing upah.
+Dengan demikian, mismatch pendidikan–
+pekerjaan dapat dilihat sebagai bentuk inefisiensi struktural dalam pasar kerja, sekaligus pemborosan investasi pendidikan.
+Namun, literatur internasional juga memberikan nuansa bahwa dampak overeducated tidak seragam bagi semua individu. Sun dan Kim menemukan bahwa meskipun pekerja yang overeducated di Korea mengalami penalti upah rata-rata
+6,5 persen, efek tersebut bervariasi menurut kemampuan, bidang studi, dan gender. Artinya, ada kelompok pekerja tertentu yang relatif mampu menahan dampak negatif mismatch, sementara yang lain lebih rentan terhadap kerugian pendapatan. Dengan demikian, meski fenomena ini jelas mengindikasikan adanya wage penalty dan inefisiensi, kebijakan publik yang efektif perlu memperhitungkan heterogenitas pengalaman pekerja, agar intervensi yang dirancang lebih tepat sasaran dalam mengurangi dampak mismatch di pasar tenaga kerja.
+Kedepannya, diharapkan dampak mismatch perlu diperhatikan agar tidak meluas pada kerugian jangka panjang dan kualitas pekerjaan. Bagi individu, fenomena ini berpotensi besar mengakibatkan stagnansi upah. Sebagai contoh, pekerja overeducated ditemukan menerima upah hingga sekitar
+7,57 persen lebih rendah dan mengalami stagnasi upah setelah awal karier dibandingkan pekerja matched. Sementara itu, cepatnya transisi kerja pada kelompok overeducated umumnya terjadi karena penyerapan di sektor informal yang identik dengan upah rendah, perlindungan terbatas, dan prospek kerja yang kurang menjanjikan.
+Bagi perekonomian, mismatch skala besar ini merupakan pemborosan investasi pendidikan dan kegagalan dalam mengalokasikan talenta bangsa secara optimal. Oleh karena itu, mengelola mismatch adalah kunci untuk memastikan bonus demografi benar-benar menjadi bonus produktivitas, bukan sekadar ledakan jumlah penduduk yang terjebak dalam siklus pengangguran atau pekerjaan rentan.
+Menunggu di Pintu Kerja: Survival
+Analysis Pencari Kerja
+Jika dianalogikan dengan sebuah perlombaan lari, setiap pemuda angkatan kerja yang aktif dalam mencari kerja adalah pelari yang berusaha untuk mencapai garis finish, yaitu pekerjaan baru. Siapa yang paling cepat menyentuh garis finish berarti lebih cepat mendapatkan pekerjaan. Namun, posisi start setiap pelari ternyata berbeda-beda, ada yang melaju lambat, ada yang terbebani ekspektasi tinggi, dan ada pula yang berlari stabil tanpa banyak hambatan.
+Gambar memperlihatkan jalannya perlombaan ini melalui kurva Kaplan-Meier.
+Pemuda dengan pendidikan lebih tinggi dari yang dibutuhkan
+(overeducated)
+tampak seperti pelari yang kencang. Kurvanya yang turun tajam pada awal waktu menandakan banyak yang mendapatkan pekerjaan baru dalam waktu yang cepat. Sebaliknya, mereka yang memiliki pendidikan di bawah standar posisi mereka (undereducated) cenderung lebih lambat. Kurvanya yang turun perlahan menunjukkan waktu mencari pekerjaan yang lebih panjang seolah menanti lintasan yang sesuai dengan ekspektasi. Sementara itu, mereka yang pendidikannya sesuai dengan
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 13
+demografi, jutaan pemuda masuk pasar kerja dengan latar pendidikan beragam, sementara peluang kerja tidak sepenuhnya sejalan. Hasil analisis survival ini memberi pesan penting bahwa terdapat kesenjangan antara sistem pendidikan dan kebutuhan riil pasar kerja.
+Apabila tidak segera dijembatani, kondisi ini akan memperlambat pemuda untuk finish di pintu kerja sekaligus mengurangi potensi optimal dari bonus demografi.
+Namun demikian, balapan menuju pintu kerja ini tidak hanya dipengaruhi oleh kecocokan pendidikan dan pekerjaan sebelumnya. Latar belakang demografi, sosial, dan ekonomi juga ikut menentukan lintasan yang ditempuh setiap pencari kerja. Ada yang jalannya lebih mulus, ada yang harus menempuh putaran lebih panjang. Siapa yang sebenarnya lebih diuntungkan dalam lomba ini dan siapa yang masih tertinggal di garis start?
+Mimpi vs Realita: Apa Kata Data?
+Setelah mengamati pola waktu mencari kerja melalui kurva Kaplan-Meier, pertanyaan yang selanjutnya muncul adalah seberapa besar peluang tiap kelompok pemuda untuk lebih cepat mencapai garis finish? Oleh karena itu, pekerjaannya (matched) berada di tengah-
+tengah yang mengindikasikan pola transisi kerja yang lebih stabil.
+Temuan ini memberi sinyal bahwa status pendidikan pada pekerjaan sebelumnya bukan sekadar catatan riwayat kerja, tetapi juga bekal awal yang memengaruhi lama waktu pemuda dalam menembus pintu kerja berikutnya. Berstatus undereducated justru dapat menjadi batu sandungan yang memperlambat langkah mereka. Hal ini sejalan dengan literatur yang menegaskan bahwa mismatch berpengaruh terhadap peluang dan durasi transisi kerja. Penelitian oleh Effenberger et al. menunjukkan bahwa pekerja undereducated menghadapi hambatan lebih besar dalam transisi kerja karena keterbatasan pendidikan atau keterampilan yang diakui pasar kerja.
+Sementara itu,
+Huertas
+&
+Raymond menegaskan bahwa overeducated umumnya bersifat sementara karena pekerja berpendidikan tinggi cenderung lebih cepat menyesuaikan diri dengan memeroleh pekerjaan yang lebih sesuai.
+Fenomena ini sangat relevan dengan kondisi pemuda Indonesia saat ini. Di tengah bonus
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 5 Kurva Kaplan-Meier Probabilitas Belum Mendapatkan Pekerjaan Berdasarkan
+Status Mismatch, 2024
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+analisis hazard ratio (HR) akan membantu untuk menjawabnya. Jika kurva Kaplan-
+Meier menggambarkan jalannya lomba, HR
+ibarat stopwatch yang menghitung kecepatan relatif antar pelari. HR adalah ukuran dalam survival analysis yang menunjukkan perbandingan kecepatan terjadinya suatu peristiwa antara dua kelompok yang dihitung dari hasil model Cox Proportional Hazard melalui transformasi HR = expβ. Besarnya perbedaan kecepatan dapat dihitung dengan rumus (HR−1)×100% dengan interpretasi jika hasil positif berarti peristiwa terjadi lebih cepat dan hasil negatif berarti peristiwa terjadi lebih lambat dibandingkan kelompok pembanding.
+Dari informasi ini dapat diketahui siapa yang melaju kencang, siapa yang tertahan, dan faktor apa saja yang membuat langkah pemuda melambat atau justru lebih cepat.
+Menilik pada Gambar 6, terlihat jelas bahwa status mismatch pada pekerjaan sebelumnya sangat menentukan lama waktu mendapatkan pekerjaan baru. Pemuda yang overeducated memiliki peluang 7,37 persen lebih cepat untuk kembali bekerja dibandingkan dengan yang matched. Sebaliknya, kelompok undereducated memiliki peluang
+10,26
+persen lebih lambat. Dengan kata lain, pengalaman kerja sebelumnya bukan sekadar riwayat, tetapi juga modal awal yang bisa mempercepat atau memperlambat langkah di lintasan pasar kerja.
+Namun, data Sakernas Agustus tahun 2024
+menunjukkan bahwa faktor demografi, sosial, dan ekonomi juga memiliki pengaruh yang signifikan.
+Pemuda perempuan menghadapi tantangan dengan peluang
+9,47 persen lebih lambat untuk memeroleh pekerjaan dibandingkan dengan laki-laki.
+Ini menandakan masih adanya hambatan struktural berbasis gender, mulai dari diskriminasi rekrutmen, beban ganda antara pekerjaan dan rumah tangga, hingga akses yang terbatas pada pekerjaan layak dan fleksibel (Naswa 2025). Temuan ini juga sejalan dengan penelitian sebelumnya yang menyoroti bahwa ketimpangan gender di dunia kerja masih terjadi, baik karena lemahnya penegakan regulasi terkait kesetaraan gender, rendahnya kesadaran pekerja terhadap hak-haknya, maupun
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 6 Pengaruh Mismatch serta Latar Belakang Demografi, Sosial, dan Ekonomi Terhadap
+Lama Waktu Mendapatkan Pekerjaan, 2024
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 15
+persen) dibanding perdesaan (3,67 persen)
+pada tahun 2024 (BPS 2024b) menjadi alasan lebih sulitnya untuk menembus pintu kerja di wilayah kota daripada di desa.
+Lalu dari status perkawinan, pemuda yang sudah atau pernah kawin memiliki peluang 61,74 persen lebih cepat mendapat pekerjaan dibandingkan dengan yang belum kawin. Tekanan ekonomi keluarga tampaknya menjadi bahan bakar ekstra dalam usaha mencari kerja yang mana sejalan dengan hasil penelitian Guner et al.
+. Lebih lanjut, struktur penyerapan tenaga kerja memperkuat temuan ini.
+Gambar 7 dan 8 menunjukkan bahwa
+59,01 persen pemuda yang sudah atau pernah kawin terserap di sektor informal dan 89,43 persen menempati jabatan non white collar. Temuan ini menegaskan bahwa percepatan transisi kerja bagi kelompok ini tidak semata-mata mencerminkan akses ke pekerjaan yang lebih baik, melainkan lebih pada keterdesakan kondisi ekonomi yang mendorong fleksibilitas pada pekerjaan yang tersedia. Dengan kata lain, status perkawinan berperan sebagai faktor pendorong mobilitas ke pasar kerja, namun seringkali berasosiasi dengan pekerjaan yang rentan, tanpa jaminan memadai, dan berupah rendah.
+terbatasnya posisi tawar pekerja perempuan.
+Meski demikian, terdapat indikasi bahwa ketimpangan ini perlahan mulai menyempit seiring berjalannya waktu
+(Nuraeni
+&
+Suryono 2021).
+Dilihat dari wilayah tempat tinggal, pemuda yang bertempat tinggal di Pulau Jawa memiliki peluang 43,71 persen lebih lambat dalam memeroleh pekerjaan dibandingkan pemuda di luar Pulau Jawa. Temuan ini sejalan dengan masih tingginya TPT di Pulau Jawa, yakni
+5,35 persen lebih tinggi dibandingkan angka nasional sebesar 4,91 persen (BPS 2024a).
+Persaingan tenaga kerja yang sangat ketat di kawasan ini memperlihatkan bahwa asumsi
+“datang ke Pulau Jawa untuk mencari kerja”
+menjadi pertanyaan besar, karena justru hasil ini menunjukkan adanya hambatan yang lebih besar bagi pemuda dalam transisi ke pekerjaan baru.
+Menariknya, pemuda yang tinggal di perkotaan juga tidak selalu berarti lebih cepat terserap pasar kerja. Pemuda yang tinggal di perkotaan justru 17,19 persen lebih lambat mendapat pekerjaan dibandingkan mereka yang tinggal di perdesaan. Persaingan ketat, preferensi terhadap pekerjaan formal, serta tingginya angka TPT di perkotaan (5,79
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja
+Nasional Agustus 2024, diolah
+Gambar 7 Persentase Pemuda Berstatus
+Sudah atau
+Pernah
+Kawin
+Berdasarkan Status Formalitas,
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja
+Nasional Agustus 2024, diolah
+Gambar 8 Persentase Pemuda Berstatus
+Sudah atau
+Pernah
+Kawin
+Berdasarkan Status White Collar,
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+Di samping itu, tingkat pendidikan memperlihatkan hal yang cukup mengejutkan.
+Pemuda yang berstatus terdidik (pendidikan terakhir SMA ke atas)
+justru 24,50 persen lebih lambat untuk mendapatkan pekerjaan.
+Fenomena ini tercermin dari Gambar 9 yang menunjukkan masih tingginya persentase pemuda yang berstatus pengangguran terdidik sebesar
+79,90 persen. Temuan ini menunjukkan bahwa Teori Modal Manusia yang berasumsi pendidikan tinggi meningkatkan peluang kerja tidak sepenuhnya berlaku dalam kondisi pemuda saat ini. Pendidikan tinggi tidak menjamin pemuda cepat mendapatkan pekerjaan, sebaliknya melewati proses yang lebih lama karena keterampilan yang dimiliki kurang sesuai dengan kebutuhan pasar kerja
+(Friska dan Damayanti 2021).
+Kemudian dari kacamata ekonomi, lapangan usaha dari pekerjaan pemuda juga turut memengaruhi transisi ke pasar kerja. Pemuda yang berpengalaman kerja di sektor-sektor penyerap tenaga kerja terbesar, yaitu pertanian, kehutanan, dan peternakan, serta perdagangan dan industri pengolahan (BPS
+2024c) yang selanjutnya disebut sektor utama memiliki peluang
+13,63
+persen lebih cepat memeroleh pekerjaan baru dibandingkan dengan pemuda yang bekerja di sektor lain. Luasnya basis kesempatan kerja di sektor utama mampu mempermudah pemuda untuk terserap ke pasar kerja.
+Semua ini memberi gambaran bahwa mimpi pemuda tidak selalu berjalan lurus dengan realita. Pendidikan tinggi, tinggal di kota, atau status belum menikah tidak otomatis menjadi tiket emas untuk cepat bekerja.
+Ada faktor demografi, sosial, ekonomi, dan struktural yang ikut menentukan seberapa
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja
+Nasional Agustus 2024, diolah
+Gambar 9 Persentase Pemuda Berstatus
+Pengangguran
+Berdasarkan
+Tingkat Pendidikan, 2024
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 10 Heatmap Pemuda Menurut Lapangan Usaha dari Pengalaman Kerja dan Pekerjaan
+Saat ini Berdasarkan Status Mismatch, 2024
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 17
+memperbesar peluang diterima, dan mempercepat proses rekrutmen, meskipun posisi yang diperoleh tidak selalu sesuai dengan kualifikasi pendidikan. Keterikatan pada sektor yang sama juga sejalan dengan praktik rekrutmen tenaga kerja di Indonesia.
+Pengalaman kerja kerap dijadikan syarat utama dalam penerimaan tenaga kerja. Hal ini menegaskan bahwa pengalaman bukan sekadar rekam jejak, tetapi modal sosial dan profesional yang berperan penting dalam memperlancar transisi pemuda ke pasar kerja.
+Tak kalah menarik, status formal dan informal juga memberi gambaran penting mengenai lebih cepatnya pemuda overeducated memeroleh pekerjaan baru. Gambar 11
+memperlihatkan bahwa 42,83 persen pemuda overeducated jatuh atau kembali terserap ke sektor informal, lebih tinggi dibandingkan pemuda matched yang hanya sebesar 31,21
+persen. Temuan ini menegaskan bahwa sektor informal berperan sebagai “katup penyelamat” yang memungkinkan pemuda overeducated segera masuk kembali ke pasar kerja.
+Namun, percepatan ini muncul dengan berbagai konsekuensi. Sektor informal identik mulus atau berliku perjalanan setiap pemuda untuk mendapatkan sebuah pekerjaan.
+Pertanyaannya, mengapa sebagian kelompok seperti undereducated justru mengalami durasi transisi yang lebih lama menuju pasar kerja?
+Dilihat dari Gambar 10, lapangan usaha dari pengalaman kerja dan pekerjaan saat ini mampu menjawab pertanyaan tersebut. Pemuda undereducated cenderung lebih lambat memeroleh pekerjaan baru dibandingkan pemuda matched karena lebih tingginya persentase pemuda undereducated yang mengalami transisi antar sektor mencapai 40,14 persen. Perpindahan sektor ini membutuhkan waktu adaptasi yang lebih panjang, baik dalam hal keterampilan, jejaring, maupun pemahaman terhadap karakteristik pekerjaan baru (O’Reilly et al
+2018; ILO 2022).
+Sebaliknya, pemuda overeducated relatif lebih cepat kembali terserap ke pasar kerja karena tingkat pergerakan antar sektor yang lebih kecil sebesar 31,35 persen dibandingkan pemuda matched. Dengan kata lain, mereka cenderung bertahan atau kembali ke sektor yang sama dengan pengalaman sebelumnya.
+Pola ini akan meminimalkan biaya adaptasi,
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 11 Heatmap Pemuda Matched dan Overeducated Berdasarkan Status Formal dan
+Informal, 2024
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+dengan upah yang lebih rendah, perlindungan kerja yang terbatas, dan prospek kerja yang kurang menjanjikan (Pramesti & Effendi
+2025). Dengan kata lain, cepatnya transisi kerja pemuda overeducated bukan karena tingginya permintaan akan kompetensi mereka, melainkan karena fleksibilitas sektor informal dalam menyerap kelebihan tenaga kerja berpendidikan tinggi.
+Lalu, alasan berhenti dari pekerjaan sebelumnya juga dapat memberikan petunjuk tambahan mengapa transisi kerja pemuda undereducated cenderung lebih lambat. Sebanyak 27,63 persen pemuda undereducated menyatakan habisnya masa kerja/kontrak sebagai alasan utama berhenti bekerja. Hal ini menandakan kerentanan yang cukup serius, karena tanpa jaminan keberlanjutan, posisi mereka di pasar kerja menjadi sangat rentan. Begitu kontrak berakhir, pendidikan yang relatif rendah membatasi pilihan pekerjaan, sementara syarat dan kualifikasi di pasar kerja bisa saja berubah atau semakin ketat.
+Selain itu, sebanyak 19,25 persen pemuda undereducated berhenti bekerja karena pendapatan yang kurang memuaskan.
+Alasan ini mencerminkan adanya dorongan untuk mencari pekerjaan yang lebih layak dengan pendapatan yang lebih memuaskan.
+Sementara itu,
+13,29
+persen pemuda undereducated menyatakan ketidakcocokan dengan lingkungan kerja sebagai alasan untuk berhenti. Faktor ini menunjukkan bahwa pengalaman di pekerjaan sebelumnya tidak hanya memengaruhi motivasi finansial, tetapi juga membentuk preferensi terhadap kondisi lingkungan di tempat kerja.
+Pola ini mengindikasikan bahwa pengalaman kerja di posisi yang tidak sesuai seringkali mendorong mereka untuk menaikkan ekspektasi terhadap pekerjaan selanjutnya
+(Jolianis et al. 2024). Namun, selektivitas ini bisa menjadi pedang bermata dua. Di satu sisi mencerminkan dorongan untuk mencari pekerjaan yang lebih layak, tetapi di sisi lain dapat memperpanjang masa menganggur karena tidak mudah menemukan pekerjaan yang memenuhi seluruh harapan tersebut.
+Dinamika ketenagakerjaan ini pada akhirnya menyingkap paradoks pasar kerja pemuda di Indonesia. Satu sisi diwarnai selektivitas yang menunda transisi, sisi lain ditandai fleksibilitas yang mengorbankan kualitas.
+Refleksi pentingnya, bonus demografi tidak otomatis berarti bonus produktivitas bila sebagian besar pemuda masih terjebak dalam lintasan yang timpang antara terlalu lama menunggu atau terlalu cepat menerima pekerjaan apa adanya. Tantangannya kini bukan sekadar mempercepat transisi, melainkan memastikan lintasan itu lebih setara dan menghasilkan pekerjaan yang layak.
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 12 Alasan Pemuda Undereducated Berhenti dari Pekerjaan Sebelumnya, 2024
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 19
+menunjukkan hal sebaliknya. Nilai referensi terdapat pada masing-masing baris pada kolom variabel dalam Lampiran 1.
+Teori Modal Manusia berpendapat bahwa pendidikan meningkatkan produktivitas
+(Becker 2015), dan data pun mengonfirmasi bahwa setiap jenjang pendidikan yang lebih tinggi memang mampu memangkas risiko mismatch atau “salah jurusan karir” hingga lebih dari 20 persen. Ini menunjukkan bahwa fondasi pendidikan formal tetaplah krusial. Namun, di dunia nyata yang penuh ketidakpastian, ijazah seringkali hanya menjadi satu dari banyak sinyal yang dilihat oleh pemberi kerja. Di sinilah Teori Sinyal mengambil peran sentral (Spence 1973)
+untuk menjelaskan mengapa beberapa kandidat lebih unggul dari yang lain.
+Dalam pasar yang sesak, sinyal-sinyal tambahan yang menunjukkan kompetensi
+Mengapa Bisa Begitu? Mengurai
+Akar Masalah
+Sesuai dengan permasalahan yang diangkat sebelumnya, di tengah persaingan pasar kerja yang semakin ketat, banyak tenaga kerja muda di Indonesia menghadapi sebuah dilema mengenai “mengapa gelar pendidikan tinggi tidak selalu menjadi tiket emas menuju pekerjaan yang sesuai?”. Untuk memahami mengapa bonus demografi berisiko menjadi bom waktu, kita perlu mengurai beberapa akar masalah yang saling berkelindan. Pada analisis ini diharapkan dapat memberikan pencerahan, membingkai dilema ini melalui dua kacamata ekonomi, yakni Teori Modal
+Manusia dan Teori Sinyal.
+Menilik Gambar 13, peluang mismatch lebih dari satu menunjukkan semakin tinggi nilai referensi semakin besar peluang mismatch, sedangkan peluang mismatch kurang dari satu
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+Gambar 13 Kenderungan Mismatch Tenaga Kerja Menurut Latar Belakang Demografi, Sosial, dan Ekonomi, 2024
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+praktis menjadi sangat berharga. Hasil studi ini secara gamblang menunjukkan bahwa kredensial di luar ijazah formal memiliki dampak signifikan. Kepemilikan sertifikasi keahlian, misalnya, dapat menurunkan peluang ketidaksesuaian kerja. Lebih menarik lagi, partisipasi dalam program pelatihan yang berorientasi pada keterampilan seperti
+Kartu Prakerja terbukti mampu mengurangi risiko mismatch lebih dari 5 persen. Temuan ini menggarisbawahi sebuah realitas baru:
+pemberi kerja tidak hanya mencari bukti bahwa seseorang bisa belajar, tetapi juga bukti bahwa seseorang bisa langsung bekerja.
+Sertifikasi dan pelatihan menjadi “sinyal” kuat yang meyakinkan perusahaan akan kesiapan dan relevansi seorang kandidat (Lozano dan
+Tàbara 2020).
+Lebih jauh, analisis ini mengungkap faktor-
+faktor lain yang membentuk peta peluang tenaga kerja modern. Penguasaan teknologi digital, misalnya, bukanlah lagi sebuah pilihan melainkan keharusan. Mereka yang akrab dengan teknologi digital memiliki kemungkinan mengalami mismatch hampir 7
+persen lebih rendah dibandingkan yang tidak.
+Ini menandakan bahwa literasi digital telah menjadi modal dasar yang sama pentingnya dengan kemampuan membaca dan menulis di era sebelumnya, seiring teknologi terus membentuk ulang pasar kerja (Acemoglu dan Restrepo 2018). Menariknya, terdapat juga temuan yang menantang asumsi umum.
+Salah satunya adalah pengalaman kerja; data menunjukkan bahwa setiap tahun tambahan pengalaman justru sedikit meningkatkan risiko mismatch. Fenomena ini dapat diartikan sebagai “jebakan karir”, di mana seorang pekerja yang terjebak dalam peran yang tidak sesuai sejak awal akan semakin sulit untuk beralih ke jalur yang lebih tepat seiring berjalannya waktu.
+Pada akhirnya, narasi yang terbentuk dari data ini adalah bahwa untuk berhasil menavigasi dunia kerja saat ini, tenaga kerja muda perlu membangun sebuah portofolio kompetensi yang utuh. Fondasi pendidikan formal memang penting untuk mengurangi risiko dasar, namun itu hanyalah tiket untuk masuk ke arena persaingan. Pemenangnya adalah mereka yang mampu memberikan sinyal-sinyal keunggulan lainnya:
+keterampilan praktis yang terverifikasi melalui sertifikasi, kemampuan adaptasi yang diasah lewat pelatihan, serta penguasaan teknologi sebagai bahasa utama ekonomi modern. Ini adalah pergeseran dari sekadar mengumpulkan gelar menjadi perpaduan strategis antara pengetahuan akademis dan keahlian yang relevan dengan denyut nadi industri.
+Untuk mewujudkan hal tersebut, pemerintah perlu menyiapkan kebijakan yang terintegrasi.
+Arah kebijakan mencakup penguatan pendidikan vokasi yang lebih aplikatif, perluasan program sertifikasi keterampilan, serta dorongan bagi perusahaan menyediakan pelatihan berkelanjutan. Selain itu, integrasi literasi digital dalam kurikulum dan pengembangan program pelatihan teknologi mutakhir seperti kecerdasan buatan atau analisis data menjadi keharusan. Transisi dari sekolah ke dunia kerja perlu difasilitasi melalui magang, praktik lapangan, dan skema apprenticeship yang terstruktur. Transparansi informasi pasar kerja juga harus diperkuat melalui sistem yang mudah diakses dan didukung data kebutuhan keterampilan masa depan. Di saat yang sama, dukungan bagi wirausaha muda melalui akses permodalan, inkubasi bisnis, dan pendampingan penting untuk menciptakan lapangan kerja baru.
+Dengan strategi ini, bonus demografi dapat benar-benar menjadi momentum untuk memperkuat daya saing nasional.
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 21
+Referensi
+Acemoglu, Daron, dan Pascual Restrepo. 2018. “The Race between Man and Machine: Implications of Technology for Growth, Factor Shares, and Employment.” American Economic Review
+108 : 1488–1542.
+Becker, Gary S. 2015. “The Enduring Power of Human Capital.” Dalam A Journal of the Plague
+Year, disunting oleh David Autor, 29–33. Cambridge, MA: MIT Press.
+BPS. 2024a. “Tingkat Pengangguran Terbuka Menurut Provinsi (Persen), 2024”.
+go.id/id/statistics-table/2/NTQzIzI=/tingkat-pengangguran-terbuka--agustus-2023.html
+BPS. 2024b. “Tingkat Pengangguran Terbuka Berdasarkan Daerah Tempat Tinggal, 2024”.
+berdasarkan-daerah-tempat-tinggal.html
+BPS. 2024c. “Keadaan Angkatan Kerja di Indonesia Agustus 2024”.
+id/publication/2024/12/09/6f1fd1036968c8a28e4cfe26/keadaan-angkatan-kerja-di-
+indonesia-agustus-2024.html
+Effenberger, Alexandra, Verena Lauber, Sebastian Schmitz, and Charlotte Senftleben-König.
+2019. Educational Attainment, Age and the Consequences of Job Loss: Empirical Evidence from Germany. OECD Economics Department Working Papers, No. 1558. Paris: OECD
+Publishing.
+Friska, Maya, dan Arie Damayanti. 2021. “The Effect of Overeducation on Unemployment
+Duration in Indonesian”. Jurnal Ekonomi Dan Statistik Indonesia 1 , 1-13.
+org/10.11594/jesi.01.01.01.
+Guner, Nezih, Yuliya A. Kulikova, and Arnau Valladares-Esteban. 2025. “Does the Added Worker
+Effect Matter?” Review of Economic Dynamics 56: 101271.
+red.2025.101271.
+Huertas, Isabel Pérez-Mayo, and Juan Luis Raymond. 2024. “Education, Educational Mismatch and Occupational Status: An Analysis Using PIAAC Data.” Economia Politica 41: 717–738.
+ILO. 2022. Estimating Labour Market Transitions from Labour Force Surveys. ILO Working Paper
+No. 35.
+Jolianis, J. 2021. “Analisis Durasi Menganggur Tenaga Kerja Terdidik di Indonesia dari Perspektif
+Penawaran Tenaga Kerja”. Doctoral thesis, Universitas Andalas.
+ac.id/77997/.
+Khoiruddin, M. Afif, Axellina Muara Setyanti, Agus Suman, Ferry Prasetyia, and Susilo Susilo.
+2024. “Exploring Determinants of Education-Job Mismatch Among Educated Workers in
+Indonesia”. Jurnal Ekonomi Pembangunan: Kajian Masalah Ekonomi Dan Pembangunan 25
+:263-81.
+Lozano, Mónica, dan J. David Tàbara. 2020. “Vocational Training and the Transition to the Labour
+Market in Europe: The Role of Signaling and Human Capital.” Journal of Vocational Education
+& Training 72 : 499–520.
+Naswa, Nabila. 2025. “Analisis Kesenjangan Gender Dalam Ketenagakerjaan di Indonesia”. Jurnal
+Multidisiplin Indonesia 4 , 1189-1200.
+Nuraeni, Yeni dan Ivan Lilin Suryono. 2021. “Analisis Kesetaraan Gender dalam Bidang
+Ketenagakerjaan di Indonesia”. Jurnal Ilmu Pemerintahan 20 , 68-79.
+org/10.35967/njip.v20i1.134.
+O’Reilly, Jacqueline, Janine Leschke, Renate Ortlieb, Martin Seeleib-Kaiser, and Paola Villa, eds.
+2018. “Youth Labor in Transition: Inequalities, Mobility, and Policies in Europe”. New York:
+Oxford University Press, 2018.
+Pramesti, D., A. dan Aji Sofyan Effendi. 2025. “Peran Sektor Informal terhadap Penyerapan
+Tenaga Kerja”. Forum Ekonomi: Jurnal Ekonomi, Manajemen Dan Akuntansi, 27, 320-
+328.
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+Quintini, Glenda. “Over-qualified or Under-skilled: A Review of Existing Literature.” OECD Social,
+Employment and Migration Working Papers, no. 121. Paris: OECD Publishing, 2011.
+Spence, Michael. 1973. “Job Market Signaling.” The Quarterly Journal of Economics 87 : 355–
+74.
+Sun, Hongye, and Giseung Kim. “The Wage Effects of Overeducation across Overall Wage
+Distribution on University Graduates: Incidence, Heterogeneity and Comparison.”
+International Journal of Manpower 43, no. 8 : 1602–1625.
+Wicaksono, Padang, Imelda Theresia, and Badra Al Aufa. 2023. “Education–Occupation Mismatch and Its Wage Penalties: Evidence from Indonesia.” Cogent Business & Management 10 .
+doi:10.1080/23311975.2023.2251206.
+Mismatch Pendidikan–Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi 23
+Lampiran
+Lampiran 1 Hasil Model Regresi Logistik Determinan Mismatch Pemuda, 2024
+Variabel
+β
+Std. Error
+Signifikansi
+Kecenderungan
+Mismatch
+Lama Bekerja
+(0-14 Tahun)
+0,1425
+0,0047
+0,0000
+1,1531
+Penggunaan Teknologi Digital
+(1=Ya;0=Tidak)
+0,0718
+0,0127
+0,0000
+0,9307
+Sertifikasi
+(1=Ya;0=Tidak)
+0,0345
+0,0103
+0,0008
+0,9661
+Tingkat Pendidikan
+(1=Dasar; 2=Menengah; 3=Tinggi)
+0,2365
+0,0086
+0,0000
+0,7894
+Sektor Pekerjaan
+(1=Primer; 2=Sekunder; 3=Tersier)
+0,0190
+0,0068
+0,0051
+0,9812
+Keikutsertaan Kartu Prakerja
+(1=Ya; 0=Tidak)
+0,0548
+0,0118
+0,0000
+0,9466
+Umur
+(16-30 Tahun)
+0,0012
+0,0005
+0,0215
+0,9988
+Jenis Kelamin
+(1=Laki-laki; 2=Perempuan)
+0,0402
+0,0096
+0,0000
+0,9606
+Status Perkawinan
+(1=Pernah Kawin; 0=Belum Pernah)
+0,1487
+0,0095
+0,0000
+0,8618
+Klasifikasi Wilayah
+(1=Perkotaan; 2=Perdesaan)
+0,0210
+0,0098
+0,0321
+0,9792
+Constant
+0,4932
+0,0397
+0,0000
+1,6376
+Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+Lampiran 2 Tabel Korespondensi Antara Pendidikan dan Pekerjaan Berdasarkan ISCO-08
+Sumber: International Labor Organization (ILO)
+Lampiran 3 Hasil Cox Proportional Hazards Model Untuk Durasi Waktu Mencari Kerja Pemuda,
+Variabel
+β
+Std. Error
+Signifikansi
+Hazard Ratio
+Overeducated
+(Referensi=Matched)
+0,07110
+0,03094
+0,021553
+1,0737
+Undereducated
+(Referensi=Matched)
+0,10826
+0,05247
+0,039067
+0,8974
+Jenis Kelamin
+(1=Perempuan; 0=Laki-laki)
+0,09948
+0,03004
+0,000927
+0,9053
+Pulau
+(1=Jawa; 0=Luar Jawa)
+0,57467
+0,09613
+0,000000
+0,5629
+Klasifikasi Wilayah
+(1=Perkotaan; 0=Perdesaan)
+0,18092
+0,02903
+0,000000
+0,8345
+Status Perkawinan
+(1=Sudah/Pernah Kawin; 0=Belum Kawin)
+0,48081
+0,03066
+0,000000
+1,6174
+Tingkat Pendidikan
+(1=Terdidik; 0=Tidak Terdidik)
+0,28107
+0,03339
+0,000000
+0,7550
+Lapangan Usaha
+(1=Utama; 0=Lainnya)
+0,12782
+0,02861
+0,000000
+1,1363

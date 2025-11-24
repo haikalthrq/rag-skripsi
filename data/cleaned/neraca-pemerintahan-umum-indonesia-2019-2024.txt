@@ -1,0 +1,3628 @@
+2019 2024
+NERACA
+PEMERINTAHANAN
+UMUM INDONESIA
+General Government Accounts of
+Indonesia
+BADAN PUSAT STATISTIK
+BPS-STATISTICS INDONESIA
+Volume 42, 2025
+ISSN 0854-6983
+Katalog/Catalogue: 9501002
+Neraca Pemerintahan Umum Indonesia 2019–2024
+General Government Accounts of Indonesia, 2019–2024
+Volume 42, 2025
+Katalog/Catalogue: 9501002
+ISSN: 0854-6983
+Nomor Publikasi/Publication Number: 07200.25007
+Ukuran Buku/Book Size: 21 cm x 29,7 cm
+Jumlah Halaman/Number of Pages: xiv+107 halaman/pages
+Penyusun Naskah/Manuscript Drafter:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penyunting/Editor:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Pembuat Kover/Cover Designer:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penerbit/Publisher:
+©Badan Pusat Statistik/BPS-Statistics Indonesia
+Sumber Ilustrasi/Illustration Source:
+canva.com, freepik.com
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik
+It is prohibited to reproduce and/or duplicate part or all this book for commercial purpose without permission from BPS-Statistics Indonesia
+TIM PENYUSUN/COMPILERS
+NERACA PEMERINTAHAN UMUM INDONESIA 2019–2024
+GENERAL GOVERNMENT ACCOUNTS OF INDONESIA 2019–2024
+Volume 42, 2025
+Moh. Edy Mahmud
+Pipit Helly Sorayan
+Vina Eka Andriyani
+Zaitun Rohmah
+Deja Firda Lupitasari
+Fakhriza Akbar
+Yoga Dwi Nugroho
+Rifky Afrizal Mukti
+Deja Firda Lupitasari
+Deja Firda Lupitasari
+Canva.com, Freepik.com
+Pengarah/Director
+Penanggung Jawab
+Person in Charge
+Penyunting/Editor
+Penulis Naskah/Writer
+Pengolah Data/Data Processor
+Pembuat Kover/Cover Designer
+Penata Letak/Layouter
+Deja Firda Lupitasari
+ISSN 0854-6983
+v
+Publikasi
+Neraca
+Pemerintahan
+Umum Indonesia 2019–2024 merupakan publikasi yang menyajikan neraca-neraca
+Pemerintahan Umum menurut tingkat Pusat dan Daerah dari tahun 2019 sampai dengan tahun 2024. Ada enam neraca Pemerintahan
+Umum yang disajikan dalam publikasi ini, yaitu Neraca Produksi, Neraca Pendapatan yang Dihasilkan, Neraca Alokasi Pendapatan
+Primer,
+Neraca
+Distribusi
+Pendapatan
+Sekunder, Neraca Penggunaan Pendapatan
+Disposabel, dan Neraca Modal. Neraca-
+neraca tersebut disajikan dalam bentuk tabel dan grafik, baik berupa persentase maupun nilai rupiah.
+Sejak publikasi tahun
+2016, penyusunan neraca pemerintahan umum sudah mengacu pada System of National
+Accounts (SNA) 2008 sesuai rekomendasi
+United Nations Statistics Division (UNSD).
+Dengan demikian, konsep, definisi, cakupan, dan metode estimasi dalam publikasi ini selaras dengan SNA 2008. Beberapa data yang dipublikasikan masih bersifat sementara dan akan direvisi ketika ada data terbaru pada publikasi berikutnya.
+Akhirnya kami sampaikan penghargaan yang tinggi kepada semua pihak yang telah memberikan bantuan hingga selesainya publikasi ini. Kritik dan saran yang membangun dari para pembaca dan pengguna data sangat diharapkan demi perbaikan publikasi ini di masa mendatang.
+General Government Accounts of
+Indonesia
+2019–2024 provides detailed general government accounts at both the central and regional administrative levels for the period 2019 to 2024, which present six sequences of accounts, i.e., Production
+Account, Generation of Income Account,
+Allocation of Primary Income Account,
+Secondary Distribution of Income Account,
+Use of Disposable Income Account, and
+Capital
+Account.
+These accounts are presented as tables and graphics in percentages or absolute values.
+Since 2016, the Publication of
+General Government Accounts has referred to the System of National Accounts (SNA)
+2008 as the United Nations Statistics Division
+(UNSD)
+recommendation.
+Therefore, concept, definition, scope, and estimation method contained are consistent with SNA
+2008. Some of the published data are preliminary and will be revised when updated data are available in the next publication.
+Finally, profound gratitude and sincere appreciation to all who contributed to the successful completion of this publication.
+Suggestions are greatly appreciated to improve the future editions.
+vi s
+“Publikasi Neraca Pemerintahan Umum
+Indonesia 2019–2024 menyajikan neraca-
+neraca Pemerintahan Umum menurut tingkat Pusat dan Daerah dari tahun 2019
+sampai dengan tahun 2024 mulai dari
+Neraca Produksi sampai dengan Neraca
+Modal.”
+Jakarta, Oktober 2025
+KEPALA BADAN PUSAT STATISTIK
+Chief Statistician
+Amalia Adininggar Widyasanti
+“The Publication of General Government Accounts of Indonesia 2019–2024
+provides detailed general government accounts at both the central and regional administrative levels for the period 2019 to 2024, covering the Production
+Account to the Capital Account.”
+vii
+DAFTAR ISI/TABLE OF CONTENTS
+NERACA PEMERINTAHAN UMUM INDONESIA 2019–2024
+GENERAL GOVERNMENT ACCOUNTS OF INDONESIA 2019–2024
+Volume 42, 2025
+KATA PENGANTAR/PREFACE ... v
+DAFTAR ISI/TABLE OF CONTENTS ... vii
+DAFTAR TABEL/LIST OF TABLES ... ix
+DAFTAR GAMBAR/LIST OF FIGURES ... xi
+DAFTAR LAMPIRAN/LIST OF APPENDICES ... xiii
+BAB 1 PENDAHULUAN/INTRODUCTION ... 1
+BAB 2 SUMBER DATA DAN METODOLOGI/DATA SOURCES AND
+METHODOLOGY ... 7
+2.1 Sumber Data/Data Sources ... 9
+2.1.1 Pendapatan/Revenue ... 10
+2.1.2 Belanja/Expenditure ... 11
+2.1.3 Pembiayaan/Financing ... 14
+2.2 Metodologi/Methodology ... 15
+2.2.1 Neraca Produksi/The Production Account ... 18
+2.2.2 Neraca Pendapatan yang Dihasilkan/The Generation of Income
+Account ... 22
+2.2.3 Neraca Alokasi Pendapatan Primer/The Allocation of Primary
+Income Account ... 25
+2.2.4 Neraca Distribusi Pendapatan Sekunder/The Secondary
+Distribution of Income Account ... 30
+2.2.5 Neraca Penggunaan Pendapatan Disposabel/The Use of
+Disposable Income Account ... 35
+2.2.6 Neraca Modal/The Capital Account ... 39
+ISSN 0854-6983
+viii
+BAB 3 ANALISIS DESKRIPTIF KOMPONEN NERACA PEMERINTAHAN UMUM
+2019–2024/DESCRIPTIVE ANALYSIS OF THE ACCOUNT’S COMPONENTS
+2019–2024 ... 47
+3.1 Output Pemerintah/Government Output ... 51
+3.2 Kompensasi Pegawai/Compensation of Employees ... 55
+3.3 Pendapatan Primer/Primary Income ... 61
+3.4 Pendapatan Disposabel/Disposable Income ... 63
+3.5 Pengeluaran Konsumsi Pemerintah/Government Final Consumption
+Expenditure ... 69
+3.6 Tabungan Bruto/Gross Savings ... 72
+3.7 Pembentukan Modal Tetap Bruto/Gross Fixed Capital Formation ... 74
+3.8 Pinjaman Neto/Net Lending-Net Borrowing ... 80
+DAFTAR PUSTAKA/REFERENCES ... 83
+LAMPIRAN/APPENDICES ... 87
+ix
+No. Tabel
+/Table
+Judul Tabel/Table Title
+Halaman
+Persentase Komponen-Komponen Neraca Pemerintahan
+Umum Terhadap Produk Domestik Bruto (PDB) (persen),
+2019–2024/Percentage of General Government Accounts
+Components to Gross Domestic Product (GDP) (percent), 2019–
+2024 ...
+Proporsi PMTB dan Tabungan Bruto Pemerintahan Umum terhadap PMTB Nasional (persen), 2019–2024/Proportion of
+GFCF and Gross Saving General Government on National GFCF
+(percent), 2019–2024 ...
+DAFTAR TABEL/LIST OF TABLES
+x xi
+No.
+Gambar
+/Figure
+Judul Gambar/Figure Title
+Halaman
+Output Non-Pasar Pemerintahan Umum (triliun rupiah), 2019–
+2024/General Government Non-Market Output (trillion rupiah),
+2019–2024 ...
+Proporsi Konsumsi Antara dan Nilai Tambah Terhadap Output
+Pemerintahan Umum (persen), 2019–2024/Proportion of
+Intermediate Consumption and Value Added to General
+Government Output (percent), 2019–2024 ...
+Kompensasi Belanja Pegawai Pemerintahan Umum (triliun rupiah), 2019–2024/Compensation of Employees of General
+Government (trillion rupiah), 2019–2024 ...
+Persentase Kompensasi Pegawai Terhadap Nilai Tambah Bruto
+Pemerintahan Umum (persen), 2019–2024/Percentage of
+Compensation of Employees to Gross Value Added of General
+Government (percent), 2019–2024 ...
+Proporsi Kompensasi Pegawai Menurut Tingkat Pemerintah
+(persen) (persen), 2019–2024/Proportion of Compensation of
+Employees by Level of Government (percent), 2019–2024 ...
+Pendapatan Nasional Bruto (PNB) Pemerintahan Umum
+(triliun rupiah), 2019–2024/Gross National Income (GNI) of
+General Government (trillion rupiah), 2019–2024 ...
+Pendapatan Disposabel Pemerintahan Umum (triliun rupiah),
+2019–2024/Disposable Income of General Government (trillion rupiah), 2019–2024 ...
+Manfaat Sosial Pemerintahan Umum (triliun rupiah), 2019–
+2024/Social Benefits Other Than Social Transfer in Kind of
+General Government (trillion rupiah), 2019–2024 ...
+DAFTAR GAMBAR/LIST OF FIGURES
+xii
+No.
+Gambar
+/Figure
+Judul Gambar/Figure Title
+Halaman
+Pajak Pendapatan, Kekayaan, dan Pajak Lainnya Pemerintahan
+Umum (triliun rupiah), 2019–2024/Current Taxes on Income,
+Wealth, and Other Taxes of General Government (trillion rupiah), 2019–2024 ...
+Pengeluaran Konsumsi Pemerintahan Umum (triliun rupiah),
+2019–2024/
+General
+Government
+Final
+Consumption
+Expenditure (GFCE) (trillion rupiah), 2019–2024 ...
+Tabungan Bruto Pemerintahan Umum (triliun rupiah), 2019–
+2024/General Government Gross Savings (trillion rupiah),
+2019–2024 ...
+Persentase PMTB Terhadap PDB Atas Dasar Harga Berlaku
+(persen), 2019–2024/Percentage of GFCF on GDP at Current
+Market Prices (percent), 2019–2024 ...
+PMTB Pemerintahan Umum (triliun rupiah), 2019–2024/GFCF
+of General Government (trillion rupiah), 2019–2024 ...
+Proporsi PMTB Pemerintahan Umum Menurut Tingkat
+Pemerintah (persen), 2019–2024/Proportion of General
+Government GFCF by Level of Government (percent), 2019–
+2024 ...
+Pinjaman Neto Pemerintahan Umum (triliun rupiah), 2019–
+2024/Net Lending/Net Borrowing of General Government
+(trillion rupiah), 2019–2024 ...
+xiii
+DAFTAR LAMPIRAN/LIST OF APPENDICES
+No. Lampiran
+/Appendices
+Judul Lampiran/Appendices Title
+Halaman
+.1
+Neraca Produksi Pemerintahan Umum (miliar rupiah), 2019–
+2024/General Government Production Account (billion rupiah),
+2019–2024 ...
+1.2
+Neraca Produksi Pemerintahan Pusat (miliar rupiah), 2019–
+2024/Central Government Production Account (billion rupiah),
+2019–2024 ...
+1.3
+Neraca Produksi Pemerintahan Daerah (miliar rupiah), 2019–
+2024/Local Government Production Account (billion rupiah),
+2019–2024 ...
+2.1
+Neraca Pendapatan yang Dihasilkan Pemerintahan Umum
+(miliar rupiah), 2019–2024/General Government Generation of
+Income Account (billion rupiah), 2019–2024 ...
+2.2
+Neraca Pendapatan yang Dihasilkan Pemerintahan Pusat
+(miliar rupiah), 2019–2024/Central Government Generation of
+Income Account (billion rupiah), 2019–2024 ...
+2.3
+Neraca Pendapatan yang Dihasilkan Pemerintahan Daerah
+(miliar rupiah), 2019–2024/Local Government Generation of
+Income Account (billion rupiah), 2019–2024 ...
+3.1
+Neraca Alokasi Pendapatan Primer Pemerintahan Umum
+(miliar rupiah), 2019–2024/General Government Allocation of
+Primary Income Account (billion rupiah), 2019–2024 ...
+3.2
+Neraca Alokasi Pendapatan Primer Pemerintahan Pusat (miliar rupiah), 2019–2024/Central Government Allocation of Primary
+Income Account (billion rupiah), 2019–2024 ...
+3.3
+Neraca Alokasi Pendapatan Primer Pemerintahan Daerah
+(miliar rupiah), 2019–2024/Local Government Allocation of
+Primary Income Account (billion rupiah), 2019–2024 ...
+xiv
+No. Lampiran
+/Appendices
+Judul Lampiran/Appendices Title
+Halaman
+.1
+Neraca Distribusi Pendapatan Sekunder Pemerintahan Umum
+(miliar rupiah), 2019–2024/General Government Secondary
+Distribution of Income Account (billion rupiah), 2019–2024 ...
+4.2
+Neraca Distribusi Pendapatan Sekunder Pemerintahan Pusat
+(miliar rupiah), 2019–2024/Central Government Secondary
+Distribution of Income Account (billion rupiah), 2019–2024 ...
+4.3
+Neraca Distribusi Pendapatan Sekunder Pemerintahan Daerah
+(miliar rupiah), 2019–2024/Local Government Secondary
+Distribution of Income Account (billion rupiah), 2019–2024 ...
+5.1
+Neraca Penggunaan Pendapatan Disposabel Pemerintahan
+Umum (miliar rupiah), 2019–2024/General Government Use of
+Disposable Income Account (billion rupiah), 2019–2024 ...
+5.2
+Neraca Penggunaan Pendapatan Disposabel Pemerintahan
+Pusat (miliar rupiah), 2019–2024/Central Government Use of
+Disposable Income Account (billion rupiah), 2019–2024 ...
+5.3
+Neraca Penggunaan Pendapatan Disposabel Pemerintahan
+Daerah (miliar rupiah), 2019–2024/Local Government Use of
+Disposable Income Account (billion rupiah), 2019–2024 ...
+6.1
+Neraca Modal Pemerintahan Umum (miliar rupiah), 2019–
+2024/General Government Capital Account (billion rupiah),
+2019–2024 ...
+6.2
+Neraca Modal Pemerintahan Pusat (miliar rupiah), 2019–
+2024/Central Government Capital Account (billion rupiah),
+2019–2024 ...
+6.3
+Neraca Modal Pemerintahan Daerah (miliar rupiah), 2019–
+2024/Local Government Capital Account (billion rupiah), 2019–
+2024 ...
+I.
+PENDAHULUAN
+Pemerintahan umum merupakan salah satu sektor penting dalam kerangka
+Sistem Neraca Nasional (SNA 2008).
+Pemerintahan umum memiliki fungsi utama sebagai produsen jasa non-pasar yang bertanggung jawab dalam menyediakan barang dan jasa untuk masyarakat atau individu rumah tangga seperti jasa administrasi, pertahanan, pendidikan, kesehatan, dan lain-lain.
+Selain itu, pemerintahan umum juga berfungsi meredistribusi pendapatan dan kekayaan melalui pajak dan transfer.
+Sektor pemerintahan umum di
+Indonesia terdiri atas pemerintah pusat dan pemerintah daerah. Pemerintah pusat mencakup seluruh kementerian, badan, dan instansi negara, baik yang ada di pusat maupun unit vertikalnya di daerah, termasuk juga Lembaga Non
+Profit (LNP) yang dikendalikan oleh pemerintah pusat.
+Sementara itu, pemerintah daerah mencakup seluruh unit pemerintah provinsi, kabupaten/
+kota, desa, dan LNP non pasar yang dikendalikan pemerintah daerah.
+I.
+INTRODUCTION
+General government is an important sector in the System of
+National
+Accounts
+(SNA
+2008).
+General government acts primarily as a producer of non-market services. It is responsible in providing goods and services to the community or individual households, such as administrative services, defense, education, health, and other.
+Moreover, general government redistributes income and wealth through taxes and transfers.
+General government sector in
+Indonesia consists of the central government and local governments.
+The central government includes all ministries, agencies, and state agencies, which are in the central or vertical units in a region, including
+Non-Profit Institutions (NPI) controlled by the central government. Meanwhile, local governments cover all government units in the province, district/city, village, and non-market
+NPI
+controlled by the local government.
+Pemerintah berperan sebagai pengelola keuangan negara, yang mencakup pengelolaan fiskal, pengelolaan moneter, dan pengelolaan kekayaan negara yang dipisahkan. Anggaran Pendapatan dan
+Belanja Negara (APBN) dan Anggaran
+Pendapatan
+Belanja
+Daerah
+(APBD)
+merupakan instrumen kebijakan fiskal. Di
+Indonesia,
+APBN
+sebagai instrumen utama kebijakan fiskal mempunyai peranan yang strategis dalam mewujudkan tercapainya tujuan dan sasaran pembangunan.
+Pembangunan ekonomi merupakan hasil dari perencanaan yang seksama berlandaskan pada data yang lengkap, terpercaya, dan berkesinambungan. Untuk melihat peran pemerintah dalam perekonomian maka diperlukan data dari sektor pemerintah yang biasanya disajikan dalam bentuk suatu sistem neraca baku.
+Publikasi ini menyajikan neraca pemerintahan umum selama kurun waktu
+2019-2024
+berdasarkan
+System of
+National Accounts (SNA) 2008. Publikasi ini disajikan dalam tiga bab. Bab I
+Pendahuluan, menjelaskan latar belakang
+The government functions as the manager of state finances, which includes fiscal management, monetary management, and the management of separated state assets. The State
+Budget (Anggaran Pendapatan dan
+Belanja Negara, APBN) and the
+Regional
+Budget
+(Anggaran
+Pendapatan Belanja Daerah, APBD)
+serve as instruments of fiscal policy. In
+Indonesia, the APBN, as the primary instrument of fiscal policy, plays a strategic role in achieving developmental goals and objectives.
+Successful economic development is the result of prudent and intelligent planning, based on comprehensive, reliable, and sustainable data. To measure the government’s economic performance, a data set is required as a standard set of government accounts.
+This publication presents the government accounts in 2019-2024
+based on the System of National
+Accounts (SNA) 2008. It is presented under three chapters.
+Chapter
+I
+Introduction presents the background penyusunan neraca pemerintahan umum.
+Bab
+II
+Sumber
+Data dan
+Metodologi, menjelaskan data-data yang digunakan untuk menyusun neraca pemerintahan umum, cakupan pemerintahan umum, serta konsep dan definisi dari setiap neraca pemerintahan umum dan rinciannya berdasarkan SNA
+2008 yang diterbitkan oleh PBB. Bab III
+Analisis Deskriptif Komponen Neraca
+Pemerintahan
+Umum, menjelaskan analisis perbandingan antar komponen dan tren perkembangan setiap komponen dengan menggunakan tabel dan grafik.
+Neraca pemerintahan umum menggambarkan keterlibatan pemerintah dalam menciptakan output non-pasar, meredistribusi pendapatan dan kekayaan melalui pajak, manfaat sosial, dan subsidi. Selain itu, neraca pemerintahan umum juga menjelaskan pembentukan modal melalui tabungan dan transfer modal.
+to government accounts. Chapter II
+Data
+Sources and
+Methodology describes data used in estimating general government accounts, coverage of general government, concepts, and definitions of each item in the general government account based on the SNA 2008, published by the
+United
+Nations.
+Chapter
+III,
+Descriptive Analysis of the General
+Government
+Account
+Components, explains a comparative analysis and trend between components through tables and charts.
+The general government account defines the government's commitment in creating non-market production, redistributing income and wealth through taxes, social benefits, and subsidies. In addition, general government account also shows how savings and capital transfers are used to finance capital formation.
+II. SUMBER DATA DAN
+METODOLOGI
+2.1 Sumber Data
+Sumber data yang digunakan dalam publikasi ini adalah realisasi
+Anggaran
+Pendapatan dan
+Belanja
+Negara
+(APBN), realisasi
+Anggaran
+Pendapatan dan Belanja Daerah (APBD),
+Government
+Finance
+Statistics
+(GFS)
+Indonesia, dan data output
+Bank
+Indonesia. Data realisasi APBN dan GFS
+diperoleh dari
+Direktorat
+Jenderal
+Perbendaharaan, sedangkan data APBD
+diperoleh dari
+Direktorat
+Jenderal
+Perimbangan Keuangan, Kementerian
+Keuangan.
+APBN dan APBD merupakan wujud pengelolaan keuangan negara yang ditetapkan tiap tahun dengan undang-undang. Berdasarkan Undang-
+Undang Nomor 17 Tahun 2003 tentang keuangan negara, APBN/APBD terdiri atas tiga kelompok anggaran yaitu kelompok pendapatan negara, kelompok pengeluaran/belanja negara, dan kelompok pembiayaan. Penjelasan ketiga kelompok tersebut adalah sebagai berikut.
+II. DATA SOURCES AND
+METHODOLOGY
+2.1 Data Sources
+The data used in this publication is realization of State
+Budget (APBN) and Regional Budget
+(APBD), Government Finance Statistics
+(GFS) of Indonesia, and data on output of Bank Indonesia. State budget, regional budget, and Government
+Finance Statistics (GFS) data obtained from Directorate General of Treasury, while regional budget data were obtained from Directorate General of
+Fiscal Balance - Ministry of Finance.
+State
+Budget
+(APBN)
+and
+Regional Budget (APBD) are forms of financial management which are determined annually by law. According to Law Number concerning state finance, the APBN/APBD consists of three budgetary groups: the revenue group, the expenditure group, and the financing group. The explanation of these three groups are as follows.
+2.1.1 Pendapatan
+Pendapatan Negara di APBN
+terdiri dari pendapatan perpajakan, pendapatan Penerimaan Negara Bukan
+Pajak (PNBP), dan pendapatan hibah.
+Pendapatan perpajakan terdiri dari pendapatan pajak dalam negeri dan pajak perdagangan internasional, seperti
+Pajak Penghasilan (PPh), Pajak Bumi dan
+Bangunan (PBB), cukai, bea masuk/keluar dan pajak lainnya. Pendapatan PNBP
+terdiri dari pendapatan sumber daya alam (SDA), pendapatan dari kekayaan negara dipisahkan, pendapatan Badan
+Layanan Umum (BLU), dan pendapatan
+PNBP lainnya.
+Sementara itu, berdasarkan
+Undang-undang Nomor 23 Tahun 2014
+tentang pemerintah daerah, penerimaan pemerintah daerah terdiri dari
+Pendapatan Asli Daerah (PAD) yang meliputi pajak daerah, retribusi daerah, hasil pengelolaan kekayaan daerah yang dipisahkan, dan lain-lain PAD yang sah.
+Selain PAD, penerimaan pemerintah daerah juga mencakup pendapatan transfer dan lain-lain pendapatan daerah yang sah. Pendapatan transfer meliputi transfer pemerintah pusat dan transfer
+2.1.1 Revenues
+Government revenues in the
+State Budget (APBN) encompass tax revenues, Non-Tax State Revenue
+(PNBP), and grants. Tax revenues are comprised of domestic taxes and international trade taxes, which include Income Taxes (PPh), Land and
+Building Taxes (PBB), excise duties, customs duties on imports and exports, and other forms of taxation. Non-Tax
+State Revenue includes revenues from natural resources, income from separated state assets, revenues generated by Public Service Agencies, and other non-tax state revenues.
+Meanwhile, based on Law No.
+23/2014, in the regional budget, local revenues consist of local own-source revenue (PAD) consist of regional taxes and levies, proceeds of restricted state assets management, and other own-
+source revenue. Apart from local own-
+source revenue, local government revenues also include transfer income and other legal regional revenues.
+Transfer revenues include central government transfers and inter-
+regional transfers. Central government antar daerah. Transfer pemerintah pusat terdiri atas dana perimbangan, dana otonomi khusus, dana keistimewaan, dan dana desa. Contoh dana perimbangan seperti Dana Bagi Hasil (DBH), Dana
+Alokasi Umum (DAU) dan Dana Alokasi
+Khusus (DAK).
+2.1.2 Belanja
+Belanja negara memiliki peran strategis dalam mendukung percepatan pembangunan yang inklusif dan berkelanjutan dalam mencapai dan meningkatkan kesejahteraan rakyat.
+Belanja negara dipergunakan untuk keperluan penyelenggaraan tugas pemerintah pusat dan pelaksanaan perimbangan keuangan antara pemerintah pusat dan daerah.
+Berdasarkan UU Nomor 17 Tahun 2003
+tentang keuangan negara pasal 11 dan
+16, belanja negara dan belanja daerah dirinci menurut organisasi, fungsi dan jenis belanja. Seluruh jenis belanja disusun dengan penganggaran terpadu
+(unified budgeting) yang dilakukan secara terintegrasi guna melaksanakan kegiatan pemerintah yang didasarkan pada prinsip pencapaian efisiensi alokasi dana (PP
+Nomor tahun tentang transfers consist of balance funds, special autonomy funds, privileges funds, and village funds. Examples of balance funds include Revenue Sharing
+Fund (DBH), General Allocation Funds
+(DAU), and Specific Allocation Funds
+(DAK).
+2.1.2 Expenditure
+State expenditure has a strategic role in supporting the acceleration of sustainable and inclusive development in achieving and improving people's welfare. State expenditures are used to carry out the tasks of the central government and implement a financial balance between the central and regional governments. Based on Law No. 17
+/2003
+concerning state finances articles 11 and 16, state expenditure and regional expenditure are divided according to organization, function, and type of expenditure. All types of expenditures are prepared using unified budgeting which is carried out in an integrated manner to carry out government activities based on the principle of achieving efficiency in the allocation of funds (PP No. 21/2004
+Penyusunan Rencana Kerja dan Anggaran
+Kementerian Negara/Lembaga pasal 1).
+Pada penjelasan PP Nomor 21 Tahun dijelaskan bahwa sistem penganggaran terpadu
+(unified budgeting) menyatukan anggaran belanja rutin dan belanja pembangunan, mereklasifikasi rincian belanja negara menurut organisasi, fungsi dan jenis belanja, serta penetapan dasar alokasi anggaran berdasarkan program.
+Pada Peraturan Menteri Keuangan
+Nomor
+101/PMK.02/2011
+tentang
+Klasifikasi Anggaran, belanja negara dibedakan antara belanja pemerintah pusat serta transfer ke daerah dan dana desa. Belanja pemerintah pusat terdiri atas belanja pegawai, belanja barang dan jasa, belanja modal, belanja bunga utang, belanja subsidi, belanja hibah, belanja bantuan sosial, dan belanja lain-lain.
+Sementara itu, klasifikasi transfer ke daerah terdiri dari dana perimbangan, dana otonomi khusus, dana keistimewaan, dan dana desa. Rincian belanja negara menurut organisasi disesuaikan dengan jumlah kementerian negara/lembaga yang ada, dan concerning Preparation of Work Plans and Budget of State Ministries /
+Institutions article
+1).
+In the explanation of PP No. 21/ 2004, it is explained that the unified budgeting system combines routine expenditure budgets and development expenditures, reclassifies the details of state expenditures according to the organization, function, and type of expenditure, and determines the basis for budget allocations based on programs.
+According to
+Minister of
+Finance
+Regulation
+Number
+101/PMK.02/2011 concerning Budget
+Classification, state expenditure is categorized into central government expenditure and transfers to regions and village funds. Central government expenditure consists of compensation of employee, goods and services expenditure, capital expenditure, debt interest payments, subsidies, grants, social assistance, and other expenditures.
+Meanwhile, the classification of transfers to regions consists of balance funds, special autonomy funds, privileged funds, and village funds. The details of state tercantum dalam Nota Keuangan dan UU
+APBN. Selain menurut jenis belanja, belanja juga dirinci menurut fungsi.
+Fungsi adalah perwujudan tugas kepemerintahan di bidang tertentu yang dilaksanakan dalam rangka mencapai tujuan pembangunan nasional. Klasifikasi fungsi didasarkan pada fungsi-fungsi utama pemerintah dalam memberikan pelayanan kepada masyarakat.
+Pengklasifikasian menurut fungsi ini menunjukkan bahwa Indonesia telah mengacu pada Classification of the
+Functions of Government (COFOG) yang disusun oleh United Nations Statistics
+Division (UNSD) dan diadopsi oleh
+Statistik
+Keuangan Pemerintah atau
+Government
+Finance
+Statistics
+(GFS)
+manual 2014-IMF (International Monetary
+Fund).
+Klasifikasi APBN dengan COFOG
+sedikit berbeda terutama karena dilakukan pemisahan fungsi agama dari fungsi rekreasi, budaya, dan agama.
+Dengan demikian, dalam APBN rincian belanja negara menurut fungsi terdiri dari expenditures by the organization are adjusted to the number of state ministries/institutions and listed in the
+Financial Note and the State Budget
+Law. Besides by type of expenditure, expenditure is also classified by function. A function represents the execution of government duties in specific areas aimed at achieving national development goals.
+The classification of functions is determined by the government's primary duties in providing services to the community.
+This classification by function indicates that Indonesia has adopted the Classification of the Functions of
+Government (COFOG) developed by the United Nations Statistics Division
+(UNSD), which has been incorporated into the Government Finance Statistics
+(GFS)
+Manual by the
+International Monetary Fund (IMF).
+Nevertheless, the classification of the state budget (APBN) is not exactly the same as COFOG. This is because the state budget (APBN)
+separates religion from recreation, culture, and religion function in the
+11 fungsi: pelayanan umum, pertahanan,
+ketertiban dan keamanan, ekonomi, perlindungan lingkungan hidup, perumahan dan fasilitas umum,
+kesehatan,
+pariwisata dan budaya, agama, pendidikan, dan perlindungan sosial.
+Sementara itu, klasifikasi fungsi pada belanja daerah terdiri atas pelayanan umum, ketertiban dan keamanan, ekonomi, lingkungan hidup, perumahan dan fasilitas umum,
+Kesehatan, pariwisata dan budaya, pendidikan, perlindungan sosial.
+2.1.3 Pembiayaan
+Pembiayaan merupakan semua penerimaan negara dalam tahun tertentu yang harus dibayar kembali/pengeluaran negara dalam tahun tertentu yang akan diterima kembali.
+Penerimaan pembiayaan muncul apabila besaran alokasi belanja melebihi besaran target pendapatan dan hibah atau terjadi defisit, agar besaran belanja yang sudah ditetapkan dalam
+APBN
+dapat dilaksanakan dengan baik.
+COFOG. So that, in the state budget, expenditures by functions consist of public administration, defense, public order and security, economic affairs, environmental protection, housing and public facilities, health, tourism and culture, religion, education, and social protection. Meanwhile, the functional classification of regional expenditure consists of public services, public order and security, economic affairs, environment, housing and public facilities, Health, tourism and culture, education, social protection.
+2.1.3 Financing
+Financing refers to all state revenues in a given year that must be repaid, or state expenditures in a given year that are expected to be recouped.
+Financing revenues arise when the allocated expenditure exceeds the targeted revenues and grants, resulting in a deficit. This is necessary to ensure that the expenditures established in the
+State Budget (APBN) can be effectively implemented.
+Kebijakan pemerintah untuk pembiayaan ini diutamakan berasal dari nonutang dan utang dalam negeri.
+Dalam rangka mengurangi ketergantungan dana dari luar negeri, sejak tahun 1999 pembiayaan luar negeri secara bertahap dikurangi. Sebaliknya, kebutuhan pembiayaan baik untuk menutup defisit anggaran maupun untuk memenuhi kewajiban pembayaran pokok utang, diupayakan untuk dapat dipenuhi dari sumber-sumber dalam negeri. Hal ini terutama dimaksudkan untuk menunjang langkah-langkah konsolidasi fiskal dan penyehatan APBN dalam mendukung terwujudnya ketahanan fiskal yang berkesinambungan (fiscal sustainability).
+Kebijakan yang ditempuh dalam memenuhi kebutuhan pembiayaan anggaran dititik beratkan pada tiga strategi pokok, yaitu: (i) peningkatan sumber-sumber pembiayaan dalam negeri; (ii) penurunan stok utang secara bertahap; dan (iii) pemenuhan kewajiban pembayaran utang secara tepat waktu.
+2.2 Metodologi
+Di beberapa negara, pemerintah pada berbagai tingkat mempunyai peranan yang cukup besar dalam
+The government’s financing policy prioritizes funding from non-
+debt sources and domestic debt. To reduce reliance on foreign funding, foreign financing has been gradually decreased since 1999. Conversely, the financing needs to cover budget deficits and to meet the obligations of principal debt repayments are aimed to be fulfilled from domestic sources.
+This approach is particularly intended to support fiscal consolidation efforts and to improve the State Budget
+(APBN) in fostering ongoing fiscal sustainability. The policies adopted to meet budget financing needs are focused on three primary strategies: (i)
+enhancing domestic financing sources;
+(ii) gradually reducing the debt stock; and (iii) ensuring timely fulfillment of debt repayment obligations.
+2.2 Methodology
+In several countries, governments at various levels have important role in the economic kegiatan ekonomi dan sosial masyarakat.
+Oleh karena itu, berbagai pihak seperti pembuat keputusan, pembuat undang-
+undang, peneliti, pengamat, wartawan, dan masyarakat lainnya perlu mengetahui tentang taraf dan arah pertumbuhan dari sektor pemerintah.
+Salah satu statistik makro yang berhubungan dengan pengukuran kegiatan pemerintah tersebut adalah neraca sektor pemerintahan umum, sebagai salah satu bagian dari sistem neraca nasional.
+Pada
+SNA
+2008, sektor pemerintahan umum terdiri dari seluruh unit pemerintah pusat, pemerintah daerah (provinsi, kabupaten/kota, dan desa), seluruh Lembaga Nonprofit (LNP)
+yang dikontrol oleh unit pemerintah, dan dana jaminan sosial. Dalam penyusunan neraca pemerintahan umum ini, LNP
+pemerintah dinyatakan sebagai bagian dari pemerintahan umum secara keseluruhan untuk pemerintah pusat dan daerah, sedangkan dana jaminan sosial belum tercakup dikarenakan datanya belum tersedia.
+Dengan demikian, pemerintahan umum mencakup semua: kementerian, activities and social affairs of their society. It is necessary, therefore, that decision makers, legislators, researchers, commentators, journalists, and also citizens need to be well informed about the stage and the growth trend of the government sector.
+One of the key macroeconomic statistics related to measuring government activities is the general government sector accounts, a subset of system of national accounts.
+In the System of National
+Accounts (SNA) 2008, the general government sector comprises all units of the central government, regional governments (provinces, districts/cities, and villages), all Non-Profit Institutions
+(NPIs) controlled by government units, and social security funds. In the preparation of the general government balance sheet, government NPIs are classified as part of the overall general government for both central and regional authorities, while social security funds are not included due to the unavailability of data.
+Thus, the general government includes all: ministries, agencies, and badan, dan lembaga tinggi negara, baik yang ada di pusat maupun unit vertikalnya yang ada di daerah; kantor-
+kantor yang berhubungan dengan administrasi pemerintah dan pertahanan; kantor wilayah; LNP yang sebagian besar dibiayai dan dikontrol pemerintah, seperti sekolah-sekolah, universitas, rumah sakit, museum, perpustakaan dan tempat-tempat penyimpanan hasil karya seni yang dibiayai dari keuangan pemerintah; instansi pemerintah yang memproduksi barang dan jasa yang sejenis dengan barang yang dihasilkan oleh perusahaan BUMN/swasta dan berkaitan erat dengan kegiatan instansi tersebut serta keuangannya tidak dapat dipisahkan dari kegiatan utama instansi itu, seperti unit-unit percetakan di kantor-kantor pemerintah yang menjual publikasi, kartu pos bergambar dan reproduksi karya seni, pembibitan tanaman dari kebun percobaan, dan lain-
+lain. Pemerintahan umum juga mencakup kegiatan nonpasar yang dilakukan oleh
+Bank Sentral.
+United
+Nations menyarankan dalam menyusun neraca pemerintahan umum semua transaksi yang dilakukan oleh pemerintahan umum dicatat dalam state institutions, both in the central and its vertical units exist in the region; offices related to public administration and defense; regional office; non-profit institutions that are mainly financed and controlled on a regular basis by the government, such as public schools, universities, hospitals, museums, libraries, and art galleries finances from state or local budget; public agencies that produce goods and non-
+financial services of a kind provided by state-owned/private enterprises, but the production activities and financial management are integrated with the main agencies.
+For instance, publication unit in governmental offices selling books, postcards and art reproduction, public experimental garden unit selling seeds, etc. General government also includes non-market activities carried out by the Central
+Bank.
+The
+United
+Nations recommends that all transactions made by general government should be recorded in a certain period, such as suatu periode tertentu, seperti tahunan atau triwulanan ke dalam seperangkat neraca yang terdiri dari neraca produksi, neraca pendapatan yang dihasilkan, neraca alokasi pendapatan primer, neraca distribusi pendapatan sekunder, neraca penggunaan pendapatan disposabel, dan neraca modal. Berikut dijelaskan keenam neraca tersebut.
+2.2.1 Neraca Produksi
+Neraca produksi pemerintahan umum adalah suatu neraca/tabel yang memuat transaksi mengenai aktivitas produksi barang dan jasa yang dilakukan pemerintah umum. Transaksi/kegiatan yang dilakukan pemerintah umum adalah menyediakan barang dan jasa individu dan kolektif untuk masyarakat secara gratis atau pada harga yang tidak signifikan secara ekonomis
+(output nonpasar), seperti melaksanakan kegiatan administrasi pemerintah, menjaga kestabilan dan keamanan negara, meningkatkan pendidikan dan kesehatan penduduk, mengatur kebijakan perekonomian negara dan lain-
+lain.
+Dengan demikian, kegiatan pemerintah berbeda dibandingkan dengan kegiatan ekonomi lainnya baik annually/quarterly in a set of accounts consist of production account, generation of income account, allocation of primary income account, secondary distribution of income account, use of disposable income account, and capital account. The description of six components is explained as follow.
+2.2.1 The Production Account
+The production account of general government is an account which is used to capture production activities conducted by general government.
+Transactions/activities undertaken by general government is to provide individual and collective goods and services to the public free of charge or at a price that are not economically significant (non-market output), such as government administration, maintaining national security stability, increasing people educational and health level, creating state economic policies and so forth.
+Thus, government activity is different compared to other economic activities in both the cost structure and the characteristics of their spending.
+dalam ciri struktur biaya maupun dalam pembelanjaannya.
+Neraca produksi pemerintahan umum ini menggambarkan biaya-biaya yang dikeluarkan di sisi kiri dan output di sisi kanan. Biaya-biaya yang dikeluarkan pemerintah umum dalam penyediaan barang dan jasa untuk masyarakat, terdiri dari konsumsi antara dan Nilai Tambah
+Bruto (NTB). Konsumsi antara mencakup belanja barang, belanja bantuan sosial, dan belanja lainnya. Sementara, NTB
+pemerintahan umum terdiri dari belanja pegawai, konsumsi barang modal tetap, pajak atas produksi dan impor neto, dan surplus usaha. Produksi yang dilakukan pemerintah menghasilkan output nonpasar.
+Mengingat kegiatan pemerintah sulit diukur, maka pendekatan yang dipakai untuk menghitung output nonpasar yang dihasilkan pemerintah adalah pendekatan biaya produksi (cost basis)
+yaitu dari penjumlahan konsumsi antara dan nilai tambah bruto.
+Berikut ini dijelaskan masing-
+masing rincian yang terdapat dalam neraca produksi pemerintahan umum.
+The production account of general government describes the production costs on the left side and output on the right side. Costs incurred by general government in the supply of goods and services to the public, consist of intermediate consumptions and
+Gross
+Value
+Added
+(GVA).
+Intermediate consumption includes goods and services expenditure, social assistance expenditure, and other expenditure. Meanwhile, GVA general government consists of compensation of employees, consumption of fixed capital, net taxes on production and imports, and operating surplus. The government produces non-market output. Since it is difficult to measure government’s activity, the approach used to calculate the non-market output produced by government is cost basis approach, derived from the sum of intermediate consumption and gross value added.
+The general government's production account contains the following details.
+2.2.1.1 Konsumsi antara
+Konsumsi antara yang dikeluarkan pemerintahan umum terdiri dari belanja barang dan jasa, belanja bantuan sosial, dan belanja lainnya.
+Konsumsi antara yang dikeluarkan oleh pemerintah pusat antara lain untuk pembelian alat tulis, barang cetakan dan alat-alat rumah tangga kantor, sewa gudang dan kantor, biaya pengepakan, pengiriman, dan penyimpanan barang, bahan makanan (biaya rapat), biaya penerimaan tamu, biaya listrik, telepon, fax, dan air bersih, biaya pemeliharaan
+(gedung dan kantor, kendaraan dan inventaris kantor), biaya perjalanan dinas, bantuan sosial untuk jaminan sosial, perlindungan sosial, pemberdayaan sosial, penanggulangan kemiskinan, dan penanggulangan bencana.
+Sementara konsumsi antara yang dikeluarkan pemerintah daerah pada prinsipnya sama dengan pemerintah pusat, tetapi dibedakan menurut belanja langsung yang disebut juga dengan belanja pelayanan publik dan belanja tidak langsung (belanja aparatur daerah).
+Konsumsi antara yang dikeluarkan oleh
+2.2.1.1 Intermediate Consumption
+Intermediate consumption of general government consists of expenditure on goods and services, social assistance, and other expenditure.
+Intermediate consumption generated by the central government consist of the purchases of writing utensils, printing material and other office supplies, rental payments on storage and office buildings, costs of packing, storing, and transporting goods, meeting costs, guest reception costs, utility expenses, maintenance costs (building, office, vehicle, and office inventory), business travelling, social assistance to social security, social protection, social empowerment, poverty alleviation and disaster management.
+This procedure is also applied on local government. However, in the local government’s budget, expenses are classified into direct expenditures
+(public services expenditures) and indirect expenditures
+(personnel expenditures).
+Intermediate consumption of local governments pemerintah daerah antara lain untuk pembelian alat tulis, biaya cetak dan penggandaan, perjalanan dinas, sewa gedung dan peralatan kantor, biaya pemeliharaan, biaya bantuan sosial organisasi kemasyarakatan, biaya bantuan partai politik dan belanja lain-
+lain.
+2.2.1.2 Nilai Tambah Bruto
+NTB pemerintahan umum terdiri dari belanja pegawai dan konsumsi barang modal tetap.
+Penjelasan mengenai masing-masing rincian NTB
+akan dijelaskan pada neraca pendapatan yang dihasilkan.
+2.2.1.3 Output Nonpasar
+Output nonpasar terdiri dari barang dan jasa individu atau kolektif yang dihasilkan Lembaga Nonprofit yang
+Melayani
+Rumah
+Tangga
+(LNPRT)
+maupun pemerintah, yang disediakan gratis atau pada harga yang tidak signifikan secara ekonomi ke unit lain atau masyarakat secara keseluruhan.
+Pengeluaran ini dilakukan oleh pemerintah tetapi barang dan jasa yang covers purchases of writing utensils, printing material and other office supplies, business traveling, rental payments on storage and office buildings, maintenance costs, social assistance expenses for social organizations, political party assistance costs and other expenditures.
+2.2.1.2 Gross Value Added
+Gross Value Added of general government consists of compensation of employees and consumption of fixed capital. Details about Gross Value
+Added will be explained on the generation of income account.
+2.2.1.3 Non-Market Output
+Non-market output consists of individual or collective goods and services produced by non-profit institutions serving households
+(NPISHs) or government that are supplied freely, or at prices that are not economically significant, to other institutional units or the community as a whole. The expenditure of goods and dihasilkan digunakan oleh rumah tangga atau unit institusi lain.
+2.2.2 Neraca Pendapatan yang
+Dihasilkan
+Neraca pendapatan yang dihasilkan merupakan penjabaran dari komponen Nilai Tambah Bruto (NTB).
+NTB yaitu balas jasa pegawai, konsumsi barang modal tetap, pajak atas produksi dan impor neto, serta surplus usaha.
+Berikut masing-masing rincian NTB:
+2.2.2.1
+Kompensasi Pegawai
+Kompensasi pegawai dibangun dari seluruh akun dalam belanja pegawai realisasi APBN ditambah dengan belanja gaji dan tunjangan yang berasal dari belanja barang. Belanja pegawai yang dikeluarkan pemerintahan umum terdiri dari unsur-unsur berikut:
+1. Upah gaji dan tunjangan
+2. Honorarium/lembur/vakasi/
+tunjangan khusus
+3. Kontribusi sosial
+Upah dan gaji pegawai pemerintah (pegawai negeri sipil, TNI dan services is made by government for households or other institutional units.
+2.2.5 The Generation of Income
+Account
+The Generation of Income
+Account is the elaboration of Gross
+Value Added (GVA). GVA covers compensation of employees, consumption of fixed capital, net taxes on production and imports, and operating surplus. The value-added details are provided here:
+2.2.2.1 Compensation of Employees
+Compensation of employees consists of all accounts in the state budget for the compensation of employees plus wages and salaries from goods expenditures.
+Compensation of employees incurred by general government consists of the following elements:
+1. Wages salaries and allowances
+2. Honorarium/overtime/vacation/
+special allowance
+3. Social contributions
+Wages and salaries in cash for public officials (civil servants, military
+Polri) dalam bentuk uang meliputi gaji pokok beserta tunjangan, seperti tunjangan liburan, tunjangan-tunjangan selama tidak hadir sementara karena sakit, tunjangan biaya hidup, dan sebagainya. Termasuk juga uang lembur, honor, bonus khusus, dan lain-lain.
+Namun, setiap pembayaran yang dilakukan untuk pegawai untuk membeli alat kerja, perlengkapan atau pakaian khusus, berdasarkan perjanjian tidak dianggap sebagai bagian dari upah dan gaji.
+Upah dan gaji pegawai pemerintah dalam bentuk barang terdiri dari beras, gula, pakaian seragam, sedangkan untuk TNI dan Polri termasuk juga lauk pauk, pakaian seragam, perumahan keluarga dan lain-lain. Upah dan gaji berupa barang ini bisa saja diberikan secara cuma-cuma atau dibeli dengan harga rendah.
+Kontribusi sosial adalah sumbangan yang disediakan pemerintah untuk pegawainya baik pegawai sipil maupun TNI dan Polri. Termasuk iuran yang disiapkan oleh pemberi kerja yang dalam hal ini pemerintah untuk keperluan bantuan pensiun, bantuan keluarga, personnel, and police officer) consist of regular salary plus allowances, such as vacation allowance, living allowance, etc. In addition, these additional wages are also including overtime salaries, honorarium, special bonuses, etc.
+However, it is agreed that expenditure made by public officials to purchase working equipment such as special devices or uniforms are not included as part of wages and salaries.
+Wages and salaries in kind are goods provided by the government for civil servants, such as rice, sugar, uniforms, and those exclusively provided for military personnel and police officer i.e., allowances for meals, uniforms, family housing, etc. These items may be provided free of charge or at lower prices.
+Social contributions are donations provided by the government for its employees; they are civil servants, the military personnel and police officer. Including the planned contribution by the employer in this case the government for pension asuransi kecelakaan dan kesehatan, asuransi jiwa dan bantuan yang sejenis yang memberikan keuntungan bagi pegawai/karyawan.
+2.2.2.2 Konsumsi Barang Modal Tetap
+Konsumsi barang modal tetap adalah penyisihan pendapatan yang akan digunakan untuk pembelian barang modal baru, karena barang modal yang lama pada suatu saat tidak dapat berfungsi seperti biasa lagi.
+Pada umumnya, penyisihan pendapatan ini dihitung berdasarkan nilai beli barang-
+barang modal yang dipakai. Dalam neraca pendapatan yang dihasilkan, data konsumsi barang modal tetap tidak tersedia sehingga nilainya diestimasi sebesar 20 persen dari rincian belanja modal realisasi APBN/APBD pemerintah, selain tanah.
+2.2.2.3 Surplus Usaha
+Pemerintah berperan sebagai produsen nonpasar yang tidak berorientasi profit, maka surplus usaha neto pemerintahan umum bernilai nol, sementara nilai surplus usaha bruto assistance, family assistance, accident and health insurance, life insurance and similar assistance that benefits the employees.
+2.2.2.2 Consumption of fixed capital
+Consumption of fixed capital is the part of income put aside for the purpose of replacing the existing fixed capital items with new items, when the existing capital items do not function properly. The value of consumption of fixed capital is usually estimated by the purchase value of the capital goods.
+Because of lack of data, an estimated value is being used to calculate consumption of fixed capital in generation of income accounts. The estimated value is 20 percent of capital expenditure taken from realization of state/local budget, excluding land.
+2.2.2.3 Operating Surplus
+The government is a non-
+market producer that non-profit oriented, net operating surplus of general government is equal to zero.
+Meanwhile, the gross operating surplus of general government is equal to pemerintahan umum adalah senilai dengan konsumsi barang modal tetap.
+2.2.3
+Neraca
+Alokasi
+Pendapatan
+Primer
+Neraca alokasi pendapatan primer mencatat surplus usaha, pajak atas produksi dan impor, subsidi, pendapatan kepemilikan yang diterima maupun yang dibayar, dan pendapatan primer (pendapatan nasional bruto)
+sebagai penyeimbang.
+2.2.3.1 Surplus Usaha
+Surplus usaha adalah keuntungan bersih unit usaha yang berada di lembaga/kementerian
+(departmental enterprises) baik yang berada di pusat maupun di daerah yang diserahkan kepada pemerintahan umum. Unit usaha semacam ini, (misalnya percetakan yang berada di lembaga/kementerian/dinas)
+pembukuannya tidak bisa dipisahkan dengan pembukuan pemerintahan umum maka unit usaha tersebut dianggap menyatu dengan pemerintahan umum, sehingga nilai surplus usaha neto dianggap sama dengan nol.
+general government consumption of fixed capital.
+2.2.3 The Allocation of Primary
+Income Account
+The
+Allocation of
+Primary
+Income Account records operating surplus, taxes on production and imports, subsidies, property income received and paid, and primary income
+(gross national income) as a balancing item.
+2.2.3.1 Operating Surplus
+Operating surplus is the net profit of the departmental enterprises located in central or regional; which deliver to the general government. Due to the fact that such enterprises, i.e., printing department in the governmental department, could not have separate accounts from the general government's accounting system, so those enterprises are considered as a general government, and then the net operating surplus is estimated to be zero.
+2.2.3.2 Pajak atas produksi dan impor
+Pajak atas produksi dan impor adalah pajak yang dipungut pemerintahan umum melalui konsumen berkenaan dengan barang dan jasa yang diproduksi, dijual, dikirim, atau digunakan.
+Umumnya pajak atas produksi dan impor tersebut dibebankan pada biaya produksi dari barang dan jasa yang bersangkutan.
+Pajak atas produksi dan impor yang dipungut oleh pemerintah pusat dibagi menjadi dua, yaitu pajak atas produk dan pajak atas produksi lainnya.
+Berikut rinciannya:
+1. Pajak atas produk, terdiri dari pajak barang-barang produksi dalam negeri dan pajak impor, terdiri dari:
+a. Pajak Pertambahan Nilai (PPN)
+dan pajak penjualan (PPn), yang mencakup (i) PPN Dalam Negeri,
+(ii) PPN lainnya, (iii) PPn BM
+Dalam Negeri, dan (iv) PPn BM
+lainnya b. Cukai
+(hasil tembakau, ethyl alkohol dan minuman mengandung alkohol, lainnya), c.
+Pajak/pungutan ekspor d. Bea masuk
+2.2.3.2 Taxes on production and imports
+Taxes on production and imports are those levied by general government on the goods and services production, sale, purchased or used.
+Taxes on production and imports are usually considered as costs of production.
+Taxes on production and imports levied by the central government is divided into taxes on products and other taxes on production:
+1. Taxes on products, consist of tax on domestic goods and import taxes which comprises of:
+a. Value-added tax (VAT) and sales tax that covers (i) VAT of domestic goods, (ii) other VAT,
+(iii) sales tax of domestic luxury goods, (iv) other sales tax of luxury goods b. Excise duties (tobacco, ethyl alcohol, and alcoholic drinks)
+c. Exports taxes d. Import duties e. PPN impor f.
+PPn Barang Mewah (BM) impor
+2. Pajak atas produksi lainnya mencakup:
+a. Pajak Bumi dan Bangunan (PBB)
+b. Bea Perolehan Hak atas Tanah dan Bangunan (BPHTB)
+c. Bea Meterai
+Sedangkan untuk pemerintah daerah, pajak atas produksi dan impor terdiri dari:
+1.
+Pajak bahan bakar kendaraan bermotor
+2.
+persen pajak kendaraan bermotor dan kendaraan diatas air
+3.
+persen bea balik nama kendaraan bermotor dan kendaraan diatas air
+4.
+Pajak air permukaan
+5.
+Pajak hotel
+6.
+Pajak restoran
+7.
+Pajak hiburan
+8.
+Pajak reklame
+9.
+Pajak penerangan jalan
+10.
+Pajak pengambilan bahan galian golongan C
+11.
+Pajak parkir
+12.
+Pajak sarang burung walet
+13.
+Pajak air bawah tanah
+14.
+Pajak lingkungan e. Value Added Tax (VAT) of imported goods f. Sales tax of foreign luxury goods
+2. Other taxes on production include:
+a. Land and Building Tax (PBB)
+b. BPHTB
+c. Stamp tax
+Local government’s taxes on production and imports cover:
+1.
+Motor vehicle fuel tax
+2.
+40 percent of the motor vehicle tax and water vehicle
+3.
+40 percent cost of ownership transfer of motor vehicles and water vehicles
+4.
+Tax surface water
+5.
+The hotel tax
+6.
+The restaurant tax
+7.
+Entertainment tax
+8.
+Billboards tax
+9.
+Road illumination tax
+10.
+Tax on the mining of C-
+category mined substances
+(minerals)
+11.
+Parking tax
+12.
+Bird’s nest tax
+13.
+Underground water tax
+14.
+Environment tax
+2.2.3.3 Subsidi
+Subsidi merupakan salah satu instrumen kebijakan fiskal yang dilakukan pemerintah dalam rangka menjaga pemerataan terhadap akses ekonomi dan pembangunan. Belanja subsidi adalah pengeluaran pemerintah yang diberikan kepada perusahaan/lembaga tertentu yang bertujuan untuk membantu biaya produksi agar harga jual produk/jasa yang dihasilkan dapat dijangkau oleh masyarakat. Subsidi ini mencakup subsidi
+Bahan Bakar Minyak (BBM) dan subsidi non-BBM
+(subsidi
+Public
+Service
+Obligation/PSO, listrik, benih, obat, pupuk dan lain-lain). Sama halnya seperti pajak atas produksi dan impor, subsidi yang diberikan oleh pemerintah juga dibagi menjadi dua yaitu subsidi atas produk dan subsidi atas produksi lainnya.
+Dalam hal ini, subsidi merupakan pengurang dari pajak atas produksi dan impor, atau disebut sebagai pajak atas produksi dan impor neto.
+2.2.3.3 Subsidies
+Subsidies are one of the fiscal policy instruments implemented by the government to promote equitable access to economic resources and development. Subsidy expenditures are government outlays provided to specific enterprises or institutions with the aim of assisting production costs, thereby ensuring that the sale prices of products or services produced are accessible to the public. The subsidies cover oil subsidies and non-oil subsidies such as public service obligation (PSO), electricity, seeds, medicines, fertilizers, and others. Just as taxes on production and imports, subsidies provided by the government are also divided into two, subsidies on products and other subsidies on production.
+In this case, the subsidies are the deduction of taxes on production and imports or referred to net taxes on production and imports.
+2.2.3.4 Pendapatan Kepemilikan yang
+Diterima
+Pendapatan kepemilikan adalah pendapatan pemerintahan umum yang berasal dari kekayaan yang dimiliki pemerintahan umum, seperti: bunga, laba saham, dan sewa tanah dan royalti. Yang dicakup dalam pendapatan kepemilikan adalah:
+1. Pendapatan bunga atas investasi dalam negeri dan obligasi,
+2. Dividen/Laba saham dari
+Badan
+Usaha Milik Negara dan Daerah
+(BUMN/D),
+3. Pendapatan sewa dari Sumber Daya
+Alam (SDA) yang terdiri dari:
+a. Penerimaan dari minyak bumi b. Penerimaan dari gas alam c. Penerimaan dari pertambangan umum (iuran tetap dan royalti)
+d. Penerimaan dari kehutanan (dana reboisasi, provisi sumber daya hutan, iuran Hak Pengusahaan
+Hutan (HPH), dana pengamanan hutan, denda pelanggaran eksploitasi hutan dan iuran menangkap satwa liar)
+e. Penerimaan dari perikanan
+(pendapatan perikanan dan dana
+2.2.3.4 Property Income Received
+Property income received is revenues of properties owned by general government which may be classified into three categories namely, interest, dividends and rents and royalties.
+Items included in property income are:
+1. Interest revenues on domestic investments and obligations,
+2. Dividends from state and local-
+owned enterprises
+3. Rent from natural resources which comprise of a. Oil revenues b. Natural gas revenues c. Mining revenues (land rent and royalty)
+d. Forestry revenues
+(reforestation fund, provision of forest resources, contribution of forest concession rights, forest protection fund, forest exploitation and catching wildlife fund), e. Fishery revenues (income on fishery businesses, compensation fees of marine kompensasi pelestarian
+SDA
+kelautan).
+2.2.3.5 Pendapatan Kepemilikan yang
+Dibayar
+Pendapatan kepemilikan yang dibayar mencakup pembayaran bunga utang pemerintah, pembayaran diskon
+Surat
+Utang
+Negara
+(SUN), dan pembayaran diskon
+Surat
+Berharga
+Negara (SBN) syariah, baik dalam negeri maupun luar negeri.
+2.2.3.6 Pendapatan primer
+Pendapatan primer atau disebut juga pendapatan nasional bruto digunakan sebagai penyeimbang di dalam neraca alokasi pendapatan primer pemerintahan umum, yaitu selisih antara jumlah sumber dan penggunaan yang kemudian dipindahkan ke neraca distribusi pendapatan sekunder sebagai sumber pendapatan pemerintahan umum.
+resources conservation).
+2.2.3.5 Property Income Paid
+Property income paid includes interest payments on government debt, discounts payment of Conventional
+Based Government Securities (SUN), and discounts payment of Sharia
+Government Securities (SBN).
+2.2.3.6 Primary Income
+Primary income or also known as gross national income is used as a balancing item in the allocation of primary income account, i.e. the difference between the resources and uses that later transferred into the secondary distribution of income account as resources.
+2.2.4 Neraca Distribusi Pendapatan
+Sekunder
+Neraca distribusi pendapatan sekunder memperlihatkan bagaimana proses kegiatan pemerintah dalam menciptakan pendapatan yang siap dibelanjakan (pendapatan disposabel), melalui transfer tunai (cash) dan berbagai transfer berjalan lainnya, tidak termasuk transfer sosial dalam bentuk barang/jasa.
+Dalam neraca distribusi pendapatan sekunder transfer berjalan dibedakan menjadi empat kelompok:
+a. Pajak pendapatan dan kekayaan dan pajak lainnya b. Kontribusi sosial c. Manfaat sosial selain transfer sosial berupa barang dan jasa d. Transfer berjalan lainnya
+2.2.4.1
+Pajak
+Pendapatan dan
+…………….Kekayaan dan Pajak Lainnya
+Pajak pendapatan dan kekayaan dan pajak lainnya adalah pungutan pemerintah umum yang berkenaan dengan pendapatan dari rumah tangga atau keuntungan perusahaan yang
+2.2.4 The Secondary Distribution of
+Income Account
+The Secondary Distribution of income Account shows how the balance of primary incomes of general government is transformed into disposable income by cash and other current transfers excluding social transfers in kind.
+Four main kinds of current transfers are distinguished in the secondary distribution of income account:
+a. Current taxes on income, wealth, etc.
+b. Social contributions c. Social benefits other than social transfer in kind d. Other current transfers
+2.2.4.1 Current Taxes on Income,
+……………wealth, etc.
+Current taxes on income, wealth, etc. are general government levies imposed on the income of households or profit of corporation and of taxes on wealth that are payable regularly every tax period.
+disetor ke kas negara secara teratur setiap periodenya.
+Pajak pendapatan pemerintah pusat dibagi menjadi tiga kelompok yaitu:
+1. Pajak Penghasilan (PPh) migas yang terdiri dari PPh minyak bumi dan PPh gas alam
+2. Pajak penghasilan (PPh) nonmigas, yang terdiri dari PPh pasal 21, PPh pasal 22, PPh pasal 22 impor, PPh pasal 23, PPh pasal 25/29 orang pribadi, PPh pasal 25/29 badan, PPh pasal 26 dan PPh final.
+3. PPh ditanggung pemerintah
+Pajak pendapatan pemerintah daerah dibedakan menurut kategori pajak daerah yang ditetapkan oleh peraturan daerah. Pajak ini terdiri atas:
+a. 60
+persen pajak kendaraan bermotor b. 60
+persen bea balik nama kendaraan bermotor
+2.2.4.2 Kontribusi Sosial
+Kontribusi sosial mencakup sumbangan/kontribusi kesejahteraan pegawai yang sebenarnya termasuk
+There are three categories of current taxes on income, wealth, etc., in central government:
+1. Income taxes on oil and gas company which cover taxes on crude oil and natural gas
+2. Income taxes on non-oil and gas company which comprise of income taxes article 21, article 22 (local and imported), article 23, article 25/29
+(corporate and personal), article 26, and final income tax.
+3. Government-Assumed Income Tax
+Local government income tax is categorized according to local tax classifications established by regional regulations.
+This tax comprises:
+a. 60 percent of motor vehicle tax b. 60 percent of cost of ownership transfers for motor
+2.2.4.2 Social Contributions
+Items included in this category are welfare contribution provided by the government to its employees that dalam upah dan gaji. Nilai ini untuk membayar pegawainya, seperti pensiun, tunjangan kesejahteraan keluarga, uang pesangon dan kesejahteraan pegawai lainnya, yang pembayarannya tidak dilakukan melalui suatu dana khusus atau dananya diperkirakan sama dengan pengeluaran pemerintahan umum untuk pensiun. Nilai kontribusi sosial pada neraca distribusi pendapatan sekunder untuk sektor pemerintah tidak ada, karena menjadi sumber bagi korporasi finansial.
+2.2.4.3 Manfaat Sosial
+Manfaat sosial adalah bantuan langsung dari pemerintahan umum kepada perorangan dan rumah tangga
+(tidak termasuk transfer sosial berupa barang/jasa), seperti Program Keluarga
+Harapan (PKH), Program Indonesia Pintar
+(PIP), Bantuan Langsung Tunai (BLT), termasuk juga bantuan akibat bencana alam, dan peperangan.
+2.2.4.4 Transfer Berjalan Lainnya
+Transfer berjalan lainnya adalah transfer berjalan selain yang sudah actually included on compensation of employees. This item covered pensions, family allowance, severance pay, etc.
+They are not distributed through a special funding. The value of the category is estimated to be equal to the general government expenditure on pensions.
+The value of social contributions on the secondary distribution of income account for the government sector does not exist, since it becomes the source for financial corporations.
+2.2.4.3 Social Benefits
+Social benefits are direct assistance from general government to individuals and households (excluding social transfers in kind), such as Family
+Hope Program (PKH), Indonesian
+Smart
+Program
+(PIP), cash transfer/assistance cash (BLT), and also general government support to households due to natural disasters and war.
+2.2.4.4 Other Current Transfers
+Other current transfers consist of all current transfers that are not tersebut diatas, diantaranya:
+premi asuransi nonjiwa neto, transfer berjalan dari pemerintah pusat ke pemerintah daerah dan sebaliknya, transfer antara pemerintah umum dan pemerintah asing, transfer dari pemerintah ke LNPRT, dan transfer lain yang belum termasuk.
+Transfer berjalan ke pemerintah pusat berupa pendapatan dari pungutan dan denda, pendapatan hibah Badan
+Layanan Umum (BLU), pendapatan lain-
+lain, serta transfer nonpasar dari Bank
+Indonesia kepada Pemerintah.
+Nilai rincian pungutan dan denda ini adalah penerimaan pemerintahan umum sehubungan dengan jasa atau fasilitas yang diberikan/disediakan oleh pemerintahan umum untuk kepentingan masyarakat. Pungutan dan denda bagi pemerintah daerah merupakan bagian dari retribusi dan lain-lain pendapatan daerah yang sah.
+Transfer berjalan dari pemerintah pusat ke pemerintah daerah berupa dana perimbangan, belanja hibah, belanja denda, belanja subsidi lembaga keuangan, dan lainnya.
+Dana perimbangan yang dicakup adalah:
+mentioned before, they are: net non-
+life insurance premiums, current transfers within general government, current international cooperation, general government current transfer to
+NPISH, and miscellaneous current transfers.
+Current transfers to the central government consist of income from fines and penalties, BLU grant, other income, and non-market transfer from
+Central Bank to the Government.
+The details of fines and penalties is the revenue of the general government in services or facilities provided by general government for the society. Fines and penalties for local government are part of the retribution and other legitimate area revenue.
+Current transfers from central government to local governments consist of fiscal balance transfers, grant, fines spending, subsidies of financial institutions, and others. Fiscal balance transfers comprise of:
+1. 80 persen Dana Alokasi Umum (DAU)
+yang terdiri dari DAU untuk provinsi dan DAU untuk kabupaten/kota,
+2. 20 persen Dana Bagi Hasil (DBH) yang terdiri dari DBH pajak, DBH Sumber daya alam, dan DBH cukai
+3. 10 persen Dana Otonomi Khusus
+(DOK)
+4. 100 persen Dana Alokasi Khusus
+(DAK) nonfisik
+5. Dana desa
+2.2.4.5 Pendapatan Disposabel
+Pendapatan disposabel adalah pendapatan yang digunakan untuk pengeluaran konsumsi akhir pemerintah.
+Pendapatan disposabel merupakan item penyeimbang di dalam neraca distribusi pendapatan sekunder, yaitu selisih antara jumlah sumber dan penggunaan yang kemudian dipindahkan ke neraca penggunaan pendapatan disposabel sebagai sumber pendapatan pemerintahan umum.
+2.2.5 Neraca Penggunaan Pendapatan
+……..Disposabel
+Dalam neraca penggunaan pendapatan disposabel, pada sisi kanan
+1.
+80 percent of General Allocation
+Funds (DAU) for provinces and districts,
+2.
+20 percent of revenue sharing that divided into taxes, revenue of natural resources, and excise.
+3.
+10 percent of Special Autonomy
+Fund.
+4.
+10 percent of specific Allocation
+Fund
+5.
+Village Fund
+2.2.4.5 Disposable Income
+Disposable income is income that is used for government final consumption expenditure. Disposable income is a balancing item in the secondary distribution of income account, namely the difference between the amount of resources and uses of which is then transferred to the use of disposable income account as a resource of general government.
+2.2.5 The Use of Disposable Income
+……..Account
+In the use of disposable income account, the main resource is neraca disajikan pendapatan disposabel atau pendapatan yang siap dibelanjakan.
+Pada sisi kiri neraca berisikan penggunaan pendapatan disposabel yaitu pengeluaran konsumsi akhir pemerintahan umum. Tabungan sebagai penyeimbang, merupakan pengurangan dari pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.
+Rincian dalam neraca penggunaan pendapatan disposabel adalah sebagai berikut:
+2.2.5.1 Pengeluaran Konsumsi Akhir
+Pengeluaran konsumsi akhir pemerintahan umum adalah nilai seluruh jenis output nonpasar pemerintah dikurangi nilai pendapatan dari penjualan barang/jasa
+(baik yang harganya signifikan dan tidak signifikan secara ekonomi) ditambah nilai barang/jasa yang dibeli dari produsen pasar untuk diberikan pada rumah tangga secara gratis atau dengan harga yang tidak signifikan secara ekonomi (social transfer in kind-purchased market production)
+ditambah output nonpasar
+Bank
+Indonesia.
+disposable income. On the left side of the account containing the use of disposable income i.e. the general government final consumption expenditure. Saving is the balancing item in the use of disposable income account. Its value is derived as disposable income less government final consumption expenditure. The details in the use of disposable income account are as follows:
+2.2.5.1 Final Consumption
+…………Expenditure
+Final consumption expenditure of general government is the sum of all nonmarket output less the revenue from sales of goods and services at both economically significant prices and non-economically significant prices plus the value of goods and services purchased from market producers to households free or non-
+economically significant prices (social transfers in kind-purchased market production) plus non-market output of
+Central Bank.
+Nilai pendapatan dari penjualan barang dan jasa meliputi bagian dari
+PNBP lainnya dan pendapatan BLU. Social transfer in kind purchased market production yang dicakup sampai saat ini hanya beras miskin yang nilainya diperoleh dari subsidi pangan. Beras miskin yang disalurkan ke masyarakat oleh BULOG melalui program beras sejahtera (rastra) ditransformasi menjadi program Bantuan Pangan Nontunai
+(BPNT).
+Program
+BPNT
+telah dilaksanakan secara bertahap mulai tahun 2017 untuk memastikan program menjadi lebih tepat sasaran, tepat jumlah, tepat waktu, tepat harga, tepat kualitas, dan tepat administrasi. Pengeluaran terkait BPNT sudah tercakup dalam realisasi belanja bantuan sosial pemerintah pusat. Output nonpasar Bank
+Indonesia merupakan pengeluaran konsumsi kolektif sehubungan dengan jasa kebijakan moneter oleh
+Bank
+Indonesia. Sejak tahun 2022, BPNT sudah diberikan secara tunai sehingga tidak dicakup lagi dalam
+Pengeluaran
+Konsumsi Pemerintah.
+The value of sales of goods and services include parts of other non-tax state revenues and BLU revenues.
+Recently, social transfers in kind are covered only subsidized rice for the poor program which is obtained from food subsidies. Poor rice distributed to the community by BULOG through the prosperous rice program (rastra) was transformed into a Non-Cash Food Aid
+(BPNT) program. The BPNT program has been implemented in stages starting in 2017 to ensure that the program becomes more targeted, right on quantity, time, price, quality, and administration. Expenditures related to
+BPNT are included in the realization of central government social assistance expenditure. The nonmarket output of the central bank is a collective consumption expenditure related to the monetary policy of Bank Indonesia.
+Since 2022, the Non-Cash Food
+Assistance Program (Bantuan Pangan
+Non-Tunai, BPNT) has been provided in cash, and therefore it is no longer included in Government Consumption
+Expenditure.
+2.2.5.2 Pendapatan dari penjualan
+……………barang dan jasa
+Pendapatan dari penjualan barang dan jasa merupakan hasil penjualan barang-barang yang diproduksi dan jasa-jasa yang diberikan oleh semua unit pemerintahan umum, baik pemerintah pusat maupun pemerintah daerah.
+Umumnya pendapatan pemerintah berasal dari jasa yang dinikmati oleh masyarakat baik jasa kolektif maupun jasa individu.
+Pendapatan dari penjualan barang dan jasa pemerintah pusat antara lain:
+1. Pendapatan dari penjualan, pengelolaan BMN, dan iuran badan usaha, dan penerimaan klaim asuransi BMN
+2. Pendapatan
+Administrasi dan
+Penegakan Hukum
+3. Pendapatan
+Kesehatan,
+Perlindungan
+Sosial, dan
+Keagamaan
+4. Pendapatan Pendidikan, Budaya,
+Riset, dan Teknologi
+5. Pendapatan Jasa Transportasi,
+Komunikasi, and Informatika
+6. Pendapatan Jasa Lainnya
+2.2.5.2 Revenue from sales on goods
+………..and services
+Revenue from the sale of goods and services is derived from the sale of goods produced and services provided by all units of the general government, including both the central and regional governments. Generally, government revenue comes from services enjoyed by the public, including both collective and individual services. Revenue from the sale of goods and services by the central government includes:
+1. Revenue from the sale and management of
+State-Owned
+Goods (BMN), contributions from enterprises, and insurance claims for BMN.
+2. Administrative and
+Law
+Enforcement Revenue.
+3. Revenue from
+Health,
+Social
+Protection, and Religious Services.
+4. Revenue from Education, Culture,
+Research, and Technology.
+5. Revenue from
+Transportation,
+Communication, and Informatics
+Services.
+6. Revenue from Other Services.
+Sementara untuk pemerintah daerah, pendapatan dari penjualan barang dan jasa berasal dari retribusi daerah.
+2.2.5.3 Tabungan
+Rincian tabungan merupakan faktor penyeimbang di dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.
+2.2.6 Neraca Modal
+Neraca modal pemerintahan umum adalah neraca yang memperlihatkan transaksi modal dan pembiayaan, antara pemerintah dan badan-badan lain (termasuk luar negeri).
+Neraca modal pemerintahan umum mencatat perolehan dan penggunaan atas harta nonfinansial, dan merupakan neraca yang memperlihatkan bagaimana proses kegiatan pemerintahan umum dalam melakukan pembentukan modal
+(investasi) yang dibiayai dari tabungan.
+Neraca modal juga mencatat kembali konsumsi barang modal tetap/penyusutan
+(dengan tanda negatif).
+Butir penyeimbang dalam
+For regional governments, revenue from the sale of goods and services is derived from local levies.
+2.2.5.3 Savings
+This item is defined as a balancing item in the use of disposable income account, i.e., the discrepancy between disposable income and final consumption expenditure.
+2.2.6 The Capital Account
+The capital account of general government is an account showing general government transactions concerning capital formation and financing with other sectors and the rest of the world. The capital account recorded the acquisition and use of non-financial assets. Besides, this account shows how the process of public administration in conducting capital formation
+(investment)
+financed from savings. The capital account also recorded consumption of fixed capital (with a negative sign). The balancing item in the capital account is net lending / net borrowing.
+neraca modal adalah peminjaman neto/pinjaman neto (net lending/net borrowing).
+Sisi kiri neraca mencakup penambahan dan pengurangan aset yang diproduksi dan aset yang tidak diproduksi, konsumsi barang modal tetap, dan peminjaman neto/pinjaman neto. Penambahan dan pengurangan aset yang diproduksi adalah pembentukan modal bruto yang terdiri dari Pembentukan Modal Tetap Bruto, perubahan inventori, serta penambahan dan pengurangan barang berharga.
+Peminjaman neto/pinjaman neto digunakan sebagai faktor penyeimbang pada neraca modal.
+Sisi kanan neraca mencakup sumber dana yang dipakai untuk pembelian barang-barang modal yang tercatat di sisi kiri neraca, yang antara lain berasal dari tabungan, transfer modal diterima, dan transfer modal dibayar.
+Berikut dijelaskan rincian-rincian yang terdapat pada neraca modal ini.
+The left side of the capital account includes the acquisitions less disposals of produced assets and non-
+produced assets, consumption of fixed capital, and net lending/net borrowing.
+Acquisitions less disposals of produced assets is gross capital formation consist of gross fixed capital formation, changes in inventories, and acquisitions less disposals of valuables.
+The net lending / net borrowing is a balancing item in the capital account.
+The right side of the capital account includes the source of funds used for the purchase of capital goods which are listed on the left side of the account, they come from savings, capital transfers received, and capital transfers paid. The following are the details in this capital account.
+2.2.6.1 Pembentukan Modal Tetap
+…………Bruto
+PMTB
+adalah penambahan barang modal dikurangi pengurangan barang modal. Barang modal pemerintah umum terdiri dari:
+1. Gedung dan bangunan
+2. Jalan, jembatan, dan konstruksi lainnya
+3. Mesin-mesin dan peralatan
+4. Kendaraan, alutsista
+5. Perbaikan besar dan perluasan dari barang-barang modal, dan
+6. Biaya pemindahan kepemilikan aset yang tidak diproduksi, misal lahan
+7. Biaya perbaikan tanah
+2.2.6.2 Perubahan Inventori
+Inventori terdiri dari bermacam-
+macam barang yang akan dipakai, barang yang sedang dalam proses pengerjaan dan barang-barang yang sudah jadi tapi belum dijual.
+Dengan demikian, pemegang inventori sebagian besar adalah perusahaan, termasuk perusahaan pemerintah, dan pemerintah sendiri.
+Inventori pemerintahan umum merupakan persediaan barang-barang seperti alat tulis kantor. Nilai perubahan
+2.2.6.1 Gross Fixed Capital
+…………Formation
+Gross fixed capital formation is defined as acquisitions less disposals of fixed assets. Items classified as fixed capital in this sector are:
+1. Construction buildings
+2. Road, bridge and similar constructions
+3. Machineries and equipment
+4. Motor vehicles, weapon system
+5. Major repair and expansion of the above fixed goods
+6. Cost of ownership transfer of non-
+produced assets (ex: land)
+7. Land improvement
+2.2.6.2 Changes in Inventories
+Inventories consist of intermediate goods to be used in the production process, unfinished goods and unsold finished goods. Therefore, the inventories holders mostly are enterprises, state and local government enterprises and government.
+The example of general government inventories are writing utensils.
+Changes in inventories in a particular year are defined as the difference inventori pada tahun tertentu adalah selisih antara nilai inventori akhir tahun dengan nilai inventori awal tahun.
+2.2.6.3 Pembelian Tanah
+Pemerintahan umum sering melakukan transaksi jual beli tanah, baik jual beli antar instansi pemerintahan umum maupun jual beli dengan swasta, seperti pemerintahan umum memerlukan tanah untuk keperluan pangkalan militer, untuk daerah pemukiman, atau untuk pembangunan industri.
+Berdasarkan
+SNA
+pengeluaran ini sudah dipisahkan dari
+PMTB dan masuk kedalam Sumber Daya
+Alam (SDA) karena menyangkut barang modal yang tidak dapat diproduksi.
+2.2.6.4 Konsumsi Barang Modal Tetap
+Konsumsi barang modal tetap di neraca kapital sama nilainya dengan konsumsi barang modal tetap di neraca pendapatan yang dihasilkan. Pada neraca modal, rincian ini terdapat di sisi kiri neraca dengan tanda negatif dan menjadi pengurang pembentukan modal tetap bruto untuk mendapatkan between the closing year’s inventories and opening year’s inventories.
+2.2.6.3 Purchase of Land
+General government are often involved in land transactions, either within government units or between the general government and private sectors, for instance, when the general government needs land for military installations, residential area or for industrial development. Based on SNA
+this expenditure has been separated from gross fixed capital formation because it is covered on non-produced assets as natural resources.
+2.2.6.4
+Consumption of
+Fixed
+…………..Capital
+The consumption of fixed capital in the capital account is equivalent to the consumption of fixed capital in the income balance. In the capital account, this detail appears on the left side of the balance sheet with a negative sign, serving as a deduction from gross fixed capital formation to besarnya nilai pembentukan modal tetap neto.
+2.2.6.5 Peminjaman Neto/Pinjaman
+………….Neto
+Rincian peminjaman neto/
+pinjaman neto adalah faktor penyeimbang dalam neraca modal pemerintahan umum, yaitu selisih antara jumlah pembentukan modal dengan jumlah pembiayaan modal. Jika positif menggambarkan peminjaman neto, sedangkan jika negatif menggambarkan pinjaman neto.
+2.2.6.6 Tabungan
+Tabungan adalah faktor penyeimbang pada neraca penggunaan pendapatan disposabel, yang kemudian dipindahkan ke neraca modal sebagai sumber pembiayaan.
+2.2.6.7 Transfer
+Modal yang
+…………..Diterima dan yang Dibayar
+Transfer modal adalah transfer yang pelaksanaannya bisa sekaligus atau tidak beraturan, tetapi pada prinsipnya transfer modal tidak dipertimbangkan oleh pihak penerima sebagai penambah determine the value of net fixed capital formation.
+2.2.6.5 Net Lending/Net Borrowing
+Net lending / net borrowing is a balancing item in the capital account of general government, which is the difference between the amount of capital formation by the amount of capital financing. Positive value means net lending, whereas negative value means net borrowing.
+2.2.6.6 Savings
+Savings is the balancing item in the use of disposable income account which also recorded in the capital account as source of financing.
+2.2.6.7 Capital Transfers Received
+…………and Capital Transfer Paid
+Capital transfers are transfers that occurred at once or irregularly, but in principle the capital transfer is not considered by the recipient as an addition to the current income, and pendapatan berjalannya, serta tidak dipertimbangkan oleh pembayar sebagai pengurang pendapatan berjalannya.
+Dalam praktiknya, kadang ditemui beberapa kesulitan untuk membedakan antara transfer berjalan dan transfer modal. Penentuan jenis transfer ini didasarkan pada anggapan masing-masing pemberi dan penerima.
+Jika salah satu pihak memperlakukan transfer tersebut sebagai transfer modal, maka dalam klasifikasinya harus dimasukkan sebagai transfer modal.
+Transfer modal ini terjadi antara tingkat pemerintahan, pemerintah dengan luar negeri dan dapat juga antara pemerintah dengan swasta.
+Transfer modal dibedakan sebagai berikut:
+1.
+Transfer modal yang diterima, berasal dari dalam dan luar negeri, yaitu berupa hibah. Datanya diperoleh dari pendapatan negara dan hibah berupa pendapatan hibah (dalam negeri dan luar negeri),
+2.
+Transfer modal yang dikeluarkan, terdiri dari transfer modal pemerintah pusat ke pemerintah daerah dan transfer modal dari belanja bantuan were not considered by the payer as a deduction from current income.
+In practice, it is sometimes difficult to distinguish between a current transfer and a capital transfer.
+To decide whether the transfer is included in capital or current transfer is based on the assumption used by the party. If one party considers the transfer as capital transfer, so the transfer must be included in capital.
+Capital transfers may take place between levels of government, between general governments and the rest of the world, and also between general government and private sectors.
+The types of capital transfers are as follows:
+1.
+Capital transfer received from domestic and the rest of the world in term of grants. The data is taken from grants in the state budget
+(domestic and foreign).
+2.
+Capital transfer paid, consist of capital transfer from state government to local government and capital transfer of social assistance expenditure and good sosial dan belanja barang. Transfer modal dari pemerintah pusat ke pemerintah daerah adalah dana perimbangan untuk pemerintah daerah provinsi, kabupaten/kota dan desa, yang terdiri dari:
+a. 80 persen DBH (perpajakan, SDA, dan cukai untuk provinsi dan kabupaten/kota), b. 20 persen DAU, c. 100 persen DAK fisik, d. 90 persen DOK, e. Sebagian dana penyesuaian.
+expenditure. Capital transfer from state government to local governments covers balance funds for provinces, regencies, and villages government which consists of:
+a. 80 percent revenue sharing
+(taxes, natural resources, and excise)
+b. 20
+percent of general allocation fund c. 100
+percent of special allocation fund d. 90 percent special autonomy funds e. Part of funding adjustment.
+III.
+ANALISIS DESKRIPTIF NERACA
+PEMERINTAHAN UMUM 2019-
+Neraca pemerintahan umum terdiri atas rangkaian neraca, yaitu neraca produksi, neraca pendapatan yang dihasilkan, neraca alokasi pendapatan primer, neraca distribusi pendapatan sekunder, neraca penggunaan pendapatan disposabel, dan neraca modal. Setiap neraca tersusun dari beberapa transaksi. Berbagai transaksi pada sajian keuangan pemerintah pada dasarnya terdiri atas transaksi yang meningkatkan kekayaan neto yang mengarah ke agregat yang disebut pendapatan (revenue) dan transaksi yang mengurangi nilai kekayaan neto yang mengarah ke agregat yang disebut pengeluaran (expense) (SNA 2008: 22.63).
+Pendapatan pemerintah umumnya didominasi oleh pungutan wajib dalam bentuk pajak dan kontribusi sosial. Selain itu, sumber utama pendapatan juga dapat berasal dari hibah (transfer dari unit pemerintah lainnya dan organisasi internasional) untuk beberapa tingkat pemerintah. Sementara itu, transaksi pengeluaran merupakan pengurang
+III.
+DESCRIPTIVE ANALYSIS OF
+THE GENERAL GOVERNMENT
+ACCOUNT’S 2019-2024
+The general government accounts consist of a sequence of accounts, such as the production account, the generation of income account, allocation of primary income account, secondary distribution of income account, use of disposable income account, and capital account.
+Every account is composed of several transactions. Various transactions in the government financial presentations essentially consist of transactions that increase net worth, leading to an aggregate called revenue and transactions that decrease net worth, leading to the aggregate called expense
+(SNA
+2008:
+22.63).
+Government revenues are usually dominated by compulsory levies in the form of taxes and social contributions.
+For some levels of government, grants
+(transfers from other government units and international organizations) are a major source of revenue. Meanwhile, an expense transaction is an item that decreases net worth. In government kekayaan neto. Dalam penyajian neraca pemerintah, konsep biaya yang didefinisikan mencakup seluruh penggunaan yang dibuat pemerintah, baik yang tercatat pada neraca berjalan maupun pada neraca modal.
+Berbagai transaksi baik yang meningkatkan dan mengurangi kekayaan neto menghasilkan nilai agregat dan item penyeimbang pada setiap neraca.
+Agregat dan item penyeimbang digunakan untuk menilai penggunaan sumber daya dalam memproduksi jasa individu dan jasa kolektif, keperluan mengumpulkan pajak dan pendapatan lain, kemampuan untuk meminjam dan membayar kembali hutang, serta kelanjutan dari tingkat operasi pemerintah yang diinginkan (SNA 2008:
+22.7). Pada bab ini akan dianalisis berbagai item penyeimbang pada setiap neraca pemerintahan umum tahun 2019-
+2024.
+Bab ini juga menyajikan berbagai rasio baik dalam bentuk tabel maupun grafik yang diharapkan berguna sebagai indikator keuangan pemerintah. Data akan dianalisis secara vertikal, seperti analisis perbandingan relatif antara satu accounts, the concept of expense is defined to include all uses incurred by government as recorded in the SNA
+current accounts and capital transfer payable as recorded in the capital account.
+Transactions that both increase and decrease net worth produce aggregate values and balancing items on each account. Aggregates and balancing items of this nature can be used to assess the use of resources to produce individual and collective services, the need to collect taxes and other revenues, the ability of government to borrow and repay debt and the sustainability of the desired level of government operation (SNA
+2008: 22.7). This chapter will analyze the various balancing items in each general government account from
+2019-2024.
+This chapter also presents various ratios in the form of tables and graphs which are expected to be useful as indicators of government finances.
+The data will be analyzed vertically, such as an analysis of the relative komponen dengan komponen lainnya atau ditinjau pertumbuhan masing-
+masing komponen dari tahun ke tahun.
+Transaksi neraca pemerintahan umum pada publikasi ini dinilai atas dasar harga berlaku. Neraca pemerintahan umum disajikan dan dianalisis tahun
+2019-2024. Terdapat delapan komponen neraca pemerintahan umum yang akan dibahas pada bab ini, yaitu output non-
+pasar, kompensasi pegawai, pendapatan nasional bruto, pendapatan disposabel, pengeluaran konsumsi akhir pemerintah, tabungan bruto, Pembentukan Modal
+Tetap Bruto (PMTB), dan net lending/net borrowing.
+3.1 Output Pemerintah
+Output pemerintah merupakan output non-pasar yang terdiri atas barang dan jasa kolektif atau individu yang dihasilkan oleh pemerintah. Adanya keterbatasan dalam mengukur output pemerintah yaitu kesulitan dalam menentukan padanan harganya di pasar, maka penilaiannya melalui pendekatan biaya-biaya yang dikeluarkan pemerintah.
+Output pemerintah merupakan penjumlahan dari konsumsi comparison between one component and another or the growth of each component from year to year.
+General government account transactions in this publication are valued at current prices. The general government account is presented and analyzed for 2019-2024. There are eight components of the general government balance sheet that will be discussed in this chapter, such as non-
+market output, compensation of employees, gross national income, disposable income, government final consumption expenditure, gross saving, gross fixed capital formation
+(GFCF), and net lending/net borrowing.
+3.1 Government Output
+Government output refers to non-market output that consists of collective or individual goods and services produced by the government.
+Due to the limitations in measuring government output, particularly the difficulty in determining their market price equivalents, valuation is made using the costs incurred by the government. Government output is calculated as the sum of intermediate antara dan nilai tambah bruto pemerintah. Konsumsi antara terdiri atas nilai barang dan jasa yang dikonsumsi sebagai input dalam proses produksi, tidak termasuk aset tetap. Konsumsi antara terdiri dari belanja barang dan jasa dan bantuan sosial. Di sisi lain, Nilai
+Tambah Bruto (NTB) pemerintah hanya terdiri atas kompensasi pekerja (belanja pegawai) dan konsumsi barang modal tetap.
+consumption and gross value added.
+Intermediate consumption includes the value of goods and services consumed as inputs in the production process, excluding fixed assets. Intermediate consumption encompasses expenditures on goods and services and social assistance. On the other hand, Gross Value Added (GVA) of the government comprises only compensation of employees (personnel expenditures) and consumption of fixed capital goods.
+Gambar 1 Output Non-Pasar Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 1 General Government Non-Market Output (trillion rupiah), 2019–2024
+Adapun output non-pasar pemerintah tahun 2019 sampai dengan
+Government non-market output from 2019 to 2024 demonstrates a
+1.526
+1.623
+1.783
+1.730
+1.763
+1.922
+2,36
+6,33
+9,89
+2,98
+1,94
+8,98
+(4,0)
+(2,0)
+2,0
+4,0
+6,0
+8,0
+10,0
+12,0
+1.000
+1.100
+1.200
+1.300
+1.400
+1.500
+1.600
+1.700
+1.800
+1.900
+2.000
+Pertumbuhan/growth (%)
+Output Non Pasar
+Non-market Output tahun 2024 secara umum menunjukkan tren yang meningkat, namun mengalami kontraksi pada tahun 2022. Output pemerintah tahun 2019 sebesar Rp1.526
+triliun dan terus meningkat menjadi
+Rp1.922
+triliun pada tahun
+2024.
+Peningkatan output non-pasar ini dikarenakan komponen penyusun output yang meningkat pula. Jika dilihat dari pertumbuhannya (growth), pertumbuhan output pemerintah yang paling tinggi terjadi pada tahun 2021 dengan nilai pertumbuhan sebesar 9,89 persen. Hal ini karena pada tahun terjadi peningkatan belanja pemerintah untuk penanganan pandemi COVID-19.
+Seiring dengan pulihnya kondisi pasca pandemi di tahun 2022, belanja pemerintah untuk penanganan pandemi
+COVID
+mulai berkurang, sehingga menyebabkan output pemerintah tahun
+2022 terkontraksi sebesar 2,98 persen, dengan nilai output sebesar Rp1.730
+triliun. Pertumbuhan output yang negatif tersebut searah dengan penurunan realisasi belanja negara pada tahun 2022.
+Pada tahun
+2024, output pemerintah mengalami pertumbuhan sebesar 8,98 persen, didorong oleh general upward trend but contracted in
+2022. In 2019, government output was
+Rp1,526 trillion, rising to Rp1,922
+trillion in 2024. This increase in non-
+market output is attributed to the growth in the components that make up the output. In terms of growth, the highest growth rate was observed in
+2021, with a figure of 9.89 percent. This surge was attributed to the significant increase in government spending aimed at addressing the COVID-19 pandemic during that year.
+As the post-pandemic conditions improved in
+2022, government spending on COVID-19
+response began to decrease, resulting in a contraction of government output by
+2.98 percent, with an output value at
+Rp1,730 trillion. This negative output growth aligned with the decline in state expenditure realization in 2022.
+In 2024, government output grew by 8.98 percent, driven by efforts to improve public welfare, promote belanja untuk meningkatkan kesejahteraan masyarakat dan pertumbuhan ekonomi yang inklusif serta pembayaran kewajiban Pemerintah. Di sisi lain, akselerasi kegiatan pelaksanaan dan pengawasan Pemilu 2024, dan pembayaran bantuan pangan (bantuan beras, daging ayam, dan telur) turut mendukung peningkatan output pemerintah.
+Di sisi lain, jika ditinjau proporsi dari komponen penyusun output pemerintah yang terdiri dari konsumsi antara dan nilai tambah bruto, secara umum komponen penyusun output pemerintah yang paling besar adalah komponen Nilai Tambah Bruto (NTB).
+Lebih jelas lagi dapat dilihat dari Gambar bahwa komponen
+NTB
+memiliki proporsi lebih dari 50 persen dari total output.
+Pada tahun
+2021, proporsi konsumsi antara paling tinggi dibanding tahun lainnya karena pada tahun ini pengeluaran belanja barang untuk penanganan COVID-19 sangat besar.
+Pengeluaran tersebut antara lain:
+pengeluaran untuk masker, hand sanitizer, disinfektan, vitamin, obat-
+inclusive economic growth, and fulfill government obligations. Additionally, the acceleration of activities related to the implementation and supervision of the 2024 general election, as well as the disbursement of food assistance
+(including rice, chicken meat, and eggs), also contributed to the increase in government output.
+On the other hand, when examining the proportion of the components that make up government output, which consist of intermediate consumption and gross value added
+(GVA), the largest component is generally the Gross Value Added (GVA).
+As shown more clearly in Figure 2, the
+GVA component accounts for more than 50 percent of the total output.
+In 2021, the proportion of intermediate consumption was the highest compared to other years, primarily due to substantial expenditures on goods related to the
+COVID-19 response. These expenditures included costs for masks, hand sanitizers, disinfectants, vitamins, obatan, vaksin, serta biaya penanganan pasien COVID-19. Sedangkan dari sisi belanja pegawai adanya pengurangan komponen tunjangan pada pemberian gaji ke-13 dan THR.
+medications, vaccines, and treatment of
+COVID-19 patients. Conversely, on the personnel expenditures side, there was a reduction in the allowance component for the 13th salary and holiday bonuses
+(THR).
+Gambar 2 Proporsi Konsumsi Antara dan Nilai Tambah Bruto terhadap Output
+Pemerintahan Umum (persen), 2019–2024
+Figure 2 Proportion of Intermediate Consumption and Gross Value Added to General
+Government Output (percent), 2019–2024
+Pada tahun 2022, COVID-19 sudah terkendali sehingga biaya untuk penanganan COVID mulai menurun. Hal ini menyebabkan proporsi konsumsi antara turun menjadi 43,46 persen dan proporsi nilai tambah bruto sebesar 56,54
+persen.
+Pada tahun 2024
+proporsi konsumsi antara sebesar 43,95 persen dan proporsi nilai tambah sebesar 56,05
+In 2022, COVID-19 was under control, expenditures related to its management began to decline.
+Consequently, the proportion of intermediate consumption decreased to 43.46 percent, while the proportion of gross value added increased to 56.54
+percent. In 2024, the proportion of intermediate consumption reached
+40,15
+41,08
+45,69
+43,46
+43,75
+43,95
+59,85
+58,92
+54,31
+56,54
+56,25
+56,05
+Konsumsi Antara
+Intermediate Consumption
+Nilai Tambah Bruto
+Value Added, Gross persen. Proporsi konsumsi antara tahun meningkat dibanding tahun sebelumnya utamanya dipengaruhi oleh persiapan dan pelaksanaan Pemilu 2024.
+Setelah pembahasan sebelumnya dijelaskan mengenai output pemerintah dan komponen penyusunnya, kali ini akan dianalisis mengenai komponen-
+komponen neraca pemerintahan umum terhadap nilai Produk Domestik Bruto
+(PDB). Adapun komponen-komponen neraca pemerintahan umum yang dianalisis adalah pengeluaran konsumsi pemerintah, kompensasi pegawai, subsidi, tabungan, dan Pembentukan
+Modal Tetap Bruto (PMTB).
+Ditinjau dari nilai total PDB, secara umum nilai PDB mengalami kenaikan setiap tahunnya, kecuali tahun 2020 yang mengalami penurunan. Nilai PDB atas dasar harga berlaku pada tahun 2020
+sebesar Rp15.443 triliun, lebih rendah dibandingkan tahun sebesar
+Rp15.833 triliun (Tabel 1). Penurunan ini
+43.95 percent, while the proportion of value added stood at 56.05 percent.
+The increase in intermediate consumption compared to the previous year was primarily driven by preparations for and the implementation of the 2024 General
+Election.
+After the previous explanation about government output and its constituent components, this time we will analyze the components of the general government accounts to the value of Gross Domestic Product
+(GDP). The components of the general government accounts that are analyzed are
+Government
+Final
+Consumption
+Expenditures
+(GFCE), compensation of employee, subsidies, savings, and Gross Fixed Capital
+Formation (GFCF).
+From the perspective of total
+Gross Domestic Product (GDP) value, the GDP generally shows an increase each year, except for a decline in 2020.
+The GDP at current prices in 2020 was
+Rp15,443 trillion, which was lower than the Rp15,833 trillion recorded in 2019
+(Table 1). This decline was due to the dikarenakan adanya pandemi Covid-19
+yang berdampak bagi seluruh sektor tidak terkecuali dengan perekonomian
+Indonesia. Pada tahun 2024, PDB atas dasar harga berlaku kembali meningkat dengan nilai sebesar Rp22.139 triliun.
+impact of the COVID-19 pandemic, which affected all sectors, including the
+Indonesian economy. By 2024, the GDP
+at current prices had increased again, reaching Rp22,139 trillion.
+Tabel 1
+Persentase Komponen-Komponen Neraca Pemerintahan Umum terhadap Produk Domestik
+Bruto (PDB) (persen), 2019–2024
+Table 1
+Percentage of General Government Accounts Components to Gross Domestic Product (GDP)
+(percent), 2019–2024
+No
+Keterangan/Items
+Rata-
+Rata
+Average
+8,81
+9,66
+9,25
+7,68
+7,45
+7,73
+8,51
+5,15
+5,68
+5,16
+4,51
+4,22
+4,36
+4,89
+1,19
+0,96
+1,05
+1,08
+1,04
+1,08
+1,09
+1,76
+2,75
+1,05
+0,65
+1,77
+0,80
+0,44
+Pengeluaran Konsumsi
+Final Consumption
+Expenditure
+Kompensasi Pegawai
+Compensation of
+Employees
+Subsidi/Subsidies
+Tabungan Bruto
+Gross Savings
+Pembentukan Modal Tetap
+Bruto/ Gross Fixed Capital
+Formation
+2,73
+2,74
+2,35
+2,22
+2,44
+2,55
+2,55
+PDB (triliun rupiah)
+GDP (trillion rupiah)
+15.833
+15.443
+16.977
+19.588
+20.892
+22.139
+Berdasarkan Tabel 1, rata-rata persentase kompensasi pegawai pemerintahan umum terhadap
+PDB
+nasional sebesar 4,89 persen pada periode 2019-2024. Persentase terendah terjadi pada tahun 2023 sebesar 4,22
+persen.
+Sementara itu, persentase tertinggi pada tahun 2020 sebesar 5,68
+Based on Table 1, the average percentage of general government employee compensation to the national GDP is 4.89 percent from
+2019 until 2024. The lowest percentage occurred in 2023 at 4.22 percent.
+Meanwhile, the highest percentage occurred on 2020 at 5.68 percent.
+persen. Meskipun peranan kompensasi pegawai sektor pemerintahan umum dalam menciptakan nilai tambah bruto/PDB nasional belum cukup besar, belanja pegawai sebagai penyusun komponen kompensasi pegawai merupakan salah satu jenis belanja yang memiliki peranan penting dalam mendorong pertumbuhan pengeluaran konsumsi pemerintah.
+Kompensasi pegawai pemerintahan umum cenderung meningkat pada periode 2019-2024.
+Pada tahun 2024, kompensasi pegawai pemerintah umum sebesar Rp966 triliun, paling tinggi sejak tahun
+2019.
+Kompensasi pegawai tahun 2024 tumbuh sebesar 9,58 persen (y-on-y), lebih tinggi dibanding pertumbuhan tahun 2023
+sebesar minus 0,15 persen (Gambar 3).
+Pertumbuhan kompensasi pegawai tahun 2021 mengalami perlambatan sejalan dengan upaya pengendalian belanja pegawai untuk mendukung penanganan pandemi COVID-19 dengan tetap menjaga daya beli aparatur pemerintah. Kebijakan yang diambil adalah pemberian THR dan Gaji ke-13
+yang tidak termasuk komponen
+Although the role of employee compensation of the general government sector in creating national gross value added (GDP) is not large enough, employee spending as a component of employee compensation is one type of expenditure that has an important role in encouraging the growth of government consumption expenditure.
+Compensation for general government employees exhibited an upward trend over the period from
+2019 to 2024. In 2024, compensation for general government employees is
+Rp966 trillion or has grown by 9,58
+percent (y-on-y), rising compared to growth in 2023 of -0.15 percent (Figure
+3).
+Compensation of employee on
+2021 slows down since government effort to control employee spending in order that overcomes
+COVID-19
+pandemic by maintaining the purchasing power of government officials. The policy taken is the provision of religious holiday allowance (THR) and 13th salary which tunjangan kinerja serta kebijakan untuk pejabat negara dan pejabat pada tingkat tertentu (Kemenkeu, 2021).
+does not include performance allowances as well as policies for state officials and officials at a certain level
+(Ministry of Finance, 2021).
+Gambar 3 Kompensasi Belanja Pegawai Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 3 Compensation of Employees General Government (trillion rupiah), 2019–2024
+Berdasarkan gambar
+3, pertumbuhan kompensasi pegawai tertinggi selama 2019-2024 terjadi pada tahun 2024 sebesar 9,58 persen (y-on-y).
+Pertumbuhan kompensasi pegawai tahun
+2024 dipengaruhi oleh kenaikan gaji pegawai sebesar 8 persen dan kenaikan gaji pensiunan sebesar persen.
+Kebijakan ini didasarkan pada PP Nomor
+5 Tahun 2024 untuk PNS dan Peraturan
+Pemerintah yang setara untuk TNI/Polri,
+Based on figure 3, the highest employee compensation growth occurred in 2024 at 9.58 percent (y-on-
+y). The expansion of the 13th salary is the main driving factor for this growth
+(MoF, 2019). Employee compensation growth in 2024 was influenced by an 8
+percent increase in employee pay and a 12 percent increase in retiree pay.
+The policy is based on PP Number 5
+Year 2024 for civil servants and equivalent Government Regulations
+6,34
+7,59
+0,15
+0,74
+0,15
+9,58
+2,00
+2,00
+4,00
+6,00
+8,00
+10,00
+12,00
+1.000
+Belanja Pegawai
+Compensation of Employees
+Pertumbuhan/growth (%)
+serta PP Nomor 8 Tahun 2024 untuk pensiunan.
+for TNI/Polri, as well as PP Number 8
+Year 2024 for pensioners.
+Gambar 4 Persentase Kompensasi Pegawai terhadap Nilai Tambah Bruto Pemerintahan
+Umum (persen), 2019–2024
+Figure 4 Percentage of Compensation of Employees to Gross Value-Added of General
+Government (percent), 2019–2024
+Nilai tambah bruto
+(NTB)
+pemerintahan umum terdiri atas komponen kompensasi pegawai dan konsumsi barang modal tetap.
+Persentase kompensasi pegawai terhadap
+NTB
+pemerintahan umum bervariasi setiap tahun. Lebih dari 85
+persen NTB pemerintahan umum berasal dari kompensasi pegawai (Gambar 4).
+Pada tahun 2024, persentase kompensasi pegawai terhadap NTB pemerintahan umum sebesar 89,68 persen, menurun dibanding dengan persentase pada tahun sebesar
+88,88
+persen
+(Gambar 4).
+General government’s
+GVA
+consists of employee’ compensation and consumption of fixed capital. The percentage of employee compensation to the general government GVA varies from year to year. More than 85
+percent of GVA for the general government comes from employee’
+compensation (Figure 4). In 2024, the percentage of compensation of employee for general government GVA
+was 89.68 percent, a slight increase compared to the percentage in 2023
+was 88.88 percent (Figure 4).
+89,33
+91,81
+90,50
+90,28
+88,88
+89,68
+0,50
+10,50
+20,50
+30,50
+40,50
+50,50
+60,50
+70,50
+80,50
+90,50
+100,50
+Gambar 5 Proporsi Kompensasi Pegawai menurut Tingkat Pemerintah (persen), 2019–2024
+Figure 5 Proportion of Compensation of Employees by Level of Government (percent), 2019–
+Berdasarkan tingkat pemerintahan, lebih dari 50 persen kompensasi pegawai pemerintah umum adalah kompensasi pegawai pemerintah daerah pada 2019-
+2024 (Gambar 5). Pada tahun 2020, persentase kompensasi pegawai pemerintah daerah terhadap pemerintahan umum tertinggi yaitu sebesar 55,35 persen.
+At the government level, in
+2019-2024 more than 50 percent of general government compensation of employee was local government compensation of employee (Figure 5).
+The highest percentage of local government employee compensation to the general government was 55.35
+percent in 2020.
+3.3 Pendapatan Nasional Bruto
+Item penyeimbang pada neraca alokasi pendapatan primer adalah pendapatan primer atau Pendapatan
+Nasional Bruto (PNB). Menurut SNA 2008
+poin 2.92, neraca alokasi pendapatan primer menunjukkan bagian akhir dari distribusi pendapatan primer, yang terdiri
+3.3 Gross National Income
+The balancing item on the primary income allocation account is primary income known as Gross
+National Income (GNI). According to the SNA 2008 point 2.92, the primary income allocation account shows the final part of the primary income
+47,70
+44,65
+48,29
+48,57
+45,84
+49,57
+52,30
+55,35
+51,71
+51,43
+54,16
+50,43
+0,00
+10,00
+20,00
+30,00
+40,00
+50,00
+60,00
+Pemerintah pusat/central govt
+Pemerintah daerah/Local govt dari surplus usaha atau pendapatan campuran sebagai sumber. Neraca ini mencatat surplus usaha, pajak kurang subsidi atas produksi dan impor yang diterima oleh pemerintah, serta pendapatan kepemilikan yang diterima dan dibayar.
+Secara umum, kondisi pajak atas produksi dan impor dikurang subsidi tahun 2019 sampai dengan tahun 2024
+mengalami tren yang positif (meningkat), hanya tahun 2020 yang mengalami penurunan
+(Lampiran
+3a).
+Tentunya penurunan pajak atas produksi dan impor ini sebagai dampak dari adanya pandemi
+COVID-19
+yang memperburuk perekonomian Indonesia. Pada tahun
+2024, penerimaan pajak meningkat signifikan dibanding tahun sebelumnya karena terjaganya kondisi ekonomi domestik dan berhasilnya upaya pemerintah dalam meningkatkan kepatuhan wajib pajak.
+Dilihat dari gambar 6, secara umum
+PNB pemerintahan umum mengalami pola pertumbuhan yang berbeda dari tahun 2019-2024. Pada tahun 2020 dan
+Nilai PNB yang paling tinggi terjadi pada tahun 2023 sebesar Rp1.111 triliun.
+distribution, which consists of operating surplus or mixed-income as sources. This account records operating surplus, taxes on production and imports less subsidies received by the government, and ownership income received and paid.
+In general, tax production and imports have experienced a positive trend (increasing) from 2019 to 2024, but only in 2020 did they experience a decline (Appendix 3a). The Indonesian economy has been affected by the
+COVID-19
+pandemic, which has resulted in a reduction in taxes on production and imports. In 2024, tax revenue increased significantly compared to the previous year due to the stability of the domestic economic conditions and the government's successful efforts to enhance taxpayer compliance.
+Figure 6 shows that the general government's GNI growth are varies in
+2019-2024. In 2020 and 2024 the GNI’s growth experienced decline unlike the other year which were increasing. The highest GNI value occurred in 2023 at
+Adapun nilai PNB paling kecil terjadi pada tahun 2020 dengan nilai Rp655 triliun.
+Pada tahun 2024, Nilai PNB mengalami penurunan dibanding tahun sebelumnya yaitu hanya sebesar Rp1.064 triliun. Jika dilihat dari pertumbuhannya, kenaikan nilai PNB paling tinggi terjadi pada tahun
+2022 dengan pertumbuhan sebesar 33,30
+persen.
+Rp1,111 trillion. The smallest value of
+GNI occurred in 2020 with a value of
+Rp655
+trillion.
+In
+2024,
+GNI
+experienced a slight decrease compared to previous year with a value of Rp1,064. As shown on the graph,
+2022 saw the highest increase in GNI
+value with a growth of 33.30 percent.
+Gambar 6 Pendapatan Nasional Bruto (PNB) Pemerintahan Umum (triliun rupiah),
+2019–2024
+Figure 6 Gross National Income (GNI) of General Government (trillion rupiah),
+2019–2024
+3.4 Pendapatan Disposabel
+Pendapatan disposabel atau pendapatan yang siap dibelanjakan merupakan item penyeimbang pada neraca distribusi pendapatan sekunder.
+Neraca distribusi pendapatan sekunder
+3.4 Disposable Income
+Disposable income is the balancing item in the secondary distribution of income account. The secondary distribution of income account shows how the balance of
+1.029
+1.111
+1.064
+6,39
+23,16
+17,97
+33,30
+7,89
+4,24
+25,00
+15,00
+5,00
+5,00
+15,00
+25,00
+35,00
+1.000
+1.200
+Pendapatan Primer/Balance of Primary Income Account
+Pertumbuhan/growth (%)
+menggambarkan proses penciptaan pendapatan disposabel melalui transfer tunai
+(cash)
+dan berbagai transfer berjalan lainnya, tidak termasuk transfer sosial dalam bentuk barang atau jasa.
+Pendapatan disposabel dapat diartikan secara sempit sebagai jumlah maksimum kemampuan pemerintahan umum dalam membiayai konsumsi barang dan jasa selama periode neraca, tanpa membiayai pengeluaran dengan cara mengurangi uang tunai, menjual aset finansial atau nonfinansial atau meningkatkan kewajiban.
+primary incomes of an institutional unit or sector is transformed into its disposable income by the receipt and payment of current transfers, excluding social transfer in kind. Disposable income can be interpreted in a narrow sense as the maximum amount that the general government can afford to spend on consumption goods or services during the accounting period without having to finance its expenditures by reducing its cash, by disposing of other financial or non-
+financial assets, or by increasing its liabilities.
+Gambar 7 Pendapatan Disposabel Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 7 Disposable Income General Government (trillion rupiah), 2019–2024
+Berdasarkan
+Gambar
+7, pendapatan disposabel pemerintahan umum mengalami peningkatan selama tahun 2021–2023 setelah mengalami
+Based on
+Figure
+7, the disposable income of the general government increased during 2021–
+2023 after having a significant decline
+1.674
+1.066
+1.391
+1.633
+1.927
+1.889
+penurunan signifikan pada tahun 2020.
+Penurunan nilai pendapatan disposabel pemerintah umum pada tahun 2020
+disebabkan oleh peningkatan manfaat sosial yang diberikan pemerintah pada sisi uses, sementara pajak pendapatan tahun pada sisi resources berkurang.
+Hal tersebut merupakan dampak penerapan berbagai kebijakan pemerintah dalam rangka pemulihan ekonomi nasional dan penanganan pandemi COVID-19.
+Pada tahun 2023, perekonomian nasional semakin membaik, yang diikuti dengan semakin meningkatnya pendapatan disposabel pemerintahan umum dibandingkan tahun sebelumnya.
+Pada tahun 2023 pendapatan disposabel pemerintah umum sebesar
+Rp1.927
+triliun. Peningkatan ini disebabkan oleh meningkatnya sumber penerimaan negara yang berasal dari pajak. Namun, pada tahun 2024 pendapatan disposabel mengalami kontraksi sebesar 1.98 persen dari tahun sebelumnya menjadi Rp1.889
+triliun dikarenakan penurunan pendapatan primer pemerintah secara umum.
+in 2020. In 2020, the decrease in general government disposable income was caused by increased social benefits provided by the government on the uses side, while income tax in
+2020 was reduced on the resources side. It is the impact of implementing various government policies in the context of the national economic recovery program and handling the
+COVID-19 pandemic.
+In 2023, the national economy is gradually improving, followed by an increase in general government disposable income compared to the previous year. The general government disposable was Rp1,927 trillion. The increase was caused by an increasing source of state revenue from taxes.
+However, in 2024, disposable income contracted by 1.98 percent from the previous year, reaching
+Rp1,889
+trillion. This decline was primarily due to a general decrease in the government's primary income.
+3.4.1 Manfaat Sosial selain Transfer
+Sosial dalam Bentuk Barang
+Manfaat sosial merupakan item pada sisi uses neraca distribusi pendapatan sekunder. Manfaat sosial adalah transfer berjalan yang dibayarkan oleh unit pemerintah pada rumah tangga tidak termasuk transfer sosial berupa barang atau jasa.
+Manfaat sosial bertujuan untuk memenuhi kebutuhan rumah tangga akibat peristiwa atau kondisi tertentu seperti sakit, pengangguran, pendidikan, atau kondisi keluarga lain. Pemerintah Indonesia memberikan berbagai jenis manfaat sosial tunai kepada masyarakat melalui realisasi belanja perlindungan sosial setiap tahunnya, seperti
+Program
+Keluarga
+Harapan
+(PKH),
+Program
+Indonesia Pintar (PIP), dan Bantuan Sosial
+Tunai (BST).
+3.4.1 Social Benefits Other than
+Social Transfer in Kind
+Social benefits other than social transfer in kind is an item on the uses side of the secondary distribution of income account. Social benefits are current transfers government units pay to households, excluding social transfers in goods or services. Social benefits are intended to provide for the needs arising from certain events or circumstances, such as sickness, unemployment, retirement, housing, education, or family circumstances.
+Indonesian government offers various types of social benefits in cash to the community through the realization of social protection spending each year, such as the
+Program
+Keluarga
+Harapan (PKH), the Program Indonesia
+Pintar (PIP), and Cash Social Assistance
+(BST).
+Gambar 8 Manfaat Sosial Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 8 Social Benefits of General Government (trillion rupiah), 2019–2024
+Gambar 8 menunjukkan bahwa jumlah manfaat sosial yang diberikan pemerintahan umum mengalami fluktuasi pada periode 2019-2024. Pada tahun 2019, nilai manfaat yang disalurkan sebesar Rp44 triliun. Pada tahun 2023, nilai manfaat sosial yang disalurkan pemerintah sebesar
+Rp120
+triliun.
+Realisasi tersebut mengalami kontraksi sebesar 12,56 persen jika dibandingkan tahun 2022, yang dipengaruhi oleh tidak dilaksanakannya kembali penyaluran bansos berupa BLT minyak goreng dan
+BBM pada tahun 2023. Kondisi ini terus menurun, pada tahun 2024 manfaat yang disalurkan hanya sebesar Rp108 triliun atau mengalami kontraksi sebesar 9,67
+persen jika dibandingkan dengan tahun
+Figure 8 illustrates that the amount of social benefits provided by the general government fluctuated during the 2019–2024 period. In 2019, the distributed benefits amounted to
+Rp44 trillion. In 2023, the government disbursed Rp120 trillion in social benefits. This figure represented a contraction of 12.56 percent compared to
+2022, primarily due to the discontinuation of social assistance programs such as the BLT for cooking oil and fuel in 2023. The downward trend continued in 2024, with total benefits reaching only Rp108 trillion, reflecting a further contraction of 9.67
+percent from the previous year. This was mainly attributed to the sebelumnya. Hal ini disebabkan belum tersalurkan secara penuh bantuan PKH.
+3.4.2 Pajak Pendapatan, Kekayaan, dan
+Pajak Lainnya
+Salah satu sumber pendapatan disposabel pemerintah adalah pajak pendapatan, kekayaan, dan pajak lainnya.
+Pajak pendapatan, kekayaan, dan pajak lainnya adalah pungutan pemerintahan umum yang berkaitan dengan pendapatan dari rumah tangga atau keuntungan perusahaan yang disetor ke kas negara secara teratur setiap periodenya, seperti Pajak Penghasilan
+(PPh) migas, PPh nonmigas, PPh final, dan
+PPh DTP.
+Kinerja komponen penerimaan pajak pendapatan, kekayaan, dan pajak lainnya masih cukup kuat. Penerimaan pajak pendapatan, kekayaan, dan pajak lainnya pada tahun 2024 mencapai nilai tertinggi sejak tahun 2019 dengan penerimaan sebesar Rp1.121 triliun. Nilai tersebut mengalami peningkatan sebesar
+0,47 persen dibanding tahun 2023
+sebesar Rp1.116 triliun. Kenaikan pajak pendapatan, kekayaan, dan pajak lainnya dipengaruhi oleh faktor penurunan incomplete disbursement of the
+Program Keluarga Harapan (PKH).
+3.4.2 Income Tax, Wealth and
+Other Taxes
+One source of government disposable income is current taxes on income, wealth, etc. The current taxes on income, wealth, etc, are general government levies related to income from households or company profits that are deposited into the state treasury regularly every period, such as oil and gas Income Tax (PPh), non-oil and gas Income Tax, final income tax, and income tax borne by government.
+The performance of income, wealth, and other tax components remained relatively strong. In 2024, revenue from income, wealth, and other taxes reached its highest level since 2019, amounting to Rp1,121
+trillion. This figure represents an increase of 0.47 percent compared to
+Rp1,116 trillion in 2023. The growth in income, wealth, and other tax revenues was driven by reduced tax restitution, revenue optimization policies, and the restitusi dan kebijakan optimalisasi penerimaan, serta kinerja cukai dan pajak internasional yang terus memberikan kontribusi secara positif terhadap kinerja perpajakan. (APBN Kita Desember 2024).
+continued positive contribution of excise duties and international taxes to overall tax performance. (APBN Kita
+December 2024).
+Gambar 9 Pajak Pendapatan, Kekayaan, Pajak Lainnya Pemerintahan Umum (triliun rupiah),
+2019–2024
+Figure 9 Current Taxes on Income, Wealth, etc of General Government (trillion rupiah),
+2019–2024
+3.5 Pengeluaran Konsumsi Pemerintah
+(PKP)
+Pada SNA 2008 poin 9.84 dijelaskan bahwa
+Pengeluaran
+Konsumsi
+Pemerintah
+(PKP)
+merupakan pengeluaran atas barang atau jasa yang dikonsumsi oleh pemerintahan umum yang terdiri dari jasa kolektif serta barang dan jasa individu tertentu. Pengeluaran
+3.5 Government Final Consumption
+Expenditure (GFCE)
+The SNA 2008 point 9.84
+explains that
+Government
+Final
+Consumption Expenditure (GFCE) is expenditure on goods or services consumed by the general government which consist of collective services as well as certain individual goods and
+1.052
+1.116
+1.121
+2,81
+21,06
+15,72
+40,75
+6,09
+0,47
+30,00
+20,00
+10,00
+10,00
+20,00
+30,00
+40,00
+50,00
+1.000
+1.200
+Pajak Pendapatan, kekayaan, dan Pajak lainnya/Current Taxes on Income, Wealth, etc
+Pertumbuhan/growth (%)
+konsumsi yang dilakukan unit pemerintah ini harus dibedakan atas yang dikeluarkan untuk kemanfaatan individu rumahtangga dan kemanfaatan seluruh atau sebagian besar masyarakat.
+Bagian terbesar dari pengeluaran konsumsi pemerintah umum merupakan belanja upah gaji pegawai dan belanja barang dan jasa sebagai bagian dari konsumsi antara.
+Oleh karena itu, fluktuasi pengeluaran konsumsi pemerintah akan mengikuti fluktuasi kedua belanja tersebut.
+services. GFCE must be distinguished between those issued for the benefit of individual households and for the benefit of all or most of the community.
+The largest part of GFCE is expenditure on wages and salaries of employees and expenditure on goods and services as part of intermediate consumption thus, the fluctuation of
+GFCF will be inline with the fluctuation of both expenditures.
+Gambar 10 menggambarkan nilai pengeluaran dan pertumbuhan konsumsi pemerintahan umum pada periode tahun
+2019 sampai dengan tahun 2024. Pada tahun
+2019-2021
+nilai pengeluaran konsumsi pemerintahan umum mengalami tren positif, tetapi mengalami tren negatif pada tahun 2022. Pada tahun
+2023 sampai dengan 2024, pertumbuhan pemerintahan umum menunjukkan tren positif kembali.
+Figure 10 illustrates the value of expenditures and growth of the GFCE
+for the year of 2019 to 2024. In 2018
+untill 2021, the GFCE underwent positive trend but possed negative trend in 2022. Since 2023 to 2024, the
+GFCE shows positive trend again.
+Gambar 10 Pengeluaran Konsumsi Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 10
+General Government Final Consumption Expenditure (GFCE) (trillion rupiah),
+2019–2024
+Nilai pengeluaran konsumsi pemerintahan umum pada tahun 2019
+sebesar Rp1.395 triliun yang terus meningkat sampai dengan tahun 2021
+menjadi sebesar 1.570 triliun rupiah.
+Dilanjutkan dengan kontraksi sebesar
+4,13 persen (y-on-y) dengan nilai sebesar
+Rp1.505 triliun pada 2022 yang sejalan dengan turunnya belanja untuk penanganan pandemi.
+Pada tahun 2023, nilai pengeluaran konsumsi pemerintahan umum sebesar
+Rp1.557 triliun dan mengalami kenaikan sebesar 9,89 persen secara y-on-y menjadi Rp1.712 triliun pada tahun 2024.
+Pertumbuhan positif ini seiring dengan
+The GFCE in 2019 was Rp1,395
+trillion rupiah which kept rising until
+2021 and reached 1,570 trillion rupiah.
+However, it possed contraction of 4.13
+percent (y-on-y) and reached Rp1,505
+trillion in 2022 which was inline with the decreasing of the government’s spending for handling the pandemic.
+In 2023, the GFCE was Rp1,557
+trillion and increased for 9.98 percent in y-on-y to Rp1,712 trillion in 2024.
+This was inline with the State Badget’s role optimalization to protect the national’s economy as a shock
+1.395
+1.491
+1.570
+1.505
+1.557
+1.712
+4,18
+6,92
+5,27
+4,13
+3,49
+9,89
+6,00
+4,00
+2,00
+2,00
+4,00
+6,00
+8,00
+10,00
+12,00
+1.000
+1.200
+1.400
+1.600
+1.800
+Pengeluaran Konsumsi Pemerintahan Umum
+Government Final Consumption Expenditure
+Pertumbuhan/growth (%) (y-on-y)
+optimalisasi peran APBN dalam menjaga perekonomian nasional sebagai shock absorber dan agent of development untuk melindungi rakyat, menjaga stabilitas perekonomian, serta mendukung berbagai program pembangunan (LKPP,
+2024)
+Dari Laporan Keuangan Pemerintah
+Pusat (LKPP) tahun 2024 menjelaskan bahwa realisasi belanja barang mengalami pertumbuhan sebesar 20,95
+persen
+(y-on-y).
+Peningkatan ini utamanya dipengaruhi oleh pengadaan dan pemeliharaan barang milik negara
+(BMN)
+dan barang operasional kementerian dan lembaga (K/L).
+absorber and agent of development to protect the people, keep the economy stability, and support development programs (LKPP, 2024)
+According to the 2024 Central
+Government Financial Report (LKPP), the goods and services expenditure increased by 20.95 percent (y-on-y).
+This change is primarily driven by the procurement and maintenance of state-owned assests as well as the operational items of ministries and agencies.
+3.6 Tabungan Bruto
+Neraca penggunaan pendapatan disposabel digunakan untuk menunjukkan bagaimana unit rumah tangga, pemerintah dan
+LNPRT
+mengalokasi pendapatan disposabel untuk konsumsi dan tabungan (SNA 2008
+poin 9.1). Dalam neraca ini, tabungan berperan sebagai item penyeimbang.
+Tabungan bruto pemerintahan umum pada rentang tahun 2019-2024
+yang mengalami periode naik dan turun
+3.6 Gross Savings
+The use of disposable income account presents how household units, the government and NPISH allocate disposable income for consumption and savings (SNA 2008 point 9.1). In this account, saving is a balancing item.
+The General Government Gross
+Savings for the period of 2019-2024
+experienced up and down period as we seperti pada gambar 11. Nilai tabungan bruto pemerintah mengalami penurunan dari tahun 2019 ke tahun 2020, lalu mengalami peningkatan secara bertahap sampai dengan tahun 2023. Namun, pada tahun 2024 terjadi penurunan tabungan bruto pemerintahan umum kembali.
+can see in figure 11. The amount of the gross savings declined from 2019 to
+2020 and then started to gradually rising untill 2023. But, in 2024 the gross savings experienced decline again.
+Gambar 11 Tabungan Bruto Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 11 General Government Gross Savings (trillion rupiah), 2019–2024
+Pada tahun 2019, nilai tabungan bruto pemerintah umum sebesar Rp279
+triliun rupiah kemudian mengalami penurunan menjadi sebesar minus Rp425
+triliun rupiah pada 2020. Kemudian terjadi peningkatan pada tahun 2021
+menjadi minus Rp178 triliun rupiah.
+Tabungan bruto berperan sebagai salah satu sumber pembiayaan PMTB, ketika bernilai negatif berarti pemerintah belum mampu membiayai
+PMTB
+dari tabungannya.
+In 2019, the gross savings was
+Rp279 trillion then possed a decline to minus Rp425 trillion in 2020. It started to rise to minus 178 trillion rupiah in
+2021. Gross saving is a source of financing for GFCF, when it is negative, it means that the government is not able to finance GFCF from its own economies.
+425
+178
+Pada tahun dan
+2021, pemerintah melakukan banyak pengeluaran untuk penanganan COVID-
+19. Hal ini mengakibatkan tabungan bruto pada tahun 2020 dan 2021 bernilai negatif. Seiring dengan membaiknya kondisi pandemi dan berkurangnya pengeluaran untuk penanganan COVID-
+19 pada tahun 2022, pemerintah kembali dapat membiayai
+PMTB
+dari tabungannya. Bahkan pada tahun 2023, nilai tabungan bruto pemerintah umum sebesar Rp369 triliun.
+Dapat dilihat pada Tabel 1, peranan tabungan bruto terhadap PDB tahun
+2019-2024 secara rata-rata sebesar 0,20
+persen. Peranan paling besar terjadi pada tahun 2023 sebesar 1,77 persen dan peranan paling kecil terjadi pada tahun
+2020 sebesar minus 2,75 persen.
+In and
+2021, the government spent a significant amount of money to manage COVID-19. That’s one of the reasons why gross savings in
+2020 and 2021 are negative. After that, as the pandemic conditions improve and expenses for handling COVID-19
+decrease, in 2022 the government will be able to finance GFCF from its own economies. Even in 2023, the gross saving reached Rp369 trillion.
+Table 1 shoes how gross saving contributes to GDP in 2019-2024, which averageing around 0.20 percent.
+The highest was in 2019 at 1.77 percent and the lowest was in 2020 at minus
+2.75 percent
+3.7 Pembentukan Modal Tetap Bruto
+(PMTB)
+PMTB dicatat pada sisi uses neraca modal. Neraca modal mencatat transaksi aset non-finansial yang diperoleh atau dilepas oleh unit institusi residen yang terlibat dalam transaksi, serta
+3.7 Gross Fixed Capital Formation
+(GFCF)
+GFCF is recorded on the uses side of the capital account. The capital account records transactions in non-
+financial assets that are acquired or disposed by the resident institutional units by engaging in the transactions menunjukkan perubahan kekayaan neto karena tabungan dan transfer modal.
+PMTB
+merupakan total nilai perolehan kurang pelepasan aset tetap milik produsen selama periode neraca, ditambah pengeluaran atas jasa tertentu yang menambah nilai aset tak-
+diproduksi. PMTB adalah pengeluaran untuk modal yang mempunyai umur pemakaian lebih dari satu tahun dan bukan merupakan barang konsumsi.
+Menurut teori pertumbuhan ekonomi Harrod-Domar, semakin banyak melakukan investasi dan menabung maka laju pertumbuhan ekonomi juga semakin cepat (Todaro 2012: 113). PMTB
+dan perubahan inventori merupakan bagian dari investasi. PMTB mempunyai pengaruh besar terhadap pembentukan
+PDB di Indonesia. Kontribusi PMTB
+terhadap PBD nasional atas dasar harga berlaku selama tahun 2019-2024 lebih dari 29 persen (Gambar 12). Pada tahun
+2024 kontribusi PMTB terhadap PDB
+sebesar 29,15 persen.
+and to show the change in net worth due to savings and capital transfers.
+GFCF is the total acquisition value less the disposal of the producer's fixed assets during the accounting period, plus expenditure on certain services that add to the value of non-
+produced assets.
+GFCF
+is an expenditure for capital that has a service life of more than one year and is not a consumer good. GFCF includes dwellings, other buildings and structures such as roads, bridges, airports, as well as machinery and equipment.
+According to Harrod-Domar's theory of economic growth, the more countries can invest and save, the faster they can grow (Todaro 2012:
+113). GFCF and changes in inventories are component of investment. GFCF
+has a major influence on the formation of Gross Domestic Product (GDP) in
+Indonesia.
+GFCF's contribution to national GDP at current prices for
+2019-2024 was more than 29 percent
+(Figure 12). In 2024 the contribution of
+GFCF to GDP was 29.15 percent.
+Gambar 12 Persentase PMTB terhadap PDB Atas Dasar Harga Berlaku (persen), 2019–2024
+Figure 12 Percentage of GFCF on GDP at Current Market Prices (percent), 2019–2024
+Pemerintahan umum juga melakukan berbagai pengeluaran terkait belanja modal, seperti belanja modal bangunan, mesin, peralatan, dan lain-lain yang nantinya untuk menyusun PMTB
+pemerintahan umum.
+Pertumbuhan
+PMTB pemerintahan umum tahun 2019-
+2024 bervariasi dan menunjukkan tren positif pasca pandemi COVID-19.
+Pada tahun
+2023,
+PMTB
+pemerintahan umum sebesar Rp509
+triliun dan tumbuh sebesar 17,19 persen
+(y-on-y) dibanding tahun sebelumnya
+(Gambar 13). Aktivitas belanja modal
+Pemerintah ini digunakan untuk penyelesaian proyek strategis nasional, hingga pembangunan
+Ibu
+Kota
+Nusantara (IKN) yang turut mendorong
+Capital expenditures are also managed by the general government, such as capital expenditures for buildings, machinery, equipment, and other items that contribute to the
+GFCF for the general government. The growth of the general government
+GFCF from 2019-2024 varies and shows a recovery trend after the
+COVID-19 pandemic.
+In 2023, the GFCF of the general government reached Rp509 trillion or grew by 17.19 percent (y-on-y)
+compared to the previous year (Figure
+13). The capital expenditure was used in the completion of national strategic projects, and the development of the new capital city, Ibu Kota Nusantara
+(IKN), have also contributed to
+32,35
+31,71
+30,79
+29,09
+29,15
+29,15
+kinerja investasi pemerintah di tahun
+2023.
+Kelanjutan proyek pembangunan strategis seperti pembangunan IKN juga masih menopang pertumbuhan PMTB
+yang tumbuh melambat sebesar 11,07
+persen menjadi Rp565 triliun pada tahun
+2024.
+strengthening government investment performance in 2023.
+The continuation of strategic development projects, such as the construction of the new capital city
+(IKN), also continues to support Gross
+Fixed
+Capital
+Formation
+(GFCF)
+growth, which slowed to
+11.07
+percent, reaching Rp565 trillion in
+2024.
+Gambar 13 PMTB Pemerintahan Umum (triliun rupiah), 2019–2024
+Figure 13 GFCF of General Government (trillion rupiah), 2019–2024
+Pemerintah memiliki peran strategis dalam pembangunan infrastruktur dan investasi nasional. Pada tahun 2019-2024 rata-rata kontribusi
+PMTB pemerintahan umum terhadap
+PMTB nasional sebesar 8,32 persen, lebih
+The government has a strategic role in infrastructure development and national investment. The average contribution of general government
+GFCF to national GFCF in 2019 to
+2024 was 8.32 percent, smaller than
+2,99
+2,09
+5,93
+8,89
+17,19
+11,07
+10,00
+5,00
+5,00
+10,00
+15,00
+20,00
+PMTB Pemerintahan Umum/GFCF General Govt
+Pertumbuhan/growth (%)
+kecil dibanding kontribusi PMTB swasta.
+Kontribusi PMTB pemerintahan umum terhadap PMTB nasional berada pada rentang 7 persen hingga 8 persen pada periode 2019–2024. Kontribusi PMTB
+pemerintahan umum terhadap PMTB
+nasional terbesar pada tahun 2024
+sebesar
+8,76
+persen, sedangkan kontribusi terkecil pada tahun 2022
+sebesar 7,62 persen (Tabel 2).
+the contribution of private PMTB. The contribution of PMTB from the general government to national PMTB was around 7 percent to 8 percent in 2019
+to 2024. The contribution of general government GFCF to national GFCF
+was on its peak in 2024 reaching 8.76
+percent, while the smallest contribution was recorded in 2022 at
+7.62 percent (Table 2).
+Tabel 2 Proporsi PMTB dan Tabungan Bruto Pemerintahan Umum terhadap PMTB
+Nasional (persen), 2019–2024
+Table 2 Proportion of GFCF and Gross Saving General Government on National GFCF
+(percent), 2019–2024
+No
+Keterangan/Items
+Rata-
+Rata
+Average
+8,45
+8,66
+7,63
+7,62
+8,35
+8,76
+8,32
+5,46
+8,68
+3,41
+2,24
+6,07
+2,75
+1,47
+PMTB Pemerintahan Umum
+GFCF of General Govt
+Tabungan Bruto Pemerintahan
+Umum/ Gross Saving of General
+Govt
+PMTB Nasional (Triliun Rp)
+National GFCF (Trillion Rp)
+5.121
+4.897
+5.228
+5.697
+6.091
+6.453
+Kontribusi
+PMTB
+pemerintahan umum terhadap PDB nasional juga mengalami tren yang sama. Rata-rata kontribusi PMTB pemerintahan umum terhadap PDB sebesar 2,55 persen (Tabel
+1). Berdasarkan Gambar 14 dapat dilihat bahwa
+PMTB
+pemerintah daerah
+General government’s
+GFCF
+contribution on national GDP also shows same trend as contribution of general government GFCF to national
+GFCF. The average contribution was
+2.55 percent (Table 1). Based on Figure
+14, the local government’s GFCF has a memiliki proporsi lebih tinggi dibandingkan pemerintah pusat tahun
+2019-2020. Namun, pada tahun 2021-
+2024,
+PMTB
+pemerintah pusat menunjukkan proporsi lebih tinggi dibandingkan dengan PMTB pemerintah daerah. Proporsi PMTB pemerintah pusat tahun sebesar
+59,68
+persen, sedangkan pemerintah daerah sebesar
+40,32 persen.
+higher proportion than the central government in 2018-2020. But, in
+2021 to 2024 the central government’s
+GFCF started to be higher than the local government's
+GFCF.
+The proportion of the central government's
+GFCF to the general government's
+GFCF in 2024 is 59.68 percent compared to the local government's
+40.32 percent.
+Gambar 14
+Proporsi PMTB Pemerintahan Umum Menurut Tingkat Pemerintah (persen),
+2019–2024
+Figure 14
+Proportion GFCF of General Government by Level of Government (percent),
+2019–2024
+Realisasi belanja modal pemerintah pusat sebagai indikator penyusunan
+PMTB pemerintah pusat tahun 2024
+The central government's capital expenditure as an indicator for compilinh the central government’s
+40,19
+39,76
+53,51
+51,03
+55,37
+59,68
+59,81
+60,24
+46,49
+48,97
+44,63
+40,32
+PMTB Pempus/GFCF of Central Govt (%)
+PMTB Pemda/GFCF of Local Govt (%)
+masih dipengaruhi oleh pengembangan infrastruktur dan pengadaan alutsista.
+Peningkatan realisasi ini dipengaruhi oleh pemanfaatan antara lain untuk:
+pembangunan dan rehabilitasi jembatan, bendungan, jaringan irigasi,
+Sistem
+Penyediaan
+Air
+Minum
+(SPAM), bangunan
+Gedung
+IKN, dan pengembangan rumah susun oleh
+Kementerian
+PUPR,
+pengadaan peralatan operasional pada beberapa K/L
+seperti alutsista dan almatsus, serta pembangunan dan pengembangan bandara, jalur kereta api, pelabuhan
+(Kementerian Keuangan, 2025)
+GFCF in 2024, was still influenced by infrastructure decelopment and procurement of defense and security equipment. This increase was mainly driven by sepending allocated for the construction and rehabilitation of bridges, dams, irrigation networks, drinking water supply system, IKN
+building facilities, and the development of public housing by the
+Ministry of Public Works and Housing, the procurement of operational equipment in several ministries and agencies, such as defense and security equipment, and the construction and development of airports, railways, and ports (Ministry of Finance, 2025).
+3.8 Net Lending/Net Borrowing
+Item penyeimbang pada neraca modal adalah net lending/net borrowing.
+Net lending/net borrowing adalah perbedaan antara perubahan kekayaan neto karena tabungan dan transfer modal dengan perolehan neto aset non-
+finansial.
+Net lending/net borrowing bernilai negatif menggambarkan net borrowing. Hal tersebut menunjukkan sumber yang tersisa untuk tujuan
+3.8 Net Lending/Net Borrowing
+The balancing item in the capital account is net lending/net borrowing. Net lending/net borrowing represents the difference between the change in net wealth due to savings and capital transfers, and the net acquisition of non-financial assets. A
+negative value for net lending/net borrowing indicates net borrowing.
+This reflects the remaining resources meminjamkan atau yang perlu untuk dipinjamkan suatu sektor.
+Net lending/net borrowing mencerminkan posisi fiskal setelah memperhitungkan belanja modal. Net lending
+(+)/net borrowing
+(-)
+menunjukkan sejauh mana pemerintah menempatkan sumber keuangan dari sektor lain dalam perekonomian dalam negeri atau luar negeri, atau memanfaatkan sumber keuangan yang dihasilkan oleh sektor lain dalam perekonomian atau dari luar negeri
+(Kemenkeu, 2018). Oleh karena itu, hal ini dapat dilihat sebagai indikator dampak finansial kegiatan pemerintah terhadap perekonomian.
+The
+European
+Commission menggunakan konsep net lending/net borrowing untuk memantau surplus/defisit fiskal pemerintah dan menilai kesehatan dan keberlanjutan keuangan publik (OECD, 2013).
+Gambar 15 menunjukkan bahwa net lending/net borrowing pemerintahan umum sepanjang tahun
+2019-2024
+bernilai negatif atau net borrowing. Hal ini berarti pemerintah memanfaatkan sumber keuangan yang dihasilkan sektor lain dalam perekonomian atau dari luar negeri. Selain itu, net borrowing juga available for lending purposes or the need for borrowing by a sector.
+Net lending/net borrowing reflects the fiscal position after accounting for capital expenditures. It indicates that the government is providing financial resources to other sectors in the domestic or foreign economy or requires financial sources generated by other sectors in the economy or from foreign economy
+(Ministry of Finance, 2018). Therefore, it is an indicator of the financial impact of government activities on the economy. The European Commission uses the net lending concept to monitor the government fiscal surpluses/deficits and to assess the soundness and sustainability of public finances (OECD, 2013).
+Figure 15 shows that the general government's net lending/net borrowing during
+2019-2024
+is negative or net borrowing. This means that the government utilizes financial resources generated by other sectors in the economy or from abroad. In addition, net borrowing also shows menunjukkan bahwa pemerintahan umum dalam kondisi defisit.
+that the general government is in a deficit condition.
+Gambar 15 Net Lending/Net Borrowing Pemerintahan Umum (triliun rupiah),
+2019–2024
+Figure 15 Net Lending/Net Borrowing General Government (trillion rupiah),
+2019–2024
+Pada tahun 2024 net borrowing pemerintahan umum sebesar minus
+Rp586 triliun, lebih dalam dibanding tahun 2023 sebesar minus Rp318 triliun
+(Gambar 15). Hal ini terkait dengan pengoptimalan pendapatan dan belanja negara untuk mendukung agenda pembangunan antara lain sebagai shock absorber dan agent of development.
+In
+2024, the general government net borrowing was minus
+Rp586 trillion compared to 2023
+which was minus Rp318 trillion
+(Figure
+15).
+It is due to the government's policy in optimizing income and expenditure to support development agenda as a shock absorber and agent of development.
+DAFTAR PUSTAKA/REFERENCES
+Badan Pusat Statistik. 2013. Sistem Neraca Nasional 2008. Jakarta: Badan Pusat
+Statistik Cetakan Pertama Februari 2013.
+Commission of the European Communities, International Monetary Fund,
+Organization for Economic Cooperation and Development, United Nations and
+World Bank. . System of National Accounts 2008. Brussels/Luxembourg,
+Washington, D.C., Paris, New York, 2009. United Nations Publication, Sales No.
+E.08.XVII.29..
+Kementerian Keuangan. 2020. Laporan Keuangan Pemerintah Pusat Tahun 2019
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2021. Laporan Keuangan Pemerintah Pusat Tahun 2020
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2022. Laporan Keuangan Pemerintah Pusat Tahun 2021
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2023. Laporan Keuangan Pemerintah Pusat Tahun 2022
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2024. Laporan Keuangan Pemerintah Pusat Tahun 2023
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2025. Laporan Keuangan Pemerintah Pusat Tahun 2024
+(Audited). Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Keuangan. 2024. APBN KiTa (Kinerja dan Fakta) edisi Januari 2024.
+Jakarta: Kementerian Keuangan Republik Indonesia.
+Kementerian Koordinator Bidang Pembangunan Manusia dan Kebudayaan. 2019.
+Pedoman Umum Bantuan Pangan Nontunai 2019. Jakarta: Tim Pengendali
+Pelaksanaan Penyaluran Bantuan Sosial Secara Nontunai, Cetakan Pertama
+September 2019.
+OECD. , National Accounts of OECD Countries, OECD Publishing, Paris, dapat diakses pada tautan .
+Peraturan Menteri Keuangan Nomor 102/PMK.02/2018 Tentang Klasifikasi
+Anggaran.
+Peraturan Pemerintah Republik Indonesia Nomor 21 Tahun 2004 Tentang
+Penyusunan Rencana Kerja dan Anggaran Kementerian Negara.
+Todaro, Michael P. 2012. Economic Development 11th Edition. United States of
+America (USA).
+Undang-Undang Republik Indonesia Nomor 17 Tahun 2003 Tentang Keuangan
+Negara.
+Undang-Undang Republik Indonesia Nomor 2 Tahun 2020 Tentang Penetapan
+Peraturan Pemerintah Pengganti Undang-Undang Nomor 1 tahun 2020
+tentang Kebijakan Keuangan Negara dan Stabilitas Sistem Keuangan untuk
+Penanganan Pandemi Corona Virus Disease 2019 (COVOD-19) dan/atau dalam rangka Menghadapi Ancaman yang Membahayakan Perekonomian
+Nasional dan/atau Stabilitas Sistem Keuangan menjadi Undang-Undang.
+Undang-Undang Republik Indonesia Nomor 23 Tahun 2014 Tentang Pemerintahan
+Daerah.
+Undang-Undang Republik Indonesia Nomor 1 Tahun 2022 Tentang Hubungan
+Keuangan antara Pemerintah Pusat dan Pemerintahan Daerah.
+Lampiran
+1.1
+Neraca Produksi Pemerintahan Umum (miliar rupiah), 2019–2024
+Appendix
+General Government’s Production Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1. Konsumsi Antara
+Intermediate Consumption
+612.613
+666.531
+814.629
+751.844
+71.562
+844.659
+2. Nilai Tambah Bruto
+Value Added, Gross
+913.358
+956.064
+968.453
+978.049
+991.933
+1.077.233
+Sumber
+Resources
+Output Non Pasar
+Non-market Output
+1.525.970
+1.622.595
+1.783.082
+1.729.893
+1.763.495
+1.921.893
+PENGGUNAAN/SUMBER
+1.525.970
+1.622.595
+1.783.082
+1.729.893
+1.763.495
+1.921.893
+USES/RESOURCES
+Lampiran
+1.2
+Neraca Produksi Pemerintah Pusat (miliar rupiah), 2019–2024
+Appendix
+Central Government’s Production Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1. Konsumsi Antara
+Intermediate Consumption
+330.308
+428.657
+502.691
+434.499
+434.187
+476.963
+2. Nilai Tambah Bruto
+Value Added, Gross
+433.560
+430.826
+476.591
+481.538
+464.081
+544.481
+Sumber
+Resources
+Output Non Pasar
+Non-market Output
+763.868
+859.483
+979.281
+916.037
+898.268
+1.021.444
+PENGGUNAAN/SUMBER
+763.868
+859.483
+979.281
+916.037
+898.268
+1.021.444
+USES/RESOURCES
+Lampiran
+1.3
+Neraca Produksi Pemerintah Daerah (miliar rupiah), 2019–2024
+Appendix
+Local Government’s Production Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1. Konsumsi Antara
+Intermediate Consumption
+282.305
+237.874
+311.938
+317.345
+337.375
+367.696
+2. Nilai Tambah Bruto
+Value Added, Gross
+479.797
+525.239
+491.863
+496.511
+527.851
+532.752
+Sumber
+Resources
+Output Non Pasar
+Non-market Output
+762.102
+763.113
+803.801
+813.856
+865.226
+900.448
+PENGGUNAAN/SUMBER
+762.102
+763.113
+803.801
+813.856
+865.226
+900.448
+USES/RESOURCES
+Lampiran
+2.1
+Neraca Pendapatan yang Dihasilkan Pemerintahan Umum (miliar rupiah), 2019–2024
+Appendix
+General Government Generation of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Belanja Pegawai
+Compensation of employees
+815.879
+877.774
+876.452
+882.944
+881.590
+966.016
+2. Konsumsi Barang Modal
+Tetap = Surplus usaha Bruto
+Consumption of fixed capital =
+Operating surplus, Gross
+97.478
+78.290
+92.001
+95.105
+110.342
+111.218
+Sumber
+Resources
+Nilai Tambah Bruto
+Value Added, Gross
+913.358
+956.064
+968.453
+978.049
+991.933
+1.077.233
+PENGGUNAAN/SUMBER
+913.358
+956.064
+968.453
+978.049
+991.933
+1.077.233
+USES/RESOURCES
+Lampiran
+2.2
+Neraca Pendapatan yang Dihasilkan Pemerintahan Pusat (miliar rupiah), 2019–2024
+Appendix
+Central Government Generation of Income Accoun (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Belanja Pegawai
+Compensation of employees
+389.139
+391.969
+423.282
+428.823
+404.078
+478.815
+2. Konsumsi Barang Modal
+Tetap = Surplus usaha Bruto
+Consumption of fixed capital =
+Operating surplus, Gross
+44.421
+38.856
+53.309
+52.716
+60.004
+65.667
+Sumber
+Resources
+Nilai Tambah Bruto
+Value Added, Gross
+433.560
+439.692
+476.591
+481.538
+464.081
+544.481
+PENGGUNAAN/SUMBER
+433.560
+430.826
+476.591
+481.538
+464.081
+544.481
+USES/RESOURCES
+Lampiran
+2.3
+Neraca Pendapatan yang Dihasilkan Pemerintahan Daerah (miliar rupiah), 2019–2024
+Appendix
+Local Government Generation of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Belanja Pegawai
+Compensation of employees
+426.740
+485.805
+453.171
+454.122
+477.513
+487.201
+2. Konsumsi Barang Modal
+Tetap = Surplus usaha Bruto
+Consumption of fixed capital =
+Operating surplus, Gross
+53.057
+39.433
+38.692
+42.389
+50.338
+45.551
+Sumber
+Resources
+Nilai Tambah Bruto
+Value Added, Gross
+479.797
+516.372
+491.863
+496.511
+527.851
+532.752
+PENGGUNAAN/SUMBER
+479.797
+525.239
+491.863
+496.511
+527.851
+532.752
+USES/RESOURCES
+Lampiran
+3.1
+Neraca Alokasi Pendapatan Primer Pemerintahan Umum (miliar rupiah), 2019–2024
+Appendix
+General Government Allocation of Primary Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan / Uses
+275.177
+314.579
+342.280
+386.143
+440.928
+489.210
+275.177
+314.579
+342.280
+386.143
+440.928
+489.210
+–
+–
+–
+–
+–
+–
+851.867
+654.608
+772.266
+1.029.424
+1.110.656
+1.063.587
+1. Pendapatan Kepemilikan yang
+Dibayar/Property Income
+Paid a. Bunga/Interest b. Pendapatan kepemilikan selain bunga/Property income other than interest
+2. Pendapatan Primer/Balance of Primary Income Account
+Sumber / Resources
+97.478
+78.290
+92.001
+95.105
+110.342
+111.218
+766.570
+701.233
+796.915
+977.289
+1.046.706
+1.080.837
+262.996
+189.665
+225.630
+343.174
+394.536
+360.742
+18.482
+17.794
+36.163
+22.888
+45.501
+34.167
+1. Surplus Usaha Bruto
+Operating Surplus, Gross
+2. Pajak atas produksi dan impor dikurang subsidi
+Taxes on production and imports less subsidies
+3. Pendapatan Kepemilikan yang
+Diterima/Property Income
+Received :
+a. Bunga/Interest b. Pendapatan kepemilikan selain bunga/Property income other than interest
+244.514
+171.871
+189.467
+320.286
+349.035
+326.575
+PENGGUNAAN/SUMBER
+1.127.044
+969.187
+1.114.546
+1.415.568
+1.551.584
+1.552.797
+USES/RESOURCES
+Lampiran
+3.2
+Neraca Alokasi Pendapatan Primer Pemerintah Pusat (miliar rupiah), 2019–2024
+Appendix
+Central Government Allocation of Primary Income Account (billion rupiah),
+2019–2024
+Keterangan
+Items
+Penggunaan/Uses
+274.758
+314.088
+341.641
+385.004
+439.346
+488.266
+274.758
+314.088
+341.641
+385.004
+439.346
+488.266
+–
+–
+–
+–
+–
+–
+610.853
+440.861
+583.020
+817.462
+875.019
+855.457
+1. Pendapatan Kepemilikan yang
+Dibayar/Property Income
+Paid a. Bunga/Interest b. Pendapatan kepemilikan selain bunga/ Property income other than interest
+2. Pendapatan Primer/Balance of Primary Income Account
+Sumber/Resources
+44.421
+38.856
+53.309
+52.716
+60.004
+65.667
+596.327
+542.633
+664.049
+822.666
+877.601
+933.746
+244.862
+173.460
+207.303
+327.085
+376.760
+344.311
+9.240
+10.155
+27.317
+17.717
+40.498
+28.998
+1. Surplus Usaha Bruto
+Operating Surplus, Gross
+2. Pajak atas produksi dan impor dikurang subsidi
+Taxes on production and imports less subsidies
+3. Pendapatan Kepemilikan yang
+Diterima/Property Income
+Received :
+a. Bunga/Interest b. Pendapatan kepemilikan selain bunga/Property income other than interest
+235.622
+163.306
+179.986
+309.368
+336.262
+315.313
+PENGGUNAAN/SUMBER
+885.610
+754.950
+924.661
+1.202.467
+1.314.365
+1.343.723
+USES/RESOURCES
+Lampiran
+3.3
+Neraca Alokasi Pendapatan Primer Pemerintah Daerah (miliar rupiah), 2019–2024
+Appendix
+Local Government Allocation of Primary Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan/Uses
+1.139
+1.582
+1.139
+1.582
+–
+–
+–
+–
+–
+–
+241.015
+213.746
+189.246
+211.962
+235.638
+208.130
+1. Pendapatan Kepemilikan yang
+Dibayar/Property Income
+Paid a. Bunga/Interest b. Pendapatan kepemilikan selain bunga/ Property income other than interest
+2. Pendapatan Primer/Balance of Primary Income Account
+Sumber/Resources
+53.057
+39.433
+38.692
+42.389
+50.338
+45.551
+170.243
+158.600
+132.866
+154.623
+169.105
+147.091
+18.134
+16.204
+18.327
+16.089
+17.776
+16.432
+9.242
+7.639
+8.846
+5.171
+5.003
+5.170
+1. Surplus Usaha Bruto
+Operating Surplus, Gross
+2. Pajak atas produksi dan impor dikurang subsidi
+Taxes on production and imports less subsidies
+3. Pendapatan Kepemilikan yang
+Diterima/Property Income
+Received :
+a. Bunga/Interest b. Pendapatan kepemilikan selain bunga / Property income other than interest
+8.892
+8.565
+9.481
+10.918
+12.773
+11.262
+PENGGUNAAN/SUMBER
+241.434
+214.238
+189.885
+213.101
+237.219
+209.074
+USES/RESOURCES
+Lampiran
+4.1
+Neraca Distribusi Pendapatan Sekunder Pemerintahan Umum (miliar rupiah),
+2019–2024
+Appendix
+General Government’s Secondary Distribution of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+44.309
+159.301
+115.788
+136.783
+119.811
+108.221
+1.
+Manfaat Sosial
+Social Benefits
+2.
+Transfer Berjalan Lainnya
+Other Current Transfer
+816.572
+929.109
+839.884
+1.107.957
+1.004.914
+1.005.451
+9.399
+12.499
+14.216
+–
+–
+a.
+Premi Asuransi
+Non-jiwa Neto/Net
+Non-life Insurance
+Premiums b.
+Klaim Asuransi Non-
+Jiwa/Non-Life insurance claims
+–
+–
+–
+–
+–
+–
+c.
+752.093
+736.765
+695.399
+673.986
+716.317
+735.859
+d.
+e.
+Transfer Berjalan
+Antar Pemerintah
+Current Transfer
+Within General
+Government
+Kerjasama
+Internasional/
+Current
+International
+Cooperation
+Lain-lain
+Miscellaneous
+Current Transfer
+54.994
+179.815
+130.238
+433.910
+288.377
+269.314
+3.
+Pendapatan Disposabel/
+Disposable Income
+1.674.061
+1.066.091
+1.391.370
+1.632.588
+1.926.914
+1.888.810
+Lampiran
+4.1
+Neraca Distribusi Pendapatan Sekunder Pemerintahan Umum (miliar rupiah),
+2019–2024
+Appendix
+General government’s Secondary Distribution of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Sumber
+Resources
+851.867
+654.608
+772.266
+1.029.424
+1.110.656
+1.063.587
+817.932
+645.695
+747.221
+1.051.682
+1.115.717
+1.120.915
+772.194
+594.033
+696.677
+998.214
+1.061.234
+1.061.941
+45.738
+51.662
+50.545
+53.468
+54.483
+58.974
+865.142
+854.199
+827.556
+796.221
+825.266
+817.981
+752.093
+736.765
+695.399
+673.986
+716.317
+735.859
+4.963
+4.829
+10.305
+8.417
+6.830
+–
+1.
+Pendapatan Primer/Balance of Primary Income
+2.
+Pajak Pendapatan
+Current Taxes on Income,
+Wealth, etc a.
+Pajak Pendapatan/Taxes on Income b.
+Pajak Pendapatan lainnya
+Other Current Taxes
+3.
+Transfer Berjalan Lainnya
+Other Current Transfer a.
+Transfer Berjalan Antar
+Pemerintah/Current
+Transfer Within
+General Government b.
+Kerjasama Internasional
+Current International
+Cooperation c.
+Lain-lain/Miscellaneous
+Current Transfer
+108.087
+112.605
+121.852
+113.819
+102.118
+82.121
+PENGGUNAAN/SUMBER
+USES/RESOURCES
+2.534.942
+2.154.501
+2.347.043
+2.877.328
+3.051.639
+3.002.482
+Lampiran
+4.2
+Neraca Distribusi Pendapatan Sekunder Pemerintah Pusat (miliar rupiah),
+2019–2024
+Appendix
+Central Government’s Secondary Distribution of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+44.309
+159.301
+95.546
+109.840
+103.927
+93.296
+1.
+Manfaat Sosial
+Social Benefits
+2.
+Transfer Berjalan Lainnya
+Other Current Transfer
+592.345
+667.917
+607.679
+901.998
+804.439
+803.040
+–
+–
+–
+–
+–
+–
+a.
+Premi Asuransi
+Non-jiwa Neto/Net
+Non-life Insurance
+Premiums b.
+Klaim Asuransi Non-
+Jiwa/Non-Life insurance claims
+–
+–
+–
+–
+–
+–
+c.
+564.827
+525.611
+528.463
+525.245
+560.148
+578.040
+d.
+e.
+Transfer Berjalan
+Antar Pemerintah
+Current Transfer
+Within General
+Government
+Kerjasama
+Internasional
+Current
+International
+Cooperation
+Lain-lain
+Miscellaneous
+Current Transfer
+27.431
+142.276
+79.185
+376.706
+244.072
+224.722
+3.
+Pendapatan Disposabel/
+Disposable Income
+787.546
+250.591
+636.770
+860.401
+1.070.705
+1.063.330
+Lampiran
+4.2
+Neraca Distribusi Pendapatan Sekunder Pemerintah Pusat (miliar rupiah),
+2019–2024
+Appendix
+Central Government’s Secondary Distribution of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Sumber
+Resources
+610.853
+440.861
+583.020
+817.462
+875.019
+855.457
+772.194
+594.033
+696.677
+998.214
+1.061.234
+1.061.941
+772.194
+594.033
+696.677
+998.214
+1.061.234
+1.061.941
+–
+–
+–
+–
+–
+–
+41.153
+42.915
+60.298
+56.562
+42.818
+42.268
+–
+–
+–
+–
+–
+–
+4.963
+4.829
+10.305
+8.417
+6.830
+–
+1.
+Pendapatan Primer/Balance of Primary Income
+2.
+Pajak Pendapatan
+Current Taxes on Income,
+Wealth, etc a.
+Pajak Pendapatan/Taxes on Income b.
+Pajak Pendapatan lainnya/
+Other Current Taxes
+3.
+Transfer Berjalan Lainnya
+Other Current Transfer a.
+Transfer Berjalan Antar
+Pemerintah/Current
+Transfer Within
+General Government b.
+Kerjasama Internasional
+Current International
+Cooperation c.
+Lain-lain/Miscellaneou
+Current Transfer
+36.190
+38.086
+49.994
+48.146
+35.988
+42.268
+PENGGUNAAN/SUMBER
+USES/RESOURCES
+1.424.200
+1.077.810
+1.339.995
+1.872.239
+1.979.071
+1.959.666
+Lampiran
+4.3
+Neraca Distribusi Pendapatan Sekunder Pemerintah Daerah (miliar rupiah),
+2019–2024
+Appendix
+Local Government’s Secondary Distribution of Income Account (billion rupiah),
+2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Manfaat Sosial
+Social Benefits
+–
+–
+20.242
+26.943
+15.885
+14.925
+2.
+Transfer Berjalan Lainnya
+Other Current Transfer
+224.228
+261.192
+232.205
+205.959
+200.475
+202.411
+9.399
+12.499
+14.216
+–
+–
+–
+–
+–
+–
+–
+–
+187.266
+211.154
+166.937
+148.741
+156.170
+157.819
+–
+–
+–
+–
+–
+–
+a.
+Premi Asuransi
+Non–jiwa Neto/Net
+Non–life Insurance
+Premiums b.
+Klaim Asuransi Non–
+Jiwa/ Non–Life insurance claims c.
+Transfer Berjalan
+Antar Pemerintah d.
+Current Transfer
+Within General
+Government e.
+Kerjasama
+Internasional
+Current
+International
+Cooperation f.
+Lain-lain
+Miscellaneous
+Current Transfer
+27.563
+37.539
+51.053
+57.204
+44.305
+44.592
+3.
+Pendapatan Disposabel
+Disposable Income
+886.515
+815.500
+754.601
+772.187
+856.209
+825.480
+Lampiran
+4.3
+Neraca Distribusi Pendapatan Sekunder Pemerintah Daerah (miliar rupiah),
+2019–2024
+Appendix
+Local Government’s Secondary Distribution of Income Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Sumber
+Resources
+241.015
+213.746
+189.246
+211.962
+235.638
+208.130
+45.738
+51.662
+50.545
+53.468
+54.483
+58.974
+–
+–
+–
+–
+–
+–
+45.738
+51.662
+50.545
+53.468
+54.483
+58.974
+823.989
+811.284
+767.257
+739.659
+782.448
+775.712
+752.093
+736.765
+695.399
+673.986
+716.317
+735.859
+–
+–
+–
+–
+–
+–
+1.
+Pendapatan Primer/Balance of Primary Income
+2.
+Pajak Pendapatan
+Current Taxes on Income,
+Wealth, etc a.
+Pajak Pendapatan/Taxes on Income b.
+Pajak Pendapatan lainnya
+Other Current Taxes
+3.
+Transfer Berjalan Lainnya
+Other Current Transfer a.
+Transfer Berjalan Antar
+Pemerintah/Current
+Transfer Within
+General Government b.
+Kerjasama Internasional
+Current International
+Cooperation c.
+Lain-lain/Miscellaneous
+Current Transfer
+71.897
+74.519
+71.858
+65.673
+66.131
+39.853
+PENGGUNAAN/SUMBER
+USES/RESOURCES
+1.110.742
+1.076.692
+1.007.048
+1.005.089
+1.072.568
+1.042.817
+Lampiran
+5.1 Neraca Penggunaan Pendapatan Disposabel Pemerintahan Umum (miliar rupiah),
+2019–2024
+Appendix
+General Government’s Use of Disposable Income Account (billion rupiah),
+2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1. Pengeluaran Konsumsi
+Final Consumption
+Expenditure
+1.394.615
+1.491.172
+1.569.830
+1.505.008
+1.557.496
+1.711.551
+2. Tabungan/Savings
+279.446
+(425.080)
+(178.460)
+127.580
+369.418
+177.259
+Sumber
+Resources
+Pendapatan Disposabel
+Disposable Income
+1.674.061
+1.066.091
+1.391.370
+1.632.588
+1.926.914
+1.888.810
+PENGGUNAAN/SUMBER
+1.674.061
+1.066.091
+1.391.370
+1.632.588
+1.926.914
+1.888.810
+USES/RESOURCES
+Lampiran
+5.2
+Neraca Penggunaan Pendapatan Disposabel Pemerintah Pusat (miliar rupiah),
+2019–2024
+Appendix
+Central Government’s Use of Disposable Income Account (billion rupiah),
+2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Pengeluaran Konsumsi
+Final Consumption
+Expenditure
+643.753
+736.469
+774.548
+699.490
+701.910
+821.616
+2. Tabungan/Savings
+143.793
+(485.878)
+(137.779)
+160.911
+368.795
+241.713
+Sumber
+Resources
+Pendapatan
+Disposabel
+Disposable Income
+787.546
+250.591
+636.770
+860.401
+1.070.705
+1.063.330
+PENGGUNAAN/SUMBER
+787.546
+250.591
+636.770
+860.401
+1.070.705
+1.063.330
+USES/RESOURCES
+Lampiran
+5.3
+Neraca Penggunaan Pendapatan Disposabel Pemerintah Daerah (miliar rupiah),
+2019–2024
+Appendix
+Local Government’s Use Of Disposable Income Account (billion rupiah),
+2019–2024
+Keterangan
+Items
+Penggunaan
+Uses
+1.
+Pengeluaran
+Konsumsi
+Final Consumption
+Expenditure
+750.862
+754.703
+795.282
+805.518
+855.586
+889.935
+2. Tabungan/Savings
+135.652
+60.797
+(40.681)
+(33.331)
+(64.454)
+Sumber
+Resources
+Pendapatan
+Disposabel
+Disposable Income
+886.515
+815.500
+754.601
+772.187
+856.209
+825.480
+PENGGUNAAN/SUMBER
+886.515
+815.500
+754.601
+772.187
+856.209
+825.480
+USES/RESOURCES
+Lampiran
+6.1
+Neraca Modal Pemerintahan Umum (miliar rupiah), 2019–2024
+Appendix
+General Government’s Capital Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Perubahan Aktiva
+Changes in Assets
+1.
+432.923
+423.884
+398.738
+434.199
+508.841
+565.155
+2.
+Pembentukan Modal tetap Bruto/Gross Fixed
+Capital Formation
+Perubahan Stok
+Changes in Inventory
+74.960
+74.856
+139.717
+90.752
+99.592
+136.366
+3.
+Penambahan dan
+Pengurangan Sumber
+Daya Alam/Acquisition
+Less Disposals of
+Natural Resources
+10.163
+21.297
+30.315
+26.064
+27.685
+22.831
+Tanah/Land
+10.163
+21.297
+30.315
+26.064
+27.685
+22.831
+4.
+(97.478)
+(78.290)
+(92.001)
+(95.105)
+(110.342)
+(111.218)
+5.
+Konsumsi Barang Modal
+Tetap/Consumption of
+Fixed Capital
+Pinjamin Neto (+)/(-)/
+Net Lending/Net
+Borrowing
+(260.268)
+(955.260)
+(748.050)
+(440.376)
+(317.933)
+(586.127)
+Perubahan Kewajiban
+Changes in Liabilities and
+Net Worth
+181.967
+(503.370)
+(270.461)
+32.475
+259.076
+66.041
+1.
+Tabungan Neto/Net
+Savings
+2.
+Transfer Modal Diterima
+Capital Transfer,
+Received
+313.797
+301.007
+325.072
+336.854
+336.390
+325.291
+3.
+Transfer Modal Dibayar
+Capital Transfer, Paid
+(335.464)
+(311.149)
+(325.892)
+(353.794)
+(387.623)
+(364.325)
+JUMLAH PERUBAHAN AKTIVA
+PERUBAHAN KEWAJIBAN
+160.300
+(513.512)
+(271.282)
+15.535
+207.844
+27.007
+TOTAL CHANGES IN ASSETS
+CHANGES IN LIABILITIES
+Lampiran
+6.2
+Neraca Modal Pemerintahan Pusat (miliar rupiah), 2019–2024
+Appendix
+Central Government’s Capital Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Perubahan Aktiva
+Changes in Assets
+1.
+173.979
+168.539
+213.371
+221.555
+281.768
+337.257
+2.
+Pembentukan Modal tetap
+Bruto/ Gross Fixed Capital
+Formation
+Perubahan Stok
+Changes in Inventory
+74.960
+74.856
+139.717
+90.752
+99.592
+136.366
+3.
+Penambahan dan
+Pengurangan Sumber Daya
+Alam
+Acquisition Less Disposals of Natural Resources
+3.521
+13.848
+25.795
+18.439
+20.729
+17.772
+Tanah/Land
+3.521
+13.848
+25.795
+18.439
+20.729
+17.772
+4.
+Konsumsi Barang Modal
+Tetap/ Consumption of
+Fixed Capital
+(44.421)
+(38.856)
+(53.309)
+(52.716)
+(60.004)
+(65.667)
+5.
+Pinjamin Neto (+)/(-)/
+Net Lending/Net
+Borrowing
+(426.960)
+(1.015.651)
+(773.129)
+(460.884)
+(337.393)
+(500.798)
+Perubahan Kewajiban
+Changes in Liabilities and
+Net Worth
+1.
+99.372
+(524.734)
+(191.088)
+108.195
+308.792
+176.047
+2.
+5.497
+18.833
+5.013
+5.696
+17.184
+34.387
+3.
+Tabungan Neto
+Net Savings
+Transfer Modal Diterima
+Capital Transfer.Received
+Transfer Modal Dibayar
+Capital Transfer. Paid
+(323.790)
+(291.362)
+(261.481)
+(296.746)
+(321.283)
+(285.503)
+JUMLAH PERUBAHAN AKTIVA
+PERUBAHAN KEWAJIBAN
+(218.920)
+(797.263)
+(447.556)
+(182.854)
+4.693
+(75.069)
+TOTAL CHANGES IN ASSETS
+CHANGES IN LIABILITIES
+Lampiran
+6.3
+Neraca Modal Pemerintahan Daerah (miliar rupiah), 2019–2024
+Appendix
+Local Government’s Capital Account (billion rupiah), 2019–2024
+Keterangan
+Items
+Perubahan Aktiva
+Changes in Assets
+1.
+258.944
+255.345
+185.367
+212.644
+227.073
+227.898
+2.
+Pembentukan Modal tetap
+Bruto/ Gross Fixed Capital
+Formation
+Perubahan Stok
+Changes in Inventory
+–
+–
+–
+–
+–
+–
+3.
+Penambahan dan
+Pengurangan Sumber Daya
+Alam
+Acquisition Less Disposals of Natural Resources
+6.642
+7.449
+4.520
+7.626
+6.956
+5.058
+Tanah/Land
+6.642
+7.449
+4.520
+7.626
+6.956
+5.058
+4.
+(53.057)
+(39.433)
+(38.692)
+(42.389)
+(50.338)
+(45.551)
+5.
+Konsumsi Barang Modal
+Tetap/Consumption of
+Fixed Capital
+Pinjamin Neto (+)/(-)/
+Net Lending/Net
+Borrowing
+166.692
+60.391
+25.080
+20.508
+19.460
+(85.330)
+Perubahan Kewajiban
+Changes in Liabilities and
+Net Worth
+1.
+82.595
+21.364
+(79.373)
+(75.720)
+(49.715)
+(110.006)
+2.
+Tabungan Neto/Net
+Savings
+Transfer Modal Diterima
+Capital Transfer. Received
+308.300
+282.174
+320.059
+331.158
+319.206
+290.903
+3.
+Transfer Modal Dibayar
+Capital Transfer. Paid
+(11.674)
+(19.787)
+(64.412)
+(57.049)
+(66.340)
+(78.822)
+JUMLAH PERUBAHAN AKTIVA
+PERUBAHAN KEWAJIBAN
+379.221
+283.751
+176.274
+198.389
+203.151
+102.076
+TOTAL CHANGES IN ASSETS
+CHANGES IN LIABILITIES
+Jl. dr. Sutomo No.6-8 Jakarta 10710
+Telp : 3841195, 3842508, 3810291-4, Fax: 3857046
+Website: E-mail:
+BADAN PUSAT STATISTIK
+BPS-STATISTICS INDONESIA

@@ -1,0 +1,377 @@
+================================================================================
+QWEN3-EMBEDDING MODEL - PANDUAN PENGGUNAAN
+================================================================================
+
+MODEL: Qwen3-Embedding-8B
+SUMBER: Alibaba Cloud / Qwen Team
+TIPE: Text Embedding Model
+BAHASA: 100+ bahasa (termasuk Indonesia)
+UKURAN: 8B parameters
+CONTEXT LENGTH: 32K tokens
+EMBEDDING DIMENSION: 4096 (bisa custom 32-4096)
+
+================================================================================
+FITUR UTAMA
+================================================================================
+
+1. PERFORMA TERBAIK
+   - Ranking #1 di MTEB Multilingual Leaderboard (score: 70.58)
+   - Unggul dalam text retrieval, code retrieval, classification, clustering
+   
+2. FLEKSIBILITAS
+   - Support custom embedding dimensions (32-4096)
+   - Support custom instructions untuk task spesifik
+   - Tersedia dalam 3 ukuran: 0.6B, 4B, 8B
+   
+3. MULTILINGUAL
+   - Support 100+ bahasa termasuk bahasa pemrograman
+   - Capable untuk cross-lingual retrieval
+   
+4. INSTRUCTION-AWARE
+   - Performa meningkat 1-5% dengan instruction yang tepat
+   - Rekomendasi: tulis instruction dalam bahasa Inggris
+
+================================================================================
+INSTALASI
+================================================================================
+
+REQUIREMENTS:
+  - transformers >= 4.51.0
+  - sentence-transformers >= 2.7.0 (untuk Sentence Transformers API)
+  - torch
+  - Python 3.8+
+
+INSTALL DEPENDENCIES:
+  pip install transformers>=4.51.0
+  pip install sentence-transformers>=2.7.0
+  pip install torch
+
+CATATAN PENTING - KERAS ERROR FIX:
+  Jika muncul error: "Your currently installed version of Keras is Keras 3"
+  
+  Solusi 1 (Recommended):
+    pip uninstall keras
+    pip install keras==2.15.0
+  
+  Solusi 2:
+    pip install tf-keras
+
+================================================================================
+CARA PENGGUNAAN 1: SENTENCE TRANSFORMERS (PALING MUDAH)
+================================================================================
+
+from sentence_transformers import SentenceTransformer
+
+# Load model
+model = SentenceTransformer("Qwen/Qwen3-Embedding-8B")
+
+# Untuk performa lebih baik (opsional, perlu flash-attention):
+# model = SentenceTransformer(
+#     "Qwen/Qwen3-Embedding-8B",
+#     model_kwargs={
+#         "attn_implementation": "flash_attention_2",
+#         "device_map": "auto"
+#     },
+#     tokenizer_kwargs={"padding_side": "left"}
+# )
+
+# Data yang akan di-embed
+queries = [
+    "What is the capital of Indonesia?",
+    "Explain machine learning"
+]
+
+documents = [
+    "The capital of Indonesia is Jakarta.",
+    "Machine learning is a branch of AI that enables computers to learn from data."
+]
+
+# Encode queries dengan prompt, documents tanpa prompt
+query_embeddings = model.encode(queries, prompt_name="query")
+document_embeddings = model.encode(documents)
+
+# Hitung similarity (cosine similarity)
+similarity = model.similarity(query_embeddings, document_embeddings)
+print(similarity)
+
+================================================================================
+CARA PENGGUNAAN 2: TRANSFORMERS (LEBIH KONTROL)
+================================================================================
+
+import torch
+import torch.nn.functional as F
+from transformers import AutoTokenizer, AutoModel
+
+# Fungsi helper untuk pooling
+def last_token_pool(last_hidden_states, attention_mask):
+    """Extract embedding dari token terakhir dengan left padding"""
+    left_padding = (attention_mask[:, -1].sum() == attention_mask.shape[0])
+    if left_padding:
+        return last_hidden_states[:, -1]
+    else:
+        sequence_lengths = attention_mask.sum(dim=1) - 1
+        batch_size = last_hidden_states.shape[0]
+        return last_hidden_states[
+            torch.arange(batch_size, device=last_hidden_states.device),
+            sequence_lengths
+        ]
+
+# Fungsi untuk membuat instruction
+def get_detailed_instruct(task_description, query):
+    """Format: Instruct: {task}\nQuery: {query}"""
+    return f'Instruct: {task_description}\nQuery: {query}'
+
+# Task description (dalam bahasa Inggris)
+task = 'Given a web search query, retrieve relevant passages that answer the query'
+
+# Queries dengan instruction
+queries = [
+    get_detailed_instruct(task, 'What is the capital of Indonesia?'),
+    get_detailed_instruct(task, 'Explain machine learning')
+]
+
+# Documents TANPA instruction
+documents = [
+    "The capital of Indonesia is Jakarta.",
+    "Machine learning is a branch of AI that enables computers to learn from data."
+]
+
+input_texts = queries + documents
+
+# Load model dan tokenizer
+tokenizer = AutoTokenizer.from_pretrained(
+    'Qwen/Qwen3-Embedding-8B',
+    padding_side='left'  # PENTING: harus left padding
+)
+model = AutoModel.from_pretrained('Qwen/Qwen3-Embedding-8B')
+
+# Untuk GPU dengan flash attention (opsional):
+# model = AutoModel.from_pretrained(
+#     'Qwen/Qwen3-Embedding-8B',
+#     attn_implementation="flash_attention_2",
+#     torch_dtype=torch.float16
+# ).cuda()
+
+# Tokenize
+max_length = 8192
+batch_dict = tokenizer(
+    input_texts,
+    padding=True,
+    truncation=True,
+    max_length=max_length,
+    return_tensors="pt"
+)
+batch_dict.to(model.device)
+
+# Generate embeddings
+outputs = model(**batch_dict)
+embeddings = last_token_pool(outputs.last_hidden_state, batch_dict['attention_mask'])
+
+# Normalize embeddings (PENTING untuk cosine similarity)
+embeddings = F.normalize(embeddings, p=2, dim=1)
+
+# Hitung similarity scores
+scores = (embeddings[:2] @ embeddings[2:].T)
+print(scores.tolist())
+
+================================================================================
+CARA PENGGUNAAN 3: LANGCHAIN HUGGINGFACE EMBEDDINGS
+================================================================================
+
+from langchain_huggingface import HuggingFaceEmbeddings
+
+# Initialize model
+model_name = "Qwen/Qwen3-Embedding-8B"
+model_kwargs = {
+    'device': 'cuda',  # atau 'cpu'
+    'trust_remote_code': True
+}
+encode_kwargs = {
+    'normalize_embeddings': True  # Untuk cosine similarity
+}
+
+embeddings = HuggingFaceEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
+)
+
+# Embed dokumen
+texts = [
+    "Jakarta is the capital of Indonesia.",
+    "Machine learning uses data to train models."
+]
+doc_embeddings = embeddings.embed_documents(texts)
+
+# Embed query
+query = "What is the capital of Indonesia?"
+query_embedding = embeddings.embed_query(query)
+
+# Hitung similarity manual
+import numpy as np
+similarities = np.dot(doc_embeddings, query_embedding)
+print(f"Similarities: {similarities}")
+
+================================================================================
+BEST PRACTICES - INSTRUCTION GUIDELINES
+================================================================================
+
+1. SELALU GUNAKAN INSTRUCTION UNTUK QUERIES
+   ✅ DO: "Instruct: {task}\nQuery: {query}"
+   ❌ DON'T: Langsung query tanpa instruction
+   
+   Impact: Peningkatan performa 1-5%
+
+2. JANGAN GUNAKAN INSTRUCTION UNTUK DOCUMENTS
+   ✅ DO: Embed documents langsung tanpa instruction
+   ❌ DON'T: Tambah instruction pada documents
+
+3. TULIS INSTRUCTION DALAM BAHASA INGGRIS
+   Meskipun query/document dalam bahasa Indonesia, instruction tetap English
+   
+   Contoh:
+   task = 'Given a question, retrieve relevant documents'
+   query_id = get_detailed_instruct(task, 'Apa ibu kota Indonesia?')
+
+4. TASK-SPECIFIC INSTRUCTIONS
+   - Text Retrieval: "Given a web search query, retrieve relevant passages"
+   - Code Search: "Given a programming question, retrieve relevant code snippets"
+   - Classification: "Classify the following text into categories"
+   - Semantic Search: "Given a query, find semantically similar documents"
+
+5. NORMALISASI EMBEDDINGS
+   Selalu normalize embeddings dengan L2 norm untuk cosine similarity:
+   embeddings = F.normalize(embeddings, p=2, dim=1)
+
+================================================================================
+PARAMETER PENTING
+================================================================================
+
+TOKENIZER:
+  - padding_side='left'  → WAJIB untuk Qwen models
+  - max_length=8192      → Sesuaikan dengan kebutuhan (maks 32K)
+  - truncation=True      → Potong jika melebihi max_length
+
+MODEL:
+  - attn_implementation="flash_attention_2"  → Opsional, untuk speedup
+  - torch_dtype=torch.float16                → Hemat memory di GPU
+  - device_map="auto"                        → Auto distribute ke GPU
+
+EMBEDDING:
+  - normalize_embeddings=True  → Penting untuk cosine similarity
+  - batch_size                 → Sesuaikan dengan VRAM (default: 32)
+
+================================================================================
+PERFORMA BENCHMARK
+================================================================================
+
+MTEB MULTILINGUAL LEADERBOARD (Top 3):
+1. Qwen3-Embedding-8B     → 70.58 (RANK #1)
+2. Qwen3-Embedding-4B     → 69.45
+3. gemini-embedding-exp   → 68.37
+
+MTEB ENGLISH V2 (Top 3):
+1. Qwen3-Embedding-8B     → 75.22
+2. Qwen3-Embedding-4B     → 74.60
+3. gemini-embedding-exp   → 73.30
+
+TASKS:
+✅ Text Retrieval      → 70.88 (Multilingual), 69.40 (English)
+✅ Semantic Similarity → 81.08 (Multilingual), 88.93 (English)
+✅ Classification      → 74.00 (Multilingual), 90.43 (English)
+✅ Clustering          → 57.65 (Multilingual), 58.57 (English)
+✅ Pair Classification → 86.40 (Multilingual), 87.52 (English)
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR 1: KeyError: 'qwen3'
+  SOLUSI: Update transformers
+  pip install --upgrade transformers
+
+ERROR 2: Keras 3 not supported
+  SOLUSI: Install tf-keras atau downgrade Keras
+  pip install tf-keras
+  # atau
+  pip uninstall keras && pip install keras==2.15.0
+
+ERROR 3: CUDA out of memory
+  SOLUSI:
+  - Kurangi batch size
+  - Gunakan torch_dtype=torch.float16
+  - Gunakan gradient checkpointing
+  - Process dalam chunks lebih kecil
+
+ERROR 4: Slow inference
+  SOLUSI:
+  - Enable flash_attention_2
+  - Gunakan GPU jika tersedia
+  - Batch multiple queries/documents
+  - Kurangi max_length jika tidak butuh 32K
+
+ERROR 5: Poor retrieval results
+  SOLUSI:
+  - Pastikan pakai instruction pada queries
+  - Normalize embeddings
+  - Tulis instruction dalam English
+  - Sesuaikan task description dengan use case
+
+================================================================================
+CONTOH PENGGUNAAN UNTUK RAG SYSTEM
+================================================================================
+
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# 1. Load model
+model = SentenceTransformer("Qwen/Qwen3-Embedding-8B")
+
+# 2. Prepare documents (corpus)
+documents = [
+    "Jakarta adalah ibu kota Indonesia yang terletak di pulau Jawa.",
+    "Python adalah bahasa pemrograman tingkat tinggi yang populer.",
+    "Machine learning adalah cabang dari artificial intelligence.",
+    "Indonesia memiliki lebih dari 17.000 pulau."
+]
+
+# 3. Embed semua documents (TANPA instruction)
+print("Embedding documents...")
+doc_embeddings = model.encode(documents, show_progress_bar=True)
+
+# 4. User query (DENGAN instruction)
+query = "Apa ibu kota Indonesia?"
+
+# 5. Embed query dengan prompt
+query_embedding = model.encode([query], prompt_name="query")[0]
+
+# 6. Hitung similarity
+similarities = np.dot(doc_embeddings, query_embedding)
+
+# 7. Rank hasil
+ranked_indices = np.argsort(similarities)[::-1]
+
+# 8. Show top-3 results
+print(f"\nQuery: {query}\n")
+print("Top 3 hasil:")
+for i, idx in enumerate(ranked_indices[:3], 1):
+    print(f"{i}. [Score: {similarities[idx]:.4f}] {documents[idx]}")
+
+================================================================================
+REFERENCE LINKS
+================================================================================
+
+- Model Hub: https://huggingface.co/Qwen/Qwen3-Embedding-8B
+- GitHub: https://github.com/QwenLM/Qwen
+- Blog Post: https://qwenlm.github.io/blog/qwen3-embedding/
+- MTEB Leaderboard: https://huggingface.co/spaces/mteb/leaderboard
+- Documentation: https://huggingface.co/docs/transformers
+
+================================================================================
+LISENSI & PENGGUNAAN KOMERSIAL
+================================================================================
+
+Model ini tersedia untuk penggunaan komersial dengan lisensi Apache 2.0.
+Silakan cek terms of use di Hugging Face model card.
+
+================================================================================

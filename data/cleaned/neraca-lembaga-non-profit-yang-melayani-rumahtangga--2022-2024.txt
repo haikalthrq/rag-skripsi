@@ -1,0 +1,6909 @@
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Volume 14, 2025
+Katalog/Catalogue: 9506002
+ISSN: 2476 -9118
+Nomor Publikasi/Publication Number: 07200.25005
+Ukuran Buku/Book Size: 17,6 cm x 25 cm
+Jumlah Halaman/Number of Pages: xx+131 halaman/pages
+Penyusunan Naskah/Manuscript Drafter:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penyunting/Editor:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Pembuat Kover/Cover Designer:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penerbit/Publisher:
+©Badan Pusat Statistik/Statistics Indonesia
+Sumber Ilustrasi/Ilustration Source:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik.
+It is prohibited to reproduce and/or duplicate part or all of this book for commercial purpose without permission from BPS-Statistics Indonesia.
+TIM PENYUSUN/COMPILERS
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Volume 14, 2025
+Pengarah/Director:
+Pipit Helly Sorayan SE., ME.
+Penanggung Jawab/Persons in Charge:
+Pipit Helly Sorayan SE., ME.
+Penyunting/Editors:
+Mohamad Arif Kurniawan SST., MT
+Penulis Naskah/Writers:
+Dita Desriani SST, M.S.E
+Argo Saputro SST
+Amida Alviani Muntaha S.Tr.Stat.
+Pengolah Data/Data Processors:
+Amida Alviani Muntaha S.Tr.Stat.
+Penata Letak/Layouters:
+Argo Saputro SST
+Amida Alviani Muntaha S.Tr.Stat.
+Penerjemah/Translators:
+Dita Desriani SST, M.S.E
+Argo Saputro SST
+Amida Alviani Muntaha S.Tr.Stat.
+ISSN 2476 -9118
+vi v
+KATA PENGANTAR
+Publikasi Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT)
+Indonesia 2022–2024 merupakan publikasi lanjutan dari publikasi sebelumnya yang telah diterbitkan oleh Badan Pusat Statistik (BPS). Beberapa perbaikan terkait konsep dan definisi dilakukan agar lebih harmonis dengan panduan internasional, sementara perbaikan metode estimasi dimungkinkan dengan adanya perkembangan ketersediaan data pendukung yang semakin baik.
+LNPRT merupakan salah satu pelaku ekonomi domestik, mitra pemerintah dalam penyediaan berbagai barang dan jasa secara gratis atau sangat terjangkau bagi rumah tangga. Berbagai aktivitas ekonomi LNPRT untuk memperoleh pendanaan dalam rangka penyediaan pelayanan ke rumah tangga maupun investasi direkam dalam serangkaian neraca yang terintegrasi meliputi neraca produksi, neraca pendapatan dan pengeluaran, serta neraca modal dan keuangan. Publikasi ini menyajikan rangkaian neraca LNPRT yang terintegrasi tahun 2022–2024. Kami berharap berbagai informasi yang tersedia dapat menjadi bahan perumusan kebijakan pemerintah, meningkatkan keterlibatan LNPRT
+sebagai mitra pemerintah dalam meningkatkan standar hidup rumah tangga, serta bermanfaat bagi penyusunan berbagai kajian oleh akademisi dan khalayak.
+Masukan yang konstruktif dari para pengguna data sangat kami harapkan untuk penyempurnaan publikasi ini di masa yang akan datang. Semoga bermanfaat.
+Jakarta, Oktober 2025
+KEPALA BADAN PUSAT STATISTIK
+Amalia Adininggar Widyasanti, S.T., M.Si., M.Eng., Ph.D
+vi
+PREFACE
+Indonesia Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+is a continuation of annual publications series by BPS. Improvements have been made in terms of concept and definition to comply international guidance, also in the estimation method due to availability of new data sources.
+NPISHs is part of domestic economic actors, the government's partner in providing various goods and services for free or at a very affordable prices for households. Various
+NPISHs economic activities stated with funding the services provision to households up to investment are recorded in an integrated accounts from production account, income and expenditure accounts, to capital and financial accounts. This publication presents integrated
+NPISHs accounts for 2022–2024 series. We hope the information share benefit for government policy formulation to elevate NPISHs contributions as government partner to promote household living standards improvement as well as various studies by academics and the public.
+Constructive feedbacks from users are greatly appreciated to improve forthcoming publication. We hope this publication is worthwhile.
+Jakarta, October 2025
+Chief Statistician
+Amalia Adininggar Widyasanti, S.T., M.Si., M.Eng., Ph.D
+vii
+DAFTAR ISI/CONTENTS
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Volume 14, 2025
+Halaman
+Page
+KATA PENGANTAR/PREFACE ... vi
+DAFTAR ISI/TABLE OF CONTENTS ... ix
+DAFTAR TABEL/LIST OF TABLES ... x
+DAFTAR GAMBAR/LIST OF FIGURES ... xii
+DAFTAR LAMPIRAN/LIST OF APPENDICES ... xiv
+I
+PENDAHULUAN/INTRODUCTION ... 1
+1.1 Latar Belakang/Background ... 3
+1.2 Sistematika Penulisan/Outline ... 5
+II KONSEP DAN DEFINISI/CONCEPT AND DEFINITION ... 7
+2.1 Konsep LNPRT/Concept of NPISHs ... 9
+2.2 Klasifikasi LNPRT Menurut COPNI/Classification of NPISHs According to COPNI ... 14
+2.3 Pelaku LNPRT di Indonesia/NPISHs Actors in Indonesia ... 16
+2.4 Neraca LNPRT dalam Sistem Neraca Nasional Indonesia/NPISHs Accounts in
+Indonesia System of National Accounts ... 19
+2.5 Kerangka Neraca LNPRT/NPISHs Accounts Framework ... 22
+III ULASAN SINGKAT/BRIEF REVIEW ... 34
+3.1 Aktivitas Produksi/Production Activities ... 37
+3.3 Aktivitas Penerimaan dan Pengeluaran/Income and Expenditure Activities... 41
+3.4 Aktivitas Investasi/Investment Activities ... 46
+DAFTAR PUSTAKA/REFERENCES ... 51
+LAMPIRAN/APPENDIX ... 53
+ISSN 2476 -9118
+x ix
+DAFTAR TABEL
+LIST OF TABLES
+Halaman
+Page
+Tabel
+2.1
+Neraca Produksi
+Table
+Production Account ... 29
+Tabel
+2.2
+Neraca Penerimaan dan Pengeluaran
+Table
+Income and Expenditure Account... 31
+Tabel
+2.3
+Neraca Modal dan Finansial
+Table
+Capital and Financial Account ... 33
+xii xi
+DAFTAR GAMBAR
+LIST OF FIGURES
+Halaman
+Page
+Gambar
+3.1
+Distribusi Jenis Output LNPRT, 2022–2024
+Figure
+Distribution of NPISHs Output Type, 2022–2024 ... 38
+Gambar
+3.2
+Proporsi Biaya Produksi Terhadap Output Menurut COPNI, 2022–2024
+Figure
+Proportion of Production Cost on Output by COPNI, 2022–2024 ... 40
+Gambar
+3.3
+Distribusi Jenis Penerimaan LNPRT, 2022–2024
+Figure
+Distribution of NPISHs Income Type, 2022–2024 ... 42
+Gambar
+3.4
+Persentase Transfer Masuk LNPRT Menurut Sumbernya, 2024
+Figure
+Percentage of Transfer to NPISHs by Source, 2024 ... 43
+Gambar
+3.5
+Distribusi Jenis Pengeluaran LNPRT, 2022–2024
+Figure
+Distribution of NPISHs Expenditure Type, 2022–2024 ... 46
+Gambar
+3.6
+Persentase Sumber Dana Investasi Menurut COPNI, 2024
+Figure
+Percentage of Investment Fund Sources by COPNI, 2024 ... 47
+Gambar
+3.7
+Distribusi Jenis Pembentukan Modal Tetap Bruto LNPRT, 2024
+Figure
+Distribution of NPISHs Gross Fixed Capital Formation Type, 2024... 49
+xiv xiii
+DAFTAR LAMPIRAN
+LIST OF APPENDICES
+Halaman
+Page
+Lampiran
+1.1
+Neraca Produksi LNPRT Menurut Penggunaan (miliar rupiah), 2022–2024
+Appendix
+NPISHs Production Account by Uses (billion rupiah), 2022–2024 ... 55
+Lampiran
+1.2
+Neraca Produksi LNPRT Menurut Sumber (miliar rupiah), 2022–2024
+Appendix
+NPISHs Production Account by Resources (billion rupiah), 2022–2024 ... 55
+Lampiran
+1.3
+Neraca Penerimaan dan Pengeluaran LNPRT Menurut Penggunaan (miliar rupiah), 2022–2024
+Appendix
+NPISHs Income and Expenditure Account by Uses (million rupiah), 2022–2024
+... 56
+Lampiran
+1.4
+Neraca Penerimaan dan Pengeluaran LNPRT Menurut Sumber (miliar rupiah),
+2022–2024
+Appendix
+NPISHs Income and Expenditure Account by Resources (million rupiah), 2022–
+2024 ... 56
+Lampiran
+1.5
+Neraca Modal dan Keuangan LNPRT Menurut Penggunaan (persen), 2022–
+Appendix
+NPISHs Capital and Financial Account by Uses (percent), 2022–2024 ... 57
+Lampiran
+1.6
+Neraca Modal dan Keuangan LNPRT Menurut Sumber (persen), 2022–2024
+Appendix
+NPISHs Capital and Financial Account by Resources (percent), 2022–2024 ... 57
+Lampiran
+2.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2022
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+2022 ... 58
+xiv
+Halaman
+Page
+Lampiran
+2.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2022
+Appendix
+Structure of NPISHs Production Account by Resources, 2022 ... 60
+Lampiran
+2.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2022 ... 62
+Lampiran
+2.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2022 ... 64
+Lampiran
+2.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2022 ... 66
+Lampiran
+2.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi Sumber
+(persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Resources Side
+(percent), 2022 ... 68
+Lampiran
+3.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2023
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+2023 ... 70
+Lampiran
+3.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2023
+Appendix
+Structure of NPISHs Production Account by Resources, 2023 ... 72
+xv
+Halaman
+Page
+Lampiran
+3.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2023 ... 74
+Lampiran
+3.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2023 ... 76
+Lampiran
+3.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2023 ... 78
+Lampiran
+3.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi Sumber
+(persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Resources Side
+(percent), 2023 ... 80
+Lampiran
+4.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2024
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+2024 ... 82
+Lampiran
+4.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2024
+Appendix
+Structure of NPISHs Production Account by Resources, 2024 ... 84
+xvi
+Halaman
+Page
+Lampiran
+4.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2024 ... 86
+Lampiran
+4.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari
+Sisi Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses Side
+(percent), 2024 ... 88
+Lampiran
+4.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2024 ... 90
+Lampiran
+4.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi Sumber
+(persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Resources Side
+(percent), 2024 ... 92
+Lampiran
+5.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Penggunaan
+(persen), 2022
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent),
+2022 ... 94
+Lampiran
+5.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber (persen),
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources (percent),
+2022 ... 96
+xvii
+Halaman
+Page
+Lampiran
+5.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses Side
+(percent), 2022 ... 98
+Lampiran
+5.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2022 ... 100
+Lampiran
+5.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2022 ... 102
+Lampiran
+5.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2022 ... 104
+Lampiran
+6.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Penggunaan
+(persen), 2023
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent), 2023
+... 106
+Lampiran
+6.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber (persen),
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources (percent), 2023
+... 108
+xviii
+Halaman
+Page
+Lampiran
+6.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses Side
+(percent), 2023 ... 110
+Lampiran
+6.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2023 ... 112
+Lampiran
+6.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2023 ... 114
+Lampiran
+6.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2023 ... 116
+Lampiran
+7.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Penggunaan
+(persen), 2024
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent), 2024
+... 118
+Lampiran
+7.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber (persen),
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources (percent), 2024
+... 120
+xix
+Halaman
+Page
+Lampiran
+7.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses Side
+(percent), 2024 ... 122
+Lampiran
+7.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2024 ... 124
+Lampiran
+7.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2024 ... 126
+Lampiran
+7.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi
+Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Resources
+Side (percent), 2024 ... 128
+Lampiran
+8.1
+Capaian Pemasukan Dokumen SKLNPT 2024
+Appendix
+Achievement of 2024 SKLNPT Document Submission ... 130
+xxii
+Pendahuluan
+Introduction
+BAB I PENDAHULUAN
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Pendahuluan
+Introduction
+1.1 LATAR BELAKANG
+Lembaga nonprofit (LNP) atau yang dikenal sebagai ‘lembaga nonpemerintah’
+memiliki peran penting di Indonesia sebagai mitra pemerintah dalam mengatasi berbagai masalah seperti penegakan hukum, perlindungan konsumen, pengentasan kemiskinan, dan pelestarian lingkungan. LNP bergerak di bidang jasa sosial kemasyarakatan seperti pendidikan, kesehatan, dan keagamaan. Kegiatan LNP
+memberdayakan masyarakat ada sejak masa sebelum kemerdekaan. Perkumpulan
+Budi Oetomo , Sarekat Islam , dan Organisasi Taman Siswa adalah
+LNP yang berpartisipasi meningkatkan sumber daya manusia Indonesia saat itu.
+Memasuki era demokrasi, LNP terus bermunculan, baik yang didirikan oleh perorangan, masyarakat, pemerintah, maupun kalangan usaha. Masing-masing lembaga didirikan dengan latar belakang dan tujuan berbeda. Ada lembaga yang didirikan atas dasar kemanusiaan dan cinta terhadap sesama, seperti Palang Merah
+Indonesia, Yayasan Dharmais, dan Yayasan
+Kanker Indonesia. Ada pula lembaga yang didirikan dengan tujuan menyejahterakan masyarakat, seperti panti asuhan, lembaga keagamaan, dan lembaga swadaya masyarakat. Di samping itu, ada lembaga yang didirikan untuk meningkatkan daya tarik kelompok tertentu dalam bidang
+1.1 BACKGROUND
+Nonprofit institution (NPI), which is widely known as a 'nongovernmental organization' has an important role in
+Indonesia, as a partner of government in solving various issues such as law enforcement, consumer protection, poverty alleviation, and environmental conservation. NPIs engaged in social services such as education, health, and religion. Activities of NPIs in empowering society have existed before Indonesian independence. Budi Utomo Society ,
+Islam Society , and Organization of
+Taman Siswa are some of NPIs which participate in improving human resources in Indonesia at that time.
+In an era of democracy, the number of nonprofit institutions increase, either established by individual, society, government, or business. Each institution is established with various backgrounds and goals.
+There are institutions established on basis of humanity and love for others, such as the Indonesian Red
+Cross (Palang Merah Indonesia), Dharmais
+Foundation, and
+Indonesian
+Cancer
+Foundation. There are also institutions established with aim of social welfare, such as orphanages, religious institutions, and nongovernmental organizations
+(NGOs). In addition, there are institutions established to increase interests of
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+bisnis maupun politik seperti organisasi kemasyarakatan, partai politik, asosiasi bisnis, dan serikat pekerja.
+UU No. 17 Tahun 2013 menyatakan bahwa organisasi kemasyarakatan adalah organisasi yang didirikan dan dibentuk oleh masyarakat secara sukarela berdasarkan kesamaan aspirasi, kehendak, kebutuhan, kepentingan, kegiatan, dan tujuan untuk berpartisipasi dalam pembangunan demi tercapainya tujuan NKRI yang berdasarkan
+Pancasila. LNP merupakan lembaga formal maupun informal yang dibentuk oleh perorangan, masyarakat, pemerintah, atau kalangan usaha dalam rangka menyediakan jasa sosial kemasyarakatan bagi anggota atau masyarakat tanpa ada motivasi meraih keuntungan. Salah satu jenis LNP adalah
+Lembaga Nonprofit yang Melayani Rumah
+Tangga (LNPRT) yaitu LNP yang tidak dikendalikan pemerintah, dibentuk dalam rangka menyediakan barang/jasa secara gratis atau dengan harga tidak signifikan secara ekonomi pada anggotanya/rumah tangga/kelompok masyarakat.
+Menurut System of National Accounts
+(SNA) 2008, aktivitas LNPRT dalam menyediakan jasa pelayanan kepada masyarakat dikategorikan sebagai aktivitas ekonomi. Aktivitas tersebut mencakup produksi, konsumsi, dan investasi. Oleh karena itu, dapat dikatakan bahwa LNPRT
+merupakan salah satu pelaku dalam perekonomian nasional di samping pelaku associations in business and politics such as society organizations, political parties, business associations, and labor unions.
+Law No. states that society organization is an organization established and formed by society voluntarily based on common aspirations, wishes, needs, interests, activities, and goals to participate in development to achieve the purpose of the Unitary
+Republic Indonesia (NKRI) based on
+Pancasila. NPI is a formal and informal institution established by individuals, society, government, or business community to provide social services for members or society with nonprofit motivation.
+One type of NPI is a Nonprofit
+Institution
+Serving
+Households
+(NPISH) that is not controlled by the government and formed to provide goods/services for free or at prices that are not economically significant to members, households, or society.
+According to the System of National
+Accounts (SNA) 2008, NPISHs activity to provide services to society is categorized as an economic activity. Economic activity includes production, consumption, and investment activity.
+Therefore, it can be said that NPISH is one of the national economic actors in addition to other economic actors that
+Pendahuluan
+Introduction ekonomi lain yang telah dikenal seperti rumah tangga, pemerintah, dan korporasi.
+Informasi aktivitas ekonomi LNPRT
+dari tahun ke tahun dituangkan dalam neraca.
+Neraca merupakan indikator kinerja ekonomi yang digunakan untuk analisis ekonomi, evaluasi keberhasilan pembangunan, dan pengambilan kebijakan.
+1.2 SISTEMATIKA PENULISAN
+Publikasi Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT)
+2022–2024 disajikan dalam tiga bab yang tersusun secara sistematis sebagai berikut:
+PENDAHULUAN
+Menguraikan LNP secara umum dan
+LNPRT secara khusus sebagai pelaku ekonomi nasional, alasan dilakukan penyusunan Neraca LNPRT 2022–
+2024, serta sistematika penulisan.
+KONSEP DAN DEFINISI
+Menguraikan konsep
+LNPRT, klasifikasi
+LNPRT
+di
+Indonesia, indikator kegiatan pelayanan lembaga, Neraca LNPRT di dalam
+Sistem Neraca Nasional Indonesia, serta kerangka Neraca LNPRT 2022–
+2024.
+are well known, such as households, government, and corporations.
+Information of
+NPISHs economic activity from year to year is described in accounts. Accounts are an indicator of economic performance that can be used for economic analysis, evaluation of development success, and policy making.
+1.2 OUTLINE
+Publication of Nonprofit Institutions
+Serving
+Households
+(NPISHs)
+Accounts
+2022–2024 is presented in three chapters systematically arranged as follows:
+INTRODUCTION
+Describe existence of NPI in general and NPISH specifically as a national economic actor, reason why NPISHs
+Accounts 2022–2024 are built, and outline.
+CONCEPT AND DEFINITION
+Describe concept of
+NPISHs, classification of NPISHs in Indonesia, indicator of institutions service activities,
+NPISHs accounts in
+Indonesia System of National Accounts, and framework of NPISHs accounts
+2022–2024.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+ULASAN SINGKAT
+Menguraikan aktivitas LNPRT dalam agregat ekonomi makro LNPRT yang tercermin melalui neraca dan analisis deskriptifnya.
+BRIEF REVIEW
+Describe various activities of NPISHs in macroeconomic aggregates that are reflected in the accounts and descriptive analysis.
+Konsep & Definisi
+Concept & Definition
+BAB II
+KONSEP DAN DEFINISI
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Konsep & Definisi
+Concept & Definition
+2.1 KONSEP LNPRT
+Lembaga nonprofit (LNP) adalah entitas legal atau sosial yang dibentuk oleh rumah tangga, korporasi, atau pemerintah dengan tujuan memproduksi barang dan jasa, di mana status nonprofit yang disandang tidak mengizinkan
+LNP
+menjadi sumber pendapatan atau keuntungan bagi unit yang mendirikan, mengendalikan, atau mendanai.
+Ciri-ciri unit lembaga nonprofit adalah sebagai berikut:
+lembaga nonprofit umumnya adalah lembaga formal, tetapi terkadang merupakan lembaga informal yang keberadaannya diakui masyarakat; pengawasan terhadap jalannya organisasi dilakukan oleh anggota terpilih yang mempunyai hak sama, termasuk hak bicara atas keputusan penting yang diambil lembaga; tidak ada pemegang saham dengan klaim atas profit atau ekuitas lembaga nonprofit. Anggota tidak berhak menguasai profit atau surplus karena profit yang diperoleh dari kegiatan usaha produktif dikuasai lembaga; kebijaksanaan LNP diputuskan secara kolektif oleh anggota terpilih, dan kelompok ini berfungsi sebagai pelaksana dari dewan pengurus; dan istilah lembaga nonprofit diturunkan dari kenyataan bahwa anggota yang mengelola lembaga tersebut tidak
+2.1 CONCEPT OF NPISHs
+Nonprofit institutions (NPIs) are legal or social entities, created by households, corporations, or government to produce goods and services, whose status do not permit them to be source of income, profit, or other financial gain for the units that establish, control, or finance them.
+The characteristics of nonprofit institutions:
+most NPIs are legal entities created by process of law, but some NPIs are informal entities whose existence are recognized by society; many
+NPIs are controlled by associations whose members have equal rights, including equal votes on all major decisions affecting the affairs of the NPI; there are no shareholders with a claim on the profits or equity of the NPI. The members are not entitled to a share in any profits, or surplus, generated by the productive activities of the NPI, such profits being retained within the NPI; the direction of a NPI decided collectively by elected members, and these group are the counterpart of the board; and the term “nonprofit institution” derives from the fact that the members of the association controlling the NPI are not
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+mendapatkan keuntungan finansial melalui kegiatan produktifnya, tetapi surplus yang diperoleh biasanya diinvestasikan kembali pada kegiatan sejenis.
+Dilihat dari keterlibatannya dalam produksi,
+LNP
+dibagi menjadi dua kelompok, yaitu
+LNP
+terlibat dalam produksi pasar dan LNP terlibat dalam produksi nonpasar.
+Kriteria untuk menentukan suatu lembaga terlibat dalam produksi pasar atau nonpasar dapat dilihat dari harga barang/jasa yang ditawarkan, yaitu signifikan secara ekonomi atau tidak.
+Harga dikatakan signifikan secara ekonomi jika (i) harga yang ditentukan memengaruhi besarnya penawaran produsen dan permintaan oleh konsumen, dan (ii) harga yang ditentukan mampu menutup separuh dari biaya produksi.
+1.
+LNP Terlibat dalam Produksi Pasar
+LNP yang terlibat dalam produksi pasar menjual sebagian besar atau seluruh output-nya pada harga yang signifikan secara ekonomi. Harga yang ditawarkan oleh lembaga ditetapkan berdasarkan biaya produksi, di mana harga yang cukup tinggi dapat memengaruhi permintaan atas jasa lembaga.
+LNP
+tersebut dapat menghasilkan surplus maupun defisit.
+Namun, surplus yang dihasilkan tidak boleh dibagikan ke pihak lain, melainkan ditahan permitted to gain financially from its operations and cannot appropriate any surplus that it may make. It does not imply that an NPI cannot make an operating surplus on its production.
+In terms of their involvement in production activity,
+NPIs are distinguished between NPIs engaged in market and nonmarket production.
+Criteria to determine whether an institution is engaged in market or nonmarket production can be seen from price of goods/services offered, it is economically significant or not. Price is said to be economically significant if (i) the price charged can influence on the amounts the producers are willing to supply and on the amount purchasers wish to buy, and (ii) the price charged can cover at least half of the production cost.
+1.
+NPIs Engaged in Market Production
+NPIs engaged in market production sell most or all of their output at economically significant prices. NPIs are market producers when they charge fees that are based on their production costs and that are sufficiently high to have a significant influence on the demand for their services.
+Their production activities must generate an operating surplus or loss. Any surpluses they make must be retained within the institutions as their status prevents them
+Konsep & Definisi
+Concept & Definition oleh lembaga. Surplus yang diperoleh biasanya digunakan kembali pada kegiatan sejenis. Selain dari surplus yang dihasilkan, untuk menjalankan kegiatannya lembaga tersebut memperoleh sumber dana dari sumbangan. LNP ini dibagi menjadi dua kelompok, yaitu:
+1.1 Melayani rumah tangga
+LNP ini menyediakan barang dan jasa ke rumah tangga dengan harga yang signifikan secara ekonomi. Tujuan LNP
+ini bukan untuk amal, melainkan untuk menyediakan pendidikan, kesehatan, atau jasa lainnya dengan kualitas yang tinggi. Contoh: sekolah, universitas, klinik, rumah sakit.
+1.2 Melayani perusahaan
+LNP ini membatasi kegiatannya untuk melayani produsen pasar tertentu, menyediakan jasa bagi perusahaan dengan kontribusi atau iuran untuk menutup biaya penyediaan jasa tersebut. Iuran ini tidak diperlakukan sebagai transfer melainkan sebagai pembayaran atas jasa yang diberikan.
+LNP
+yang melayani perusahaan umumnya dibentuk oleh asosiasi perusahaan untuk kepentingan promosi, lobi politik, atau konsultasi bagi anggota. Contoh: Kamar Dagang dan
+Industri
+Indonesia, asosiasi pengusaha.
+from distributing them to others.
+The surpluses are generally reinvested to the similar activities. On the other hand, because of their status as “nonprofit institutions” they are also able to raise additional funds by appealing for donations.
+These NPIs are divided into two groups:
+1.1 Market NPIs serving households
+These NPIs provide goods and services to households at prices that are economically significant. Such NPIs are not charities, their real objective often being to provide educational, health, or other services of a very high quality.
+Examples: schools, universities, clinics, hospitals.
+1.2 Market NPIs serving enterprises
+These NPIs restrict their activities to serving a particular subset of other market producers, provide services for enterprises with contributions or subcriptions to cover cost of providing those services. The subcriptions are treated not as transfers but as payments for services rendered. Most market NPIs serving enterprises are created by associations of the enterprises to promote, lobby politicians, or provide advice to individual members.
+Examples:
+Indonesian Chamber of Commerce and
+Industry, employers’ associations.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+2.
+LNP yang Terlibat dalam Produksi
+Nonpasar
+LNP yang terlibat dalam produksi nonpasar menyediakan barang/jasa bagi individu atau kelompok masyarakat secara gratis atau dengan harga yang tidak signifikan secara ekonomi. Sumber utama biaya produksi lembaga tidak berasal dari penerimaan atas penjualan, tetapi dari transfer pihak lain, seperti iuran rutin anggota atau sumbangan pihak ketiga,
+(termasuk dari pemerintah dan pendapatan kepemilikan). LNP yang terlibat dalam produksi nonpasar dibedakan menjadi LNP
+dikendalikan pemerintah dan LNP tidak dikendalikan pemerintah. Indikator kendali pemerintah yang membagi LNP terlibat dalam produksi nonpasar ke dalam dua kelompok tersebut adalah:
+Penunjukan petugas: jika pemerintah berhak menunjuk petugas pengelola
+LNP atas dasar konstitusi, anggaran dasar, atau instrumen lain, maka tergolong dalam LNP Pemerintah.
+Ketentuan lain: jika ada instrumen lain di luar penunjukkan petugas yang memungkinkan pemerintah dapat menentukan aspek penting dari kebijakan umum atau program
+LNP, maka tergolong dalam LNP
+Pemerintah.
+Perjanjian kontrak: jika LNP tidak mampu memutuskan kontrak, membubarkan diri, atau mengubah
+2.
+NPIs
+Engaged in
+Nonmarket
+Production
+NPIs engaged in nonmarket production provide most of their output to others free or at prices that are not economically significant. Their principal source of finance to cover their cost of production or other activity rely on funds other than receipts from sales, such as regular subscriptions paid by the members of the association that controls them or donations from third parties, including government or from property income. NPIs engaged mainly in nonmarket production are divided into two groups: those NPIs controlled by government and those that are not. To determine if an NPI is controlled by the government, the following five indicators of control should be considered:
+The appointment of officers.
+The government may have the right to appoint the officers managing the NPI either under the NPI’s constitution, its articles of association or others enabling instrument.
+Other provisions of enabling instrument. The enabling instrument may contain provisions other than the appointment of officers that effectively allow the government to determine significant aspects of the general policy or programme of the NPI.
+Contractual agreements. the NPI is able to renege on the contractual agreement and accept the consequences, by being
+Konsep & Definisi
+Concept & Definition konstitusi tanpa persetujuan pemerintah, maka tergolong dalam
+LNP Pemerintah.
+Tingkat pembiayaan:
+LNP
+yang utamanya dibiayai pemerintah tergolong dalam LNP Pemerintah. Jika pembiayaan pemerintah tidak ekuivalen dengan pengendalian oleh pemerintah
+(seperti penunjukkan petugas, ketentuan lain, dan perjanjian kontrak), maka tidak tergolong dalam
+LNP Pemerintah.
+Ekposur risiko:
+jika pemerintah menanggung seluruh atau sebagian besar resiko finansial yang berkaitan dengan kegiatan LNP, maka LNP
+tersebut tergolong dalam
+LNP
+Pemerintah.
+Jenis
+LNP
+yang terlibat dalam produksi nonpasar menurut indikator kendali pemerintah:
+2.1 LNP dikendalikan pemerintah
+LNP yang dikendalikan pemerintah digolongkan dalam sektor institusi pemerintah. Contoh: panti asuhan dibawah kendali Dinas Sosial.
+2.2 LNP yang tidak dikendalikan oleh pemerintah
+LNP yang terlibat dalam produksi nonpasar dan tidak dikendalikan oleh pemerintah, digolongkan sebagai sektor able to change its constitution or dissolves itself without requiring government
+Degree of financing. An NPI that is mainly financed by government may be controlled by government.
+Generally, if the NPI remains able to determine its policy or programme to a significant extent along the lines mentioned in the previous indicator, then it would not be considered controlled by government.
+Risk exposure. If a government openly allows itself to be exposed to all, or a large proportion of, the financial risks associated with an NPI’s activities, then it would be considered controlled by government.
+Type of NPIs engaged in nonmarket production based on indicators of government control:
+2.1 NPIs controlled by government
+NPIs controlled by government are included in the general government sector.
+Example: a nursing home or an orphanage controlled by Ministry of Social Services.
+2.2 NPIs that are not controlled by government
+NPIs that are engaged in nonmarket production and not controlled by government, classified as a separate
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+institusi tersendiri, yaitu Lembaga
+Nonprofit yang Melayani Rumah
+Tangga (LNPRT). Jadi, LNPRT adalah entitas legal maupun sosial yang tidak dikendalikan pemerintah dan dibentuk untuk menyediakan barang/jasa secara gratis atau dengan harga yang tidak signifikan secara ekonomi pada anggotanya/ rumah tangga/kelompok masyarakat. Contoh: partai politik,
+Ikatan Dokter Indonesia (IDI), dan
+Wahana Lingkungan Hidup Indonesia
+(Walhi).
+2.2 KLASIFIKASI LNPRT
+MENURUT COPNI
+COPNI (Classification of Purposes of
+Nonprofit Institutions Serving Households), mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga. Klasifikasi ini membagi LNPRT menjadi sembilan, yaitu perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/
+jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.
+1.
+Perumahan
+LNPRT yang melakukan pembangunan, pengembangan, manajemen, sewa/
+kontrak, pembiayaan, renovasi atau rehabilitasi perumahan.
+institutional sectors, namely
+Nonprofit
+Institutions
+Serving
+Households (NPISHs). So, NPISHs are legal or social entities that are not controlled by government and created for purpose of producing or distributing goods/services for free or at prices that are not economically significant to their members/households/society.
+Example: political parties, Indonesian
+Doctors Association, and Indonesia
+Forum for Environment.
+2.2 CLASSIFICATION OF NPISHs
+ACCORDING TO COPNI
+COPNI (Classification of Purposes of
+Nonprofit
+Institutions
+Serving
+Households) classifies NPISHs based on purposes of institution’s main activity.
+This classification divided NPISHs into nine divisions: housing; health; recreation and culture; education; social protection; religion; political parties, labour and professional organizations; environmental protection; services n.e.c
+1.
+Housing
+NPISHs that conduct development, construction, management, leasing, financing, renovation and rehabilitation of housing.
+Konsep & Definisi
+Concept & Definition
+2.
+Kesehatan
+LNPRT yang menghasilkan produk, peralatan, dan perlengkapan kesehatan, jasa rumah sakit, jasa perawatan dan penyembuhan, jasa kesehatan masyarakat, penelitian dan pengembangan mengenai kesehatan, dan jasa kesehatan lainnya.
+3.
+Rekreasi dan Kebudayaan
+LNPRT
+yang menghasilkan jasa rekreasi, olah raga, dan kebudayaan.
+4.
+Pendidikan
+LNPRT yang melakukan pendidikan pra sekolah dan dasar, pendidikan lanjutan, litbang pendidikan, dan jasa pendidikan lain.
+5.
+Perlindungan Sosial
+LNPRT
+yang menghasilkan jasa perlindungan sosial serta litbang perlindungan sosial.
+6.
+Keagamaan
+LNPRT yang mendukung keyakinan keagamaan, mengelola layanan dan ritual keagamaan, memelihara tempat ibadah, memberikan meditasi atau pengajaran agama.
+7.
+Partai Politik, Organisasi Buruh, dan
+Organisasi Profesi
+LNPRT yang menghasilkan jasa partai politik, organisasi buruh, dan organisasi profesional.
+2.
+Health
+NPISHs that provide general and specialized hospitals, nursing and convalescent homes, medical and maternity centres, hospices for terminally ill persons, research and scientific studies on medical and health matters, etc.
+3.
+Recreation and Culture
+NPISHs that provide recreational and sporting services, cultural services.
+4.
+Education
+NPISHs that provide pre-primary and primary education, tertiary education,
+R&D
+education, other educational services.
+5.
+Social Protection
+NPISHs that provide social protection services and research & development social protection.
+6.
+Religion
+NPISHs that promote religious beliefs, administer religious services and rituals, maintain places of worship, provide retreats for meditation or religious instruction.
+7.
+Political
+Parties,
+Labour and
+Professional Organizations
+NPISHs that provide services of political parties, labour organizations, and professional organizations.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+8.
+Lingkungan Hidup
+LNPRT
+yang menghasilkan jasa perlindungan lingkungan serta litbang perlindungan lingkungan.
+9.
+Jasa Lainnya
+LNPRT yang mencakup organisasi kemasyarakatan dan rukun kampung, organisasi bantuan hukum, organisasi yang melakukan peramalan dan analisis ekonomi, serta organisasi lain yang tidak tercakup dalam klasifikasi sebelumnya.
+2.3 PELAKU LNPRT DI
+INDONESIA
+Jenis pelaku dalam Neraca LNPRT
+2022–2024 terbagi menjadi enam, yaitu
+Organisasi
+Kemasyarakatan;
+Organisasi
+Sosial; Organisasi Profesi dan Serikat Buruh;
+Organisasi
+Kebudayaan,
+Olahraga, dan
+Rekreasi;
+Partai
+Politik; dan
+Lembaga
+Keagamaan.
+1.
+Organisasi Kemasyarakatan
+Organisasi ini dibentuk oleh anggota masyarakat secara sukarela atas dasar kesamaan fungsi. Terdiri dari:
+ormas keagamaan, seperti
+Muhammadiyah, ICMI; ormas kepemudaan, seperti
+KNPI, HMI, Pemuda Pancasila; ormas wanita, seperti Fatayat,
+Kalyana Mitra Wanita;
+8.
+Environmental Protection
+NPISHs that provide environmental protection services, R&D environmental protection.
+9.
+Services n.e.c
+Community and neighbourhood organizations, organizations providing legal-aid services, organizations carrying out economic forecasting and analysis, organizations providing services that cannot be assigned.
+2.3 NPISHs ACTORS IN
+INDONESIA
+Type of actors in the NPISHs
+Accounts 2022–2024 are divided into six groups:
+Society
+Organizations;
+Social
+Organizations; Professional Organizations and Labor Union; Cultural, Sport, and
+Recreation Organization; Political Parties; and Religious Institutions.
+1.
+Society Organizations
+These organizations are created by community members voluntarily based on similarity of function. They consist of:
+religious organizations, such as
+Muhammadiyah, ICMI; youth organizations, such as
+KNPI, HMI, Pemuda Pancasila; women organizations, such as
+Fatayat, Kalyana Mitra Wanita;
+Konsep & Definisi
+Concept & Definition lembaga Swadaya Masyarakat
+(LSM), seperti
+Yayasan
+Lembaga
+Bantuan
+Hukum
+Indonesia (YLBHI); dan organisasi bantuan kemanusiaan, seperti
+Yayasan
+Kanker
+Indonesia (YKI).
+2.
+Organisasi Sosial
+Organisasi atau perkumpulan sosial dibentuk oleh anggota masyarakat baik berbadan hukum maupun tidak, sebagai sarana partisipasi masyarakat dalam usaha kesejahteraan sosial.
+Terdiri dari panti asuhan, panti wreda, dan panti lainnya seperti Yayasan
+Pendidikan Anak Cacat (YPAC), panti tuna netra, dan sejenisnya.
+3.
+Organisasi Profesi dan Serikat Buruh
+Organisasi profesi dibentuk oleh anggota masyarakat dari disiplin ilmu yang sama atau sejenis, sebagai sarana meningkatkan pengetahuan, keterampilan, serta sebagai wahana pengabdian masyarakat.
+Serikat buruh adalah organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan. Terdiri dari:
+organisasi profesi dalam bidang ilmu sosial, seperti:
+Ikatan
+Sarjana
+Ekonomi
+Indonesia
+(ISEI).
+Nongovermental
+Organization, such as Indonesian Legal Aid
+Foundation,
+Development
+Studies Institute; and humanitarian aid organizations, such as
+Indonesia
+Cancer
+Foundation.
+2.
+Social Organizations
+Social organizations are legal or social entities, created by members of society, as a medium of society participation in social welfare. Social organizations consist of orphanages, nursing homes, and other institutions such as the education foundation of children with disabilities, homes for the blind, and etc.
+3.
+Professional Organizations and Labor
+Union
+These organizations are created by members of society from the same disciplines, as a medium of increasing knowledge and skill. They are also a medium for society services. Labor union is an organized group of workers who unite to protect members’ working conditions both inside and outside the firm. They consist of:
+professional organizations in social sciences field, such as
+Indonesian
+Bachelor of
+Economics Association (ISEI);
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+organisasi profesi dalam bidang ilmu pasti, seperti
+Ikatan Dokter Indonesia (IDI); dan
+Serikat
+Buruh
+Sejahtera
+Indonesia (SBSI), Serikat Pekerja
+Seluruh Indonesia (SPSI).
+4.
+Organisasi Kebudayaan, Olahraga, dan Rekreasi
+Organisasi ini dibentuk oleh anggota masyarakat yang berminat untuk mengembangkan kemampuan/
+apresiasi budaya, olahraga, dan rekreasi/hobi. Terdiri dari:
+organisasi kebudayaan, seperti
+Padepokan Seni dan Budaya,
+HPK
+(Himpunan
+Penghayat
+Kepercayaan Terhadap Tuhan); organisasi olahraga, seperti
+Persatuan Sepak Bola Seluruh
+Indonesia
+(PSSI),
+Persatuan
+Bulutangkis
+Seluruh
+Indonesia
+(PBSI), Ikatan Motor Indonesia; serta organisasi hobi, seperti Ikatan
+Penggemar Anggrek, Organisasi
+Amatir Radio Indonesia.
+5.
+Partai Politik
+Organisasi ini dibentuk kumpulan warga negara
+Indonesia secara sukarela atas dasar kesamaan kehendak dan cita-cita untuk memperjuangkan kepentingan politik anggota masyarakat, bangsa, dan negara.
+professional organizations in exact sciences field such as
+Indonesian Doctor Association
+(IDI); and
+Indonesian Workers Welfare
+Union,
+Indonesian
+Labor
+Union.
+4.
+Cultural, Sport, and Recreation
+Organization
+These organizations are created by members of society who are interested in developing the ability/appreciation of culture, sport, and recreation/hobby.
+They consist of:
+cultural clubs, such as Art and
+Culture Club, The Association of
+Believers of Belief in Almighty
+God; sport clubs, such as Indonesian
+Football
+Association
+(PSSI),
+Indonesian
+Badminton
+Association, Indonesian Motor
+Club; and hobby clubs, such as club of orchid fans, Indonesia Amateur
+Radio Union.
+5.
+Political Parties
+These organizations are created by people voluntarily based on similarity of aspirations to defend the political interest of members of society. Political
+Parties such as
+Golkar,
+Demokrat, PDIP, etc.
+Konsep & Definisi
+Concept & Definition
+6.
+Lembaga Keagamaan
+Lembaga ini dibentuk oleh anggota masyarakat dengan tujuan membina, mengembangkan, mensyiarkan agama. Terdiri dari:
+Tempat ibadah, seperti Masjid,
+Gereja, Pura, Wihara;
+Lembaga
+Islam, seperti
+Lembaga
+Dakwah,
+Remaja
+Masjid, Majelis Taklim;
+Lembaga
+Katolik/Protestan, seperti
+Persekutuan
+Gereja-
+Gereja Indonesia, Konferensi
+Waligereja Indonesia;
+Lembaga Hindu/Budha, seperti
+Perwakilan
+Umat
+Buddha
+Indonesia,
+Parisadha
+Hindu
+Dharma Indonesia;
+Perkumpulan Jamaah Masjid,
+Gereja, maupun tempat ibadah lain; serta
+Pondok pesantren tradisional, seminari, dan sejenisnya.
+6.
+Religious Institutions
+These institutions are created by members of society with goals to develop and spread religion. They consist of:
+places of worship, such as mosques, churches, temples;
+Islamic institutions, such as
+Lembaga
+Dakwah,
+Mosque
+Youth, Majelis Taklim;
+Catholic/Protestant institutions, such as Council of Indonesian
+Churches, Indonesian Bishops’
+Conference;
+Hindu/Buddhist institutions, such as Representatives of Indonesian
+Buddhists, Indonesia Hinduism
+Society; society of mosque, society of church, society of other place of worship; and
+Islamic
+Boarding
+Schools, seminaries, and etc.
+2.4 NERACA LNPRT DALAM
+SISTEM NERACA NASIONAL
+INDONESIA
+Sistem
+Neraca
+Nasional adalah kumpulan rekomendasi standar yang disepakati secara internasional, tentang bagaimana menyusun ukuran aktivitas ekonomi sesuai dengan cara penghitungan
+2.4 NPISHs ACCOUNTS IN
+INDONESIA SYSTEM OF
+NATIONAL ACCOUNTS
+System of National Accounts (SNA) is an internationally agreed standard set of recommendations on how to compile measures of economic activity in accordance with strict accounting conventions based on
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+yang didasarkan pada prinsip ekonomi.
+Sistem Neraca Nasional menyediakan catatan menyeluruh dan rinci tentang aktivitas ekonomi yang kompleks dan berlangsung di dalam suatu perekonomian serta interaksi antar pelaku ekonomi atau kelompok pelaku ekonomi yang berbeda.
+Neraca Nasional merupakan bentuk tampilan data ekonomi makro, yang menggambarkan aktivitas ekonomi yang dilakukan oleh seluruh pelaku ekonomi dalam perekonomian pada suatu periode tertentu. Pelaku ekonomi terdiri dari unit residen (rumah tangga, LNPRT, korporasi, dan pemerintah) serta unit nonresiden (luar negeri). Sedangkan, jenis aktivitas ekonomi yang utama terdiri dari aktivitas produksi, konsumsi, serta akumulasi aset/investasi
+(finansial dan nonfinansial).
+Sistem Neraca Nasional Indonesia
+(SNNI) terdiri dari empat neraca utama, yaitu Neraca Produksi, Neraca Penerimaan dan Pengeluaran, Neraca Modal dan
+Keuangan, dan Neraca Luar Negeri.
+Neraca Produksi merupakan bentuk tampilan data tentang aktivitas produksi.
+Neraca ini mengambarkan besaran barang dan jasa yang dihasilkan (output), input yang digunakan dalam proses produksi
+(konsumsi antara), serta nilai tambah yang tercipta.
+Neraca Penerimaan dan Pengeluaran merupakan tampilan data tentang aktivitas konsumsi, yang menggambarkan besaran economic principles.
+They provide a comprehensive and detailed record of the complex economic activities taking place within an economy and of the interaction between the different economic agents or groups of agents that takes place on markets or elsewhere.
+National Accounts is a form of macro-
+economic data view, illustrating the economic activities carried out by all economic actors in the economy in a certain period. Economic actors consist of resident units
+(households,
+NPISHs, corporations, and government)
+and nonresident units (foreign). While, the main types of economic activities consist of production, consumption, and assets accumulation/
+investments activity
+(financial and nonfinancial).
+Indonesia System of National Accounts consist of four primary accounts, ie
+Production Account, Income and Expenditure
+Account, Capital and Financial Account, and
+External Account.
+Production Account is a form of data view on production activities. This account contains information about value of goods and services produced (output), input used in the production process (intermediate consumption), and value added that is created.
+Income and Expenditure Account is a form of data view on consumption activities, which is contains information
+Konsep & Definisi
+Concept & Definition dan komposisi pendapatan yang diterima, serta pengeluaran atas pendapatan tersebut. Selisih antara pendapatan dan pengeluaran merupakan tabungan.
+Neraca
+Modal dan
+Keuangan merupakan bentuk tampilan data tentang aktivitas investasi.
+Neraca ini menggambarkan besaran dan komposisi investasi dalam bentuk finansial maupun nonfinansial, serta sumber pembiayaan investasi seperti tabungan, konsumsi barang modal tetap, dan transfer modal.
+Neraca
+Luar
+Negeri merupakan bentuk tampilan data tentang transaksi antara pelaku domestik dan asing. Neraca ini menggambarkan besaran dan komposisi berbagai transaksi yang dilakukan oleh pelaku ekonomi domestik (residen) dengan pelaku ekonomi yang berada di luar wilayah domestik (nonresiden).
+Sektor institusi terdiri dari seluruh unit institusi homogen atau hampir homogen yang memainkan peran atau fungsi sama dalam suatu perekonomian.
+Sektor institusi terdiri dari Sektor Rumah
+Tangga, Sektor Lembaga Nonprofit yang
+Melayani
+Rumah
+Tangga,
+Sektor
+Pemerintahan Umum, Sektor Korporasi
+Finansial, Sektor Korporasi Nonfinansial, serta Sektor Luar Negeri. Setiap sektor dapat dikompilasi menurut jenis neraca sebagaimana telah disebutkan di atas atau dikompilasi secara keseluruhan untuk menggambarkan kondisi ekonomi nasional.
+about amount and composition of income received and expenditure made on that income. The difference between all income and expenditure is a saving.
+Capital and Financial Account is a form of data view on investation activities. This account contains information about amount and composition of investation, either financial or nonfinancial, and sources of financing investment such as savings, consumption of fixed capital, and capital transfers.
+External Account is a form of data view about transaction between an economy and the rest of the world. This account contains information about amount and composition of various transactions carried out by domestic economic actors (resident) with economic actors outside the territory of domestic (nonresident).
+Institutional sectors consist of all homogeneous or nearly homogeneous institutional units which play a same role or function in an economy. Institutional sectors consist of Households Sector, Nonprofit
+Institutions
+Serving
+Households
+Sector,
+General
+Government
+Sector,
+Financial
+Corporations
+Sector,
+Nonfinancial
+Corporations Sector, and Rest of the World
+Sector. Each sector can be compiled according to type of account as already mentioned above or compiled as a whole to describe condition about the national economy.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Neraca Nasional merupakan agregasi neraca sejenis dari berbagai sektor institusi yang membentuk perekonomian sehingga agregasi Neraca Produksi sektor institusi yang melakukan aktivitas produksi akan dihasilkan
+Neraca
+Produksi
+Nasional.
+Pengertian yang sama juga berlaku untuk
+Neraca Pendapatan dan Pengeluaran, serta
+Neraca Modal dan Keuangan. Hal ini tidak berarti bahwa Neraca Nasional disusun dari neraca masing-masing sektor. Neraca
+Nasional dapat disusun secara independen dari neraca yang sama untuk setiap sektor.
+Penyusunan neraca menurut sektor institusi dimaksudkan untuk mengungkap keterkaitan antara berbagai sektor sebagai pelaku ekonomi dalam melakukan berbagai aktivitas ekonomi secara simultan selama periode waktu tertentu. Dengan demikian, dapat dikatakan bahwa Neraca LNPRT
+merupakan bagian dari SNNI untuk melihat berbagai aktivitas ekonomi yang dilakukan
+LNPRT selama periode waktu tertentu.
+2.5 KERANGKA NERACA
+LNPRT
+Neraca LNPRT disusun dalam bentuk
+T (double entry statement) seperti dalam sistem pembukuan bisnis (micro). Pada sisi kanan seluruh sumber atau penerimaan dicatat, sedangkan pada sisi kiri seluruh penggunaan atau pembayaran dicatat.
+Setiap transaksi akan muncul dua kali, yaitu
+National Account is an aggregation of similar accounts from the various institutional sectors. Thus, the aggregate of
+Production Account of institutional sector that carried out production activities will be generated National Production Account. The same meaning applies to Income and
+Expenditure Account, also Financial and
+Capital Account. It doesn’t mean that
+National Account is compiled from the accounts of each sector. National Account can be compiled independently from equal account of each sector.
+Compiling national account according to institutional sectors are intended to show the linkages between various institutional sectors as economic actors in economic activities simultaneously over a given period. Thus, it can be said that the NPISHs account is part of Indonesia System of
+National Accounts to observe economic activities done by NPISHs over a given period.
+2.5 NPISHs ACCOUNTS
+FRAMEWORK
+NPISHs accounts are formed in a T account (double entry statement)
+as in business accounting system
+(micro). On the rightside revenues or sources are recorded, while the left side payments or uses are recorded.
+Each transaction will appear twice, namely as a source in one account
+Konsep & Definisi
+Concept & Definition sebagai sumber di suatu neraca dan sebagai penggunaan di neraca yang lain.
+Prinsip pencatatan yang digunakan untuk menyusun neraca sebagai berikut:
+Accrual Basis
+Pada prinsip accrual basis, seluruh data dicatat berdasarkan keadaan yang sebenarnya, baik data mengenai aktivitas produksi, konsumsi, maupun investasi.
+Contoh, panti asuhan melakukan pelatihan keterampilan membuat keset bagi anak asuhnya.
+Dari aktivitas tersebut menghasilkan 300 keset, di mana 10 buah diantaranya digunakan sendiri oleh panti.
+Berdasarkan prinsip accrual basis, produksi keset tetap dicatat 300 buah meskipun 10
+buah diantaranya dikonsumsi sendiri. Nilai keset yang dikonsumsi sendiri tersebut diperkirakan sesuai dengan harga pasar atau sebesar biaya yang dikeluarkan untuk memproduksi 10 buah keset tersebut.
+Selain accrual basis, terdapat prinsip lain, yaitu cash basis, di mana seluruh data dicatat berdasarkan transaksi pembayaran yang dilakukan secara tunai. Dari contoh panti asuhan di atas, produksi keset yang dicatat hanya sebanyak 290 buah. Jumlah keset yang dikonsumsi sendiri tidak dicatat, sehingga seolah-olah produksinya hanya
+290 buah. Prinsip pencatatan ini tidak menggambarkan keadaan sebenarnya, sehingga tidak digunakan dalam SNNI.
+and as a use in other account.
+Recording principle used to compile the accounts are described as follows:
+Accrual Basis
+On the principle of accrual basis, data are recorded based on the actual situation, both data of production, consumption, and investment activity. For example, an orphanage gives skills training for orphans like making mat. From this activity, they produced 300 pieces of mat, which is 10
+pieces of them are used by that orphanage.
+Based on the principle of accrual basis, production of mats still recorded 300
+pieces even though 10 pieces of them are consumed by that orphanage. The value of mats for own consumption must be estimated according to the market price or the costs incurred to produce 10 pieces of mat.
+Besides accrual basis, there are other recording principles, namely cash basis where data are recorded based on payment transactions by cash. As the example about orphanage, production of mats recorded only
+290 pieces. Number of mats for own consumption are not recorded, so it seems the production of mats only 290 pieces. The principle of cash basis does not describe the real situation, so this principle is not used in
+Indonesia System of National Accounts.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Double Entry dan Imputasi
+Prinsip double entry merupakan prinsip pecatatan dilakukan dua kali.
+Sistem ini terkait dengan asas setiap transaksi harus terdapat dua pihak yang terlibat baik sebagai item penerimaan dan pengeluaran, sebagai aktivitas produksi dan konsumsi, maupun sebagai pihak pembeli dan penjual. Oleh karena itu, setiap transaksi harus berpasangan. Jika suatu transaksi tidak memiliki pasangan, maka harus dimunculkan atau diimputasi.
+Contoh, sebuah pondok pesantren menggunakan meja yang dihasilkan oleh santrinya. Dalam kasus ini, seolah-olah pesantren memperoleh pendapatan sebesar biaya yang dikeluarkan untuk pembuatan meja ditambah perkiraan ongkos tukang. Di sisi lain, penggunaan meja dianggap sebagai pengeluaran investasi yang dilakukan oleh pesantren. Kasus penggunaan meja tersebut terkait dengan ketiga prinsip penyusunan neraca:
+Prinsip accrual basis, karena nilai meja tersebut dicatat sebagai komponen pengeluaran investasi, meskipun kenyataannya lembaga tersebut tidak membelinya.
+Prinsip double entry, karena nilai meja dicatat baik sebagai komponen pendapatan maupun pengeluaran.
+Prinsip imputasi, karena nilai meja tulis tersebut dicatat sebagai bagian dari pendapatan LNPRT.
+Double Entry and Imputation
+The principle of double entry is a principle in which a transaction noted twice. This system is related to the principle that any transaction must has two parties involved as both the income and expenditure items, as production and consumption activities, or as the buyer and seller. Therefore, each transaction must always be in pairs. If a transaction does not have a partner, then it should be raised or imputed.
+For example, an islamic boarding schools uses desk produced by their students. In this case, as if that islamic boarding school earns income on costs incurred to make desk plus estimate cost of carpenters. On the other hand, the use of desk is recorded as capital expenditure made by that islamic boarding school. Case the use of desk in islamic boarding school relate to three principles in compiling account:
+The principle of accrual basis, because the value of desk was recorded as component of capital expenditure, despite in real that institution did not buy it.
+The principle of double entry, because the desk was recorded both as a component of income and expenditure.
+The principle of imputation, because the value of desk was recorded as part of NPISHs income.
+Konsep & Definisi
+Concept & Definition
+Lembaga Nonprofit yang Melayani
+Rumah Tangga (LNPRT) adalah salah satu sektor institusi yang melakukan kegiatan produksi, konsumsi dan investasi. Data tentang aktivitas ekonomi
+LNPRT
+digambarkan dalam
+Neraca
+Produksi,
+Neraca Pendapatan dan Pengeluaran, serta
+Neraca Modal dan Keuangan.
+Neraca Produksi
+Neraca produksi menggambarkan aktivitas produksi yang dilakukan LNPRT
+dalam menyediakan barang/jasa secara gratis atau dengan harga yang tidak signifikan secara ekonomi pada anggotanya/ rumah tangga/ kelompok masyarakat. Sisi kanan memuat output, yaitu output nonpasar, output pasar, dan output untuk penggunaan akhir sendiri.
+Sedangkan, sisi kiri memuat konsumsi antara, kompensasi tenaga kerja, konsumsi barang modal tetap, pajak lainnya atas produksi, dan surplus usaha.
+Item surplus usaha akan muncul kembali dalam neraca pendapatan dan pengeluaran pada item , sedangkan konsumsi barang modal tetap akan muncul kembali dalam neraca modal dan keuangan pada item .
+Output dari kegiatan produksi LNPRT
+dibedakan menjadi tiga, yaitu:
+Output nonpasar merupakan output dari aktivitas
+LNPRT
+dalam menyediakan jasa pelayanan kepada
+Nonprofit
+Istitutions
+Serving
+Households (NPISHs) is one of institutional sector, that conducts production, consumption, and investment activities. Data about economy activities of
+NPISHs described in Production Account, Income and
+Expenditure Account, and Capital and
+Financial Account.
+Production Account
+Production account describes the production activities carried out by
+NPISHs to provide goods/services for free or at prices that are not economically significant to their members/households/society groups. In the right side of production account include of output, ie nonmarket output, market output, and output for own final use. While in the left side of account include intermediate consumption, compensation of employees, consumption of fixed capital, other taxes on production, and operating surplus. Operating surplus will reappear in the income and expenditure account on item , while consumption of fixed capital will reappear in the capital and financial account on item .
+Output from production activities carried out by NPISHs are divided into three:
+Nonmarket output is output from activities carried out by NPISHs to provide services to members or
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+anggota atau kelompok masyarakat.
+Layanan tersebut disediakan secara gratis (cuma-cuma) atau dengan harga di bawah harga pasar, sehingga disebut sebagai output nonpasar.
+Output pasar merupakan output dari aktivitas LNPRT dalam menghasilkan barang/jasa yang dijual dengan harga pasar.
+Output untuk penggunaan akhir sendiri merupakan output dari aktivitas LNPRT dalam menghasilkan barang/jasa yang digunakan sendiri.
+Aktivitas
+LNPRT
+dalam menghasilkan output pasar dan output untuk penggunaan akhir sendiri disebut aktivitas ekonomis produktif, dengan ciri-
+ciri:
+Umumnya terkait dengan upaya peningkatan keterampilan bagi anggota atau penerima layanan.
+Tujuannya tidak mencari keuntungan.
+Barang/jasa yang dihasilkan memiliki nilai yang relatif kecil terhadap biaya pelaksanaan aktivitas lembaga.
+Tidak memerlukan pengadaan barang modal (secara) khusus.
+Jika aktivitas yang dilakukan oleh
+LNPRT tidak memenuhi batasan aktivitas ekonomis produktif, maka aktivitas tersebut diperlakukan sebagai aktivitas produksi unit kuasi korporasi, sehingga transaksinya tidak dicatat dalam neraca
+LNPRT.
+society. These social services are provided free (no charge) or at prices that are not economically significant, so it is also known as nonmarket output.
+Market output is ouput from activity carried out by NPISHs to produce goods and services sold at market price.
+Output for own final use is ouput from activity carried out by NPISHs to produce goods and services used by themselves.
+NPISHs activities to produce market output and output for own final use is called productive economic activity.
+Characteristics of productive economic activity:
+Generally associated with efforts to improve skills of members or service recipients.
+The purpose is not only for profit.
+Goods or services produced have a relatively small value compared to the cost incurred in institutions activities.
+Does not require any special capital formation.
+If activity carried out by an institution does not follow the characteristic of productive economic activity, then that activity is treated as production activity from quasi corporation, so its transaction is not recorded in the NPISHs account.
+Konsep & Definisi
+Concept & Definition
+Barang dan jasa yang dihasilkan oleh
+LNPRT disediakan secara gratis atau dengan harga yang tidak signifikan secara ekonomi
+(di bawah harga pasar). Oleh karena itu, penilaian atas barang dan jasa yang dihasilkan
+(output) disetarakan dengan biaya yang dikeluarkan (input)
+untuk menghasilkan barang jasa tersebut.
+Biaya produksi merupakan nilai barang dan jasa yang digunakan lembaga untuk melakukan aktivitas pelayanan.
+Biaya produksi terdiri dari konsumsi antara dan kompensasi tenaga kerja. Konsumsi antara meliputi pembelian alat tulis, biaya fotokopi, barang cetakan, dsb; pembayaran listrik, air, telepon, faksimili; biaya rapat, seminar, perjamuan, dsb; jasa bank (biaya administrasi bank dan biaya transfer melalui bank); biaya transport, bahan bakar, dan perjalanan dinas; belanja barang dan jasa lainnya (bahan makanan, makanan dan minuman jadi, jasa kesehatan dan obat-obatan, pakaian, alas kaki, tekstil, jasa pendidikan, rekreasi, dsb); serta biaya sewa, perbaikan kecil, dan pemeliharaan.
+Sedangkan, kompensasi tenaga kerja terdiri dari upah, gaji, lembur, honor, bonus, dan tunjangan lainnya. Nilai biaya produksi adalah nilai yang benar-benar dikeluarkan lembaga atas penggunaan barang/jasa. Jika input yang digunakan diperoleh secara cuma-cuma, maka nilainya harus diperkirakan sesuai dengan harga yang berlaku dan nilai yang sama tersebut dianggap sebagai penerimaan transfer.
+Goods and services produced by
+NPISHs are provided free or at prices that are not economically significant (below the market price).
+Therefore, the valuation of goods and services produced
+(output) is approched with the costs incurred (input) to produce goods and services.
+Production cost is value of goods and services used by institution in order to provide services activities. Production cost consists of intermediate consumption and compensation of employees. Intermediate consumption consists of stationery cost, photocopy cost, printed materials, etc; payment of electricity, water, telephone, facsimile; cost of meetings, seminars, banquets, etc; bank services (bank administrative charges and fees through bank transfer); cost of transport, fuel, and official travel; other goods and services expenditures
+(groceries, food and beverages, health services and medicines, clothing, footwear, textiles, education, recreation, etc.); and rental costs, minor repairs and maintenance.
+While the compensation of employees consists of wages, salaries, overtime pay, bonuses, and other benefits. Value of production cost is the value that actually incurred by institutions on the use of goods/services.
+If the input used by institution is obtained for free of charge, then its value should be estimated in market price and the same value is considered as acceptance of the transfer.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Nilai tambah bruto adalah selisih antara nilai barang dan jasa yang dihasilkan lembaga dengan nilai konsumsi antara.
+Nilai tambah bruto setara dengan jumlah kompensasi tenaga kerja, surplus usaha, konsumsi barang modal tetap, dan pajak lainnya atas produksi (dikurangi subsidi atas produksi lainnya) dalam proses produksi.
+Surplus usaha adalah selisih antara nilai barang dan jasa yang dihasilkan lembaga dengan nilai konsumsi antara, kompensasi tenaga kerja, konsumsi barang modal tetap, dan pajak lainnya atas produksi (dikurangi subsidi atas produksi lainnya) dalam proses produksi. Pada neraca produksi, nilai surplus usaha berfungsi sebagai item penyeimbang.
+Gross value added is the difference between value of goods and services produced with value of intermediate consumption. Gross value added is equivalent to compensation of employees, operating surplus, consumption of fixed capital, and other taxes on production (less other subsidies on production) in production process.
+Operating surplus is the difference between value of goods and services produced with value of intermediate consumption, compensation of employees, consumption of fixed capital, and other taxes on production (less other subsidies on production) in production process. In the production account, operating surplus serves as a balancing item.
+Konsep & Definisi
+Concept & Definition
+Tabel
+2.1
+Neraca Produksi
+Table
+Production Account
+Penggunaan
+Uses
+Sumber
+Resourses
+1.
+Konsumsi Antara
+Intermediate Consumption
+2.
+Kompensasi Tenaga Kerja
+Compensation of Employees
+3.
+Konsumsi Barang Modal Tetap
+Consumption of Fixed Capital
+4.
+Pajak Lainnya Atas Produksi
+Other Taxes on Production
+5.
+Surplus Usaha
+Operating Surplus
+6.
+Output Nonpasar
+Nonmarket Output
+7.
+Output Pasar
+Market Output
+8.
+Output untuk Penggunaan Akhir Sendiri
+Output for Own Final Uses
+Total
+Total
+Neraca Penerimaan dan Pengeluaran
+Neraca penerimaan dan pengeluaran menggambarkan aktivitas konsumsi
+(penerimaan dan pengeluaran) LNPRT. Sisi kanan memuat sumber pendapatan yang diterima oleh LNPRT, yaitu surplus usaha, pendapatan kepemilikan diterima, dan transfer masuk (baik dari dalam maupun luar negeri). Sedangkan, sisi kiri memuat komponen pengeluaran yang terdiri dari pengeluaran konsumsi akhir, pendapatan kepemilikan dibayar, transfer keluar, dan tabungan yang tercipta di LNPRT.
+Pengeluaran konsumsi akhir adalah biaya yang dikeluarkan oleh lembaga untuk melakukan kegiatan pelayanan. Nilai ini setara dengan output nonpasar yang terdapat di sisi kanan neraca produksi.
+Income and Expenditure Account
+Income and expenditure account describes consumption activities (income and expenditure) of NPISHs. The right side of account includes various source of income that received by NPISHs, ie operating surplus, property income receivable, and current transfer to NPISHs (both from domestic and foreign). While the left side of account includes expenditure component consists of final consumption expenditure, property income payable, current transfers, and saving created from NPISHs.
+Final consumption expenditure is the cost incurred by institution in order to provide services activities. This value is equivalent with value of nonmarket output that exist in the right side of production account.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Transfer adalah penerimaan atau pemberian secara cuma-cuma baik dalam bentuk uang maupun barang yang dilakukan oleh lembaga dengan pihak lain.
+Transfer yang diterima lembaga disebut transfer masuk, sedangkan transfer yang dikeluarkan lembaga disebut transfer keluar. Transfer dibedakan menjadi dua, yaitu transfer berjalan dan transfer modal.
+Untuk dapat membedakan kedua transfer tersebut, aktivitasnya didasarkan atas tiga pertimbangan, yaitu: dasar, tujuan, dan frekuensi terjadinya transaksi.
+Transfer berjalan dari atau ke lembaga adalah seluruh penerimaan/
+pengeluaran transfer lembaga dengan tujuan digunakan untuk konsumsi dan transaksinya dilakukan secara berkala atau rutin.
+Transfer modal dari atau ke lembaga adalah seluruh penerimaan/
+pengeluaran transfer lembaga dengan tujuan digunakan untuk investasi dan transaksinya tidak rutin.
+Jika salah salah satu pihak (penerima maupun pemberi) menganggap transfer yang diterima atau diberikan sebagai transfer modal, maka transfer tersebut diperlakukan sebagai transfer modal. Menurut statusnya, transfer modal dibedakan menjadi transfer bersyarat dan transfer tak bersyarat.
+Transfer bersyarat mencakup transfer yang didasarkan kontrak seperti pembayaran premi asuransi
+Transfer is free receipt or spending in the form of money or goods made by institutions with other parties. Transfer received by institutions from other parties called current transfer to NPISHs, while transfer spent by institutions to another parties called current transfers. Transfer can be divided into two types, ie current transfers and capital transfers. In order to distinguish between the two types of transfer, the activity is based on three considerations ie: basic, purpose and frequency of the transactions.
+Current transfers to NPISHs is all receipt/spending of transfer which is received/spent by institution in order to consumption and transactions held regularly or routinely,
+Capital transfers receivable or payable of the institution is all receipt/spending of transfer which is received/spent by institution in order to investment and transactions held nonroutine.
+If one of the parties (recipient or donor)
+assumes that transfer received or given as a capital transfer, then that transfer is treated as a capital transfer. According to its status, capital transfers can be divided into conditional transfers and unconditional transfers.
+Conditional transfer includes transfers based on a contract, for example:
+insurance premium payments on
+Konsep & Definisi
+Concept & Definition atas suatu investasi. Sebaliknya, sebagai penerimaan lembaga jika memperoleh klaim asuransi.
+Transfer tak bersyarat mencakup transaksi yang tidak didasarkan kontrak perjanjian. Transfer ini dapat berupa barang modal maupun uang yang digunakan pengadaan barang modal.
+Pendapatan kepemilikan adalah pendapatan ketika faktor produksi yang dimiliki lembaga digunakan untuk aktivitas usaha pihak lain. Pendapatan kepemilikan mencakup pendapatan bunga, dividen, royalti, bagi hasil, dan sebagainya.
+Tabungan adalah selisih antara penerimaan dengan pengeluaran lembaga.
+Tabungan merupakan item penyeimbang neraca pendapatan dan pengeluaran.
+Tabungan muncul kembali dalam neraca modal dan keuangan pada item .
+investment as outlay. In contrast, institution receives insurance claim as reception.
+Unconditional transfer includes transactions that are not based on a contractual agreement. This transfer can be either capital goods or money used for capital formation.
+Property income is income that created when factor production owned by institution used by other parties for their production activities. Property income includes interest income, dividends, royalties, profit sharing, and so on.
+Saving is difference of current receipt and current disbursements. Saving is a balancing item on the income and expenditure account. It will reappear in the capital and financial account on item
+.
+Tabel
+2.2
+Neraca Penerimaan dan Pengeluaran
+Table
+Income and Expenditure Account
+Penggunaan
+Uses
+Sumber
+Resourses
+1.
+Pengeluaran Konsumsi Akhir
+Final Consumption Expenditure
+2.
+Pendapatan Kepemilikan Dibayar
+Property Income, payable
+3.
+Transfer Keluar
+Current transfer
+4.
+Tabungan
+Saving
+5.
+Surplus Usaha
+Operating Surplus
+6.
+Pendapatan Kepemilikan Diterima
+Property Income, receivable
+7.
+Transfer Masuk
+Current transfer to NPISHs
+Total
+Total
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Neraca Modal dan Keuangan
+Neraca Modal dan Keuangan LNPRT
+menggambarkan aktivitas investasi yang dilakukan oleh LNPRT serta sumber pembiayaannya. Sumber pembiayaan investasi dalam bentuk tabungan, konsumsi barang modal tetap, dan transfer modal neto dicatat pada sisi kanan neraca.
+Sedangkan, investasi baik dalam bentuk nonfinansial (barang modal tetap dan perubahan stok) maupun finansial dicatat pada sisi kiri neraca. Pembentukan modal tetap bruto terdiri dari perlengkapan dan peralatan, bangunan, dan biaya pengurusan lahan.
+Bentuk investasi finansial meliputi penambahan uang tunai, menabung neto, piutang neto, dan pembelian surat berharga neto.
+Konsumsi barang modal tetap menjadi salah satu sumber pembiayaan investasi karena merupakan bagian pendapatan yang disisihkan untuk mengganti barang modal yang digunakan dalam proses produksi. Transfer modal dari sektor lain seperti hibah dan transfer modal lainnya juga merupakan sumber pembiayaan investasi LNPRT.
+Di dalam Neraca Modal dan Keuangan
+LNPRT, selisih antara sumber pembiayaan dengan investasi merupakan rincian penyeimbang dan dicatat pada sisi kiri neraca. Bila bernilai positif, maka rincian penyeimbang dikatakan sebagai peminjaman (lending) ke sektor lain. Bila bernilai negatif, maka rincian penyeimbang ini dikatakan sebagai pinjaman (borrowing) dari sektor lain.
+Capital and Financial Account
+NPISHs
+Capital and
+Financial
+Account describe investment activities conducted by NPISHs and its sources of finance. Sources of investment financing in the form of saving, consumption of fixed capital, and net capital transfer are recorded in the right side of account.
+While investment either in the form of nonfinancial (fixed capital and changes in inventories) or financial are recorded in the left side of account. Gross fixed capital formation consists of supplies and equipment, dwellings, and costs of ownership transfer on land. Financial investment includes flow in cash, net saving, net accounts receivable and net securities purchases.
+Consumption of fixed capital is one source of investment financing because it is a part of income, current replacement cost of reproducible fixed assets. Capital transfers from other sectors such as grants and other capital transfers are also source of investment financing of NPISHs.
+In the NPISHs capital and financial account, difference between sources of financing with investment is a balancing item and recorded in the left side of account. If its value is positive, then the balancing item said as lending to other sectors. If its value is negative, then the balancing item said as borrowing from other sectors.
+Konsep & Definisi
+Concept & Definition
+Tabel
+2.3
+Neraca Modal dan Finansial
+Table
+Capital and Financial Account
+Penggunaan
+Uses
+Sumber
+Resourses
+1.
+Perubahan Stok
+Changes in Inventories
+2.
+Pembentukan Modal Tetap Bruto
+Gross Fixed Capital Formation
+Perlengkapan dan Peralatan
+Supplies and Equipment
+Bangunan
+Buildings
+Biaya Pengurusan Lahan
+Costs of Ownership Transfer on Land
+3.
+Peminjaman Neto
+Net Lending/Borrowing
+4.
+Tabungan
+Saving
+5.
+Konsumsi Barang Modal Tetal
+Consumption of Fixed Capital
+6.
+Transfer Modal Neto
+Net Capital Transfer
+Total
+Total
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+BAB III
+ULASAN SINGKAT
+Konsep & Definisi
+Concept & Definition
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Ulasan Singkat
+Brief Review
+Sebagaimana telah diuraikan sebelumnya bahwa pelaku LNPRT terdiri dari enam jenis lembaga, yaitu organisasi kemasyarakatan, organisasi sosial, organisasi profesi dan serikat buruh, organisasi kebudayaan, olahraga, dan rekreasi, partai politik, serta lembaga keagamaan.
+Berikut ulasan mengenai aktivitas ekonomi yang dilakukan lembaga-
+lembaga tersebut periode 2022-2024.
+As described previously that
+NPISHs actors consist of six types institutions, namely
+society organizations, social organizations, professional organizations and labor union, cultural, sport, and recreation organizations, political parties, and religious institutions. The following is a review of economic activity conducted by those institutions in 2022-2024.
+3.1 AKTIVITAS PRODUKSI
+Aktivitas produksi LNPRT menghasilkan jasa sosial kemasyarakatan sehingga disebut juga aktivitas pelayanan. Selain itu,
+LNPRT melakukan aktivitas ekonomis produktif menghasilkan barang dan jasa, baik digunakan sendiri maupun dijual dengan harga signifikan secara ekonomi.
+Aktivitas ekonomis produktif dilakukan untuk meningkatkan keterampilan anggota atau penerima layanan dan kadang mendatangkan pendapatan bagi lembaga. Total nilai jasa sosial kemasyarakatan serta barang dan jasa dari aktivitas ekonomis produktif disebut sebagai output LNPRT.
+Output LNPRT terdiri dari output nonpasar, output pasar, dan output untuk penggunaan akhir sendiri. Output nonpasar adalah barang/jasa yang dihasilkan dari aktivitas pelayanan LNPRT, disediakan secara gratis atau dengan harga yang tidak signifikan secara ekonomi. Output pasar
+3.1 PRODUCTION ACTIVITIES
+The production activities of NPISHs produce social services, so they are also called service activities.
+In addition,
+NPISHs also carry out productive economic activities that provide goods and services, either for their own use or for sale at economically significant prices.
+These productive economic activities aim to improve the skills of members or service recipients and sometimes generate revenue for the institution. The total value of social services from service activities and goods and services from productive economic activities are the NPISHs output.
+NPISHs output consists of nonmarket output, market output, and market for own final use. Nonmarket output is goods and services produced from
+NPISHs services activities provided free or at prices that are not economically significant.
+Market
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+adalah barang/jasa yang dihasilkan dari aktivitas ekonomis produktif untuk dijual dengan harga yang signifikan secara ekonomi.
+Sedangkan, output untuk penggunaan akhir sendiri adalah barang/jasa yang dihasilkan dan digunakan sendiri oleh LNPRT sebagai konsumsi akhir maupun pembentukan modal.
+Selama 2022-2024, output LNPRT
+mencapai 235.614, 268.651, dan 308.689
+miliar rupiah. Peningkatan output LNPRT
+pada tahun 2024 didorong oleh kegiatan pemilu yang meningkatkan aktivitas partai politik dan PON XXI yang diselenggarakan di Aceh dan Sumatra Utara pada Tahun
+2024.
+output is goods and services produced from productive economic activities intended for sale at economically significant prices. While output for own final use is goods and services retained by NPISHs for own use as final consumption or capital formation.
+During 2022-2024 NPISHs output in
+Indonesia reached 235.614, 268.651 and
+308.689 billion rupiah. The increase in
+NPISH output in 2024 was driven by the election activities that boosted political party operations and The XXI National
+Sports Week (PON) held in Aceh and North
+Sumatra in 2024.
+Gambar
+3.1
+Distribusi Jenis Output LNPRT (persen), 2022−2024
+Figure
+Distribution of NPISHs Output Type (percent), 2022−2024
+Persen/Percent
+Tahun/Year
+Output untuk peng. akhir sendiri
+Output for own final use
+Output pasar
+Market output
+Output nonpasar
+Nonmarket output
+Ulasan Singkat
+Brief Review
+Gambar 3.1 menunjukkan sebagian besar output
+LNPRT
+adalah output nonpasar, yaitu 97,67 persen , 97,71
+persen , dan 97,69 persen . Hal ini sejalan dengan prinsip dasar LNPRT yaitu menyediakan barang dan jasa gratis atau dengan harga tidak signifikan secara ekonomi pada anggotanya, rumah tangga, maupun masyarakat.
+Di sisi lain, ditinjau dari proporsi komponen penyusun output LNPRT yang terdiri dari konsumsi antara dan Nilai Tambah
+Bruto (NTB), secara umum komponen penyusun output LNPRT terbesar adalah konsumsi antara. Pada tahun 2024, proporsi konsumsi antara 63,76 persen dan NTB
+36,24 persen. Tidak jauh berbeda dengan tahun 2024, pada tahun 2022 dan 2023
+memiliki proporsi konsumsi antara dan NTB
+yang hampir sama. Pada tahun 2022, proporsi konsumsi antara sebesar 63,76
+persen dan NTB 36,24 persen. Adapun tahun
+2023, proporsi konsumsi antara sebesar
+63,83 persen dan NTB 36,17 persen.
+Selanjutnya, proporsi konsumsi antara dan
+NTB sebagai komponen penyusun output menurut jenis pelaku LNPRT divisualisasikan dalam Gambar 3.2.
+Figure 3.1 shown that most of the
+NPISHs output was nonmarket output, about 97,67 percent , 97,71
+percent
+, and
+97,69
+percent
+. It is in line with the basic principles of NPISHs that provide goods and services free or at prices that are not economically significant to their members, household, or society groups.
+On the other hand, in terms of the proportion of components that make up
+NPISHs output, which consists of intermediate consumption and gross value added (GVA), the most significant component of
+NPISHs output is intermediate consumption. In 2024, the proportion of intermediate consumption was 63,76 percent and GVA 36,24 percent. In 2022 and 2023, the ratio of intermediate consumption and
+GVA is almost the same with 2024. In 2022, the proportion of intermediate consumption was 63,76 percent and GVA 36,24 percent.
+Meanwhile, in 2023 the ratio of intermediate consumption is 63,83 percent and GVA
+36,17 percent. Furthermore, the proportion of intermediate consumption and GVA as components of output by type of NPISHs actor is visualized in Figure 3.2.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Gambar
+3.2
+Komponen Penyusun Output Menurut Jenis Pelaku LNPRT, 2024
+Figure
+Component of Output by Type of NPISHs Actor, 2024
+Nilai output nonpasar diestimasi melalui pendekatan biaya produksi, yang mencakup konsumsi antara, kompensasi tenaga kerja, konsumsi barang modal tetap, dan pajak lainnya atas produksi.
+Tahun 2024, komposisi konsumsi antara mencapai 63,76 persen dari nilai total output. Sedangkan, kontribusi kompensasi tenaga kerja terhadap output pada tahun yang sama sekitar 29,22 persen.
+Berdasarkan jenis pelaku LNPRT, organisasi kemasyarakatan dan lembaga keagamaan memiliki proporsi konsumsi antara yang cukup tinggi yaitu 65,22
+persen dan 65,04 persen.
+The value of the nonmarket output is estimated as the sum of production cost, consisting of intermediate consumption, compensation of employees, consumption of fixed capital, and other taxes on production.
+In 2024, the composition of intermediate consumption reached 63,76 percent of the total output value.
+Meanwhile, the compensation of employees to output in the same year was around 29,22 percent.
+Based on the types of NPISHs actors,
+Society Organizations and Religious have a high proportion of intermediate consumption, reached 65,22 percent and
+65,04 percent.
+0%
+20%
+40%
+60%
+80%
+100%
+Organisasi
+Kemasyarakatan
+Society Organizations
+Organisasi Sosial
+Social Organizations
+Organisasi Profesi
+Professional
+Organizations
+Organisasi Kebudayaan
+Cultural Organizations
+Partai Politik
+Political Parties
+Lembaga Keagamaan
+Religious Institutions
+Nilai Tambah Bruto
+Gross Value Added
+Konsumsi Antara
+Intermediate Consumption
+Ulasan Singkat
+Brief Review
+Di sisi lain, partai politik memiliki proporsi kompensasi tenaga kerja terbesar sekitar 33,06 persen. Aktivitas partai politik meningkat dalam menghadapi pemilu, seperti kampanye dan pengawalan pemungutan suara. Sedangkan, organisasi masyarakat memiliki proporsi kompensasi tenaga kerja terendah, yaitu 27,69 persen.
+Hal ini dikarenakan karena sebagian besar tenaga kerja tidak dibayar atau hanya menerima kompensasi dalam bentuk natural transfer (seperti konsumsi barang dan jasa, bukan uang tunai).
+On the other hand, political parties have the highest proportion of compensation of employees, around 33,06 percent. Political party activities increased in preparation for the election, such as campaigning and supervising the voting process. Meanwhile, society organizations, have lower proportion compensation of employees, which is 27,69
+percent. It is most of the workforce is unpaid or receives compensation in the form of in-
+kind transfers (such as the consumption of goods and services rather than cash payments).
+3.2 AKTIVITAS PENERIMAAN
+DAN PENGELUARAN
+Aktivitas pengeluaran
+LNPRT
+mencakup aktivitas untuk konsumsi akhir, transfer ke institusi lain, dan pembentukan modal. Pengeluaran konsumsi akhir dapat diartikan biaya operasional yang dikeluarkan lembaga dalam melakukan aktivitas pelayanannya.
+Pembentukan modal merupakan pengeluaran untuk pengadaan barang modal seperti bangunan, peralatan dan perlengkapan, serta biaya pengalihan kepemilikan lahan.
+Sumber dana aktivitas pengeluaran
+LNPRT
+diperoleh dari transfer, pendapatan kepemilikan, dan surplus usaha.
+Transfer menjadi sumber penerimaan terbesar bagi LNPRT. Tahun
+2024, sekitar 95,58 persen dari total penerimaan LNPRT berasal dari transfer.
+3.2 INCOME AND EXPENDITURE
+ACTIVITIES
+NPISHs expenditure activities consist of spending activities for final consumption, transfer to other institutions
+(current transfer), and capital formation.
+Final consumption expenditure of NPISHs is an operational cost incurred by NPISHs to provide service activities. Meanwhile, capital formation is expenditure for the procurement of capital goods such as buildings, equipment and supplies, also cost of ownership transfer on land.
+Sources of funds for
+NPISHs expenditure activities are obtained from transfers (current transfer to NPISHs), property income, and operating surplus.
+Transfers are the most significant source of income for NPISHs. In 2024, around 95,58
+percent of total NPISHs income came from
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Surplus usaha memberikan kontribusi paling kecil terhadap total penerimaan
+LNPRT yaitu 0,16 persen (Gambar 3.3).
+Sejalan dengan fenomena yang ada, partai politik merupakan lembaga dengan porsi penerimaan transfer terbesar yaitu
+99,80 persen.
+transfers. The operating surplus contributed the least to total NPISHs income, about 0,16
+percent (Figure 3.3). Based on phenomenon,
+Political parties are the largest portion of current transfer to NPISHs, namely 99,80
+percent, which generally came from households and the government.
+Gambar
+3.3
+Distribusi Jenis Penerimaan LNPRT (persen), 2022−2024
+Figure
+Distribution of NPISHs Income Type (percent), 2022−2024
+Transfer yang diterima
+LNPRT
+dibedakan atas transfer dari dalam dan luar negeri. Transfer dari dalam negeri dapat bersumber dari rumah tangga, pemerintah,
+LNPRT, dan badan usaha.
+Tahun 2024, sebagian besar transfer yang diterima
+LNPRT
+berasal dari perorangan atau rumah tangga, yaitu 69,38
+persen (Gambar 3.4). Rumah tangga memberikan komposisi sumbangan besar disebabkan LNPRT dibentuk oleh rumah
+Current transfer to
+NPISHs distinguished on transfer that came from domestic and abroad. Transfer from domestic derived from households, government,
+NPISHs, and corporations.
+In 2024 most of the current transfer to
+NPISHs came from individuals or households, reached
+69,38
+percent
+(Figure
+3.4).
+Households make up the largest contribution composition because NPISHs formed by households to provide services to the
+Persen/Percent
+Tahun/Year
+Pendapatan kepemilikan diterima
+Property income, receivable
+Surplus usaha
+Operating surplus
+Transfer masuk
+Current transfer to NPISHs
+Ulasan Singkat
+Brief Review tangga untuk memberikan jasa pelayanan ke masyarakat. Transfer ini berupa iuran anggota LNPRT dan sumbangan berupa uang maupun barang dari masyarakat.
+Pemerintah turut berkontribusi besar kepada LNPRT, yaitu 20,31 persen. Melalui
+APBN/APBD, pemerintah mengalokasikan sejumlah dana kepada beberapa lembaga seperti lembaga keagamaan, organisasi kemasyarakatan, dan partai politik.
+community. This transfer is in the form of contributions from NPISHs members and donations in money and goods from the community.
+Government also provided a significant contribution to NPISHs reached 20,31
+percent. Through Indonesian and Regional
+Government Budget, government allocated funds to NPISHs such as religious institutions, society organizations, and political parties.
+Gambar
+3.4
+Persentase Transfer Masuk LNPRT Menurut Sumbernya, 2024
+Figure
+Percentage of Transfer to NPISHs by Source, 2024
+Selain transfer, LNPRT memperoleh pendapatan dalam bentuk surplus usaha dan pendapatan kepemilikan.
+Tetapi, besaran surplus usaha dan pendapatan kepemilikan sangat kecil, karena LNPRT
+merupakan lembaga yang tidak bertujuan untuk mencari keuntungan.
+Selama 2022-2024, surplus usaha memiliki proporsi terkecil dari total penerimaan LNPRT dibandingkan sumber
+Besides coming from current transfer to
+NPISHs, NPISHs also earned income in the form of operating surplus and property income. But the value of operating surplus and property income was very small. It was corresponding because
+NPISHs were institutions that did not aim for profit.
+During 2022-2024, the proportion of operating surplus has the smallest proportion of total
+NPISHs income
+20,31
+69,38
+0,75 1,89
+7,67
+Pemerintah
+Government
+Rumah Tangga
+Households
+Badan Usaha
+Corporation
+Luar Negeri
+Rest of The World
+LNPRT
+NPISHs
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+lainnya seperti pendapatan kepemilikan dan transfer masuk. Surplus usaha terjadi karena adanya aktivitas ekonomis produktif yang dilakukan lembaga, seperti organisasi kebudayaan, olahraga, dan rekreasi yang menyelenggarakan pentas seni atau pagelaran budaya.
+Pendapatan kepemilikan
+LNPRT
+diperoleh dari balas jasa atas kepemilikan aset finansial, tanah, dan faktor produksi lainnya. Pendapatan kepemilikan dapat berupa bunga, bagi hasil, dividen, royalti, dan sewa lahan.
+Sebagai lembaga nonprofit, sebagian besar pendapatan
+LNPRT, baik dari transfer masuk, surplus usaha, maupun pendapatan kepemilikan digunakan untuk membiayai aktivitasnya.
+Pembiayaan seluruh aktivitas tersebut dicatat sebagai pengeluaran konsumsi akhir.
+Selama periode tahun 2022-2024, total pengeluaran konsumsi akhir LNPRT berturut-
+turut sebesar
+228.999,
+261.210, dan
+300.080 miliar rupiah. Pengeluaran konsumsi akhir LNPRT menguat di tahun 2024.
+Dilihat berdasarkan proporsinya,
+82,63 persen penerimaan LNPRT digunakan untuk pengeluaran konsumsi akhir pada tahun 2022. Sedangkan, tahun 2023
+sebesar 88,64 persen dan tahun 2024
+sebesar
+86,08
+persen.
+Pengeluaran konsumsi akhir terdiri dari biaya fotokopi, listrik, telepon, rapat, jasa bank, transport, sewa, perbaikan kecil, kompensasi tenaga compared to property income, receivable and current transfer to NPISHs . Income from operating surplus occurred due to productive economic activities conducted by the institution, such as cultural, sport, and recreation organizations held art performances or artistic performances.
+NPISHs property income is obtained from remuneration for ownership of financial assets, land, and other production factors.
+Property income can be in terms of interest, profit sharing, dividends, royalties, and land rent.
+As a nonprofit institution, most
+NPISHs income, both from incoming transfers, business surplus, and ownership income, is used to finance its activities. The financing of all these activities is recorded as final consumption expenditure.
+During the period
+2022-2024,
+NPISHs final consumption expenditures were 228.999, 261.210, and 300.080
+billion rupiahs. NPISHs final consumption expenditure strengthened in 2024.
+Moreover, while analyzed based on the proportion, 82,63 percent of NPISHs income were used for final consumption expenditures in 2022. While in 2023, it was 88,64 percent, and in 2024 it was
+86,08
+percent.
+Final consumption expenditure consists of photocopy cost, electricity bill, phone bill, meetings cost, bank services, transport, rental, minor
+Ulasan Singkat
+Brief Review kerja, serta barang/jasa lainnya. Kompensasi tenaga kerja dan pengeluaran untuk barang/jasa lainnya memiliki kontribusi terhadap pengeluaran konsumsi akhir yang cukup signifikan dibanding item pengeluaran lainnya.
+Selain pengeluaran konsumsi akhir,
+LNPRT memberikan transfer untuk unit institusi lain. Proporsi transfer keluar terhadap total penerimaan tahun 2022
+sebesar 7,97 persen, 2023 sebesar 7,23
+persen, dan 2024 sebesar 8,71 persen.
+Sisa pendapatan yang tidak digunakan untuk konsumsi akhir, transfer, maupun membayar pendapatan kepemilikan, akan dicatat sebagai tabungan. Tabungan yang tercipta tahun 2024 sebesar 3,98 persen dari total penerimaan, lebih tinggi dibanding tahun 2023 yang mencapai 3,04 persen.
+repairs, compensation of employees, and other goods/services. Compensation of employees and expenditure of other goods/services significantly contribute to final consumption expenditure than other expenditure items.
+Besides final consumption expenditure, NPISHs also provide transfers to other institutional units. The proportion of current transfer to total income in 2022
+was 7,97 percent, 2023 was 7,23 percent and 2024 was 8,71 percent.
+The remaining income that is not used for final consumption, transfers, or paying ownership income, will be recorded as savings. Savings created in 2024
+amounted to 3,98 percent of total revenue, lower than 2023 which reached
+3,04 percent.
+Gambar
+3.5
+Distribusi Jenis Pengeluaran LNPRT (persen), 2022−2024
+Figure
+Distribution of NPISHs Expenditure Type (percent), 2022−2024
+Persen/Percent
+Tahun/Year
+Pendapatan kepemilikan dibayar
+Property income, payable
+Transfer keluar
+Transfer out
+Tabungan neto
+Saving, net
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+3.3 AKTIVITAS INVESTASI
+Selain aktivitas produksi dan konsumsi, LNPRT juga melakukan aktivitas investasi. Seperti pelaku ekonomi lain,
+LNPRT menggunakan barang modal dalam melakukan aktivitasnya, dalam bentuk perlengkapan dan peralatan
+(mebel, perlengkapan dan peralatan kantor, alat transportasi, barang elektronik, alat komunikasi dsb), bangunan (rumah dan bangunan lainnya), serta biaya pengurusan lahan. Pengadaan barang modal yang digunakan untuk aktivitas LNPRT disebut investasi fisik. Selain itu, LNPRT juga melakukan kegiatan investasi finansial yang pada umumnya berwujud uang tunai dan tabungan di lembaga keuangan.
+3.3 INVESTMENT ACTIVITIES
+Besides production and consumption activities, NPISHs also conduct investment activities. As other economic actors, NPISHs also use capital assets in their activities, in the form of supplies and equipment (furniture, office supplies, and equipment, transport equipment, electronics, communication devices, etc.), buildings (dwelling and other buildings), and costs of ownership transfer on land. The procurement of capital assets used for NPISHs activities is called physical investment. Besides physical investment,
+NPISHs also conduct financial investment activities. Generally, financial investments are in the form of currency and deposits in financial institutions.
+Ulasan Singkat
+Brief Review
+Gambar
+3.6
+Persentase Sumber Dana Investasi Menurut COPNI, 2024
+Figure
+Percentage of Investment Fund Sources by COPNI, 2024
+Sumber dana LNPRT untuk investasi diperoleh dari tabungan, konsumsi barang modal tetap, dan transfer modal neto.
+Selain itu, terdapat sumber dana lain dari transaksi finansial, seperti hutang dan menggadaikan barang (neto).
+Selama 2024, sumber dana utama
+LNPRT untuk aktivitas investasi berasal dari transfer modal neto, yaitu sekitar
+57,26 persen. Perolehan dana investasi setiap lembaga memiliki pola yang
+NPISHs earn investment fund sources from their savings, consumption of fixed capital, and net capital transfer. In addition, there are other sources of funds from financial transactions, such as loans and pawning (net).
+During 2024, significant investment fund sources used by NPISHs to conduct investment activities came from net capital transfer about 57,26 percent. The acquisition of investment funds for each institution has a
+Organisasi Kemasyarakatan
+Society Organizations
+Organisasi Sosial
+Social Organizations
+Organisasi Profesi
+Professional Organizations
+Organisasi Kebudayaan
+Cultural Organizations
+Partai Politik
+Political Parties
+Lembaga Keagamaan
+Religious Institutions
+Persen/Percent
+Tabungan neto
+Saving, net
+Transfer modal neto
+Capital transfer, net
+Konsumsi barang modal tetap
+Consumption of fixed capital
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+seragam. Tahun 2024, organisasi sosial dan organisasi kebudayaan, olahraga, dan rekreasi memiliki proporsi sumber investasi dari transfer modal neto sebesar 60,75 persen dan 60,37 persen lebih besar dibanding jenis LNPRT
+lainnya.
+Investasi LNPRT terdiri dari investasi fisik dan finansial. Dilihat dari jenis barang modal, bangunan merupakan investasi fisik yang paling banyak dilakukan. Tahun
+2024, kontribusinya mencapai 87,18
+persen dari keseluruhan investasi fisik.
+Kemudian, menyusul kontribusi dari perlengkapan dan peralatan sebesar
+12,78 persen dan biaya pengurusan lahan sebesar 0,03 persen.
+Berdasarkan pelaku LNPRT, partai politik melakukan kegiatan investasi fisik berupa bangunan mencapai 82,43 persen dari total pengadaan barang modal di tahun 2024.
+Setiap
+LNPRT
+memiliki pola
+Pembentukan Modal Tetap Bruto (PMTB)
+berbeda karena karakteristik yang berbeda. Distribusi jenis PMTB LNPRT
+tahun 2024 ditunjukkan pada Gambar 3.7.
+uniform pattern.
+In
+2024, social organizations and cultural and recreational organizations had proportions of investment sources from net capital transfers amounting to 60.96 percent and 59.67 percent, respectively, higher than those of other types of NPISHs.
+NPISHs investment consists of physical and financial investment.
+According to the type of fixed capital formation, mostly physical investment is in the form of buildings. In 2024, its contribution reached 87,18 percent of total physical investment. Then, the proportion of supplies and equipment reached 12,78
+percent, and costs of ownership transfer on land gained 0,03 percent.
+According to NPISHs actors, social organizations conducted physical investment activity in buildings reached 82,43 percent of total procurement fixed capital formation in
+2024.
+NPISHs have different behavior in
+Gross Fixed Capital Formation (GFCF)
+because they have different characteristics.
+The distribution of NPISHs GFCF in 2024 is decribed in Figure 3.7.
+Ulasan Singkat
+Brief Review
+Gambar
+3.7
+Distribusi Jenis Pembentukan Modal Tetap Bruto LNPRT (persen), 2024
+Figure
+Distribution of NPISHs Gross Fixed Capital Formation Type (percent), 2024
+12,78
+87,18
+0,03
+Perlengkapan dan peralatan
+Supplies and equipment
+Bangunan
+Dwellings
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Daftar Pustaka
+Bibliography
+DAFTAR PUSTAKA
+BIBLIOGRAPHY
+Eurostat. . Essential SNA: Building The Basics. Luxembourg.
+United Nations. . System of National Accounts 1968. New York.
+United Nations. . System of National Accounts 1993. New York.
+United Nations. . System of National Accounts 2008. New York.
+United Nations. . Handbook on Nonprofit Institutions in the SNA. New York.
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022—2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022—2024
+Lampiran
+Appendix
+LAMPIRAN/APPENDIX
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+Appendix
+Lampiran
+1.1
+Appendix
+Neraca Produksi LNPRT Menurut Penggunaan (miliar rupiah), 2022–2024
+NPISHs Production Account by Uses (billion rupiah), 2022–2024
+Item
+2023*
+2024**
+Items
+Konsumsi antara
+Intermediate consumption
+149.971
+171.478
+196.827
+63,65%
+63,83%
+63,76%
+Kompensasi tenaga kerja
+Compensation of employees
+70.093
+77.919
+90.197
+29,75%
+29,00%
+29,22%
+Konsumsi barang modal tetap
+Consumption of fixed capital
+14.287
+18.124
+20.147
+6,06%
+6,75%
+6,53%
+Pajak lainnya atas produksi
+Other taxes on production
+0,33%
+0,30%
+0,31%
+Surplus usaha
+Operating surplus
+0,20%
+0,12%
+0,18%
+Total
+235.614
+268.651
+308.689
+100,00%
+100,00%
+100,00%
+Lampiran
+1.2
+Neraca Produksi LNPRT Menurut Sumber (miliar rupiah), 2022–2024
+Appendix
+NPISHs Production Account by Resources (billion rupiah), 2022–2024
+Item
+2023*
+2024**
+Items
+Output nonpasar
+Nonmarket output
+230.122
+262.491
+301.551
+97,67%
+97,71%
+97,69%
+Output pasar
+Market output
+3.877
+3.919
+4.791
+1,65%
+1,46%
+1,55%
+Output untuk peng. akhir sendiri
+Output for own final use
+1.616
+2.241
+2.346
+0,69%
+0,83%
+0,76%
+Total
+235.614
+268.651
+308.689
+100,00%
+100,00%
+100,00%
+Catatan/Note:
+Angka sementara/preliminary figures
+Angka sangat sementara/very preliminary figures
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+1.3
+Neraca Penerimaan dan Pengeluaran LNPRT Menurut Penggunaan (miliar rupiah),
+2022–2024
+Appendix
+NPISHs Income and Expenditure Account by Uses (million rupiah), 2022–2024
+Lampiran
+1.4
+Neraca Penerimaan dan Pengeluaran LNPRT Menurut Sumber (miliar rupiah),
+2022–2024
+Appendix
+NPISHs Income and Expenditure Account by Resources (million rupiah), 2022–2024
+Catatan/Note:
+Angka sementara/preliminary figures
+Angka sangat sementara/very preliminary figures
+Item
+2023*
+2024**
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+228.999
+261.210
+300.080
+82,63%
+88,64%
+86,08%
+Pendapatan kepemilikan dibayar
+Property income, payable
+3.815
+3.196
+4.290
+1,38%
+1,08%
+1,23%
+Transfer keluar
+Current transfers
+22.098
+21.302
+30.345
+7,97%
+7,23%
+8,71%
+Tabungan neto
+Saving, net
+22.237
+8.972
+13.874
+8,02%
+3,04%
+3,98%
+Total
+277.149
+294.681
+348.590
+100,00%
+100,00%
+100,00%
+Item
+2023*
+2024**
+Items
+Surplus usaha
+Operating surplus
+0,17%
+0,11%
+0,16%
+Pendapatan kepemilikan diterima
+Property income, receivable
+15.010
+14.786
+14.841
+5,42%
+5,02%
+4,26%
+Transfer masuk
+Current transfers to NPISHs
+261.659
+279.577
+333.188
+94,41%
+94,87%
+95,58%
+Total
+277.149
+294.681
+348.590
+100,00%
+100,00%
+100,00%
+Lampiran
+Appendix
+Lampiran
+1.5
+Neraca Modal dan Keuangan LNPRT Menurut Penggunaan (persen),
+2022–2024
+Appendix
+NPISHs Capital and Financial Account by Uses (percent), 2022–2024
+Item
+2023*
+2024**
+Items
+Perubahan stok
+Changes in inventories
+0,86%
+0,78%
+0,82%
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+8.558
+8.054
+9.282
+11,50%
+11,83%
+11,66%
+Bangunan
+Buildings
+61.618
+51.976
+63.315
+82,77%
+76,33%
+79,55%
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03%
+0,03%
+0,03%
+Penjumlahan neto
+Net lending/borrrowing
+3.610
+7.508
+6.318
+4,85%
+11,03%
+7,94%
+Total
+74.448
+68.093
+79.593
+100,00%
+100,00%
+100,00%
+Lampiran
+1.6
+Neraca Modal dan Keuangan LNPRT Menurut Sumber (persen), 2022–2024
+Appendix
+NPISHs Capital and Financial Account by Resources (percent), 2022–2024
+Item
+2023*
+2024**
+Items
+Tabungan neto
+Saving, net
+22.237
+8.972
+13.874
+29,87%
+13,18%
+17,43%
+Konsumsi barang modal tetap
+Consumption of fixed capital
+14.287
+18.124
+20.147
+19,19%
+26,62%
+25,31%
+Transfer modal neto
+Capital transfers, net
+37.925
+40.997
+45.572
+50,94%
+60,21%
+57,26%
+Total
+74.448
+68.093
+79.593
+100,00%
+100,00%
+100,00%
+Catatan/Note:
+Angka sementara/preliminary figures
+Angka sangat sementara/very preliminary figures
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2022
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Konsumsi antara
+Intermediate consumption
+75,08
+58,58
+63,36
+70,24
+Kompensasi tenaga kerja
+Compensation of employees
+20,63
+32,68
+30,35
+24,36
+Konsumsi barang modal tetap
+Consumption of fixed capital
+3,93
+7,88
+5,78
+4,64
+Pajak lainnya atas produksi
+Other taxes on production
+0,19
+0,68
+0,27
+0,17
+Surplus usaha
+Operating surplus
+0,17
+0,18
+0,23
+0,60
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+Organisasi Kemasyarakatan
+Society Organizations
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+Partai Politik
+Political Parties
+Organisasi Sosial
+Social Organizations
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.1
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+55,50
+63,87
+63,65
+Kompensasi tenaga kerja
+Compensation of employees
+36,87
+29,62
+29,75
+Konsumsi barang modal tetap
+Consumption of fixed capital
+7,02
+6,00
+6,06
+Pajak lainnya atas produksi
+Other taxes on production
+0,34
+0,32
+0,33
+Surplus usaha
+Operating surplus
+0,27
+0,19
+0,20
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2022
+Appendix
+Structure of NPISHs Production Account by Resources (percent), 2022
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Output nonpasar
+Nonmarket output
+96,89
+97,13
+96,32
+96,89
+Output pasar
+Market output
+2,19
+2,20
+2,18
+2,19
+Output untuk peng. akhir sendiri
+Output for own final use
+0,91
+0,68
+1,50
+0,91
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.2
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+96,89
+97,81
+97,67
+Output pasar
+Market output
+2,19
+1,53
+1,65
+Output untuk peng. akhir sendiri
+Output for own final use
+0,91
+0,65
+0,69
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2022
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+81,97
+82,17
+81,49
+81,97
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,82
+1,56
+3,57
+2,39
+Transfer keluar
+Current transfers
+7,83
+7,91
+7,24
+7,61
+Tabungan neto
+Saving, net
+8,38
+8,36
+7,70
+8,03
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.3
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+81,97
+82,75
+82,63
+Pendapatan kepemilikan dibayar
+Property income, payable
+3,93
+1,16
+1,38
+Transfer keluar
+Current transfers
+7,12
+8,05
+7,97
+Tabungan neto
+Saving, net
+6,98
+8,05
+8,02
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2022
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Surplus usaha
+Operating surplus
+0,15
+0,15
+0,20
+0,51
+Pendapatan kepemilikan diterima
+Property income, receivable
+7,16
+6,13
+14,03
+9,40
+Transfer masuk
+Current transfers to NPISHs
+92,69
+93,72
+85,77
+90,09
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.4
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,23
+0,17
+0,17
+Pendapatan kepemilikan diterima
+Property income, receivable
+15,45
+4,56
+5,42
+Transfer masuk
+Current transfers to NPISHs
+84,33
+95,28
+94,41
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2022
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Perubahan stok
+Changes in inventories
+1,98
+1,53
+1,86
+1,95
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+12,73
+9,84
+11,94
+12,51
+Bangunan
+Buildings
+80,42
+84,98
+81,73
+80,79
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,03
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+4,83
+3,62
+4,44
+4,73
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.5
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+1,81
+0,67
+0,86
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,66
+11,53
+11,50
+Bangunan
+Buildings
+82,15
+82,79
+82,77
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+4,35
+4,98
+4,85
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+2.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Sumber (persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from
+Resources Side (percent), 2022
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Tabungan neto
+Saving, net
+31,20
+31,12
+28,68
+29,90
+Konsumsi barang modal tetap
+Consumption of fixed capital
+12,43
+24,94
+18,29
+14,68
+Transfer modal neto
+Capital transfers, net
+56,37
+43,95
+53,03
+55,42
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 2.6
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+25,99
+29,95
+29,87
+Konsumsi barang modal tetap
+Consumption of fixed capital
+22,22
+18,98
+19,19
+Transfer modal neto
+Capital transfers, net
+51,79
+51,07
+50,94
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2023
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Konsumsi antara
+Intermediate consumption
+64,63
+60,03
+57,94
+59,86
+Kompensasi tenaga kerja
+Compensation of employees
+27,91
+31,50
+32,86
+31,50
+Konsumsi barang modal tetap
+Consumption of fixed capital
+7,04
+6,49
+7,65
+6,42
+Pajak lainnya atas produksi
+Other taxes on production
+0,35
+1,33
+1,38
+1,78
+Surplus usaha
+Operating surplus
+0,07
+0,66
+0,17
+0,44
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.1
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+57,77
+64,51
+63,83
+Kompensasi tenaga kerja
+Compensation of employees
+33,25
+28,57
+29,00
+Konsumsi barang modal tetap
+Consumption of fixed capital
+8,46
+6,65
+6,75
+Pajak lainnya atas produksi
+Other taxes on production
+0,47
+0,19
+0,30
+Surplus usaha
+Operating surplus
+0,06
+0,08
+0,12
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2023
+Appendix
+Structure of NPISHs Production Account by Resources, 2023
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Output nonpasar
+Nonmarket output
+98,18
+98,75
+98,69
+98,18
+Output pasar
+Market output
+1,16
+1,16
+1,16
+1,16
+Output untuk peng. akhir sendiri
+Output for own final use
+0,66
+0,08
+0,14
+0,66
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.2
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+98,18
+97,57
+97,71
+Output pasar
+Market output
+1,16
+1,52
+1,46
+Output untuk peng. akhir sendiri
+Output for own final use
+0,66
+0,91
+0,83
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2023
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+89,07
+89,59
+89,54
+89,07
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,02
+1,81
+1,45
+1,35
+Transfer keluar
+Current transfers
+7,26
+6,94
+7,10
+7,11
+Tabungan neto
+Saving, net
+2,65
+1,66
+1,91
+2,46
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.3
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+89,07
+88,51
+88,64
+Pendapatan kepemilikan dibayar
+Property income, payable
+0,91
+1,04
+1,08
+Transfer keluar
+Current transfers
+7,29
+7,25
+7,23
+Tabungan neto
+Saving, net
+2,72
+3,20
+3,04
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2023
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Surplus usaha
+Operating surplus
+0,07
+0,60
+0,15
+0,40
+Pendapatan kepemilikan diterima
+Property income, receivable
+4,70
+8,38
+6,72
+6,23
+Transfer masuk
+Current transfers to NPISHs
+95,24
+91,02
+93,13
+93,37
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.4
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,05
+0,07
+0,11
+Pendapatan kepemilikan diterima
+Property income, receivable
+4,23
+4,81
+5,02
+Transfer masuk
+Current transfers to NPISHs
+95,72
+95,12
+94,87
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2023
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Perubahan stok
+Changes in inventories
+0,20
+0,22
+0,20
+0,21
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,88
+13,17
+12,03
+12,52
+Bangunan
+Buildings
+85,13
+83,49
+84,94
+84,33
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,01
+0,04
+0,01
+0,01
+Penjumlahan neto
+Net lending/borrrowing
+2,78
+3,09
+2,82
+2,93
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.5
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+0,18
+0,90
+0,78
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+10,71
+11,78
+11,83
+Bangunan
+Buildings
+86,57
+74,61
+76,33
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+2,51
+12,68
+11,03
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+3.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Sumber (persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from
+Resources Side (percent), 2023
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Tabungan neto
+Saving, net
+11,48
+7,19
+8,28
+10,67
+Konsumsi barang modal tetap
+Consumption of fixed capital
+27,77
+25,59
+30,20
+25,34
+Transfer modal neto
+Capital transfers, net
+60,75
+67,22
+61,52
+63,99
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 3.6
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+11,76
+13,84
+13,18
+Konsumsi barang modal tetap
+Consumption of fixed capital
+33,37
+26,25
+26,62
+Transfer modal neto
+Capital transfers, net
+54,87
+59,91
+60,21
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.1
+Struktur Neraca Produksi LNPRT Menurut Pelaku dari Sisi Penggunaan
+(persen), 2024
+Appendix
+Structure of NPISHs Production Account by Actors from Uses Side (percent),
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Konsumsi antara
+Intermediate consumption
+65,22
+60,91
+58,52
+60,31
+Kompensasi tenaga kerja
+Compensation of employees
+27,69
+30,57
+32,64
+31,21
+Konsumsi barang modal tetap
+Consumption of fixed capital
+6,63
+6,15
+7,22
+6,04
+Pajak lainnya atas produksi
+Other taxes on production
+0,34
+1,30
+1,34
+1,73
+Surplus usaha
+Operating surplus
+0,12
+1,08
+0,27
+0,72
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.1
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+58,41
+65,04
+63,76
+Kompensasi tenaga kerja
+Compensation of employees
+33,06
+28,39
+29,22
+Konsumsi barang modal tetap
+Consumption of fixed capital
+7,99
+6,26
+6,53
+Pajak lainnya atas produksi
+Other taxes on production
+0,46
+0,18
+0,31
+Surplus usaha
+Operating surplus
+0,09
+0,13
+0,18
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.2
+Struktur Neraca Produksi LNPRT Menurut Sumber (persen), 2024
+Appendix
+Structure of NPISHs Production Account by Resources, 2024
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Output nonpasar
+Nonmarket output
+99,02
+99,15
+98,84
+99,02
+Output pasar
+Market output
+0,65
+0,66
+0,65
+0,65
+Output untuk peng. akhir sendiri
+Output for own final use
+0,32
+0,19
+0,50
+0,32
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.2
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+99,02
+97,23
+97,69
+Output pasar
+Market output
+0,65
+1,86
+1,55
+Output untuk peng. akhir sendiri
+Output for own final use
+0,32
+0,92
+0,76
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2024
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+86,44
+86,80
+86,55
+86,48
+Pendapatan kepemilikan dibayar
+Property income, payable
+0,65
+1,28
+1,02
+1,20
+Transfer keluar
+Current transfers
+9,08
+8,40
+8,66
+8,62
+Tabungan neto
+Saving, net
+3,83
+3,52
+3,77
+3,69
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.3
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+86,62
+85,90
+86,08
+Pendapatan kepemilikan dibayar
+Property income, payable
+0,27
+1,45
+1,23
+Transfer keluar
+Current transfers
+8,68
+8,72
+8,71
+Tabungan neto
+Saving, net
+4,43
+3,94
+3,98
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut Pelaku dari Sisi Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by Actors from Uses
+Side (percent), 2024
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Surplus usaha
+Operating surplus
+0,10
+0,95
+0,24
+0,63
+Pendapatan kepemilikan diterima
+Property income, receivable
+1,06
+4,69
+3,39
+2,84
+Transfer masuk
+Current transfers to NPISHs
+98,83
+94,36
+96,37
+96,52
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.4
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,08
+0,11
+0,16
+Pendapatan kepemilikan diterima
+Property income, receivable
+0,12
+5,23
+4,26
+Transfer masuk
+Current transfers to NPISHs
+99,80
+94,66
+95,58
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from Uses Side
+(percent), 2024
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Perubahan stok
+Changes in inventories
+0,53
+0,62
+0,42
+0,60
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+12,87
+14,76
+11,87
+14,68
+Bangunan
+Buildings
+81,05
+78,70
+81,01
+78,24
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,08
+0,07
+0,14
+0,09
+Penjumlahan neto
+Net lending/borrrowing
+5,47
+5,84
+6,56
+6,38
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.5
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+0,75
+0,87
+0,82
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,52
+11,36
+11,66
+Bangunan
+Buildings
+82,43
+78,98
+79,55
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+5,28
+8,77
+7,94
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+4.6
+Struktur Neraca Modal dan Finansial LNPRT Menurut Pelaku dari Sisi
+Sumber (persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by Actors from
+Resources Side (percent), 2024
+Item
+Pelaku LNPRT/NPISHs Actors
+Items
+Tabungan neto
+Saving, net
+16,79
+15,41
+16,49
+16,18
+Konsumsi barang modal tetap
+Consumption of fixed capital
+25,73
+23,84
+28,01
+23,44
+Transfer modal neto
+Capital transfers, net
+57,49
+60,75
+55,50
+60,37
+Total
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 4.6
+Item
+Pelaku LNPRT/NPISHs Actors
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+19,40
+17,24
+17,43
+Konsumsi barang modal tetap
+Consumption of fixed capital
+30,98
+24,30
+25,31
+Transfer modal neto
+Capital transfers, net
+49,63
+58,46
+57,26
+Total
+100,00
+100,00
+100,00
+Catatan/Note:
+Pelaku LNPRT/NPISHs Actors :
+1.
+Organisasi Kemasyarakatan
+Society Organizations
+3.
+Organisasi Profesi dan Serikat
+Buruh
+Professional Organizations and
+Labor Union
+5.
+Partai Politik
+Political Parties
+2.
+Organisasi Sosial
+Social Organizations
+4.
+Organisasi Kebudayaan, Olah
+Raga, dan Rekreasi
+Cultural/Sport/Recreation
+Organizations
+6.
+Lembaga Keagamaan
+Religious Institutions
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Pengguna-
+an (persen), 2022
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent),
+Item
+COPNI
+Items
+Konsumsi antara
+Intermediate consumption
+66,27
+71,50
+63,15
+66,68
+68,72
+Kompensasi tenaga kerja
+Compensation of employees
+29,27
+19,95
+29,32
+30,96
+25,73
+Konsumsi barang modal tetap
+Consumption of fixed capital
+3,96
+7,83
+5,79
+2,10
+5,09
+Pajak lainnya atas produksi
+Other taxes on production
+0,33
+0,12
+0,95
+0,14
+0,25
+Surplus usaha
+Operating surplus
+0,16
+0,59
+0,80
+0,12
+0,21
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.1
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+63,57
+50,17
+73,08
+54,19
+63,65
+Kompensasi tenaga kerja
+Compensation of employees
+29,84
+34,10
+21,94
+38,37
+29,75
+Konsumsi barang modal tetap
+Consumption of fixed capital
+6,07
+15,29
+4,57
+6,45
+6,06
+Pajak lainnya atas produksi
+Other taxes on production
+0,36
+0,24
+0,22
+0,53
+0,33
+Surplus usaha
+Operating surplus
+0,17
+0,21
+0,19
+0,45
+0,20
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber
+(persen), 2022
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources
+(percent), 2022
+Item
+COPNI
+Items
+Output nonpasar
+Nonmarket output
+99,41
+97,78
+99,56
+98,49
+95,48
+Output pasar
+Market output
+0,42
+1,57
+0,31
+1,06
+3,15
+Output untuk peng. akhir sendiri
+Output for own final use
+0,17
+0,65
+0,13
+0,44
+1,37
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.2
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+97,74
+97,01
+97,61
+98,03
+97,67
+Output pasar
+Market output
+1,60
+2,11
+1,69
+1,49
+1,65
+Output untuk peng. akhir sendiri
+Output for own final use
+0,67
+0,88
+0,70
+0,48
+0,69
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses
+Side (percent), 2022
+Item
+COPNI
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+84,10
+82,72
+84,23
+83,33
+80,77
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,36
+1,42
+1,37
+1,40
+0,48
+Transfer keluar
+Current transfers
+7,98
+7,93
+7,93
+7,97
+8,27
+Tabungan neto
+Saving, net
+6,56
+7,93
+6,47
+7,30
+10,48
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.3
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+82,68
+82,07
+82,58
+82,94
+82,63
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,46
+1,42
+1,42
+1,33
+1,38
+Transfer keluar
+Current transfers
+7,95
+7,96
+7,96
+7,97
+7,97
+Tabungan neto
+Saving, net
+7,91
+8,55
+8,04
+7,76
+8,02
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2022
+Item
+COPNI
+Items
+Surplus usaha
+Operating surplus
+0,14
+0,50
+0,68
+0,10
+0,18
+Pendapatan kepemilikan diterima
+Property income, receivable
+5,35
+5,58
+5,38
+5,52
+1,88
+Transfer masuk
+Current transfers to NPISHs
+94,51
+93,92
+93,94
+94,38
+97,94
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.4
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,15
+0,17
+0,16
+0,38
+0,17
+Pendapatan kepemilikan diterima
+Property income, receivable
+5,74
+5,58
+5,60
+5,24
+5,42
+Transfer masuk
+Current transfers to NPISHs
+94,11
+94,25
+94,24
+94,37
+94,41
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2022
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2022
+Item
+COPNI
+Items
+Perubahan stok
+Changes in inventories
+1,29
+0,32
+1,32
+0,69
+1,58
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+19,47
+4,31
+17,68
+10,73
+10,10
+Bangunan
+Buildings
+71,79
+92,03
+72,98
+80,97
+79,21
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,05
+0,01
+0,05
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+7,40
+3,33
+7,97
+7,59
+9,08
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.5
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+0,78
+0,68
+0,94
+1,33
+0,86
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,80
+8,49
+12,62
+10,27
+11,50
+Bangunan
+Buildings
+83,68
+83,80
+78,98
+80,76
+82,77
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,02
+0,03
+0,03
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+3,71
+7,01
+7,42
+7,62
+4,85
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+5.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2022
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2022
+Item
+COPNI
+Items
+Tabungan neto
+Saving, net
+3,91
+31,02
+11,55
+42,09
+39,01
+Konsumsi barang modal tetap
+Consumption of fixed capital
+2,01
+26,05
+8,78
+10,30
+16,12
+Transfer modal neto
+Capital transfers, net
+94,08
+42,94
+79,67
+47,61
+44,87
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 5.6
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+29,44
+24,85
+29,21
+31,96
+29,87
+Konsumsi barang modal tetap
+Consumption of fixed capital
+19,20
+37,76
+14,12
+22,60
+19,19
+Transfer modal neto
+Capital transfers, net
+51,36
+37,40
+56,67
+45,44
+50,94
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Pengguna-
+an (persen), 2023
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent),
+Item
+COPNI
+Items
+Konsumsi antara
+Intermediate consumption
+74,41
+76,27
+67,42
+64,28
+67,97
+Kompensasi tenaga kerja
+Compensation of employees
+21,62
+17,60
+30,64
+29,21
+24,77
+Konsumsi barang modal tetap
+Consumption of fixed capital
+3,16
+5,88
+1,14
+5,88
+6,84
+Pajak lainnya atas produksi
+Other taxes on production
+0,75
+0,18
+0,58
+0,45
+0,31
+Surplus usaha
+Operating surplus
+0,06
+0,07
+0,23
+0,18
+0,12
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.1
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+62,36
+65,81
+60,37
+69,86
+63,83
+Kompensasi tenaga kerja
+Compensation of employees
+30,13
+25,79
+28,20
+27,57
+29,00
+Konsumsi barang modal tetap
+Consumption of fixed capital
+7,12
+7,97
+10,76
+2,40
+6,75
+Pajak lainnya atas produksi
+Other taxes on production
+0,28
+0,31
+0,48
+0,04
+0,30
+Surplus usaha
+Operating surplus
+0,11
+0,12
+0,19
+0,13
+0,12
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber
+(persen), 2023
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources
+(percent), 2023
+Item
+COPNI
+Items
+Output nonpasar
+Nonmarket output
+91,49
+99,32
+99,65
+99,17
+97,31
+Output pasar
+Market output
+5,41
+0,43
+0,22
+0,53
+1,68
+Output untuk peng. akhir sendiri
+Output for own final use
+3,10
+0,25
+0,13
+0,30
+1,01
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.2
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+97,28
+97,75
+99,84
+99,61
+97,71
+Output pasar
+Market output
+1,73
+1,43
+0,10
+0,33
+1,46
+Output untuk peng. akhir sendiri
+Output for own final use
+0,99
+0,82
+0,06
+0,06
+0,83
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses
+Side (percent), 2023
+Item
+COPNI
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+88,64
+90,11
+90,41
+89,97
+88,28
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,00
+0,84
+1,11
+0,67
+0,07
+Transfer keluar
+Current transfers
+7,26
+7,32
+7,21
+7,37
+7,59
+Tabungan neto
+Saving, net
+3,10
+1,74
+1,27
+1,99
+4,07
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.3
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+88,26
+88,68
+90,57
+90,36
+88,64
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,26
+1,11
+1,12
+1,10
+1,08
+Transfer keluar
+Current transfers
+7,17
+7,22
+7,21
+7,22
+7,23
+Tabungan neto
+Saving, net
+3,31
+2,99
+1,10
+1,31
+3,04
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2023
+Item
+COPNI
+Items
+Surplus usaha
+Operating surplus
+0,05
+0,06
+0,21
+0,16
+0,11
+Pendapatan kepemilikan diterima
+Property income, receivable
+4,62
+3,87
+5,14
+3,11
+0,30
+Transfer masuk
+Current transfers to NPISHs
+95,33
+96,07
+94,66
+96,73
+99,59
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.4
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,10
+0,11
+0,17
+0,12
+0,11
+Pendapatan kepemilikan diterima
+Property income, receivable
+5,85
+5,14
+5,16
+5,09
+5,02
+Transfer masuk
+Current transfers to NPISHs
+94,06
+94,75
+94,67
+94,79
+94,87
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2023
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2023
+Item
+COPNI
+Items
+Perubahan stok
+Changes in inventories
+0,87
+0,87
+1,24
+0,06
+3,47
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,23
+13,32
+19,06
+9,02
+10,87
+Bangunan
+Buildings
+79,57
+74,74
+67,52
+79,86
+74,69
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,09
+0,03
+0,05
+0,01
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+8,24
+11,03
+12,12
+11,05
+10,94
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.5
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+0,37
+0,81
+0,70
+3,85
+0,78
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,05
+11,02
+10,82
+6,13
+11,83
+Bangunan
+Buildings
+78,46
+77,99
+77,35
+35,78
+76,33
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,08
+0,01
+0,02
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+10,10
+10,11
+11,11
+54,22
+11,03
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+6.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2023
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2023
+Item
+COPNI
+Items
+Tabungan neto
+Saving, net
+5,39
+7,55
+1,27
+23,60
+17,59
+Konsumsi barang modal tetap
+Consumption of fixed capital
+5,36
+23,29
+1,04
+63,73
+26,97
+Transfer modal neto
+Capital transfers, net
+89,25
+69,16
+97,69
+12,67
+55,44
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 6.6
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+14,45
+13,07
+4,59
+14,19
+13,18
+Konsumsi barang modal tetap
+Consumption of fixed capital
+28,35
+31,73
+41,03
+23,65
+26,62
+Transfer modal neto
+Capital transfers, net
+57,20
+55,20
+54,38
+62,16
+60,21
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.1
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Pengguna-
+an (persen), 2024
+Appendix
+Structure of NPISHs Production Account by COPNI from Uses Side (percent),
+Item
+COPNI
+Items
+Konsumsi antara
+Intermediate consumption
+74,05
+75,04
+67,10
+64,56
+67,52
+Kompensasi tenaga kerja
+Compensation of employees
+21,00
+23,71
+30,75
+29,58
+26,26
+Konsumsi barang modal tetap
+Consumption of fixed capital
+3,89
+0,79
+1,19
+5,13
+5,79
+Pajak lainnya atas produksi
+Other taxes on production
+0,95
+0,29
+0,61
+0,46
+0,28
+Surplus usaha
+Operating surplus
+0,11
+0,17
+0,35
+0,27
+0,16
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.1
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Konsumsi antara
+Intermediate consumption
+62,98
+66,76
+48,56
+60,29
+63,76
+Kompensasi tenaga kerja
+Compensation of employees
+30,27
+24,86
+28,87
+22,58
+29,22
+Konsumsi barang modal tetap
+Consumption of fixed capital
+6,30
+7,96
+20,99
+16,88
+6,53
+Pajak lainnya atas produksi
+Other taxes on production
+0,29
+0,26
+1,00
+0,04
+0,31
+Surplus usaha
+Operating surplus
+0,16
+0,15
+0,58
+0,21
+0,18
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.2
+Struktur Neraca Produksi LNPRT Menurut COPNI dari Sisi Sumber
+(persen), 2024
+Appendix
+Structure of NPISHs Production Account by COPNI from Resources
+(percent), 2024
+Item
+COPNI
+Items
+Output nonpasar
+Nonmarket output
+97,74
+99,45
+99,89
+99,30
+97,64
+Output pasar
+Market output
+1,52
+0,37
+0,07
+0,47
+1,56
+Output untuk peng. akhir sendiri
+Output for own final use
+0,74
+0,18
+0,03
+0,23
+0,80
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.2
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Output nonpasar
+Nonmarket output
+97,19
+97,61
+99,89
+99,65
+97,69
+Output pasar
+Market output
+1,88
+1,60
+0,07
+0,29
+1,55
+Output untuk peng. akhir sendiri
+Output for own final use
+0,92
+0,79
+0,04
+0,06
+0,76
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.3
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from Uses
+Side (percent), 2024
+Item
+COPNI
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+86,08
+87,63
+88,03
+87,51
+86,05
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,58
+0,77
+2,33
+0,11
+0,02
+Transfer keluar
+Current transfers
+8,60
+8,85
+8,35
+9,05
+9,09
+Tabungan neto
+Saving, net
+3,74
+2,74
+1,30
+3,34
+4,84
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.3
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+85,65
+86,01
+88,03
+87,82
+86,08
+Pendapatan kepemilikan dibayar
+Property income, payable
+1,39
+2,32
+1,48
+1,85
+1,23
+Transfer keluar
+Current transfers
+8,66
+8,37
+8,59
+8,51
+8,71
+Tabungan neto
+Saving, net
+4,30
+3,30
+1,90
+1,83
+3,98
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.4
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2024
+Item
+COPNI
+Items
+Surplus usaha
+Operating surplus
+0,10
+0,15
+0,31
+0,24
+0,14
+Pendapatan kepemilikan diterima
+Property income, receivable
+5,46
+2,68
+8,05
+0,36
+0,08
+Transfer masuk
+Current transfers to NPISHs
+94,45
+97,17
+91,63
+99,40
+99,78
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.4
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Surplus usaha
+Operating surplus
+0,14
+0,14
+0,52
+0,19
+0,16
+Pendapatan kepemilikan diterima
+Property income, receivable
+4,81
+8,01
+5,13
+6,39
+4,26
+Transfer masuk
+Current transfers to NPISHs
+95,05
+91,85
+94,35
+93,43
+95,58
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.5
+Struktur Neraca Modal dan Finansial LNPRT Menurut COPNI dari Sisi
+Penggunaan (persen), 2024
+Appendix
+Structure of NPISHs Capital dan Financial Account by COPNI from Uses Side
+(percent), 2024
+Item
+COPNI
+Items
+Perubahan stok
+Changes in inventories
+0,83
+0,84
+1,21
+0,06
+3,35
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+11,06
+13,29
+19,16
+8,96
+10,85
+Bangunan
+Buildings
+82,70
+78,63
+71,59
+83,77
+78,62
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,09
+0,04
+0,05
+0,01
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+5,32
+7,21
+7,99
+7,20
+7,15
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.5
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Perubahan stok
+Changes in inventories
+0,35
+0,77
+0,68
+4,47
+0,82
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perlengkapan dan peralatan
+Supplies and equipment
+10,96
+10,93
+10,78
+7,38
+11,66
+Bangunan
+Buildings
+82,10
+81,64
+81,28
+45,40
+79,55
+Biaya pengurusan lahan
+Costs of ownership transfer on land
+0,03
+0,08
+0,01
+0,02
+0,03
+Penjumlahan neto
+Net lending/borrrowing
+6,56
+6,57
+7,25
+42,73
+7,94
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+7.6
+Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI
+dari Sisi Sumber (persen), 2024
+Appendix
+Structure of NPISHs Income and Expenditure Account by COPNI from
+Resources Side (percent), 2024
+Item
+COPNI
+Items
+Tabungan neto
+Saving, net
+6,84
+14,57
+1,38
+37,52
+22,53
+Konsumsi barang modal tetap
+Consumption of fixed capital
+6,30
+3,72
+1,12
+51,15
+23,83
+Transfer modal neto
+Capital transfers, net
+86,86
+81,71
+97,51
+11,32
+53,64
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Lampiran
+Appendix
+Lanjutan Tabel/Continued Table 7.6
+Item
+COPNI
+LNPRT
+NPISHs
+Items
+Tabungan neto
+Saving, net
+19,35
+14,81
+5,79
+8,24
+17,43
+Konsumsi barang modal tetap
+Consumption of fixed capital
+25,10
+31,60
+56,70
+67,38
+25,31
+Transfer modal neto
+Capital transfers, net
+55,55
+53,59
+37,52
+24,38
+57,26
+Total
+100,00
+100,00
+100,00
+100,00
+100,00
+Catatan/Note:
+COPNI (Classification of Purposes of Nonprofit Institutions Serving Households):
+1.
+Perumahan
+Housing
+4.
+Pendidikan
+Education
+7.
+Partai Politik, Organisasi Buruh, dan Organisasi Profesi
+Political Parties, Labour and Professional Organizations
+2.
+Kesehatan
+Health
+5.
+Jaminan Sosial
+Social Protection
+8.
+Lingkungan Hidup
+Environmental Protection
+3.
+Rekreasi dan
+Kebudayaan
+Recreation and Culture
+6.
+Keagamaan
+Religion
+9.
+Jasa lainnya
+Services n.e.c
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+8.1
+Capaian Pemasukan Dokumen SKLNPT 2024
+Appendix
+Achievement of 2024 SKLNPT Document Submission
+Kode
+Wilayah
+Target
+Dokumen
+%
+ACEH
+105,56
+SUMATERA UTARA
+100,00
+SUMATERA BARAT
+100,00
+RIAU
+100,00
+JAMBI
+117,50
+SUMATERA SELATAN
+98,89
+BENGKULU
+100,00
+LAMPUNG
+100,00
+KEPULAUAN BANGKA BELITUNG
+100,00
+KEPULAUAN RIAU
+100,00
+DKI JAKARTA
+100,00
+JAWA BARAT
+100,67
+JAWA TENGAH
+110,00
+DI YOGYAKARTA
+91,11
+JAWA TIMUR
+100,00
+BANTEN
+96,67
+BALI
+101,25
+NUSA TENGGARA BARAT
+100,00
+NUSA TENGGARA TIMUR
+100,00
+KALIMANTAN BARAT
+105,00
+KALIMANTAN TENGAH
+100,00
+KALIMANTAN SELATAN
+100,00
+KALIMANTAN TIMUR
+92,22
+KALIMANTAN UTARA
+100,00
+SULAWESI UTARA
+100,00
+SULAWESI TENGAH
+101,25
+SULAWESI SELATAN
+118,00
+SULAWESI TENGGARA
+100,00
+GORONTALO
+96,67
+SULAWESI BARAT
+100,00
+MALUKU
+100,00
+Lampiran
+Appendix
+Lampiran
+8.1
+Capaian Pemasukan Dokumen SKLNPT 2024
+Appendix
+Achievement of 2024 SKLNPT Document Submission
+Kode
+Wilayah
+%
+MALUKU UTARA
+93,33
+PAPUA BARAT
+106,67
+PAPUA BARAT DAYA
+100,00
+PAPUA
+106,25
+PAPUA SELATAN
+100,00
+PAPUA TENGAH
+90,91
+PAPUA PEGUNUNGAN
+113,33
+Total
+3.000
+3.038
+101.27
+Rekap Data : 21 September 2024
+Target
+Dokumen
+Neraca Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) 2022–2024
+Nonprofit Institutions Serving Households (NPISHs) Accounts 2022–2024
+Lampiran
+Appendix

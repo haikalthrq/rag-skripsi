@@ -1,0 +1,13049 @@
+BENCHMARK STATISTIK KONSTRUKSI, 2018–2023
+Benchmark of Construction Statistics, 2018–2023
+Volume 14, 2025
+Katalog/Catalogue: 6302006
+ISSN: 2460-4674
+Nomor Publikasi/Publication Number: 05300.25012
+Ukuran Buku/Book Size: 18,2 cm x 25,7 cm
+Jumlah Halaman/Number of Pages: xiv+86 halaman/pages
+Penyusun Naskah/Manuscript Drafter:
+Direktorat Statistik Industri
+Directorate of Industrial Statistics
+Penyunting/Editor:
+Direktorat Statistik Industri
+Directorate of Industrial Statistics
+Pembuat Kover/Cover Designer:
+Direktorat Statistik Industri
+Directorate of Industrial Statistics
+Penerbit/Publisher:
+©Badan Pusat Statistik/BPS-Statistics Indonesia
+Sumber ilustrasi/Illustration Source:
+www.freepik.com
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik.
+It is prohibited to reproduce and/or duplicate part or all of this book for commercial purpose without permission from BPS-Statistics Indonesia.
+ISSN 2460-4674
+TIM PENYUSUN/COMPILERS
+Benchmark Statistik Konstruksi 2018–2023
+Benchmark of Construction Statistics, 2018–2023
+Volume 14, 2025
+Pengarah/Director
+M. Habibullah
+Penanggung Jawab/Person in Charge
+Ardi Adji
+Editor/Editors
+Fajar Handayani
+Krisbanu Aji
+Penulis Naskah dan Penerjemah/Writers and Translators
+Kurnia Rahmasari
+Pengolah Data/Data Processors
+Rudi Hartono
+Muhlis
+Kurnia Rahmasari
+Mei Lianawati Windiasari
+Penata Letak/Layouters
+Mei Lianawati Windiasari
+Kurnia Rahmasari
+Desain Kover/Cover Designer
+Prisita Nallavasthi v
+KATA PENGANTAR
+B
+enchmark Statistik Konstruksi bertujuan untuk menyajikan data yang selaras antara Survei Perusahaan Konstruksi Triwulanan dan Survei
+Perusahaan Konstruksi Tahunan. Melalui publikasi ini akan terlihat perkembangan sektor konstruksi Indonesia selama tahun 2018–2023.
+Kondisi konstruksi Indonesia yang dicakup dalam publikasi ini meliputi beberapa indikator, yaitu: pekerja tetap, hari-orang, balas jasa dan upah, balas jasa pekerja tetap, upah pekerja harian, nilai konstruksi yang diselesaikan, dan nilai pengeluaran bahan bangunan/material yang digunakan konstruksi selama tahun 2018–2023. Benchmark statistik konstruksi setiap provinsi diperoleh dengan cara menetapkan tahun tertentu, yaitu tahun 2016, sebagai tahun dasar, selanjutnya data pada tahun tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya. Buku ini merupakan salah satu dari dwilogi publikasi yang diluncurkan serentak, yaitu:
+1. Benchmark Indeks Konstruksi (2016=100), 2018–2023
+2. Benchmark Statistik Konstruksi, 2018–2023
+Akhirnya, pada kesempatan ini kami mengucapkan terimakasih dan penghargaan yang sebesar-besarnya kepada semua pihak yang terlibat pada pekerjaan lapang dan pengolahan data sehingga publikasi ini dapat terwujud.
+Jakarta, Oktober 2025
+Kepala Badan Pusat Statistik
+Amalia Adininggar Widyasanti vi
+B
+enchmark of Construction Statistics provide data aligned between
+The Quarterly Construction Establishment Survey and The Annual
+Construction Establishment Survey. This publication also describes the trend of the construction sector in Indonesia from 2018–2023.
+The Indonesian Construction in this publication cover some indicators:
+permanent workers, mandays, compensation and wages, compensation of permanent workers, wages of casual workers, the construction value completed, and the construction value material used starting from 2018–2023. Benchmark of construction statistics is obtained by setting a certain year, 2016, as a base year. The data is then driven by the previous and the subsequent annual growth benchmark. This book is one of the dwilogy of publications launched simultaneously, as follows:
+1. Benchmark of Construction Indices (2016=100), 2018–2023
+2. Benchmark of Construction Statistics, 2018–2023
+Finally, we would like to express our gratitude to all parties, who have given contribution in collecting and processing data so that this publication could be accomplished.
+PREFACE
+Jakarta, October 2025
+Chief Statistician
+Amalia Adininggar Widyasanti vii
+ISSN 2460-4674
+DAFTAR ISI/CONTENTS
+Benchmark Statistik Konstruksi 2018–2023
+Benchmark of Construction Statistics, 2018–2023
+Volume 14, 2025
+Kata Pengantar/Preface ...
+v
+Daftar Isi/Contents ...  vii
+Daftar Tabel/List of Tables ...  ix
+Daftar Gambar/List of Figures ...  xiii
+1. Penjelasan/Explanation ...
+2. Tabel-Tabel/Tables ...  13
+3. Gambar-Gambar/Figures ...  57
+Daftar Pustaka/Bibliography...  75
+Lampiran/Appendix ...  77
+Kuesioner Survei Perusahaan Konstruksi Tahunan (SKTH) 2023
+Questionnaire of 2023 Annual Construction Establishment Survey (SKTH) ...  79
+ix
+DAFTAR TABEL
+LIST OF TABLES
+2.1
+Benchmark Statistik Konstruksi, 2018–2023
+Benchmark of Construction Statistics, 2018–2023 ...  15
+2.2
+Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi, 2018–2023
+Number of Construction Permanent Workers by Province, 2018–2023...  16
+2.3
+Pertumbuhan Jumlah Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Construction Permanent Workers by Province (percent), 2018–2023 ...  17
+2.4
+Struktur Jumlah Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Construction Permanent Workers by Province (percent), 2018–2023 ...  18
+2.5
+Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Compensation of Construction Permanent Workers by Province (million rupiah), 2018–2023 ...  19
+2.6
+Pertumbuhan Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Compensation of Construction Permanent Workers by Province (percent), 2018–2023   20
+2.7
+Struktur Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Compensation of Construction Permanent Workers by Province (percent),2018–2023   21
+2.8
+Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (ribu rupiah), 2018–2023
+Average Compensation of Construction Permanent Workers by Province (thousand rupiahs),
+2018–2023 ...  22
+2.9
+Pertumbuhan Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–
+Growth of Average Compensation of Construction Permanent Workers by Province (percent),
+2018–2023 ...  23
+2.10  Persentase Balas Jasa Pekerja Tetap Konstruksi terhadap Nilai Konstruksi yang Diselesaikan
+Menurut Provinsi (persen), 2018–2023
+Percentage of Compensation of Construction Permanent Workers to Value of Construction
+Works Completed by Province (percent), 2018–2023 ...  24
+2.11  Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (ribu), 2018–2023
+Mandays of Construction Casual Workers by Province (thousands), 2018–2023 ...  25
+2.12  Pertumbuhan Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Mandays of Construction Casual Workers by Province (percent), 2018–2023 ...  26
+2.13  Struktur Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Mandays of Construction Casual Workers by Province (percent), 2018–2023 ...  27
+2.14  Upah Pekerja Harian Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Wages of Construction Casual Workers by Province (million rupiah), 2018–2023 ...  28
+2.15  Pertumbuhan Upah Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Wages of Construction Casual Workers by Province (percent), 2018–2023 ...  29
+Tabel/Table
+Halaman
+Page x
+Tabel/Table
+Halaman
+.16  Struktur Upah Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Wages of Construction Casual Workers by Province (percent), 2018–2023 ...  30
+2.17  Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (rupiah), 2018–2023
+Average Wages of Construction Casual Workers by Province (rupiahs), 2018–2023 ...  31
+2.18  Pertumbuhan Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–
+Growth of Average Wages of Construction Casual Workers by Province (percent), 2018–2023 ...  32
+2.19  Persentase Upah Pekerja Harian Konstruksi terhadap Nilai Konstruksi yang Diselesaikan
+Menurut Provinsi (persen), 2018–2023
+Percentage of Wages of Construction Casual Workers to Value of Construction Works
+Completed by Province (percent), 2018–2023 ...  33
+2.20  Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Compensation and Wages of Construction Workers by Province (million rupiahs),
+2018–2023 ...  34
+2.21  Pertumbuhan Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Compensation and Wages of Construction Workers by Province (percent), 2018-
+2023 ...  35
+2.22  Struktur Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Compensation and Wages of Construction Workers by Province (percent), 2018-
+2023 ...  36
+2.23  Persentase Balas Jasa dan Upah Pekerja Konstruksi terhadap Nilai Konstruksi yang
+Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Compensation and Wages of Construction Workers to Value of Construction
+Works Completed by Province (percent), 2018–2023...  37
+2.24  Nilai Konstruksi yang Diselesaikan Menurut Provinsi (juta rupiah), 2018–2023
+Value of Construction Works Completed by Province (million rupiahs), 2018–2023 ...  38
+2.25  Pertumbuhan Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023
+Growth of Value of Construction Works Completed by Province (percent), 2018–2023 ...  39
+2.26  Struktur Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023
+Structure of Value of Construction Works Completed by Province (percent), 2018–2023 ...  40
+2.27  Nilai Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi Menurut Provinsi
+(juta rupiah), 2018–2023
+Cost of Construction Material Used by Province (million rupiahs), 2018–2023 ...  41
+2.28  Pertumbuhan Nilai Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Growth of Cost of Construction Material Used by Province (percent), 2018–2023 ...  42
+2.29  Struktur Nilai Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi Menurut
+Provinsi (persen), 2018–2023
+Structure of Cost of Construction Material Used by Province (percent), 2018–2023 ...  43
+2.30  Persentase Nilai Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi terhadap Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Cost of Construction Material Used to Value of Construction Works
+Completed by Province (percent), 2018–2023. ...  44
+xi
+Tabel/Table
+Halaman
+.31  Banyaknya Perusahaan Konstruksi Menurut Provinsi, 2018–2023
+Number of Construction Establishment by Province, 2018–2023 ...  45
+2.32  Struktur Banyaknya Perusahaan Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Construction Establishment by Province (percent), 2018–2023 ...  46
+2.33  Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi Menurut
+Provinsi (miliar rupiah), 2018–2023
+Gross Regional Domestic Product at Current Market Prices of Construction Sector by Province
+(billion rupiahs), 2018–2023 ...  47
+2.34  Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Growth of Gross Regional Domestic Product at Current Market Prices of Construction Sector by
+Province (percent), 2018–2023 ...  48
+2.35  Struktur Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Structure of Gross Regional Domestic Product at Current Market Prices of Construction Sector by
+Province (percent), 2018–2023 ...  49
+2.36  Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor Konstruksi Menurut
+Provinsi (miliar rupiah), 2018–2023
+Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by Province
+(billion rupiahs), 2018–2023 ...  50
+2.37  Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor
+Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by Province (percent), 2018–2023 ...  51
+2.38  Struktur Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Structure of Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by Province (percent), 2018–2023 ...  52
+2.39  Realisasi Pengadaan Semen Menurut Provinsi, Ekspor Semen, dan Produksi Semen (ton),
+2018–2023
+Actual Supply of Cement by Province, Export of Cement, and Production of Cement (ton), 2018-
+2023 ...  53
+2.40  Pertumbuhan Realisasi Pengadaan Semen Menurut Provinsi (persen), 2018–2023
+Growth of Actual Supply of Cement by Province (percent), 2018–2023...  54
+2.41  Struktur Realisasi Pengadaan Semen Menurut Provinsi (persen), 2018–2023
+Structure of Actual Supply of Cement by Province (percent), 2018–2023...  55
+xiii
+DAFTAR GAMBAR
+LIST OF FIGURES
+3.1  Benchmark Banyaknya Pekerja Tetap (orang) dan Balas Jasa Pekerja Tetap Konstruksi (miliar rupiah), 2018–2023
+Benchmarked Number of Construction Permanent Workers (person) and Compensation of
+Construction Permanent Workers (billion rupiahs), 2018–2023...  59
+3.2  Benchmark Banyaknya Hari-Orang (ribuan) dan Upah Pekerja Harian Konstruksi (miliar rupiah), 2018–2023
+Benchmarked Number of Mandays (thousand) and Wages of Construction Casual Workers
+(billion rupiahs), 2018–2023...  59
+3.3  Benchmark Nilai Konstruksi yang Diselesaikan, Balas Jasa dan Upah Pekerja, serta
+Pengeluaran Bahan Material Konstruksi yang Digunakan (miliar rupiah), 2018–2023
+Benchmarked Value of Construction Works Completed, Compensation and Wages of
+Workers, and Cost of Construction Material Used (billion rupiahs), 2018–2023...  60
+3.4  Benchmark Rata-Rata Balas Jasa Pekerja Tetap Konstruksi (ribu rupiah) dan Rata-Rata Upah
+Pekerja Harian Konstruksi (rupiah), 2018–2023
+Benchmarked Average Compensation of Construction Permanent Workers (thousand rupiahs)
+and Average Wages of Construction Casual Workers (rupiahs), 2018–2023...  60
+3.5  Benchmark Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi (orang), 2023
+Benchmarked Number of Construction Permanent Workers by Province (person), 2023 ...  61
+3.6  Benchmark Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Compensation of Construction Permanent Workers by Province (billion rupiahs), 2023 ...  62
+3.7  Benchmark Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (ribu rupiah),
+Benchmarked Average Compensation of Construction Permanent Workers by Province
+(thousand rupiahs), 2023 ...  63
+3.8  Benchmark Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (ribuan), 2023
+Benchmarked Number of Mandays of Construction Casual Workers by Province
+(thousand), 2023 ...  64
+3.9  Benchmark Upah Pekerja Harian Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Wages of Construction Casual Workers by Province (billion rupiahs), 2023 ...  65
+3.10  Benchmark Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (rupiah), 2023
+Benchmarked Average Wages of Construction Casual Workers by Province (rupiahs), 2023 ...  66
+3.11  Benchmark Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Compensation and Wages of Construction Workers by by Province (billion rupiahs), 2023 ...  67
+3.12  Benchmark Nilai Konstruksi yang Diselesaikan Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Value of Construction Works Completed by Province (billion rupiahs), 2023 ...  68
+Gambar/Figure
+Halaman
+Page xiv
+3.13  Benchmark Pengeluaran Bahan Material Konstruksi Menurut Provins (miliar rupiah)i, 2023
+Benchmarked Cost of Construction Material Used by Province (billion rupiahs), 2023 ...  69
+3.14  Banyaknya Perusahaan Konstruksi Menurut Provinsi, 2023
+Number of Construction Establishment by Province, 2023 ...  70
+3.15  Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi Menurut
+Provinsi (miliar rupiah), 2023
+Gross Regional Domestic Product at Current Market Prices of Construction Sector by
+Province (billion rupiahs), 2023 ...  71
+3.16  Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor Konstruksi Menurut
+Provinsi (miliar rupiah), 2023
+Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by Province (billion rupiahs), 2023 ...  72
+3.17  Realisasi Pengadaan Semen Menurut Provinsi (ton), 2023
+Actual Supply of Cement by Province (ton), 2023 ...  73
+Gambar/Figure
+Halaman
+Page
+Penjelasan
+Explanation
+PENJELASAN
+EXPLANATION
+LATAR BELAKANG
+Sektor konstruksi memiliki nilai strategis dalam perekonomian nasional. Untuk memantau pelaksanaan pembangunan dan mengevaluasi perkembangan sektor konstruksi di Indonesia diperlukan data statistik yang aktual, akurat, dan berkesinambungan.
+Pengumpulan data konstruksi diawali dengan diadakannya sensus konstruksi tahun
+1977 yang mencakup seluruh perusahaan konstruksi yang ada di seluruh wilayah Republik
+Indonesia. Sejak tahun 1989 pengumpulan data diadakan setiap tahun melalui Survei Perusahaan
+Konstruksi Tahunan yang mencakup perusahaan konstruksi berskala kecil, menengah, dan besar yang beroperasi di Indonesia.
+RUANG LINGKUP
+Statistik konstruksi yang menjadi dasar benchmarking adalah hasil Survei Perusahaan
+Konstruksi Triwulanan dan Tahunan tahun
+2018 sampai dengan 2023. Series data yang digunakan dalam benchmarking adalah:
+a.
+Indeks dan Banyaknya Pekerja Tetap
+Konstruksi b.
+Indeks Hari-Orang dan Banyaknya Hari-
+Orang Pekerja Harian Konstruksi c.
+Indeks dan Nilai Balas Jasa dan Upah Pekerja
+Konstruksi d.
+Indeks dan Nilai Balas Jasa Pekerja Tetap
+Konstruksi e.
+Indeks dan Nilai Upah Pekerja Harian
+Konstruksi f.
+Indeks dan
+Nilai
+Konstruksi yang
+Diselesaikan.
+KONSEP DAN DEFINISI
+1.
+Konstruksi
+Konstruksi adalah suatu kegiatan yang hasil akhirnya berupa bangunan/konstruksi yang
+INTRODUCTION
+The construction sector is one sector that has strategic value in the national economy. To monitor the implementation of the development and to evaluate the progress of construction sector in Indonesia, it needs the actual, accurate, and continuous statistical data.
+Construction data collection began with the Construction Census in 1977 which covered all of construction establishments that existed in all regions of the Republic of Indonesia. Since
+1989, data collection is held annually through the
+Annual Construction Establishment Survey which covers small-scale, medium-scale, and large-scale construction establishments which operate in
+Indonesia.
+COVERAGE
+Construction statistics used for basic data is from Quarterly Construction Establishments
+Survey and the Annual Establishment Construction
+Survey from 2018 to 2023. Data series used for benchmarking are:
+a.
+Indices and Number of the Construction
+Permanent Workers b.
+Indices and
+Number of
+Mandays of
+Construction Casual Workers c.
+Indices and Value of Compensation and
+Wages of Construction Workers d.
+Indices and Value of Compensation of
+Construction Workers e.
+Indices and Value of Wages of Casual
+Construction Workers f.
+Indices and Value of Construction Works
+Completed.
+CONCEPTS AND DEFINITIONS
+1.
+Construction
+Construction is an activity to build construction stated by their location. The results of construction
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+menyatu dengan lahan tempat kedudukannya.
+Hasil kegiatan konstruksi antara lain: gedung, jalan, jembatan, rel dan jembatan kereta api, terowongan, bangunan air dan drainase, bangunan sanitasi, bandara, jaringan listrik dan komunikasi, dan lain-lain.
+2.
+Perusahaan
+Perusahaan adalah suatu badan yang melakukan kegiatan ekonomi, bertujuan menghasilkan barang/jasa, terletak di suatu bangunan fisik pada lokasi tertentu, dan mempunyai catatan administrasi tersendiri. Badan usaha perusahan konstruksi dapat berbentuk PT,
+CV, PT (Persero), Koperasi, dan lainnya.
+3.
+Pekerja
+Pekerja adalah semua orang yang pada saat pencacahan bekerja di perusahaan, baik pekerja teknik maupun pekerja non teknik. Pekerja dibagi dalam dua kategori yaitu pekerja tetap dan pekerja harian.
+a.
+Pekerja Tetap adalah pekerja yang bekerja pada perusahaan dengan menerima balas jasa/gaji secara tetap, baik ada kegiatan maupun tidak ada kegiatan.
+b.
+Pekerja Harian adalah pekerja yang tidak terikat secara tetap dengan perusahaan, dimana mereka hanya bekerja selama pekerjaan/proyek ada dan bila pekerjaan/
+proyek telah selesai, maka secara otomatis mereka tidak mempunyai hubungan kerja lagi dengan perusahaan.
+4.
+Hari-Orang Pekerja Harian
+Hari-Orang adalah jumlah pekerja harian dan hari yang dibutuhkan untuk menyelesaikan suatu pekerjaan.
+5.
+Balas Jasa Pekerja Tetap
+Balas jasa adalah seluruh pengeluaran yang dibayarkan kepada pekerja tetap berupa upah gaji, upah lembur, hadiah, bonus, dana pensiun, tunjangan kecelakaan dan pengeluaran lainnya dalam bentuk uang maupun barang.
+6.
+Upah Pekerja Harian
+Upah adalah seluruh pengeluaran yang dibayarkan kepada pekerja harian dalam bentuk uang maupun barang sebagai balas jasa.
+activities are building construction, road, bridge, railway and rail bridge, tunnel subway, waterwork and drainage, sanitary construction, airport, electricity and communication network, etc.
+2.
+Establishment
+Establishment is an economic activity unit to produce goods or services, located in a certain physical building, which has its own administration record. The type of legal entity of construction establishment consists of: Limited Company,
+Limited Partnership, State Owned Company (local and national), Co-operation, and the others.
+3.
+Worker
+Worker is a person who works in an establishment during enumeration, which includes technical worker and non-technical worker. Worker is divided into two categories, they are: permanent workers and casual workers.
+a.
+Permanent Worker is a worker who works at the establishment and receives fixed compensation/salaries without depending on the availability of activities.
+b.
+Casual Worker is a worker who works during the project and has no permanent relationship with the company when the project has been completed.
+4.
+Mandays of Casual Worker
+Mandays is the number of casual worker and days needed to complete a job.
+5.
+Compensation of Permanent Worker
+Compensation is all expenses paid to the permanent worker in the form of wage/salary, overtime payment, gifts, bonuses, pension funds, accidental allowance and other expenses either in the form of money or goods as compensation.
+6.
+Wages of Casual Worker
+Wages is all expenses paid to the casual worker either in the form of money or goods as compensation.
+Penjelasan
+Explanation
+7.
+Nilai Konstruksi yang Diselesaikan
+Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.
+8.
+Pengeluaran
+Bahan/Material yang
+Digunakan
+Pengeluaran bahan/material yang digunakan adalah seluruh biaya/ pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong.
+Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.
+METODOLOGI
+1.
+Sampel
+Survei Perusahaan Konstruksi Tahunan mencakup badan usaha konstruksi yang beroperasi di Indonesia. Pada kegiatan Survei
+Perusahaan Konstruksi Tahunan tahun 2023, dipilih sampel sebanyak 10.000 perusahaan meliputi perusahaan berskala kecil, menengah, dan besar.
+Penarikan sampelnya dengan menggunakan metode sampling satu tahap, yaitu secara systematic linear sampling. Pemilihan sampel untuk survei perusahaan konstruksi 2023
+dilakukan secara terpisah pada masing-masing skala perusahaan.
+Dengan pertimbangan jumlah populasi perusahaan konstruksi dan keterwakilan sampel pada setiap skala perusahaan serta keterbandingan data dari hasil survei sejenis sebelumnya, maka ditetapkan bahwa jumlah sampel pada setiap skala perusahaan konstruksi pada Survei Perusahaan Konstruksi Tahunan
+2023 adalah sebagai berikut :
+a.
+Jumlah sampel perusahaan berskala besar adalah 1.356, artinya seluruh perusahaan konstruksi besar yang ada dilakukan pencacahan lengkap (take all).
+b.
+Jumlah sampel perusahaan berskala menengah adalah 5.281, dengan demikian
+7.
+Value of Construction Works Completed
+Value of construction works completed is the total value of work completed by contractor
+(excluding value of land) based on the progress of project in a certain period of time, based on the contract value between bowheer and contractor.
+8.
+Cost of Construction Material Used
+Cost of construction material used is the total expenses of raw and auxiliary materials directly associated with the construction activity.
+The cost are determined by the concept of usage either the materials purchased or self-
+produced. The cost of raw and auxiliary materials are based on the market prices or the expenses to obtain it.
+METHODOLOGY
+1.
+Sample
+Annual Construction Establishment Survey covers construction establishments which operate in Indonesia. In the 2023 Annual Construction
+Establishment Survey, there were 10,000 sample selected which include small scale establishment, medium scale establishment, and large scale establishment.
+The sampling method was onestage sampling method, linear systematic sampling. The sample selection was conducted independently for each scale of construction establishment.
+Considering the number of construction establishment population and sample representativeness for each scale of establishment and also data comparability with the result of the previous same survey, the number of sample for each scale of construction establishment in 2023
+Annual Construction Establishment Survey was decided as below:
+a.
+The number of large scale establishment sample was 1,356. It means that the enumeration was conducted for all construction establishments (take all).
+b.
+The number of medium scale of establishment sample was 5,281. It means that the
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+pencacahan dilakukan hanya pada perusahaan konstruksi sedang terpilih (take some).
+c.
+Jumlah sampel perusahaan berskala kecil adalah 3.363, seperti pada perusahaan konstruksi menengah, pencacahan dilakukan hanya pada perusahaan skala kecil terpilih (take some).
+Sedangkan untuk
+Survei
+Perusahaan
+Konstruksi Triwulanan merupakan subsampel dari sampel Survei Perusahaan Konstruksi
+Tahunan, sehingga kerangka sampel perusahaan konstruksi untuk Survei Perusahaan Konstruksi
+Triwulanan adalah daftar perusahaan konstruksi yang terpilih pada Survei Perusahaan Konstruksi
+Tahunan. Perusahaan yang terpilih pada triwulan
+I akan terus diamati pada triwulan II, triwulan III
+dan triwulan IV (sampel panel/berulang). Untuk tahun 2023 jumlah sampel Survei Perusahaan
+Konstruksi Triwulanan adalah sebagai berikut :
+a.
+Jumlah sampel perusahaan berskala besar adalah 840, artinya seluruh perusahaan konstruksi besar yang ada dilakukan pencacahan lengkap (take all).
+b.
+Jumlah sampel perusahaan berskala menengah adalah
+2.160
+perusahaan, dengan demikian pencacahan dilakukan hanya pada perusahaan konstruksi menengah terpilih (take some).
+c.
+Sedangkan untuk perusahaan berskala kecil tidak terkena sampel.
+2.
+Penghitungan
+2.1  Rasio Konstruksi
+Perhitungan rasio pekerja tetap, pekerja harian, balas jasa dan upah, serta nilai konstruksi triwulanan menggunakan rasio konstruksi.
+Formula rasio tersebut adalah sebagai berikut:
+dimana,
+Rt
+=  Rasio pekerja tetap, hari-orang, balas jasa dan upah, nilai konstruksi yang diselesaikan pada triwulan ke-t
+Qit  =  Jumlah pekerja tetap, hari-orang, balas enumeration was conducted only to the selected medium scale establishment (take some).
+c.
+The number of small scale establishment sample was 3,363. The enumeration was only conducted to the selected small scale establishment (take some).
+Meanwhile, sample of Quarterly Construction
+Establishment Survey is a subsample of the sample of Annual Construction Establishment Survey so that the sampling frame of the Quarterly Construction
+Establishment Survey is the list of construction establishments selected in the Annual Construction
+Establishment Survey. The selected establishments as sample on the 1st quarter will be continuously observed on the 2nd quarter, the 3rd quarter and the 4th quarter (panel sample/recurred). In 2023
+the number of sample of Quarterly Construction
+Establishment Survey was decided as below :
+a.
+The number of large scale establishment sample was 840. It means that the enumeration was conducted for all construction establishments (take all).
+b.
+The number of medium scale establishment sample was 2,160. It means that the enumeration was conducted only to the selected medium scale establishment (take some).
+c.
+As small scale establishment was not enumerated.
+2.
+Computation
+2.1  Construction Ratio
+The quarterly ratio for permanent workers, casual workers, compensation and wages, as well as value of onstruction works completed are calculated by using construction ratio as follows:
+where,
+Rt
+=  Ratio of permanent workers, mandays, compensation and wages, value of construction works completed at tth quarter
+Qit
+=  Number of permanent workers, mandays,
+Penjelasan
+Explanation jasa dan upah, nilai konstruksi yang diselesaikan perusahaan ke i pada triwulan ke t
+Qi(t-1) =  Jumlah pekerja tetap, hari-orang, balas jasa dan upah, nilai konstruksi yang diselesaikan pada perusahaan ke i triwulan ke (t-1)
+Nilai konstruksi yang diselesaikan adalah nilai kontrak dikurangi nilai pekerjaan yang disubkontrakkan dikalikan realisasi fisik pekerjaan yang diselesaikan.
+dimana,
+NK
+=  Nilai konstruksi yang diselesaikan
+NP
+=  Nilai kontrak proyek
+NS
+=  Nilai pekerjaan yang disubkontrakkan ke kontraktor lain
+%NR  =  persentase realisasi fisik pekerjaan yang diselesaikan
+%NR didapat dari persentase pekerjaan yang diselesaikan akhir periode survei dikurangi persentase pekerjaan di awal periode survei.
+2.2  Indeks Tahun Dasar 2016
+Indeks tahun dasar 2016 masing-masing provinsi diperoleh dari indeks triwulanan dan nilai statistik konstruksi tahunan dengan metode sebagai berikut:
+2.2.1  Dari Indeks Triwulanan a.
+Indeks yang diolah adalah: pekerja tetap, hari-orang, balas jasa dan upah, balas jasa, upah, serta nilai kontruksi yang diselesaikan.
+b.
+Buat nilai indeks sama dengan 100 pada awal triwulan yang ada indeksnya.
+c.
+Bagi setiap indeks triwulan t dengan rata-
+rata indeks pada tahun dasar 2016 dan dikalikan dengan 100 persen.
+d.
+Indeks tahun i, merupakan rata-rata dari indeks triwulan t tahun ke-i.
+dimana,
+IDt
+=  Indeks tahun dasar periode t compensation and wages, value of construction works completed company i, at tth quarter
+Qi(t-1) =  Number of permanent workers, mandays, compensation and wages, value of construction works completed company i, at (t-1)th quarter
+The value of construction works completed is value of contract subtracted by value of subcontracted project to other contractors multiplied by physical progress of the project completed.
+where,
+NK
+=  Value of construction works completed
+NP
+=  Contract value of the project
+NS
+=  value of subcontracted project to other contractors
+%NR  =  percentage of physical progress of the project completed
+%NR is percentage of project completed at the end of a survey period subtracted by percentage of project completed at the beginning of survey period.
+2.2  2016 Base Year Indices
+2016 base year Indices for each province are obtained from quarterly indices and annual construction statistics value using with the following method:
+2.2.1  From Quarterly Indices a.
+Process the following indices: permanent workers, mandays, compensation and wages, compensation, wages, and value of construction works completed.
+b.
+Make index equal to 100 at the beginning of quarter which has index.
+c.
+Divide each index at quarter t by average index base year 2016, and multiply by 100
+percent.
+d.
+Index at year i is the average of index at quarter t at year i.
+where,
+IDt
+=  Base year index at period t
+NK = (NP – NS) x %NR
+NK = (NP – NS) x %NR
+(
+)
+t
+Dt
+D
+I
+I
+Avg I
+=
+×
+(
+)
+t
+Dt
+D
+I
+I
+Avg I
+=
+×
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+It
+=  Indeks pada periode t
+Avg(ID)
+=  Rata-rata indeks pada tahun dasar
+2.2.2  Dari Nilai Statistik Konstruksi Tahunan a.
+Data yang diolah adalah: pekerja tetap, hari-
+orang, balas jasa dan upah, balas jasa, upah, serta nilai kontruksi yang diselesaikan.
+b.
+Indeks tahun t adalah hasil pembagian data tahun t dengan data pada tahun dasar 2016
+dan dikalikan dengan 100 persen.
+dimana,
+It
+=  Indeks tahun ke t
+Xt
+=  Data tahun t
+XD
+=  Data tahun dasar 2016
+2.2.3  Laju Pertumbuhan
+Pertumbuhan menunjukkan pergerakan agregat yang berfluktuasi dari satu waktu tertentu terhadap waktu sebelumnya. Laju pertumbuhan triwulanan (q-to-q) dan tahunan
+(y-on-y) diperoleh dengan cara membagi angka indeks yang diperoleh pada periode t dengan angka indeks periode t-1 dikurangi 1 kemudian dikalikan 100 persen.
+dimana,
+Gt
+=  Laju pertumbuhan pada periode-t
+It
+=  Indeks pada periode t
+It-1
+=  Indeks pada periode t-1
+2.2.4  Benchmark Indeks Konstruksi
+Benchmarking merupakan teknik yang mengkombinasian variabel yang sama dari dua sumber data dengan frekuensi berbeda. Data dengan frekuensi yang lebih banyak (seperti
+Survei
+Perusahaan
+Konstruksi
+Triwulanan), memiliki tingkat akurasi yang lebih rendah karena sampelnya lebih sedikit, dikombinasikan dengan data yang memiliki frekuensi lebih sedikit
+(seperti Survei Perusahaan Konstruksi Tahunan),
+It
+=  Index at period t
+Avg(ID)
+=  Average index at base year 2016
+2.2.2  From the Value of Annual Construction
+Statistics a.
+Process following indices:
+permanent workers, mandays, compensation and wages, compensation, wages, and Value of
+Construction Works completed.
+b.
+Index at year t is derived from dividing each data at year t with data at 2016 base year multiplied by 100 percent.
+where,
+It
+=  Index at year t
+Xt
+=  Data at year t
+XD
+=  Data at 2016 base year
+2.2.3  Growth Rate
+The growth rate shows an aggregate fluctuating movement from certain period of time to the previous time. The quarterly (q-to-q)
+and annual (y-on-y) growth rate are derived from dividing index at period t with index at period (t-1)
+substracted by 1 and multiplied by 100 percent.
+where,
+Gt
+=  Growth rate at period t
+It
+=  Index at period t
+It-1
+=  Index at period (t-1)
+2.2.4  Benchmark of Construction Indices
+Benchmarking is a technique of combining data with the same variable from two sources of different frequencies: first, data which is more frequent (like Quarterly Construction Establishment
+Survey) is believed to be less accurate because it has less samples, and on the other hand, data which is less frequent (like the Annual Construction
+Establishment Survey), is believed to be more complete and therefore, more reliable to provide t t
+D
+X
+I
+X
+
+
+=
+×
+
+
+
+
+t t
+D
+X
+I
+X
+
+
+=
+×
+
+
+
+
+t t t
+I
+G
+I −
+
+
+=
+−
+×
+
+
+
+
+t t t
+I
+G
+I −
+
+
+=
+−
+×
+
+
+
+
+Penjelasan
+Explanation dengan cakupan lebih lengkap dan dapat lebih dipercaya dalam menyediakan tingkat akurasi.
+Data tahunan yang tingkat kepercayaannya lebih tinggi, digunakan sebagai acuan atau benchmark pada fluktuasi data triwulanan.
+Tujuan utama dari teknik penggunaan benchmarking adalah mendistribusikan perbedaan antara dua series data dengan suatu cara sehingga kecenderungan dari series data hasil akhir lebih mendekati series data aslinya.
+Seperti diketahui bahwa Metode Proportional
+Denton merupakan teknik maksimum dari pergerakan jangka pendek dari sumber data triwulanan, sehingga series data hasil benchmark tetap dijaga seproporsional mungkin dengan series sumber data aslinya. Hal tersebut dilakukan dengan meminimalkan perbedaan
+(selisih terkecil) persentase perubahan dari triwulan ke triwulan dalam series benchmark aslinya.
+Teknik penghitungannya adalah sebagai berikut: Pertama, selaraskan tingkat pertumbuhan antara variabel pekerja tetap, pekerja harian dengan hari-orang, balas jasa dan upah, nilai konstruksi yang diselesaikan, serta PDRB atas dasar harga berlaku sektor konstruksi, dimana pertumbuhan nilai konstruksi yang diselesaikan menjadi pegangan utama. Kemudian, masing-
+masing variabel tersebut dibuat indeks benchmark tahun dasar 2016=100. Selanjutnya untuk indeks benchmark masing-masing variabel tahun sebelum dan sesudah tahun dasar 2016
+digerakkan dengan pertumbuhan benchmark.
+Setelah indeks benchmark tahunan tahun dasar 2016 diperoleh, lalu dijalankan Program
+Bench dengan Metode Proportional Denton untuk mendapatkan indeks benchmark triwulanan tahun dasar 2016 masing-masing variabel tersebut.
+2.2.5  Benchmark Statistik Konstruksi a.
+Benchmark Pekerja Tetap Konstruksi
+Benchmark Pekerja Tetap Konstruksi masing-
+masing provinsi diperoleh dengan cara menetapkan jumlah pekerja tetap konstruksi pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya.
+b.
+Benchmark
+Hari-Orang
+Pekerja
+Harian
+Konstruksi an accurate level or benchmark. Annual data series which is more reliable are used as benchmark and applied to quarterly data fluctuations from the quarterly data series.
+The primary aim of using some benchmarking techniques is to distribute the difference between two series of data in such a way so that the final data series is as close as possible to that of the original series. A well-known benchmarking technique is the Denton Proportional Method which preserves to a maximum degree the short term movements in the quarterly data source, i.e.
+it keeps the benchmarked series as proportional as possible to the original data source. This is done by minimizing the differences (in a least squares sense)
+in the quarter to quarter percentage changes in the original benchmarked series.
+The computation techniques are as follows:
+First synchronize the growth rate of benchmark between permanent workers, casual workers with mandays, compensation and wages, the construction value completed, and GRDP at current market prices construction sector variables, where the growth rate of construction value completed becomes the major trend. Then each variables are made benchmark indices base year 2016=100. After that for benchmark indices each variables before and after base year 2016 is is driven by the previous and subsequent annual growth benchmark.
+After annual benchmark indices base year
+2016 of four variables is obtained, then run Bench
+Program with Denton Proportional Method to obtain quarterly benchmark indices base year 2016
+for each variables.
+2.2.5  Benchmark of Construction Statistics a.
+Benchmarked Construction Permanent Workers
+Benchmarked
+Construction
+Permanent
+Workers for each province is obtained by setting the number of construction permanent workers in one year as a benchmark, and then the data is driven by the previous and subsequent annual growth benchmark.
+b.
+Benchmarked
+Mandays of
+Construction
+Casual Workers
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Benchmark Hari-Orang Pekerja Harian Konstruksi masing-masing provinsi diperoleh dengan cara menetapkan jumlah hari-orang pekerja harian konstruksi pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya.
+c.
+Benchmark Balas Jasa dan Upah Pekerja
+Konstruksi
+Benchmark Balas Jasa dan Upah Pekerja setiap provinsi diperoleh dengan cara menetapkan nilai balas jasa dan upah pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya. Dari variabel Balas Jasa dan Upah dipecah menjadi 2 nilai variabel yaitu Benchmark Balas Jasa Pekerja Tetap dan Benchmark Upah Pekerja Harian dengan formula sebagai berikut:
+Selanjutnya upah pekerja harian merupakan hasil pengurangan balas jasa dan upah terhadap balas jasa.
+dimana,
+BJit
+=  Balas jasa pekerja tetap provinsi ke-i tahun ke-t
+BJUit  =  Balas jasa dan upah pekerja provinsi ke-i tahun ke-t
+Uit
+=  Upah pekerja harian provinsi ke-i tahun ke-t
+Setelah didapatkan nilai balas jasa pekerja tetap benchmark dan upah pekerja harian benchmark, dilakukan penghitungan rata-
+rata balas jasa pekerja tetap dan rata-rata upah pekerja harian. Untuk penghitungannya digunakan formula sebagai berikut:
+Untuk penghitungan rata-rata balas jasa pekerja tetap dan rata-rata upah yang Outlier dilakukan penyesuaian (adjusment).
+Benchmarked
+Mandays of
+Construction
+Casual Workers for each province is obtained by setting the number of mandays of construction casual workers in one year as a benchmark, and then the data is driven by the previous and subsequent annual growth benchmark.
+c.
+Benchmarked Compensation and Wages of
+Construction Workers
+Benchmarked Compensation and Wages of
+Construction workers for each province is obtained by setting the value of compensation and wages in one year as a benchmark, and then the data is driven by the previous and subsequent annual growth benchmark.
+This variable is split into two variables i.e.:
+Benchmarked Compensation of Permanent
+Workers and Benchmarked Wages of Casual
+Workers with the following provision:
+Meanwhile the wages of casual workers is the result of a reduction compensation and wages minus compensation.
+where,
+BJit
+=  Compensation of permanent workers at province i, at year t
+BJUit
+=  Compensation and wages of workers at province i, at year t
+Uit
+=  Wages of casual workers at province i, at year t
+Once obtained the value of compensation of permanent workers benchmark, and wages of casual workers benchmark, then calculate the average compensation of permanent worker and average wages of casual workers using the following formula:
+For calculation average compensation of permanent workers and average wages of casual workers the adjustment is made for the outlier.
+it it it it
+BJ Publikasi
+BJ Benchmark
+BJU Benchmark
+BJU Publikasi
+=
+×
+it it it it
+BJ Publikasi
+BJ Benchmark
+BJU Benchmark
+BJU Publikasi
+=
+×
+it it it
+U Benchmark
+BJU Benchmark
+BJ Publikasi
+=
+−
+it it it
+U Benchmark
+BJU Benchmark
+BJ Publikasi
+=
+−
+Balas Jasa Pekerja Tetap
+Rata rata Balas Jasa
+Jumlah Pekerja Tetap
+−
+Balas Jasa Pekerja Tetap
+Rata rata Balas Jasa
+Jumlah Pekerja Tetap
+−
+Upah Pekerja Harian
+Rata rata Upah
+Jumlah Hari Orang Pekerja Harian
+−
+Upah Pekerja Harian
+Rata rata Upah
+Jumlah Hari Orang Pekerja Harian
+−
+=
+Penjelasan
+Explanation d.
+Benchmark
+Nilai
+Konstruksi yang
+Diselesaikan
+Benchmark Nilai Konstruksi yang Diselesaikan diperoleh dengan cara menetapkan nilai konstruksi yang diselesaikan pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya. Variabel ini digunakan sebagai dasar untuk perhitungan variabel lainnya.
+e.
+Benchmark Pengeluaran
+Bahan/Material yang Digunakan
+Benchmark Pengeluaran Bahan/Material yang Digunakan dihitung dengan formula sebagai berikut:
+dimana,
+Mit
+=  Pengeluaran bahan/material yang digunakan provinsi ke-i tahun ke-t
+NKit
+=  Nilai konstruksi yang diselesaikan provinsi ke-i tahun ke-t
+Setelah didapatkan nilai variabel
+Mit
+Benchmark, penyesuaian dilakukan untuk nilai outlier Pengeluaran Bahan/Material yang
+Digunakan.
+d.
+Benchmarked Value of Construction Works
+Completed
+Benchmarked Value of Construction Works
+Completed for each province is obtained by setting the value of construction works completed in one year as a benchmark, and then the data is driven by the previous and subsequent annual growth benchmark. This variable is used as the basis for the calculation of other variables.
+e.
+Benchmarked Cost of Construction Material
+Used
+Benchmarked Cost of Construction Material
+Used is calculated from the following formula:
+where,
+Mit
+=  Cost of Construction Material Used at province i , year t
+NKit
+=  Value of Construction Works Completed at province i , year t
+Once obtained the value of variable Mit
+Benchmark, adjustment is made for the outlier of
+Cost of Construction Material Used.
+it it it it
+M Publikasi
+MI Benchmark
+NK Benchmark
+NK Publikasi
+=
+×
+it it it it
+M Publikasi
+MI Benchmark
+NK Benchmark
+NK Publikasi
+=
+×
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.1
+Benchmark Statistik Konstruksi, 2018–2023
+Benchmark of Construction Statistics, 2018–2023
+Uraian / Description
+Satuan / Unit
+1. Jumlah Pekerja Tetap Konstruksi
+Number of Construction Permanent Workers orang person
+1.130.815
+1.162.297
+1.138.186
+1.147.170
+1.157.245
+1.174.009
+2. Pertumbuhan Jumlah Pekerja Tetap Konstruksi
+Growth of Construction Permanent Workers
+%
+2,49
+2,78
+2,07
+0,79
+0,88
+1,45
+3. Balas Jasa Pekerja Tetap Konstruksi
+The Compensation of Construction Permanent Workers juta rupiah million rupiahs
+54.703.249
+59.911.865
+58.261.949
+60.536.796
+64.107.757
+67.594.219
+4. Pertumbuhan Balas Jasa Pekerja Tetap Konstruksi
+Growth of Compensation of Construction Permanent Workers
+%
+8,95
+9,52
+2,75
+3,90
+5,90
+5,44
+5. Rata-Rata Balas Jasa Pekerja Tetap Konstruksi
+Average Compensation of Construction Permanent Workers ribu rupiah thousand rupiahs
+48.375
+51.546
+51.188
+52.771
+55.397
+57.576
+6. Pertumbuhan Rata-Rata Balas Jasa Pekerja Tetap Konstruksi
+Growth of Average Compensation of Construction Permanent Workers
+%
+6,30
+6,56
+0,69
+3,09
+4,98
+3,93
+7. Jumlah Hari-Orang Pekerja Harian Konstruksi
+Number of Mandays of Construction Casual Workers orang hari man-days
+1.521.747.535 1.684.653.840 1.486.505.044 1.531.450.199 1.576.036.859 1.639.650.735
+8. Pertumbuhan Jumlah Hari-Orang Pekerja Harian Konstruksi
+Growth of Mandays of Construction Casual Workers
+%
+10,35
+10,71
+11,76
+3,02
+2,91
+4,04
+9. Upah Pekerja Harian Konstruksi
+Wages of Construction Casual Workers juta rupiah million rupiahs
+163.359.265
+191.555.042
+165.375.557
+175.306.035
+184.776.493
+197.479.260
+10. Pertumbuhan Upah Pekerja Harian Konstruksi
+Growth of Wages of Construction Casual Workers
+%
+17,75
+17,26
+13,67
+6,00
+5,40
+6,87
+11. Rata-Rata Upah Pekerja Harian Konstruksi
+Average Wages of Construction Casual Workers rupiah rupiahs
+107.350
+113.706
+111.251
+114.471
+117.241
+120.440
+12. Pertumbuhan Rata-Rata Upah Pekerja Harian Konstruksi
+Growth of Average Wages of Construction Casual Workers
+%
+6,70
+5,92
+2,16
+2,89
+2,42
+2,73
+13. Balas Jasa dan Upah Pekerja Konstruksi
+Compensation and Wages of Construction Workers juta rupiah million rupiahs
+218.062.514
+251.466.912
+223.637.506
+235.842.831
+248.884.250
+265.073.479
+14. Pertumbuhan Balas Jasa dan Upah Pekerja Konstruksi
+Growth of Compensation and Wages of Construction Workers
+%
+15,41
+15,32
+11,07
+5,46
+5,53
+6,50
+15. Nilai Konstruksi yang Diselesaikan
+Value of Construction Works Completed juta rupiah million rupiahs
+1.331.230.800 1.594.196.205 1.321.758.550 1.405.166.757 1.498.364.330 1.612.403.932
+16. Pertumbuhan Nilai Konstruksi yang Diselesaikan
+Growth of Value of Construction Works Completed
+%
+16,22
+19,75
+17,09
+6,31
+6,63
+7,61
+17. Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi
+Cost of Construction Material Used juta rupiah million rupiahs
+685.233.536
+836.840.121
+690.608.219
+753.290.308
+796.065.031
+850.105.806
+18. Pertumbuhan Pengeluaran Bahan Bangunan / Material yang
+Digunakan Konstruksi
+Growth of Cost of Construction Material Used
+%
+15,06
+22,12
+17,47
+9,08
+5,68
+6,79
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.2
+PROVINSI/PROVINCE
+Aceh
+9.636
+9.911
+9.722
+9.742
+9.761
+9.822
+Sumatera Utara
+38.910
+40.180
+39.523
+39.808
+40.254
+41.003
+Sumatera Barat
+9.448
+9.652
+9.554
+9.770
+9.908
+10.110
+Riau
+24.887
+25.774
+25.415
+26.051
+26.324
+26.853
+Jambi
+7.932
+8.128
+8.038
+8.108
+8.241
+8.355
+Sumatera Selatan
+18.119
+18.709
+18.422
+18.937
+19.167
+19.602
+Bengkulu
+6.355
+6.520
+6.396
+6.467
+6.521
+6.593
+Lampung
+12.749
+13.045
+12.817
+12.983
+13.038
+13.181
+Kep. Bangka Belitung
+6.118
+6.221
+6.150
+6.204
+6.228
+6.327
+Kepulauan Riau
+18.431
+19.055
+18.412
+18.879
+19.065
+19.343
+D.K.I. Jakarta
+425.014
+435.972
+424.084
+424.292
+429.896
+436.989
+Jawa Barat
+99.680
+102.717
+101.449
+103.069
+103.721
+105.588
+Jawa Tengah
+42.474
+43.879
+42.964
+44.097
+44.285
+44.821
+D.I. Yogyakarta
+6.899
+7.093
+7.001
+7.040
+7.092
+7.214
+Jawa Timur
+141.902
+145.529
+142.987
+143.191
+143.276
+145.038
+Banten
+57.189
+58.697
+58.017
+59.506
+60.173
+60.877
+Bali
+12.754
+13.103
+12.895
+13.055
+13.178
+13.187
+Nusa Tenggara Barat
+6.663
+6.800
+6.714
+6.805
+6.854
+6.953
+Nusa Tenggara Timur
+12.383
+12.645
+12.479
+12.510
+12.519
+12.683
+Kalimantan Barat
+14.871
+15.286
+15.000
+15.014
+15.021
+15.179
+Kalimantan Tengah
+11.165
+11.305
+11.080
+11.425
+11.511
+11.709
+Kalimantan Selatan
+7.629
+7.842
+7.626
+7.794
+7.895
+7.952
+Kalimantan Timur
+30.289
+31.684
+31.296
+31.632
+31.921
+32.492
+Kalimantan Utara
+5.026
+5.314
+5.240
+5.244
+5.269
+5.211
+Sulawesi Utara
+6.158
+6.278
+6.162
+6.164
+6.222
+6.271
+Sulawesi Tengah
+9.922
+10.095
+9.753
+9.771
+9.896
+10.023
+Sulawesi Selatan
+23.241
+24.016
+23.605
+23.899
+24.054
+24.429
+Sulawesi Tenggara
+7.243
+7.410
+7.331
+7.349
+7.351
+7.380
+Gorontalo
+2.912
+2.986
+2.887
+2.889
+2.890
+2.928
+Sulawesi Barat
+2.388
+2.429
+2.365
+2.401
+2.414
+2.425
+Maluku
+4.421
+4.564
+4.270
+4.351
+4.423
+4.445
+Maluku Utara
+3.433
+3.521
+3.470
+3.475
+3.503
+3.538
+Papua Barat
+9.720
+10.088
+9.711
+9.789
+9.845
+9.707
+Papua
+34.854
+35.849
+35.351
+35.459
+35.529
+35.781
+INDONESIA
+1.130.815
+1.162.297
+1.138.186
+1.147.170
+1.157.245
+1.174.009
+Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi, 2018–2023
+Number of Construction Permanent Workers by Province, 2018–2023
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.3
+Pertumbuhan Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Construction Permanent Workers by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+1,18
+2,85
+1,91
+0,21
+0,20
+0,62
+Sumatera Utara
+1,94
+3,26
+1,64
+0,72
+1,12
+1,86
+Sumatera Barat
+1,79
+2,16
+1,02
+2,26
+1,41
+2,04
+Riau
+3,30
+3,56
+1,39
+2,50
+1,05
+2,01
+Jambi
+2,24
+2,47
+1,11
+0,87
+1,64
+1,38
+Sumatera Selatan
+3,12
+3,26
+1,53
+2,80
+1,21
+2,27
+Bengkulu
+2,22
+2,60
+1,90
+1,11
+0,84
+1,10
+Lampung
+1,87
+2,32
+1,75
+1,30
+0,42
+1,10
+Kep. Bangka Belitung
+1,54
+1,68
+1,14
+0,88
+0,39
+1,59
+Kepulauan Riau
+3,64
+3,39
+3,37
+2,54
+0,99
+1,46
+D.K.I. Jakarta
+2,31
+2,58
+2,73
+0,05
+1,32
+1,65
+Jawa Barat
+2,83
+3,05
+1,23
+1,60
+0,63
+1,80
+Jawa Tengah
+3,23
+3,31
+2,09
+2,64
+0,43
+1,21
+D.I. Yogyakarta
+2,21
+2,81
+1,30
+0,56
+0,74
+1,72
+Jawa Timur
+2,61
+2,56
+1,75
+0,14
+0,06
+1,23
+Banten
+1,64
+2,64
+1,16
+2,57
+1,12
+1,17
+Bali
+2,62
+2,74
+1,59
+1,24
+0,94
+0,07
+Nusa Tenggara Barat
+1,99
+2,06
+1,26
+1,36
+0,72
+1,44
+Nusa Tenggara Timur
+2,10
+2,12
+1,31
+0,25
+0,07
+1,31
+Kalimantan Barat
+2,28
+2,79
+1,87
+0,09
+0,05
+1,05
+Kalimantan Tengah
+0,20
+1,25
+1,99
+3,11
+0,75
+1,72
+Kalimantan Selatan
+2,28
+2,79
+2,75
+2,20
+1,30
+0,72
+Kalimantan Timur
+4,51
+4,61
+1,22
+1,07
+0,91
+1,79
+Kalimantan Utara
+6,44
+5,73
+1,39
+0,08
+0,48
+1,10
+Sulawesi Utara
+1,62
+1,95
+1,85
+0,03
+0,94
+0,79
+Sulawesi Tengah
+1,51
+1,74
+3,39
+0,18
+1,28
+1,28
+Sulawesi Selatan
+3,06
+3,33
+1,71
+1,25
+0,65
+1,56
+Sulawesi Tenggara
+2,26
+2,31
+1,07
+0,25
+0,03
+0,39
+Gorontalo
+2,75
+2,54
+3,32
+0,07
+0,03
+1,31
+Sulawesi Barat
+1,62
+1,72
+2,63
+1,52
+0,54
+0,46
+Maluku
+3,17
+3,23
+6,44
+1,90
+1,65
+0,50
+Maluku Utara
+2,20
+2,56
+1,45
+0,14
+0,81
+1,00
+Papua Barat
+3,61
+3,79
+3,74
+0,80
+0,57
+1,40
+Papua
+2,60
+2,85
+1,39
+0,31
+0,20
+0,71
+INDONESIA
+2,49
+2,78
+2,07
+0,79
+0,88
+1,45
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.4
+Struktur Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Construction Permanent Workers by Provinsi (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,85
+0,85
+0,85
+0,85
+0,84
+0,84
+Sumatera Utara
+3,44
+3,46
+3,47
+3,47
+3,48
+3,49
+Sumatera Barat
+0,84
+0,83
+0,84
+0,85
+0,86
+0,86
+Riau
+2,20
+2,22
+2,23
+2,27
+2,27
+2,29
+Jambi
+0,70
+0,70
+0,71
+0,71
+0,71
+0,71
+Sumatera Selatan
+1,60
+1,61
+1,62
+1,65
+1,66
+1,67
+Bengkulu
+0,56
+0,56
+0,56
+0,56
+0,56
+0,56
+Lampung
+1,13
+1,12
+1,13
+1,13
+1,13
+1,12
+Kep. Bangka Belitung
+0,54
+0,54
+0,54
+0,54
+0,54
+0,54
+Kepulauan Riau
+1,63
+1,64
+1,62
+1,65
+1,65
+1,65
+D.K.I. Jakarta
+37,58
+37,51
+37,26
+36,99
+37,15
+37,22
+Jawa Barat
+8,81
+8,84
+8,91
+8,98
+8,96
+8,99
+Jawa Tengah
+3,76
+3,78
+3,77
+3,84
+3,83
+3,82
+D.I. Yogyakarta
+0,61
+0,61
+0,62
+0,61
+0,61
+0,61
+Jawa Timur
+12,55
+12,52
+12,56
+12,48
+12,38
+12,35
+Banten
+5,06
+5,05
+5,10
+5,19
+5,20
+5,19
+Bali
+1,13
+1,13
+1,13
+1,14
+1,14
+1,12
+Nusa Tenggara Barat
+0,59
+0,59
+0,59
+0,59
+0,59
+0,59
+Nusa Tenggara Timur
+1,10
+1,09
+1,10
+1,09
+1,08
+1,08
+Kalimantan Barat
+1,32
+1,32
+1,32
+1,31
+1,30
+1,29
+Kalimantan Tengah
+0,99
+0,97
+0,97
+1,00
+0,99
+1,00
+Kalimantan Selatan
+0,67
+0,67
+0,67
+0,68
+0,68
+0,68
+Kalimantan Timur
+2,68
+2,73
+2,75
+2,76
+2,76
+2,77
+Kalimantan Utara
+0,44
+0,46
+0,46
+0,46
+0,46
+0,44
+Sulawesi Utara
+0,54
+0,54
+0,54
+0,54
+0,54
+0,53
+Sulawesi Tengah
+0,88
+0,87
+0,86
+0,85
+0,86
+0,85
+Sulawesi Selatan
+2,06
+2,07
+2,07
+2,08
+2,08
+2,08
+Sulawesi Tenggara
+0,64
+0,64
+0,64
+0,64
+0,64
+0,63
+Gorontalo
+0,26
+0,26
+0,25
+0,25
+0,25
+0,25
+Sulawesi Barat
+0,21
+0,21
+0,21
+0,21
+0,21
+0,21
+Maluku
+0,39
+0,39
+0,38
+0,38
+0,38
+0,38
+Maluku Utara
+0,30
+0,30
+0,30
+0,30
+0,30
+0,30
+Papua Barat
+0,86
+0,87
+0,85
+0,85
+0,85
+0,83
+Papua
+3,08
+3,08
+3,11
+3,09
+3,07
+3,05
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.5
+Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Compensation of Construction Permanent Workers by Province (million rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+332.043
+364.504
+356.895
+363.335
+371.315
+378.036
+Sumatera Utara
+1.440.335
+1.578.526
+1.546.614
+1.606.212
+1.690.918
+1.837.859
+Sumatera Barat
+289.597
+309.008
+304.066
+335.262
+351.169
+361.388
+Riau
+886.868
+966.887
+946.810
+992.594
+1.022.603
+1.086.618
+Jambi
+275.570
+294.405
+289.360
+299.778
+320.161
+332.007
+Sumatera Selatan
+864.098
+936.073
+918.024
+967.297
+990.740
+1.063.064
+Bengkulu
+193.363
+204.774
+200.527
+206.815
+213.515
+230.062
+Lampung
+447.412
+473.169
+463.129
+476.093
+488.930
+502.620
+Kep. Bangka Belitung
+195.619
+212.150
+209.039
+213.157
+216.806
+229.489
+Kepulauan Riau
+963.246
+1.054.209
+1.010.359
+1.060.965
+1.065.994
+1.136.136
+D.K.I. Jakarta
+27.731.434
+30.440.924
+29.449.241
+30.441.295
+32.792.421
+34.792.759
+Jawa Barat
+5.739.505
+6.295.446
+6.194.983
+6.452.780
+6.773.305
+7.202.733
+Jawa Tengah
+1.461.918
+1.603.832
+1.564.061
+1.702.498
+1.780.178
+1.848.359
+D.I. Yogyakarta
+225.527
+246.900
+242.984
+254.888
+265.230
+279.818
+Jawa Timur
+4.792.739
+5.279.751
+5.137.523
+5.311.423
+5.596.972
+5.817.493
+Banten
+1.930.837
+2.087.087
+2.047.768
+2.177.723
+2.296.232
+2.334.349
+Bali
+561.771
+613.539
+599.734
+627.840
+650.670
+656.266
+Nusa Tenggara Barat
+207.011
+219.000
+214.391
+218.379
+222.070
+229.909
+Nusa Tenggara Timur
+230.185
+244.663
+239.422
+249.453
+256.290
+268.054
+Kalimantan Barat
+493.365
+535.739
+521.460
+563.146
+580.251
+609.031
+Kalimantan Tengah
+325.706
+352.840
+342.727
+366.116
+375.257
+393.044
+Kalimantan Selatan
+244.731
+266.209
+257.461
+273.139
+285.542
+310.013
+Kalimantan Timur
+1.269.388
+1.405.420
+1.383.659
+1.407.418
+1.449.563
+1.574.515
+Kalimantan Utara
+127.700
+141.190
+138.273
+138.636
+142.526
+141.029
+Sulawesi Utara
+248.342
+272.378
+266.303
+284.135
+289.478
+297.062
+Sulawesi Tengah
+385.166
+416.205
+401.638
+413.585
+429.595
+440.722
+Sulawesi Selatan
+742.283
+808.618
+789.328
+805.273
+806.813
+838.440
+Sulawesi Tenggara
+287.578
+310.294
+305.475
+319.381
+323.349
+326.906
+Gorontalo
+74.428
+81.756
+78.327
+80.634
+80.795
+83.582
+Sulawesi Barat
+67.586
+72.517
+69.973
+71.674
+72.126
+72.552
+Maluku
+133.284
+143.689
+133.339
+137.993
+140.257
+141.561
+Maluku Utara
+86.352
+92.591
+90.626
+95.150
+97.209
+98.521
+Papua Barat
+335.833
+369.795
+354.238
+371.744
+385.426
+380.377
+Papua
+1.112.429
+1.217.777
+1.194.192
+1.250.985
+1.284.051
+1.299.845
+INDONESIA
+54.703.249
+59.911.865
+58.261.949
+60.536.796
+64.107.757
+67.594.219
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.6
+Pertumbuhan Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–
+Growth of Compensation of Construction Permanent Workers by Province (percent), 2018–
+PROVINSI/PROVINCE
+Aceh
+8,04
+9,78
+2,09
+1,80
+2,20
+1,81
+Sumatera Utara
+7,05
+9,59
+2,02
+3,85
+5,27
+8,69
+Sumatera Barat
+6,94
+6,70
+1,60
+10,26
+4,74
+2,91
+Riau
+9,02
+9,02
+2,08
+4,84
+3,02
+6,26
+Jambi
+6,43
+6,83
+1,71
+3,60
+6,80
+3,70
+Sumatera Selatan
+7,82
+8,33
+1,93
+5,37
+2,42
+7,30
+Bengkulu
+4,97
+5,90
+2,07
+3,14
+3,24
+7,75
+Lampung
+4,67
+5,76
+2,12
+2,80
+2,70
+2,80
+Kep. Bangka Belitung
+8,06
+8,45
+1,47
+1,97
+1,71
+5,85
+Kepulauan Riau
+9,20
+9,44
+4,16
+5,01
+0,47
+6,58
+D.K.I. Jakarta
+9,21
+9,77
+3,26
+3,37
+7,72
+6,10
+Jawa Barat
+9,52
+9,69
+1,60
+4,16
+4,97
+6,34
+Jawa Tengah
+9,66
+9,71
+2,48
+8,85
+4,56
+3,83
+D.I. Yogyakarta
+8,38
+9,48
+1,59
+4,90
+4,06
+5,50
+Jawa Timur
+9,95
+10,16
+2,69
+3,38
+5,38
+3,94
+Banten
+6,02
+8,09
+1,88
+6,35
+5,44
+1,66
+Bali
+8,75
+9,22
+2,25
+4,69
+3,64
+0,86
+Nusa Tenggara Barat
+5,25
+5,79
+2,10
+1,86
+1,69
+3,53
+Nusa Tenggara Timur
+5,90
+6,29
+2,14
+4,19
+2,74
+4,59
+Kalimantan Barat
+7,76
+8,59
+2,67
+7,99
+3,04
+4,96
+Kalimantan Tengah
+7,79
+8,33
+2,87
+6,82
+2,50
+4,74
+Kalimantan Selatan
+7,97
+8,78
+3,29
+6,09
+4,54
+8,57
+Kalimantan Timur
+10,24
+10,72
+1,55
+1,72
+2,99
+8,62
+Kalimantan Utara
+11,88
+10,56
+2,07
+0,26
+2,81
+1,05
+Sulawesi Utara
+9,38
+9,68
+2,23
+6,70
+1,88
+2,62
+Sulawesi Tengah
+7,70
+8,06
+3,50
+2,97
+3,87
+2,59
+Sulawesi Selatan
+8,43
+8,94
+2,39
+2,02
+0,19
+3,92
+Sulawesi Tenggara
+7,59
+7,90
+1,55
+4,55
+1,24
+1,10
+Gorontalo
+9,07
+9,85
+4,19
+2,95
+0,20
+3,45
+Sulawesi Barat
+6,72
+7,30
+3,51
+2,43
+0,63
+0,59
+Maluku
+7,55
+7,81
+7,20
+3,49
+1,64
+0,93
+Maluku Utara
+6,45
+7,23
+2,12
+4,99
+2,16
+1,35
+Papua Barat
+8,98
+10,11
+4,21
+4,94
+3,68
+1,31
+Papua
+8,95
+9,47
+1,94
+4,76
+2,64
+1,23
+INDONESIA
+8,95
+9,52
+2,75
+3,90
+5,90
+5,44
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.7
+Struktur Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Compensation of Construction Permanent Workers by Province (percent),
+2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,61
+0,61
+0,61
+0,60
+0,58
+0,56
+Sumatera Utara
+2,63
+2,63
+2,65
+2,65
+2,64
+2,72
+Sumatera Barat
+0,53
+0,52
+0,52
+0,55
+0,55
+0,53
+Riau
+1,62
+1,61
+1,63
+1,64
+1,60
+1,61
+Jambi
+0,50
+0,49
+0,50
+0,50
+0,50
+0,49
+Sumatera Selatan
+1,58
+1,56
+1,58
+1,60
+1,55
+1,57
+Bengkulu
+0,35
+0,34
+0,34
+0,34
+0,33
+0,34
+Lampung
+0,82
+0,79
+0,79
+0,79
+0,76
+0,74
+Kep. Bangka Belitung
+0,36
+0,35
+0,36
+0,35
+0,34
+0,34
+Kepulauan Riau
+1,76
+1,76
+1,73
+1,75
+1,66
+1,68
+D.K.I. Jakarta
+50,69
+50,81
+50,55
+50,29
+51,15
+51,47
+Jawa Barat
+10,49
+10,51
+10,63
+10,66
+10,57
+10,66
+Jawa Tengah
+2,67
+2,68
+2,68
+2,81
+2,78
+2,73
+D.I. Yogyakarta
+0,41
+0,41
+0,42
+0,42
+0,41
+0,41
+Jawa Timur
+8,76
+8,81
+8,82
+8,77
+8,73
+8,61
+Banten
+3,53
+3,48
+3,51
+3,60
+3,58
+3,45
+Bali
+1,03
+1,02
+1,03
+1,04
+1,01
+0,97
+Nusa Tenggara Barat
+0,38
+0,37
+0,37
+0,36
+0,35
+0,34
+Nusa Tenggara Timur
+0,42
+0,41
+0,41
+0,41
+0,40
+0,40
+Kalimantan Barat
+0,90
+0,89
+0,90
+0,93
+0,91
+0,90
+Kalimantan Tengah
+0,60
+0,59
+0,59
+0,60
+0,59
+0,58
+Kalimantan Selatan
+0,45
+0,44
+0,44
+0,45
+0,45
+0,46
+Kalimantan Timur
+2,32
+2,35
+2,37
+2,32
+2,26
+2,33
+Kalimantan Utara
+0,23
+0,24
+0,24
+0,23
+0,22
+0,21
+Sulawesi Utara
+0,45
+0,45
+0,46
+0,47
+0,45
+0,44
+Sulawesi Tengah
+0,70
+0,69
+0,69
+0,68
+0,67
+0,65
+Sulawesi Selatan
+1,36
+1,35
+1,35
+1,33
+1,26
+1,24
+Sulawesi Tenggara
+0,53
+0,52
+0,52
+0,53
+0,50
+0,48
+Gorontalo
+0,14
+0,14
+0,13
+0,13
+0,13
+0,12
+Sulawesi Barat
+0,12
+0,12
+0,12
+0,12
+0,11
+0,11
+Maluku
+0,24
+0,24
+0,23
+0,23
+0,22
+0,21
+Maluku Utara
+0,16
+0,15
+0,16
+0,16
+0,15
+0,15
+Papua Barat
+0,61
+0,62
+0,61
+0,61
+0,60
+0,56
+Papua
+2,03
+2,03
+2,05
+2,07
+2,00
+1,92
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.8
+Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (ribu rupiah), 2018–
+Average Compensation of Construction Permanent Workers by Province (thousand rupiahs),
+2018–2023
+PROVINSI/PROVINCE
+Aceh
+36.778
+36.710
+37.296
+38.041
+38.489
+37.296
+Sumatera Utara
+39.286
+39.132
+40.349
+42.006
+44.823
+40.349
+Sumatera Barat
+32.015
+31.826
+34.315
+35.443
+35.746
+34.315
+Riau
+37.514
+37.254
+38.102
+38.847
+40.465
+38.102
+Jambi
+36.221
+35.999
+36.973
+38.850
+39.738
+36.973
+Sumatera Selatan
+50.033
+49.833
+51.080
+51.690
+54.232
+51.080
+Bengkulu
+31.407
+31.352
+31.980
+32.743
+34.895
+31.980
+Lampung
+36.272
+36.134
+36.670
+37.500
+38.132
+36.670
+Kep. Bangka Belitung
+34.102
+33.990
+34.358
+34.811
+36.271
+34.358
+Kepulauan Riau
+55.325
+54.875
+56.198
+55.914
+58.736
+56.198
+D.K.I. Jakarta
+69.823
+69.442
+71.746
+76.280
+79.619
+71.746
+Jawa Barat
+61.289
+61.065
+62.606
+65.303
+68.215
+62.606
+Jawa Tengah
+36.551
+36.404
+38.608
+40.198
+41.239
+38.608
+D.I. Yogyakarta
+34.809
+34.707
+36.206
+37.398
+38.788
+36.206
+Jawa Timur
+36.280
+35.930
+37.093
+39.064
+40.110
+37.093
+Banten
+35.557
+35.296
+36.597
+38.161
+38.345
+36.597
+Bali
+46.824
+46.509
+48.092
+49.375
+49.766
+48.092
+Nusa Tenggara Barat
+32.206
+31.932
+32.091
+32.400
+33.066
+32.091
+Nusa Tenggara Timur
+19.349
+19.186
+19.940
+20.472
+21.135
+19.940
+Kalimantan Barat
+35.048
+34.764
+37.508
+38.629
+40.123
+37.508
+Kalimantan Tengah
+31.211
+30.932
+32.045
+32.600
+33.568
+32.045
+Kalimantan Selatan
+33.947
+33.761
+35.045
+36.167
+38.986
+35.045
+Kalimantan Timur
+44.357
+44.212
+44.493
+45.411
+48.459
+44.493
+Kalimantan Utara
+26.569
+26.388
+26.437
+27.050
+27.064
+26.437
+Sulawesi Utara
+43.386
+43.217
+46.096
+46.525
+47.371
+46.096
+Sulawesi Tengah
+41.229
+41.181
+42.328
+43.411
+43.971
+42.328
+Sulawesi Selatan
+33.670
+33.439
+33.695
+33.542
+34.322
+33.695
+Sulawesi Tenggara
+41.875
+41.669
+43.459
+43.987
+44.296
+43.459
+Gorontalo
+27.380
+27.131
+27.911
+27.957
+28.546
+27.911
+Sulawesi Barat
+29.855
+29.587
+29.852
+29.878
+29.918
+29.852
+Maluku
+31.483
+31.227
+31.715
+31.711
+31.847
+31.715
+Maluku Utara
+26.297
+26.117
+27.381
+27.750
+27.847
+27.381
+Papua Barat
+36.657
+36.478
+37.976
+39.149
+39.186
+37.976
+Papua
+33.970
+33.781
+35.280
+36.141
+36.328
+35.280
+INDONESIA
+51.546
+51.188
+52.771
+55.397
+57.576
+52.771
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.9
+Pertumbuhan Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi
+(persen), 2018–2023
+Growth of Average Compensation of Construction Permanent Workers by Province
+(percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+6,78
+6,73
+0,18
+1,60
+2,00
+1,18
+Sumatera Utara
+5,01
+6,13
+0,39
+3,11
+4,11
+6,71
+Sumatera Barat
+5,06
+4,45
+0,59
+7,82
+3,29
+0,85
+Riau
+5,54
+5,27
+0,69
+2,28
+1,96
+4,17
+Jambi
+4,10
+4,26
+0,61
+2,71
+5,08
+2,29
+Sumatera Selatan
+4,56
+4,91
+0,40
+2,50
+1,19
+4,92
+Bengkulu
+2,69
+3,22
+0,18
+2,00
+2,39
+6,57
+Lampung
+2,75
+3,36
+0,38
+1,48
+2,26
+1,69
+Kep. Bangka Belitung
+6,41
+6,66
+0,33
+1,08
+1,32
+4,19
+Kepulauan Riau
+5,36
+5,86
+0,81
+2,41
+0,51
+5,05
+D.K.I. Jakarta
+6,75
+7,01
+0,55
+3,32
+6,32
+4,38
+Jawa Barat
+6,51
+6,44
+0,37
+2,52
+4,31
+4,46
+Jawa Tengah
+6,22
+6,19
+0,40
+6,05
+4,12
+2,59
+D.I. Yogyakarta
+6,04
+6,48
+0,29
+4,32
+3,29
+3,72
+Jawa Timur
+7,16
+7,42
+0,96
+3,24
+5,31
+2,68
+Banten
+4,31
+5,32
+0,73
+3,69
+4,27
+0,48
+Bali
+5,98
+6,30
+0,67
+3,40
+2,67
+0,79
+Nusa Tenggara Barat
+3,20
+3,66
+0,85
+0,50
+0,96
+2,06
+Nusa Tenggara Timur
+3,72
+4,09
+0,84
+3,93
+2,67
+3,24
+Kalimantan Barat
+5,36
+5,64
+0,81
+7,89
+2,99
+3,87
+Kalimantan Tengah
+7,57
+6,99
+0,89
+3,60
+1,73
+2,97
+Kalimantan Selatan
+5,57
+5,82
+0,55
+3,80
+3,20
+7,79
+Kalimantan Timur
+5,48
+5,84
+0,33
+0,64
+2,06
+6,71
+Kalimantan Utara
+5,12
+4,57
+0,68
+0,19
+2,32
+0,05
+Sulawesi Utara
+7,64
+7,58
+0,39
+6,66
+0,93
+1,82
+Sulawesi Tengah
+6,09
+6,21
+0,12
+2,79
+2,56
+1,29
+Sulawesi Selatan
+5,21
+5,42
+0,69
+0,77
+0,45
+2,33
+Sulawesi Tenggara
+5,21
+5,47
+0,49
+4,30
+1,21
+0,70
+Gorontalo
+6,15
+7,12
+0,91
+2,87
+0,16
+2,11
+Sulawesi Barat
+5,02
+5,49
+0,90
+0,90
+0,09
+0,13
+Maluku
+4,24
+4,43
+0,81
+1,56
+0,01
+0,43
+Maluku Utara
+4,16
+4,54
+0,68
+4,84
+1,35
+0,35
+Papua Barat
+5,18
+6,10
+0,49
+4,11
+3,09
+0,09
+Papua
+6,19
+6,43
+0,56
+4,44
+2,44
+0,52
+INDONESIA
+6,30
+6,56
+0,69
+3,09
+4,98
+3,93
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.10
+Persentase Balas Jasa Pekerja Tetap Konstruksi terhadap Nilai Konstruksi yang
+Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Compensation of Construction Permanent Workers to Value of
+Construction Works Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+3,90
+3,84
+3,86
+3,83
+3,74
+3,73
+Sumatera Utara
+3,57
+3,31
+3,47
+3,43
+3,43
+3,55
+Sumatera Barat
+2,71
+2,53
+2,72
+2,61
+2,60
+2,54
+Riau
+2,34
+2,13
+2,18
+2,11
+2,11
+2,11
+Jambi
+3,05
+2,73
+3,18
+3,10
+3,13
+3,13
+Sumatera Selatan
+4,56
+4,15
+4,45
+4,39
+4,36
+4,30
+Bengkulu
+6,23
+5,72
+6,67
+6,59
+6,56
+6,45
+Lampung
+2,99
+2,67
+2,84
+2,76
+2,73
+2,68
+Kep. Bangka Belitung
+5,92
+5,59
+6,02
+5,99
+5,92
+5,93
+Kepulauan Riau
+12,47
+12,19
+12,46
+12,30
+11,93
+12,06
+D.K.I. Jakarta
+4,49
+4,09
+5,45
+5,33
+5,29
+5,17
+Jawa Barat
+5,53
+4,97
+5,12
+4,98
+4,86
+4,79
+Jawa Tengah
+2,14
+1,98
+2,11
+2,12
+2,10
+2,06
+D.I. Yogyakarta
+3,89
+3,48
+3,49
+3,39
+3,32
+3,34
+Jawa Timur
+3,50
+3,24
+3,44
+3,36
+3,27
+3,04
+Banten
+6,09
+5,29
+5,50
+5,34
+5,35
+5,18
+Bali
+4,08
+3,77
+4,18
+4,21
+4,28
+4,20
+Nusa Tenggara Barat
+1,82
+1,66
+1,89
+1,84
+1,84
+1,78
+Nusa Tenggara Timur
+2,50
+2,31
+2,56
+2,53
+2,50
+2,45
+Kalimantan Barat
+3,15
+2,82
+2,93
+2,96
+2,95
+2,92
+Kalimantan Tengah
+2,36
+2,37
+2,89
+2,86
+2,80
+2,73
+Kalimantan Selatan
+1,66
+1,48
+1,67
+1,62
+1,64
+1,67
+Kalimantan Timur
+3,94
+3,61
+3,81
+3,74
+3,69
+3,80
+Kalimantan Utara
+2,26
+2,10
+2,10
+2,01
+1,97
+1,97
+Sulawesi Utara
+3,09
+3,01
+2,99
+3,05
+2,99
+2,94
+Sulawesi Tengah
+3,48
+3,22
+3,67
+3,65
+3,58
+3,49
+Sulawesi Selatan
+2,47
+2,31
+2,39
+2,27
+2,24
+2,16
+Sulawesi Tenggara
+3,07
+2,84
+3,36
+3,29
+3,20
+3,13
+Gorontalo
+2,15
+2,00
+2,14
+2,10
+2,05
+2,04
+Sulawesi Barat
+1,64
+1,57
+1,69
+1,63
+1,59
+1,58
+Maluku
+3,42
+3,13
+3,25
+3,17
+3,14
+3,04
+Maluku Utara
+2,54
+2,35
+2,57
+2,53
+2,48
+2,47
+Papua Barat
+4,53
+4,41
+4,79
+4,63
+4,63
+4,65
+Papua
+7,04
+6,47
+7,45
+7,57
+7,59
+7,53
+INDONESIA
+4,11
+3,76
+4,41
+4,31
+4,28
+4,19
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.11
+Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi, 2018–2023
+Mandays of Construction Casual Workers by Province, 2018–2023
+PROVINSI/PROVINCE
+Aceh
+12.957.657
+13.829.665
+13.527.266
+13.697.836
+13.955.904
+14.080.747
+Sumatera Utara
+40.311.955
+43.669.960
+41.003.886
+41.936.878
+43.190.161
+44.485.866
+Sumatera Barat
+15.158.167
+16.363.445
+15.798.257
+17.069.241
+17.618.029
+18.266.267
+Riau
+43.802.112
+48.821.795
+47.475.161
+49.683.517
+50.100.648
+52.099.664
+Jambi
+14.738.279
+15.756.975
+14.842.545
+15.182.015
+15.590.360
+15.838.247
+Sumatera Selatan
+20.264.071
+22.512.343
+20.690.995
+21.522.828
+21.916.943
+22.749.787
+Bengkulu
+4.400.532
+4.738.506
+4.356.403
+4.462.383
+4.533.133
+4.745.737
+Lampung
+23.552.903
+26.078.656
+24.319.731
+25.070.737
+25.651.645
+26.180.069
+Kep. Bangka Belitung
+4.487.166
+4.819.596
+4.416.378
+4.470.229
+4.530.839
+4.716.150
+Kepulauan Riau
+8.029.159
+8.772.833
+8.258.217
+8.598.686
+8.735.367
+9.047.220
+D.K.I. Jakarta
+518.957.034
+580.609.858
+446.381.145
+458.017.746
+478.158.172
+501.874.817
+Jawa Barat
+143.559.796
+161.271.061
+153.923.657
+159.600.570
+164.878.944
+171.787.372
+Jawa Tengah
+126.918.426
+140.408.886
+129.463.812
+135.840.668
+137.817.084
+142.447.738
+D.I. Yogyakarta
+9.716.443
+10.596.550
+10.466.081
+10.629.625
+10.878.572
+11.308.276
+Jawa Timur
+217.717.927
+238.356.275
+228.826.943
+234.218.766
+240.904.102
+253.888.833
+Banten
+48.774.573
+54.571.981
+52.385.046
+54.487.478
+55.921.819
+57.068.217
+Bali
+20.179.471
+21.968.765
+19.873.450
+20.363.913
+20.592.046
+20.894.749
+Nusa Tenggara Barat
+20.325.177
+21.824.613
+19.135.438
+19.511.850
+19.762.472
+20.191.318
+Nusa Tenggara Timur
+10.998.277
+11.606.148
+10.106.335
+10.381.036
+10.601.370
+10.758.270
+Kalimantan Barat
+24.013.561
+26.838.959
+25.742.736
+26.738.382
+27.167.540
+28.145.571
+Kalimantan Tengah
+13.465.844
+14.424.608
+12.146.151
+12.724.354
+12.991.435
+13.399.366
+Kalimantan Selatan
+17.204.025
+19.312.780
+17.169.573
+17.767.743
+18.161.460
+18.535.586
+Kalimantan Timur
+45.553.697
+50.435.860
+49.295.320
+49.790.216
+50.508.940
+52.387.873
+Kalimantan Utara
+9.379.082
+10.451.208
+10.178.219
+10.313.386
+10.557.043
+10.430.358
+Sulawesi Utara
+12.143.856
+12.909.289
+12.635.281
+12.843.913
+13.099.009
+13.453.992
+Sulawesi Tengah
+14.249.651
+15.294.352
+13.053.355
+13.315.695
+13.723.538
+13.971.934
+Sulawesi Selatan
+31.143.610
+34.290.654
+33.634.265
+34.757.649
+35.263.776
+37.146.862
+Sulawesi Tenggara
+11.184.984
+12.106.680
+10.351.544
+10.587.037
+10.712.801
+10.973.122
+Gorontalo
+3.762.797
+4.059.666
+3.670.207
+3.749.258
+3.808.252
+3.918.691
+Sulawesi Barat
+5.900.120
+6.250.809
+5.567.167
+5.716.291
+5.822.883
+5.857.820
+Maluku
+4.964.708
+5.425.538
+4.743.564
+4.937.124
+5.054.697
+5.155.791
+Maluku Utara
+3.201.425
+3.423.691
+3.093.717
+3.175.092
+3.238.663
+3.289.186
+Papua Barat
+7.867.334
+8.698.867
+7.675.059
+7.818.346
+7.953.386
+7.794.318
+Papua
+12.863.716
+14.152.968
+12.298.140
+12.469.711
+12.635.826
+12.760.921
+INDONESIA
+1.521.747.535
+1.684.653.840
+1.486.505.044
+1.531.450.199
+1.576.036.859
+1.639.650.735
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.12
+Pertumbuhan Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (persen),
+2018–2023
+Growth of Mandays of Construction Casual Workers by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+8,28
+6,73
+2,19
+1,26
+1,88
+0,89
+Sumatera Utara
+10,57
+8,33
+6,11
+2,28
+2,99
+3,00
+Sumatera Barat
+8,69
+7,95
+3,45
+8,05
+3,22
+3,68
+Riau
+11,54
+11,46
+2,76
+4,65
+0,84
+3,99
+Jambi
+6,31
+6,91
+5,80
+2,29
+2,69
+1,59
+Sumatera Selatan
+10,58
+11,09
+8,09
+4,02
+1,83
+3,80
+Bengkulu
+7,44
+7,68
+8,06
+2,43
+1,59
+4,69
+Lampung
+8,91
+10,72
+6,74
+3,09
+2,32
+2,06
+Kep. Bangka Belitung
+7,22
+7,41
+8,37
+1,22
+1,36
+4,09
+Kepulauan Riau
+8,58
+9,26
+5,87
+4,12
+1,59
+3,57
+D.K.I. Jakarta
+11,73
+11,88
+23,12
+2,61
+4,40
+4,96
+Jawa Barat
+11,41
+12,34
+4,56
+3,69
+3,31
+4,19
+Jawa Tengah
+10,84
+10,63
+7,80
+4,93
+1,45
+3,36
+D.I. Yogyakarta
+8,19
+9,06
+1,23
+1,56
+2,34
+3,95
+Jawa Timur
+9,03
+9,48
+4,00
+2,36
+2,85
+5,39
+Banten
+10,92
+11,89
+4,01
+4,01
+2,63
+2,05
+Bali
+8,74
+8,87
+9,54
+2,47
+1,12
+1,47
+Nusa Tenggara Barat
+7,36
+7,38
+12,32
+1,97
+1,28
+2,17
+Nusa Tenggara Timur
+5,11
+5,53
+12,92
+2,72
+2,12
+1,48
+Kalimantan Barat
+10,41
+11,77
+4,08
+3,87
+1,61
+3,60
+Kalimantan Tengah
+1,61
+7,12
+15,80
+4,76
+2,10
+3,14
+Kalimantan Selatan
+10,96
+12,26
+11,10
+3,48
+2,22
+2,06
+Kalimantan Timur
+10,25
+10,72
+2,26
+1,00
+1,44
+3,72
+Kalimantan Utara
+12,86
+11,43
+2,61
+1,33
+2,36
+1,20
+Sulawesi Utara
+5,21
+6,30
+2,12
+1,65
+1,99
+2,71
+Sulawesi Tengah
+6,91
+7,33
+14,65
+2,01
+3,06
+1,81
+Sulawesi Selatan
+9,79
+10,10
+1,91
+3,34
+1,46
+5,34
+Sulawesi Tenggara
+7,50
+8,24
+14,50
+2,27
+1,19
+2,43
+Gorontalo
+7,12
+7,89
+9,59
+2,15
+1,57
+2,90
+Sulawesi Barat
+5,47
+5,94
+10,94
+2,68
+1,86
+0,60
+Maluku
+8,25
+9,28
+12,57
+4,08
+2,38
+2,00
+Maluku Utara
+5,94
+6,94
+9,64
+2,63
+2,00
+1,56
+Papua Barat
+10,59
+10,57
+11,77
+1,87
+1,73
+2,00
+Papua
+9,06
+10,02
+13,11
+1,40
+1,33
+0,99
+INDONESIA
+10,35
+10,71
+11,76
+3,02
+2,91
+4,04
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.13
+Struktur Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Mandays of Construction Casual Workers by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,85
+0,82
+0,91
+0,89
+0,89
+0,86
+Sumatera Utara
+2,65
+2,59
+2,76
+2,74
+2,74
+2,71
+Sumatera Barat
+1,00
+0,97
+1,06
+1,11
+1,12
+1,11
+Riau
+2,88
+2,90
+3,19
+3,24
+3,18
+3,18
+Jambi
+0,97
+0,94
+1,00
+0,99
+0,99
+0,97
+Sumatera Selatan
+1,33
+1,34
+1,39
+1,41
+1,39
+1,39
+Bengkulu
+0,29
+0,28
+0,29
+0,29
+0,29
+0,29
+Lampung
+1,55
+1,55
+1,64
+1,64
+1,63
+1,60
+Kep. Bangka Belitung
+0,29
+0,29
+0,30
+0,29
+0,29
+0,29
+Kepulauan Riau
+0,53
+0,52
+0,56
+0,56
+0,55
+0,55
+D.K.I. Jakarta
+34,10
+34,46
+30,03
+29,91
+30,34
+30,61
+Jawa Barat
+9,43
+9,57
+10,35
+10,42
+10,46
+10,48
+Jawa Tengah
+8,34
+8,33
+8,71
+8,87
+8,74
+8,69
+D.I. Yogyakarta
+0,64
+0,63
+0,70
+0,69
+0,69
+0,69
+Jawa Timur
+14,31
+14,15
+15,39
+15,29
+15,29
+15,48
+Banten
+3,21
+3,24
+3,52
+3,56
+3,55
+3,48
+Bali
+1,33
+1,30
+1,34
+1,33
+1,31
+1,27
+Nusa Tenggara Barat
+1,34
+1,30
+1,29
+1,27
+1,25
+1,23
+Nusa Tenggara Timur
+0,72
+0,69
+0,68
+0,68
+0,67
+0,66
+Kalimantan Barat
+1,58
+1,59
+1,73
+1,75
+1,72
+1,72
+Kalimantan Tengah
+0,88
+0,86
+0,82
+0,83
+0,82
+0,82
+Kalimantan Selatan
+1,13
+1,15
+1,16
+1,16
+1,15
+1,13
+Kalimantan Timur
+2,99
+2,99
+3,32
+3,25
+3,20
+3,20
+Kalimantan Utara
+0,62
+0,62
+0,68
+0,67
+0,67
+0,64
+Sulawesi Utara
+0,80
+0,77
+0,85
+0,84
+0,83
+0,82
+Sulawesi Tengah
+0,94
+0,91
+0,88
+0,87
+0,87
+0,85
+Sulawesi Selatan
+2,05
+2,04
+2,26
+2,27
+2,24
+2,27
+Sulawesi Tenggara
+0,74
+0,72
+0,70
+0,69
+0,68
+0,67
+Gorontalo
+0,25
+0,24
+0,25
+0,24
+0,24
+0,24
+Sulawesi Barat
+0,39
+0,37
+0,37
+0,37
+0,37
+0,36
+Maluku
+0,33
+0,32
+0,32
+0,32
+0,32
+0,31
+Maluku Utara
+0,21
+0,20
+0,21
+0,21
+0,21
+0,20
+Papua Barat
+0,52
+0,52
+0,52
+0,51
+0,50
+0,48
+Papua
+0,85
+0,84
+0,83
+0,81
+0,80
+0,78
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.14
+Upah Pekerja Harian Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Wages of Construction Casual Workers by Province (million rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+976.967
+1.106.373
+1.082.303
+1.111.412
+1.160.883
+1.176.685
+Sumatera Utara
+3.798.697
+4.366.996
+4.101.865
+4.302.217
+4.491.654
+4.628.772
+Sumatera Barat
+1.214.762
+1.366.348
+1.312.314
+1.521.461
+1.593.338
+1.687.149
+Riau
+4.183.726
+4.882.180
+4.750.839
+5.165.490
+5.313.171
+5.607.759
+Jambi
+1.348.225
+1.496.913
+1.410.739
+1.503.660
+1.583.853
+1.635.982
+Sumatera Selatan
+2.150.598
+2.476.358
+2.276.278
+2.424.390
+2.480.775
+2.694.852
+Bengkulu
+427.646
+473.851
+435.815
+458.330
+472.145
+509.217
+Lampung
+2.300.030
+2.607.866
+2.433.432
+2.562.786
+2.658.722
+2.793.916
+Kep. Bangka Belitung
+434.942
+481.960
+441.722
+451.641
+452.708
+471.358
+Kepulauan Riau
+875.873
+986.944
+929.941
+994.181
+1.018.357
+1.059.518
+D.K.I. Jakarta
+73.090.932
+87.091.479
+66.961.189
+70.808.049
+75.727.491
+81.725.071
+Jawa Barat
+13.691.326
+16.127.106
+15.397.445
+16.392.590
+17.291.785
+18.231.661
+Jawa Tengah
+9.793.040
+11.583.733
+10.688.014
+11.352.946
+11.690.512
+12.266.230
+D.I. Yogyakarta
+770.942
+870.242
+859.789
+916.702
+968.390
+1.006.972
+Jawa Timur
+17.633.128
+20.498.640
+19.689.185
+20.792.795
+22.075.825
+24.712.098
+Banten
+4.723.279
+5.457.198
+5.242.067
+5.757.775
+6.021.645
+6.258.017
+Bali
+1.725.695
+1.977.189
+1.789.028
+1.861.388
+1.915.515
+1.962.012
+Nusa Tenggara Barat
+1.494.086
+1.664.127
+1.460.225
+1.530.473
+1.567.389
+1.659.760
+Nusa Tenggara Timur
+981.112
+1.073.569
+935.139
+973.672
+984.569
+1.048.871
+Kalimantan Barat
+2.321.916
+2.683.896
+2.575.689
+2.695.474
+2.747.970
+2.889.262
+Kalimantan Tengah
+1.470.509
+1.662.436
+1.400.961
+1.512.917
+1.569.765
+1.671.986
+Kalimantan Selatan
+1.654.910
+1.931.278
+1.718.468
+1.852.640
+1.934.481
+2.009.690
+Kalimantan Timur
+4.331.455
+5.043.586
+4.933.574
+5.139.640
+5.366.997
+5.568.558
+Kalimantan Utara
+857.266
+1.045.121
+1.018.290
+1.054.577
+1.098.087
+1.086.558
+Sulawesi Utara
+1.382.822
+1.549.115
+1.516.916
+1.547.306
+1.617.755
+1.676.353
+Sulawesi Tengah
+1.261.993
+1.414.728
+1.208.362
+1.244.577
+1.308.331
+1.355.425
+Sulawesi Selatan
+2.986.311
+3.429.065
+3.366.420
+3.647.157
+3.725.755
+4.038.603
+Sulawesi Tenggara
+1.110.258
+1.240.935
+1.061.820
+1.131.339
+1.172.723
+1.218.536
+Gorontalo
+379.172
+426.265
+385.452
+402.548
+414.735
+429.242
+Sulawesi Barat
+481.399
+531.319
+473.666
+495.267
+513.497
+521.563
+Maluku
+519.216
+583.245
+510.384
+539.072
+558.165
+573.483
+Maluku Utara
+421.396
+479.317
+433.229
+461.469
+478.795
+491.078
+Papua Barat
+888.376
+1.043.864
+921.291
+969.279
+1.007.581
+990.761
+Papua
+1.677.260
+1.901.805
+1.653.706
+1.730.815
+1.793.129
+1.822.262
+INDONESIA
+163.359.265
+191.555.042
+165.375.557
+175.306.035
+184.776.493
+197.479.260
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.15
+Pertumbuhan Upah Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Wages of Construction Casual Workers by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+10,64
+13,25
+2,18
+2,69
+4,45
+1,36
+Sumatera Utara
+15,19
+14,96
+6,07
+4,88
+4,40
+3,05
+Sumatera Barat
+12,26
+12,48
+3,95
+15,94
+4,72
+5,89
+Riau
+16,90
+16,69
+2,69
+8,73
+2,86
+5,54
+Jambi
+11,70
+11,03
+5,76
+6,59
+5,33
+3,29
+Sumatera Selatan
+15,88
+15,15
+8,08
+6,51
+2,33
+8,63
+Bengkulu
+11,38
+10,80
+8,03
+5,17
+3,01
+7,85
+Lampung
+15,61
+13,38
+6,69
+5,32
+3,74
+5,08
+Kep. Bangka Belitung
+11,93
+10,81
+8,35
+2,25
+0,24
+4,12
+Kepulauan Riau
+13,38
+12,68
+5,78
+6,91
+2,43
+4,04
+D.K.I. Jakarta
+19,82
+19,15
+23,11
+5,74
+6,95
+7,92
+Jawa Barat
+18,38
+17,79
+4,52
+6,46
+5,49
+5,44
+Jawa Tengah
+17,89
+18,29
+7,73
+6,22
+2,97
+4,92
+D.I. Yogyakarta
+14,23
+12,88
+1,20
+6,62
+5,64
+3,98
+Jawa Timur
+16,89
+16,25
+3,95
+5,61
+6,17
+11,94
+Banten
+17,39
+15,54
+3,94
+9,84
+4,58
+3,93
+Bali
+14,93
+14,57
+9,52
+4,04
+2,91
+2,43
+Nusa Tenggara Barat
+11,61
+11,38
+12,25
+4,81
+2,41
+5,89
+Nusa Tenggara Timur
+10,01
+9,42
+12,89
+4,12
+1,12
+6,53
+Kalimantan Barat
+17,05
+15,59
+4,03
+4,65
+1,95
+5,14
+Kalimantan Tengah
+8,00
+13,05
+15,73
+7,99
+3,76
+6,51
+Kalimantan Selatan
+18,14
+16,70
+11,02
+7,81
+4,42
+3,89
+Kalimantan Timur
+17,00
+16,44
+2,18
+4,18
+4,42
+3,76
+Kalimantan Utara
+19,48
+21,91
+2,57
+3,56
+4,13
+1,05
+Sulawesi Utara
+13,00
+12,03
+2,08
+2,00
+4,55
+3,62
+Sulawesi Tengah
+12,51
+12,10
+14,59
+3,00
+5,12
+3,60
+Sulawesi Selatan
+15,21
+14,83
+1,83
+8,34
+2,16
+8,40
+Sulawesi Tenggara
+12,70
+11,77
+14,43
+6,55
+3,66
+3,91
+Gorontalo
+13,21
+12,42
+9,57
+4,44
+3,03
+3,50
+Sulawesi Barat
+11,03
+10,37
+10,85
+4,56
+3,68
+1,57
+Maluku
+13,29
+12,33
+12,49
+5,62
+3,54
+2,74
+Maluku Utara
+15,40
+13,75
+9,62
+6,52
+3,75
+2,57
+Papua Barat
+17,55
+17,50
+11,74
+5,21
+3,95
+1,67
+Papua
+14,40
+13,39
+13,05
+4,66
+3,60
+1,62
+INDONESIA
+17,75
+17,26
+13,67
+6,00
+5,40
+6,87
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.16
+Struktur Upah Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Wages of Construction Casual Workers by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,60
+0,58
+0,65
+0,63
+0,63
+0,60
+Sumatera Utara
+2,33
+2,28
+2,48
+2,45
+2,43
+2,34
+Sumatera Barat
+0,74
+0,71
+0,79
+0,87
+0,86
+0,85
+Riau
+2,56
+2,55
+2,87
+2,95
+2,88
+2,84
+Jambi
+0,83
+0,78
+0,85
+0,86
+0,86
+0,83
+Sumatera Selatan
+1,32
+1,29
+1,38
+1,38
+1,34
+1,36
+Bengkulu
+0,26
+0,25
+0,26
+0,26
+0,26
+0,26
+Lampung
+1,41
+1,36
+1,47
+1,46
+1,44
+1,41
+Kep. Bangka Belitung
+0,27
+0,25
+0,27
+0,26
+0,25
+0,24
+Kepulauan Riau
+0,54
+0,52
+0,56
+0,57
+0,55
+0,54
+D.K.I. Jakarta
+44,74
+45,47
+40,49
+40,39
+40,98
+41,38
+Jawa Barat
+8,38
+8,42
+9,31
+9,35
+9,36
+9,23
+Jawa Tengah
+5,99
+6,05
+6,46
+6,48
+6,33
+6,21
+D.I. Yogyakarta
+0,47
+0,45
+0,52
+0,52
+0,52
+0,51
+Jawa Timur
+10,79
+10,70
+11,91
+11,86
+11,95
+12,51
+Banten
+2,89
+2,85
+3,17
+3,28
+3,26
+3,17
+Bali
+1,06
+1,03
+1,08
+1,06
+1,04
+0,99
+Nusa Tenggara Barat
+0,91
+0,87
+0,88
+0,87
+0,85
+0,84
+Nusa Tenggara Timur
+0,60
+0,56
+0,57
+0,56
+0,53
+0,53
+Kalimantan Barat
+1,42
+1,40
+1,56
+1,54
+1,49
+1,46
+Kalimantan Tengah
+0,90
+0,87
+0,85
+0,86
+0,85
+0,85
+Kalimantan Selatan
+1,01
+1,01
+1,04
+1,06
+1,05
+1,02
+Kalimantan Timur
+2,65
+2,63
+2,98
+2,93
+2,90
+2,82
+Kalimantan Utara
+0,52
+0,55
+0,62
+0,60
+0,59
+0,55
+Sulawesi Utara
+0,85
+0,81
+0,92
+0,88
+0,88
+0,85
+Sulawesi Tengah
+0,77
+0,74
+0,73
+0,71
+0,71
+0,69
+Sulawesi Selatan
+1,83
+1,79
+2,04
+2,08
+2,02
+2,05
+Sulawesi Tenggara
+0,68
+0,65
+0,64
+0,65
+0,63
+0,62
+Gorontalo
+0,23
+0,22
+0,23
+0,23
+0,22
+0,22
+Sulawesi Barat
+0,29
+0,28
+0,29
+0,28
+0,28
+0,26
+Maluku
+0,32
+0,30
+0,31
+0,31
+0,30
+0,29
+Maluku Utara
+0,26
+0,25
+0,26
+0,26
+0,26
+0,25
+Papua Barat
+0,54
+0,54
+0,56
+0,55
+0,55
+0,50
+Papua
+1,03
+0,99
+1,00
+0,99
+0,97
+0,92
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.17
+Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (rupiah), 2018–2023
+Average Wages of Construction Casual Workers by Province (rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+75.397
+80.000
+80.009
+81.138
+83.182
+83.567
+Sumatera Utara
+94.233
+100.000
+100.036
+102.588
+103.997
+104.050
+Sumatera Barat
+80.139
+83.500
+83.067
+89.135
+90.438
+92.364
+Riau
+95.514
+100.000
+100.070
+103.968
+106.050
+107.635
+Jambi
+91.478
+95.000
+95.047
+99.042
+101.592
+103.293
+Sumatera Selatan
+106.129
+110.000
+110.013
+112.643
+113.190
+118.456
+Bengkulu
+97.181
+100.000
+100.040
+102.710
+104.154
+107.300
+Lampung
+97.654
+100.000
+100.060
+102.222
+103.647
+106.719
+Kep. Bangka Belitung
+96.930
+100.000
+100.019
+101.033
+99.917
+99.946
+Kepulauan Riau
+109.087
+112.500
+112.608
+115.620
+116.579
+117.110
+D.K.I. Jakarta
+140.842
+150.000
+150.009
+154.597
+158.373
+162.840
+Jawa Barat
+95.370
+100.000
+100.033
+102.710
+104.876
+106.129
+Jawa Tengah
+77.160
+82.500
+82.556
+83.575
+84.826
+86.110
+D.I. Yogyakarta
+79.344
+82.125
+82.150
+86.240
+89.018
+89.047
+Jawa Timur
+80.991
+86.000
+86.044
+88.775
+91.637
+97.334
+Banten
+96.839
+100.000
+100.068
+105.672
+107.680
+109.659
+Bali
+85.517
+90.000
+90.021
+91.406
+93.022
+93.900
+Nusa Tenggara Barat
+73.509
+76.250
+76.310
+78.438
+79.311
+82.202
+Nusa Tenggara Timur
+89.206
+92.500
+92.530
+93.793
+92.872
+97.494
+Kalimantan Barat
+96.692
+100.000
+100.055
+100.809
+101.149
+102.654
+Kalimantan Tengah
+109.203
+115.250
+115.342
+118.899
+120.831
+124.781
+Kalimantan Selatan
+96.193
+100.000
+100.088
+104.270
+106.516
+108.423
+Kalimantan Timur
+95.085
+100.000
+100.082
+103.226
+106.258
+106.295
+Kalimantan Utara
+91.402
+100.000
+100.046
+102.253
+104.015
+104.173
+Sulawesi Utara
+113.870
+120.000
+120.054
+120.470
+123.502
+124.599
+Sulawesi Tengah
+88.563
+92.500
+92.571
+93.467
+95.335
+97.011
+Sulawesi Selatan
+95.888
+100.000
+100.089
+104.931
+105.654
+108.720
+Sulawesi Tenggara
+99.263
+102.500
+102.576
+106.861
+109.469
+111.047
+Gorontalo
+100.769
+105.000
+105.022
+107.367
+108.904
+109.537
+Sulawesi Barat
+81.591
+85.000
+85.082
+86.641
+88.186
+89.037
+Maluku
+104.581
+107.500
+107.595
+109.187
+110.425
+111.231
+Maluku Utara
+131.628
+140.000
+140.035
+145.340
+147.837
+149.301
+Papua Barat
+112.920
+120.000
+120.037
+123.975
+126.686
+127.113
+Papua
+130.387
+134.375
+134.468
+138.802
+141.908
+142.800
+INDONESIA
+107.350
+113.706
+111.251
+114.471
+117.241
+120.440
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.18
+Pertumbuhan Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (persen),
+2018–2023
+Growth of Average Wages of Construction Casual Workers by Province (percent), 2018–
+PROVINSI/PROVINCE
+Aceh
+2,17
+6,11
+0,01
+1,41
+2,52
+0,46
+Sumatera Utara
+4,18
+6,12
+0,04
+2,55
+1,37
+0,05
+Sumatera Barat
+3,29
+4,19
+0,52
+7,30
+1,46
+2,13
+Riau
+4,81
+4,70
+0,07
+3,90
+2,00
+1,49
+Jambi
+5,07
+3,85
+0,05
+4,20
+2,57
+1,67
+Sumatera Selatan
+4,79
+3,65
+0,01
+2,39
+0,49
+4,65
+Bengkulu
+3,67
+2,90
+0,04
+2,67
+1,41
+3,02
+Lampung
+6,16
+2,40
+0,06
+2,16
+1,39
+2,96
+Kep. Bangka Belitung
+4,39
+3,17
+0,02
+1,01
+1,10
+0,03
+Kepulauan Riau
+4,42
+3,13
+0,10
+2,67
+0,83
+0,46
+D.K.I. Jakarta
+7,24
+6,50
+0,01
+3,06
+2,44
+2,82
+Jawa Barat
+6,25
+4,85
+0,03
+2,68
+2,11
+1,19
+Jawa Tengah
+6,36
+6,92
+0,07
+1,23
+1,50
+1,51
+D.I. Yogyakarta
+5,58
+3,50
+0,03
+4,98
+3,22
+0,03
+Jawa Timur
+7,21
+6,18
+0,05
+3,17
+3,22
+6,22
+Banten
+5,83
+3,26
+0,07
+5,60
+1,90
+1,84
+Bali
+5,70
+5,24
+0,02
+1,54
+1,77
+0,94
+Nusa Tenggara Barat
+3,96
+3,73
+0,08
+2,79
+1,11
+3,65
+Nusa Tenggara Timur
+4,66
+3,69
+0,03
+1,36
+0,98
+4,98
+Kalimantan Barat
+6,02
+3,42
+0,06
+0,75
+0,34
+1,49
+Kalimantan Tengah
+6,29
+5,54
+0,08
+3,08
+1,62
+3,27
+Kalimantan Selatan
+6,47
+3,96
+0,09
+4,18
+2,15
+1,79
+Kalimantan Timur
+6,12
+5,17
+0,08
+3,14
+2,94
+0,03
+Kalimantan Utara
+5,86
+9,41
+0,05
+2,21
+1,72
+0,15
+Sulawesi Utara
+7,41
+5,38
+0,05
+0,35
+2,52
+0,89
+Sulawesi Tengah
+5,24
+4,45
+0,08
+0,97
+2,00
+1,76
+Sulawesi Selatan
+4,94
+4,29
+0,09
+4,84
+0,69
+2,90
+Sulawesi Tenggara
+4,84
+3,26
+0,07
+4,18
+2,44
+1,44
+Gorontalo
+5,68
+4,20
+0,02
+2,23
+1,43
+0,58
+Sulawesi Barat
+5,27
+4,18
+0,10
+1,83
+1,78
+0,97
+Maluku
+4,65
+2,79
+0,09
+1,48
+1,13
+0,73
+Maluku Utara
+8,93
+6,36
+0,03
+3,79
+1,72
+0,99
+Papua Barat
+6,29
+6,27
+0,03
+3,28
+2,19
+0,34
+Papua
+4,89
+3,06
+0,07
+3,22
+2,24
+0,63
+INDONESIA
+6,70
+5,92
+2,16
+2,89
+2,42
+2,73
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.19
+Persentase Upah Pekerja Harian Konstruksi terhadap Nilai Konstruksi yang
+Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Wages of Construction Casual Workers to Value of Construction Works
+Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+11,49
+11,65
+11,72
+11,71
+11,69
+11,61
+Sumatera Utara
+9,42
+9,16
+9,20
+9,20
+9,11
+8,93
+Sumatera Barat
+11,38
+11,18
+11,75
+11,86
+11,81
+11,85
+Riau
+11,05
+10,77
+10,95
+10,95
+10,94
+10,89
+Jambi
+14,94
+13,88
+15,52
+15,56
+15,51
+15,42
+Sumatera Selatan
+11,36
+10,99
+11,03
+11,01
+10,93
+10,91
+Bengkulu
+13,77
+13,23
+14,49
+14,60
+14,50
+14,28
+Lampung
+15,37
+14,71
+14,94
+14,87
+14,86
+14,88
+Kep. Bangka Belitung
+13,15
+12,71
+12,71
+12,69
+12,36
+12,17
+Kepulauan Riau
+11,34
+11,41
+11,47
+11,53
+11,39
+11,25
+D.K.I. Jakarta
+11,84
+11,69
+12,40
+12,39
+12,22
+12,15
+Jawa Barat
+13,20
+12,74
+12,73
+12,64
+12,41
+12,12
+Jawa Tengah
+14,36
+14,27
+14,42
+14,14
+13,80
+13,66
+D.I. Yogyakarta
+13,31
+12,27
+12,35
+12,21
+12,13
+12,03
+Jawa Timur
+12,89
+12,56
+13,17
+13,14
+12,90
+12,92
+Banten
+14,90
+13,83
+14,07
+14,13
+14,02
+13,89
+Bali
+12,52
+12,14
+12,48
+12,47
+12,59
+12,57
+Nusa Tenggara Barat
+13,14
+12,65
+12,87
+12,92
+12,97
+12,88
+Nusa Tenggara Timur
+10,64
+10,12
+9,98
+9,86
+9,60
+9,57
+Kalimantan Barat
+14,84
+14,15
+14,49
+14,16
+13,97
+13,88
+Kalimantan Tengah
+10,64
+11,15
+11,82
+11,80
+11,69
+11,63
+Kalimantan Selatan
+11,23
+10,76
+11,13
+11,02
+11,08
+10,85
+Kalimantan Timur
+13,43
+12,97
+13,58
+13,65
+13,66
+13,44
+Kalimantan Utara
+15,17
+15,56
+15,43
+15,28
+15,21
+15,20
+Sulawesi Utara
+17,23
+17,11
+17,02
+16,60
+16,71
+16,59
+Sulawesi Tengah
+11,41
+10,95
+11,05
+10,97
+10,91
+10,74
+Sulawesi Selatan
+9,96
+9,78
+10,19
+10,29
+10,36
+10,42
+Sulawesi Tenggara
+11,87
+11,37
+11,70
+11,67
+11,62
+11,67
+Gorontalo
+10,95
+10,43
+10,53
+10,47
+10,51
+10,45
+Sulawesi Barat
+11,65
+11,53
+11,41
+11,26
+11,34
+11,36
+Maluku
+13,32
+12,72
+12,46
+12,39
+12,48
+12,32
+Maluku Utara
+12,39
+12,15
+12,28
+12,25
+12,24
+12,29
+Papua Barat
+11,99
+12,45
+12,45
+12,08
+12,10
+12,12
+Papua
+10,61
+10,10
+10,31
+10,47
+10,59
+10,55
+INDONESIA
+12,27
+12,02
+12,51
+12,48
+12,33
+12,25
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.20
+Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (juta rupiah), 2018–2023
+Compensation and Wages of Construction Workers by Province (million rupiahs), 2018–
+PROVINSI/PROVINCE
+Aceh
+1.309.010
+1.470.877
+1.439.198
+1.474.747
+1.532.198
+1.554.721
+Sumatera Utara
+5.239.032
+5.945.522
+5.648.479
+5.908.429
+6.182.572
+6.466.631
+Sumatera Barat
+1.504.359
+1.675.356
+1.616.380
+1.856.723
+1.944.507
+2.048.537
+Riau
+5.070.594
+5.849.067
+5.697.649
+6.158.084
+6.335.774
+6.694.377
+Jambi
+1.623.795
+1.791.318
+1.700.099
+1.803.438
+1.904.014
+1.967.989
+Sumatera Selatan
+3.014.696
+3.412.431
+3.194.302
+3.391.687
+3.471.515
+3.757.916
+Bengkulu
+621.009
+678.625
+636.342
+665.145
+685.660
+739.279
+Lampung
+2.747.442
+3.081.035
+2.896.561
+3.038.879
+3.147.652
+3.296.536
+Kep. Bangka Belitung
+630.561
+694.110
+650.761
+664.798
+669.514
+700.847
+Kepulauan Riau
+1.839.119
+2.041.153
+1.940.300
+2.055.146
+2.084.351
+2.195.654
+D.K.I. Jakarta
+100.822.366
+117.532.403
+96.410.430
+101.249.344
+108.519.912
+116.517.830
+Jawa Barat
+19.430.831
+22.422.552
+21.592.428
+22.845.370
+24.065.090
+25.434.394
+Jawa Tengah
+11.254.958
+13.187.565
+12.252.075
+13.055.444
+13.470.690
+14.114.589
+D.I. Yogyakarta
+996.469
+1.117.142
+1.102.773
+1.171.590
+1.233.620
+1.286.790
+Jawa Timur
+22.425.867
+25.778.391
+24.826.708
+26.104.218
+27.672.797
+30.529.591
+Banten
+6.654.116
+7.544.285
+7.289.835
+7.935.498
+8.317.877
+8.592.366
+Bali
+2.287.466
+2.590.728
+2.388.762
+2.489.228
+2.566.185
+2.618.278
+Nusa Tenggara Barat
+1.701.097
+1.883.127
+1.674.616
+1.748.852
+1.789.459
+1.889.669
+Nusa Tenggara Timur
+1.211.297
+1.318.232
+1.174.561
+1.223.125
+1.240.859
+1.316.925
+Kalimantan Barat
+2.815.281
+3.219.635
+3.097.149
+3.258.620
+3.328.221
+3.498.293
+Kalimantan Tengah
+1.796.215
+2.015.276
+1.743.688
+1.879.033
+1.945.022
+2.065.030
+Kalimantan Selatan
+1.899.641
+2.197.487
+1.975.929
+2.125.779
+2.220.023
+2.319.703
+Kalimantan Timur
+5.600.843
+6.449.006
+6.317.233
+6.547.058
+6.816.560
+7.143.073
+Kalimantan Utara
+984.966
+1.186.311
+1.156.563
+1.193.213
+1.240.613
+1.227.587
+Sulawesi Utara
+1.631.164
+1.821.493
+1.783.219
+1.831.441
+1.907.233
+1.973.415
+Sulawesi Tengah
+1.647.159
+1.830.933
+1.610.000
+1.658.162
+1.737.926
+1.796.147
+Sulawesi Selatan
+3.728.594
+4.237.683
+4.155.748
+4.452.430
+4.532.568
+4.877.043
+Sulawesi Tenggara
+1.397.836
+1.551.229
+1.367.295
+1.450.720
+1.496.072
+1.545.442
+Gorontalo
+453.600
+508.021
+463.779
+483.182
+495.530
+512.824
+Sulawesi Barat
+548.985
+603.836
+543.639
+566.941
+585.623
+594.115
+Maluku
+652.500
+726.934
+643.723
+677.065
+698.422
+715.044
+Maluku Utara
+507.748
+571.908
+523.855
+556.619
+576.004
+589.599
+Papua Barat
+1.224.209
+1.413.659
+1.275.529
+1.341.023
+1.393.007
+1.371.138
+Papua
+2.789.689
+3.119.582
+2.847.898
+2.981.800
+3.077.180
+3.122.107
+INDONESIA
+218.062.514
+251.466.912
+223.637.506
+235.842.831
+248.884.250
+265.073.479
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.21
+Pertumbuhan Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (persen),
+2018–2023
+Growth of Compensation and Wages of Construction Workers by Province (percent),
+2018–2023
+PROVINSI/PROVINCE
+Aceh
+9,97
+12,37
+2,15
+2,47
+3,90
+1,47
+Sumatera Utara
+12,83
+13,49
+5,00
+4,60
+4,64
+4,59
+Sumatera Barat
+11,19
+11,37
+3,52
+14,87
+4,73
+5,35
+Riau
+15,44
+15,35
+2,59
+8,08
+2,89
+5,66
+Jambi
+10,77
+10,32
+5,09
+6,08
+5,58
+3,36
+Sumatera Selatan
+13,45
+13,19
+6,39
+6,18
+2,35
+8,25
+Bengkulu
+9,30
+9,28
+6,23
+4,53
+3,08
+7,82
+Lampung
+13,68
+12,14
+5,99
+4,91
+3,58
+4,73
+Kep. Bangka Belitung
+10,70
+10,08
+6,25
+2,16
+0,71
+4,68
+Kepulauan Riau
+11,15
+10,99
+4,94
+5,92
+1,42
+5,34
+D.K.I. Jakarta
+16,70
+16,57
+17,97
+5,02
+7,18
+7,37
+Jawa Barat
+15,61
+15,40
+3,70
+5,80
+5,34
+5,69
+Jawa Tengah
+16,75
+17,17
+7,09
+6,56
+3,18
+4,78
+D.I. Yogyakarta
+12,85
+12,11
+1,29
+6,24
+5,29
+4,31
+Jawa Timur
+15,33
+14,95
+3,69
+5,15
+6,01
+10,32
+Banten
+13,85
+13,38
+3,37
+8,86
+4,82
+3,30
+Bali
+13,35
+13,26
+7,80
+4,21
+3,09
+2,03
+Nusa Tenggara Barat
+10,79
+10,70
+11,07
+4,43
+2,32
+5,60
+Nusa Tenggara Timur
+9,21
+8,83
+10,90
+4,13
+1,45
+6,13
+Kalimantan Barat
+15,31
+14,36
+3,80
+5,21
+2,14
+5,11
+Kalimantan Tengah
+7,97
+12,20
+13,48
+7,76
+3,51
+6,17
+Kalimantan Selatan
+16,72
+15,68
+10,08
+7,58
+4,43
+4,49
+Kalimantan Timur
+15,40
+15,14
+2,04
+3,64
+4,12
+4,79
+Kalimantan Utara
+18,44
+20,44
+2,51
+3,17
+3,97
+1,05
+Sulawesi Utara
+12,43
+11,67
+2,10
+2,70
+4,14
+3,47
+Sulawesi Tengah
+11,35
+11,16
+12,07
+2,99
+4,81
+3,35
+Sulawesi Selatan
+13,80
+13,65
+1,93
+7,14
+1,80
+7,60
+Sulawesi Tenggara
+11,61
+10,97
+11,86
+6,10
+3,13
+3,30
+Gorontalo
+12,51
+12,00
+8,71
+4,18
+2,56
+3,49
+Sulawesi Barat
+10,48
+9,99
+9,97
+4,29
+3,30
+1,45
+Maluku
+12,06
+11,41
+11,45
+5,18
+3,15
+2,38
+Maluku Utara
+13,77
+12,64
+8,40
+6,25
+3,48
+2,36
+Papua Barat
+15,07
+15,48
+9,77
+5,13
+3,88
+1,57
+Papua
+12,16
+11,83
+8,71
+4,70
+3,20
+1,46
+INDONESIA
+15,41
+15,32
+11,07
+5,46
+5,53
+6,50
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.22
+Struktur Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Compensation and Wages of Construction Workers by Province (percent),
+2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,60
+0,58
+0,64
+0,63
+0,62
+0,59
+Sumatera Utara
+2,40
+2,36
+2,53
+2,51
+2,48
+2,44
+Sumatera Barat
+0,69
+0,67
+0,72
+0,79
+0,78
+0,77
+Riau
+2,33
+2,33
+2,55
+2,61
+2,55
+2,53
+Jambi
+0,74
+0,71
+0,76
+0,76
+0,77
+0,74
+Sumatera Selatan
+1,38
+1,36
+1,43
+1,44
+1,39
+1,42
+Bengkulu
+0,28
+0,27
+0,28
+0,28
+0,28
+0,28
+Lampung
+1,26
+1,23
+1,30
+1,29
+1,26
+1,24
+Kep. Bangka Belitung
+0,29
+0,28
+0,29
+0,28
+0,27
+0,26
+Kepulauan Riau
+0,84
+0,81
+0,87
+0,87
+0,84
+0,83
+D.K.I. Jakarta
+46,24
+46,74
+43,11
+42,93
+43,60
+43,96
+Jawa Barat
+8,91
+8,92
+9,66
+9,69
+9,67
+9,60
+Jawa Tengah
+5,16
+5,24
+5,48
+5,54
+5,41
+5,32
+D.I. Yogyakarta
+0,46
+0,44
+0,49
+0,50
+0,50
+0,49
+Jawa Timur
+10,28
+10,25
+11,10
+11,07
+11,12
+11,52
+Banten
+3,05
+3,00
+3,26
+3,36
+3,34
+3,24
+Bali
+1,05
+1,03
+1,07
+1,06
+1,03
+0,99
+Nusa Tenggara Barat
+0,78
+0,75
+0,75
+0,74
+0,72
+0,71
+Nusa Tenggara Timur
+0,56
+0,52
+0,53
+0,52
+0,50
+0,50
+Kalimantan Barat
+1,29
+1,28
+1,38
+1,38
+1,34
+1,32
+Kalimantan Tengah
+0,82
+0,80
+0,78
+0,80
+0,78
+0,78
+Kalimantan Selatan
+0,87
+0,87
+0,88
+0,90
+0,89
+0,88
+Kalimantan Timur
+2,57
+2,56
+2,82
+2,78
+2,74
+2,69
+Kalimantan Utara
+0,45
+0,47
+0,52
+0,51
+0,50
+0,46
+Sulawesi Utara
+0,75
+0,72
+0,80
+0,78
+0,77
+0,74
+Sulawesi Tengah
+0,76
+0,73
+0,72
+0,70
+0,70
+0,68
+Sulawesi Selatan
+1,71
+1,69
+1,86
+1,89
+1,82
+1,84
+Sulawesi Tenggara
+0,64
+0,62
+0,61
+0,62
+0,60
+0,58
+Gorontalo
+0,21
+0,20
+0,21
+0,20
+0,20
+0,19
+Sulawesi Barat
+0,25
+0,24
+0,24
+0,24
+0,24
+0,22
+Maluku
+0,30
+0,29
+0,29
+0,29
+0,28
+0,27
+Maluku Utara
+0,23
+0,23
+0,23
+0,24
+0,23
+0,22
+Papua Barat
+0,56
+0,56
+0,57
+0,57
+0,56
+0,52
+Papua
+1,28
+1,24
+1,27
+1,26
+1,24
+1,18
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.23
+Persentase Balas Jasa dan Upah Pekerja Konstruksi terhadap Nilai Konstruksi yang
+Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Compensation and Wages of Construction Workers to Value of
+Construction Works Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+15,39
+15,49
+15,58
+15,54
+15,43
+15,34
+Sumatera Utara
+12,99
+12,47
+12,67
+12,63
+12,54
+12,48
+Sumatera Barat
+14,10
+13,71
+14,47
+14,47
+14,42
+14,39
+Riau
+13,39
+12,90
+13,13
+13,06
+13,05
+13,00
+Jambi
+18,00
+16,61
+18,70
+18,66
+18,64
+18,55
+Sumatera Selatan
+15,92
+15,14
+15,48
+15,40
+15,29
+15,21
+Bengkulu
+20,00
+18,94
+21,16
+21,19
+21,05
+20,74
+Lampung
+18,36
+17,38
+17,78
+17,63
+17,59
+17,56
+Kep. Bangka Belitung
+19,07
+18,30
+18,73
+18,69
+18,28
+18,10
+Kepulauan Riau
+23,81
+23,60
+23,93
+23,83
+23,32
+23,31
+D.K.I. Jakarta
+16,33
+15,78
+17,85
+17,72
+17,51
+17,33
+Jawa Barat
+18,74
+17,71
+17,86
+17,62
+17,27
+16,91
+Jawa Tengah
+16,50
+16,25
+16,53
+16,26
+15,91
+15,72
+D.I. Yogyakarta
+17,20
+15,75
+15,83
+15,60
+15,45
+15,38
+Jawa Timur
+16,39
+15,80
+16,60
+16,49
+16,17
+15,96
+Banten
+20,99
+19,12
+19,57
+19,47
+19,36
+19,07
+Bali
+16,60
+15,91
+16,67
+16,68
+16,87
+16,77
+Nusa Tenggara Barat
+14,96
+14,31
+14,76
+14,77
+14,81
+14,67
+Nusa Tenggara Timur
+13,14
+12,43
+12,54
+12,38
+12,09
+12,02
+Kalimantan Barat
+18,00
+16,97
+17,42
+17,11
+16,92
+16,80
+Kalimantan Tengah
+12,99
+13,52
+14,71
+14,65
+14,49
+14,36
+Kalimantan Selatan
+12,89
+12,25
+12,79
+12,64
+12,72
+12,53
+Kalimantan Timur
+17,36
+16,59
+17,39
+17,39
+17,35
+17,24
+Kalimantan Utara
+17,43
+17,67
+17,52
+17,29
+17,18
+17,17
+Sulawesi Utara
+20,32
+20,12
+20,01
+19,65
+19,70
+19,53
+Sulawesi Tengah
+14,89
+14,17
+14,73
+14,62
+14,49
+14,24
+Sulawesi Selatan
+12,43
+12,08
+12,58
+12,56
+12,60
+12,58
+Sulawesi Tenggara
+14,94
+14,21
+15,06
+14,97
+14,82
+14,81
+Gorontalo
+13,10
+12,43
+12,68
+12,57
+12,55
+12,49
+Sulawesi Barat
+13,28
+13,11
+13,10
+12,89
+12,93
+12,94
+Maluku
+16,74
+15,85
+15,71
+15,57
+15,62
+15,36
+Maluku Utara
+14,92
+14,50
+14,85
+14,77
+14,72
+14,75
+Papua Barat
+16,53
+16,87
+17,23
+16,71
+16,73
+16,77
+Papua
+17,64
+16,57
+17,76
+18,04
+18,18
+18,08
+INDONESIA
+16,38
+15,77
+16,92
+16,78
+16,61
+16,44
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.24
+Nilai Konstruksi yang Diselesaikan Menurut Provinsi (juta rupiah), 2018–2023
+Value of Construction Works Completed by Province (million rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+8.503.463
+9.498.387
+9.236.352
+9.490.559
+9.933.178
+10.134.822
+Sumatera Utara
+40.334.986
+47.672.655
+44.569.152
+46.767.004
+49.310.747
+51.835.457
+Sumatera Barat
+10.672.955
+12.221.230
+11.172.686
+12.830.868
+13.487.965
+14.232.501
+Riau
+37.854.792
+45.345.017
+43.405.805
+47.153.033
+48.547.209
+51.479.461
+Jambi
+9.021.962
+10.784.250
+9.091.453
+9.664.885
+10.213.609
+10.610.919
+Sumatera Selatan
+18.937.206
+22.538.323
+20.634.286
+22.028.123
+22.701.586
+24.703.866
+Bengkulu
+3.105.103
+3.582.636
+3.006.716
+3.138.524
+3.256.580
+3.565.304
+Lampung
+14.965.925
+17.723.822
+16.291.590
+17.233.227
+17.894.714
+18.773.344
+Kep. Bangka Belitung
+3.306.336
+3.792.429
+3.474.596
+3.557.642
+3.663.406
+3.872.953
+Kepulauan Riau
+7.725.512
+8.649.029
+8.108.221
+8.624.679
+8.937.755
+9.420.394
+D.K.I. Jakarta
+617.528.556
+745.001.927
+540.112.200
+571.542.026
+619.849.668
+672.412.920
+Jawa Barat
+103.711.357
+126.635.398
+120.911.206
+129.678.385
+139.328.188
+150.376.913
+Jawa Tengah
+68.202.704
+81.176.593
+74.115.931
+80.292.594
+84.684.599
+89.791.080
+D.I. Yogyakarta
+5.792.953
+7.091.638
+6.964.524
+7.509.053
+7.984.701
+8.368.765
+Jawa Timur
+136.822.653
+163.165.268
+149.533.406
+158.289.804
+171.143.724
+191.304.455
+Banten
+31.701.382
+39.447.645
+37.253.567
+40.750.925
+42.955.516
+45.056.041
+Bali
+13.783.711
+16.285.219
+14.333.158
+14.923.178
+15.213.657
+15.609.212
+Nusa Tenggara Barat
+11.370.451
+13.158.361
+11.343.359
+11.844.184
+12.083.612
+12.882.339
+Nusa Tenggara Timur
+9.219.159
+10.605.205
+9.369.172
+9.876.844
+10.260.066
+10.959.803
+Kalimantan Barat
+15.643.476
+18.972.592
+17.775.798
+19.041.828
+19.672.113
+20.822.932
+Kalimantan Tengah
+13.822.750
+14.905.071
+11.850.225
+12.823.135
+13.423.065
+14.377.445
+Kalimantan Selatan
+14.739.316
+17.941.699
+15.444.941
+16.816.590
+17.454.956
+18.516.217
+Kalimantan Timur
+32.258.594
+38.881.638
+36.317.396
+37.658.552
+39.295.174
+41.436.761
+Kalimantan Utara
+5.650.654
+6.715.104
+6.600.103
+6.902.626
+7.219.550
+7.148.076
+Sulawesi Utara
+8.027.973
+9.054.987
+8.913.411
+9.318.562
+9.680.717
+10.102.796
+Sulawesi Tengah
+11.065.214
+12.919.453
+10.932.976
+11.345.135
+11.990.706
+12.616.621
+Sulawesi Selatan
+29.991.516
+35.078.916
+33.046.781
+35.451.267
+35.966.974
+38.765.205
+Sulawesi Tenggara
+9.355.014
+10.914.666
+9.078.744
+9.694.017
+10.094.958
+10.437.177
+Gorontalo
+3.462.727
+4.088.296
+3.658.846
+3.844.751
+3.947.533
+4.105.829
+Sulawesi Barat
+4.132.700
+4.606.474
+4.149.759
+4.397.222
+4.530.111
+4.593.080
+Maluku
+3.898.919
+4.585.959
+4.097.091
+4.349.910
+4.472.078
+4.654.092
+Maluku Utara
+3.402.182
+3.944.263
+3.526.814
+3.767.943
+3.912.949
+3.996.295
+Papua Barat
+7.406.982
+8.381.560
+7.402.363
+8.026.732
+8.324.618
+8.173.942
+Papua
+15.811.617
+18.830.495
+16.035.922
+16.532.950
+16.928.348
+17.266.915
+INDONESIA
+1.331.230.800
+1.594.196.205
+1.321.758.550
+1.405.166.757
+1.498.364.330
+1.612.403.932
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.25
+Pertumbuhan Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–
+Growth of Value of Construction Works Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+7,56
+11,70
+2,76
+2,75
+4,66
+2,03
+Sumatera Utara
+10,36
+18,19
+6,51
+4,93
+5,44
+5,12
+Sumatera Barat
+9,65
+14,51
+8,58
+14,84
+5,12
+5,52
+Riau
+14,56
+19,79
+4,28
+8,63
+2,96
+6,04
+Jambi
+10,76
+19,53
+15,70
+6,31
+5,68
+3,89
+Sumatera Selatan
+15,20
+19,02
+8,45
+6,75
+3,06
+8,82
+Bengkulu
+11,16
+15,38
+16,08
+4,38
+3,76
+9,48
+Lampung
+14,15
+18,43
+8,08
+5,78
+3,84
+4,91
+Kep. Bangka Belitung
+11,55
+14,70
+8,38
+2,39
+2,97
+5,72
+Kepulauan Riau
+13,83
+11,95
+6,25
+6,37
+3,63
+5,40
+D.K.I. Jakarta
+17,05
+20,64
+27,50
+5,82
+8,45
+8,48
+Jawa Barat
+19,58
+22,10
+4,52
+7,25
+7,44
+7,93
+Jawa Tengah
+16,82
+19,02
+8,70
+8,33
+5,47
+6,03
+D.I. Yogyakarta
+14,88
+22,42
+1,79
+7,82
+6,33
+4,81
+Jawa Timur
+17,38
+19,25
+8,35
+5,86
+8,12
+11,78
+Banten
+17,68
+24,44
+5,56
+9,39
+5,41
+4,89
+Bali
+14,85
+18,15
+11,99
+4,12
+1,95
+2,60
+Nusa Tenggara Barat
+11,57
+15,72
+13,79
+4,42
+2,02
+6,61
+Nusa Tenggara Timur
+10,87
+15,03
+11,65
+5,42
+3,88
+6,82
+Kalimantan Barat
+16,38
+21,28
+6,31
+7,12
+3,31
+5,85
+Kalimantan Tengah
+1,83
+7,83
+20,50
+8,21
+4,68
+7,11
+Kalimantan Selatan
+17,32
+21,73
+13,92
+8,88
+3,80
+6,08
+Kalimantan Timur
+16,95
+20,53
+6,59
+3,69
+4,35
+5,45
+Kalimantan Utara
+15,93
+18,84
+1,71
+4,58
+4,59
+0,99
+Sulawesi Utara
+13,94
+12,79
+1,56
+4,55
+3,89
+4,36
+Sulawesi Tengah
+14,31
+16,76
+15,38
+3,77
+5,69
+5,22
+Sulawesi Selatan
+15,57
+16,96
+5,79
+7,28
+1,45
+7,78
+Sulawesi Tenggara
+13,21
+16,67
+16,82
+6,78
+4,14
+3,39
+Gorontalo
+13,44
+18,07
+10,50
+5,08
+2,67
+4,01
+Sulawesi Barat
+12,00
+11,46
+9,91
+5,96
+3,02
+1,39
+Maluku
+13,33
+17,62
+10,66
+6,17
+2,81
+4,07
+Maluku Utara
+13,42
+15,93
+10,58
+6,84
+3,85
+2,13
+Papua Barat
+17,12
+13,16
+11,68
+8,43
+3,71
+1,81
+Papua
+15,18
+19,09
+14,84
+3,10
+2,39
+2,00
+INDONESIA
+16,22
+19,75
+17,09
+6,31
+6,63
+7,61
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.26
+Struktur Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023
+Structure of Value of Construction Works Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,64
+0,60
+0,70
+0,68
+0,66
+0,63
+Sumatera Utara
+3,03
+2,99
+3,37
+3,33
+3,29
+3,21
+Sumatera Barat
+0,80
+0,77
+0,85
+0,91
+0,90
+0,88
+Riau
+2,84
+2,84
+3,28
+3,36
+3,24
+3,19
+Jambi
+0,68
+0,68
+0,69
+0,69
+0,68
+0,66
+Sumatera Selatan
+1,42
+1,41
+1,56
+1,57
+1,52
+1,53
+Bengkulu
+0,23
+0,22
+0,23
+0,22
+0,22
+0,22
+Lampung
+1,12
+1,11
+1,23
+1,23
+1,19
+1,16
+Kep. Bangka Belitung
+0,25
+0,24
+0,26
+0,25
+0,24
+0,24
+Kepulauan Riau
+0,58
+0,54
+0,61
+0,61
+0,60
+0,58
+D.K.I. Jakarta
+46,39
+46,73
+40,86
+40,67
+41,37
+41,70
+Jawa Barat
+7,79
+7,94
+9,15
+9,23
+9,30
+9,33
+Jawa Tengah
+5,12
+5,09
+5,61
+5,71
+5,65
+5,57
+D.I. Yogyakarta
+0,44
+0,44
+0,53
+0,53
+0,53
+0,52
+Jawa Timur
+10,28
+10,23
+11,31
+11,26
+11,42
+11,86
+Banten
+2,38
+2,47
+2,82
+2,90
+2,87
+2,79
+Bali
+1,04
+1,02
+1,08
+1,06
+1,02
+0,97
+Nusa Tenggara Barat
+0,85
+0,83
+0,86
+0,84
+0,81
+0,80
+Nusa Tenggara Timur
+0,69
+0,67
+0,71
+0,70
+0,68
+0,68
+Kalimantan Barat
+1,18
+1,19
+1,34
+1,36
+1,31
+1,29
+Kalimantan Tengah
+1,04
+0,93
+0,90
+0,91
+0,90
+0,89
+Kalimantan Selatan
+1,11
+1,13
+1,17
+1,20
+1,16
+1,15
+Kalimantan Timur
+2,42
+2,44
+2,75
+2,68
+2,62
+2,57
+Kalimantan Utara
+0,42
+0,42
+0,50
+0,49
+0,48
+0,44
+Sulawesi Utara
+0,60
+0,57
+0,67
+0,66
+0,65
+0,63
+Sulawesi Tengah
+0,83
+0,81
+0,83
+0,81
+0,80
+0,78
+Sulawesi Selatan
+2,25
+2,20
+2,50
+2,52
+2,40
+2,40
+Sulawesi Tenggara
+0,70
+0,68
+0,69
+0,69
+0,67
+0,65
+Gorontalo
+0,26
+0,26
+0,28
+0,27
+0,26
+0,25
+Sulawesi Barat
+0,31
+0,29
+0,31
+0,31
+0,30
+0,28
+Maluku
+0,29
+0,29
+0,31
+0,31
+0,30
+0,29
+Maluku Utara
+0,26
+0,25
+0,27
+0,27
+0,26
+0,25
+Papua Barat
+0,56
+0,53
+0,56
+0,57
+0,56
+0,51
+Papua
+1,19
+1,18
+1,21
+1,18
+1,13
+1,07
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.27
+Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi Menurut
+Provinsi (juta rupiah), 2018–2023
+Cost of Construction Material Used by Province (million rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+4.263.821
+4.785.851
+4.686.868
+4.846.381
+5.076.319
+5.137.175
+Sumatera Utara
+23.140.893
+27.851.591
+26.186.853
+27.397.857
+28.972.803
+30.260.418
+Sumatera Barat
+5.101.196
+6.007.303
+5.613.191
+6.134.264
+6.589.170
+6.941.229
+Riau
+19.753.640
+24.486.688
+23.338.397
+25.898.580
+26.795.892
+27.806.269
+Jambi
+4.687.426
+5.698.252
+4.869.487
+5.134.954
+5.497.524
+5.630.387
+Sumatera Selatan
+9.544.275
+11.763.580
+10.507.465
+11.215.465
+11.701.283
+12.647.087
+Bengkulu
+1.501.746
+1.823.521
+1.547.079
+1.600.647
+1.691.747
+1.808.788
+Lampung
+7.913.701
+9.475.406
+8.658.239
+9.321.291
+9.779.573
+10.070.949
+Kep. Bangka Belitung
+1.648.927
+1.921.826
+1.793.274
+1.816.888
+1.890.721
+1.973.960
+Kepulauan Riau
+3.809.614
+4.267.730
+4.061.745
+4.214.087
+4.419.158
+4.654.697
+D.K.I. Jakarta
+314.041.044
+388.865.512
+282.656.120
+302.610.252
+320.222.169
+349.643.251
+Jawa Barat
+53.117.140
+66.739.247
+63.005.521
+68.104.773
+73.172.677
+78.515.863
+Jawa Tengah
+36.002.709
+43.871.115
+40.106.356
+45.561.541
+47.962.634
+49.264.060
+D.I. Yogyakarta
+3.357.168
+4.034.961
+3.946.447
+4.353.407
+4.652.486
+4.816.358
+Jawa Timur
+75.004.503
+88.228.429
+79.091.507
+91.360.956
+96.714.708
+105.604.787
+Banten
+14.842.651
+18.357.230
+17.123.092
+20.320.057
+21.250.716
+22.378.319
+Bali
+6.867.466
+8.092.932
+7.124.390
+7.577.523
+8.032.018
+8.324.393
+Nusa Tenggara Barat
+6.427.407
+7.469.772
+6.509.767
+6.600.764
+6.765.321
+7.275.983
+Nusa Tenggara Timur
+4.637.356
+5.332.466
+4.793.731
+5.052.993
+5.249.050
+5.569.067
+Kalimantan Barat
+7.825.736
+9.607.190
+8.689.968
+10.087.351
+10.452.513
+10.647.083
+Kalimantan Tengah
+6.369.620
+7.745.673
+6.282.640
+6.534.201
+6.975.967
+7.303.477
+Kalimantan Selatan
+8.267.217
+10.119.611
+8.426.516
+9.493.131
+9.851.971
+10.367.007
+Kalimantan Timur
+15.953.073
+19.642.263
+17.831.219
+19.518.200
+21.091.214
+21.097.386
+Kalimantan Utara
+2.534.906
+3.046.700
+2.906.773
+3.352.344
+3.505.881
+3.308.126
+Sulawesi Utara
+3.998.343
+4.550.047
+4.417.170
+5.017.754
+5.165.276
+5.189.076
+Sulawesi Tengah
+5.251.004
+6.193.402
+5.282.893
+5.436.027
+5.896.932
+6.076.382
+Sulawesi Selatan
+16.120.393
+19.353.323
+17.341.861
+19.648.599
+20.422.754
+21.212.597
+Sulawesi Tenggara
+4.604.471
+5.528.777
+4.661.163
+4.966.245
+5.313.338
+5.324.608
+Gorontalo
+1.698.782
+2.058.003
+1.865.640
+1.887.832
+1.936.538
+2.040.977
+Sulawesi Barat
+2.087.016
+2.331.341
+2.136.557
+2.315.406
+2.371.207
+2.480.263
+Maluku
+1.980.487
+2.346.511
+2.106.114
+2.249.570
+2.374.696
+2.439.113
+Maluku Utara
+1.687.646
+1.979.475
+1.724.551
+1.884.938
+1.994.878
+1.995.721
+Papua Barat
+3.282.156
+3.742.112
+3.388.860
+3.544.592
+3.715.307
+3.654.236
+Papua
+7.910.003
+9.522.281
+7.926.765
+8.231.438
+8.560.590
+8.646.714
+INDONESIA
+685.233.536
+836.840.121
+690.608.219
+753.290.308
+796.065.031
+850.105.806
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.28
+Pertumbuhan Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Growth of Cost of Construction Material Used by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+9,33
+12,24
+2,07
+3,40
+4,74
+1,20
+Sumatera Utara
+9,49
+20,36
+5,98
+4,62
+5,75
+4,44
+Sumatera Barat
+8,69
+17,76
+6,56
+9,28
+7,42
+5,34
+Riau
+10,48
+23,96
+4,69
+10,97
+3,46
+3,77
+Jambi
+8,67
+21,56
+14,54
+5,45
+7,06
+2,42
+Sumatera Selatan
+12,08
+23,25
+10,68
+6,74
+4,33
+8,08
+Bengkulu
+7,78
+21,43
+15,16
+3,46
+5,69
+6,92
+Lampung
+9,06
+19,73
+8,62
+7,66
+4,92
+2,98
+Kep. Bangka Belitung
+9,12
+16,55
+6,69
+1,32
+4,06
+4,40
+Kepulauan Riau
+13,79
+12,03
+4,83
+3,75
+4,87
+5,33
+D.K.I. Jakarta
+16,38
+23,83
+27,31
+7,06
+5,82
+9,19
+Jawa Barat
+16,93
+25,65
+5,59
+8,09
+7,44
+7,30
+Jawa Tengah
+15,18
+21,86
+8,58
+13,60
+5,27
+2,71
+D.I. Yogyakarta
+14,93
+20,19
+2,19
+10,31
+6,87
+3,52
+Jawa Timur
+15,89
+17,63
+10,36
+15,51
+5,86
+9,19
+Banten
+15,08
+23,68
+6,72
+18,67
+4,58
+5,31
+Bali
+13,83
+17,84
+11,97
+6,36
+6,00
+3,64
+Nusa Tenggara Barat
+9,24
+16,22
+12,85
+1,40
+2,49
+7,55
+Nusa Tenggara Timur
+9,33
+14,99
+10,10
+5,41
+3,88
+6,10
+Kalimantan Barat
+15,16
+22,76
+9,55
+16,08
+3,62
+1,86
+Kalimantan Tengah
+12,42
+21,60
+18,89
+4,00
+6,76
+4,69
+Kalimantan Selatan
+16,04
+22,41
+16,73
+12,66
+3,78
+5,23
+Kalimantan Timur
+15,86
+23,13
+9,22
+9,46
+8,06
+0,03
+Kalimantan Utara
+13,42
+20,19
+4,59
+15,33
+4,58
+5,64
+Sulawesi Utara
+11,23
+13,80
+2,92
+13,60
+2,94
+0,46
+Sulawesi Tengah
+12,94
+17,95
+14,70
+2,90
+8,48
+3,04
+Sulawesi Selatan
+13,78
+20,05
+10,39
+13,30
+3,94
+3,87
+Sulawesi Tenggara
+12,87
+20,07
+15,69
+6,55
+6,99
+0,21
+Gorontalo
+13,22
+21,15
+9,35
+1,19
+2,58
+5,39
+Sulawesi Barat
+9,79
+11,71
+8,36
+8,37
+2,41
+4,60
+Maluku
+10,94
+18,48
+10,24
+6,81
+5,56
+2,71
+Maluku Utara
+9,38
+17,29
+12,88
+9,30
+5,83
+0,04
+Papua Barat
+17,46
+14,01
+9,44
+4,60
+4,82
+1,64
+Papua
+17,01
+20,38
+16,76
+3,84
+4,00
+1,01
+INDONESIA
+15,06
+22,12
+17,47
+9,08
+5,68
+6,79
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.29
+Struktur Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi
+Menurut Provinsi (persen), 2018–2023
+Structure of Cost of Construction Material Used by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,62
+0,57
+0,68
+0,64
+0,64
+0,60
+Sumatera Utara
+3,38
+3,33
+3,79
+3,64
+3,64
+3,56
+Sumatera Barat
+0,74
+0,72
+0,81
+0,81
+0,83
+0,82
+Riau
+2,88
+2,93
+3,38
+3,44
+3,37
+3,27
+Jambi
+0,68
+0,68
+0,71
+0,68
+0,69
+0,66
+Sumatera Selatan
+1,39
+1,41
+1,52
+1,49
+1,47
+1,49
+Bengkulu
+0,22
+0,22
+0,22
+0,21
+0,21
+0,21
+Lampung
+1,15
+1,13
+1,25
+1,24
+1,23
+1,18
+Kep. Bangka Belitung
+0,24
+0,23
+0,26
+0,24
+0,24
+0,23
+Kepulauan Riau
+0,56
+0,51
+0,59
+0,56
+0,56
+0,55
+D.K.I. Jakarta
+45,83
+46,47
+40,93
+40,17
+40,23
+41,13
+Jawa Barat
+7,75
+7,98
+9,12
+9,04
+9,19
+9,24
+Jawa Tengah
+5,25
+5,24
+5,81
+6,05
+6,02
+5,80
+D.I. Yogyakarta
+0,49
+0,48
+0,57
+0,58
+0,58
+0,57
+Jawa Timur
+10,95
+10,54
+11,45
+12,13
+12,15
+12,42
+Banten
+2,17
+2,19
+2,48
+2,70
+2,67
+2,63
+Bali
+1,00
+0,97
+1,03
+1,01
+1,01
+0,98
+Nusa Tenggara Barat
+0,94
+0,89
+0,94
+0,88
+0,85
+0,86
+Nusa Tenggara Timur
+0,68
+0,64
+0,69
+0,67
+0,66
+0,66
+Kalimantan Barat
+1,14
+1,15
+1,26
+1,34
+1,31
+1,25
+Kalimantan Tengah
+0,93
+0,93
+0,91
+0,87
+0,88
+0,86
+Kalimantan Selatan
+1,21
+1,21
+1,22
+1,26
+1,24
+1,22
+Kalimantan Timur
+2,33
+2,35
+2,58
+2,59
+2,65
+2,48
+Kalimantan Utara
+0,37
+0,36
+0,42
+0,45
+0,44
+0,39
+Sulawesi Utara
+0,58
+0,54
+0,64
+0,67
+0,65
+0,61
+Sulawesi Tengah
+0,77
+0,74
+0,76
+0,72
+0,74
+0,71
+Sulawesi Selatan
+2,35
+2,31
+2,51
+2,61
+2,57
+2,50
+Sulawesi Tenggara
+0,67
+0,66
+0,67
+0,66
+0,67
+0,63
+Gorontalo
+0,25
+0,25
+0,27
+0,25
+0,24
+0,24
+Sulawesi Barat
+0,30
+0,28
+0,31
+0,31
+0,30
+0,29
+Maluku
+0,29
+0,28
+0,30
+0,30
+0,30
+0,29
+Maluku Utara
+0,25
+0,24
+0,25
+0,25
+0,25
+0,23
+Papua Barat
+0,48
+0,45
+0,49
+0,47
+0,47
+0,43
+Papua
+1,15
+1,14
+1,15
+1,09
+1,08
+1,02
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.30
+Persentase Pengeluaran Bahan Bangunan/Material yang Digunakan Konstruksi terhadap Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023
+Percentage of Cost of Construction Material Used to Value of Construction Works
+Completed by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+50,14
+50,39
+50,74
+51,07
+51,10
+50,69
+Sumatera Utara
+57,37
+58,42
+58,76
+58,58
+58,76
+58,38
+Sumatera Barat
+47,80
+49,15
+50,24
+47,81
+48,85
+48,77
+Riau
+52,18
+54,00
+53,77
+54,92
+55,20
+54,01
+Jambi
+51,96
+52,84
+53,56
+53,13
+53,13
+53,13
+Sumatera Selatan
+50,40
+52,19
+50,92
+50,91
+51,54
+51,19
+Bengkulu
+48,36
+50,90
+51,45
+51,00
+51,95
+50,73
+Lampung
+52,88
+53,46
+53,15
+54,09
+54,65
+53,64
+Kep. Bangka Belitung
+49,87
+50,68
+51,61
+51,07
+51,61
+50,97
+Kepulauan Riau
+49,31
+49,34
+50,09
+48,86
+49,44
+49,41
+D.K.I. Jakarta
+50,85
+52,20
+52,33
+52,95
+51,66
+52,00
+Jawa Barat
+51,22
+52,70
+52,11
+52,52
+52,52
+52,21
+Jawa Tengah
+52,79
+54,04
+54,11
+56,74
+56,64
+54,87
+D.I. Yogyakarta
+57,95
+56,90
+56,66
+57,98
+58,27
+57,55
+Jawa Timur
+54,82
+54,07
+52,89
+57,72
+56,51
+55,20
+Banten
+46,82
+46,54
+45,96
+49,86
+49,47
+49,67
+Bali
+49,82
+49,69
+49,71
+50,78
+52,79
+53,33
+Nusa Tenggara Barat
+56,53
+56,77
+57,39
+55,73
+55,99
+56,48
+Nusa Tenggara Timur
+50,30
+50,28
+51,16
+51,16
+51,16
+50,81
+Kalimantan Barat
+50,03
+50,64
+48,89
+52,97
+53,13
+51,13
+Kalimantan Tengah
+46,08
+51,97
+53,02
+50,96
+51,97
+50,80
+Kalimantan Selatan
+56,09
+56,40
+54,56
+56,45
+56,44
+55,99
+Kalimantan Timur
+49,45
+50,52
+49,10
+51,83
+53,67
+50,91
+Kalimantan Utara
+44,86
+45,37
+44,04
+48,57
+48,56
+46,28
+Sulawesi Utara
+49,81
+50,25
+49,56
+53,85
+53,36
+51,36
+Sulawesi Tengah
+47,46
+47,94
+48,32
+47,92
+49,18
+48,16
+Sulawesi Selatan
+53,75
+55,17
+52,48
+55,42
+56,78
+54,72
+Sulawesi Tenggara
+49,22
+50,65
+51,34
+51,23
+52,63
+51,02
+Gorontalo
+49,06
+50,34
+50,99
+49,10
+49,06
+49,71
+Sulawesi Barat
+50,50
+50,61
+51,49
+52,66
+52,34
+54,00
+Maluku
+50,80
+51,17
+51,41
+51,72
+53,10
+52,41
+Maluku Utara
+49,60
+50,19
+48,90
+50,03
+50,98
+49,94
+Papua Barat
+44,31
+44,65
+45,78
+44,16
+44,63
+44,71
+Papua
+50,03
+50,57
+49,43
+49,79
+50,57
+50,08
+INDONESIA
+51,47
+52,49
+52,25
+53,61
+53,13
+52,72
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.31
+Banyaknya Perusahaan Konstruksi Menurut Provinsi, 2018–2023
+Number of Construction Establishment by Province, 2018–2023
+PROVINSI/PROVINCE
+Aceh
+4.490
+4.913
+5.448
+8.614
+8.273
+7.774
+Sumatera Utara
+7.476
+7.785
+6.956
+10.206
+9.600
+8.895
+Sumatera Barat
+5.127
+5.337
+5.258
+6.365
+5.969
+5.924
+Riau
+7.736
+8.423
+7.798
+7.807
+7.352
+7.083
+Jambi
+3.146
+3.154
+2.958
+3.381
+3.022
+2.820
+Sumatera Selatan
+3.366
+3.720
+3.554
+5.592
+5.499
+5.031
+Bengkulu
+1.437
+1.489
+1.346
+1.497
+1.367
+1.367
+Lampung
+3.584
+3.658
+4.073
+4.336
+4.125
+4.244
+Kep. Bangka Belitung
+1.308
+1.199
+Kepulauan Riau
+2.093
+2.139
+2.014
+2.614
+2.490
+2.220
+D.K.I. Jakarta
+10.092
+10.092
+9.714
+14.505
+14.410
+14.190
+Jawa Barat
+10.871
+11.908
+11.098
+12.884
+13.508
+12.689
+Jawa Tengah
+10.991
+11.895
+11.453
+15.961
+16.211
+16.092
+D.I. Yogyakarta
+1.650
+1.683
+1.791
+1.900
+1.839
+1.702
+Jawa Timur
+20.753
+20.838
+19.430
+24.596
+23.752
+23.624
+Banten
+3.016
+3.395
+3.144
+7.270
+7.085
+6.630
+Bali
+2.169
+2.163
+1.865
+2.008
+1.861
+1.729
+Nusa Tenggara Barat
+3.098
+3.822
+3.698
+4.093
+3.938
+4.008
+Nusa Tenggara Timur
+5.659
+6.035
+5.871
+6.073
+5.983
+5.523
+Kalimantan Barat
+5.456
+5.550
+5.458
+7.701
+7.364
+7.505
+Kalimantan Tengah
+1.816
+1.832
+1.912
+2.350
+2.090
+2.516
+Kalimantan Selatan
+3.924
+4.094
+3.710
+4.439
+4.205
+3.899
+Kalimantan Timur
+4.854
+4.936
+4.468
+6.824
+6.948
+7.066
+Kalimantan Utara
+1.624
+1.651
+1.313
+1.456
+1.249
+1.178
+Sulawesi Utara
+2.539
+2.574
+1.995
+2.479
+2.108
+1.803
+Sulawesi Tengah
+3.545
+3.496
+3.088
+4.008
+3.762
+3.705
+Sulawesi Selatan
+10.416
+11.221
+11.017
+11.424
+11.288
+11.395
+Sulawesi Tenggara
+3.391
+3.548
+3.287
+3.601
+3.345
+3.322
+Gorontalo
+Sulawesi Barat
+1.318
+1.245
+1.198
+1.396
+1.269
+1.145
+Maluku
+2.075
+2.236
+1.823
+2.347
+1.967
+1.663
+Maluku Utara
+2.497
+2.506
+2.122
+2.238
+2.007
+1.656
+Papua Barat
+3.028
+3.702
+3.417
+3.453
+3.602
+3.410
+Papua
+5.167
+5.830
+5.382
+8.149
+7.942
+7.314
+INDONESIA
+160.576
+168.868
+159.308
+203.403
+197.030
+190.677
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.32
+Struktur Banyaknya Perusahaan Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Number of Construction Establishment by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+2,80
+2,91
+3,42
+4,23
+4,20
+4,08
+Sumatera Utara
+4,66
+4,61
+4,37
+5,02
+4,87
+4,66
+Sumatera Barat
+3,19
+3,16
+3,30
+3,13
+3,03
+3,11
+Riau
+4,82
+4,99
+4,89
+3,84
+3,73
+3,71
+Jambi
+1,96
+1,87
+1,86
+1,66
+1,53
+1,48
+Sumatera Selatan
+2,10
+2,20
+2,23
+2,75
+2,79
+2,64
+Bengkulu
+0,89
+0,88
+0,84
+0,74
+0,69
+0,72
+Lampung
+2,23
+2,17
+2,56
+2,13
+2,09
+2,23
+Kep. Bangka Belitung
+0,81
+0,71
+0,58
+0,47
+0,41
+0,47
+Kepulauan Riau
+1,30
+1,27
+1,26
+1,29
+1,26
+1,16
+D.K.I. Jakarta
+6,28
+5,98
+6,10
+7,13
+7,31
+7,44
+Jawa Barat
+6,77
+7,05
+6,97
+6,33
+6,86
+6,65
+Jawa Tengah
+6,84
+7,04
+7,19
+7,85
+8,23
+8,44
+D.I. Yogyakarta
+1,03
+1,00
+1,12
+0,93
+0,93
+0,89
+Jawa Timur
+12,92
+12,34
+12,20
+12,09
+12,06
+12,39
+Banten
+1,88
+2,01
+1,97
+3,57
+3,60
+3,48
+Bali
+1,35
+1,28
+1,17
+0,99
+0,94
+0,91
+Nusa Tenggara Barat
+1,93
+2,26
+2,32
+2,01
+2,00
+2,10
+Nusa Tenggara Timur
+3,52
+3,57
+3,69
+2,99
+3,04
+2,90
+Kalimantan Barat
+3,40
+3,29
+3,43
+3,79
+3,74
+3,94
+Kalimantan Tengah
+1,13
+1,08
+1,20
+1,16
+1,06
+1,32
+Kalimantan Selatan
+2,44
+2,42
+2,33
+2,18
+2,13
+2,04
+Kalimantan Timur
+3,02
+2,92
+2,80
+3,35
+3,53
+3,71
+Kalimantan Utara
+1,01
+0,98
+0,82
+0,72
+0,63
+0,62
+Sulawesi Utara
+1,58
+1,52
+1,25
+1,22
+1,07
+0,95
+Sulawesi Tengah
+2,21
+2,07
+1,94
+1,97
+1,91
+1,94
+Sulawesi Selatan
+6,49
+6,64
+6,92
+5,62
+5,73
+5,98
+Sulawesi Tenggara
+2,11
+2,10
+2,06
+1,77
+1,70
+1,74
+Gorontalo
+0,54
+0,47
+0,45
+0,43
+0,40
+0,35
+Sulawesi Barat
+0,82
+0,74
+0,75
+0,69
+0,64
+0,60
+Maluku
+1,29
+1,32
+1,14
+1,15
+1,00
+0,87
+Maluku Utara
+1,56
+1,48
+1,33
+1,10
+1,02
+0,87
+Papua Barat
+1,89
+2,19
+2,14
+1,70
+1,83
+1,79
+Papua
+3,22
+3,45
+3,38
+4,01
+4,03
+3,84
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.33
+Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi
+Menurut Provinsi (miliar rupiah), 2018–2023
+Gross Regional Domestic Product at Current Market Prices of Construction Sector by
+Province (billion rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+14.623
+15.790
+17.757
+18.308
+19.054
+20.324
+Sumatera Utara
+102.921
+113.765
+110.147
+115.754
+126.444
+138.781
+Sumatera Barat
+22.181
+24.811
+24.585
+25.776
+28.702
+31.758
+Riau
+66.920
+72.674
+70.554
+75.517
+84.970
+99.416
+Jambi
+14.733
+16.129
+16.416
+18.471
+19.407
+21.652
+Sumatera Selatan
+54.495
+56.907
+56.978
+58.864
+62.955
+67.279
+Bengkulu
+3.409
+3.808
+3.870
+4.143
+4.404
+4.778
+Lampung
+31.511
+33.981
+33.167
+36.765
+40.386
+44.255
+Kep. Bangka Belitung
+7.105
+7.861
+7.710
+8.314
+8.661
+9.746
+Kepulauan Riau
+46.628
+52.239
+49.318
+53.159
+59.057
+66.985
+D.K.I. Jakarta
+314.639
+329.926
+313.052
+326.426
+351.921
+372.445
+Jawa Barat
+165.606
+181.289
+171.251
+191.608
+202.277
+221.151
+Jawa Tengah
+136.154
+147.206
+142.206
+158.056
+172.200
+190.384
+D.I. Yogyakarta
+13.352
+15.718
+13.326
+15.148
+16.440
+17.037
+Jawa Timur
+212.519
+220.275
+213.813
+222.709
+246.876
+263.244
+Banten
+65.453
+73.327
+71.552
+82.097
+91.166
+95.665
+Bali
+21.845
+24.004
+23.597
+24.175
+26.129
+26.806
+Nusa Tenggara Barat
+11.809
+13.990
+12.142
+13.667
+14.127
+16.015
+Nusa Tenggara Timur
+10.745
+11.606
+10.452
+11.485
+12.113
+13.567
+Kalimantan Barat
+24.306
+26.115
+26.210
+29.716
+32.041
+34.851
+Kalimantan Tengah
+13.508
+14.994
+13.590
+15.212
+16.876
+18.496
+Kalimantan Selatan
+13.676
+14.910
+14.803
+15.742
+17.233
+18.848
+Kalimantan Timur
+53.501
+58.609
+58.308
+62.319
+71.495
+87.004
+Kalimantan Utara
+11.048
+13.261
+14.329
+15.135
+15.200
+16.892
+Sulawesi Utara
+14.077
+15.396
+14.978
+16.781
+18.035
+19.265
+Sulawesi Tengah
+18.301
+21.022
+20.028
+24.031
+27.211
+28.842
+Sulawesi Selatan
+62.569
+71.164
+72.416
+78.561
+85.233
+92.442
+Sulawesi Tenggara
+15.925
+17.695
+17.668
+20.244
+21.512
+22.238
+Gorontalo
+4.195
+4.391
+4.399
+4.597
+5.190
+5.717
+Sulawesi Barat
+3.537
+3.845
+3.347
+3.890
+4.032
+4.295
+Maluku
+3.294
+3.601
+3.633
+3.871
+4.163
+4.543
+Maluku Utara
+2.449
+2.923
+2.931
+3.203
+3.615
+3.731
+Papua Barat
+12.255
+13.461
+12.625
+12.589
+12.327
+11.130
+Papua
+27.148
+30.559
+30.734
+32.635
+36.090
+38.650
+INDONESIA
+1.562.297
+1.701.741
+1.652.660
+1.771.727
+1.912.979
+2.072.385
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.34
+Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor
+Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Gross Regional Domestic Product at Current Market Prices of Construction
+Sector by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+6,51
+7,98
+12,46
+3,10
+4,08
+6,67
+Sumatera Utara
+10,09
+10,54
+3,18
+5,09
+9,23
+9,76
+Sumatera Barat
+10,86
+11,85
+0,91
+4,84
+11,35
+10,65
+Riau
+8,47
+8,60
+2,92
+7,03
+12,52
+17,00
+Jambi
+10,71
+9,48
+1,78
+12,51
+5,07
+11,57
+Sumatera Selatan
+7,52
+4,43
+0,13
+3,31
+6,95
+6,87
+Bengkulu
+12,01
+11,72
+1,61
+7,06
+6,31
+8,47
+Lampung
+10,04
+7,84
+2,40
+10,85
+9,85
+9,58
+Kep. Bangka Belitung
+11,50
+10,64
+1,92
+7,84
+4,17
+12,53
+Kepulauan Riau
+12,60
+12,03
+5,59
+7,79
+11,10
+13,42
+D.K.I. Jakarta
+7,93
+4,86
+5,11
+4,27
+7,81
+5,83
+Jawa Barat
+12,23
+9,47
+5,54
+11,89
+5,57
+9,33
+Jawa Tengah
+10,75
+8,12
+3,40
+11,15
+8,95
+10,56
+D.I. Yogyakarta
+18,04
+17,72
+15,22
+13,68
+8,53
+3,63
+Jawa Timur
+7,50
+3,65
+2,93
+4,16
+10,85
+6,63
+Banten
+12,50
+12,03
+2,42
+14,74
+11,05
+4,94
+Bali
+14,69
+9,88
+1,69
+2,45
+8,08
+2,59
+Nusa Tenggara Barat
+7,73
+18,47
+13,21
+12,56
+3,36
+13,37
+Nusa Tenggara Timur
+10,55
+8,01
+9,94
+9,88
+5,47
+12,00
+Kalimantan Barat
+6,97
+7,44
+0,36
+13,38
+7,83
+8,77
+Kalimantan Tengah
+9,54
+11,01
+9,36
+11,93
+10,94
+9,60
+Kalimantan Selatan
+10,34
+9,03
+0,72
+6,34
+9,47
+9,37
+Kalimantan Timur
+14,13
+9,55
+0,51
+6,88
+14,72
+21,69
+Kalimantan Utara
+15,38
+20,03
+8,06
+5,62
+0,42
+11,14
+Sulawesi Utara
+11,41
+9,37
+2,72
+12,04
+7,47
+6,82
+Sulawesi Tengah
+9,03
+14,87
+4,73
+19,99
+13,23
+5,99
+Sulawesi Selatan
+16,81
+13,74
+1,76
+8,49
+8,49
+8,46
+Sulawesi Tenggara
+11,01
+11,11
+0,15
+14,58
+6,27
+3,37
+Gorontalo
+5,44
+4,67
+0,19
+4,50
+12,89
+10,16
+Sulawesi Barat
+9,53
+8,73
+12,96
+16,21
+3,64
+6,52
+Maluku
+9,48
+9,34
+0,87
+6,56
+7,54
+9,14
+Maluku Utara
+14,57
+19,35
+0,28
+9,26
+12,86
+3,23
+Papua Barat
+9,17
+9,84
+6,21
+0,29
+2,08
+9,70
+Papua
+9,66
+12,56
+0,57
+6,19
+10,59
+7,09
+INDONESIA
+10,76
+8,93
+2,88
+7,20
+7,97
+8,33
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.35
+Struktur Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor
+Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Gross Regional Domestic Product at Current Market Prices of Construction
+Sector by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+0,94
+0,93
+1,07
+1,03
+1,00
+0,98
+Sumatera Utara
+6,59
+6,69
+6,66
+6,53
+6,61
+6,70
+Sumatera Barat
+1,42
+1,46
+1,49
+1,45
+1,50
+1,53
+Riau
+4,28
+4,27
+4,27
+4,26
+4,44
+4,80
+Jambi
+0,94
+0,95
+0,99
+1,04
+1,01
+1,04
+Sumatera Selatan
+3,49
+3,34
+3,45
+3,32
+3,29
+3,25
+Bengkulu
+0,22
+0,22
+0,23
+0,23
+0,23
+0,23
+Lampung
+2,02
+2,00
+2,01
+2,08
+2,11
+2,14
+Kep. Bangka Belitung
+0,45
+0,46
+0,47
+0,47
+0,45
+0,47
+Kepulauan Riau
+2,98
+3,07
+2,98
+3,00
+3,09
+3,23
+D.K.I. Jakarta
+20,14
+19,39
+18,94
+18,42
+18,40
+17,97
+Jawa Barat
+10,60
+10,65
+10,36
+10,81
+10,57
+10,67
+Jawa Tengah
+8,71
+8,65
+8,60
+8,92
+9,00
+9,19
+D.I. Yogyakarta
+0,85
+0,92
+0,81
+0,85
+0,86
+0,82
+Jawa Timur
+13,60
+12,94
+12,94
+12,57
+12,91
+12,70
+Banten
+4,19
+4,31
+4,33
+4,63
+4,77
+4,62
+Bali
+1,40
+1,41
+1,43
+1,36
+1,37
+1,29
+Nusa Tenggara Barat
+0,76
+0,82
+0,73
+0,77
+0,74
+0,77
+Nusa Tenggara Timur
+0,69
+0,68
+0,63
+0,65
+0,63
+0,65
+Kalimantan Barat
+1,56
+1,53
+1,59
+1,68
+1,67
+1,68
+Kalimantan Tengah
+0,86
+0,88
+0,82
+0,86
+0,88
+0,89
+Kalimantan Selatan
+0,88
+0,88
+0,90
+0,89
+0,90
+0,91
+Kalimantan Timur
+3,42
+3,44
+3,53
+3,52
+3,74
+4,20
+Kalimantan Utara
+0,71
+0,78
+0,87
+0,85
+0,79
+0,82
+Sulawesi Utara
+0,90
+0,90
+0,91
+0,95
+0,94
+0,93
+Sulawesi Tengah
+1,17
+1,24
+1,21
+1,36
+1,42
+1,39
+Sulawesi Selatan
+4,00
+4,18
+4,38
+4,43
+4,46
+4,46
+Sulawesi Tenggara
+1,02
+1,04
+1,07
+1,14
+1,12
+1,07
+Gorontalo
+0,27
+0,26
+0,27
+0,26
+0,27
+0,28
+Sulawesi Barat
+0,23
+0,23
+0,20
+0,22
+0,21
+0,21
+Maluku
+0,21
+0,21
+0,22
+0,22
+0,22
+0,22
+Maluku Utara
+0,16
+0,17
+0,18
+0,18
+0,19
+0,18
+Papua Barat
+0,78
+0,79
+0,76
+0,71
+0,64
+0,54
+Papua
+1,74
+1,80
+1,86
+1,84
+1,89
+1,87
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.36
+Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor Konstruksi
+Menurut Provinsi (miliar rupiah), 2018–2023
+Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by Province (billion rupiahs), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+11.949
+12.567
+13.900
+13.837
+13.525
+14.020
+Sumatera Utara
+64.507
+69.212
+66.843
+68.300
+70.371
+74.875
+Sumatera Barat
+15.061
+16.336
+15.854
+16.200
+16.608
+17.580
+Riau
+40.368
+42.899
+41.492
+42.630
+44.660
+48.757
+Jambi
+10.331
+11.043
+11.141
+12.025
+11.919
+12.870
+Sumatera Selatan
+35.496
+36.681
+36.679
+36.672
+37.136
+38.456
+Bengkulu
+2.026
+2.182
+2.189
+2.249
+2.255
+2.368
+Lampung
+22.798
+24.169
+23.674
+25.319
+26.295
+28.141
+Kep. Bangka Belitung
+4.492
+4.810
+4.695
+4.898
+4.846
+5.279
+Kepulauan Riau
+31.346
+33.925
+31.752
+33.256
+34.917
+38.580
+D.K.I. Jakarta
+215.896
+219.737
+207.533
+207.716
+211.218
+216.505
+Jawa Barat
+119.305
+126.612
+119.062
+126.768
+126.184
+133.550
+Jawa Tengah
+98.394
+103.262
+99.381
+106.701
+108.658
+115.251
+D.I. Yogyakarta
+9.985
+11.421
+9.637
+10.679
+11.193
+11.732
+Jawa Timur
+145.140
+153.690
+148.652
+152.418
+162.019
+170.216
+Banten
+42.363
+46.048
+44.727
+49.552
+51.933
+52.701
+Bali
+15.257
+16.305
+15.856
+15.843
+16.437
+16.584
+Nusa Tenggara Barat
+9.277
+10.410
+8.925
+9.723
+9.539
+10.575
+Nusa Tenggara Timur
+7.255
+7.576
+6.832
+7.311
+7.279
+7.835
+Kalimantan Barat
+14.305
+14.409
+13.816
+14.949
+15.077
+15.911
+Kalimantan Tengah
+7.995
+8.578
+7.725
+8.383
+8.861
+9.524
+Kalimantan Selatan
+9.622
+10.207
+10.075
+10.364
+10.791
+11.470
+Kalimantan Timur
+33.754
+35.912
+35.601
+37.005
+39.881
+46.190
+Kalimantan Utara
+7.040
+7.886
+7.905
+7.839
+7.701
+8.352
+Sulawesi Utara
+11.347
+12.039
+11.495
+12.312
+12.780
+13.414
+Sulawesi Tengah
+11.224
+12.833
+11.746
+13.889
+15.153
+15.308
+Sulawesi Selatan
+37.854
+41.233
+41.875
+43.610
+44.304
+46.609
+Sulawesi Tenggara
+11.301
+12.092
+12.010
+13.227
+13.198
+13.204
+Gorontalo
+2.993
+3.065
+3.060
+3.098
+3.274
+3.464
+Sulawesi Barat
+2.493
+2.658
+2.305
+2.572
+2.531
+2.626
+Maluku
+2.050
+2.205
+2.189
+2.297
+2.374
+2.470
+Maluku Utara
+1.716
+1.960
+1.965
+2.006
+2.126
+2.118
+Papua Barat
+7.695
+8.277
+7.705
+7.478
+7.272
+6.467
+Papua
+17.139
+18.685
+18.523
+19.326
+20.148
+20.884
+INDONESIA
+1.048.083
+1.108.425
+1.072.335
+1.102.518
+1.124.725
+1.179.989
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.37
+Pertumbuhan Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010
+Sektor Konstruksi Menurut Provinsi (persen), 2018–2023
+Growth of Gross Regional Domestic Product at 2010 Constant Market Prices of
+Construction Sector by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+2,74
+5,16
+10,61
+0,46
+2,26
+3,67
+Sumatera Utara
+5,45
+7,29
+3,42
+2,18
+3,03
+6,40
+Sumatera Barat
+7,00
+8,47
+2,95
+2,18
+2,51
+5,86
+Riau
+5,46
+6,27
+3,28
+2,74
+4,76
+9,17
+Jambi
+5,22
+6,90
+0,88
+7,94
+0,88
+7,98
+Sumatera Selatan
+5,59
+3,34
+0,01
+0,02
+1,27
+3,55
+Bengkulu
+7,24
+7,66
+0,35
+2,75
+0,25
+5,04
+Lampung
+8,35
+6,01
+2,05
+6,95
+3,86
+7,02
+Kep. Bangka Belitung
+5,74
+7,07
+2,38
+4,31
+1,06
+8,94
+Kepulauan Riau
+7,93
+8,23
+6,40
+4,74
+5,00
+10,49
+D.K.I. Jakarta
+3,37
+1,78
+5,55
+0,09
+1,69
+2,50
+Jawa Barat
+7,48
+6,12
+5,96
+6,47
+0,46
+5,84
+Jawa Tengah
+6,07
+4,95
+3,76
+7,37
+1,83
+6,07
+D.I. Yogyakarta
+13,09
+14,38
+15,62
+10,82
+4,81
+4,81
+Jawa Timur
+6,61
+5,89
+3,28
+2,53
+6,30
+5,06
+Banten
+7,76
+8,70
+2,87
+10,79
+4,81
+1,48
+Bali
+9,76
+6,87
+2,75
+0,08
+3,75
+0,89
+Nusa Tenggara Barat
+2,71
+12,22
+14,26
+8,94
+1,89
+10,87
+Nusa Tenggara Timur
+6,39
+4,43
+9,82
+7,01
+0,44
+7,63
+Kalimantan Barat
+1,94
+0,73
+4,12
+8,20
+0,86
+5,53
+Kalimantan Tengah
+1,68
+7,30
+9,94
+8,51
+5,71
+7,47
+Kalimantan Selatan
+5,89
+6,08
+1,29
+2,87
+4,12
+6,29
+Kalimantan Timur
+8,15
+6,39
+0,87
+3,94
+7,77
+15,82
+Kalimantan Utara
+7,14
+12,03
+0,24
+0,84
+1,76
+8,45
+Sulawesi Utara
+7,12
+6,10
+4,52
+7,11
+3,80
+4,96
+Sulawesi Tengah
+4,54
+14,34
+8,47
+18,24
+9,10
+1,02
+Sulawesi Selatan
+8,55
+8,92
+1,56
+4,14
+1,59
+5,20
+Sulawesi Tenggara
+6,64
+7,00
+0,68
+10,13
+0,22
+0,05
+Gorontalo
+2,47
+2,42
+0,17
+1,24
+5,70
+5,80
+Sulawesi Barat
+4,99
+6,65
+13,31
+11,63
+1,60
+3,75
+Maluku
+7,93
+7,54
+0,72
+4,93
+3,34
+4,07
+Maluku Utara
+10,33
+14,24
+0,27
+2,09
+5,97
+0,38
+Papua Barat
+7,20
+7,57
+6,92
+2,94
+2,76
+11,07
+Papua
+5,70
+9,02
+0,87
+4,33
+4,26
+3,65
+INDONESIA
+6,09
+5,76
+3,26
+2,81
+2,01
+4,91
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+TABEL
+TABLE
+2.38
+Struktur Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor
+Konstruksi Menurut Provinsi (persen), 2018–2023
+Structure of Gross Regional Domestic Product at 2010 Constant Market Prices of
+Construction Sector by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+1,14
+1,13
+1,30
+1,26
+1,20
+1,19
+Sumatera Utara
+6,15
+6,24
+6,23
+6,19
+6,26
+6,35
+Sumatera Barat
+1,44
+1,47
+1,48
+1,47
+1,48
+1,49
+Riau
+3,85
+3,87
+3,87
+3,87
+3,97
+4,13
+Jambi
+0,99
+1,00
+1,04
+1,09
+1,06
+1,09
+Sumatera Selatan
+3,39
+3,31
+3,42
+3,33
+3,30
+3,26
+Bengkulu
+0,19
+0,20
+0,20
+0,20
+0,20
+0,20
+Lampung
+2,18
+2,18
+2,21
+2,30
+2,34
+2,38
+Kep. Bangka Belitung
+0,43
+0,43
+0,44
+0,44
+0,43
+0,45
+Kepulauan Riau
+2,99
+3,06
+2,96
+3,02
+3,10
+3,27
+D.K.I. Jakarta
+20,60
+19,82
+19,35
+18,84
+18,78
+18,35
+Jawa Barat
+11,38
+11,42
+11,10
+11,50
+11,22
+11,32
+Jawa Tengah
+9,39
+9,32
+9,27
+9,68
+9,66
+9,77
+D.I. Yogyakarta
+0,95
+1,03
+0,90
+0,97
+1,00
+0,99
+Jawa Timur
+13,85
+13,87
+13,86
+13,82
+14,41
+14,43
+Banten
+4,04
+4,15
+4,17
+4,49
+4,62
+4,47
+Bali
+1,46
+1,47
+1,48
+1,44
+1,46
+1,41
+Nusa Tenggara Barat
+0,89
+0,94
+0,83
+0,88
+0,85
+0,90
+Nusa Tenggara Timur
+0,69
+0,68
+0,64
+0,66
+0,65
+0,66
+Kalimantan Barat
+1,36
+1,30
+1,29
+1,36
+1,34
+1,35
+Kalimantan Tengah
+0,76
+0,77
+0,72
+0,76
+0,79
+0,81
+Kalimantan Selatan
+0,92
+0,92
+0,94
+0,94
+0,96
+0,97
+Kalimantan Timur
+3,22
+3,24
+3,32
+3,36
+3,55
+3,91
+Kalimantan Utara
+0,67
+0,71
+0,74
+0,71
+0,68
+0,71
+Sulawesi Utara
+1,08
+1,09
+1,07
+1,12
+1,14
+1,14
+Sulawesi Tengah
+1,07
+1,16
+1,10
+1,26
+1,35
+1,30
+Sulawesi Selatan
+3,61
+3,72
+3,91
+3,96
+3,94
+3,95
+Sulawesi Tenggara
+1,08
+1,09
+1,12
+1,20
+1,17
+1,12
+Gorontalo
+0,29
+0,28
+0,29
+0,28
+0,29
+0,29
+Sulawesi Barat
+0,24
+0,24
+0,21
+0,23
+0,23
+0,22
+Maluku
+0,20
+0,20
+0,20
+0,21
+0,21
+0,21
+Maluku Utara
+0,16
+0,18
+0,18
+0,18
+0,19
+0,18
+Papua Barat
+0,73
+0,75
+0,72
+0,68
+0,65
+0,55
+Papua
+1,64
+1,69
+1,73
+1,75
+1,79
+1,77
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Tabel-Tabel
+Tables
+PROVINSI/PROVINCE
+Aceh
+1.143.050
+1.159.359
+1.283.427
+1.275.633
+1.137.830
+1.068.084
+Sumatera Utara
+3.161.377
+3.019.647
+2.846.025
+2.749.540
+2.633.252
+3.195.488
+Sumatera Barat
+1.263.661
+1.298.175
+1.242.725
+1.280.204
+1.127.402
+1.194.776
+Riau
+1.769.259
+1.801.756
+1.708.547
+1.742.792
+1.745.781
+1.890.750
+Jambi
+913.655
+941.732
+986.072
+1.059.459
+953.892
+1.077.861
+Sumatera Selatan
+2.315.301
+2.270.744
+2.104.770
+2.098.218
+2.152.321
+2.115.523
+Bengkulu
+562.559
+503.526
+549.744
+626.506
+524.124
+507.441
+Lampung
+2.711.608
+2.233.940
+2.062.654
+2.187.488
+1.912.631
+1.986.968
+Kep. Bangka Belitung
+400.423
+305.496
+286.907
+354.123
+351.069
+316.644
+Kepulauan Riau
+770.346
+838.759
+717.321
+755.065
+780.274
+945.332
+D.K.I. Jakarta
+4.618.100
+4.115.384
+2.802.736
+2.563.194
+2.563.241
+2.714.204
+Jawa Barat
+10.317.582
+11.619.492
+10.621.782
+11.026.954
+10.731.858
+10.695.358
+Jawa Tengah
+9.887.943
+9.138.099
+8.253.471
+8.903.721
+7.352.654
+7.166.099
+D.I. Yogyakarta
+1.206.146
+1.392.086
+1.044.545
+1.167.188
+976.185
+1.022.936
+Jawa Timur
+9.476.911
+9.401.216
+8.311.818
+7.831.644
+8.358.403
+8.560.876
+Banten
+3.471.094
+3.443.601
+2.769.596
+3.202.964
+3.375.746
+3.400.990
+Bali
+1.568.194
+1.564.354
+1.239.781
+1.150.179
+1.233.747
+1.514.072
+Nusa Tenggara Barat
+1.177.806
+1.410.176
+1.219.374
+1.256.247
+1.215.456
+1.368.813
+Nusa Tenggara Timur
+1.108.058
+1.169.951
+1.118.293
+1.201.118
+1.046.117
+1.070.915
+Kalimantan Barat
+1.224.680
+1.158.714
+1.084.553
+1.288.678
+1.184.772
+1.140.000
+Kalimantan Tengah
+614.740
+645.337
+576.604
+639.224
+641.604
+646.180
+Kalimantan Selatan
+1.167.237
+1.022.165
+810.226
+820.433
+841.909
+930.590
+Kalimantan Timur
+1.160.239
+1.378.527
+1.241.353
+1.252.121
+1.386.895
+2.151.075
+Kalimantan Utara
+250.775
+250.145
+259.127
+256.161
+191.280
+314.818
+Sulawesi Utara
+852.609
+812.973
+656.388
+820.376
+637.417
+593.956
+Sulawesi Tengah
+831.118
+1.141.399
+1.041.642
+1.691.394
+2.021.203
+1.888.912
+Sulawesi Selatan
+2.491.059
+2.636.688
+2.197.632
+2.233.261
+2.212.680
+2.313.317
+Sulawesi Tenggara
+726.175
+866.628
+928.010
+1.059.018
+968.093
+804.166
+Gorontalo
+351.819
+298.737
+262.506
+307.695
+239.720
+240.878
+Sulawesi Barat
+386.043
+332.846
+283.127
+335.921
+343.399
+358.130
+Maluku
+382.097
+357.103
+418.808
+437.050
+379.246
+352.908
+Maluku Utara
+321.062
+531.021
+484.589
+612.204
+778.731
+930.035
+Papua Barat
+318.383
+346.483
+348.754
+364.892
+350.062
+339.578
+Papua
+572.901
+590.266
+747.285
+663.924
+672.110
+683.150
+INDONESIA
+69.494.009
+69.996.523
+62.510.192
+65.214.590
+63.021.103
+65.500.823
+Ekspor
+Semen
+1.524.129
+1.222.064
+1.097.314
+1.536.338
+1.378.410
+1.294.164
+Clinker
+4.217.457
+5.037.450
+8.176.101
+9.935.446
+7.542.364
+9.516.903
+Total Penjualan
+75.235.595
+76.256.037
+71.783.607
+76.686.375
+71.941.876
+76.311.890
+Produksi
+Semen
+69.395.871
+71.320.179
+64.558.047
+69.229.434
+64.445.311
+66.907.633
+Clinker
+57.532.843
+59.728.547
+55.824.910
+59.152.773
+54.690.652
+58.675.090
+TABEL
+TABLE
+2.39
+Realisasi Pengadaan Semen Menurut Provinsi, Ekspor Semen, dan Produksi Semen
+(ton), 2018–2023
+Actual Supply of Cement by Province, Export of Cement, and Production of Cement
+(ton), 2018–2023
+Catatan/Note
+: Pengadaan dalam negeri termasuk impor/Domestic Supply Include Import
+Sumber/Source  : Asosiasi Semen Indonesia (ASI)/Indonesian Cement Association
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+PROVINSI/PROVINCE
+Aceh
+3,19
+1,43
+10,70
+0,61
+10,80
+6,13
+Sumatera Utara
+1,43
+4,48
+5,75
+3,39
+4,23
+21,35
+Sumatera Barat
+8,67
+2,73
+4,27
+3,02
+11,94
+5,98
+Riau
+2,61
+1,84
+5,17
+2,00
+0,17
+8,30
+Jambi
+11,71
+3,07
+4,71
+7,44
+9,96
+13,00
+Sumatera Selatan
+2,50
+1,92
+7,31
+0,31
+2,58
+1,71
+Bengkulu
+32,00
+10,49
+9,18
+13,96
+16,34
+3,18
+Lampung
+26,47
+17,62
+7,67
+6,05
+12,56
+3,89
+Kep. Bangka Belitung
+41,07
+23,71
+6,09
+23,43
+0,86
+9,81
+Kepulauan Riau
+17,58
+8,88
+14,48
+5,26
+3,34
+21,15
+D.K.I. Jakarta
+5,69
+10,89
+31,90
+8,55
+0,00
+5,89
+Jawa Barat
+7,27
+12,62
+8,59
+3,81
+2,68
+0,34
+Jawa Tengah
+8,36
+7,58
+9,68
+7,88
+17,42
+2,54
+D.I. Yogyakarta
+10,06
+15,42
+24,97
+11,74
+16,36
+4,79
+Jawa Timur
+0,68
+0,80
+11,59
+5,78
+6,73
+2,42
+Banten
+8,90
+0,79
+19,57
+15,65
+5,39
+0,75
+Bali
+8,73
+0,24
+20,75
+7,23
+7,27
+22,72
+Nusa Tenggara Barat
+2,88
+19,73
+13,53
+3,02
+3,25
+12,62
+Nusa Tenggara Timur
+3,04
+5,59
+4,42
+7,41
+12,90
+2,37
+Kalimantan Barat
+8,74
+5,39
+6,40
+18,82
+8,06
+3,78
+Kalimantan Tengah
+11,52
+4,98
+10,65
+10,86
+0,37
+0,71
+Kalimantan Selatan
+7,34
+12,43
+20,73
+1,26
+2,62
+10,53
+Kalimantan Timur
+26,69
+18,81
+9,95
+0,87
+10,76
+55,10
+Kalimantan Utara
+11,65
+0,25
+3,59
+1,14
+25,33
+64,58
+Sulawesi Utara
+19,16
+4,65
+19,26
+24,98
+22,30
+6,82
+Sulawesi Tengah
+10,22
+37,33
+8,74
+62,38
+19,50
+6,55
+Sulawesi Selatan
+3,07
+5,85
+16,65
+1,62
+0,92
+4,55
+Sulawesi Tenggara
+9,66
+19,34
+7,08
+14,12
+8,59
+16,93
+Gorontalo
+31,25
+15,09
+12,13
+17,21
+22,09
+0,48
+Sulawesi Barat
+16,17
+13,78
+14,94
+18,65
+2,23
+4,29
+Maluku
+0,12
+6,54
+17,28
+4,36
+13,23
+6,94
+Maluku Utara
+14,22
+65,40
+8,74
+26,33
+27,20
+19,43
+Papua Barat
+12,25
+8,83
+0,66
+4,63
+4,06
+2,99
+Papua
+0,48
+3,03
+26,60
+11,16
+1,23
+1,64
+INDONESIA
+4,74
+0,72
+10,70
+4,33
+3,36
+3,93
+TABEL
+TABLE
+2.40
+Pertumbuhan Realisasi Pengadaan Semen Menurut Provinsi (persen), 2018–2023
+Growth of Actual Supply of Cement by Province (percent), 2018–2023
+Tabel-Tabel
+Tables
+TABEL
+TABLE
+2.41
+Struktur Realisasi Pengadaan Semen Menurut Provinsi (persen), 2018–2023
+Structure of Actual Supply of Cement by Province (percent), 2018–2023
+PROVINSI/PROVINCE
+Aceh
+1,64
+1,66
+2,05
+1,96
+1,81
+1,63
+Sumatera Utara
+4,55
+4,31
+4,55
+4,22
+4,18
+4,88
+Sumatera Barat
+1,82
+1,85
+1,99
+1,96
+1,79
+1,82
+Riau
+2,55
+2,57
+2,73
+2,67
+2,77
+2,89
+Jambi
+1,31
+1,35
+1,58
+1,62
+1,51
+1,65
+Sumatera Selatan
+3,33
+3,24
+3,37
+3,22
+3,42
+3,23
+Bengkulu
+0,81
+0,72
+0,88
+0,96
+0,83
+0,77
+Lampung
+3,90
+3,19
+3,30
+3,35
+3,03
+3,03
+Kep. Bangka Belitung
+0,58
+0,44
+0,46
+0,54
+0,56
+0,48
+Kepulauan Riau
+1,11
+1,20
+1,15
+1,16
+1,24
+1,44
+D.K.I. Jakarta
+6,65
+5,88
+4,48
+3,93
+4,07
+4,14
+Jawa Barat
+14,85
+16,60
+16,99
+16,91
+17,03
+16,33
+Jawa Tengah
+14,23
+13,06
+13,20
+13,65
+11,67
+10,94
+D.I. Yogyakarta
+1,74
+1,99
+1,67
+1,79
+1,55
+1,56
+Jawa Timur
+13,64
+13,43
+13,30
+12,01
+13,26
+13,07
+Banten
+4,99
+4,92
+4,43
+4,91
+5,36
+5,19
+Bali
+2,26
+2,23
+1,98
+1,76
+1,96
+2,31
+Nusa Tenggara Barat
+1,69
+2,01
+1,95
+1,93
+1,93
+2,09
+Nusa Tenggara Timur
+1,59
+1,67
+1,79
+1,84
+1,66
+1,63
+Kalimantan Barat
+1,76
+1,66
+1,74
+1,98
+1,88
+1,74
+Kalimantan Tengah
+0,88
+0,92
+0,92
+0,98
+1,02
+0,99
+Kalimantan Selatan
+1,68
+1,46
+1,30
+1,26
+1,34
+1,42
+Kalimantan Timur
+1,67
+1,97
+1,99
+1,92
+2,20
+3,28
+Kalimantan Utara
+0,36
+0,36
+0,41
+0,39
+0,30
+0,48
+Sulawesi Utara
+1,23
+1,16
+1,05
+1,26
+1,01
+0,91
+Sulawesi Tengah
+1,20
+1,63
+1,67
+2,59
+3,21
+2,88
+Sulawesi Selatan
+3,58
+3,77
+3,52
+3,42
+3,51
+3,53
+Sulawesi Tenggara
+1,04
+1,24
+1,48
+1,62
+1,54
+1,23
+Gorontalo
+0,51
+0,43
+0,42
+0,47
+0,38
+0,37
+Sulawesi Barat
+0,56
+0,48
+0,45
+0,52
+0,54
+0,55
+Maluku
+0,55
+0,51
+0,67
+0,67
+0,60
+0,54
+Maluku Utara
+0,46
+0,76
+0,78
+0,94
+1,24
+1,42
+Papua Barat
+0,46
+0,50
+0,56
+0,56
+0,56
+0,52
+Papua
+0,82
+0,84
+1,20
+1,02
+1,07
+1,04
+INDONESIA
+100,00
+100,00
+100,00
+100,00
+100,00
+100,00
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.1
+Benchmark Banyaknya Pekerja Tetap (orang) dan Balas Jasa Pekerja Tetap Konstruksi
+(miliar rupiah), 2018–2023
+Benchmarked Number of Construction Permanent Workers (person) and Compensation of
+Construction Permanent Workers (billion rupiahs), 2018–2023
+Gambar
+Figure
+3.2
+Benchmark Banyaknya Hari-Orang (ribuan) dan Upah Pekerja Harian Konstruksi (miliar rupiah), 2018–2023
+Benchmarked Number of Mandays (thousand) and Wages of Construction Casual Workers
+(billion rupiahs), 2018–2023
+10.000
+20.000
+30.000
+40.000
+50.000
+60.000
+70.000
+80.000
+1.100.000
+1.110.000
+1.120.000
+1.130.000
+1.140.000
+1.150.000
+1.160.000
+1.170.000
+1.180.000
+Balas Jasa/Compensation
+Banyaknya Pekerja Tetap/Number of Permanent Worker
+Tahun/Year
+Banyaknya Pekerja Tetap Konstruksi/Number of Construction Permanent Workers
+Balas Jasa Pekerja Tetap Konstruksi/Compensation of Construction Permanent Workers
+50.000
+100.000
+150.000
+200.000
+250.000
+1.350.000
+1.400.000
+1.450.000
+1.500.000
+1.550.000
+1.600.000
+1.650.000
+1.700.000
+Upah/Wages
+Banyaknya Hari-Orang/Number of Mandays
+Tahun/Year
+Banyaknya Hari-Orang Pekerja Harian Konstruksi/Number of Mandays of Construction Casual Workers
+Upah Pekerja Harian Konstruksi/Wages of Construction Casual Workers
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.3
+Benchmark Nilai Konstruksi yang Diselesaikan, Balas Jasa dan Upah Pekerja, dan
+Pengeluaran Bahan Material Konstruksi yang Digunakan (miliar rupiah), 2018–2023
+Benchmarked Value of Construction Works Completed, Compensation and Wages of
+Workers, and Cost of Construction Material Used (billion rupiahs), 2018–2023
+Gambar
+Figure
+3.4
+Benchmark Rata-Rata Balas Jasa Pekerja Tetap Konstruksi (ribu rupiah) dan Rata-Rata Upah
+Pekerja Harian Konstruksi (rupiah), 2018–2023
+Benchmarked Average Compensation of Construction Permanent Workers (thousand rupiahs)
+and Average Wages of Construction Casual Workers (rupiahs), 2018–2023
+200.000
+400.000
+600.000
+800.000
+1.000.000
+1.200.000
+1.400.000
+1.600.000
+1.800.000
+Tahun/Year
+Nilai Konstruksi yang Diselesaikan/Value of Construction Works Completed
+Balas Jasa dan Upah Pekerja Konstruksi/Compensation and Wages of Construction Workers
+Pengeluaran Bahan Material Konstruksi yang Digunakan/Cost of Construction Material Used
+48.375
+51.546
+51.188
+52.771
+55.397
+57.576
+107.350
+113.706 111.251
+114.471 117.241
+120.440
+Rata-Rata Balas Jasa Pekerja Tetap Konstruksi
+Average Compensation of Construction Permanent
+Workers
+Rata-Rata Upah Pekerja Harian Konstruksi
+Average Wages of Construction Casual Workers
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.5 Benchmark Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi (orang), 2023
+Benchmarked Number of Construction Permanent Workers by Province (person), 2023
+9.822
+41.003
+10.110
+26.853
+8.355
+19.602
+6.593
+13.181
+6.327
+19.343
+436.989
+105.588
+44.821
+7.214
+145.038
+60.877
+13.187
+6.953
+12.683
+15.179
+11.709
+7.952
+32.492
+5.211
+6.271
+10.023
+24.429
+7.380
+2.928
+2.425
+4.445
+3.538
+9.707
+35.781
+100.000
+200.000
+300.000
+400.000
+500.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Banyaknya Pekerja Tetap
+Number of Permanent Workers
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.6
+Benchmark Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Compensation of Construction Permanent Workers by Province (billion rupiahs),
+1.838
+1.087
+1.063
+1.136
+34.793
+7.203
+1.848
+5.817
+2.334
+1.575
+1.300
+5.000
+10.000
+15.000
+20.000
+25.000
+30.000
+35.000
+40.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Balas Jasa Pekerja Tetap
+Compensation of Permanent Workers
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.7
+Benchmark Rata-Rata Balas Jasa Pekerja Tetap Konstruksi Menurut Provinsi (ribu rupiah),
+Benchmarked Average Compensation of Construction Permanent Workers by Province
+(thousand rupiahs), 2023
+38.489
+44.823
+35.746
+40.465
+39.738
+54.232
+34.895
+38.132
+36.271
+58.736
+79.619
+68.215
+41.239
+38.788
+40.110
+38.345
+49.766
+33.066
+21.135
+40.123
+33.568
+38.986
+48.459
+27.064
+47.371
+43.971
+34.322
+44.296
+28.546
+29.918
+31.847
+27.847
+39.186
+36.328
+20.000
+40.000
+60.000
+80.000
+100.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Rata-Rata Balas Jasa Pekerja Tetap
+Average Compensation of Permanent Workers
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.8
+Benchmark Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (ribu), 2023
+Benchmarked Number of Mandays of Construction Casual Workers by Province (thousand),
+14.081
+44.486
+18.266
+52.100
+15.838
+22.750
+4.746
+26.180
+4.716
+9.047
+501.875
+171.787
+142.448
+11.308
+253.889
+57.068
+20.895
+20.191
+10.758
+28.146
+13.399
+18.536
+52.388
+10.430
+13.454
+13.972
+37.147
+10.973
+3.919
+5.858
+5.156
+3.289
+7.794
+12.761
+100.000
+200.000
+300.000
+400.000
+500.000
+600.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Hari-Orang Pekerja Harian
+Mandays of Casual Workers
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.9 Benchmark Upah Pekerja Harian Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Wages of Construction Casual Workers by Province (billion rupiahs), 2023
+1.177
+4.629
+1.687
+5.608
+1.636
+2.695
+2.794
+1.060
+81.725
+18.232
+12.266
+1.007
+24.712
+6.258
+1.962
+1.660
+1.049
+2.889
+1.672
+2.010
+5.569
+1.087
+1.676
+1.355
+4.039
+1.219
+1.822
+20.000
+40.000
+60.000
+80.000
+100.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Upah Pekerja Harian
+Wages of Casual Workers
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.10 Benchmark Rata-Rata Upah Pekerja Harian Konstruksi Menurut Provinsi (rupiah), 2023
+Benchmarked Average Wages of Construction Casual Workers by Province (rupiahs), 2023
+83.567
+104.050
+92.364
+107.635
+103.293
+118.456
+107.300
+106.719
+99.946
+117.110
+162.840
+106.129
+86.110
+89.047
+97.334
+109.659
+93.900
+82.202
+97.494
+102.654
+124.781
+108.423
+106.295
+104.173
+124.599
+97.011
+108.720
+111.047
+109.537
+89.037
+111.231
+149.301
+127.113
+142.800
+50.000
+100.000
+150.000
+200.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Rata-Rata Upah Pekerja Harian
+Average Wages of Casual Workers
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.11
+Benchmark Balas Jasa dan Upah Pekerja Konstruksi Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Compensation and Wages of Construction Workers by by Province (billion rupiahs), 2023
+1.555
+6.467
+2.049
+6.694
+1.968
+3.758
+3.297
+2.196
+116.518
+25.434
+14.115
+1.287
+30.530
+8.592
+2.618
+1.890
+1.317
+3.498
+2.065
+2.320
+7.143
+1.228
+1.973
+1.796
+4.877
+1.545
+1.371
+3.122
+20.000
+40.000
+60.000
+80.000
+100.000
+120.000
+140.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Balas Jasa dan Upah Pekerja
+Compensation and Wages of Casual Workers
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.12 Benchmark Nilai Konstruksi yang Diselesaikan Menurut Provinsi (miliar rupiah), 2023
+Benchmarked Value of Construction Works Completed by Province (billion rupiahs), 2023
+10.135
+51.835
+14.233
+51.479
+10.611
+24.704
+3.565
+18.773
+3.873
+9.420
+672.413
+150.377
+89.791
+8.369
+191.304
+45.056
+15.609
+12.882
+10.960
+20.823
+14.377
+18.516
+41.437
+7.148
+10.103
+12.617
+38.765
+10.437
+4.106
+4.593
+4.654
+3.996
+8.174
+17.267
+100.000 200.000 300.000 400.000 500.000 600.000 700.000 800.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Nilai Konstruksi yang Diselesaikan
+Value of Construction Works Completed
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.13
+Benchmark Pengeluaran Bahan Material Konstruksi Menurut Provinsi (miliar rupiah),
+Benchmarked Cost of Construction Material Used by Province (billion rupiahs), 2023
+5.137
+30.260
+6.941
+27.806
+5.630
+12.647
+1.809
+10.071
+1.974
+4.655
+78.516
+49.264
+4.816
+105.605
+22.378
+8.324
+7.276
+5.569
+10.647
+7.303
+10.367
+21.097
+3.308
+5.189
+6.076
+21.213
+5.325
+2.041
+2.480
+2.439
+1.996
+3.654
+8.647
+40.000
+80.000
+120.000 160.000 200.000 240.000 280.000 320.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Pengeluaran Bahan Material Konstruksi
+Cost of Construction Material Used
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.14 Banyaknya Perusahaan Konstruksi Menurut Provinsi, 2023
+Number of Construction Establishment by Province, 2023
+7.774
+8.895
+5.924
+7.083
+2.820
+5.031
+1.367
+4.244
+2.220
+14.190
+12.689
+16.092
+1.702
+23.624
+6.630
+1.729
+4.008
+5.523
+7.505
+2.516
+3.899
+7.066
+1.178
+1.803
+3.705
+11.395
+3.322
+1.145
+1.663
+1.656
+3.410
+7.314
+5.000
+10.000
+15.000
+20.000
+25.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Banyaknya Perusahaan/
+Number of Establishment
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.15
+Produk Domestik Regional Bruto Atas Dasar Harga Berlaku Sektor Konstruksi Menurut
+Provinsi (miliar rupiah), 2023
+Gross Regional Domestic Product at Current Market Prices of Construction Sector by Province
+(billion rupiahs), 2023
+20.324
+138.781
+31.758
+99.416
+21.652
+67.279
+4.778
+44.255
+9.746
+66.985
+372.445
+221.151
+190.384
+17.037
+263.244
+95.665
+26.806
+16.015
+13.567
+34.851
+18.496
+18.848
+87.004
+16.892
+19.265
+28.842
+92.442
+22.238
+5.717
+4.295
+4.543
+3.731
+11.130
+38.650
+50.000
+100.000 150.000 200.000 250.000 300.000 350.000 400.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+PDRB Atas Dasar Harga Berlaku/
+GRDP at Current Market Price
+Provinsi/Province
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Gambar
+Figure
+3.16
+Produk Domestik Regional Bruto Atas Dasar Harga Konstan 2010 Sektor Konstruksi
+Menurut Provinsi (miliar rupiah), 2023
+Gross Regional Domestic Product at 2010 Constant Market Prices of Construction Sector by
+Province (billion rupiahs), 2023
+14.020
+74.875
+17.580
+48.757
+12.870
+38.456
+2.368
+28.141
+5.279
+38.580
+216.505
+133.550
+115.251
+11.732
+170.216
+52.701
+16.584
+10.575
+7.835
+15.911
+9.524
+11.470
+46.190
+8.352
+13.414
+15.308
+46.609
+13.204
+3.464
+2.626
+2.470
+2.118
+6.467
+20.884
+50.000
+100.000
+150.000
+200.000
+250.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+PDRB atas Dasar Harga Konstan 2010/
+GRDP at 2010 Constant Market Price
+Provinsi/Province
+Gambar-Gambar
+Figures
+Gambar
+Figure
+3.17 Realisasi Pengadaan Semen Menurut Provinsi (ton), 2023
+Actual Supply of Cement by Province (ton), 2023
+1.068.084
+3.195.488
+1.194.776
+1.890.750
+1.077.861
+2.115.523
+507.441
+1.986.968
+316.644
+945.332
+2.714.204
+10.695.358
+7.166.099
+1.022.936
+8.560.876
+3.400.990
+1.514.072
+1.368.813
+1.070.915
+1.140.000
+646.180
+930.590
+2.151.075
+314.818
+593.956
+1.888.912
+2.313.317
+804.166
+240.878
+358.130
+352.908
+930.035
+339.578
+683.150
+2.000.000
+4.000.000
+6.000.000
+8.000.000
+10.000.000 12.000.000
+A c e h
+Sumatera Utara
+Sumatera Barat
+R i a u
+J a m b i
+Sumatera Selatan
+Bengkulu
+Lampung
+Kep. Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI. Yogyakarta
+Jawa Timur
+B a n t e n
+B a l i
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+M a l u k u
+Maluku Utara
+Papua Barat
+P a p u a
+Realisasi Pengadaan Semen/
+Actual Supply of Cement
+Provinsi/Province
+Daftar Pustaka
+Bibliography
+Badan Pusat Statistik. 2023. Pedoman Survei Konstruksi 2023. Jakarta: BPS.
+Badan Pusat Statistik. 2024. Pedoman Survei Konstruksi 2024. Jakarta: BPS.
+Indonesia. 2021. Peraturan Pemerintah Republik Indonesia Nomor 5 Tahun 2021. Jakarta: Lembaran
+RI Nomor 6617.
+International Monetary Fund. 2018. Quarterly National Accounts Manual 2017. Washington DC:
+International Monetary Fund.
+DAFTAR PUSTAKA
+BIBLIOGRAPHY
+Lampiran
+Appendix
+LAMPIRAN
+APPENDIX
+Kuesioner Survei Perusahaan Konstruksi Tahunan 2023 (SKTH-2023)
+Questionnaire of 2023 Annual Construction Establishment Survey (SKTH-2023)
+KIP1) :
+ID Landmark Wilkerstat1) :
+1. Provinsi
+:
+2.
+:
+3. Kecamatan
+:
+4. Desa / Kelurahan 2)
+:
+5. Nomor Urut Sampel
+:
+Rincian 1 s.d. 5 disalin dari SK24-DSU
+6. Identitas Perusahaan a.
+Nama Perusahaan
+:
+b. Nomor Induk Berusaha :
+c.
+Alamat Perusahaan
+:
+RT
+:
+RW :
+Kode Pos
+:
+Telepon
+:
+HP
+:
+Fax
+:
+Website
+:
+E-mail
+:
+d.
+Alamat Operasional
+:
+RT
+:
+RW :
+Kode Pos
+:
+e.
+Badan Hukum / Badan Usaha :
+PT. Persero (BUMN)
+1
+CV - 3
+Kantor Perwakilan BUJKA - 5
+PT
+2
+Koperasi - 4
+Lainnya
+9
+f.
+Penanaman Modal Dalam Negeri - 1
+Penanaman Modal Asing - 2
+g.
+Konstruksi Gedung - 1
+Konstruksi Sipil - 2
+Konstruksi Khusus - 3
+h.
+Kecil
+2
+Menengah
+Besar - 4
+Tidak Memiliki SBU Aktif - 9
+1) Diisi oleh BPS Kabupaten/Kota
+2) Coret yang tidak sesuai
+BLOK I. KETERANGAN UMUM PERUSAHAAN
+Kabupaten / Kota 2)
+Telepon: 021-3841195; 3842508; 3810291-4 ext. 5340-5343
+Pelaksanaan Survei ini berdasarkan Undang-Undang Nomor 16
+Tahun 1997 tentang Statistik (Pasal 11)
+Biaya :
+Bidang Pekerjaan Utama :
+Kualifikasi Perusahaan :
+3
+Kewajiban Responden :
+Memperoleh data statistik yang dapat dipercaya dan tepat waktu untuk perencanaan pembangunan sektor konstruksi
+Status Penanaman Modal :
+Faks : 3863816
+E-mail:
+Website: www.bps.go.id
+Setiap responden wajib memberikan keterangan yang diperlukan dalam penyelenggaraan statistik dasar oleh Badan Pusat Statistik berdasarkan
+Undang-Undang Nomor 16 tahun 1997 (Pasal 27)
+Survei ini dibiayai oleh APBN. Dalam pelaksanaannya, tidak memungut biaya apapun dari responden dan tidak terkait dengan pajak
+Kerahasiaan :
+Kerahasiaan data yang diberikan dijamin oleh Undang-Undang
+Nomor 16 Tahun 1997 (Pasal 21)
+Informasi lebih lanjut, hubungi :
+Tim Statistik Konstruksi, Direktorat Statistik Industri
+Jl. Dr. Sutomo No. 6-8 Jakarta, 10710
+Tujuan Survei :
+Dasar Hukum :
+( )
+SKTH
+REPUBLIK INDONESIA
+RAHASIA
+SURVEI PERUSAHAAN KONSTRUKSI
+TAHUNAN
+F
+BADAN PUSAT STATISTIK
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Lanjutan Lampiran/Continued Appendix 1
+A. Banyaknya Pekerja menurut Jenjang Pendidikan yang Ditamatkan, Jenis Kelamin, dan Kepemilikan Sertifikasi Kompetensi Kerja (SKK)
+1.
+a.
+b. SMA dan Sederajat c. Perguruan Tinggi
+2. Pekerja Outsourcing
+3. Pekerja Asing
+4. JUMLAH [1 + 2 + 3]
+B. Balas Jasa Pekerja Selama Tahun 2023
+1.
+2.
+3.
+4.
+1. Tanah
+2. Bangunan
+3. Alat Berat
+4. Kendaraan
+5. Software
+6.
+7. JUMLAH [ 1 + 2 + … + 6]
+BLOK IV. KEPEMILIKAN PERUSAHAAN DAN MODAL KERJA SELAMA TAHUN 2023
+2. Pinjaman Lembaga
+Keuangan
+Pekerja Tetap adalah pekerja yang mendapatkan upah/gaji secara tetap, tidak tergantung pada kehadiran. Apabila diberhentikan biasanya mendapat pesangon.
+Pekerja Kontrak adalah pekerja yang bekerja dengan perjanjian tertentu dan tidak mendapatkan kesempatan untuk mengikuti jenjang karir yang berlaku di perusahaan.
+Pekerja Outsourcing adalah pekerja yang biasanya mempunyai keterampilan/keahlian tertentu yang dibutuhkan oleh perusahaan. Pekerja yang dicatat pada rincian ini adalah pekerja outsourcing baik yang dibayar langsung maupun tidak langsung oleh usaha/perusahaan yang menggunakan tenaga kerja outsourcing.
+Pekerja Asing adalah pekerja WNA pemegang visa dengan maksud bekerja pada perusahaan di wilayah Indonesia dan mendapat upah/gaji secara tetap, tidak termasuk tenaga konsultan asing.
+Pekerja Tidak Tetap/Harian adalah pekerja dibayar tidak terikat secara tetap dengan usaha/perusahaan, mereka hanya bekerja selama pekerjaan/proyek dan setelah selesai maka secara otomatis mereka tidak mempunyai hubungan kerja.
+Persentase
+%
+%
+%
+3. Pengguna Jasa/
+Pemilik Pekerjaan
+%
+%
+%
+%
+5. JUMLAH [ 1 + 2 + 3 + 4 ]
+%
+%
+4. JUMLAH [ 1 + 2 + 3 ]
+1. Modal Sendiri
+Persentase
+Lainnya: (tuliskan ………………...……………)
+JUMLAH [1 + 2 + 3]
+BLOK III. PENAMBAHAN DAN PENGURANGAN BARANG MODAL SERTA PENYUSUTAN SELAMA TAHUN 2023 (000 Rp)
+Jenis Barang Modal
+Pembelian/
+Penambahan
+Pembuatan/
+Perbaikan Besar
+Pengurangan Barang
+Modal
+Penyusutan Barang
+Modal
+Pengeluaran untuk Pekerja Outsourcing
+Balas Jasa Pekerja Asing d. Hadiah, Bonus, dan Sejenisnya e. Iuran Dana Pensiun, Tunjangan Sosial f. Asuransi Tenaga Kerja a. Gaji dan Tunjangan Rutin b. Upah Lembur c. Uang Transportasi dan Uang Makan
+Uraian
+Jumlah (000 Rp)
+Balas Jasa Pekerja Tetap dan Kontrak [a + b + c + d + e + f]
+SMP dan Sederajat atau lebih rendah
+Pekerja Tetap dan Kontrak
+[a + b + c]
+BLOK II. TENAGA KERJA DAN BALAS JASA SELAMA TAHUN 2023
+Pendidikan Tertinggi yang Ditamatkan
+Jenis Kelamin
+Kepemilikan Sertifikasi Kompetensi
+Laki-laki
+Perempuan
+Jumlah
+Tidak Memiliki
+Sertifikasi
+Kompetensi
+Memiliki SKK
+Konstruksi
+Memiliki
+Sertifikasi
+Kompetensi Non
+Konstruksi
+Jumlah
+A. Kepemilikan Perusahaan
+B. Modal Kerja
+1. Pemerintah Pusat
+2. Pemerintah Daerah
+3. Swasta Nasional/Perorangan
+4. Asing
+(tuliskan nama negara……...…...)
+Lampiran
+Appendix
+Lanjutan Lampiran/Continued Appendix 1
+No.
+1.
+g. Bahan Bakar Lainnya (tuliskan :
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
+1.
+2.
+Besi
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+)
+)
+Lainnya : (tuliskan
+14. JUMLAH [1 + 2 + ………..… + 13]
+Semen
+Tuliskan semua bahan/material yang digunakan pada tahun 2023 untuk semua proyek. Contoh: hotmix, tiang pancang, keramik, baja ringan, wallpaper, eskalator, plafon, trafo, kabel, steker dll. Jika lebih dari 12, jumlahkan nilai selain rincian 1-12 pada rincian 13 (lainnya).
+Jenis Bahan / Material
+Dalam Negeri (000 Rp)
+Impor (000 Rp)
+Biaya Lainnya (misal : Retribusi, Iuran Organisasi, Pengeluaran Pakaian Kerja, Makanan, dll)
+JUMLAH [ 1 + 2 + ... + 17]
+BLOK VI. BAHAN / MATERIAL YANG DIGUNAKAN SELAMA TAHUN 2023
+Pengeluaran Jasa Intelektual (Hak Paten, Merek, Hak Cipta, Desain Industri dll)
+Biaya Penggunaan Jasa Pihak Lain (misalnya : Jasa Penerbitan Bank Garansi, Konsultan Pajak/Keuangan, Promosi dll)
+Sewa Lahan, Bangunan, Kendaraan, Mesin, Peralatan, dan Alat Perlengkapan
+Pendidikan dan Pelatihan
+Pajak Pertambahan Nilai Barang dan Jasa, PBB, Bea Masuk dan Cukai, Pajak Ekspor/Impor, Pajak Penjualan, dan
+Pajak Lainnya
+Penyusutan dan Amortisasi
+Administrasi Bank dan Perantara Keuangan
+Angkutan, Pengiriman, Ekspedisi, Pergudangan, Pos dan Jasa Kurir
+Pembelian Suku Cadang dan Pemeliharaan/Perbaikan Kecil Barang Modal
+Perjalanan Dinas Pekerja
+Penelitian dan Pengembangan (Research and Development )
+h. Pelumas
+Listrik
+Air
+Telepon, Internet, dan Komunikasi Lainnya
+Alat Tulis Kantor b. Minyak Solar/HSD/ADO/Minyak Diesel c. Minyak Bakar d. Batubara/Bricket/Kokas e. LPG/BBG/Gas Kota/Gas Alam f. Biomass (Kayu Bakar, Arang, Sekam)
+BLOK V. BIAYA/PENGELUARAN OPERASIONAL SELAMA TAHUN 2023
+Uraian
+Nilai (000 Rp)
+Bahan Bakar dan Pelumas : (a+b+ … +h)
+a. Bensin
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Lanjutan Lampiran/Continued Appendix 1
+1. Tuliskan semua nama proyek/jenis pekerjaan. Jika proyek/pekerjaan lebih dari 11, dapat ditambahkan dengan menggandakan lembar Blok VII ini.
+2.
+Rata-rata Persentase penggunaan bahan/material terhadap nilai konstruksi yang diselesaikan selama tahun 2023
+%
+3.
+Rata-rata Persentase upah pekerja tidak tetap/harian terhadap nilai konstruksi yang diselesaikan selama tahun 2023
+%
+Keterangan :
+Isian dalam kotak diisi oleh Pemeriksa
+3) Sumber Dana Utama (Kolom 4) :
+1: APBN
+2: APBD Provinsi
+3: APBD Kabupaten/Kota
+4: BUMN/BUMD
+5: Swasta
+6: Luar Negeri
+12. JUMLAH [1 + 2 + ... + 11]
+11.
+………………..
+………………..
+……………………...
+………..
+10.
+………………..
+………………..
+……………………...
+………..
+9.
+………………..
+………………..
+……………………...
+………..
+……………………...
+………..
+8.
+………………..
+………………..
+7.
+………………..
+………………..
+……………………...
+………..
+6.
+………………..
+………………..
+……………………...
+………..
+5.
+………………..
+………………..
+……………………...
+………..
+4.
+………………..
+………………..
+……………………...
+………..
+3.
+………………..
+………………..
+……………………...
+………..
+2.
+………………..
+………………..
+……………………...
+………..
+……………………...
+KBLI 2020
+Kode Kab/Kota
+………..
+1.
+………………..
+………………..
+Pembiayaan
+Pekerjaan 3)
+(000 Rp)
+BLOK VII. PENDAPATAN DAN PENGELUARAN
+No
+Provinsi dan Kabupaten/Kota
+Lokasi Proyek
+Volume
+Pekerjaan
+Satuan
+(m, m2, m3, km, dll)
+Nilai Kontrak/
+Pekerjaan 4)
+Nama Proyek/
+Sumber
+Jenis Pekerjaan
+Dana
+Utama
+(Tuliskan Sejelas Mungkin)
+Lampiran
+Appendix
+Lanjutan Lampiran/Continued Appendix 1
+Pekerjaan yang dicakup pada Blok VII meliputi semua pekerjaan konstruksi yang dilaksanakan selama tahun 2023, baik yang dimulai pada
+Mulai
+Selesai
+(000 Rp)
+(000 Rp)
+(000 Rp)
+(000 Rp)
+(000 Rp)
+tahun sebelumnya maupun yang dimulai pada tahun 2023, baik di dalam negeri maupun di luar negeri.
+4) Nilai Kontrak/Pekerjaan adalah nilai kontrak/pekerjaan yang dikerjakan oleh pihak pemborong berdasarkan surat perjanjian, surat perintah kerja antara pihak pemberi pekerjaan (pihak I) dengan penerima pekerjaan (pihak II) dalam jangka tertentu dan jumlah biaya tertentu.
+5) Nilai Pekerjaan yang Disubkontrakkan adalah nilai pekerjaan yang diberikan ke pihak lain dalam rangka penyelesaian suatu proyek meliputi pekerjaan yang disubkontrakkan seluruhnya (bahan/material dan tenaga kerja disediakan oleh subkontraktor), atau hanya sebagian saja, atau tenaga kerjanya saja s/d tanggal 31 Desember
+2023.
+6) Biaya Bahan/Material adalah seluruh nilai bahan/material yang dipakai untuk setiap pekerjaan baik yang disediakan perusahaan kontraktor maupun yang disediakan pemilik pekerjaan.
+7) Nilai Konstruksi yang Diselesaikan adalah nilai kontrak/pekerjaan dikurangi nilai pekerjaan yang disubkontrakkan dikalikan persentase pekerjaan yang diselesaikan ditambah biaya bahan/material yang disediakan pemilik pekerjaan selama tahun 2023.
+/
+/
+%
+%
+/
+/
+%
+%
+/
+/
+%
+%
+%
+/
+/
+%
+/
+/
+%
+%
+/
+/
+%
+%
+/
+/
+%
+%
+/
+/
+%
+%
+/
+/
+%
+%
+/
+/
+%
+%
+%
+/
+/
+%
+s/d
+31/12/22
+s/d
+31/12/23
+Bulan/Tahun
+Pelaksanaan
+Pekerjaan
+Kumulatif
+Persentase
+Pekerjaan yang
+Diselesaikan
+Biaya Bahan/Material yang
+Digunakan Selama Tahun 2023
+6)
+Jumlah Upah
+Pekerja Tidak
+Tetap/Harian
+Rata-Rata Upah
+Pekerja Tidak
+Tetap/Harian per
+Orang per Hari
+Nilai Konstruksi yang Diselesaikan
+Pada Tahun 2023 7)
+Disediakan
+Pemilik
+Pekerjaan
+{[ - ] * (12-11)/100} +
+PEKERJAAN KONSTRUKSI TAHUN 2023
+Nilai Pekerjaan yang
+Disubkontrakkan s/d 31/12/23 5)
+(000 Rp)
+(%)
+(%)
+Disediakan
+Perusahaan
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Lanjutan Lampiran/Continued Appendix 1
+1.
+2.
+a.
+b.
+c.
+d.
+Pekerjaan 4)
+( 000 Rp )
+( 000 Rp )
+( 000 Rp )
+(000 Rp)
+(000 Rp)
+( 000 Rp )
+1.
+7 2
+2.
+7 2
+3.
+1 5
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+24 400 000
+9 630 500
+20 000
+5 510 250
+24 320 000
+22 000 000
+2 000 000
+320 000
+Jawa Tengah
+Jawa Tengah
+Jawa Tengah
+Rehab Gedung Depag
+Membangun Gedung SDN 2
+Sukasari
+Perbaikan Jalan
+Disediakan
+Pemilik Pekerjaan
+20 000
+8 800 000
+700 000
+130 500
+0,00
+0,00
+0,00
+04 / 23
+01 / 23
+01 / 23
+12 / 23
+06 / 23
+03 / 23
+22 000 000
+2 100 000
+300 000
+100 000
+km m2
+m2
+12. J U M L A H (1+2+ … +11)
+No
+APBD
+APBN
+APBD
+Volume
+Pekerjaan
+KBLI 2021
+Kode Kab/Kota
+Kota Surakarta
+Kota Surakarta
+Kab. Grobogan
+(%)
+(%)
+( 000 Rp )
+Mulai
+Provinsi dan Kabupaten/kota
+Lokasi Proyek
+Bulan/Tahun
+Pelaksanaan Pekerjaan s/d 31 Des s/d 31 Des
+Pekerjaan 3)
+Nilai Kontrak/
+Satuan
+(m, m2, m3, km, dll)
+Nilai Pekerjaan yang
+Disubkontrakkan s/d
+31 Des 2023 5)
+Selesai
+Disediakan
+Perusahaan
+Nilai Konstruksi yang Diselesaikan Pada
+Tahun 2023 7)
+{[ - ] * (12-11)/100} +
+Biaya Bahan/Material yang
+Digunakan Selama Tahun 2023 6)
+Nama Proyek/Jenis Pekerjaan
+Kumulatif Persentase/
+Pekerjaan yang diselesaikan
+Jumlah Upah
+Pekerja Tidak
+Tetap/Harian
+Rata-Rata Upah
+Pekerja Tidak
+Tetap/Harian per
+Orang per Hari
+5 062 500
+396 000
+51 750
+Contoh Pengisian Blok VII
+BLOK VII : PENDAPATAN DAN PENGELUARAN PEKERJAAN KONSTRUKSI TAHUN 2023
+Data yang diisikan adalah untuk kegiatan perusahaan selama tahun 2023
+Perusahaan cukup mengisi/melingkari jawaban sesuai dengan pertanyaan pada kuesioner.
+Untuk kasus perusahaan di bawah ini, maka pengisiannya adalah sbb :
+Perusahaan CV. WIDYAS INDAH di Provinsi Jawa Tengah selama tahun 2023 mengerjakan 3 proyek konstruksi, yaitu :
+Perbaikan jalan di Kota Surakarta, panjang 3 km yang dibiayai oleh APBD Kota Surakarta dikerjakan sejak April 2023 dan direncanakan selesai Februari 2023 dengan nilai kontrak sebesar Rp30.000.000.000,- dengan 2 Tahun Anggaran 2023 dan 2024. Nilai kontrak I TA 2023 sebesar Rp22.000.000.000, dan TA 2024 sebesar
+Rp8.000.000.000. Sampai Desember 2023, sesuai kontrak T.A. 2022 realisasi fisiknya sudah 100%. Biaya bahan semuanya disediakan oleh perusahaan selama tahun 2023 sebesar Rp8.800.000.000. Jumlah upah pekerja harian yang dibayarkan oleh perusahaan selama tahun 2023 adalah sebanyak Rp5.062.500.000, dimana rata-
+rata upah yang diterima oleh masing-masing pekerja harian pada tiap harinya sebesar Rp125.000.
+Rehab Gedung Depag di Kota Surakarta, dibiayai APBN telah dikerjakan sejak Januari 2023 hingga Juli 2023 senilai Rp2.100.000.000 dengan volume pekerjaan 420 m2. Pada bulan Desember 2023, pekerjaannya selesai 100% dengan biaya bahan bangunan yang disediakan oleh perusahaan sebesar Rp700.000.000. Nilai pekerjaan yang disubkontrakkan s/d 31 Desember 2023 sebesar Rp 100.000.000. Total pengeluaran untuk membayar upah pekerja harian sebesar Rp396.000.000, dimana rata-rata upah yang diterima oleh masing-masing pekerja harian pada tiap harinya sebesar Rp110.000.
+Rehab Gedung SDN 2 Sukasari di Kab Grobogan yang dibiayai APBD, dikerjakan sejak Januari 2023 hingga Maret 2023 senilai Rp 300.000.000,-dengan volume pekerjaan 100 m2. Pada Maret 2023, realisasi fisiknya sudah 100%. Biaya bahan bangunan yang disediakan perusahaan sebesar Rp130.500.000, yang disediakan oleh pemilik pekerjaan sebesar Rp20.000.000. Jumlah upah pekerja harian yang dibayarkan oleh perusahaan untuk pembangunan sekolah ini sebesar Rp51.750.000, dimana rata-rata upah yang diterima oleh masing-masing pekerja harian pada tiap harinya sebesar Rp115.000.
+Biarkan kotak kode pada setiap sel tetap kosong karena akan diisi oleh Pemeriksa
+Pengisian BLOK VII adalah sbb :
+Sumber
+Dana
+Utama
+Pembiayaan
+(Tuliskan Sejelas Mungkin)
+Lampiran
+Appendix
+Lanjutan Lampiran/Continued Appendix 1
+a. Dalam Negeri b. Luar Negeri
+2.
+Pendapatan dari Menyewakan Gedung/Ruangan
+3.
+Pendapatan dari Sewa Lahan
+4.
+Pendapatan dari Menyewakan Alat dan Perlengkapan
+5.
+Keuntungan / Kerugian Penjualan Barang dalam Bentuk yang Sama
+/ -
+6.
+Pendapatan dari Dividen, Bunga, Klaim Asuransi, dan Lain-lain
+7.
+Pendapatan Jasa Intelektual (Hak Paten, Hak Merek, Hak Cipta, Desain Industri, dll)
+8.
+Lainnya (tuliskan
+)
+9.
+A.
+1.
+2.
+3.
+4.
+B.
+1.
+2.
+3.
+C.
+%
+D.
+%
+[Blok II, Rincian B Baris 4 Jumlah Kolom + Blok VII, Rincian 1 Baris 12 Jumlah Kolom ]
+Nilai Pemakaian Bahan/Material yang Digunakan
+[Blok VII, Rincian 1 Baris 12 Jumlah Kolom + ]
+Biaya/Pengeluaran Operasional
+[Blok V, Baris 18 Jumlah Kolom ]
+Persentase Keuntungan Terhadap Pengeluaran
+(B/A -1) x 100%
+#DIV/0!
+JUMLAH B [ 1 + 2 ]
+#REF!
+Efisiensi Perusahaan
+(A / B x 100%)
+#REF!
+1.
+Pendapatan Konsultan Perencanaan dan/atau
+Pengawasan
+Nilai
+( 000 Rp )
+#REF!
+Rincian
+#REF!
+#REF!
+Nilai dari Pendapatan Lain
+[Blok VIII, Baris 9 Jumlah Kolom ]
+JUMLAH A [ 1 + 2 + 3]
+RINCIAN PENDAPATAN
+Nilai Konstruksi yang Diselesaikan
+[Blok VII, Rincian 1 Baris 12 Jumlah Kolom ]
+RINCIAN PENGELUARAN
+Balas Jasa dan Upah Pekerja
+…...
+JUMLAH [ 1a + 1b + 2 +… + 8]
+BLOK IX. RINGKASAN PENGELUARAN DAN PENDAPATAN SELAMA TAHUN 2023
+(Diisi oleh Pengawas/Pemeriksa)
+BLOK VIII. PENDAPATAN LAIN SELAMA TAHUN 2023
+Jenis Pendapatan
+Nilai (000 Rp)
+Benchmark Statistik Konstruksi, 2018-2023
+Benchmark Construction Statistics, 2018-2023
+Lanjutan Lampiran/Continued Appendix 1
+1. Apakah perusahaan ini melakukan kegiatan penelitian dan pengembangan (litbang)?
+Ya 1
+Tidak 2 → STOP, Lanjut ke Blok Catatan
+2. Jenis penelitian dan pengembangan yang dilakukan (bisa lebih dari satu pilihan):
+Penelitian Dasar - 1
+Penelitian Terapan - 2
+Pengembangan Eksperimental - 4
+3. Jika perusahaan melakukan kegiatan litbang sendiri, berapa jumlah SDM pelaku litbang?
+4. Berapa biaya belanja (pengeluaran) untuk kegiatan litbang?
+i.
+Intramural
+(000 Rp)
+ii.
+Extramural
+(000 Rp)
+iii.
+Jumlah
+(000 Rp)
+1. Menurut perusahaan, metode pengisian kuesioner selanjutnya lebih baik dilakukan dengan cara:
+Pengisian mandiri via pendataan online / web base 1
+Pengisian menggunakan kuesioner / paper base -2
+2. Jika R1 berkode 1 (online/web base ), tuliskan email resmi yang dapat dihubungi:
+Tuliskan informasi penting yang berhubungan dengan isian kuesioner :
+N a m a
+NIP / NMS
+Nomor HP / Telepon
+Jabatan
+E-mail
+Tanggal
+BLOK XI. PERNYATAAN
+CATATAN
+Tanda Tangan dan
+Stempel Perusahaan
+………... s.d. …………
+………... s.d. …………
+………... s.d. …………
+………... s.d. …………
+Uraian
+Pemberi Jawaban
+Petugas
+PPL
+PML
+Kabupaten/Kota
+Provinsi
+BLOK X. PENELITIAN DAN PENGEMBANGAN SELAMA TAHUN 2023
+…...
+…...
+…...
+Penelitian dan Pengembangan (Litbang) adalah kegiatan kreatif yang dilakukan dengan sistematis untuk menambah pengetahuan dan pemanfaatan pengetahuan untuk merancang penerapan baru. Contoh penerapan litbang di bidang konstruksi: pembuatan prototipe awal, pilot plant otomatisasi konstruksi, penerapan sumber material alternatif untuk beton.
+Belanja Litbang Intramural adalah semua belanja (pengeluaran) untuk kegiatan penelitian dan pengembangan yang dilakukan dalam unit perusahaan.
+Belanja Litbang Ekstramural adalah semua belanja (pengeluaran) untuk kegiatan penelitian dan pengembangan yang dilakukan oleh unit perusahaan lain (pihak lain), baik di dalam maupun luar negeri.
+KETERANGAN PEMBERI JAWABAN DAN PETUGAS

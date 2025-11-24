@@ -1,0 +1,791 @@
+================================================================================
+QWEN3-8B BASE MODEL DOCUMENTATION
+Large Language Model - Chat & Reasoning
+================================================================================
+
+OVERVIEW
+--------
+Qwen3 adalah generasi terbaru dari large language model dalam series Qwen,
+menawarkan suite lengkap dari dense dan mixture-of-experts (MoE) models.
+Dibangun dengan extensive training, Qwen3 menghadirkan kemajuan groundbreaking
+dalam reasoning, instruction-following, agent capabilities, dan multilingual
+support.
+
+================================================================================
+QWEN3 KEY HIGHLIGHTS
+================================================================================
+
+1. DUAL MODE OPERATION
+   --------------------
+   - Seamless switching antara thinking mode dan non-thinking mode
+   - Thinking mode: Complex logical reasoning, math, dan coding
+   - Non-thinking mode: Efficient general-purpose dialogue
+   - Optimal performance across berbagai scenarios
+
+2. ENHANCED REASONING CAPABILITIES
+   --------------------------------
+   - Melampaui QwQ (thinking mode) dan Qwen2.5 instruct (non-thinking mode)
+   - Superior di mathematics, code generation, dan commonsense logical reasoning
+   - Significant improvement dalam complex problem-solving
+
+3. SUPERIOR HUMAN PREFERENCE ALIGNMENT
+   ------------------------------------
+   - Excel di creative writing dan role-playing
+   - Outstanding multi-turn dialogues
+   - Better instruction following
+   - Natural, engaging, dan immersive conversational experience
+
+4. EXPERTISE IN AGENT CAPABILITIES
+   --------------------------------
+   - Precise integration dengan external tools
+   - Support thinking dan non-thinking modes
+   - Leading performance di complex agent-based tasks (open-source)
+
+5. MULTILINGUAL SUPPORT
+   ---------------------
+   - Support 100+ languages dan dialects
+   - Strong multilingual instruction following
+   - Professional translation capabilities
+
+================================================================================
+MODEL SPECIFICATIONS
+================================================================================
+
+TECHNICAL DETAILS
+-----------------
+- Type: Causal Language Models
+- Training Stage: Pretraining & Post-training
+- Number of Parameters: 8.2B
+- Number of Parameters (Non-Embedding): 6.95B
+- Number of Layers: 36
+- Number of Attention Heads (GQA): 32 for Q, 8 for KV
+- Context Length: 32,768 tokens (native)
+- Extended Context: 131,072 tokens (with YaRN)
+
+RESOURCES
+---------
+Untuk detail lengkap termasuk benchmark evaluation, hardware requirements,
+dan inference performance, silakan refer ke:
+- Blog: https://qwenlm.github.io/blog/
+- GitHub: https://github.com/QwenLM/Qwen
+- Documentation: https://qwenlm.github.io/
+
+================================================================================
+QUICKSTART GUIDE
+================================================================================
+
+REQUIREMENTS
+------------
+- transformers >= 4.51.0 (WAJIB!)
+  
+  Dengan transformers < 4.51.0, akan muncul error:
+  KeyError: 'qwen3'
+
+BASIC USAGE
+-----------
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "Qwen/Qwen3-8B"
+
+# Load tokenizer dan model
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype="auto",
+    device_map="auto"
+)
+
+# Prepare model input
+prompt = "Give me a short introduction to large language model."
+messages = [
+    {"role": "user", "content": prompt}
+]
+
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+    enable_thinking=True  # Default: True (thinking mode)
+)
+
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+
+# Generate response
+generated_ids = model.generate(
+    **model_inputs,
+    max_new_tokens=32768
+)
+
+output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist()
+
+# Parse thinking content
+try:
+    # Find index of </think> token (151668)
+    index = len(output_ids) - output_ids[::-1].index(151668)
+except ValueError:
+    index = 0
+
+thinking_content = tokenizer.decode(
+    output_ids[:index], 
+    skip_special_tokens=True
+).strip("\n")
+
+content = tokenizer.decode(
+    output_ids[index:], 
+    skip_special_tokens=True
+).strip("\n")
+
+print("Thinking content:", thinking_content)
+print("Content:", content)
+```
+
+================================================================================
+DEPLOYMENT OPTIONS
+================================================================================
+
+PRODUCTION DEPLOYMENT
+---------------------
+
+1. SGLANG (Recommended)
+   Version: >= 0.4.6.post1
+   
+   ```bash
+   python -m sglang.launch_server \
+       --model-path Qwen/Qwen3-8B \
+       --reasoning-parser qwen3
+   ```
+
+2. VLLM
+   Version: >= 0.8.5
+   
+   ```bash
+   vllm serve Qwen/Qwen3-8B \
+       --enable-reasoning \
+       --reasoning-parser deepseek_r1
+   ```
+
+LOCAL DEPLOYMENT
+----------------
+Aplikasi yang mendukung Qwen3:
+- Ollama
+- LMStudio
+- MLX-LM
+- llama.cpp
+- KTransformers
+
+================================================================================
+THINKING MODE CONFIGURATION
+================================================================================
+
+MODE 1: THINKING MODE (enable_thinking=True)
+---------------------------------------------
+
+DESKRIPSI:
+- Default mode untuk Qwen3
+- Similar ke QwQ-32B
+- Model menggunakan reasoning abilities untuk enhance response quality
+- Generate <think>...</think> block sebelum final response
+
+KONFIGURASI:
+```python
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+    enable_thinking=True  # True adalah default
+)
+```
+
+SAMPLING PARAMETERS (PENTING!):
+- Temperature: 0.6
+- TopP: 0.95
+- TopK: 20
+- MinP: 0
+
+⚠️ CATATAN PENTING:
+DO NOT use greedy decoding! Dapat menyebabkan:
+- Performance degradation
+- Endless repetitions
+
+OUTPUT FORMAT:
+```
+<think>
+[Model reasoning process here...]
+</think>
+[Final response here]
+```
+
+KAPAN MENGGUNAKAN:
+- Complex logical reasoning
+- Mathematical problems
+- Coding challenges
+- Problems requiring step-by-step thinking
+
+MODE 2: NON-THINKING MODE (enable_thinking=False)
+--------------------------------------------------
+
+DESKRIPSI:
+- Hard switch untuk disable thinking behavior
+- Align dengan Qwen2.5-Instruct models
+- Useful untuk enhancing efficiency
+- NO <think>...</think> block generated
+
+KONFIGURASI:
+```python
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+    enable_thinking=False  # Explicitly disable thinking
+)
+```
+
+SAMPLING PARAMETERS:
+- Temperature: 0.7
+- TopP: 0.8
+- TopK: 20
+- MinP: 0
+
+OUTPUT FORMAT:
+```
+[Direct response without thinking process]
+```
+
+KAPAN MENGGUNAKAN:
+- General-purpose dialogue
+- Quick responses needed
+- Efficiency is priority
+- Simple queries
+
+================================================================================
+ADVANCED: DYNAMIC MODE SWITCHING
+================================================================================
+
+SOFT SWITCH MECHANISM
+----------------------
+
+Ketika enable_thinking=True, user dapat control thinking behavior secara
+dynamic menggunakan special tags:
+
+- /think: Enable thinking untuk turn tersebut
+- /no_think: Disable thinking untuk turn tersebut
+
+ATURAN:
+- Model mengikuti instruksi terbaru dalam multi-turn conversations
+- Tags bisa ditambahkan di user prompts atau system messages
+
+CONTOH IMPLEMENTASI:
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+class QwenChatbot:
+    def __init__(self, model_name="Qwen/Qwen3-8B"):
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(model_name)
+        self.history = []
+
+    def generate_response(self, user_input):
+        messages = self.history + [{"role": "user", "content": user_input}]
+
+        text = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+
+        inputs = self.tokenizer(text, return_tensors="pt")
+        response_ids = self.model.generate(
+            **inputs, 
+            max_new_tokens=32768
+        )[0][len(inputs.input_ids[0]):].tolist()
+        
+        response = self.tokenizer.decode(
+            response_ids, 
+            skip_special_tokens=True
+        )
+
+        # Update history
+        self.history.append({"role": "user", "content": user_input})
+        self.history.append({"role": "assistant", "content": response})
+
+        return response
+
+# Example Usage
+if __name__ == "__main__":
+    chatbot = QwenChatbot()
+
+    # Turn 1: Default thinking mode
+    user_input_1 = "How many r's in strawberries?"
+    print(f"User: {user_input_1}")
+    response_1 = chatbot.generate_response(user_input_1)
+    print(f"Bot: {response_1}")
+    print("----------------------")
+
+    # Turn 2: Disable thinking dengan /no_think
+    user_input_2 = "Then, how many r's in blueberries? /no_think"
+    print(f"User: {user_input_2}")
+    response_2 = chatbot.generate_response(user_input_2)
+    print(f"Bot: {response_2}") 
+    print("----------------------")
+
+    # Turn 3: Re-enable thinking dengan /think
+    user_input_3 = "Really? /think"
+    print(f"User: {user_input_3}")
+    response_3 = chatbot.generate_response(user_input_3)
+    print(f"Bot: {response_3}")
+```
+
+API COMPATIBILITY NOTE:
+- Ketika enable_thinking=True: Model selalu output <think>...</think> block
+  (meskipun content-nya bisa empty jika thinking disabled via /no_think)
+- Ketika enable_thinking=False: Soft switches tidak valid
+  (model tidak generate thinking content regardless of tags)
+
+================================================================================
+AGENTIC USE & TOOL CALLING
+================================================================================
+
+OVERVIEW
+--------
+Qwen3 excel dalam tool calling capabilities. Recommended menggunakan
+Qwen-Agent untuk maximize agentic ability.
+
+KELEBIHAN QWEN-AGENT:
+- Encapsulates tool-calling templates
+- Built-in tool-calling parsers
+- Greatly reduces coding complexity
+
+TOOL DEFINITION OPTIONS:
+1. MCP configuration file
+2. Integrated tools dari Qwen-Agent
+3. Custom tool integration
+
+IMPLEMENTASI:
+```python
+from qwen_agent.agents import Assistant
+
+# Define LLM Configuration
+llm_cfg = {
+    'model': 'Qwen3-8B',
+
+    # Option 1: Alibaba Model Studio
+    # 'model_type': 'qwen_dashscope',
+    # 'api_key': os.getenv('DASHSCOPE_API_KEY'),
+
+    # Option 2: Custom OpenAI-compatible endpoint
+    'model_server': 'http://localhost:8000/v1',  # api_base
+    'api_key': 'EMPTY',
+
+    # Optional parameters:
+    # 'generate_cfg': {
+    #     # Add thought_in_content when response format is:
+    #     # "<think>thought</think>answer"
+    #     # Don't add when already separated by reasoning_content
+    #     'thought_in_content': True,
+    # },
+}
+
+# Define Tools
+tools = [
+    {
+        'mcpServers': {  # MCP configuration file
+            'time': {
+                'command': 'uvx',
+                'args': ['mcp-server-time', '--local-timezone=Asia/Shanghai']
+            },
+            "fetch": {
+                "command": "uvx",
+                "args": ["mcp-server-fetch"]
+            }
+        }
+    },
+    'code_interpreter',  # Built-in tools
+]
+
+# Initialize Agent
+bot = Assistant(llm=llm_cfg, function_list=tools)
+
+# Streaming generation
+messages = [
+    {
+        'role': 'user', 
+        'content': 'https://qwenlm.github.io/blog/ Introduce the latest developments of Qwen'
+    }
+]
+
+for responses in bot.run(messages=messages):
+    pass
+
+print(responses)
+```
+
+TOOL INTEGRATION BENEFITS:
+- Seamless external tool integration
+- Automatic tool selection
+- Efficient tool chaining
+- Error handling built-in
+
+================================================================================
+PROCESSING LONG TEXTS
+================================================================================
+
+CONTEXT LENGTH CAPABILITIES
+----------------------------
+- Native Support: 32,768 tokens
+- Extended Support: 131,072 tokens (with YaRN)
+
+YARN (Yet Another RoPE Extension)
+----------------------------------
+
+KAPAN MENGGUNAKAN YARN:
+✓ Total length (input + output) significantly exceeds 32,768 tokens
+✓ Processing long documents
+✓ Extended conversations
+✓ Long-form content generation
+
+SUPPORTED FRAMEWORKS:
+- transformers (local use)
+- llama.cpp (local use)
+- vllm (deployment)
+- sglang (deployment)
+
+--------------------------------------------------------------------------------
+METHOD 1: MODIFYING MODEL FILES
+--------------------------------------------------------------------------------
+
+Edit config.json, tambahkan rope_scaling fields:
+
+```json
+{
+    "rope_scaling": {
+        "rope_type": "yarn",
+        "factor": 4.0,
+        "original_max_position_embeddings": 32768
+    }
+}
+```
+
+CATATAN:
+- Untuk llama.cpp, perlu regenerate GGUF file setelah modifikasi
+- Jika muncul warning tentang 'original_max_position_embeddings':
+  Upgrade transformers >= 4.51.0
+
+--------------------------------------------------------------------------------
+METHOD 2: COMMAND LINE ARGUMENTS
+--------------------------------------------------------------------------------
+
+VLLM:
+```bash
+vllm serve Qwen/Qwen3-8B \
+    --rope-scaling '{"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}' \
+    --max-model-len 131072
+```
+
+SGLANG:
+```bash
+python -m sglang.launch_server \
+    --model-path Qwen/Qwen3-8B \
+    --json-model-override-args '{"rope_scaling":{"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}}'
+```
+
+LLAMA.CPP (llama-server):
+```bash
+llama-server \
+    --model Qwen3-8B.gguf \
+    --rope-scaling yarn \
+    --rope-scale 4 \
+    --yarn-orig-ctx 32768
+```
+
+YARN CONFIGURATION GUIDELINES
+------------------------------
+
+FACTOR ADJUSTMENT:
+- Factor 4.0: For ~131,072 tokens context
+- Factor 2.0: For ~65,536 tokens context
+- Adjust based on typical context length
+
+BEST PRACTICES:
+1. Only enable YaRN when processing long contexts required
+2. Modify factor based on typical context length needs
+3. Static YaRN may impact performance on shorter texts
+4. Avoid YaRN if average context < 32,768 tokens
+
+DEFAULT CONFIGURATION:
+- max_position_embeddings: 40,960 tokens
+  - 32,768 tokens: Reserved for outputs
+  - 8,192 tokens: Reserved for typical prompts
+- Sufficient for most short text scenarios
+
+ALIBABA MODEL STUDIO:
+- Supports dynamic YaRN by default
+- No extra configuration needed
+- Automatically adjusts based on input length
+
+================================================================================
+BEST PRACTICES & OPTIMIZATION
+================================================================================
+
+1. SAMPLING PARAMETERS
+   --------------------
+
+   THINKING MODE (enable_thinking=True):
+   - Temperature: 0.6
+   - TopP: 0.95
+   - TopK: 20
+   - MinP: 0
+   - ⚠️ DO NOT use greedy decoding!
+
+   NON-THINKING MODE (enable_thinking=False):
+   - Temperature: 0.7
+   - TopP: 0.8
+   - TopK: 20
+   - MinP: 0
+
+   OPTIONAL - Reduce Repetitions:
+   - presence_penalty: 0 to 2
+   - Higher values may cause language mixing
+   - Slight performance decrease possible
+
+2. OUTPUT LENGTH CONFIGURATION
+   ----------------------------
+
+   GENERAL QUERIES:
+   - Recommended: 32,768 tokens
+   - Sufficient for most use cases
+
+   COMPLEX PROBLEMS (Math/Programming Competitions):
+   - Recommended: 38,912 tokens
+   - Provides space for detailed responses
+   - Enhances overall performance
+
+3. STANDARDIZE OUTPUT FORMAT
+   --------------------------
+
+   MATH PROBLEMS:
+   Prompt template:
+   "Please reason step by step, and put your final answer within \\boxed{}."
+
+   MULTIPLE-CHOICE QUESTIONS:
+   Prompt template:
+   "Please show your choice in the answer field with only the choice letter,
+   e.g., \"answer\": \"C\"."
+
+   Benefits:
+   - Consistent output format
+   - Easier parsing
+   - Better benchmarking
+
+4. MULTI-TURN CONVERSATIONS
+   -------------------------
+
+   BEST PRACTICE:
+   - Historical output should only include final output part
+   - DO NOT include thinking content in history
+   - Implemented in Jinja2 chat template
+   - For non-Jinja2 frameworks: Developers must ensure compliance
+
+   RATIONALE:
+   - Reduces token usage
+   - Improves conversation flow
+   - Maintains context efficiency
+
+5. PERFORMANCE OPTIMIZATION TIPS
+   ------------------------------
+
+   ✓ Use appropriate mode for task type
+   ✓ Set correct sampling parameters
+   ✓ Allocate sufficient output length
+   ✓ Standardize prompts for consistency
+   ✓ Clean conversation history
+   ✓ Enable YaRN only when needed
+   ✓ Monitor and adjust presence_penalty
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ISSUE 1: KeyError: 'qwen3'
+---------------------------
+Penyebab: transformers version < 4.51.0
+
+Solusi:
+```bash
+pip install --upgrade "transformers>=4.51.0"
+```
+
+ISSUE 2: Endless Repetitions
+-----------------------------
+Penyebab: Using greedy decoding in thinking mode
+
+Solusi:
+- Set Temperature=0.6, TopP=0.95 (thinking mode)
+- Or use presence_penalty between 0-2
+- Never use Temperature=0 in thinking mode
+
+ISSUE 3: Unrecognized 'original_max_position_embeddings' Warning
+-----------------------------------------------------------------
+Penyebab: Outdated transformers version
+
+Solusi:
+```bash
+pip install --upgrade "transformers>=4.51.0"
+```
+
+ISSUE 4: Poor Performance on Short Texts with YaRN
+---------------------------------------------------
+Penyebab: Static YaRN scaling applied to all inputs
+
+Solusi:
+- Only enable YaRN when needed for long contexts
+- Use dynamic YaRN (Alibaba Model Studio)
+- Or disable YaRN for short text processing
+
+ISSUE 5: Language Mixing in Output
+-----------------------------------
+Penyebab: presence_penalty too high
+
+Solusi:
+- Lower presence_penalty value
+- Start with 0.5 and adjust incrementally
+- Monitor output quality
+
+================================================================================
+USE CASES & SCENARIOS
+================================================================================
+
+OPTIMAL USE CASES FOR QWEN3-8B
+-------------------------------
+
+THINKING MODE:
+✓ Mathematical problem solving
+✓ Complex coding challenges
+✓ Logical reasoning tasks
+✓ Multi-step planning
+✓ Algorithm design
+✓ Scientific reasoning
+✓ Competitive programming
+
+NON-THINKING MODE:
+✓ General chat conversations
+✓ Quick Q&A
+✓ Content summarization
+✓ Translation tasks
+✓ Simple information retrieval
+✓ Casual dialogue
+✓ Rapid prototyping
+
+AGENTIC MODE:
+✓ Tool-augmented tasks
+✓ Web scraping and analysis
+✓ API integration
+✓ Multi-tool workflows
+✓ Automated research
+✓ Data processing pipelines
+✓ Complex multi-step operations
+
+LONG CONTEXT MODE:
+✓ Document analysis
+✓ Long-form content generation
+✓ Extended conversations
+✓ Book/paper summarization
+✓ Code repository analysis
+✓ Multi-document reasoning
+
+================================================================================
+COMPARISON WITH OTHER MODELS
+================================================================================
+
+QWEN3-8B VS QWQ-32B
+-------------------
+- Qwen3-8B: Smaller, faster, dual-mode capability
+- QwQ-32B: Larger, thinking-only, more parameters
+- Qwen3-8B advantage: Efficiency and flexibility
+- QwQ-32B advantage: Raw reasoning power
+
+QWEN3-8B VS QWEN2.5-INSTRUCT
+-----------------------------
+- Qwen3-8B: Adds thinking mode, better reasoning
+- Qwen2.5-Instruct: Non-thinking only
+- Qwen3-8B advantage: Superior reasoning capabilities
+- Both: Similar non-thinking performance
+
+QWEN3-8B VS GPT-4
+------------------
+- Qwen3-8B: Open-source, self-hostable, lower cost
+- GPT-4: Proprietary, cloud-only, higher cost
+- Qwen3-8B advantage: Transparency, customization
+- GPT-4 advantage: Broader training, more parameters
+
+================================================================================
+SUMMARY & KEY TAKEAWAYS
+================================================================================
+
+KEY FEATURES
+------------
+✓ Dual-mode operation (thinking & non-thinking)
+✓ 8.2B parameters with efficient architecture
+✓ 32K native context, 131K with YaRN
+✓ 100+ languages support
+✓ Superior agent capabilities
+✓ Excellent reasoning performance
+
+WHEN TO USE QWEN3-8B
+--------------------
+✓ Need balance between performance and efficiency
+✓ Require flexible thinking/non-thinking modes
+✓ Complex reasoning tasks
+✓ Tool-augmented workflows
+✓ Multilingual applications
+✓ Self-hosted deployment required
+
+CRITICAL REMINDERS
+------------------
+⚠️ Use transformers >= 4.51.0
+⚠️ Never use greedy decoding in thinking mode
+⚠️ Set correct sampling parameters for each mode
+⚠️ Enable YaRN only for long contexts
+⚠️ Clean thinking content from conversation history
+
+GETTING STARTED CHECKLIST
+--------------------------
+1. [ ] Install transformers >= 4.51.0
+2. [ ] Choose deployment method (local/server)
+3. [ ] Configure thinking mode (enable/disable)
+4. [ ] Set appropriate sampling parameters
+5. [ ] Determine output length requirements
+6. [ ] Test with sample prompts
+7. [ ] Optimize for your use case
+
+================================================================================
+RESOURCES & LINKS
+================================================================================
+
+OFFICIAL RESOURCES
+------------------
+- Hugging Face: https://huggingface.co/Qwen/Qwen3-8B
+- Blog: https://qwenlm.github.io/blog/
+- GitHub: https://github.com/QwenLM/Qwen
+- Documentation: https://qwenlm.github.io/
+- Discord: https://discord.gg/yPEP2vHTu4
+
+FRAMEWORKS & TOOLS
+------------------
+- SGLang: https://github.com/sgl-project/sglang
+- vLLM: https://github.com/vllm-project/vllm
+- Qwen-Agent: https://github.com/QwenLM/Qwen-Agent
+- Transformers: https://github.com/huggingface/transformers
+- llama.cpp: https://github.com/ggerganov/llama.cpp
+
+BENCHMARKS & EVALUATIONS
+-------------------------
+- MTEB Leaderboard
+- BigCode Evaluation
+- MATH Benchmark Results
+- Available in official blog
+
+================================================================================
+EOF
+================================================================================

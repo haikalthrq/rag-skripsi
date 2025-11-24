@@ -1,0 +1,54 @@
+# ===================================
+# RAG Skripsi - Requirements
+# ===================================
+
+# Core Dependencies
+# -----------------
+python==3.11.9
+
+# PDF Processing & Text Extraction
+# ---------------------------------
+PyMuPDF  # fitz - ekstraksi teks dari PDF
+unstructured[pdf]  # element-based chunking
+pdfplumber  # alternative PDF parsing
+pytesseract  # OCR support untuk unstructured
+
+# Text Processing & Chunking
+# ---------------------------
+langchain-text-splitters # RecursiveCharacterTextSplitter
+maxmin-chunker # MaxMin semantic chunking
+nltk # sentence tokenization untuk maxmin chunker
+
+# Embeddings & Vector Database
+# -----------------------------
+sentence-transformers # model embedding (Qwen3-Embedding)
+torch # PyTorch untuk model embedding
+transformers  # Hugging Face transformers
+chromadb # vector database
+
+# Scientific Computing
+# --------------------
+numpy  # array operations
+scipy  # scientific computing
+
+# Utilities
+# ---------
+tqdm  # progress bars
+python-dotenv # environment variables management
+
+# Optional: Visualization & Analysis
+# -----------------------------------
+matplotlibseaborn
+pandas
+# Development Tools
+# -----------------
+pytest # unit testing
+black  # code formatter
+flake8 # linter
+mypy # type checker
+ipython  # enhanced REPL
+jupyter # notebook support
+
+# Logging & Monitoring
+# --------------------
+loguru # advanced logging (optional)

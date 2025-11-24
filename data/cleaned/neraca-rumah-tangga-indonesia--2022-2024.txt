@@ -1,0 +1,3464 @@
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Volume 14, 2025
+Katalog/Catalogue: 9506001
+ISSN: 2476 -9126
+Nomor Publikasi/Publication Number: 07200.25004
+Ukuran Buku/Book Size: 17,6 cm x 25 cm
+Jumlah Halaman/Number of Pages: xvi+88 halaman/pages
+Penyusun Naskah/Manuscript Drafter:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penyunting/Editor:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Pembuat Kover/Cover Designer:
+Direktorat Neraca Pengeluaran
+Directorate of Expenditure Accounts
+Penerbit/Publisher:
+©Badan Pusat Statistik/BPS-Statistics Indonesia
+Dicetak oleh/Printed by:
+Badan Pusat Statistik/BPS-Statistics Indonesia
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik.
+It is prohibited to reproduce and/or duplicate part or all of this book for commercial purpose without permission from BPS-Statistics Indonesia.
+TIM PENYUSUN/COMPILERS
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Volume 14, 2025
+Pengarah/Director
+Pipit Helly Sorayan
+Penanggung Jawab/Persons in Charge
+Mohamad Arif Kurniawan SST., MT
+Penyunting/Editor
+Putri Puspita Ayu SST, M.S.E
+Penulis Naskah/Writers
+Putri Puspita Ayu SST, M.S.E
+Kamelina Solihat SST
+Asfika Rizkyana S.Tr.Stat.
+Pengolah Data/Data Processor
+Kamelina Solihat SST
+Penata Letak/Layouter
+Kamelina Solihat SST
+Penerjemah/Translators
+Putri Puspita Ayu SST, M.S.E
+Kamelina Solihat SST
+Asfika Rizkyana S.Tr.Stat.
+ISSN 2476 -9126
+v
+KATA PENGANTAR
+Publikasi Neraca Rumah Tangga Indonesia Tahun 2022–2024 merupakan kelanjutan publikasi yang diterbitkan oleh Badan Pusat Statistik (BPS) setiap tahun. Beberapa perbaikan terkait konsep definisi dilakukan agar lebih harmonis dengan panduan internasional, sementara perbaikan metode estimasi dimungkinkan dengan adanya perkembangan ketersediaan data pendukung yang semakin baik.
+Sebagai salah satu pelaku penting dalam perekonomian nasional, rumah tangga tidak hanya berperan sebagai objek pembangunan, tetapi juga sebagai subjek yang aktif. Rumah tangga berkontribusi dalam menghasilkan barang dan jasa melalui kegiatan produksi, sekaligus menyediakan faktor produksi berupa tenaga kerja dan modal usaha. Dengan peran tersebut, rumah tangga berhak memperoleh kesejahteraan yang tercermin dalam indikator makro seperti pendapatan yang dapat dibelanjakan
+(disposable income) serta tabungan (saving).
+Publikasi ini menyajikan gambaran menyeluruh mengenai aktivitas ekonomi rumah tangga selama periode 2022–2024, khususnya terkait produksi, konsumsi, investasi, dan pendapatan. Diharapkan, informasi yang tersedia dapat memberikan pemahaman lebih baik mengenai perilaku rumah tangga dalam perekonomian Indonesia, sehingga dapat menjadi landasan dalam perumusan kebijakan berbasis data maupun evaluasi pembangunan.
+Masukan yang konstruktif dari pengguna data kami harapkan untuk perbaikan publikasi ini di masa depan.
+Jakarta, Oktober 2025
+Kepala Badan Pusat Statistik
+Republik Indonesia
+Amalia Adininggar Widyasanti, S.T., M.Si., M.Eng., Ph.D
+vi
+PREFACE
+Indonesia Household Accounts 2022–2024 is a continuation of annual publications series by BPS.
+Concept and definition enhancement to be align with international guidance and improvement in the estimation to incorporate new data sources have been made to elevate the quality.
+As part of domestic economy institution, households can be a subject and an object of economic development. Households actively contribute in the creation of various goods and services by providing factors of production in the form of labor and capital. This involvement entitle household to retain fortune, reflected in various macroeconomy measures such as disposable income and savings.
+This publication encompass all household economic activities comprehensively, ultimately on production, consumption and investment as well as income created for households during 2022–2024. We hope that this publication can enrich information on household behavior in the Indonesia’s economy, as a basis for evidence-based policy formulation and evaluation.
+Comments and suggestions to improve the contents of the publication are always welcome. We hope this publication is beneficial for data users.
+Jakarta, October 2025
+Chief Statistician
+Amalia Adininggar Widyasanti, S.T., M.Si., M.Eng., Ph.D
+vii
+DAFTAR ISI
+CONTENTS
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Volume 14, 2025
+KATA PENGANTAR/PREFACE ...
+v
+DAFTAR ISI/CONTENTS ...
+vii
+DAFTAR TABEL/LIST OF TABLES ...
+ix
+DAFTAR GAMBAR/LIST OF FIGURES ...
+xi
+DAFTAR LAMPIRAN/LIST OF APPENDICES ...
+xii
+I
+PENDAHULUAN/INTRODUCTION ...
+1.1 Latar Belakang/Background ...
+1.2 Sistematika Penulisan/Outline ...
+II
+KONSEP DAN DEFINISI/CONCEPT AND DEFINITION ...
+2.1 Neraca Rumah Tangga di dalam Sistem Neraca Nasional/Household Accounts in
+System of National Accounts...
+2.2 Kerangka Neraca Rumah Tangga/Household Accounts Framework ...
+2.3 Aturan Neraca/Account Rules ...
+2.4 Konsep dan Definisi/Concept and Definition ...
+2.5 Sumber Data dan Metodologi/Data Sources and Methodology ...
+III ULASAN SINGKAT/BRIEF REVIEW ...
+3.1 Neraca Produksi Rumah Tangga 2022–2024/Household Production
+Account 2022–2024 ...
+3.2 Neraca Penciptaan Pendapatan Rumah Tangga 2022–2024/Household
+Generation of Income Account 2022–2024 ...
+3.3 Neraca Alokasi Pendapatan Primer Rumah Tangga 2022–2024/Household
+Allocation of Primary Income Account 2022–2024 ...
+3.4 Neraca Distribusi Pendapatan Sekunder Rumah Tangga 2022–2024/
+Household Secondary Distribution of Income Account 2022–2024 ...
+3.5 Neraca Penggunaan Pendapatan Disposabel Rumah Tangga 2022–2024/
+Household Use of Disposable Income Account 2022–2024 ...
+3.6 Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang 2022–2024/
+Household Redistribution of Income in Kind Account 2022–2024 ...
+3.7 Neraca Kapital Rumah Tangga 2022–2024/Household Capital Account 2022–2024 ...
+3.8 Total Penerimaan dan Pengeluaran Rumah Tangga 2022–2024/Household Incomes and
+Expenditures Total 2022–2024 ...
+DAFTAR PUSTAKA/REFERENCES ...
+LAMPIRAN/APPENDIX ...
+ISSN 2476 -9126
+viii ix
+DAFTAR TABEL
+LIST OF TABLES
+Tabel
+2.1
+Neraca Produksi
+Table
+Production Account ...
+Tabel
+2.2
+Neraca Penciptaan Pendapatan
+Table
+Generation of Income Account ...
+Tabel
+2.3
+Neraca Alokasi Pendapatan Primer
+Table
+Allocation of Primary Income Account ...
+Tabel
+2.4
+Neraca Distribusi Pendapatan Sekunder
+Table
+Secondary Distribution of Income Account ...
+Tabel
+2.5
+Neraca Penggunaan Pendapatan Disposabel
+Tabel
+Use of Disposable Income Account ...
+Tabel
+2.6
+Neraca Redistribusi Pendapatan dalam Bentuk Barang
+Table
+Redistribution of Income in Kind Account ...
+Tabel
+2.7
+Neraca Kapital
+Table
+Capital Account ...
+Tabel
+3.1
+Neraca Produksi Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Production Account (trillion rupiah), 2022–2024 ...
+Tabel
+3.2
+Neraca Penciptaan Pendapatan Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Generation of Income Account (trillion rupiah), 2022–2024 ... 46
+x
+Tabel
+3.3
+Neraca Alokasi Pendapatan Primer Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Allocation of Primary Income Account (trillion rupiah), 2022–2024 ... 50
+Tabel
+3.4
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Secondary Distribution of Income Account (trillion rupiah), 2022–2024 ... 54
+Tabel
+3.5
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga (triliun rupiah), 2022–2024
+Tabel
+Household Use of Disposable Income Account (trillion rupiah), 2022–2024 ... 59
+Tabel
+3.6
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang (triliun rupiah), 2022–2024
+Table
+Household Redistribution of Income in Kind Account (trillion rupiah), 2022–2024 ... 60
+Tabel
+3.7
+Neraca Kapital Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Capital Account (trillion rupiah), 2022–2024 ... 63
+Tabel
+3.8
+Struktur Penerimaan umah Tangga (triliun rupiah), 2022–2024
+Table
+Household Incomes Structure (trillion rupiah), 2022–2024 ... 66
+Tabel
+3.9
+Struktur Pengeluaran Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Expenditures Structure (trillion rupiah), 2022–2024 ... 68
+xi
+DAFTAR GAMBAR
+LIST OF FIGURES
+Gambar
+3.1
+Struktur Neraca Produksi Rumah Tangga (persen), 2022–2024
+Figure
+Household Production Account Structure (percent), 2022–2024 ... 44
+Gambar
+3.2
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga (persen), 2022–2024
+Figure
+Household Generation of Income Account Structure (percent), 2022–2024 ... 48
+Gambar
+3.3
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga (persen), 2022–2024
+Figure
+Household Allocation of Primary Income Account Structure (percent), 2022–2024 ... 52
+Gambar
+3.4
+Struktur Transfer Berjalan yang Diterima Rumah Tangga (persen), 2022–2024
+Figure
+Household Current Transfers Received Structure (percent), 2022–2024 ... 56
+Gambar
+3.5
+Struktur Transfer Berjalan yang Dibayar Rumah Tangga (persen), 2022–2024
+Figure
+Household Current Transfers Paid Structure (percent), 2022–2024 ... 57
+Gambar
+3.6
+Tabungan Rumah Tangga (persen), 2022–2024
+Figure
+Household Savings (percent), 2022–2024 ... 59
+Gambar
+3.7
+Transfer Sosial Rumah Tangga dalam Bentuk Barang (persen), 2022–2024
+Figure
+Household Social Transfer in Kind (percent), 2022–2024 ... 61
+Gambar
+3.8
+Struktur Neraca Kapital Rumah Tangga (persen), 2022–2024
+Figure
+Household Capital Account Structure (percent), 2022–2024 ... 64
+Gambar
+3.9
+Struktur Penerimaan Rumah Tangga (persen), 2022–2024
+Figure
+Household Incomes Structure (percent), 2022–2024 ... 67
+Gambar
+3.10
+Struktur Pengeluaran Rumah Tangga (persen), 2022–2024
+Figure
+Household Expenditures Structure (percent), 2022–2024 ... 69
+xii xiii
+DAFTAR LAMPIRAN
+LIST OF APPENDICES
+Lampiran
+1.1
+Neraca Produksi Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Appendix
+Household Production Account by Uses (trillion rupiah), 2022–2024 ... 75
+Lampiran
+Appendix
+1.2
+Neraca Produksi Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Production Account by Resources (trillion rupiah), 2022–2024 ... 75
+Lampiran
+Appendix
+1.3
+Neraca Penciptaan Pendapatan Rumah Tangga Menurut Penggunaan (triliun rupiah),
+2022–2024
+Household Generation of Income Account by Uses (trillion rupiah), 2022–2024 ... 76
+Lampiran
+Appendix
+1.4
+Neraca Penciptaan Pendapatan Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Generation of Income Account by Resources (trillion rupiah), 2022–2024 ... 76
+Lampiran
+Appendix
+1.5
+Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Penggunaan (triliun rupiah),
+2022–2024
+Household Allocation of Primary Income Account by Uses (trillion rupiah), 2022–2024 .. 77
+Lampiran
+Appendix
+1.6
+Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Sumber (triliun rupiah),
+2022–2024
+Household Allocation of Primary Income Account by Resources (trillion rupiah), 2022–2024 .. 77
+Lampiran
+1.7
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Appendix
+Household Secondary Distribution of Income Account by Uses (trillion rupiah), 2022–2024 ... 78
+Lampiran
+Appendix
+1.8
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Sumber (triliun rupiah),
+2022–2024
+Household Secondary Distribution of Income Account by Resources (trillion rupiah),
+2022–2024 ... 78
+xiv
+Lampiran
+Appendix
+1.9
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Household Use of Disposable Income Account by Uses (trillion rupiah), 2022–2024 ... 79
+Lampiran
+Appendix
+1.10
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Use of Disposable Income Account by Resources (trillion rupiah), 2022–2024... 79
+Lampiran
+Appendix
+1.11
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut
+Penggunaan (triliun rupiah), 2022–2024
+Household Redistribution of Income in Kind Account by Uses (trillion rupiah), 2022–2024 . 80
+Lampiran
+Appendix
+1.12
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut Sumber
+(triliun rupiah), 2022–2024
+Household Redistribution of Income in Kind Account by Resources (trillion rupiah),
+2022–2024 ... 80
+Lampiran
+1.13
+Neraca Kapital Rumah Tangga Menurut Perubahan Aset (triliun rupiah), 2022–2024
+Appendix
+Household Capital Account by Changes in Assets (trillion rupiah), 2022–2024 ... 81
+Lampiran
+Appendix
+1.14
+Neraca Kapital Rumah Tangga Menurut Perubahan Kewajiban (triliun rupiah), 2022–2024
+Household Capital Account by Changes in Liabilities (trillion rupiah), 2022–2024 ... 81
+Lampiran
+Appendix
+2.1
+Struktur Neraca Produksi Rumah Tangga Menurut Penggunaan (persen), 2022–2024
+Household Production Account Structure by Uses (percent), 2022–2024 ... 82
+Lampiran
+Appendix
+2.2
+Struktur Neraca Produksi Rumah Tangga Menurut Sumber (persen), 2022–2024
+Household Production Account Structure by Resources (percent), 2022–2024 ... 82
+Lampiran
+Appendix
+2.3
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga Menurut Penggunaan (persen),
+2022–2024
+Household Generation of Income Account Structure by Uses (percent), 2022–2024 ... 83
+xv
+Lampiran
+Appendix
+2.4
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga Menurut Sumber (persen),
+2022–2024
+Household Generation of Income Account Structure by Resources (percent), 2022–2024 ... 83
+Lampiran
+Appendix
+2.5
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Penggunaan (persen),
+2022–2024
+Household Allocation of Primary Income Account Structure by Uses (percent), 2022–2024 .. 84
+Lampiran
+Appendix
+2.6
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Sumber (persen), 2022–2024
+Household Allocation of Primary Income Account Structure by Resources (percent), 2022–2024 .. 84
+Lampiran
+Appendix
+2.7
+Struktur Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Penggunaan
+(persen), 2022–2024
+Household Secondary Distribution of Income Account Structure by Uses (percent),
+2022–2024 ... 85
+Lampiran
+Appendix
+2.8
+Struktur Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Sumber
+(persen), 2022–2024
+Household Secondary Distribution of Income Account Structure by Resources (percent),
+2022–2024 ... 85
+Lampiran
+Appendix
+2.9
+Struktur Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Penggunaan
+(persen), 2022–2024
+Household Use of Disposable Income Account Structure by Uses (percent), 2022–2024 ... 86
+Lampiran
+Appendix
+2.10
+Struktur Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Sumber
+(persen), 2022–2024
+Household Use of Disposable Income Account Structure by Resources (percent),
+2022–2024 ... 86
+Lampiran
+Appendix
+2.11
+Struktur Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut
+Penggunaan (persen), 2022–2024
+Household Redistribution of Income in Kind Account Structure by Uses (percent),
+2022–2024 ... 87
+xvi
+Lampiran
+Appendix
+2.12
+Struktur Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut
+Sumber (persen), 2022–2024
+Household Redistribution of Income in Kind Account Structure by Resources (percent),
+2022–2024 ... 87
+Lampiran
+2.13
+Struktur Neraca Kapital Rumah Tangga Menurut Perubahan Aset (persen), 2022–2024
+Appendix
+Household Capital Account Structure by Changes in Assets (percent), 2022–2024 ... 88
+Lampiran
+Appendix
+2.14
+Struktur Neraca Kapital Rumah Tangga Menurut Perubahan Kewajiban (persen),
+2022–2024
+Household Capital Account Structure by Changes in Liabilities (percent), 2022–2024 .. 88
+Pendahuluan
+Introduction
+BAB I
+PENDAHULUAN
+INTRODUCTION
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Pendahuluan
+Introduction
+1.1 Latar Belakang
+Hakekat pembangunan nasional adalah pembangunan manusia Indonesia seutuhnya yang meliputi seluruh lapisan masyarakat. Agar tujuan ini tercapai, maka program-program pembangunan yang dirancang oleh pemerintah, seyogyanya diarahkan untuk meningkatkan taraf hidup dan kesejahteraan masyarakat.
+Keberhasilan pelaksanaan program pembangunan ditandai oleh terpenuhinya kebutuhan hidup masyarakat Indonesia, baik kebutuhan fisik seperti pangan, sandang, dan papan, maupun kebutuhan nonfisik seperti pendidikan dan kesehatan. Untuk itu, secara berkala perkembangan tingkat kesejahteraan masyarakat perlu dicermati, salah satunya melalui perkembangan beberapa karakteristik ekonomi rumah tangga.
+Di Indonesia, aktivitas ekonomi yang dilakukan rumah tangga sangat berpengaruh pada kinerja ekonomi nasional. Hal tersebut tercermin dari peranan rumah tangga dalam perekonomian Indonesia, yaitu sebagai:
+a. konsumen dari barang dan jasa b. produsen dari barang dan jasa c. penyedia faktor produksi tenaga kerja d. penyedia faktor produksi nontenaga kerja e. penyedia dana untuk pembiayaan investasi nasional
+Unit institusi rumah tangga merupakan konsumen terbesar dalam perekonomian. Jika terjadi perubahan pada pola konsumsi rumah
+1.1 Background
+The importance of national development lies in the concept of development in human which covers all levels of society. To achieve that goal, the development programs designed by the government, should be aimed for improving social living and welfare.
+National development programs can be considered successful if it leads to the fulfillment of society’s needs, which are both physical and non-physical needs. The physical needs include food, clothing, housing; and the latter needs, for example, are education and health. Therefore, the progress of upward and downward in social welfare has to be observed periodically. This can be carried out through the observation of the trend of several economic characteristics of household.
+In
+Indonesia, household economic activities strongly relate to the performance of the national economy. This can be seen from the roles of household in an economy, as follows:
+a. consumer of goods and services b. producer of goods and services c. provider of production factors of labor d. provider of production factor of non-labor e. provider of funds for the financing of national investment
+The household institutional unit is the biggest consumer in an economy. If there is change in household consumption pattern, it
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+tangga, maka akan memengaruhi besarnya permintaan (demand) atas barang dan jasa.
+Perubahan pada permintaan tersebut selanjutnya akan memengaruhi penyediaan
+(supply) barang dan jasa melalui aktivitas produksi dan investasi yang dilakukan oleh unit institusi lain.
+Berdasarkan hal tersebut, aktivitas pengeluaran konsumsi oleh rumah tangga (PKRT) akan memengaruhi aktivitas ekonomi suatu negara.
+Sebagai pengelola usaha rumah tangga maupun sebagai penyedia faktor produksi tenaga kerja dan nontenaga kerja, rumah tangga akan memperoleh balas jasa atas penyediaan faktor produksi itu. Seluruh pendapatan yang diperoleh dari balas jasa dan pendapatan lainnya disebut sebagai penerimaan rumah tangga.
+Sehingga keseluruhan pendapatan rumah tangga ini akan menentukan taraf hidup dan kesejahteraan masyarakat.
+Dalam hal penyediaan dana untuk investasi, institusi rumah tangga merupakan institusi yang surplus (tabungan positif).
+Lembaga keuangan akan menyalurkan dana dari institusi yang surplus ini pada institusi lain yang defisit (tabungan negatif), sehingga aktivitas investasi dapat berlangsung.
+Interaksi antara aktivitas ekonomi rumah tangga dengan aktivitas ekonomi nasional berlangsung secara timbal balik.
+Aktivitas ekonomi nasional memengaruhi tingkat pemenuhan kebutuhan hidup masyarakat, dan sebaliknya bahwa aktivitas will have the impact in the demand on goods and services.
+Then changes in the demand will influence the supply of goods and services through the production and investment activities undertaken by other institutional units.
+In consequence, the household consumption expenditure activities influence economic activities of a country.
+As a unincorporated enterprise within households manager or a provider of production factor of labor and non-labor, household will obtain remuneration for providing the inputs of the production factor.
+The entire revenues earned from such remuneration and other revenues are referred to as income of the households.
+Subsequently, the household income will determine the living standards and welfare of the people.
+In terms of provider of fund for investment, the household instituinal unit is a surplus institution (positive savings). Financial institution, as an intermeadiator, will allocate and distribute this fund from the surplus institution to the deficit institution (negative savings), so the investment activities take place.
+Interaction between household economic activities with national economic activity is on a reciprocal basis. The national economic activity affects the level of the fulfillment of people's needs, and the household economic activities have strong
+Pendahuluan
+Introduction ekonomi rumah tangga sangat memengaruhi kinerja ekonomi nasional.
+Menimbang besarnya peranan rumah tangga dalam perekonomian, para perencana, penyusun kebijakan, dan pengambil keputusan perlu terus mencermati tingkat dan perubahan karakteristik ekonomi rumah tangga. Informasi ini bisa dijadikan sebagai bahan untuk mengevaluasi program pembangunan, serta dijadikan landasan dalam perencanaan dan penyusunan kebijakan. Informasi tentang karakteristik ekonomi rumah tangga dapat diperoleh melalui pengamatan terhadap perekonomian rumah tangga, yang dapat diturunkan dari Neraca Rumah Tangga.
+1.2 Sistematika Penulisan
+Publikasi
+Neraca
+Rumah
+Tangga
+Indonesia
+2022–2024
+disusun dengan sistematika penulisan sebagai berikut:
+Bab
+I:
+Pendahuluan, menguraikan ketersediaan data ekonomi rumah tangga yang menjadi dasar pelaksanaan penyusunan
+Neraca Rumah Tangga Indonesia Tahun 2022–
+2024. Selain itu, bab ini juga menjelaskan sistematika penulisan laporan.
+Bab
+II:
+Konsep dan
+Definisi, menjelaskan hubungan dan posisi Neraca
+Rumah Tangga di dalam Sistem Neraca
+Nasional Indonesia (SNNI). Bab ini juga menjelaskan kerangka, konsep, definisi, sumber data, dan metodologi yang impacts on the performance of the national economy.
+Considering the great roles of households in the economy, planners, policy makers and decision makers need to monitor the level and changes of household economic characteristics. This information of course can be used as material for evaluating development programs and used as a basis in planning and policy making. The information about the household economic characteristics can be obtained from the activity of observation of the household economy, which can be derived from the
+Household Accounts.
+1.2 Outline
+Indonesia Household Accounts 2022–
+2024 publication is presented with the outline as follows:
+Chapter I: Introduction, this chapter explains the availability of household economic activities data, so compilation of
+Indonesia Household Accounts 2022–2024 is necessary. Moreover, it also describes the writing systematics of this publication.
+Chapter II: Concept and Definition, this chapter describes the relationship and position of household accounts in the Indonesia System of National Accounts. This chapter also describes the Indonesia household accounts framework, concepts, definitions, data
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+digunakan dalam penyusunan Neraca Rumah
+Tangga Indonesia 2022–2024.
+Bab III: Ulasan Singkat, menyajikan uraian deskriptif mengenai informasi yang dihasilkan dari penyusunan Neraca Rumah
+Tangga Indonesia 2022–2024.
+sources, and methodology in Indonesia
+Household Accounts 2022–2024 compilation.
+Chapter III: Brief Review, this chapter contains the descriptive information obtained from the Indonesia Household Accounts from
+2022–2024.
+Konsep dan Definisi
+Concept and Definition
+BAB II
+KONSEP DAN DEFINISI
+CONCEPT AND DEFINITION
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Konsep dan Definisi
+Concept and Definition
+Publikasi
+Neraca
+Rumah
+Tangga
+Indonesia 2022–2024 merupakan lanjutan dari publikasi
+Neraca
+Rumah
+Tangga
+Indonesia 2020–2023 yang menggunakan konsep, definisi, dan metodologi penghitungan yang mengacu pada SNA 2008.
+Beberapa istilah dalam neraca telah disesuaikan dengan nomenklatur SNA 2008, yang berbeda dari SNA 1968, antara lain output
+(sebelumnya disebut produksi), konsumsi antara (sebelumnya tergabung dalam biaya produksi), dan kompensasi tenaga kerja (sebelumnya disebut upah dan gaji), serta istilah lainnya. Selain itu, metode penghitungan neraca dalam publikasi ini terpisah dari penghitungan neraca Lembaga
+Nonprofit yang Melayani Rumah Tangga
+(LNPRT).
+2.1 Neraca Rumah Tangga di dalam
+Sistem Neraca Nasional
+System of National Accounts (SNA)
+merupakan standar internasional yang direkomendasikan untuk mengukur aktivitas ekonomi berdasarkan prinsip-prinsip ekonomi yang berlaku secara konvensional. Sistem ini menyediakan catatan yang rinci dan komprehensif mengenai berbagai aktivitas ekonomi yang berlangsung dalam suatu perekonomian, serta menggambarkan interaksi antara pelaku ekonomi atau kelompok pelaku ekonomi, baik yang terjadi di pasar maupun
+The Indonesia Household Accounts
+2022–2024 Publication is a continuation of the
+Indonesia Household Accounts 2020–2023
+Publication, which uses concepts, definitions and calculation methodology referring to the
+SNA 2008.
+Several item terms on the accounts use nomenclature in accordance with the SNA
+2008 which is different from the SNA 1968, such as output (previously production), intermediate consumption
+(previously included in production costs), compensation of employees (previously wages and salaries), and others. The methodology of calculating the accounts in this publication is also independent from the calculation of the Non-
+Profit Institutions serving Households (NPISHs)
+accounts.
+2.1 Household Accounts in System of
+National Accounts
+System of National Accounts (SNA) is an international standard recommendation about how to measure economic activity complied with conventional measurement, based on the principles of economics. This system provides detailed and complete record of all activities taken place in the economy. Furthermore, the SNA covers the interaction among institutional units in economy as actors of economics in the market or other kinds of economic exchange
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+melalui mekanisme pertukaran lainnya. Dalam
+SNA 2008 diuraikan suatu kerangka kerja neraca nasional yang bersifat:
+a. menyeluruh; mencakup seluruh aktivitas yang dilakukan oleh semua unit institusi di dalam perekonomian.
+b. konsisten; nilai yang sama digunakan untuk menetapkan konsekuensi atas tindakan semua pihak yang terkait, dengan menggunakan aturan neraca yang sama.
+c.
+terintegrasi; semua konsekuensi tindakan dari pelaku ekonomi tercermin di dalam neraca, termasuk dampaknya terhadap kekayaan pada balance sheets.
+Dari uraian di atas, catatan tentang transaksi ekonomi yang dilakukan oleh para pelaku ekonomi di dalam suatu perekonomian akan tertuang dalam bentuk neraca.
+Neraca Nasional merupakan gambaran data ekonomi makro yang menyajikan transaksi ekonomi yang dilakukan oleh seluruh unit institusi dalam suatu perekonomian selama periode waktu tertentu.
+Di dalam Neraca Nasional, data transaksi perekonomian menunjukkan besarnya transaksi
+(transactions) yang dilakukan oleh pelaku ekonomi (transactors) serta terkait dengan jenis aktivitas (category) ekonomi tertentu. Pelaku transaksi ekonomi terdiri atas unit rumah tangga, lembaga non-profit yang melayani rumah tangga (LNPRT), korporasi, dan unit pemerintah yang secara keseluruhan disebut sebagai unit residen, serta unit nonresiden.
+Sementara itu, jenis aktivitas ekonomi utama media. Characteristics of the System of
+National Accounts 2008 framework are as follows:
+a. comprehensive; covers all activities that are carried out by all institutional units of economy.
+b. consistent; applies same values to define items of accounts which are consequences of all economic activities of the related units, by using the same rule of accounts.
+c. integrated; all of the economic activities are reflected in the accounts, including the impact to wealth in balance sheets.
+From the description above, all records of economic transactions by institutional units of economy will be contained in the accounts.
+The
+National
+Accounts present a comprehensive overview of macroeconomic data, highlighting the economic transactions undertaken by all institutional units within an economy over a given period.
+In the National Accounts, economic transactions data present economic transaction amount conducted by institutional units of economy and are related to certain economic activity type (category). The actors of economic transactions include the institutional units of economy such as households, non-profit institutions serving households
+(NPISHs), corporations, and government units (referred as resident units), and rest of the world or non-resident units.
+Konsep dan Definisi
+Concept and Definition terdiri dari aktivitas produksi, aktivitas konsumsi, serta aktivitas akumulasi modal dan keuangan.
+Secara khusus,
+Neraca
+Nasional menyajikan perkiraan transaksi (dinyatakan dengan nilai uang) tentang tingkat produksi, distribusi pendapatan, konsumsi, investasi, ekspor, impor, dan sebagainya, untuk lingkup seluruh pelaku ekonomi. Secara keseluruhan, berbagai transaksi ekonomi oleh pelaku ekonomi membentuk Neraca Nasional. Oleh karenanya, dalam Sistem Neraca Nasional
+Indonesia (SNNI), jenis neraca utama terdiri dari Neraca Produksi, Neraca Penciptaan
+Pendapatan, Neraca Alokasi Pendapatan
+Primer,
+Neraca
+Distribusi
+Pendapatan
+Sekunder, Neraca Penggunaan Pendapatan
+Disposabel, Neraca Redistribusi Pendapatan dalam Bentuk Barang, Neraca Kapital, dan
+Neraca Finansial (Neraca Keuangan dijelaskan pada Publikasi Neraca Arus Dana).
+Neraca Produksi menampilkan data aktivitas produksi yang mencerminkan jumlah barang dan jasa yang dihasilkan (output), input yang digunakan dalam proses produksi
+(konsumsi antara), serta nilai tambah yang dihasilkan dari kegiatan ekonomi tersebut.
+Neraca Penciptaan Pendapatan mencatat pendapatan primer yang dihasilkan oleh unit institusi yang terlibat dalam kegiatan produksi. Unit atau kelompok institusi tersebut berperan sebagai produsen yang memperoleh pendapatan primer.
+Pendapatan primer merupakan pendapatan yang diterima oleh unit institusi sebagai hasil keterlibatannya dalam proses produksi atau
+Meanwhile, Main types of economic activites are production, consumption, and investment.
+National Accounts present transaction value estimation (expressed as value of money) of production, income distribution, consumption, investment, exports, imports, etc. for all of the institutional units of economy. All of the variety of economic transactions value by institutional units will construct the National Accounts. Therefore, in
+Indonesia System of National Accounts, the
+Key
+Accounts are
+Production
+Account,
+Generation of Income Account, Allocation of
+Primary
+Income
+Account,
+Secondary
+Distribution of Income Account, Use of
+Disposable Income Account, Redistribution of
+Income in Kind Account, Capital Account, and
+Financial Account (For Financial Account explained in Indonesian Flow of Funds
+Accounts).
+The Production Account presents data on production activities, reflecting the total goods and services produced (output), the inputs used in the production process (intermediate consumption), and the value added generated from these economic activities.
+The Generation of Income Account records the primary income generated by the institutional units involved in production.
+The capacity of the institutional unit is as a producer that generates primary income. Primary income is income earned by an institutional unit as a consequence of its involvement in the
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+sebagai imbalan atas kepemilikan aset yang digunakan untuk tujuan produksi. Pada sisi penggunaan, neraca ini menggambarkan nilai tambah yang digunakan oleh produsen untuk membayar kompensasi pekerja dan pajak dikurangi subsidi atas produksi. Item penyeimbang pada Neraca Penciptaan Pendapatan adalah surplus usaha dan pendapatan campuran.
+Neraca
+Alokasi
+Pendapatan
+Primer merupakan neraca yang tidak terkait langsung dengan produksi, dimana unit institusi berperan sebagai penerima pendapatan primer. Sisi sumber, rumah tangga menerima pendapatan yang berasal dari kompensasi tenaga kerja dan pendapatan kepemilikan (pendapatan investasi atas kepemilikan aset finansial serta sewa sumber daya alam) sedangkan sisi penggunaan, rumah tangga membayar pendapatan kepemilikan. Item penyeimbang pada Neraca Alokasi Pendapatan
+Primer, yaitu pendapatan nasional.
+Neraca Distribusi Pendapatan Sekunder menggambarkan bagaimana pendapatan didistribusikan kembali (redistribution) di antara unit institusi, melalui pembayaran dan penerimaan transfer berjalan.
+Pendapatan disposabel merupakan item penyeimbang di dalam neraca ini.
+Pendapatan disposabel adalah jumlah maksimum kemampuan rumah tangga dalam membiayai konsumsi barang dan jasa selama periode neraca, tanpa mengurangi uang tunai, menjual aset finansial/
+non-finansial atau meningkatkan kewajiban.
+Neraca
+Penggunaan
+Pendapatan
+Disposabel fokus pada pendapatan disposabel dan konsumsi barang dan jasa production process or on the ownership of assets needed for production purposes.
+The uses side describes the added value used by producers to pay workers'
+compensation and taxes less subsidies on production. The balancing item on the
+Generation of Income Account is the operating surplus and mixed income.
+The Allocation of Primary Income
+Account is an account that is not directly related to production, with institutional unit as a primary income recipient. On the resources side, households receive income from labor compensation and property income
+(investment income on ownership of financial assets and natural resource rental) while on the uses side, households pay for property income. Balancing item for the Allocation of
+Primary Income Account, namely national income.
+The Secondary Distribution of Income
+Account describes how income is redistributed among institutional units, through payments and receipts of current transfers. Disposable income is a balancing item in this account.
+Disposable Income is the maximum amount of household ability to finance the consumption of goods and services during the account period, without reducing cash, disposal financial/non-financial assets or increasing liabilities.
+The Use of Disposable Income Account focuses on disposable income and the consumption of goods and services that can be
+Konsep dan Definisi
+Concept and Definition yang dapat dipenuhi dari pendapatan tersebut. Neraca ini hanya relevan untuk unit institusi yang punya pengeluaran konsumsi akhir, yakni institusi pemerintah umum,
+LNPRT, dan rumah tangga. Item penyeimbang neraca ini adalah tabungan.
+Neraca Kapital adalah neraca yang terkait dengan perubahan nilai aset non-
+finansial yang dikuasai oleh unit institusi. Sisi sumber Neraca Kapital adalah tabungan dan transfer modal. Tabungan ditambah transfer modal (neto) menunjukkan berapa banyak sumber yang tersedia di dalam ekonomi guna memperoleh aset non-finansial utamanya pembentukan modal tetapi juga aset non-
+finansial non produksi.
+Neraca Nasional merupakan agregasi neraca sejenis dari berbagai unit institusi yang membentuk suatu perekonomian. Sehingga, agregasi dari Neraca Produksi seluruh institusi yang melakukan aktivitas produksi akan dihasilkan
+Neraca
+Produksi
+Nasional.
+Pengertian yang sama juga berlaku untuk neraca lainnya.
+Penyusunan neraca menurut unit institusi bertujuan untuk menggambarkan keterkaitan antara berbagai unit institusi sebagai pelaku ekonomi dalam menjalankan aktivitas ekonomi yang berlangsung secara simultan selama periode tertentu. Oleh karena itu, diperlukan landasan model dan sistem yang terintegrasi antar unit institusi. Dengan demikian, Neraca
+Rumah Tangga merupakan bagian yang tidak terpisahkan dari SNNI.
+met from that income. This account is only relevant for institutional units that have final consumption expenditure, namely the general government institutional,
+NPISHs, and households. The balancing item on this account is savings.
+The Capital Account is an account related to changes in the value of non-
+financial assets controlled by institutional units. The resources side of the capital account are savings and capital transfers. Savings plus capital transfers (net) shows how much resources are available in the economy to obtain non-financial assets primarily capital formation but also non-financial non-
+production assets.
+National Accounts are aggregate of the accounts of various institutional units that form an economy. So, the aggregate of the production accounts across all institutional units which perform production activities will generate national production accounts. The same procedure also applies to other accounts.
+The purpose of institutional unit accounts compilation is to reveal the linkages among various institution units which perform economic activities simultaneously in a particular period of time. Therefore, basic model and system which are integrated by each type of institution need to be applied.
+So, the household accounts become integral part of Indonesia System of National
+Accounts.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Jika Neraca Rumah Tangga Indonesia dikaitkan dengan tampilan data ekonomi makro dalam bentuk Sistem Neraca Sosial Ekonomi
+(SNSE) Indonesia, maka neraca-neraca yang terkait antara lain yaitu Neraca Penciptaan
+Pendapatan, Neraca Alokasi Pendapatan Primer,
+Neraca Distribusi Pendapatan Sekunder, Neraca
+Penggunaan Pendapatan Disposabel dan Neraca
+Kapital. Dari Neraca Penciptaan Pendapatan dapat diturunkan agregat surplus usaha dan pendapatan campuran. Agregat ini dalam SNSE
+diperlakukan sebagai bagian pendapatan faktor produksi non-tenaga kerja. Dari Neraca Alokasi
+Pendapatan Primer diturunkan agregat upah dan gaji serta pendapatan kepemilikan. Dari
+Neraca
+Distribusi
+Pendapatan
+Sekunder diturunkan agregat pendapatan transfer.
+Agregat upah dan gaji didalam
+SNSE
+diperlakukan sebagai pendapatan dari faktor produksi tenaga kerja, sedangkan pendapatan kepemilikan dan transfer diperlakukan sebagai bagian dari faktor pendapatan bukan tenaga kerja.
+Demikian pula, jika Neraca Rumah Tangga
+Indonesia dikaitkan dengan tampilan data ekonomi makro berbentuk Neraca Arus Dana
+(NAD) Indonesia, maka akan ada dua neraca yang terkait, yaitu
+Neraca
+Penggunaan
+Pendapatan Disposabel dan Neraca Kapital. Dari
+Neraca Penggunaan Pendapatan Disposabel dapat di turunkan agregat tabungan bruto, sedangkan dari Neraca Kapital diturunkan agregat aset non-finansial dan pinjaman neto.
+When the Indonesia Household Accounts are associated with macroeconomic data in the form of Social Accounting Matrix (SAM) of
+Indonesia, there are related accounts that are
+Generation of Income Account, Allocation of
+Primary
+Income
+Account,
+Secondary
+Distribution of Income Account, Use of
+Disposable Income Account, and Capital
+Account. From the Generation of Income
+Account we can obtain the aggregate of operating surplus and mixed income. In the
+SAM this aggregate is treated as part of income of non-employment production factor.
+From the Allocation of Primary Income
+Account we can derive aggregate of wages and salaries, and property income. From
+Secondary Distribution of Income Account we can derive aggregate of transfer income. The aggregate of wages and salaries in SAM are treated as income of labor production factor, meanwhile the aggregate of property income and transfer are treated as part of non-labor factor income.
+Similarly, if
+Indonesia
+Household
+Accounts are linked to macro-economic data in the form of Indonesian Flow of Funds
+Accounts, there are two related accounts, Use of Disposable Income Account and Capital
+Account. From the Use of Disposable Income
+Account, we can derive aggregate of gross savings, meanwhile from the Capital Account the aggregate of net lending/net borrowing and non-financial asset can be derived.
+Konsep dan Definisi
+Concept and Definition
+2.2 Kerangka Neraca Rumah Tangga
+Data tentang aktivitas ekonomi rumah tangga akan digambarkan dalam Neraca Produksi,
+Neraca Penciptaan Pendapatan, Neraca Alokasi
+Pendapatan Primer, Neraca Distribusi Pendapatan
+Sekunder, Neraca Penggunaan Pendapatan
+Disposabel, Neraca Redistribusi Pendapatan
+Rumah Tangga dalam Bentuk Barang, dan Neraca
+Kapital. Neraca itu disusun dalam bentuk T (double entry statement)
+seperti dalam sistem pembukuan bisnis (mikro). Pada sisi kanan dicatat seluruh sumber atau penerimaan, sedangkan pada sisi kiri dicatat seluruh penggunaan atau pembayaran. Setiap transaksi akan muncul dua kali, yaitu sebagai sumber di suatu neraca dan sebagai penggunaan di neraca yang lain.
+Neraca Produksi
+Berikut adalah diagram kerangka Neraca
+Produksi
+Rumah
+Tangga.
+Neraca ini menggambarkan aktivitas produksi yang dilakukan oleh rumah tangga melalui unit usaha rumah tangga
+(unincorporated enterprise). Di dalamnya memuat keterangan tentang nilai barang dan jasa yang dihasilkan
+(output), biaya antara yang dikeluarkan
+(intermediate consumption) dalam proses produksi, serta nilai tambah yang tercipta.
+Sisi sumber Neraca Produksi memuat nilai produksi atau output yang dihasilkan dimana unit usaha rumah tangga dapat menghasilkan output pasar dan output yang dihasilkan sendiri untuk digunakan sendiri,
+2.2 Household Accounts Framework
+Data on household economic activities will be described in Production Account,
+Generation of Income Account, Allocation of
+Primary
+Income
+Account,
+Secondary
+Distribution of Income Account, Use of
+Disposable Income Account, Redistribution of
+Income in Kind Account, and Capital Account.
+Household Accounts is arranged in the T form
+(double entry statement)
+like business accounting systems (micro). Resource or income is recorded on the right side, while the usage or payment is recorded on the left side.
+Each transaction will appear twice, first as a resource in an account and then as a use in other accounts.
+Production Account
+Diagram of
+Household
+Production
+Account framework is shown below. This account illustrates the production activities carried out by households in unincorporated enterprise within households. This account contains information about the value of goods and services produced (output), production costs
+(intermediate consumption)
+in production process, and value added generated.
+The resources side of
+Production
+Account contains value of production (output), where household unincorporated enterprises units can produce market output and output for own final use. while the uses side
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+sedangkan sisi penggunaan memuat konsumsi antara yang digunakan selama proses produksi.
+Selisih antara nilai output dan konsumsi antara adalah nilai tambah yang menggambarkan nilai yang diciptakan dari aktivitas produksi.
+represents intermediate consumption. The difference between the output and the intermediate consumption is value added that describes the value created from production activities.
+Tabel
+2.1
+Neraca Produksi
+Table
+Production Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Output
+Output
+Konsumsi Antara
+Intermediate consumption
+Nilai Tambah Bruto
+Value added, gross
+Jumlah/Total
+Jumlah/Total
+Neraca Penciptaan Pendapatan
+Neraca
+Penciptaan
+Pendapatan mencatat pendapatan primer yang dihasilkan unit institusi yang terlibat dalam produksi.
+Pendapatan primer adalah pendapatan yang diperoleh unit institusi sebagai konsekuensi dari keterlibatannya di dalam proses produksi atau atas kepemilikan aset yang diperlukan untuk tujuan produksi.
+Sisi penggunaan Neraca Penciptaan
+Pendapatan menggambarkan nilai tambah yang digunakan oleh produsen untuk membayar kompensasi pekerja dan pajak atas produksi. Item penyeimbang pada neraca penciptaan pendapatan adalah surplus usaha dan pendapatan campuran.
+Generation of Income Account
+The Generation of Income Account records the primary income generated by the institutional units involved in production.
+Primary incomes are incomes that accrue to institutional units as a consequence of their involvement in processes of production or ownership of assets that may be needed for purposes of production.
+The uses side of The Generation of
+Income Account describes the value added used by producers to pay compensation of employees and taxes on production. The balancing item on the generation of income account is the operating surplus and mixed income.
+Konsep dan Definisi
+Concept and Definition
+Tabel
+2.2
+Neraca Penciptaan Pendapatan
+Table
+Generation of Income Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Nilai tambah bruto
+Value added, gross
+Kompensasi tenaga kerja
+Compensation of employees
+Pajak lainnya atas produksi
+Other taxes on production
+Surplus usaha bruto
+Operating surplus, gross
+Pendapatan campuran bruto
+Mixed income, gross
+Jumlah/Total
+Jumlah/Total
+Neraca Alokasi Pendapatan Primer
+Selanjutnya adalah Neraca Alokasi
+Pendapatan Primer, dimana pada neraca ini kapasitas unit atau sektor institusi adalah sebagai penerima pendapatan primer. Neraca alokasi pendapatan primer menunjukkan rincian yang dibayarkan dalam neraca penciptaan pendapatan kemudian diterima oleh unit atau sektor institusi, termasuk juga pendapatan kepemilikan yang diterima dan dibayar.
+Sisi sumber, rumah tangga menerima pendapatan yang berasal dari kompensasi tenaga kerja dan pendapatan kepemilikan
+(pendapatan investasi atas kepemilikan aset finansial dan penyewaan sumber daya alam).
+Sementara itu, pada sisi penggunaan, rumah tangga membayar pendapatan kepemilikan.
+Allocation of Primary Income Account
+The next is the Allocation of Primary
+Income Account, where focuses on resident institutional units or sectors in their capacity as recipients of primary incomes. The allocation of primary income account shows where the items payable in the generation of income account are receivable and also includes the amounts of property incomes receivable and payable by institutional units or sectors.
+In resources side, households receive income from compensation of employees and property income (investment income on ownership of financial assets and natural resource rental). Meanwhile, on the uses side, households pay for property income. The balancing item of Allocation of
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item penyeimbang pada
+Neraca
+Alokasi
+Pendapatan Primer adalah pendapatan nasional.
+Primary Income Account namely national income.
+Tabel
+2.3
+Neraca Alokasi Pendapatan Primer
+Table
+Allocation of Primary Income Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Surplus usaha bruto
+Operating surplus, gross
+Pendapatan campuran bruto
+Mixed income, gross
+Kompensasi tenaga kerja
+Compensation of employees
+Pendapatan kepemilikan
+Property income
+Pendapatan kepemilikan
+Property income
+Bunga
+Interest
+Bunga
+Interest
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+Pendapatan nasional bruto (PNB)
+National income, gross
+Jumlah/Total
+Jumlah/Total
+Neraca Distribusi Pendapatan Sekunder
+Neraca Distribusi Pendapatan Sekunder menggambarkan bagaimana pendapatan didistribusikan kembali (redistribution) di antara unit institusi, melalui pembayaran dan penerimaan transfer berjalan. Transfer yang dibayar unit institusi dicatat di sisi penggunaan.
+Yang termasuk sebagai transfer yang dibayar antara lain pajak penghasilan, kekayaan, dan lain-
+lain, kontribusi sosial, dan transfer lainnya.
+Sedangkan transfer yang diterima dicatat di sisi sumber diantaranya adalah kontribusi sosial,
+Secondary Distribution of Income Account
+The Secondary Distribution of Income
+Account describes how income is redistributed among institutional units, through payments and receipts of current transfers. Transfers paid for by institutional units are recorded on the uses side. Included as transfers that are paid include current taxes on income, wealth, etc., social contributions, and other current transfers. Meanwhile, transfers received are recorded on the resources side, such as social contributions, social benefits other than social
+Konsep dan Definisi
+Concept and Definition manfaat sosial selain transfer sosial dalam bentuk barang dan transfer lainnya. Item penyeimbang di dalam Neraca Distribusi Pendapatan Sekunder adalah pendapatan disposabel.
+Pendapatan disposabel didefinisikan sebagai jumlah maksimum kemampuan rumah tangga dalam membiayai konsumsi barang dan jasa selama periode neraca, tanpa mengurangi uang tunai, menjual aset finansial/nonfinansial atau mening-katkan kewajiban.
+transfers in kind and other current transfers.
+The balancing item in the
+Secondary
+Distribution of Income Account is disposable income.
+Disposable income can be interpreted as the maximum amount that a household or other unit can afford to spend on consumption goods or services during the accounting period without having to finance its expenditures by reducing its cash, by disposing of other financial or non-
+financial assets or by increasing its liabilities.
+Tabel
+2.4
+Neraca Distribusi Pendapatan Sekunder
+Table
+Secondary Distribution of Income Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Pendapatan nasional bruto (PNB)
+National income, gross
+Transfer berjalan
+Current transfers
+Transfer berjalan
+Current transfers
+Pajak pendapatan, kekayaan, dll
+Current taxes on income, wealth, etc
+Kontribusi sosial neto
+Net social contributions
+Manfaat sosial selain transfer sosial dalam bentuk barang
+Social benefits other than social transfers in kind
+Transfer lainnya
+Other current transfers
+Transfer lainnya
+Other current transfers
+Premi asuransi non-jiwa neto
+Net non-life insurance premiums
+Klaim asuransi non-jiwa non-life insurance claims
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+Pendapatan disposabel bruto
+Disposable income, gross
+Jumlah/Total
+Jumlah/Total
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Neraca Penggunaan Pendapatan Disposabel
+Neraca
+Penggunaan
+Pendapatan
+Disposabel menunjukkan bagaimana unit rumah tangga mengalokasi pendapatan disposabel untuk konsumsi dan tabungan. Sisi sumber berisi pendapatan disposabel yang diperoleh dari Neraca Distribusi Pendapatan
+Sekunder ditambah dengan penyesuaian atas perubahan pada hak pensiun. Sedangkan pada sisi penggunaan berisi pengeluaran konsumsi akhir rumah tangga. Item penyeimbang neraca ini adalah tabungan.
+Use of Disposable Income Account
+The Use of Disposable Income account shows how household units allocate disposable income for consumption and savings.
+The resources side contains disposable income obtained from the
+Secondary Distribution of Income Account and adjustment for the change in pension entitlements. Meanwhile, on the uses side, it contains household final consumption expenditure. The balancing item on this account is savings.
+Tabel
+2.5
+Neraca Penggunaan Pendapatan Disposabel
+Table
+Use of Disposable Income Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Pendapatan disposabel bruto
+Disposable income, gross
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+Penyesuaian atas perubahan pada hak pensiun
+Adjustment for the change in pension entitlements
+Tabungan bruto
+Savings, gross
+Jumlah/Total
+Jumlah/Total
+Neraca
+Redistribusi
+Pendapatan dalam
+Bentuk Barang
+Neraca Redistribusi Pendapatan dalam
+Bentuk Barang fokus pada sumber konsumsi barang dan jasa yang diperoleh dan digunakan rumah tangga dari transfer sosial dalam bentuk barang. Nilai barang dan jasa yang
+Redistribution of
+Income in
+Kind
+Account
+The Redistribution of Income in Kind
+Account focuses on the resources of consumption of goods and services that households obtain and use from social transfers in-kind. The value of goods and
+Konsep dan Definisi
+Concept and Definition masuk sebagai transfer sosial dalam bentuk barang dicatat dengan dua cara yang berbeda di dalam SNA, pada sisi penggunaan akan dicatat sebagai pengeluaran konsumsi akhir yang dibayar oleh unit pemerintah dan LNPRT
+dan dari sisi rumah tangga sebagai sumber dalam bentuk transfer sosial yang diterima dari institusi pemerintah dan LNPRT.
+services that enter as social transfers in-kind is recorded in two different ways in the SNA, on the uses side it will be recorded as final consumption expenditure paid by government and NPISHs institustion and from the household side as a resources in the form of social transfers in-kind received from government and NPISHs institutions.
+Tabel
+2.6
+Neraca Redistribusi Pendapatan dalam Bentuk Barang
+Table
+Redistribution of Income in Kind Account
+Penggunaan
+Uses
+Sumber
+Resourses
+Pendapatan disposabel bruto
+Disposable income, gross
+Transfer sosial dalam bentuk barang
+Social transfer in kind
+Pendapatan disposabel yang disesuaikan bruto
+Adjusted disposable income, gross
+Jumlah/Total
+Jumlah/Total
+Neraca Kapital
+Neraca Kapital mencatat nilai aset non-
+finansial yang diperoleh atau dilepas oleh unit institusi residen yang terlibat dalam transaksi, dan menunjukkan perubahan kekayaan neto karena tabungan dan transfer modal.
+Sisi perubahan kewajiban Neraca Kapital mencatat sumber yang tersedia untuk membiayai investasi fisik rumah tangga. Sisi sumber terdiri dari tabungan dan transfer modal, dimana transfer modal dibayar dicatat dengan tanda negatif. Sedangkan pada sisi perubahan aset dicatat investasi, baik dalam
+Capital Account
+The Capital Account records the value of non-financial assets acquired or disposed of by the resident institutional unit involved in the transaction, and shows changes in net assets due to savings and capital transfers.
+The changes in liabilities side of the capital account records the resources available to finance household physical investments. The resources side consists of savings and capital transfers, where the paid capital transfers are recorded with a negative sign. While on the changes in assets side, investment is recorded,
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+bentuk fisik seperti pembentukan modal tetap bruto, perubahan inventori, dan perolehan dikurangi pelepasan aset non produksi.
+Di dalam Neraca Kapital, selisih antara perubahan kewajiban dan perubahan aset investasi merupakan item penyeimbang, yang disebut dengan pinjaman neto. Jika item ini bernilai positif, maka rumah tangga dikatakan sebagai meminjamkan (lending) kepada unit institusi lain. Sebaliknya, jika bernilai negatif, rumah tangga dikatakan sebagai meminjam
+(borrowing) dari institusi lain.
+both in physical form such as gross fixed capital form, changes in inventory, and acquisitions less disposals of non-produced assets.
+In the Capital Account, the difference between changes in liabilities and changes in assets of investment is the balancing item, namely net lending/net borrowing. If this item is positive, it is said to be lending to other institutional units. On the other hand, if the value is negative, the balancing item is said to be borrowing from other institutions.
+Tabel
+2.7
+Neraca Kapital
+Table
+Capital Account
+Perubahan aset
+Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Tabungan bruto
+Savings, gross
+Transfer modal yang diterima
+Capital transfer, received
+Transfer modal yang dibayar
+Capital transfer, paid
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+Perubahan inventori
+Changes in inventory
+Perolehan dikurangi pelepasan aset non produksi
+Acquisitions less disposals of non-produced assets
+Pinjaman neto
+Net lending/net borrowing
+Jumlah/Total
+Jumlah/Total
+Konsep dan Definisi
+Concept and Definition
+2.3 Aturan Neraca
+Prinsip Accrual dan Cash Basis
+Prinsip accrual basis diartikan bahwa seluruh transaksi dicatat berdasarkan kondisi aktual yang terjadi, baik transaksi pada aktivitas produksi, konsumsi, maupun investasi. Contoh, suatu rumah tangga melakukan aktivitas menanam padi. Dari aktivitas itu dihasilkan gabah sebanyak 3,5 ton. Jika rumah tangga menggunakan gabah itu untuk keperluan konsumsinya sendiri sebanyak 0,5 ton, maka output yang dicatat tetap senilai 3,5 ton gabah.
+Nilai gabah yang dikonsumsi sendiri harus diperkirakan sesuai harga pasar atau sebesar biaya yang dikeluarkan untuk memproduksi 0,5 ton gabah.
+Prinsip pencatatan yang lain adalah cash basis. Dalam sistem ini, suatu transaksi dicatat berdasarkan pembayaran secara tunai. Dengan kata lain cash basis mencatat transaksi yang terjadi dimana uang benar-benar diterima atau dikeluarkan. Secara umum pada Neraca Rumah
+Tangga Indonesia menggunakan pencatatan berdasarkan prinsip accrual basis, tetapi dalam keadaan tertentu digunakan prinsip cash basis
+(seperti dividen, withdrawal, dan transfer).
+Prinsip Double Entry dan Imputasi
+Prinsip double entry merupakan sistem di mana suatu transaksi dicatat dua kali. Sistem ini berkaitan dengan asas bahwa setiap transaksi harus ada dua pihak yang terlibat, baik sebagai komponen sumber dan penggunaan, aktivitas produksi dan konsumsi, maupun sebagai pembeli dan penjual.
+Akibatnya, setiap transaksi akan selalu berpasangan.
+2.3 Account Rules
+Accrual and Cash Basis Principle
+Accrual basis means that all transactions are recorded on actual basis in production, consumption, and investment activities. For example, household plant rice by its own. From this activity the household can harvest 3,5 tons of rice. If the household uses the product for own consumption by 0,5 tons, the output that will be recorded in production accounts is still
+3,5 tons of rice. Then the value of rice that is consumed must be estimated according to market prices or costs expensed to produce 0,5
+tons of that rice.
+Another recording principle or approach is on cash basis. In this system, a transaction is recorded by cash payment. In other words, cash basis records transactions that occur where money is actually received or issued. In general, Indonesia Household Accounts use the recording is based on the accrual basis principle, but in certain circumstances the cash basis principle is used (such as dividends, withdrawals, and transfers).
+Double Entry and Imputation Principle
+Double entry principle is a system which a transaction recorded twice. This system is related to the principle that every transaction must be involved two parties, as a resources or as a uses side, production or consumption, and as buyers or sellers. As a result, each transaction always has a partner. If a
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Jika suatu transaksi tidak punya pasangannya, maka harus dimunculkan atau diimputasi.
+Sebagai contoh, rumah tangga menggunakan meja tulis yang dibuat sendiri oleh anggota rumah tangga. Dalam kasus ini, seolah-olah rumah tangga memperoleh pendapatan sebesar biaya pembuatan meja tulis ditambah perkiraan ongkos tukang. Di pihak lain, penggunaan meja tulis oleh rumah tangga dianggap sebagai pengeluaran konsumsi rumah tangga.
+Kasus penggunaan meja tulis oleh anggota rumah tangga seperti contoh di atas, berkaitan dengan ketiga prinsip yang digunakan di dalam penyusunan neraca sebagai berikut:
+Prinsip accrual basis, karena nilai meja tulis tersebut dicatat sebagai produksi pada usaha rumah tangga dan pengeluaran konsumsi rumah tangga, meskipun pada kenyataannya rumah tangga tersebut tidak menjual ke konsumen ataupun membeli ke produsen.
+Prinsip double entry, karena nilai meja tulis tersebut dicatat baik sebagai komponen produksi pada sisi sumber maupun konsumsi pada sisi penggunaan.
+Prinsip imputasi, karena nilai meja tulis itu diperkirakan berdasarkan harga pasar atau biaya pembuatan.
+2.4 Konsep dan Definisi
+Aktivitas ekonomi rumah tangga dilakukan pada saat rumah tangga bertransaksi transaction does not have a partner, so it should be imputated.
+For example, a household uses a desk made by members of the household. In this case, it is treated as if the household earns the income as much as value of cost of producing the desk plus the estimated labor fees. On the other hand, the uses of desk by households are considered as household consumption expenditure.
+From the above case of the recording desk used by the household members, the recording can comply with all of the three national account compilation principles, as follows:
+Accrual basis principle, because the value of desk is recorded as household production of unincorporated enterprises within households and household consumption expenditure, despite the fact that household do not sell to consumer or buy to producers.
+Double entry principle, because the value of desk is recorded as component of both production in resources side and consumption in uses side.
+Imputation principle, because the desk is estimated based on the market price or cost of production.
+2.4 Concepts and Definitions
+Household economic activities happen when the household transact with other
+Konsep dan Definisi
+Concept and Definition dengan unit institusi lain. Unit institusi lain yang dimaksud adalah unit korporasi, pemerintah,
+LNPRT, maupun unit rumah tangga lain.
+Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.
+Berbagai jenis transaksi yang dilakukan rumah tangga dapat dikelompokkan ke dalam salah satu dari tiga kelompok aktivitas ekonomi. Apabila transaksi yang terjadi terkait dengan aktivitas produksi, maka transaksi itu akan dicatat sebagai salah satu komponen di dalam Neraca Produksi Rumah Tangga.
+Demikian pula transaksi yang terkait dengan pendapatan kepemilikan, transfer, konsumsi, dan akumulasi modal, masing-masing akan dicatat pada neraca yang bersesuaian.
+Setiap jenis aktivitas ekonomi dan komponen di masing-masing neraca mempunyai batasan. Konsep dan definisi yang diuraikan di bawah ini bertujuan mempermudah pemahaman mengenai jenis Neraca Rumah Tangga Indonesia serta komponen-komponennya, baik di sisi sumber maupun sisi penggunaan.
+Rumah Tangga
+Rumah tangga terdiri atas individu atau kelompok individu yang tinggal bersama dalam suatu bangunan tempat tinggal. Mereka mengumpulkan pendapatan dan kekayaan, serta mengkonsumsi barang dan jasa secara bersama utamanya untuk konsumsi makanan dan perumahan, termasuk didalamnya unit usaha rumah tangga yang dikelola oleh anggota rumah tangga.
+institutional units. Other institutional units that transact with household are corporation units, general government, NPISHs, and other household units.
+Household economic activities encompass production, consumption, and investment activities.
+Transactions that are conducted by households can be grouped into one of three economic activity groups.
+When the transactions are associated with production activities, those transactions will be recorded as one of the components in Household
+Production Account. Similarly, transactions related to property income, transfer, consumption, and capital accumulation, will be recorded on the corresponding account, respectively.
+Each type of economic activities and the components in an account has limitations. The concepts and definitions explained below aims to improve understanding of types and components of
+Indonesia Household Accounts, either on the resources side or the uses side.
+Household
+Household unit consists of individual or group of individuals who live together in a dwelling or house building. They collect income and wealth, and consume goods and services together primarily for consumption of food and housing, including unincorporated enterprises within households that is managed by the household members.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Usaha Rumah Tangga
+Usaha rumah tangga merupakan unit usaha yang dimiliki dan dikelola oleh anggota rumah tangga dalam bentuk usaha yang tidak berbadan hukum (un-incorporated) dan tidak punya catatan pembukuan yang lengkap (non-
+kuasi korporasi).
+Catatan:
+Usaha rumah tangga dapat menghasilkan barang dan jasa untuk dijual (market output); ataupun yang digunakan untuk keperluannya sendiri (output for own final use). Total nilai barang dan jasa yang dihasilkan unit usaha disebut sebagai output.
+Usaha rumah tangga dibedakan dari usaha dalam bentuk kuasi korporasi ataupun korporasi yang dimiliki oleh rumah tangga.
+Kedua unit usaha itu diperlakukan sebagai unit usaha yang terpisah dari institusi rumah tangga yang bersangkutan.
+Pendapatan Usaha Rumah Tangga
+Pendapatan usaha rumah tangga merupakan pendapatan anggota rumah tangga yang berperan ganda di dalam aktivitas usaha, yaitu sebagai pengusaha dan sebagai tenaga kerja. Pendapatan dalam bentuk surplus usaha yang diciptakan disebut sebagai pendapatan campuran. Pendapatan dari usaha rumah tangga diperoleh dari selisih antara output barang dan jasa yang dihasilkan dengan biaya produksi yang dikeluarkan.
+Unincorporated
+Enterprises within
+Households
+Unincorporated
+Enterprises within
+Households is a unit owned and managed by household member that have no legal entity
+(unincorporated) and also have no complete accounting records (non-quasi corporation).
+Notes:
+Unincorporated enterprises within households produce goods and services for sale (market output) and use or consume them for itself or own use (output for own final use). The total value of goods and services produced by enterprise is output.
+Unincorporated enterprises within households is distinguished from quasi corporation and a corporation owned by the household. Both of latter business units are separated from household institution in the accounting treatment.
+Unincorporated
+Enterprises within
+Households Income
+Unincorporated enterprises within households income is the income earned by household members that play double roles in the business activities, both as entrepreneur and worker. Operating surplus income in the unincorporated enterprises within households is called mixed income.
+The income from unincorporated enterprises within households is obtained from the difference between output of good and service and the production cost incurred.
+Konsep dan Definisi
+Concept and Definition
+Produksi dan Output
+Definisi produksi secara umum adalah aktivitas yang dilakukan di bawah tanggung jawab, kontrol, dan pengelolaan dari unit institusi dalam menggunakan input tenaga kerja, modal, serta barang dan jasa untuk menghasilkan barang dan jasa jenis lain.
+Produksi dapat digambarkan sebagai suatu aktivitas, di mana suatu enterprise menggunakan input untuk menghasilkan output. Terdapat dua jenis output yakni barang dan jasa. Seluruh produksi barang atau jasa yang diberikan untuk unit lain selain produsen itu sendiri atau ditujukan untuk dijual, termasuk barang atau jasa yang digunakan dalam proses produksi barang atau jasa tersebut dan seluruh produksi barang yang digunakan oleh produsen untuk konsumsi akhir atau pembentukan modal bruto sendiri (own-account production) masuk dalam batasan produksi didalam SNA.
+Namun untuk produk jasa yang dihasilkan untuk digunakan sendiri tidak dicakup dalam batasan produksi kecuali kegiatan yang menghasilkan jasa persewaan rumah yang ditempati sendiri (owner-occupied dwellings) dan jasa yang dihasilkan pekerja domestik dibayar.
+Biaya Produksi
+Biaya produksi merupakan jumlah konsumsi antara, kompensasi pekerja, pajak lainnya atas produksi dan konsumsi barang modal tetap (penyusutan). Namun, dalam publikasi ini nilai yang ditampilkan pada item
+Production and Output
+Production is an activity, carried out under the responsibility, control and management of an institutional unit, that uses inputs of labour, capital, and goods and services to produce outputs of goods and services.
+Production can be described in general terms as an activity in which an enterprise uses inputs to produce outputs. There are two main kinds of output, namely goods and services.
+The production of all goods or services that are supplied to units other than their producers, or intended to be so supplied, including the production of goods or services used up in the process of producing such goods or services and the own-account production of all goods that are retained by their producers for their own final consumption or gross capital formation are included in production boundary.
+However, service products produced for own use are not included in the production boundary, except for activities that produce owner-occupied dwellings and services produced by domestic workers are paid.
+Production Cost
+Production costs are the sum of intermediate consumption, compensation of employees, other taxes on production and consumption of fixed capital. However, in this publication, the value displayed on the
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+penyeimbang setiap neraca masih dalam bentuk bruto karena tidak menyertakan konsumsi barang modal tetap.
+Konsumsi Antara (Input)
+Konsumsi antara terdiri dari nilai barang dan jasa yang dikonsumsi sebagai input dalam proses produksi, tidak termasuk aset tetap di mana konsumsinya dicatat sebagai konsumsi barang modal tetap.
+Termasuk juga pembayaran sewa atas penggunaan aset tetap, apakah peralatan atau bangunan yang disewa dari unit institusi lain dengan cara sewa guna usaha (operating lease), dan juga termasuk fee, komisi, dll.
+Nilai Tambah
+Item penyeimbang pada Neraca Produksi nilai tambah. Disebut sebagai nilai tambah karena mengukur nilai yang diciptakan dari aktivitas produksi. Nilai tambah didefinisikan sebagai nilai output kurang konsumsi antara. Nilai tambah yang diperoleh dari kegiatan produksi akan digunakan untuk membayar kompensasi tenaga kerja dan pajak lainnya atas produksi.
+Kompensasi Tenaga Kerja yang Dibayar
+Kompensasi tenaga kerja yaitu total pembayaran dalam bentuk uang atau barang yang dikeluarkan usaha rumah tangga pada tenaga kerja sebagai imbalan atas pekerjaan yang dilakukan selama periode neraca.
+Kompensasi tenaga kerja memiliki dua komponen utama, yakni: upah dan gaji yang balancing items of each account is still in gross form because it does not include consumption of fixed capital.
+Intermediate Consumption (Input)
+Intermediate consumption consists of the value of the goods and services consumed as inputs by a process of production, excluding fixed assets whose consumption is recorded as consumption of fixed capital. Also included as intermediate consumption are rentals paid on the use of fixed assets, whether equipment or buildings, that are leased from other institutional units under an operating lease, and also fees, commissions, etc.
+Value Added
+The balancing item of the Production
+Account is value added, so called because it measures the value created by production.
+Value added is defined as output less the value of intermediate consumption. The added value obtained from production activities will be used to pay compensation of employees, other taxes on production.
+Compensation of Employees Paid
+Compensation of employees is defined as the total remuneration, in cash or in kind, payable by an household unincorporated enterprise to an employee in return for work done by the latter during the accounting period.
+Compensation of employees has two main components wages and salaries payable
+Konsep dan Definisi
+Concept and Definition dibayar dalam bentuk uang atau barang dan kontribusi asuransi sosial yang dibayar pengusaha terkait dengan tenaga kerja. Yang termasuk dalam kontribusi asuransi sosial terdiri dari kontribusi sosial aktual pada skema asuransi sosial dan kontribusi sosial yang diimputasi pada skema asuransi sosial.
+Pajak Lainnya atas Produksi
+Pajak lainnya atas produksi terdiri dari pajak kepemilikan atau penggunaan lahan, bangunan, atau aset lain yang digunakan di dalam produksi, ataupun pajak atas kompensasi tenaga kerja yang dibayar.
+Contohnya seperti pajak kendaraan bermotor
+(STNK) dan Pajak Bumi dan Bangunan (PBB).
+Surplus Usaha dan Pendapatan Campuran
+Surplus usaha dan pendapatan campuran adalah nilai surplus yang diperoleh dari produksi sebelum dikurangi bunga, sewa, dan pendapatan kepemilikan lain yang dibayarkan atas aset finansial, lahan, atau sumber daya alam lain yang digunakan di dalam produksi. Surplus usaha dan pendapatan campuran diperlakukan sebagai item penyeimbang di Neraca Penciptaan Pendapatan.
+Nilai surplus usaha dan pendapatan campuran dihitung sebagai selisih antara nilai tambah dengan biaya upah dan gaji dan pembayaran pajak lainnya atas produksi.
+Buruh, Pekerja, atau Karyawan
+Buruh, pekerja, atau karyawan adalah anggota rumah tangga yang bekerja di suatu in cash or in kind and employers social contributions payable by employers. Which include to social contributions are actual social contributions to other employment-related social insurance schemes and imputed social contributions to other employment-related social insurance schemes.
+Other Taxes on Production
+Other taxes on production consist mainly of taxes on the ownership or use of land, buildings or other assets used in production or on the labour employed, or compensation of employees paid. For example motor tax (vehicle registration) and land and building tax.
+Operating Surplus and Mixed Income
+Operating surplus and mixed income includes income or business profits from production activity, before deducted with interest, land rent, and other property income on other proprietary rights.
+Operating surplus and mixed income is treated as balancing item in the Generation of Income Account.
+Operating surplus value is calculated as value added less compensation of employees paid and other taxes on production.
+Labor, Worker, or Employee
+A worker or an employee is member of the household who works in business unit or
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+unit usaha atau lembaga dengan menerima upah dan gaji. Pendapatan yang didapatkan bisa berbentuk uang maupun barang.
+Pendapatan Buruh, Pekerja atau Karyawan
+Pendapatan buruh, pekerja, atau karyawan adalah pendapatan yang diterima rumah tangga atas pekerjaan anggota rumah tangga sebagai buruh, pekerja, atau karyawan pada perusahaan/ instansi/majikan. Pendapatan ini berbentuk upah dan gaji, termasuk lembur, honorarium, bonus, kontribusi sosial, dll.
+Kompensasi Tenaga Kerja yang Diterima
+Pada Neraca Alokasi Pendapatan Primer sisi sumber, rumah tangga memperoleh pendapatan berupa kompensasi tenaga kerja sebagai balas jasa faktor produksi tenaga kerja. Kompensasi tenaga kerja yang diterima berupa upah dan gaji dalam bentuk uang atau barang dan kontribusi sosial yang dibayar pengusaha terkait dengan tenaga kerja.
+Pendapatan Kepemilikan
+Pendapatan kepemilikan merupakan bagian pendapatan primer yang diperoleh dengan meminjamkan atau menyewakan sumber daya finansial atau sumber daya alam seperti lahan, pada unit lain untuk digunakan di dalam proses produksi.
+Pendapatan kepemilikan terbagi atas dua sisi, yaitu pendapatan kepemilikan yang diterima pada sisi sumber dan pendapatan kepemilikan yang dibayarkan pada sisi penggunaan.
+institution to receive wages and salaries.
+The revenues obtained can be in cash or in kind.
+Labor, Worker, or Employee Income
+Labor, worker, or employee income is household income earned from household members who work as laborers, workers, and/or employees at company or institution or to employer. The income includes wages and salaries, overtime allowance, honoraria, and bonuses, social contributions, etc.
+Compensation of Employees Received
+In resources side of Alocation of Primary
+Income
+Account, household receive compensation of employees as labor production factor remuneration.
+Compensation of employees received are wages and salaries in cash or in kind and social contributions payable by employers in relation to employees.
+Property Income
+Property income is that part of primary incomes that accrues by lending or renting financial or natural resources, including land, to other units for use in production activity.
+Property income is divided into two side, namely property income received on the resources side and property income paid on the uses side.
+Konsep dan Definisi
+Concept and Definition
+Pendapatan kepemilikan yang diterima dapat bersumber dari pendapatan usaha bukan dari usaha rumah tangga
+(withdrawal), menyewakan lahan (misalnya untuk pertanian atau pertambangan) kepada pihak lain, pendapatan dividen, bunga simpanan, imbal atas kepemilikan surat berharga lainnya, dan bagi hasil usaha.
+Sementara itu, pendapatan kepemilikan yang dibayarkan diantaranya menyewa lahan milik pihak lain, membayar bunga atas pinjaman, serta bagi hasil usaha.
+Transfer Berjalan
+Transfer berjalan merupakan pendapatan rumah tangga dalam bentuk uang maupun barang yang diterima atau dibayarkan dari atau ke pihak lain secara cuma-cuma, serta bukan merupakan balas jasa faktor produksi dan bukan transfer barang modal. Transfer berjalan digunakan oleh rumah tangga untuk keperluan konsumsi, dan jangka waktu penerimaan transfer ini relatif tetap atau secara berkala.
+Termasuk dalam transfer berjalan masuk adalah penerimaan manfaat sosial uang pensiun, klaim asuransi kecelakaan, transfer antar rumah tangga residen dan non residen, dan transfer lainnya yang belum diklasifikasikan.
+Sementara itu, transfer berjalan keluar mencakup pembayaran pajak pendapatan, kekayaan, dll, pembayaran premi pensiun, pembayaran premi asuransi, transfer ke
+LNPRT, transfer antar rumah tangga residen
+Property income received can be sourced not from unincorporated enterprise within households (withdrawal), renting out land (for example for agriculture or mining) to other institutions, dividends income, interest on deposits, returns on ownership of other securities, and profit sharing.
+Meanwhile, the property income paid includes renting land owned by other institutions, paying interest on loans, and profit sharing.
+Current Transfer
+Current transfer is household income in cash or in kind received or gived from or for another institutions for free and it is not production factors remuneration and non capital transfers. Current transfer used by households for consumption purposes, and the period of receiving this kind of transfer is relatively fixed or on periodic basis.
+The components of the current transfer in are social benefits in pension benefit, non-
+life insurance claims, current transfers between resident and non-resident households, and other miscellaneous current transfers.
+Meanwhile, current transfer out includes payment of current taxes on income, wealth, etc., payment of pension premiums, payment of non-life insurance premiums, current transfers to NPISHs, current transfers between
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+dan non residen, dan transfer lainnya yang belum diklasifikasikan.
+Pengeluaran Konsumsi Akhir
+Pengeluaran konsumsi akhir adalah pengeluaran atas barang dan jasa untuk memenuhi kebutuhan konsumsi rumah tangga. Pengeluaran ini mencakup barang dan jasa yang berasal dari pembelian, pemberian, atau dari usaha sendiri. Pengeluaran konsumsi dibedakan atas barang tak tahan lama dan barang tahan lama (kecuali bangunan tempat tinggal, lahan, dan barang berharga). Barang dan jasa yang digunakan untuk keperluan usaha rumah tangga, tidak termasuk pengeluaran konsumsi rumah tangga.
+Tabungan
+Tabungan adalah item penyeimbang di kedua neraca penggunaan pendapatan.
+Tabungan diperoleh dari pendapatan disposabel kurang pengeluaran konsumsi akhir. Tabungan mewakili bagian pendapatan disposabel
+(disesuaikan dengan perubahan atas perubahan pada hak pensiun) yakni pendapatan yang tidak dihabiskan untuk konsumsi barang dan jasa.
+Transfer Modal
+Transfer modal mencakup nilai barang modal yang diterima ataupun yang diberikan dari atau ke pihak lain secara cuma-cuma.
+Biasanya transfer modal bernilai besar dan bersifat tidak rutin.
+resident and non-resident households, and other miscellaneous current transfers.
+Final Consumption Expenditure
+Final consumption expenditure is the expenditure on goods and services to fullfill the needs of household consumption.
+This expenditure includes purchased goods and services, gift, or from own unincorporated enterprises within households.
+The consumption expenditure can be devided into non durable goods and durable goods (except residential buildings, land, and valuable things).
+Goods and services use for unincorporated enterprises within households is not included in household consumption expenditure.
+Savings
+Savings is the balancing item in the two use of income accounts. Its value is the same whether it is derived as disposable income less final consumption expenditure.
+Saving represents that part of disposable income
+(adjusted for the change in pension entitlements) that is not spent on final consumption goods and services.
+Capital Transfers
+Capital transfer includes the values of capital assets received or given from or to another institution for free. Usually, the value of capital transfer is big and non-
+routine.
+Konsep dan Definisi
+Concept and Definition
+Investasi Non-finansial
+Investasi non-finansial merupakan aktivitas rumah tangga yang terkait dengan pembentukan modal tetap bruto serta perubahan stok yang terjadi di usaha rumah tangga.
+Barang modal rumah tangga mencakup alat produksi, bangunan tempat tinggal dan fasilitasnya, pengurukan/
+penimbunan lahan, aset tak diproduksi, dan barang berharga.
+Pembentukan Modal Tetap Bruto
+Pembentukan modal tetap bruto (PMTB)
+mencakup penambahan dan pengurangan aset tetap pada usaha rumah tangga, yang berasal dari pembelian dan atau perbaikan besar atas barang modal yang digunakan dalam proses produksi usaha rumah tangga.
+Barang modal tersebut mencakup mesin dan peralatan produksi, bangunan, dan lahan untuk usaha, bangunan tempat tinggal, serta biaya pemindahan kepemilikan lahan.
+Perubahan Inventori
+Perubahan inventori atau stok merupakan selisih antara nilai stok barang pada akhir tahun dengan nilai stok pada awal tahun. Menurut jenis barangnya, stok yang ada pada usaha rumah tangga dapat dibedakan menjadi:
+a. Barang jadi, yaitu barang produksi yang telah siap dipasarkan. Salah satu contoh stok barang jadi adalah barang dagangan yang belum terjual
+Non-financial Investment
+The non-financial investment is the household activities related to the gross fixed capital formation as well as the changes in inventory that occurred in the unincorporated enterprises within households. Household assets include production equipment, dwellings and facilities, land improvement, non-produced assets, as well as valuable things.
+Gross Fixed Capital Formation
+Gross fixed capital formation (GFCF) covers the addition and subtraction of fixed assets in the unincorporated enterprises within households, that can be derived from the purchase or major repairs of capital assets used in production prossess from unincorporated enterprises within households. The capital assets include machinery and equipment, buildings, and land for the unincorporated enterprises, dwellings, as well as the cost of transfer of land ownership.
+Changes in Inventories
+Change in inventories represents the difference between the value of the stock at the end of the year with the value of the stock at the beginning of the year. According to the types of goods, the existing inventory in the unincorporated enterprise within households can be divided into:
+a. Finished good, are the products which are ready to be marketed. An example of finished goods inventories is the unsold finished goods
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+b. Barang setengah jadi, yaitu barang yang ada dalam proses pengerjaan (belum selesai) pada saat pencatatan. Penilaian atas stok barang setengah jadi menggunakan nilai biaya (bahan dan upah) yang telah dikeluarkan c. Bahan baku, terdiri dari bahan baku dan bahan penolong yang belum sempat digunakan di dalam proses produksi.
+Pinjaman Neto
+Dalam Neraca Kapital, pinjaman neto merupakan item penyeimbang. Nilai pinjaman neto adalah selisih antara sumber dan pengeluaran investasi yang dilakukan.
+2.5 Sumber Data dan Metodologi
+Dalam penyusunan Neraca Rumah
+Tangga Indonesia 2022–2024, sumber data utama diperoleh dari Survei Khusus Tabungan dan Investasi Rumah Tangga (SKTIR) tahun
+2022 dan Survei Sosial Ekonomi Nasional
+(Susenas). Di samping itu, digunakan juga data produk domestik bruto (PDB) berdasarkan komponen pengeluaran yang diterbitkan oleh
+BPS, serta data pendukung eksternal dari Bank
+Indonesia (BI) dan Otoritas Jasa Keuangan
+(OJK). Neraca Rumah Tangga Indonesia disusun dengan memanfaatkan struktur neraca rumah tangga yang diperoleh dari hasil pengolahan data SKTIR dan Susenas.
+Komponen
+Neraca
+Rumah
+Tangga direkonsiliasi dengan indikator ekonomi yang b. Intermediate goods, are the products that are in the process (unfinished) at the time of recording. Assessment of inventories of the intermediate goods applies the value of the cost (materials and wages) that have been incurred c. Raw materials, consisting of raw materials and auxiliary materials which have not been used in the production process.
+Net Lending/Net Borrowing
+In the Capital Accounts, the net lending is balancing item. The value of net lending is the difference between resources and uses of investment.
+2.5 Data Sources and Methodology
+In compiling the Indonesian Household
+Accounts for 2022–2024, the main data sources were the 2022 Special Survey on
+Household Savings and Investment (SKTIR)
+and the National Socioeconomic Survey
+(Susenas). In addition, data on gross domestic product (GDP) by expenditure components published by Statistics Indonesia (BPS) were utilized, along with supporting external data from Bank Indonesia (BI) and the Financial
+Services Authority (OJK). Indonesia Household
+Account are compiled based on the structure of household account obtained from SKTIR and
+Susenas.
+Components of the household accounts are reconciled to the corresponding economic
+Konsep dan Definisi
+Concept and Definition bersesuaian dari sumber data lainnnya baik dari BPS maupun data eksternal.
+Neraca Produksi
+Dalam Neraca Produksi, institusi rumah tangga mencakup seluruh rumah tangga dengan satu atau lebih anggota rumah tangganya (ART) melakukan usaha rumah tangga (URT). Item output yang dihasilkan institusi rumah tangga berupa output pasar
+(untuk dijual) dan output untuk penggunaan akhir sendiri. Output dan konsumsi antara usaha rumah tangga diperoleh dari data SKTIR
+dan Susenas. Sementara itu, nilai tambah merupakan item penyeimbang pada neraca produksi dan dihitung dari pengurangan output dan konsumsi.
+Neraca Penciptaan Pendapatan
+Dalam Neraca Penciptaan Pendapatan, nilai tambah yang merupakan item penyeimbang
+Neraca
+Produksi, dicatat sebagai sisi sumber. Nilai tambah sama dengan penjumlahan item kompensasi tenaga kerja, pajak atas produksi, surplus usaha, dan pendapatan campuran dari sisi penggunaan.
+Kompensasi tenaga kerja didapatkan dari data SKTIR dan Susenas. Pajak lain atas produksi didapatkan dari matriks pajak yang disusun oleh internal BPS untuk seluruh institusi (rumah tangga, pemerintah, LNPRT, dan korporasi).
+Sementara itu, surplus usaha dan pendapatan campuran merupakan item indicators from the others data sources both from BPS and from external.
+Production Account
+In the
+Production
+Account, the household institutional includes all households with one or more household members conducting unincorporated enterprises.
+Output item produced by the household institutional is market output (for sale) and output for own final use. Output and intermediate consumption of unincorporated enterprises are obtained from SKTIR and
+National Socio-Economic Survey (Susenas)
+data. Meanwhile, value added is a balancing item and calculated from the reduction in output and consumption.
+Generation of Income Account
+In the Generation of Income Account, value added previously as balancing item in the Production Account, recorded as resources side. Value Added is equal to the sum of the compensation of employees, other taxes on production, operating surplus, and mixed income from uses side.
+Compensation of employees is obtained using the SKTIR and Susenas data. The other taxes on production is obtained from the balance matrix of taxes which is compiled by an internal team in BPS for all institutions (households, government, NPISHs, and corporation).
+Otherwise, operating surplus and mixed income are balancing items and calculated
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+penyeimbang dan dihitung dari pengurangan nilai tambah dengan kompensasi tenaga kerja dan pajak lain atas produksi. Untuk memecah surplus usaha dan pendapatan campuran menggunakan data SKTIR dan Susenas.
+Neraca Alokasi Pendapatan Primer
+Dalam Neraca Alokasi Pendapatan
+Primer, surplus usaha dan pendapatan campuran yang sebelumnya merupakan item penyeimbang dalam
+Neraca
+Penciptaan
+Pendapatan, dicatat kembali pada sisi sumber.
+Kompensasi tenaga kerja yang diterima didapatkan dari data Susenas dan Survei
+Angkatan
+Kerja
+Nasional
+(Sakernas).
+Pendapatan kepemilikan baik yang diterima maupun dibayar merupakan penjumlahan dari bunga, yang bersumber dari matriks bunga seluruh unit institusi , dan selain bunga, yang bersumber dari data Bank Indonesia (BI),
+Otoritas Jasa Keuangan (OJK), SKTIR, dan
+Susenas.
+Sementara itu, pendapatan nasional merupakan item penyeimbang, yaitu penjumlahan surplus usaha dan pendapatan campuran dengan pendapatan kepemilikan yang diterima dikurangi pendapatan kepemilikan yang dibayar.
+Neraca Distribusi Pendapatan Sekunder
+Dalam Neraca Distribusi Pendapatan
+Sekunder, pendapatan nasional yang sebelumnya merupakan item penyeimbang dalam Neraca Alokasi Pendapatan Primer, dicatat kembali pada sisi sumber.
+from the reduction in value added with compensation of employees and the other taxes on production. To break down the operating surplus and mixed income using
+SKTIR and Susenas.
+Allocation of Primary Income Account
+In the Allocation of Primary Income
+Account, operating surplus and mixed income previously as balancing item in the Generation of Income Account, re-recorded on resources side.
+Compensation of employees is obtained from Susenas and The National Labor Force
+Survey (Sakernas). Property income both resources side and uses side are the sum of details of received interest, which is obtained from balanced matrix of interest for all institutions, and other than interest, which is obtained from Central Bank of Indonesia (BI),
+Financial Services Authority (OJK), SKTIR and
+Susenas.
+Otherwise, national income is a balancing item, namely the sum of operating surplus and mixed income with property income received less property income paid.
+Secondary Distribution of Income Account
+In the Secondary Distribution of Income
+Account, national income previously as balancing item in the generation of Allocation of Primary Income Account, re-recorded on resources side.
+Konsep dan Definisi
+Concept and Definition
+Kontribusi sosial neto sisi penerimaan dan pengeluaran didapatkan dari OJK.
+Transfer sosial lain dalam bentuk barang merupakan penjumlahan dari manfaat asuransi sosial lainnya yang didapatkan dari
+OJK dan manfaat bantuan sosial tunai yang didapatkan dari data pemerintah dan LNPRT.
+Transfer berjalan lainnya sisi penerimaan didapatkan dari penjumlahan klaim asuransi non-jiwa, transfer berjalan rumah tangga residen dan non-residen, dan macam-macam transfer berjalan lainnya, dengan sumber data dari BI,
+OJK, SKTIR dan Susenas. Transfer berjalan atas pembayaran pajak pendapatan, kesejahteraan, dll didapatkan dari matriks pajak.
+Transfer berjalan lainnya sisi pengeluaran didapatkan dari penjumlahan premi asuransi non-jiwa neto, transfer berjalan pada LNPRT, transfer berjalan antara rumah tangga residen dan non-residen, dan macam-macam transfer berjalan lainnya, yang bersumber dari OJK, data
+LNPRT, BI, SKTIR dan Susenas.
+Sementara itu, pendapatan disposabel merupakan item penyeimbang, yaitu penjumlahan pendapatan nasional dengan kontribusi sosial neto sisi penerimaan, transfer sosial lain dalam bentuk barang, dan transfer berjalan lainnya sisi penerimaan, dikurangi dengan pembayaran pajak pendapatan, kekayaan, dll., kontribusi sosial neto, dan transfer berjalan lainnya sisi penggunaan.
+Net social contribution resources side and uses side are obtained from OJK. Social benefits other than social transfers in kind is obtained from the sum of other social insurance benefits from OJK and social assistance benefits in cash from the government and NPISHs data.
+Other current transfer resources side is obtained from the sum of non-life insurance claims, current transfer of resident and non-
+resident, and other miscellaneous current transfer with data sources from BI, OJK, SKTIR
+and Susenas. Current transfers from current taxes of income, welfare, etc. is obtained from the balance matrix of taxes.
+Other current transfer uses side is the sum of net non-life insurance premiums, current transfers to the NPISHs, current transfer of resident and non-resident, and other miscellaneous current transfers, and obtained from OJK, NPISHs data, BI, SKTIR and
+Susenas.
+Meanwhile, disposable income is a balancing item, namely the sum of national income with net social contribution resources side, social benefits other than social transfers in kind, and other current transfer resources side, less payment of current taxes on income, wealth, etc., net social contribution and other current transfers uses side.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Neraca Penggunaan Pendapatan Disposabel
+Dalam Neraca Penggunaan Pendapatan
+Disposabel, pendapatan disposabel yang merupakan item penyeimbang dalam Neraca
+Distribusi Pendapatan Sekunder, dicatat kembali pada sisi sumber.
+Penyesuaian untuk perubahan hak pensiun didapatkan dari OJK. Pengeluaran konsumsi akhir didapatkan dari
+PDB
+komponen Pengeluaran Konsumsi Rumah
+Tangga. Sedangkan, tabungan merupakan item penyeimbang, yaitu pendapatan disposabel ditambah penyesuaian untuk perubahan hak pensiun, dan dikurangi pengeluaran konsumsi akhir.
+Neraca
+Redistribusi
+Pendapatan dalam
+Bentuk Barang
+Sama halnya dengan Neraca Penggunaan
+Pendapatan Disposabel, pada sisi sumber terdapat pendapatan disposabel yang didapatkan dari Neraca Distribusi Pendapatan Sekunder.
+Transfer sosial dalam bentuk barang didapatkan dari penjumlahan konsumsi akhir individu pemerintah dan LNPRT. Sedangkan, pendapatan disposabel yang disesuaikan merupakan item penyeimbang.
+Neraca Kapital
+Dalam Neraca Kapital, tabungan yang sebelumnya merupakan item penyeimbang dalam
+Neraca Penggunaan Pendapatan Disposabel, dicatat kembali pada sisi perubahan kewajiban.
+Use of Disposable Income Account
+In the Use of Disposable Income
+Account, disposable income as balancing item in the Secondary Distribution of
+Income Account, re-recorded in resources side.
+Adjustment for the change in pension entitlements is obtained from OJK. Final consumption expenditure is obtained from household consumption expenditure from
+GDP. Meanwhile, saving is a balancing item, namely the sum of disposable income and adjustment for the change in pension entitlements, less final consumption expenditure.
+Redistribution of Income in Kind Account
+Same as Use of Disposable Income
+Account, in the resources side there is disposable income obtained from the
+Secondary Distribution of Income Account.
+Social transfers in kind is obtained from the sum of individual final consumption from government and NPISHs.
+Meanwhile, adjusted disposable income is balancing item.
+Capital Account
+In the Capital Account, saving previously as balancing item in the Use of Disposable
+Income Account, re-recorded in changes in liabilities side.
+Konsep dan Definisi
+Concept and Definition
+Transfer modal institusi rumah tangga yang diterima dan dibayar diperoleh dari matriks transfer kapital untuk seluruh unit institusi . Perubahan inventori dan perolehan dikurangi pelepasan aset non produksi didapatkan dari SKTIR. Pembentukan Modal
+Tetap Bruto (PMTB) didapatkan dari data dinas, Survey Disagregasi PMTB, dan SKTIR.
+Terakhir, pinjaman neto merupakan item penyeimbang dalam Neraca Kapital, dan didapatkan dari penjumlahan tabungan, transfer modal yang diterima, transfer modal yang dibayar (negatif), dikurangi PMTB, perubahan inventori, dan perolehan dikurangi pelepasan aset non produksi.
+Received and paid capital transfers in household are obtained from balance matrix of capital transfers. Changes in inventory and acquisitions less disposals of non-produced assets are obtained from SKTIR. Gross Fixed
+Capital Formation (GFCF) are collected from
+Ministry data, Survey of GFCF disaggregation and SKTIR.
+The last, net lending/net borrowing is balancing item in Capital Account, namely the sum of saving, received capital transfers, paid capital transfers (negative), less GFCF, changes in inventory, and acquisitions less disposals of non-produced assets.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Ulasan Singkat
+Brief Review
+BAB III
+ULASAN SINGKAT
+BRIEF REVIEW
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Ulasan Singkat
+Brief Review
+3.1 Neraca Produksi Rumah Tangga
+2022–2024
+Neraca Produksi merupakan neraca pertama dari rangkaian neraca suatu unit institusi dimana pada institusi rumah tangga, neraca produksi terkait dengan aktivitas produksi yang dilakukan oleh usaha rumah tangga. Neraca Produksi menggambarkan bagaimana proses produksi dapat meningkatkan nilai barang dan jasa serta menciptakan pendapatan. Dalam proses produksi akan dihasilkan output yang diperoleh dengan menggunakan input produksi (konsumsi antara), sehingga dari selisih output dan konsumsi antara akan diperoleh nilai tambah.
+3.1 Household Production Account
+2022–2024
+The Production Account is the first account for the sequence of accounts for institutional units where in household institutions, production account is related to production activities carried out by unincorporated enterprises within households.
+The Production Account describes how the production process add to the value of goods and services and leads to the generation of income. In the production process, an output will be produced using the production input
+(intermediate consumption), so that from the difference in output and intermediate consumption, the value added created.
+Tabel
+3.1
+Neraca Produksi Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Production Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Output
+Output
+–
+7.625,26
+–
+8.339,69
+–
+8.916,07
+Konsumsi antara
+Intermediate consumption
+2.557,44
+–
+2.729,82
+–
+2.899,47
+–
+Nilai tambah bruto
+Value added, gross
+5.067,82
+–
+5.609,88
+–
+6.016,61
+–
+Total
+7.625,26
+7.625,26
+8.339,69
+8.339,69
+8.916,07
+8.916,07
+Selama periode tahun 2022–2024, nilai output yang dihasilkan usaha rumah tangga meningkat. Pada tahun 2023, nilai output usaha rumah tangga meningkat sebesar 9,37
+During the 2022–2024 period, the value of output produced by unincorporated enterprise within households increased. In 2023, value of unincorporated enterprises within households
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+persen dibanding tahun 2022, yaitu dari
+7.625,26 triliun rupiah menjadi 8.339,69
+triliun rupiah. Pada tahun 2024, output usaha rumah tangga terus meningkat sebesar 6,91
+persen menjadi 8.916,07 triliun rupiah dibanding tahun 2023.
+Konsumsi antara yang digunakan dalam proses produksi usaha rumah tangga selama periode 2022–2024 juga meningkat, sama seperti output.
+Konsumsi antara yang digunakan pada tahun 2023 mengalami peningkatan sebesar 6,74 persen menjadi
+2.729,82 triliun rupiah, dibanding tahun 2022
+yang sebesar 2.557,44 triliun rupiah. Pada tahun 2024, konsumsi antara terus meningkat sebesar 6,21 persen menjadi 2.899,47 triliun rupiah dibanding tahun 2023.
+output increased by 9,37 percent compared to
+2022, namely from 7.625,26 trillion rupiah to
+8.339,69 trillion rupiah. In 2024, unincorporated enterprises within households output continued to increase by 6,91 percent to 8.916,07 triliion rupiah compared to 2023.
+The intermediate consumption of unincorporated enterprises within households during the 2022–2024 period also showed the same increase as output.
+Intermediate consumption used in 2023
+increased by 6,74 percent to 2.729,82
+trillion rupiah compared to .557,44
+trillion rupiah.
+In
+2024, intermediate consumption continued to increase by 6,21 percent to 2.899,47 trillion rupiah compared to 2023.
+Gambar
+3.1
+Struktur Neraca Produksi Rumah Tangga (persen), 2022–2024
+Figure
+Household Production Account Structure (percent), 2022–2024
+Persen/Percent
+Tahun/Year
+Nilai tambah Bruto
+Value added, gross
+Konsumsi antara
+Intermediate consumption
+Ulasan Singkat
+Brief Review
+Nilai tambah bruto yang tercipta dari kegiatan produksi yang dilakukan oleh usaha rumah tangga pada tahun 2022 adalah sebesar
+5.067,82
+triliun rupiah dan mengalami peningkatan pada tahun 2023 menjadi 5.609,88
+triliun rupiah. Pada tahun 2024, nilai tambah bruto terus meningkat sebesar 7,25 persen menjadi 6.016,61 triliun rupiah.
+Jika dilihat distribusinya, nilai tambah bruto yang tercipta dari aktivitas produksi usaha rumah tangga mengalami peningkatan. Pada tahun 2022, nilai tambah bruto yang tercipta adalah sebesar 66,46 persen dari total output, kemudian meningkat pada tahun 2023 dan
+2024, masing-masing sebesar 67,27 dan 67,48
+persen.
+3.2 Neraca Penciptaan Pendapatan
+Rumah Tangga 2022–2024
+Neraca
+Penciptaan
+Pendapataan merupakan lanjutan dari Neraca Produksi. Nilai tambah bruto yang dihasilkan oleh usaha rumah tangga dalam Neraca Produksi akan menjadi sumber pada Neraca Penciptaan Pendapatan.
+Nilai tambah bruto yang dihasilkan dari kegiatan produksi tersebut akan digunakan oleh rumah tangga untuk membayar kompensasi tenaga kerja dan pajak lain atas produksi, sedangkan sisanya akan menjadi penerimaan rumah tangga sebagai surplus usaha bruto maupun pendapatan campuran bruto.
+The gross value added generated by production activity of unincorporated enterprises within households in 2022 was
+5.067,82 trillion rupiah and increased in
+2023 to 5.609,88 trillion rupiah. In 2024, the gross value added continued to increase by 7,25 percent to 6.016,61 trillion rupiah.
+When viewed in distribution, the gross value added created from production activities of unincoroporated enterprise within households was increased. In 2022, the gross value added created was 66,46
+percent of the total output, then increasing in
+2023 and 2024 to 67,27 and 67,48 percent, respectively.
+3.2 Household Generation of Income
+Account 2022–2024
+The Generation of Income Account is a continuation of the Production Account. The gross value added generated by unincorporated enterprises within households in the Production
+Account will become the resources of the
+Generation of Income Account. The gross value added generated from these production activities will be used by households to pay compensation for employees and other taxes on production, while the rest will become household income as gross operating surplus and gross mixed income.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Tabel
+3.2
+Neraca Penciptaan Pendapatan Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Generation of Income Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Nilai tambah bruto
+Value added, gross
+–
+5.067,82
+–
+5.609,88
+–
+6.016,61
+Kompensasi tenaga kerja
+Compensation of employees
+1.085,82
+–
+1.169,67
+–
+1.245,04
+–
+Pajak lainnya atas produksi
+Other taxes on production
+19,22
+–
+20,99
+–
+23,76
+–
+Surplus usaha bruto
+Operating surplus, gross
+375,72
+–
+381,05
+–
+404,77
+–
+Pendapatan campuran bruto
+Mixed income, gross
+3.587,05
+–
+4.038,16
+–
+4.343,03
+–
+Total
+5.067,82
+5.067,82
+5.609,88
+5.609,88
+6.016,61
+6.016,61
+Ketika usaha rumah tangga menggunakan faktor produksi berupa tenaga kerja dalam kegiatan produksinya, maka usaha rumah tangga tersebut akan membayarkan kompensasi tenaga kerja.
+Kompensasi tenaga kerja yang dibayarkan oleh rumah tangga dari tahun 2022 hingga
+2024 nilainya meningkat, sejalan dengan nilai tambah bruto yang dihasilkan.
+Nilai kompensasi tenaga kerja pada tahun 2022
+adalah sebesar 1.085,82 triliun rupiah dan meningkat sebesar 7,72 persen pada tahun
+2023 menjadi 1.169,67 triliun rupiah. Pada tahun 2024, kompensasi yang dibayarkan oleh usaha rumah tangga kepada pegawainya terus meningkat sebesar 6,44 persen menjadi
+1.245,04 triliun rupiah dibanding tahun 2023.
+Selain kompensasi tenaga kerja, usaha rumah tangga juga membayar pajak lainnya atas
+When the unincorporated enterprises within households use production factors in the form of employees in their production activities, the unincorporated enterprises within households will pay compensation of employees. The value of compensation of employees paid by households from 2022 to
+2024 increased, in line with the gross value added generated. The value of compensation of employees in 2022 was 1.085,82 trillion rupiah and increased by 7,22 percent in 2023
+to
+1.169,67
+trillion rupiah.
+In
+2024, compensation of employees paid by unincorporated enterprises within households continued to increase by 6,44
+percent to 1.245,04 trillion rupiah compared to 2023.
+Besides of compensation of employees, the unincorporated enterprises within
+Ulasan Singkat
+Brief Review produksi yang diambil dari nilai tambah bruto.
+Pajak lainnya atas produksi yang dibayarkan oleh usaha rumah tangga pada tahun 2023
+mengalami peningkatan sebesar 9,22 persen atau sebesar 1,77 triliun rupiah dibanding tahun
+2022. Sementara itu, pada tahun 2024 pajak lainnya atas produksi meningkat sebesar 13,19
+persen atau sebesar 2,77 triliun rupiah. Nilai pajak lain atas produksi yang dibayarkan usaha rumah tangga pada tahun 2024 adalah sebesar
+23,76 triliun rupiah, sedangkan pada tahun 2022
+adalah sebesar 19,22 triliun rupiah.
+Dari nilai tambah bruto yang telah dikurangi untuk membayar kompensasi tenaga kerja dan pajak lainya atas produksi, akan diperoleh surplus usaha bruto dan pendapatan campuran bruto. Selama periode
+2022–2024, surplus usaha mengalami peningkatan. Secara berurutan surplus usaha yang dihasilkan oleh usaha rumah tangga sebesar 375,72 triliun rupiah , 381,05
+triliun rupiah , dan 404,77 triliun rupiah
+.
+Pendapatan campuran bruto selama 2022–
+2024 juga meningkat. Pada tahun 2023, pendapatan campuran bruto mengalami peningkatan menjadi 4.038,16 triliun rupiah dibanding tahun 2022 sebesar 3.587,05 triliun rupiah. Pada tahun 2024, pendapatan campuran bruto terus meningkat sebesar 7,55 persen menjadi sebesar 4.343,03 triliun rupiah dibanding tahun 2023.
+households also pay for the other taxes on production which are taken from gross value added. Other taxes on production paid by unincorporated enterprises within households in 2023 increased by 9,22 percent or 1,77
+trillion rupiah compared to 2022. Meanwhile, in 2024 it increased by 13,19 percent or 2,77
+trillion rupiah. The value of other taxes on production paid by unincorporated enterprises within households in 2024 was 23,76 trillion rupiah, while in 2022 it was 19,22 trillion rupiah.
+From the gross value added that has been deducted to pay compensation of employees and other taxes on production, will created a gross operating surplus and gross mixed income. During the 2022–2024 period, the gross operating surplus increased. In order, the operating surplus generated by unincorporated enterprises within households was 375,72 trillion rupiah , 381,05
+trillion rupiah and 404,77 trillion rupiah
+.
+Gross mixed income during the
+2022–2024 period also increased. In 2023, gross mixed income increased to 4.038,16
+trillion rupiah compared to .587,05 trillion rupiah. In 2024, gross mixed income continued to increased by
+7,55 percent to 4.343,03 trillion rupiah compared to 2023.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Gambar
+3.2
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga (persen), 2022–2024
+Figure
+Household Generation of Income Account Structure (percent), 2022–2024
+Jika dilihat strukturnya terhadap nilai tambah bruto, total surplus usaha dan pendapatan campuran bruto yang dihasilkan memiliki persentase paling tinggi selama periode 2022–2024. Pada tahun 2022, proporsinya sebesar 78,19 persen. Sementara itu, sisanya sebesar 21,81 persen digunakan untuk membayar kompensasi tenaga kerja dan pajak lainnya atas produksi. Ini artinya, nilai tambah yang tercipta dari kegiatan produksi yang dilakukan oleh usaha rumah tangga sebagian besar akan menjadi surplus usaha bruto dan pendapatan campuran bruto, atau disebut keuntungan di dalam usaha rumah tangga.
+When viewed in structure of gross value added, the total gross operating surplus and gross mixed income generated had a highest percentage during the 2022–2024 period. In
+2022, it proportion was 78,19 percent.
+Meanwhile, the total cost for paying compensation of employees and other taxes on production was 21,81 percent. This means that the value added created from production activities carried out by unincorporated enterprises within households will mostly become gross operating surplus and gross mixed income or it can also be called unincorporated enterprises within households profits.
+Persen/Percent
+Tahun/Year
+Pendapatan campuran bruto
+Mixed income, gross
+Surplus usaha bruto/Operating surplus, gross
+Pajak lainnya atas produksi neto
+Other taxes on production
+Kompensasi tenaga kerja
+Compensation of employees
+Ulasan Singkat
+Brief Review
+Proporsi total surplus usaha bruto dan pendapatan campuran bruto pada usaha rumah tangga terhadap nilai tambah bruto pada tahun 2023 dan 2024, masing-masing sebesar 78,78 persen dan 78,91 persen.
+Sementara itu, proporsi pembayaran kompensasi tenaga kerja dan pajak lainnya atas produksi pada tahun 2023 dan 2024 masing-
+masing sebesar 21,22 persen dan 21,09 persen.
+3.3 Neraca Alokasi Pendapatan
+Primer Rumah Tangga 2022–2024
+Jika Neraca Penciptaan Pendapatan fokus pada unit atau unit institusi sebagai produsen yang menghasilkan pendapatan primer, Neraca Alokasi Pendapatan Primer meggambarkan alokasi dari seluruh pendapatan primer yang dihasilkan.
+Kompensasi tenaga kerja yang dibayarkan oleh setiap unit institusi (termasuk usaha rumah tangga) pada Neraca Penciptaan
+Pendapatan akan dicatat sebagai sumber di
+Neraca Alokasi Pendapatan Primer dengan unit instutusi rumah tangga sebagai penerima.
+Begitu pula pajak lainnya atas produksi yang dibayarkan oleh usaha rumah tangga akan menjadi sumber pada
+Neraca
+Alokasi
+Pendapatan
+Primer pada unit institusi pemerintah.
+Surplus usaha bruto dan pendapatan campuran bruto yang merupakan item penyeimbang pada
+Neraca
+Penciptaan
+The proportion of total gross operating surplus and gross mixed income of unincorporated enterprises within households to gross value added in 2023 and 2024 was
+78,78 percent and 78,91 percent, respectively.
+Meanwhile, the proportion of total costs to pay for compensation of employees and other taxes on production was 21,22 percent and
+21,09 percent, respectively.
+3.3 Household Allocation of Primary
+Income Account 2022–2024
+Whereas the Generation of Income
+Account focuses on institutional units in their capacity as producers whose activities generate primary incomes, the Allocation of
+Primary Income Account decribes allocation of all primary incomes generated. Compensation of employees paid by each institutional unit
+(including unincorporated enterprises within households) in the Generation of Income
+Account will be recorded as a resources in the
+Allocation of Primary Income Account with the household institutional unit as the beneficiary.
+Likewise, other taxes on production paid by unincorporated enterprises within households will be the resources of the Allocation of
+Primary Income Account in the government institutional unit.
+The gross operating surplus and the gross mixed income which are the balancing items on the Generation of Income Account
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Pendapatan akan dicatat sebagai sumber dalam
+Neraca Alokasi Pendapatan Primer. Selain itu, pada sisi sumber juga terdapat pendapatan primer lainnya yang diterima oleh rumah tangga berupa kompensasi tenaga kerja dan pendapatan kepemilikan. Sisi penggunaan pada Neraca Alokasi
+Pendapatan
+Primer mencatat pendapatan kepemilikan yang dibayarkan oleh rumah tangga.
+Item penyimbang pada neraca ini adalah
+Pendapatan
+Nasional
+Bruto
+(PNB)
+yang menggambarkan jumlah pendapatan primer yang diterima oleh unit institusi rumah tangga.
+will be recorded as resources in the Allocation of Primary Income Account. Besides that, on the resources side there are also other primary income received by households in the form of compensation of employees and property income. The uses side in the
+Allocation of Primary Income Account records property income paid by households.
+Balancing item in this account is Gross
+National Income (GNI) that describes the sum of gross primary incomes receivable by household institutional unit.
+Tabel
+3.3
+Neraca Alokasi Pendapatan Primer Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Allocation of Primary Income Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Surplus usaha bruto
+Operating surplus, gross
+–
+352,25
+–
+375,72
+–
+381,05
+Pendapatan campuran bruto
+Mixed income, gross
+–
+3.366,50
+–
+3.833,37
+–
+4.034,84
+Kompensasi tenaga kerja
+Compensation of employees
+–
+6.310,18
+–
+6.923,16
+–
+7.306,09
+Pendapatan kepemilikan
+Property income
+347,20
+568,89
+297,14
+609,11
+315,87
+665,10
+Bunga
+Interest
+293,62
+171,18
+252,47
+179,02
+300,52
+246,10
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+53,58
+397,71
+44,67
+430,09
+15,34
+418,99
+Pendapatan nasional bruto (PNB)
+National income, gross
+10.250,63 –
+11.444,22
+–
+12.071,21
+–
+Total
+10.597,83
+10.597,83
+11.741,36
+11.741,36
+12.387,08
+12.387,08
+Selama periode
+2022–2024, nilai kompensasi tenaga kerja yang diterima rumah
+During the period 2022–2024, the value of compensation of employees received by
+Ulasan Singkat
+Brief Review tangga meningkat. Pada tahun 2022, nilai kompensasi tenaga kerja yang diterima rumah tangga adalah sebesar
+6.919,53
+dan meningkat sebesar 5,25 persen pada tahun
+2023. Pada tahun 2024, kompensasi tenaga kerja yang diterima terus meningkat sebesar
+9,51 persen mencapai 7.975,45 triliun rupiah.
+Secara total, nilai pendapatan kepemilikan yang diterima rumah tangga mengalami fluktuasi selama periode
+2022–2024.
+Pendapatan kepemilikan berupa bunga yang diterima rumah tangga cenderung lebih rendah dibandingkan bunga yang dibayarkan. Sementara itu, untuk pendapatan kepemilikan selain bunga, jumlah yang diterima rumah tangga cenderung lebih besar dibanding yang dibayarkan.
+Pendapatan kepemilikan berupa bunga yang diterima rumah tangga menunjukkan tren yang meningkat dari tahun 2022–2024, sedangkan untuk pendapatan kepemilikan yang diterima selain bunga cukup berfluktuasi. Pendapatan kepemilikan berupa bunga yang diterima rumah tangga pada tahun
+2023 meningkat sebesar 80,58 persen dari tahun
+2022, dan terus meningkat pada tahun 2024
+mencapai 204,59 triliun rupiah. Sementara itu, pendapatan kepemilikan yang diterima selain bunga menurun sebesar 15,76 persen pada tahun
+2023 dibanding tahun 2022, kemudian menurun sebesar 10,30 persen menjadi 340,54 triliun rupiah pada tahun 2024.
+Pendapatan kepemilikan berupa bunga yang dibayarkan rumah tangga nilainya berfluktuasi dari tahun 2022–2024. Pada tahun 2023 nilainya menurun sebesar 8,13 persen dan meningkat households increased. In 2022, compensation of employees received by households was
+6.919,53 trillion rupiah and increased by 5,25
+percent in 2023. In 2024, the compensation of employees received continued to increase by 9,51 percent reached 7.975,45 trillion rupiah.
+In total, property income received by households was fluctuated in the 2022–
+2024 period. Property income in the form of interest received by households tends to be lower than the interest paid.
+Meanwhile, for property income other than interest, the amount received by households tends to be higher than what is paid. Property income in the form of interest received by households shows a upward trend from 2022–2024, while property income received other than interest shows an fluctuation trend.
+Property income in the form of interest received by households in 2023 increased by 80,58 percent compared to 2022, and continued to increase reached 204,59
+trillion rupiah.
+Meanwhile, property income other than interest received decreased by 15,76 percent in 2023
+compared to 2022, then decreased by
+10,30 percent to 340,54 trillion rupiah in
+2024.
+Property income in the form of interest paid by households was fluctuated from
+2022 to 2024. In 2023, its value decreased by 8,13 percent and increased by 5,09
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+sebesar 5,09 persen menjadi 299,47 triliun rupiah pada tahun 2024. Sementara itu, nilai pendapatan kepemilikan selain bunga yang dibayarkan rumah tangga pada tahun 2022 sebesar 44,67 triliun rupiah, menurun menjadi 33,89 triliun rupiah pada tahun 2023, dan kembali meningkat menjadi 35,46
+triliun rupiah pada tahun 2024.
+Sejalan dengan nilai-nilai pendapatan yang diterima, PNB selama periode 2022–
+2024 juga meningkat. PNB pada tahun 2022
+adalah sebesar 11.078,83 triliun rupiah, dan terus meningkat mencapai 12.933,45 triliun rupiah pada tahun 2024.
+percent to 299,47 trillion rupiah in 2024.
+Meanwhile, the value of property income other than interest paid by households in
+2022 was 44.67 trillion rupiah, decreasing to 33.89 trillion rupiah in 2023, and increasing again to 35.46 trillion rupiah in
+2024.
+In line with the income values received, GNI during the 2022–2024
+period also increased. GNP in 2022 was
+11.078,83 trillion rupiah, and continued to increase reached 12.933,45 trillion rupiah in 2024.
+Gambar
+3.3
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga Sisi Sumber (persen),
+2022–2024
+Figure
+Household Allocation of Primary Income Account Structure in Resources Side
+(percent), 2022–2024
+Persen/Percent
+Tahun/Year
+Surplus usaha bruto/Operating surplus, gross
+Pendapatan campuran bruto
+Mixed income, gross
+Kompensasi tenaga kerja
+Compensation of employees
+Pendapatan kepemilikan
+Property income
+Ulasan Singkat
+Brief Review
+Berdasarkan strukturnya, proporsi terbesar pada Neraca Alokasi Pendapatan
+Primer dari sisi sumber selama tahun 2022–
+2024 adalah kompensasi tenaga kerja, dengan proporsi masing-masing tahun sebesar 60,52
+persen, 59,39 persen, dan 60,11 persen.
+Proporsi terbesar kedua dari sisi sumber adalah pendapatan campuran bruto yaitu sebesar 31,37 persen pada tahun 2022 dan meningkat mencapai 32,73 persen pada tahun
+2024.
+3.4 Neraca Distribusi Pendapatan
+Sekunder Rumah Tangga 2022–2024
+Neraca Distribusi Pendapatan Sekunder menggambarkan bagaimana Pendapatan Nasional
+Bruto (PNB) sebagai item penyeimbang pada Neraca
+Alokasi Pendapatan Primer diubah menjadi pendapatan disposabel dengan menerima dan membayar transfer berjalan, namun tidak termasuk transfer sosial dalam bentuk barang atau jasa.
+PNB dicatat kembali pada Neraca
+Distribusi Pendapatan Sekunder sebagai sumber bersama dengan penerimaan transfer berjalan dalam bentuk kontribusi sosial neto, manfaat sosial selain transfer sosial dalam bentuk barang, klaim asuransi non-jiwa, dan transfer lainnya yang diterima. Sementara itu, pada sisi penggunaan akan dicatat berupa pembayaran pajak pendapatan, kekayaan, dll,
+Based on its structure, the largest proportion in the Allocation of Primary
+Income Account from the resources side during 2022–2024 was compensation of employees, wih proportion of 60,52 percent,
+59,39
+percent, and
+60,11
+percent respectively for each year. The second largest proportion from the resources side is gross mixed income, namely 31,37 percent in 2022 and increased reached 32,73
+percent in 2024.
+3.4 Household Secondary Distribution of Income Account 2022–2024
+The Secondary Distribution of Income
+Account shows how Gross National Income
+(GNI) as balancing item of the Allocation of
+Primary Income Account is transformed into disposable income by the receipt and payment of current transfers, excluding social transfers in kind.
+GNI will be re-recorded on the
+Secondary Distribution of Income Account on the resources side along with current transfers received such as net social contributions, social benefits other than social transfers in kind, non-life insurance claims, and other transfers received.
+Meanwhile, the uses side will record current taxes on income, wealth, etc., net social
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+kontribusi sosial neto, premi asuransi non-
+jiwa, dan transfer lainnya.
+contributions, non-life insurance premiums, and other transfers.
+Tabel
+3.4
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Secondary Distribution of Income Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Pendapatan nasional bruto (PNB)
+Balance of Primary Income Account
+–
+11.078,83
+–
+11.944,91
+–
+12.933,45
+Transfer berjalan
+Current transfers
+1.029,77
+1.094,51
+1.006,55
+1.010,22
+1.130,50
+1.121,94
+Pajak pendapatan, kekayaan, dll
+Current Taxes on Income, Wealth, etc
+275,75
+–
+274,25
+–
+310,41
+–
+Kontribusi sosial neto
+Net social contributions
+204,34
+–
+199,38
+–
+206,86
+–
+Manfaat sosial selain transfer sosial dalam bentuk barang
+Social benefits other than social transfers in kind
+–
+352,30
+–
+383,91
+–
+383,38
+Transfer lainnya
+Other Current Transfers
+549,68
+742,21
+532,92
+626,31
+613,23
+738,55
+Premi asuransi non-jiwa neto
+Net Non-life Insurance Premiums
+4,26
+–
+9,99
+–
+10,57
+–
+Klaim asuransi non-jiwa
+Non-Life insurance claims
+–
+10,16
+–
+9,94
+–
+11,91
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous Current Transfers
+545,43
+732,05
+522,93
+616,37
+602,66
+726,65
+Pendapatan disposabel bruto
+Disposable Income, Gross
+11.143,57
+–
+11.948,58
+–
+12.924,89
+–
+Total
+12.173,34
+12.173,34
+12.955,13
+12.955,13
+14.055,39
+14.055,39
+Dalam kurun waktu 2022–2024, sumber penerimaan rumah tangga yang berasal dari manfaat sosial selain transfer sosial dalam bentuk barang dan transfer lainnya memiliki nilai yang berfluktuasi. Manfaat sosial selain transfer sosial dalam bentuk barang memiliki nilai tertinggi pada tahun 2023 yaitu sebesar
+383,91 triliun rupiah, sedangkan untuk transfer
+In the
+2022–2024
+period, households incomes sources from social benefits other than social transfers in kind and other current transfers have fluctuating values. Social benefits other than social transfers in kind has the highest value in 2023, namely 362,26
+trillion rupiah, while other current
+Ulasan Singkat
+Brief Review lainnya tertinggi berada pada tahun 2022 yaitu sebesar 742,21 triliun rupiah. Penerimaan rumah tangga dari transfer lainnya terdiri atas klaim asuransi non-jiwa serta transfer lainnya yang belum diklasifikasikan. Pada tahun 2023, masing-masing nilainya sebesar 9,94 triliun rupiah dan 616,37 triliun rupiah.
+Pada tahun 2024 penerimaan manfaat sosial selain transfer sosial mengalami penurunan sebesar 0,14 persen menjadi
+383,38
+triliun rupiah.
+Sementara itu penerimaan transfer lainnya pada tahun 2024
+mengalami peningkatan sebesar 17,92 persen menjadi 738,55 triliun rupiah. Pada tahun
+2024 transfer lainnya yang berupa klaim asuransi non jiwa sebesar 11,91 triliun rupiah dan transfer lainnya yang belum diklasfikasikan sebesar 726,65 triliun rupiah.
+Dari sisi penggunaan, besarnya pajak pendapatan, kekayaan, dll yang dibayarkan rumah tangga selama periode 2022–2024 mengalami fluktuasi. Pajak pendapatan, kekayaan, dll pada tahun 2022 adalah sebesar 275,75 triliun rupiah, menurun sebesar 1,50 triliun rupiah pada tahun
+2023, dan kembali meningkat mencapai 310,41
+triliun rupiah pada tahun 2024. Selain itu, kontribusi sosial neto dan transfer lainnya yang dibayarkan rumah tangga juga mengalami fluktuasi selama tahun 2022–2024. Kontribusi sosial neto yang dibayarkan pada tahun 2024
+meningkat sebesar 3,75 persen dari tahun 2023, sedangkan untuk transfer lainnya yang dibayarkan rumah tangga meningkat pada tahun 2024
+sebesar 15,07 persen dari tahun 2023.
+transfers has the highest value in 2023, namely 636,79 trillion rupiah. Other current transfers received by hoseholds consists of non-life insurance claims and miscellaneous current transfers. In 2023, the value were 9,94 trillion rupiah and
+616,37 trillion rupiah, respectively.
+In 2024, social benefits other than social transfers in kind decreased by 0,14
+percent to
+338,38
+trillion rupiah.
+Meanwhile, other transfer receipts increased by 17,92 percent to IDR 738,55
+trillion in 2024. In 2024, Other Current
+Transfers in the form of non-life insurance claims amounted to 11,91
+trillion rupiah and Miscellaneous Current
+Transfers amounted to 726,65 trillion rupiah.
+In the uses side, the amount of current taxes on income, wealth, etc. paid by households during the 2022–2024
+period was fluctuated. Current taxes on income, wealth, etc. in 2022 was 275,75
+trillion rupiah, decreased by 1,50 percent in 2023, and and subsequently increased to 310,41 trillion rupiah in 2024. Besides that, net social contribution and other current transfers paid by households also was fluctuated during 2022–2024. Net social contribution paid in 2024 increased by 3,75 percent from 2023, while other current transfers paid by households in
+2024 increased by 15,07 percent from
+2023.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Dari seluruh pendapatan yang diterima rumah tangga, kemudian digunakan untuk transfer berjalan, maka tercipta pendapatan disposabel, yaitu pendapatan yang siap dibelanjakan. Pendapatan disposabel secara sempit dapat diartikan sebagai jumlah maksimum kemampuan rumah tangga untuk membiayai konsumsi barang dan jasa selama periode neraca. Pendapatan disposabel rumah tangga selama periode 2022–2024 memiliki tren yang meningkat. Pada tahun 2023, nilainya meningkat sebesar 7,22 persen dari tahun 2022.
+Pada tahun 2024, pendapatan disposabel rumah tangga terus meningkat sebesar 8,17 persen mencapai 12.924,89 triliun rupiah.
+From all the incomes received by households, then used for current transfers paid, then created disposable income, namely income that is ready to be spent.
+Disposable income can narrowly be defined as the maximum amount of household ability to finance the consumption of goods and services during the account period.
+Disposable household income during the
+2022–2024 period has an increasing trend.
+In 2023, the value increased by 7,22
+percent from 2022. In 2024 household disposable income continued to increasd by 8,17 percent reached 12.924,89 trillion rupiah.
+Gambar
+3.4
+Struktur Transfer Berjalan yang Diterima Rumah Tangga (persen), 2022–2024
+Figure
+Household Current Transfers Received Structure (percent), 2022–2024
+Persen/Percent
+Tahun/Year
+Manfaat sosial selain transfer sosial/Social benefits other than social transfers in kind
+Klaim asuransi non-jiwa/Non-life insurance claims
+Transfer lainnya, yang belum diklasifikasikan/Miscellaneous current transfers
+Ulasan Singkat
+Brief Review
+Berdasarkan strukturnya, proporsi terbesar pada transfer berjalan yang diterima pada Neraca Distribusi Pendapatan Sekunder
+Rumah Tangga adalah transfer lainnya yang belum diklasifikasikan, dengan proporsi sebesar 66,88 persen pada tahun 2022, menurun menjadi 61,01 persen pada tahun
+2023, dan meningkat menjadi 64,77 persen pada tahun 2024. Sementara itu, proporsi terkecil adalah klaim asuransi non-jiwa dengan rata-rata proporsi sebesar 0,99 persen selama tahun 2022–2024.
+Based on its structure, the largest proportion of current transfers received from the Secondary Distribution of
+Income
+Account is derived from miscellaneous current transfers, with a proportion of 66,88 percent in 2022, decreased to 61,01 percent in 2023, then increased to 64,77 percent in 2024.
+Meanwhile, the smallest proportion was non-life insurance claims with an average proportion of 0,99 percent during 2022–2024.
+Gambar
+3.5
+Struktur Transfer Berjalan yang Dibayar Rumah Tangga (persen), 2022–2024
+Figure
+Household Current Transfers Paid Structure (percent), 2022–2024
+Dari sisi penggunaan, rumah tangga lebih dominan melakukan pembayaran transfer berupa transfer lainnya yang belum diklasifikasikan dengan proporsi sebesar 52,97 persen pada tahun
+2022, menurun menjadi sebesar 51,95 persen
+In uses side, households were more dominant in giving current transfers in the form of miscellaneous current transfers, with proportion of 52,97 percent in 2022, decreased to 51,95 percent in 2023, then
+Persen/Percent
+Tahun/Year
+Pajak pendapatan, kekayaan, dll/Current taxes on income, wealth, etc
+Kontribusi sosial neto/Net social contributions
+Premi asuransi non-jiwa neto
+Net non-life insurance premiums
+Transfer lainnya, yang belum diklasifikasikan/Miscellaneous current transfers
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+pada tahun 2023, dan kembali meningkat menjadi
+53,31 persen pada tahun 2024. Pada urutan kedua, pajak pendapatan, kekayaan, dll memiliki proporsi sebesar 26,78 persen pada tahun 2022, meningkat menjadi sebesar 27,25 persen pada tahun 2023 dan 27,46 persen pada tahun 2024.
+Sementara itu, proporsi terkecil selama periode 2022–2024 merupakan pembayaran premi asuransi non-jiwa neto dengan proporsi masing-masing tahun sebesar 0,41 persen,
+0,99 persen, dan 0,93 persen.
+3.5 Neraca Penggunaan Pendapatan
+Disposabel Rumah Tangga 2022–2024
+Pendapatan disposabel atau pendapatan yang siap dibelanjakan oleh rumah tangga akan menjadi sumber pada Neraca Penggunaan
+Pendapatan
+Disposabel.
+Pendapatan disposabel tersebut akan digunakan untuk membiayai konsumsi akhir rumah tangga selama periode neraca. Tabungan pada neraca ini menjadi item penyeimbang.
+Pengeluaran konsumsi akhir rumah tangga pada tahun 2022 adalah sebesar
+10.161,71 triliun rupiah. Pada tahun 2023
+nilainya meningkat sebesar 9,33 persen atau sebesar 11.109,57 triliun rupiah. Pada tahun
+2024, nilai pengeluaran konsumsi akhir rumah tangga terus meningkat sebesar 7,70 persen mencapai 11.964,95 triliun rupiah.
+increased to 53,31 percent in 2024. In second place, current taxes on income, wealth, etc has proportion of 26,78
+percent in 2022, increased to 27,25
+percent in 2023 and 27,46 percent in
+2024.
+Meanwhile, the smallest contribution during the 2022–2024 period was provided by net non-life insurance premiums with proportion of 0,41 percent, 0,99 percent and
+0,93 percent, respectively each year.
+3.5 Household Use of Disposable
+Income Account 2022–2024
+Disposable income or income that is ready to be spent by households will be a resource on the Use of Disposable Income
+Account. The disposable income will be used to finance household final consumption during the account period.
+Savings on this account become a balancing item.
+Household final consumption expenditure in 2022 was 10.161,71 trillion rupiah. In 2023, the value increased by
+9,33 percent or 11.109,57 trillion rupiah. In
+2024, the value of household final consumption expenditure continued to increase by 7,70 percent to 11.964,95
+trillion rupiah.
+Ulasan Singkat
+Brief Review
+Tabel
+3.5
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Use of Disposable Income Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Pendapatan disposabel bruto
+Disposable income, gross
+–
+11.143,57
+–
+11.948,58
+–
+12.924,89
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+10.161,71
+–
+11.109,57
+–
+11.964,95
+–
+Penyesuaian atas perubahan pada hak pensiun
+Adjustment for the change in pension entitlements
+–
+25,84
+–
+26,40
+–
+27,39
+Tabungan bruto
+Savings, gross
+1.007,70
+–
+865,42
+–
+987,33
+–
+Total
+11.169,41
+11.169,41
+11.974,98
+11.974,98
+12.952,28
+12.952,28
+Tabungan bruto pada tahun 2023 menurun sebesar 14,12 persen menjadi 865.42 triliun rupiah dibanding tahun 2022. Pada tahun 2024 tabungan bruto meningkat sebesar 14,09 persen dibanding tahun 2023 menjadi 987,33 triliun rupiah.
+Gross savings in 2023 decreased by
+14,12 percent to 865.42 trillion rupiah compared to 2022. In 2024, gross savings increased by 14,09 percent compared to 2023
+to 987,33 trillion rupiah.
+Gambar
+3.6
+Tabungan Rumah Tangga (persen), 2022–2024
+Figure
+Household Savings (percent), 2022–2024
+Triliun Rupiah/Trillion Rupiah
+Tahun/Year
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+3.6 Neraca Redistribusi Pendapatan Rumah
+Tangga dalam Bentuk Barang 2022–2024
+Selama periode neraca, rumah tangga terkadang menerima transfer sosial dalam bentuk barang baik dari pemerintah maupun
+Lembaga Non-Profit yang Melayani Rumah
+Tangga (LNPRT). Transfer sosial dalam bentuk barang yang diterima tersebut oleh rumah tangga dapat digunakan untuk kebutuhan konsumsi, sehingga akan tercipta pengeluaran konsumsi akhir aktual. Pengeluaran konsumsi akhir aktual rumah tangga merupakan nilai pengeluaran konsumsi akhir ditambah dengan transfer sosial dalam bentuk barang.
+3.6 Household Redistribution of
+Income in Kind Account2022–2024
+During the account period, sometimes households receive social transfers in kind from both the government and
+Non-Profit
+Institutions serving
+Households (NPISHs). The social transfers in kind received by households can be used for consumption needs so that actual final consumption expenditure will be created.
+The actual final consumption expenditure of households is the value of final consumption expenditure plus social transfers in kind.
+Tabel
+3.6
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang (triliun rupiah), 2022–2024
+Table
+Household Redistribution of Income in Kind Account (trillion rupiah), 2022–2024
+Item
+Items
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Penggunaan
+Uses
+Sumber
+Resources
+Pendapatan disposabel bruto
+Disposable income, gross
+–
+11.143,57
+–
+11.948,58
+–
+12.924,89
+Transfer sosial dalam bentuk barang
+Social transfer in kind
+–
+830,94
+–
+854,86
+–
+934,97
+Pendapatan disposabel yang disesuaikan bruto
+Adjusted disposable income, gross
+11.974,51
+–
+12.803,45
+–
+13.859,86
+–
+Total
+11.974,51
+11.974,51
+12.803,45
+12.803,45
+13.859,86
+13.859,86
+Dalam Neraca Redistribusi Pendapatan
+Rumah
+Tangga dalam
+Bentuk
+Barang, pendapatan disposabel bruto rumah tangga ditambah dengan transfer sosial dalam bentuk
+In the Household Redistribution of
+Income in Kind Account, the gross disposable income from household together with social transfers in kind
+Ulasan Singkat
+Brief Review barang akan membentuk pendapatan disposabel yang telah disesuaikan bruto.
+make up the adjusted gross disposable income.
+Gambar
+3.7
+Transfer Sosial Rumah Tangga dalam Bentuk Barang (persen), 2022–2024
+Figure
+Household Social Transfer in Kind (percent), 2022–2024
+Selama tahun 2022–2024 nilai transfer sosial dalam bentuk barang yang diterima oleh rumah terus meningkat. Pada tahun 2022, transfer sosial dalam bentuk barang yang diterima rumah tangga sebesar 830,94 triliun rupiah. Nilai tersebut pada tahun 2023 meningkat sebesar 2,88
+persen menjadi 854,86 triliun rupiah. Sementara itu, pada tahun 2024 transfer sosial dalam bentuk barang yang diterima rumah tangga meningkat sebesar 9,37 persen menjadi 934,97 triliun rupiah.
+During the 2022–2024 period, the value of social transfers in kind received by households increased. In 2022, social transfers in kind received by households was 830,94 trillion rupiah. This value in
+2023 increased by 2,88 percent to 854,86
+trillion rupiah. Meanwhile, in 2024 social transfer in kind received by households increased by 9,37 percent to 934,97
+trillion rupiah.
+Triliun Rupiah/Trillion Rupiah
+Tahun/Year
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+3.7 Neraca Kapital Rumah Tangga
+2022–2024
+Neraca
+Kapital rumah tangga memperlihatkan transaksi modal dan pembiayaan antara rumah tangga dengan unit institusi lain. Neraca Kapital rumah tangga utamanya memperlihatkan bagaimana proses kegiatan usaha rumah tangga dalam melakukan pembentukan modal (investasi)
+yang dibiayai dari tabungan.
+Item penyeimbang dalam Neraca Kapital adalah pinjaman neto. Yang akan dicatat pada sisi perubahan kewajiban pada Neraca Kapital adalah tabungan bruto, transfer modal yang diterima, dan transfer modal yang dibayar.
+Nilai transfer modal yang diterima selama periode 2022–2024 terus menurun. Transfer modal yang diterima rumah tangga pada tahun
+2022 adalah sebesar 38,57 triliun rupiah. Nilai tersebut terus menurun mencapai 25,68 triliun rupiah pada tahun 2024. Sementara itu, nilai transfer modal yang dibayarkan rumah tangga periode 2022–2024 cukup berfluktuasi. Pada tahun 2022, transfer modal yang dibayarkan sebesar 48,40 triliun rupiah. Nilai tersebut pada tahun 2023 meningkat sebesar 11,37 persen menjadi 53,90 triliun rupiah. Pada tahun 2024, transfer modal yang dibayarkan menurun sebesar
+75,93 persen menjadi 12,97 triliun rupiah.
+Pembentukan Modal Tetap Bruto (PMTB), perubahan inventori, dan perolehan dikurangi pelepasan aset non produksi akan dicatat pada sisi perubahan aset dalam Neraca Kapital. Ketiga
+3.7 Household Capital Account 2022–
+The household Capital Account shows capital and financing transactions between households and other institutional units. The household Capital Account shows how the process of unincorporated enterprises within households activities in capital formation (investment) is financed from savings. The balancing item in the household
+Capital Account is net lending/net borrowing.
+Will be recorded on the changes in liabilities side of Capital Account are gross savings, received capital transfers, and paid capital transfers.
+The value of capital transfers received by households during the 2022–2024 was decreased. The capital transfer received by households in 2022 was 38,57 trillion rupiah.
+This value continued to decrease reached
+25,68 trillion rupiah in 2024. Meanwhile, the value of capital transfers paid by households from 2022 to 2023 was fluctuated. In 2022, capital transfer paid by households was
+48,40. This value in 2023 increased by 11,37
+percent to 53,90 trillion rupiah. In 2024, capital transfers paid by households decreased by 75,93 percent to 12,97 trillion rupiah.
+Gross Fixed Capital Formation (GFCF), changes in inventory, and acquisitions less disposals of non-produced assets will be recorded on the changes in assets side of the
+Ulasan Singkat
+Brief Review rincian tersebut memiliki tren yang berfluktuasi selama tahun 2022–2024. PMTB pada tahun
+2022 adalah sebesar 922,46 triliun rupiah, menurun sebesar 4,61 persen pada tahun 2023, dan meningkat sebesar 6,26 persen pada tahun
+2024 menjadi 934,99 triliun rupiah.
+Capital Account. These three items have an fluctuating trend during 2022–2024. GFCF in
+2022 was 922,46 trillion rupiah, decreased by 4,61 percent in 2023, and increased by
+6,26 percent in 2024 to 934,99 trillion rupiah.
+Tabel
+3.7
+Neraca Kapital Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Capital Account (trillion rupiah), 2022–2024
+Item
+Items
+Perubahan aset
+Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Perubahan aset
+Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Perubahan aset
+Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Tabungan bruto
+Savings, Gross
+–
+1.007,70
+–
+865,42
+–
+987,33
+Transfer modal yang diterima
+Capital Transfer, Received
+–
+38,57
+–
+33,23
+–
+25,68
+Transfer modal yang dibayar
+Capital Transfer, Paid
+–
+48,40
+–
+53,90
+–
+12,97
+Pembentukan modal tetap bruto
+Gross Fixed Capital Formation
+922,46
+–
+879,90
+–
+934,99
+–
+Perubahan inventori
+Changes in Inventory
+33,41
+–
+20,63
+–
+36,38
+–
+Perolehan dikurangi pelepasan aset non produksi
+Acquisitions less disposals of non-
+produced assets
+135,01
+–
+143,81
+–
+70,68
+–
+Pinjaman neto
+Net lending/Net borrowing
+177,03
+–
+88,03
+–
+99,35
+–
+Total
+997,88
+997,88
+844,75
+844,75
+1.000,04
+1.000,04
+Perubahan inventori pada tahun 2022
+adalah sebesar 33,41 triliun rupiah. Nilai tersebut menurun pada tahun 2023 dan meningkat pada tahun 2024, dengan nilai perubahan inventori masing-masing sebesar 20,63 triliun rupiah dan
+36,38 triliun rupiah. Nilai positif pada perubahan inventori menunjukkan bahwa inventori pada akhir periode lebih tinggi dari awal periode.
+Changes in inventory in 2022 was minus
+33,41 trillion rupiah. This value decreased in
+2023 and increased in 2024, with an changes in inventory value of 20,63 trillion rupiah and 36,38
+trillion rupiah respectively. A positive value for changes in inventory indicates that inventory at the end of the period is higher than at the beginning of the period.
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Gambar
+3.8
+Struktur Neraca Kapital Rumah Tangga (persen), 2022–2024
+Figure
+Household Capital Account Structure (percent), 2022–2024
+Selama tahun 2022–2024, posisi pinjaman neto dari rumah tangga selalu bernilai positif, atau disebut juga net lending. Ini berarti rumah tangga merupakan unit institusi yang meminjamkan kepada unit institusi lain. Nilai dari net lending rumah tangga tersebut berfluktuasi selama tahun 2022–2024. Pada tahun 2022, net lending rumah tangga adalah sebesar 177,03 triliun rupiah. Pada tahun 2023, nilainya menurun cukup signifikan sebesar 50,27
+During the 2022–2024 period, net lending/net borrowing of households always positive, or also called net lending.
+This means that the household is an institutional unit that lends to other institutional units. The value of household net lending fluctuated during 2022–2024.
+In 2022, household net lending was 177,03
+trillion rupiah.
+In
+2023, this value decreased quite significantly by 50,27
+17,74
+10,42
+9,93
+13,53
+17,02
+7,07
+3,35
+2,44
+3,64
+92,44
+104,16
+93,50
+4,85
+6,38
+1,30
+3,87
+3,93
+2,57
+100,98
+102,45
+98,73
+30
+10
+Perubahan aset/Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Perubahan aset/Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Perubahan aset/Changes in assets
+Perubahan kewajiban
+Changes in liabilities
+Persen/Percent
+Tabungan bruto/Savings, Gross
+Transfer modal yang diterima/Capital Transfer, Received
+Transfer modal yang dibayar/Capital Transfer, Paid
+Pembentukan modal tetap bruto/Gross Fixed Capital Formation
+Perubahan inventori/Changes in Inventory
+Perolehan dikurangi pelepasan aset non produksi/Acquisitions less disposals of non-produced assets
+Pinjaman neto/Net lending/Net borrowing
+Ulasan Singkat
+Brief Review persen menjadi 88,03 triliun rupiah. Sementara itu, pada tahun 2024 net lending rumah tangga meningkat sebesar 12,86 persen menjadi sebesar 99,35 triliun rupiah.
+Berdasarkan strukturnya, tabungan bruto menjadi sumber yang paling dominan untuk membiayai kegiatan usaha rumah tangga dalam pembentukan modal atau investasi fisik.
+Tabungan bruto rumah tangga memiliki proporsi lebih dari 95 persen pada periode 2022–2024
+terhadap total sumber pembiayaan. Sementara itu, dari sisi perubahan aset hampir sebagian besar rumah tangga menggunakan tabungan bruto tersebut untuk PMTB. Rata-rata proporsi
+PMTB selama tahun 2022–2024 pada Neraca
+Kapital lebih dari 90 persen.
+3.8
+Total
+Penerimaan dan
+Pengeluaran Rumah Tangga
+Seperti yang telah dijelaskan sebelumnya, selain pendapatan yang berasal dari aktivitas usaha rumah tangga, rumah tangga juga bisa memperoleh pendapatan dari balas jasa atas penggunaan faktor produksi milik rumah tangga. Balas jasa penggunaan faktor produksi yang diterima rumah tangga dapat berbentuk kompensasi tenaga kerja maupun pendapatan kepemilikan. Rumah tangga juga dapat memperoleh pendapatan yang berasal dari pemberian pihak lain
+(transfer), maupun pendapatan dari aktivitas percent to
+88,03
+trillion rupiah.
+Meanwhile, in 2024 household net lending increased by 12,86 percent to 99,35 trillion rupiah.
+Based on its structure, gross savings become the most dominant source to finance unincorporated enterprise within households activities in capital formation or physical investment. Household gross saving has a proportion of more than 95
+percent in the
+2022–2024
+period.
+Meanwhile, in changes in assets side, most households use the gross savings for GFCF.
+The average proportion of GFCF during
+2022–2024 on the Capital Account was more than 90 percent.
+3.8
+Household
+Incomes and
+Expenditures Total
+As previously explained, besides the incomes from the unincorporated enterprise within households activities, households can generate income from remuneration for use of production factors belonging to the household.
+Production factors remuneration is received by household can be in the form of compensation of employees or property income. Household also can receive income from other units as transfers and income from the household activities that
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+rumah tangga yang menghasilkan barang dan jasa untuk konsumsi sendiri.
+produce goods and services for own final use.
+Tabel
+3.8
+Struktur Penerimaan Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Income Structure (trillion rupiah), 2022–2024
+Item
+Items
+Kompensasi tenaga kerja
+Compensation of employees
+6.919,53
+7.282,99
+7.975,45
+Surplus usaha dan pendapatan campuran bruto
+Operating surplus and mixed income, gross
+3.962,78
+4.419,21
+4.747,80
+Pendapatan kepemilikan yang diterima
+Property income, received
+551,40
+561,56
+545,13
+Transfer yang diterima
+Transfers, received
+1.094,51
+1.010,22
+1.121,94
+Penyesuaian atas perubahan pada hak pensiun
+Adjustment for the change in pension entitlements
+25,84
+26,40
+27,39
+Total
+12.554,06
+13.300,38
+14.417,71
+Kompensasi tenaga kerja merupakan sumber pendapatan rumah tangga yang terbesar.
+Proporsinya mencapai lebih dari 50 persen dari seluruh pendapatan rumah tangga.
+Nilai kompensasi tenaga kerja pada tahun 2022
+sebesar 6.919,53 triliun rupiah dengan proporsi terhadap total penerimaan rumah tangga sebesar
+55,12 persen. Pada tahun 2023, nilainya meningkat menjadi 7.282,99 triliun rupiah atau
+54,76 persen terhadap total penerimaan. Pada tahun 2024 nilainya terus meningkat mencapai
+7.975,45 triliun rupiah atau 55,32 persen dari total pendapatan.
+Surplus usaha dan pendapatan campuran rumah tangga menempati posisi ke dua terbesar, dengan proporsi 31,57 persen pada tahun 2022, kemudian meningkat menjadi 33,23 persen pada
+Compensation of employees is the largest source of household income. The proportion reached more than 50 percent of all household incomes. The value of compensation of employees in 2022 was
+6.919,53 trillion rupiah with a proportion of total household incomes was 55,12
+percent. In 2023, the value increased to
+7.282,99 trillion rupiah or 54,76 percent of total incomes. In 2024, the value continued to increase reached 7.975,45
+trillion rupiah or 55,32 percent of total income.
+The household operating surplus and mixed income occupies the second largest position, with a proportion of 31,57 percent in 2022 then increased to 33,23 percent in
+Ulasan Singkat
+Brief Review tahun 2023, dan menurun menjadi 32,93 persen pada tahun 2024.
+Sumber pendapatan rumah tangga yang berasal dari kepemilikan aset masih relatif rendah dengan rata-rata proporsinya dibawah 10 persen.
+Proporsi pendapatan kepemilikan pada tahun
+2022 sebesar 4,39 persen. Pada tahun 2023
+proporsi ini menurun menjadi 4,22 persen, dan pada tahun 2024 menurun menjadi 3,78 persen.
+2023, and decreased to 32,93 percent in
+2024.
+Sources of household income from property income are still relatively low with the average proportion below 10 percent. The proportion of property income in 2022 was
+4,39 percent. In 2023, this proportion decreased to 4,22 percent, then in 2024
+decreased to 3,78 percent.
+Gambar
+3.9
+Struktur Penerimaan Rumah Tangga (persen), 2022–2024
+Figure
+Household Incomes Structure (percent), 2022–2024
+Transfer yang diterima merupakan sumber pendapatan utama bagi rumah tangga penerima pendapatan, seperti uang pensiun, klaim asuransi, dan masih lestarinya tradisi untuk pemberian makanan ataupun barang
+Transfers received are the main source of income for income-receiving households, such as pensions, insurance claims, and the preservation of the tradition of giving food or other goods between
+55,12
+54,76
+55,32
+31,57
+33,23
+32,93
+4,39
+4,22
+3,78
+8,72
+7,60
+7,78
+0,21
+0,20
+0,19
+Persen/Percent
+Tahun/Year
+Kompensasi tenaga kerja/Compensation of employees
+Surplus usaha dan pendpatan campuran bruto/Operating surplus and mixed income, gross
+Pendapatan kepemilikan yang diterima/Property income, received
+Transfer berjalan yang diterima/Current transfer, received
+Penyesuaian atas perubahan pada hak pensiun/Adjustment for the change in pension entitlements
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+lainnya antar masyarakat.
+Meskipun demikian, secara keseluruhan proporsi transfer terhadap total pendapatan masih relatif rendah dengan rata-rata proporsi dibawah 8 persen selama periode 2022–2024.
+Penerimaan yang berasal dari berbagai sumber akan digunakan oleh rumah tangga untuk memenuhi kebutuhan konsumsi seperti untuk makanan, pakaian, dan perumahan.
+Pengeluaran atas berbagai barang dan jasa ini disebut sebagai pengeluaran konsumsi akhir rumah tangga. Di samping untuk pengeluaran konsumsi akhir, rumah tangga juga memberikan transfer pada pihak lain, baik dalam bentuk uang maupun barang.
+resident.
+Nevertheless, the overall proportion of transfers to total income was still relatively low with the average proportion below 8 percent during the
+2022–2024 period.
+Income from various sources will be used by households to meet consumption needs such as for food, clothing, and housing. This expenditure on various goods and services is referred to as household final consumption expenditure. In addition to spending on final consumption expenditure, households also give transfers to other units, either in the form in cash or in kind.
+Tabel
+3.9
+Struktur Pengeluaran Rumah Tangga (triliun rupiah), 2022–2024
+Table
+Household Expenditure Structure (trillion rupiah), 2022–2024
+Item
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+10.161,71
+11.109,57
+11.964,95
+Pendapatan kepemilikan yang dibayar
+Property income, paid
+354,87
+318,85
+334,93
+Transfer yang dibayar
+Transfers, paid
+1.029,77
+1.006,55
+1.130,50
+Tabungan bruto
+Savings, gross
+1.007,70
+865,42
+987,33
+Total
+12.554,06
+13.300,38
+14.417,71
+Selain itu, rumah tangga juga menggunakan aset milik pihak lain, baik aset finansial maupun lahan. Saat rumah tangga menggunakan aset milik pihak lain, rumah tangga berkewajiban untuk membayar
+In addition, households also use assets belonging to other units, both financial assets and land. When a household uses assets belonging to another units, the household is obliged to pay property income
+Ulasan Singkat
+Brief Review pendapatan kepemilikan kepada pihak lain sehingga ada juga pengeluaran yang berupa pendapatan kepemilikan yang dibayarkan.
+Penerimaan yang tidak digunakan untuk pengeluaran konsumsi, transfer, dan pendapatan kepemilikan yang dibayar akan menjadi tabungan rumah tangga. Tabungan yang tercipta di rumah tangga menjadi salah satu sumber pembiayaan investasi baik dalam bentuk investasi fisik maupun finansial.
+to other units so that there are also expenses in the form of property income paid.
+Receipts that are not used for consumption expenditure, transfers, and paid property income will become household savings. Savings created in households become one source of investment financing, both in the form of physical or financial investment.
+Gambar
+3.10
+Struktur Pengeluaran Rumah Tangga (persen), 2022–2024
+Figure
+Household Expenditures Structure (percent), 2022–2024
+Pengeluaran konsumsi akhir rumah tangga merupakan pengeluaran terbesar.
+Kontribusi dari pengeluaran konsumsi akhir
+Household final consumption expenditure is the largest expenditure. The contribution from final consumption
+80,94
+83,53
+82,99
+2,83
+2,40
+2,32
+8,20
+7,57
+7,84
+8,03
+6,51
+6,85
+Persen/Percent
+Tahun/Year
+Pengeluaran konsumsi akhir/Final consumption expenditure
+Pendapatan kepemilikan yang dibayar/Property income, paid
+Transfer berjalan yang dibayar/Current transfers, paid
+Tabungan bruto/Savings, gross
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+tersebut rata-rata diatas 80 persen selama periode 2022–2024. Pada tahun 2022, pengeluaran konsumsi rumah tangga memiliki proporsi sebesar 80,94 persen dari total pengeluaran rumah tangga dan proporsi ini meningkat pada tahun 2023 menjadi 83,53
+persen.
+Pada tahun
+2024, proporsi pengeluaran konsumsi akhir rumah tangga menurun menjadi sebesar 82,99 persen.
+Untuk pengeluaran yang lain seperti transfer keluar dan pendapatan kepemilikan yang dibayar memiliki proporsi yang lebih rendah dibandingkan dengan pengeluaran konsumsi akhir. Proporsi transfer keluar pada tahun 2022
+adalah sebesar 8,20 persen. Pada tahun 2023 dan
+2024, proporsinya menjadi masing-masing sebesar 7,57 persen dan 7,84 persen dari total pengeluaran rumah tangga. Sementara itu, pendapatan kepemilikan yang dibayar rumah tangga memiliki proporsi yang lebih rendah yaitu
+2,83 persen pada tahun 2022, 2,40 persen pada tahun 2023, dan 2,32 persen pada tahun 2024.
+Tabungan rumah tangga juga masih memiliki proporsi yang cukup rendah dibandingkan dengan total pengeluaran. Rata-
+rata tabungan rumah tangga selama periode
+2022–2024 sebesar 7,13 persen.
+expenditure is on average above 80 percent during the 2022–2024 period. In 2022, household consumption expenditure has a proportion of 80,94 percent of total household expenditure and this proportion increased in 2023 to 83,53 percent. In 2024, the proportion of household final consumption expenditure decreased to
+82,99 percent.
+For other expenditures such as transfers paid and property income paid had lower proportion compared to final consumption expenditure.
+The proportion of transfers paid in 2022 was
+8,20 percent. In 2023 and 2024, the proportion to 7,57 percent and 7,84
+percent from total expenditures, respectively.
+Meanwhile, for the property income paid by households has lower proportion at 2,83 percent in
+2022, 2,40 percent in 2023, and 2,32
+percent in 2024.
+Household savings also still have a low proportion compared to total expenditures.
+The average household savings during the 2022–2024 period was
+7,13 percent.
+Ulasan Singkat
+DAFTAR PUSTAKA
+BIBLIOGRAPHY
+Badan Pusat Statistik. 2010. Sistem Neraca Sosial Ekonomi Indonesia 2008. Jakarta: Badan Pusat Statistik.
+Badan Pusat Statistik. 2025. Neraca Arus Dana Indonesia Tahunan 2020-2024. Jakarta: Badan Pusat
+Statistik.
+Badan Pusat Statistik. 2025. Neraca Lembaga Non-Profit Yang Melayani Rumah Tangga 2022–2024.
+Jakarta: Badan Pusat Statistik.
+Badan Pusat Statistik. 2025. Neraca Pemerintahan Umum Indonesia 2019-2024. Jakarta: Badan Pusat
+Statistik.
+Badan Pusat Statistik. 2025. Produk Domestik Bruto Indonesia Menurut Pengeluaran 2020-2024. Jakarta:
+Badan Pusat Statistik.
+Bhattacharya, N. and Coondoo, D. 1992. Collection and Analysis of Survey Data on Income and Expenditure.
+Tokyo: Statistics Institute for Asia and The Pasific.
+Boediono. 1993. Ekonomi Makro: Seri Sinopsis Pengantar Ilmu Ekonomi No. 2. Yogyakarta: BPFE UGM.
+Heemst, Jan J.P. 1990. Neraca Nasional: Konsep dan Penerapannya, dengan Referensi Khusus Mengenai
+Indonesia (Terjemahan Oleh Tjahjani Sudirman, Biro Neraca Nasional). Jakarta.
+Sadoulet, Elisabeth and Alain de Janvry. 1995. Quantitative Development Policy Analysis. Baltimore and
+London: The Johns Hopkins University Press.
+United Nations. 1968. System of National Accounts 1968. New York.
+United Nations. 1989. National Household Survey Capability Programme: Household Income and
+Expenditure Surveys: A Technical Study. Newyork.
+United Nations. 1993. System of National Accounts 1993. New York.
+United Nations. 2008. System of National Accounts 2008. New York.
+Daftar Pustaka
+Bibliography
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Lampiran
+Appendix
+LAMPIRAN
+APPENDIX
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Lampiran
+Appendix
+Item
+Items
+Konsumsi antara
+Intermediate consumption
+2.557,44
+2.729,82
+2.899,47
+Nilai tambah bruto
+Value added, gross
+5.067,82
+5.609,88
+6.016,61
+Total
+7.625,26
+8.339,69
+8.916,07
+Item
+Items
+Output
+Output
+7.625,26
+8.339,69
+8.916,07
+Total
+7.625,26
+8.339,69
+8.916,07
+Lampiran
+Appendix
+1.1
+Neraca Produksi Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Household Production Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.2
+Neraca Produksi Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Production Account by Resources (trillion rupiah), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Kompensasi tenaga kerja
+Compensation of employees
+1.085,82
+1.169,67
+1.245,04
+Pajak lainnya atas produksi
+Other taxes on production
+19,22
+20,99
+23,76
+Surplus usaha bruto
+Operating surplus, gross
+375,72
+381,05
+404,77
+Pendapatan campuran bruto
+Mixed income, gross
+3.587,05
+4.038,16
+4.343,03
+Total
+5.067,82
+5.609,88
+6.016,61
+Item
+Items
+Nilai tambah bruto
+Value added, gross
+5.067,82
+5.609,88
+6.016,61
+Total
+5.067,82
+5.609,88
+6.016,61
+Lampiran
+Appendix
+1.3
+Neraca Penciptaan Pendapatan Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Household Generation of Income Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.4
+Neraca Penciptaan Pendapatan Rumah Tangga Menurut Sumber (triliun rupiah),
+2022–2024
+Household Generation of Income Account by Resources (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+ItemItems
+Pendapatan kepemilikan
+Property income
+354,87
+318,85
+334,93
+Bunga
+Interest
+310,20
+284,97
+299,47
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+44,67
+33,89
+35,46
+Pendapatan nasional bruto (PNB)
+National income, gross
+11.078,83
+11.944,91
+12.933,45
+Total
+11.433,70
+12.263,76
+13.268,38
+Item
+Items
+Surplus usaha bruto
+Operating surplus, gross
+375,72
+381,05
+404,77
+Pendapatan campuran bruto
+Mixed income, gross
+3.587,05
+4.038,16
+4.343,03
+Kompensasi tenaga kerja
+Compensation of employees
+6.919,53
+7.282,99
+7.975,45
+Pendapatan kepemilikan
+Property income
+551,40
+561,56
+545,13
+Bunga
+Interest
+100,73
+181,91
+204,59
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+450,67
+379,65
+340,54
+Total
+11.433,70
+12.263,76
+13.268,38
+Lampiran
+Appendix
+1.5
+Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Penggunaan (triliun rupiah), 2022–2024
+Household Allocation of Primary Income Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.6
+Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Allocation of Primary Income Account by Resources (trillion rupiah), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Transfer berjalan
+Current transfers
+1.029,77
+1.006,55
+1.130,50
+Pajak pendapatan, kekayaan, dll
+Current taxes on income, wealth, etc
+275,75
+274,25
+310,41
+Kontribusi sosial neto
+Net social contributions
+204,34
+199,38
+206,86
+Transfer lainnya
+Other current transfers
+549,68
+532,92
+613,23
+Premi asuransi non-jiwa neto
+Net non-life insurance premiums
+4,26
+9,99
+10,57
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+545,43
+522,93
+602,66
+Pendapatan disposabel bruto
+Disposable income, gross
+11.143,57
+11.948,58
+12.924,89
+Total
+12.173,34
+12.955,13
+14.055,39
+Item
+Items
+Pendapatan nasional bruto (PNB)
+National income, gross
+11.078,83
+11.944,91
+12.933,45
+Transfer berjalan
+Current transfers
+1.094,51
+1.010,22
+1.121,94
+Manfaat sosial selain transfer sosial dalam bentuk barang
+Social benefits other than social transfers in kind
+352,30
+383,91
+383,38
+Transfer lainnya
+Other current transfers
+742,21
+626,31
+738,55
+Klaim asuransi non-jiwa
+Non-life insurance claims
+10,16
+9,94
+11,91
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+732,05
+616,37
+726,65
+Total
+12.173,34
+12.955,13
+14.055,39
+Lampiran
+Appendix
+1.7
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Penggunaan
+(triliun rupiah), 2022–2024
+Household Secondary Distribution of Income Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.8
+Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Secondary Distribution of Income Account by Resources (trillion rupiah),
+2022–2024
+Lampiran
+Appendix
+Item
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+10.161,71
+11.109,57
+11.964,95
+Tabungan bruto
+Savings, gross
+1.007,70
+865,42
+987,33
+Total
+11.169,41
+11.974,98
+12.952,28
+Item
+Items
+Pendapatan disposabel bruto
+Disposable income, gross
+11.143,57
+11.948,58
+12.924,89
+Penyesuaian atas perubahan pada hak pensiun
+Adjustment for the change in pension entitlements
+25,84
+26,40
+27,39
+Total
+11.169,41
+11.974,98
+12.952,28
+Lampiran
+Appendix
+1.9
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Penggunaan
+(triliun rupiah), 2022–2024
+Household Use of Disposable Income Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.10
+Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut Sumber (triliun rupiah), 2022–2024
+Household Use of Disposable Income Account by Resources (trillion rupiah), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Pendapatan disposabel yang disesuaikan bruto
+Adjusted disposable income, gross
+11.974,51
+12.803,45
+13.859,86
+Total
+11.974,51
+12.803,45
+13.859,86
+Item
+Items
+Pendapatan disposabel bruto
+Disposable income, gross
+11.143,57
+11.948,58
+12.924,89
+Transfer sosial dalam bentuk barang
+Social transfer in kind
+830,94
+854,86
+934,97
+Total
+11.974,51
+12.803,45
+13.859,86
+Lampiran
+Appendix
+1.11
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut
+Penggunaan (triliun rupiah), 2022–2024
+Household Redistribution of Income in Kind Account by Uses (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+1.12
+Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang Menurut
+Sumber (triliun rupiah), 2022–2024
+Household Redistribution of Income in Kind Account by Resources (trillion rupiah), 2022–2024
+Lampiran
+Appendix
+Item
+Items
+Tabungan bruto
+Savings, gross
+1.007,70
+865,42
+987,33
+Transfer modal yang diterima
+Capital transfer, received
+38,57
+33,23
+25,68
+Transfer modal yang dibayar
+Capital transfer, paid
+48,40
+53,90
+12,97
+Total
+997,88
+844,75
+1.000,04
+Lampiran
+Appendix
+1.13
+Neraca Kapital Rumah Tangga Menurut Perubahan Aset (triliun rupiah), 2022–2024
+Household Capital Account by Changes in Assets (trillion rupiah), 2022–2024
+Item
+Items
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+922,46
+879,90
+934,99
+Perubahan inventori
+Changes in inventory
+33,41
+20,63
+36,38
+Perolehan dikurangi pelepasan aset non produksi
+Acquisitions less disposals of non-produced assets
+135,01
+143,81
+70,68
+Pinjaman neto
+Net lending/net borrowing
+177,03
+88,03
+99,35
+Total
+997,88
+844,75
+1.000,04
+Lampiran
+Appendix
+1.14
+Neraca Kapital Rumah Tangga Menurut Perubahan Kewajiban (triliun rupiah),
+2022–2024
+Household Capital Account by Changes in Liabilities (trillion rupiah), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Konsumsi antara
+Intermediate consumption
+33,54
+32,73
+32,52
+Nilai tambah bruto
+Value added, gross
+66,46
+67,27
+67,48
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Output
+Output
+100,00
+100,00
+100,00
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.1
+Struktur Neraca Produksi Rumah Tangga Menurut Penggunaan (persen), 2022–2024
+Household Production Account Structure by Uses (percent), 2022–2024
+Lampiran
+Appendix
+2.2
+Struktur Neraca Produksi Rumah Tangga Menurut Sumber (persen), 2022–2024
+Household Production Account Structure by Resources (percent), 2022–2024
+Lampiran
+Appendix
+Item
+Items
+Kompensasi tenaga kerja
+Compensation of employees
+21,43
+20,85
+20,69
+Pajak lainnya atas produksi
+Other taxes on production
+0,38
+0,37
+0,39
+Surplus usaha bruto
+Operating surplus, gross
+7,41
+6,79
+6,73
+Pendapatan campuran bruto
+Mixed income, gross
+70,78
+71,98
+72,18
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Nilai tambah bruto
+Value added, gross
+100,00
+100,00
+100,00
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.3
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga Menurut
+Penggunaan (persen), 2022–2024
+Household Generation of Income Account Structure by Uses (percent), 2022–2024
+Lampiran
+Appendix
+2.4
+Struktur Neraca Penciptaan Pendapatan Rumah Tangga Menurut Sumber
+(persen), 2022–2024
+Household Generation of Income Account Structure by Resources (percent), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+ItemItems
+Pendapatan kepemilikan
+Property income
+3,10
+2,60
+2,52
+Bunga
+Interest
+2,71
+2,32
+2,26
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+0,39
+0,28
+0,27
+Pendapatan nasional bruto (PNB)
+National income, gross
+96,90
+97,40
+97,48
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Surplus usaha bruto
+Operating surplus, gross
+3,29
+3,11
+3,05
+Pendapatan campuran bruto
+Mixed income, gross
+31,37
+32,93
+32,73
+Kompensasi tenaga kerja
+Compensation of employees
+60,52
+59,39
+60,11
+Pendapatan kepemilikan
+Property income
+4,82
+4,58
+4,11
+Bunga
+Interest
+0,88
+1,48
+1,54
+Pendapatan kepemilikan selain bunga
+Property income other than interest
+3,94
+3,10
+2,57
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.5
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut
+Penggunaan (persen), 2022–2024
+Household Allocation of Primary Income Account Structure by Uses (percent), 2022–2024
+Lampiran
+Appendix
+2.6
+Struktur Neraca Alokasi Pendapatan Primer Rumah Tangga Menurut Sumber
+(persen), 2022–2024
+Household Allocation of Primary Income Account Structure by Resources
+(percent), 2022–2024
+Lampiran
+Appendix
+Item
+Items
+Transfer berjalan
+Current transfers
+8,46
+7,77
+8,04
+Pajak pendapatan, kekayaan, dll
+Current taxes on income, wealth, etc
+2,27
+2,12
+2,21
+Kontribusi sosial neto
+Net social contributions
+1,68
+1,54
+1,47
+Transfer lainnya
+Other current transfers
+4,52
+4,11
+4,36
+Premi asuransi non-jiwa neto
+Net non-life insurance premiums
+0,03
+0,08
+0,08
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+4,48
+4,04
+4,29
+Pendapatan disposabel bruto
+Disposable income, gross
+91,54
+92,23
+91,96
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.8
+Struktur Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut
+Sumber (persen), 2022–2024
+Household Secondary Distribution of Income Account Structure by Resources
+(percent), 2022–2024
+Item
+Items
+Pendapatan nasional bruto (PNB)
+National income, gross
+91,01
+92,20
+92,02
+Transfer berjalan
+Current transfers
+8,99
+7,80
+7,98
+Manfaat sosial selain transfer sosial dalam bentuk barang
+Social benefits other than social transfers in kind
+2,89
+2,96
+2,73
+Transfer lainnya
+Other current transfers
+6,10
+4,83
+5,25
+Klaim asuransi non-jiwa
+Non-life insurance claims
+0,08
+0,08
+0,08
+Transfer lainnya, yang belum diklasifikasikan
+Miscellaneous current transfers
+6,01
+4,76
+5,17
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.7
+Struktur Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut
+Penggunaan (persen), 2022–2024
+Household Secondary Distribution of Income Account Structure by Uses
+(percent), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Pengeluaran konsumsi akhir
+Final consumption expenditure
+90,98
+92,77
+92,38
+7Tabungan bruto
+Savings, gross
+9,02
+7,23
+7,62
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Pendapatan disposabel bruto
+Disposable income, gross
+99,77
+99,78
+99,79
+Penyesuaian atas perubahan pada hak pensiun
+Adjustment for the change in pension entitlements
+0,23
+0,22
+0,21
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.9
+Struktur Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut
+Penggunaan (persen), 2022–2024
+Household Use of Disposable Income Account Structure by Uses (percent),
+2022–2024
+Lampiran
+Appendix
+2.10
+Struktur Neraca Penggunaan Pendapatan Disposabel Rumah Tangga Menurut
+Sumber (persen), 2022–2024
+Household Use of Disposable Income Account Structure by Resources (percent),
+2022–2024
+Lampiran
+Appendix
+Item
+Items
+Pendapatan disposabel yang disesuaikan bruto
+Adjusted disposable income, gross
+100,00
+100,00
+100,00
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Pendapatan disposabel bruto
+Disposable income, gross
+93,06
+93,32
+93,25
+Transfer sosial dalam bentuk barang
+Social transfer in kind
+6,94
+6,68
+6,75
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.11
+Struktur Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang
+Menurut Penggunaan (persen), 2022–2024
+Household Redistribution of Income in Kind Account Structure by Uses (percent),
+2022–2024
+Lampiran
+Appendix
+2.12
+Struktur Neraca Redistribusi Pendapatan Rumah Tangga dalam Bentuk Barang
+Menurut Sumber (persen), 2022–2024
+Household Redistribution of Income in Kind Account Structure by Resources
+(percent), 2022–2024
+Neraca Rumah Tangga Indonesia 2022–2024
+Indonesia Household Accounts 2022–2024
+Item
+Items
+Pembentukan modal tetap bruto
+Gross fixed capital formation
+92,44
+104,16
+93,50
+Perubahan inventori
+Changes in inventory
+3,35
+2,44
+3,64
+Perolehan dikurangi pelepasan aset non produksi
+Acquisitions less disposals of non-produced assets
+13,53
+17,02
+7,07
+Pinjaman neto
+Net lending/net borrowing
+17,74
+10,42
+9,93
+Total
+100,00
+100,00
+100,00
+Item
+Items
+Tabungan bruto
+Savings, gross
+100,98
+102,45
+98,73
+Transfer modal yang diterima
+Capital transfer, received
+3,87
+3,93
+2,57
+Transfer modal yang dibayar
+Capital transfer, paid
+4,85
+6,38
+1,30
+Total
+100,00
+100,00
+100,00
+Lampiran
+Appendix
+2.13
+Struktur Neraca Kapital Rumah Tangga Menurut Perubahan Aset (persen), 2022–2024
+Household Capital Account Structure by Changes in Assets (percent), 2022–2024
+Lampiran
+Appendix
+2.14
+Struktur Neraca Kapital Rumah Tangga Menurut Perubahan Kewajiban
+(persen), 2022–2024
+Household Capital Account Structure by Changes in Liabilities (percent), 2022–2024

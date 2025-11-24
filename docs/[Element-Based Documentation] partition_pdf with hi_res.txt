@@ -1,0 +1,643 @@
+================================================================================
+CARA KERJA partition_pdf DENGAN STRATEGY=HI_RES
+Unstructured Library v0.18.18
+================================================================================
+
+RINGKASAN
+---------
+Strategi hi_res menggunakan kombinasi AI object detection model, text extraction 
+native (PDFMiner), dan OCR untuk mengidentifikasi dan mengekstrak elemen-elemen 
+dokumen PDF dengan akurasi tinggi.
+
+================================================================================
+ALUR UTAMA (HIGH-LEVEL FLOW)
+================================================================================
+
+1. VALIDASI DAN PERSIAPAN AWAL
+   └─> partition_pdf() → partition_pdf_or_image()
+       ├─ Validasi strategi yang dipilih
+       ├─ Ekstrak teks dari PDF menggunakan PDFMiner (jika bukan gambar)
+       ├─ Cek apakah PDF text-extractable
+       ├─ Tentukan strategi final (AUTO → HI_RES jika perlu)
+       └─ Siapkan bahasa OCR (default: English)
+
+2. PROSES HI_RES UTAMA
+   └─> _partition_pdf_or_image_local()
+       ├─ A. Model Inference (Object Detection)
+       ├─ B. Text Extraction dengan PDFMiner
+       ├─ C. Merge Layouts
+       ├─ D. OCR Processing
+       ├─ E. Post-Processing
+       └─ F. Image & Form Extraction (Optional)
+
+================================================================================
+DETAIL SETIAP TAHAP
+================================================================================
+
+A. MODEL INFERENCE (OBJECT DETECTION)
+--------------------------------------
+File: unstructured_inference library
+Fungsi: process_data_with_model() atau process_file_with_model()
+
+Proses:
+- Menggunakan layout detection model (deep learning)
+- Model default: dari environment variable UNSTRUCTURED_HI_RES_MODEL_NAME
+  atau fallback ke DEFAULT_MODEL dari unstructured_inference
+- Convert PDF ke image dengan DPI (default: 200)
+- Run object detection untuk mendeteksi region/blok dalam dokumen
+
+Output: inferred_document_layout
+- Berisi informasi:
+  * Bounding box coordinates
+  * Element class (Title, Text, Table, Figure, List, dll.)
+  * Confidence scores
+
+Elemen yang dideteksi:
+- Title
+- NarrativeText / Text
+- Table
+- Figure / Image
+- List
+- PageBreak
+
+
+B. TEXT EXTRACTION DENGAN PDFMINER
+-----------------------------------
+File: unstructured/partition/pdf_image/pdfminer_processing.py
+Fungsi: process_data_with_pdfminer() atau process_file_with_pdfminer()
+
+Proses:
+- Ekstrak teks yang sudah embedded di PDF (bukan OCR)
+- Dapatkan koordinat bounding box setiap text element
+- Ekstrak juga image objects
+- Ekstrak annotations dan links (URLs)
+- Rescale coordinates untuk match dengan image (DPI conversion)
+
+Output: extracted_layout
+- LayoutElements berisi:
+  * Text objects dengan bounding boxes
+  * Image objects dengan bounding boxes
+  * Element class: UNCATEGORIZED_TEXT atau IMAGE
+  * Source: PDFMINER
+
+Output: layouts_links
+- Metadata links/URLs dengan:
+  * Bounding box
+  * Text
+  * URL
+  * Start index
+
+
+C. MERGE LAYOUTS (GABUNG INFERENCE + EXTRACTION)
+-------------------------------------------------
+File: unstructured/partition/pdf_image/pdfminer_processing.py
+Fungsi: merge_inferred_with_extracted_layout()
+Implementasi: array_merge_inferred_layout_with_extracted_layout()
+
+Tujuan: Menggabungkan hasil AI detection (inferred) dengan text extraction 
+        (extracted) untuk mendapatkan hasil terbaik dari kedua metode.
+
+ALGORITMA MERGE - 5 ATURAN UTAMA:
+==================================
+
+RULE 0: Ignore Full-Page Images
+--------------------------------
+- Full-page extracted images diabaikan
+- Gunakan threshold FULL_PAGE_REGION_THRESHOLD
+- Non full-page images tetap dipertahankan
+
+RULE 1: Same Region - Prefer Inferred for Images
+-------------------------------------------------
+- Jika inferred box hampir sama dengan extracted image box
+- Keputusan: HAPUS inferred, KEEP extracted image
+- Threshold: same_region_threshold (default dari inference_config)
+- Alasan: Percaya pada image extraction dari PDFMiner
+
+RULE 2: Same Region - Prefer Inferred for Text
+-----------------------------------------------
+- Jika extracted text-region hampir sama dengan inferred region
+- Keputusan: KEEP inferred, REMOVE extracted
+- Proses: Copy text dari extracted ke inferred
+- Expand bounding box inferred jika perlu untuk mencakup kedua region
+- Alasan: Lebih percaya AI object detection untuk menentukan bounding box
+
+Fungsi terkait: _merge_extracted_into_inferred_when_almost_the_same()
+
+RULE 3: Subregion - Extracted dalam Inferred Text
+--------------------------------------------------
+- Jika extracted adalah subregion dari inferred text region
+- Keputusan: REMOVE extracted, KEEP inferred
+- Proses: Expand inferred bounding box untuk mencakup semua subregion
+- Iterative process (max 5 rounds) karena bounding box bisa berubah
+- Threshold: subregion_threshold
+- Alasan: Hindari duplikasi, gunakan bounding box yang lebih besar
+
+Fungsi terkait: _merge_extracted_that_are_subregion_of_inferred_text()
+
+RULE 4: Subregion Overlap - Prefer Extracted (kecuali Table)
+-------------------------------------------------------------
+- Jika ada overlap subregion antara extracted dan inferred
+- Kecuali: inferred Tables, Figures, Images, Pictures tetap dipertahankan
+- Keputusan: REMOVE inferred, KEEP extracted
+- Alasan: Text extraction lebih akurat untuk text region detail
+
+Fungsi terkait: _mark_non_table_inferred_for_removal_if_has_subregion_relationship()
+
+RULE 5: Default - Keep Extracted
+---------------------------------
+- Semua extracted region yang tidak memenuhi rule 1-4
+- Keputusan: KEEP extracted
+- Termasuk: extracted image regions yang subregion dari inferred text
+
+METRIK YANG DIGUNAKAN:
+----------------------
+1. IoU (Intersection over Union)
+   - Mengukur overlap antara dua bounding boxes
+   - Nilai 0-1, dimana 1 = perfect overlap
+   - Fungsi: boxes_iou()
+
+2. Subregion Detection
+   - Mengukur apakah box1 adalah subregion dari box2
+   - threshold: berapa persen area box1 harus dalam box2
+   - Fungsi: bboxes1_is_almost_subregion_of_bboxes2()
+
+3. Area Intersection
+   - Menghitung area interseksi antara boxes
+   - Fungsi: areas_of_boxes_and_intersection_area()
+
+ITERATIVE MERGING:
+------------------
+- Maximum 5 rounds iterasi
+- Setiap round: bounding boxes bisa berubah (expand)
+- Stop jika tidak ada perubahan antara round
+
+
+D. OCR PROCESSING
+-----------------
+File: unstructured/partition/pdf_image/ocr.py
+Fungsi: process_data_with_ocr() atau process_file_with_ocr()
+
+Input: merged_document_layout (hasil merge inferred + extracted)
+
+Proses:
+1. Identifikasi region yang perlu OCR:
+   - Region tanpa text dari extraction
+   - Image regions
+   - Region dengan low confidence text
+
+2. Run OCR (default: Tesseract)
+   - OCR agent: ocr_agent parameter (default: tesseract)
+   - OCR languages: dari parameter languages
+   - OCR mode: FULL_PAGE atau INDIVIDUAL_BLOCKS
+
+3. Table OCR (jika ada Table elements):
+   - Gunakan table_ocr_agent (bisa berbeda dari ocr_agent)
+   - Extract table structure jika infer_table_structure=True
+   - Output: text_as_html metadata field untuk Table elements
+
+4. Merge OCR results dengan existing text
+   - Update text field dari elements
+   - Preserve bounding boxes dari merged layout
+
+Output: final_document_layout
+- Layout elements dengan text lengkap
+- Kombinasi dari: native PDF text + OCR results
+
+
+E. POST-PROCESSING
+------------------
+File: unstructured/partition/pdf.py
+
+1. Clean Inner Elements
+   Fungsi: clean_pdfminer_inner_elements()
+   - Hapus nested/duplicate elements
+   - Clean up structure
+
+2. Convert to Element List
+   Fungsi: document_to_element_list()
+   Proses:
+   - Convert LayoutElements → list of Element objects
+   - Tambah metadata untuk setiap element:
+     * filename
+     * page_number
+     * coordinates (CoordinatesMetadata)
+     * last_modified
+     * links (dari layouts_links)
+     * languages
+     * detection_origin
+   
+   - Sorting elements:
+     * Default: SORT_MODE_BASIC (top-to-bottom, left-to-right)
+     * Optional: SORT_MODE_XY_CUT (advanced layout-aware sorting)
+   
+   - Optional: Infer list items
+     * infer_list_items parameter
+     * Convert layout-recognized "list" blocks → ListItem elements
+
+3. Clean Whitespace
+   - Remove multiple spaces dan newlines
+   - Regex: RE_MULTISPACE_INCLUDING_NEWLINES = r"\s+"
+   - Preserve single spaces
+
+4. Filter Empty Elements
+   - Remove elements dengan text kosong
+   - Keep PageBreak elements
+
+
+F. IMAGE & FORM EXTRACTION (OPTIONAL)
+--------------------------------------
+
+1. Image Extraction
+   Jika extract_images_in_pdf=True atau extract_image_block_types specified:
+   
+   Fungsi: save_elements()
+   
+   Proses:
+   - Extract images untuk element types yang dispesifikasi
+   - Element types: Image, Table, Figure, dll.
+   
+   Output options:
+   a. Save to filesystem:
+      - Directory: extract_image_block_output_dir
+      - Format: PNG atau JPEG
+   
+   b. Base64 encoding dalam payload:
+      - Jika extract_image_block_to_payload=True
+      - Metadata fields:
+        * image_base64
+        * image_mime_type
+
+2. Form Extraction
+   Jika extract_forms=True:
+   
+   Fungsi: run_form_extraction()
+   
+   Proses:
+   - Detect form fields dalam PDF
+   - Extract key-value pairs
+   - Skip table regions jika form_extraction_skip_tables=True
+   
+   Output: FormKeysValues elements
+   - Ditambahkan ke list elements
+   - Berisi form field names dan values
+
+================================================================================
+OUTPUT FINAL
+================================================================================
+
+Return value: list[Element]
+
+Element Types yang mungkin dihasilkan:
+---------------------------------------
+1. Title
+   - Judul, headers, subheaders
+   - Detected dari AI model atau heuristics
+
+2. Text / NarrativeText
+   - Paragraf text biasa
+   - Body content
+
+3. Table
+   - Table elements
+   - Metadata text_as_html: HTML representation (jika infer_table_structure=True)
+   - Metadata text: plain text dari table
+
+4. ListItem
+   - Item dalam bulleted/numbered lists
+   - Detected dari layout atau NLP rules
+
+5. Image
+   - Gambar/figures dalam dokumen
+   - Optional: image_base64 metadata
+
+6. Figure
+   - Figures dengan captions
+   - Mirip Image tapi dengan context
+
+7. PageBreak
+   - Pemisah halaman
+   - Hanya jika include_page_breaks=True
+
+8. FormKeysValues
+   - Form fields dan values
+   - Hanya jika extract_forms=True
+
+Metadata untuk setiap Element:
+-------------------------------
+- filename: nama file PDF
+- page_number: nomor halaman (1-indexed)
+- coordinates: CoordinatesMetadata object
+  * points: corner points dari bounding box
+  * system: coordinate system (PixelSpace atau PointSpace)
+- last_modified: tanggal modifikasi terakhir
+- links: list of Link objects (URLs dalam element)
+- languages: bahasa yang terdeteksi
+- detection_origin: source detection ("pdfminer", "ocr", "yolox", dll.)
+- text_as_html: (untuk Table) HTML representation
+
+================================================================================
+PERBANDINGAN DENGAN STRATEGI LAIN
+================================================================================
+
+┌──────────────┬────────────────────────────────────────────────────────────┐
+│ STRATEGI     │ CARA KERJA                                                 │
+├──────────────┼────────────────────────────────────────────────────────────┤
+│ hi_res       │ AI object detection + PDFMiner + OCR                      │
+│              │ - Paling akurat                                            │
+│              │ - Paling lambat                                            │
+│              │ - Detect structure (tables, titles, figures)               │
+│              │ - Requires: unstructured_inference                         │
+├──────────────┼────────────────────────────────────────────────────────────┤
+│ fast         │ PDFMiner saja (extract text langsung)                     │
+│              │ - Paling cepat                                             │
+│              │ - Hanya untuk text-based PDF                               │
+│              │ - Tidak detect structure                                   │
+│              │ - No OCR                                                    │
+├──────────────┼────────────────────────────────────────────────────────────┤
+│ ocr_only     │ Convert PDF ke image → OCR saja                            │
+│              │ - Untuk scanned PDFs                                       │
+│              │ - Tidak gunakan native PDF text                            │
+│              │ - Slower than fast                                         │
+│              │ - Basic structure detection                                │
+├──────────────┼────────────────────────────────────────────────────────────┤
+│ auto         │ Dynamic: pilih fast jika text-extractable, else hi_res    │
+│              │ - Smart fallback                                           │
+│              │ - Balance speed vs accuracy                                │
+│              │ - Recommended untuk general use                            │
+└──────────────┴────────────────────────────────────────────────────────────┘
+
+================================================================================
+DEPENDENCIES
+================================================================================
+
+Required Libraries:
+-------------------
+1. unstructured_inference
+   - Layout detection models
+   - Object detection (YOLOX, detectron2, dll.)
+   - process_data_with_model()
+
+2. pdfminer.six
+   - PDF text extraction
+   - Layout analysis
+   - Bounding box extraction
+
+3. tesseract-ocr
+   - OCR engine
+   - Multi-language support
+   - Tesseract language packs harus diinstall
+
+4. pdf2image
+   - Convert PDF pages ke images
+   - Requires: poppler-utils
+
+5. PIL (Pillow)
+   - Image processing
+   - Image format conversion
+
+6. pypdf (PdfReader)
+   - PDF metadata extraction
+   - Page count
+
+7. numpy
+   - Array operations untuk coordinate calculations
+   - IoU computations
+
+8. scikit-learn (optional)
+   - Additional ML operations
+
+Optional Libraries:
+-------------------
+- pi_heif: untuk .heic file support
+- unstructured.partition.utils: utility functions
+
+================================================================================
+KONFIGURASI PENTING
+================================================================================
+
+Environment Variables:
+----------------------
+UNSTRUCTURED_HI_RES_MODEL_NAME
+  - Model untuk layout detection
+  - Default: dari unstructured_inference.DEFAULT_MODEL
+
+GLOBAL_WORKING_DIR_ENABLED
+  - Enable working directory untuk analysis output
+
+ANALYSIS_* variables
+  - ANALYSIS_BBOX_SKIP
+  - ANALYSIS_DUMP_OD_SKIP
+  - ANALYSIS_BBOX_DRAW_GRID
+  - dll.
+
+PDF_ANNOTATION_THRESHOLD
+  - Threshold untuk annotation detection
+
+EMBEDDED_TEXT_SAME_REGION_THRESHOLD
+  - Threshold untuk same region detection (text)
+
+EMBEDDED_IMAGE_SAME_REGION_THRESHOLD
+  - Threshold untuk same region detection (image)
+
+Parameters:
+-----------
+infer_table_structure: bool = False
+  - Extract table structure sebagai HTML
+
+languages: list[str] = ["eng"]
+  - Bahasa untuk OCR dan language detection
+
+hi_res_model_name: str = None
+  - Override default model
+
+pdf_image_dpi: int = 200
+  - DPI untuk PDF to image conversion
+  - Higher DPI = better quality, slower processing
+
+extract_images_in_pdf: bool = False
+  - Extract dan save images
+
+extract_image_block_types: list[str] = None
+  - Types: ["Image", "Table", "Figure"]
+
+extract_image_block_to_payload: bool = False
+  - Encode images sebagai base64 dalam metadata
+
+extract_forms: bool = False
+  - Extract form fields dan values
+
+pdf_hi_res_max_pages: int = None
+  - Maximum pages untuk hi_res strategy
+  - Raise PageCountExceededError jika terlampaui
+
+PDFMiner Config:
+  - pdfminer_line_margin
+  - pdfminer_char_margin
+  - pdfminer_line_overlap
+  - pdfminer_word_margin: default 0.185
+
+================================================================================
+KEUNGGULAN STRATEGI HI_RES
+================================================================================
+
+1. Deteksi Structure yang Akurat
+   - Menggunakan AI untuk detect titles, tables, figures
+   - Lebih baik dari rule-based approaches
+
+2. Hybrid Approach
+   - Kombinasi AI detection + native text extraction + OCR
+   - Best of all worlds
+
+3. Handle Complex Layouts
+   - Multi-column layouts
+   - Mixed text dan images
+   - Tables dengan complex structure
+
+4. Robust untuk Various PDF Types
+   - Text-based PDFs: gunakan native text
+   - Scanned PDFs: gunakan OCR
+   - Mixed PDFs: kombinasi keduanya
+
+5. Rich Metadata
+   - Bounding boxes
+   - Element classification
+   - Links dan annotations
+   - Table structure (HTML)
+
+================================================================================
+KETERBATASAN
+================================================================================
+
+1. Performance
+   - Lambat untuk PDFs besar
+   - Memerlukan computational resources (GPU recommended)
+
+2. Dependencies
+   - Banyak dependencies yang harus diinstall
+   - Model AI perlu didownload
+
+3. Complexity
+   - Setup lebih complex dibanding strategy lain
+   - Debugging lebih sulit
+
+4. Cost
+   - Higher memory usage
+   - Longer processing time
+
+================================================================================
+USE CASES
+================================================================================
+
+Hi-Res Strategy cocok untuk:
+----------------------------
+✓ Academic papers dengan equations dan figures
+✓ Financial reports dengan tables dan charts
+✓ Legal documents dengan complex structure
+✓ Scanned documents yang perlu OCR
+✓ Multi-column layouts (newspapers, magazines)
+✓ Documents yang perlu table structure preservation
+✓ RAG applications yang butuh accurate chunking
+
+Hi-Res Strategy TIDAK cocok untuk:
+-----------------------------------
+✗ Simple text-only PDFs (gunakan "fast")
+✗ Real-time processing (too slow)
+✗ Low-resource environments
+✗ Batch processing ribuan PDFs (consider "auto" or "fast")
+
+================================================================================
+TIPS & BEST PRACTICES
+================================================================================
+
+1. Pilih DPI yang Tepat
+   - 200 DPI: balance antara quality dan speed
+   - 300 DPI: untuk detailed documents
+   - 150 DPI: untuk faster processing
+
+2. Gunakan Language Parameter
+   - Specify bahasa yang benar untuk OCR accuracy
+   - Install Tesseract language packs yang dibutuhkan
+
+3. Enable Table Structure jika Perlu
+   - Set infer_table_structure=True untuk preservasi table
+   - Berguna untuk data extraction dari tables
+
+4. Limit Pages untuk Large PDFs
+   - Gunakan pdf_hi_res_max_pages
+   - Split large PDFs jika perlu
+
+5. Cache Model
+   - Model AI di-load sekali, reuse untuk multiple PDFs
+   - Significant speedup untuk batch processing
+
+6. Monitor Memory Usage
+   - Hi-res strategy memory-intensive
+   - Consider chunking untuk very large PDFs
+
+7. Use Analysis Mode untuk Debugging
+   - Set analysis=True
+   - Output annotated images untuk visual debugging
+
+================================================================================
+CONTOH PENGGUNAAN
+================================================================================
+
+Basic Usage:
+------------
+from unstructured.partition.pdf import partition_pdf
+
+elements = partition_pdf(
+    filename="document.pdf",
+    strategy="hi_res",
+    languages=["eng"],
+)
+
+Advanced Usage:
+---------------
+elements = partition_pdf(
+    filename="complex_document.pdf",
+    strategy="hi_res",
+    infer_table_structure=True,
+    extract_images_in_pdf=True,
+    extract_image_block_output_dir="./images",
+    languages=["eng", "ind"],  # English dan Indonesian
+    hi_res_model_name="yolox",
+    pdf_image_dpi=300,
+    extract_forms=True,
+)
+
+With Memory Stream:
+-------------------
+with open("document.pdf", "rb") as f:
+    elements = partition_pdf(
+        file=f,
+        strategy="hi_res",
+    )
+
+================================================================================
+REFERENSI
+================================================================================
+
+Source Code Files:
+------------------
+- unstructured/partition/pdf.py
+  * partition_pdf()
+  * partition_pdf_or_image()
+  * _partition_pdf_or_image_local()
+
+- unstructured/partition/pdf_image/pdfminer_processing.py
+  * process_data_with_pdfminer()
+  * merge_inferred_with_extracted_layout()
+  * array_merge_inferred_layout_with_extracted_layout()
+
+- unstructured/partition/pdf_image/ocr.py
+  * process_data_with_ocr()
+
+- unstructured_inference library
+  * process_data_with_model()
+  * Layout detection models
+
+Documentation:
+--------------
+- Unstructured Docs: https://unstructured-io.github.io/unstructured/
+- GitHub: https://github.com/Unstructured-IO/unstructured

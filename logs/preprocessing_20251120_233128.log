@@ -1,0 +1,49 @@
+2025-11-20 23:31:28,309 - preprocessing.pipeline - INFO - Logging initialized. Log file: logs\preprocessing_20251120_233128.log
+2025-11-20 23:31:28,318 - preprocessing.pipeline - INFO - ======================================================================
+2025-11-20 23:31:28,318 - preprocessing.pipeline - INFO - Memulai Pipeline Preprocessing
+2025-11-20 23:31:28,318 - preprocessing.pipeline - INFO - ======================================================================
+2025-11-20 23:31:28,319 - preprocessing.pipeline - INFO - Input directory: data/raw
+2025-11-20 23:31:28,319 - preprocessing.pipeline - INFO - Output directory: data/cleaned_text
+2025-11-20 23:31:28,319 - preprocessing.pipeline - INFO - Save metadata: False
+2025-11-20 23:31:28,373 - preprocessing.pipeline - INFO - Skip existing: True
+2025-11-20 23:31:28,374 - preprocessing.pipeline - INFO - Ditemukan 10 file PDF di data/raw
+2025-11-20 23:31:28,375 - preprocessing.pipeline - INFO - 
+[1/10] Processing: benchmark-indeks-konstruksi--2016-100---2018---2023.pdf
+2025-11-20 23:31:28,375 - preprocessing.pipeline - INFO - Memproses: benchmark-indeks-konstruksi--2016-100---2018---2023.pdf
+2025-11-20 23:31:29,599 - preprocessing.pipeline - INFO - 
+[2/10] Processing: benchmark-statistik-konstruksi--2018---2023.pdf
+2025-11-20 23:31:29,600 - preprocessing.pipeline - INFO - Memproses: benchmark-statistik-konstruksi--2018---2023.pdf
+2025-11-20 23:31:30,453 - preprocessing.pipeline - INFO - 
+[3/10] Processing: cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi.pdf
+2025-11-20 23:31:30,453 - preprocessing.pipeline - INFO - Memproses: cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi.pdf
+2025-11-20 23:31:30,573 - preprocessing.pipeline - INFO - 
+[4/10] Processing: direktori-industri-manufaktur-2025.pdf
+2025-11-20 23:31:30,574 - preprocessing.pipeline - INFO - Memproses: direktori-industri-manufaktur-2025.pdf
+2025-11-20 23:31:34,805 - preprocessing.pipeline - INFO - 
+[5/10] Processing: indeks-unit-value-ekspor-impor---agustus-2025.pdf
+2025-11-20 23:31:34,805 - preprocessing.pipeline - INFO - Memproses: indeks-unit-value-ekspor-impor---agustus-2025.pdf
+2025-11-20 23:31:35,254 - preprocessing.pipeline - INFO - 
+[6/10] Processing: neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024.pdf
+2025-11-20 23:31:35,277 - preprocessing.pipeline - INFO - Memproses: neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024.pdf
+2025-11-20 23:31:36,204 - preprocessing.pipeline - INFO - 
+[7/10] Processing: neraca-pemerintahan-umum-indonesia-2019-2024.pdf
+2025-11-20 23:31:36,205 - preprocessing.pipeline - INFO - Memproses: neraca-pemerintahan-umum-indonesia-2019-2024.pdf
+2025-11-20 23:31:36,782 - preprocessing.pipeline - INFO - 
+[8/10] Processing: neraca-rumah-tangga-indonesia--2022-2024.pdf
+2025-11-20 23:31:36,782 - preprocessing.pipeline - INFO - Memproses: neraca-rumah-tangga-indonesia--2022-2024.pdf
+2025-11-20 23:31:37,168 - preprocessing.pipeline - INFO - 
+[9/10] Processing: statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025.pdf
+2025-11-20 23:31:37,168 - preprocessing.pipeline - INFO - Memproses: statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025.pdf
+2025-11-20 23:31:39,220 - preprocessing.pipeline - INFO - 
+[10/10] Processing: statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024.pdf
+2025-11-20 23:31:39,221 - preprocessing.pipeline - INFO - Memproses: statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024.pdf
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - 
+======================================================================
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - Preprocessing Selesai
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - ======================================================================
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - Total file PDF: 10
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - Berhasil diproses: 0
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - Di-skip (sudah ada): 0
+2025-11-20 23:31:40,977 - preprocessing.pipeline - INFO - Gagal: 10
+2025-11-20 23:31:40,978 - preprocessing.pipeline - INFO - Durasi: 12.66 detik
+2025-11-20 23:31:40,978 - preprocessing.pipeline - INFO - ======================================================================
