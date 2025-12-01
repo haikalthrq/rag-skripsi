@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 
 def initialize_embedding_model(
-    model_name: str = "Qwen/Qwen3-Embedding-8B",
+    model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
     low_memory: bool = False
 ) -> Optional[Any]:
@@ -53,7 +53,7 @@ def initialize_embedding_model(
     - Normalisasi embeddings untuk cosine similarity
     
     Args:
-        model_name (str): Nama model HuggingFace. Default: Qwen3-Embedding-8B
+        model_name (str): Nama model HuggingFace. Default: Qwen3-Embedding-4B
         device (str): Device untuk inference ('cpu' atau 'cuda')
         low_memory (bool): Gunakan half precision (float16) untuk hemat VRAM. Default: False
         
@@ -502,7 +502,7 @@ def get_text_files(input_dir: str) -> List[Path]:
 def run_maxmin_chunking(
     input_dir: str = "data/cleaned",
     output_dir: str = "data/chunked/maxmin_semantic",
-    model_name: str = "Qwen/Qwen3-Embedding-8B",
+    model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
     fixed_threshold: float = 0.6,
     c: float = 0.9,
@@ -662,8 +662,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--model', '-m',
         type=str,
-        default='Qwen/Qwen3-Embedding-8B',
-        help='Nama model embedding (default: Qwen3-Embedding-8B)'
+        default='Qwen/Qwen3-Embedding-4B',
+        help='Nama model embedding (default: Qwen3-Embedding-4B)'
     )
     
     parser.add_argument(

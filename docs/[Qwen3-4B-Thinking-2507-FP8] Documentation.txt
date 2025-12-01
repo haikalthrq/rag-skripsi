@@ -1,0 +1,344 @@
+================================================================================
+                    QWEN3-4B-THINKING-2507-FP8 DOCUMENTATION
+================================================================================
+
+Model: Qwen/Qwen3-4B-Thinking-2507-FP8
+Type: Chat / Reasoning Model (FP8 Quantized)
+
+================================================================================
+1. HIGHLIGHTS
+================================================================================
+
+Over the past three months, we have continued to scale the thinking capability 
+of Qwen3-4B, improving both the quality and depth of reasoning. We are pleased 
+to introduce Qwen3-4B-Thinking-2507-FP8, featuring the following key enhancements:
+
+  • Significantly improved performance on reasoning tasks, including logical 
+    reasoning, mathematics, science, coding, and academic benchmarks that 
+    typically require human expertise.
+    
+  • Markedly better general capabilities, such as instruction following, 
+    tool usage, text generation, and alignment with human preferences.
+    
+  • Enhanced 256K long-context understanding capabilities.
+
+NOTE: This version has an increased thinking length. We strongly recommend 
+      its use in highly complex reasoning tasks.
+
+================================================================================
+2. MODEL OVERVIEW
+================================================================================
+
+This repo contains the FP8 version of Qwen3-4B-Thinking-2507.
+
+┌─────────────────────────────────────┬────────────────────────────────────────┐
+│ Property                            │ Value                                  │
+├─────────────────────────────────────┼────────────────────────────────────────┤
+│ Type                                │ Causal Language Models                 │
+│ Training Stage                      │ Pretraining & Post-training            │
+│ Number of Parameters                │ 4.0B                                   │
+│ Number of Parameters (Non-Embedding)│ 3.6B                                   │
+│ Number of Layers                    │ 36                                     │
+│ Number of Attention Heads (GQA)     │ 32 for Q and 8 for KV                  │
+│ Context Length                      │ 262,144 tokens (natively)              │
+└─────────────────────────────────────┴────────────────────────────────────────┘
+
+IMPORTANT NOTES:
+  • This model supports ONLY thinking mode.
+  • Specifying enable_thinking=True is NO LONGER required.
+  • The default chat template automatically includes <think>.
+  • It is normal for model output to contain only </think> without an 
+    explicit opening <think> tag.
+
+For more details, including benchmark evaluation, hardware requirements, 
+and inference performance, please refer to:
+  - Blog: https://qwenlm.github.io/blog/
+  - GitHub: https://github.com/QwenLM/Qwen3
+  - Documentation: https://qwen.readthedocs.io/
+
+================================================================================
+3. PERFORMANCE BENCHMARKS
+================================================================================
+
+┌────────────────────────────────┬─────────────────┬───────────────┬──────────────────────┐
+│ Benchmark                      │ Qwen3-30B-A3B   │ Qwen3-4B      │ Qwen3-4B-Thinking    │
+│                                │ Thinking        │ Thinking      │ 2507                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ KNOWLEDGE                      │                 │               │                      │
+│ MMLU-Pro                       │ 78.5            │ 70.4          │ 74.0                 │
+│ MMLU-Redux                     │ 89.5            │ 83.7          │ 86.1                 │
+│ GPQA                           │ 65.8            │ 55.9          │ 65.8                 │
+│ SuperGPQA                      │ 51.8            │ 42.7          │ 47.8                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ REASONING                      │                 │               │                      │
+│ AIME25                         │ 70.9            │ 65.6          │ 81.3                 │
+│ HMMT25                         │ 49.8            │ 42.1          │ 55.5                 │
+│ LiveBench 20241125             │ 74.3            │ 63.6          │ 71.8                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ CODING                         │                 │               │                      │
+│ LiveCodeBench v6 (25.02-25.05) │ 57.4            │ 48.4          │ 55.2                 │
+│ CFEval                         │ 1940            │ 1671          │ 1852                 │
+│ OJBench                        │ 20.7            │ 16.1          │ 17.9                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ ALIGNMENT                      │                 │               │                      │
+│ IFEval                         │ 86.5            │ 81.9          │ 87.4                 │
+│ Arena-Hard v2 $                │ 36.3            │ 13.7          │ 34.9                 │
+│ Creative Writing v3            │ 79.1            │ 61.1          │ 75.6                 │
+│ WritingBench                   │ 77.0            │ 73.5          │ 83.3                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ AGENT                          │                 │               │                      │
+│ BFCL-v3                        │ 69.1            │ 65.9          │ 71.2                 │
+│ TAU1-Retail                    │ 61.7            │ 33.9          │ 66.1                 │
+│ TAU1-Airline                   │ 32.0            │ 32.0          │ 48.0                 │
+│ TAU2-Retail                    │ 34.2            │ 38.6          │ 53.5                 │
+│ TAU2-Airline                   │ 36.0            │ 28.0          │ 58.0                 │
+│ TAU2-Telecom                   │ 22.8            │ 17.5          │ 27.2                 │
+├────────────────────────────────┼─────────────────┼───────────────┼──────────────────────┤
+│ MULTILINGUALISM                │                 │               │                      │
+│ MultiIF                        │ 72.2            │ 66.3          │ 77.3                 │
+│ MMLU-ProX                      │ 73.1            │ 61.0          │ 64.2                 │
+│ INCLUDE                        │ 71.9            │ 61.8          │ 64.4                 │
+│ PolyMATH                       │ 46.1            │ 40.0          │ 46.2                 │
+└────────────────────────────────┴─────────────────┴───────────────┴──────────────────────┘
+
+$ For reproducibility, we report the win rates evaluated by GPT-4.1.
+
+& For highly challenging tasks (including PolyMATH and all reasoning and 
+  coding tasks), we use an output length of 81,920 tokens. For all other 
+  tasks, we set the output length to 32,768.
+
+================================================================================
+4. QUICKSTART
+================================================================================
+
+REQUIREMENTS:
+  • transformers >= 4.51.0 (required)
+  
+  With transformers < 4.51.0, you will encounter: KeyError: 'qwen3'
+
+--------------------------------------------------------------------------------
+4.1 Basic Usage with Transformers
+--------------------------------------------------------------------------------
+
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "Qwen/Qwen3-4B-Thinking-2507-FP8"
+
+# Load the tokenizer and the model
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype="auto",
+    device_map="auto"
+)
+
+# Prepare the model input
+prompt = "Give me a short introduction to large language model."
+messages = [
+    {"role": "user", "content": prompt}
+]
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+)
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+
+# Conduct text completion
+generated_ids = model.generate(
+    **model_inputs,
+    max_new_tokens=32768
+)
+output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist() 
+
+# Parsing thinking content
+try:
+    # rindex finding 151668 (</think>)
+    index = len(output_ids) - output_ids[::-1].index(151668)
+except ValueError:
+    index = 0
+
+thinking_content = tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
+content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
+
+print("thinking content:", thinking_content)  # no opening <think> tag
+print("content:", content)
+
+--------------------------------------------------------------------------------
+4.2 Deployment with SGLang / vLLM
+--------------------------------------------------------------------------------
+
+For deployment, you can use sglang >= 0.4.6.post1 or vllm >= 0.8.5 to create 
+an OpenAI-compatible API endpoint:
+
+SGLang:
+  python -m sglang.launch_server \
+      --model-path Qwen/Qwen3-4B-Thinking-2507-FP8 \
+      --context-length 262144 \
+      --reasoning-parser deepseek-r1
+
+vLLM:
+  vllm serve Qwen/Qwen3-4B-Thinking-2507-FP8 \
+      --max-model-len 262144 \
+      --enable-reasoning \
+      --reasoning-parser deepseek_r1
+
+NOTE: If you encounter out-of-memory (OOM) issues, you may consider reducing 
+      the context length to a smaller value. However, since the model may 
+      require longer token sequences for reasoning, we strongly recommend 
+      using a context length greater than 131,072 when possible.
+
+--------------------------------------------------------------------------------
+4.3 Local Applications Support
+--------------------------------------------------------------------------------
+
+For local use, the following applications have also supported Qwen3:
+  • Ollama
+  • LMStudio
+  • MLX-LM
+  • llama.cpp
+  • KTransformers
+
+================================================================================
+5. NOTE ON FP8 QUANTIZATION
+================================================================================
+
+For convenience and performance, we have provided fp8-quantized model checkpoint 
+for Qwen3, whose name ends with -FP8.
+
+Quantization Details:
+  • Method: Fine-grained FP8 quantization
+  • Block Size: 128
+  • Configuration: See quantization_config field in config.json
+
+You can use the Qwen3-4B-Thinking-2507-FP8 model with several inference 
+frameworks, including:
+  • transformers
+  • sglang
+  • vllm
+
+The usage is identical to the original bfloat16 model.
+
+================================================================================
+6. AGENTIC USE
+================================================================================
+
+Qwen3 excels in tool calling capabilities. We recommend using Qwen-Agent to 
+make the best use of agentic ability of Qwen3. Qwen-Agent encapsulates 
+tool-calling templates and tool-calling parsers internally, greatly reducing 
+coding complexity.
+
+To define the available tools, you can:
+  • Use the MCP configuration file
+  • Use the integrated tool of Qwen-Agent
+  • Integrate other tools by yourself
+
+--------------------------------------------------------------------------------
+Example: Agentic Use with Qwen-Agent
+--------------------------------------------------------------------------------
+
+from qwen_agent.agents import Assistant
+
+# Define LLM
+# Using OpenAI-compatible API endpoint. It is recommended to disable the 
+# reasoning and the tool call parsing functionality of the deployment 
+# frameworks and let Qwen-Agent automate the related operations. 
+#
+# Example deployment command:
+# VLLM_USE_MODELSCOPE=true vllm serve Qwen/Qwen3-4B-Thinking-2507-FP8 \
+#     --served-model-name Qwen3-4B-Thinking-2507 --max-model-len 262144
+
+llm_cfg = {
+    'model': 'Qwen3-4B-Thinking-2507',
+    
+    # Use a custom endpoint compatible with OpenAI API:
+    'model_server': 'http://localhost:8000/v1',  # api_base without reasoning and tool call parsing
+    'api_key': 'EMPTY',
+    'generate_cfg': {
+        'thought_in_content': True,
+    },
+}
+
+# Define Tools
+tools = [
+    {'mcpServers': {  # You can specify the MCP configuration file
+            'time': {
+                'command': 'uvx',
+                'args': ['mcp-server-time', '--local-timezone=Asia/Shanghai']
+            },
+            "fetch": {
+                "command": "uvx",
+                "args": ["mcp-server-fetch"]
+            }
+        }
+    },
+    'code_interpreter',  # Built-in tools
+]
+
+# Define Agent
+bot = Assistant(llm=llm_cfg, function_list=tools)
+
+# Streaming generation
+messages = [{'role': 'user', 'content': 'https://qwenlm.github.io/blog/ Introduce the latest developments of Qwen'}]
+for responses in bot.run(messages=messages):
+    pass
+print(responses)
+
+================================================================================
+7. BEST PRACTICES
+================================================================================
+
+To achieve optimal performance, we recommend the following settings:
+
+--------------------------------------------------------------------------------
+7.1 Sampling Parameters
+--------------------------------------------------------------------------------
+
+Recommended Settings:
+  • Temperature = 0.6
+  • TopP = 0.95
+  • TopK = 20
+  • MinP = 0
+
+For supported frameworks, you can adjust the presence_penalty parameter 
+between 0 and 2 to reduce endless repetitions. However, using a higher 
+value may occasionally result in language mixing and a slight decrease 
+in model performance.
+
+--------------------------------------------------------------------------------
+7.2 Adequate Output Length
+--------------------------------------------------------------------------------
+
+  • Most queries: 32,768 tokens (recommended)
+  • Highly complex problems (math, programming competitions): 81,920 tokens
+
+This provides the model with sufficient space to generate detailed and 
+comprehensive responses, thereby enhancing its overall performance.
+
+--------------------------------------------------------------------------------
+7.3 Standardize Output Format
+--------------------------------------------------------------------------------
+
+We recommend using prompts to standardize model outputs when benchmarking:
+
+Math Problems:
+  Include: "Please reason step by step, and put your final answer within \boxed{}."
+
+Multiple-Choice Questions:
+  Add: "Please show your choice in the answer field with only the choice 
+       letter, e.g., "answer": "C"."
+
+--------------------------------------------------------------------------------
+7.4 No Thinking Content in History
+--------------------------------------------------------------------------------
+
+In multi-turn conversations, the historical model output should only include 
+the final output part and does NOT need to include the thinking content.
+
+  • This is implemented in the provided chat template in Jinja2.
+  • For frameworks that do not directly use the Jinja2 chat template, it is 
+    up to the developers to ensure that this best practice is followed.
+
+================================================================================
+                              END OF DOCUMENTATION
+================================================================================
