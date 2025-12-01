@@ -64,14 +64,7 @@ data/embeddings/**/*.bin
 
 # Keep directory structure but ignore contents
 # (Gunakan .gitkeep untuk preserve empty folders)
-!data/raw/.gitkeep
-!data/cleaned/.gitkeep
-!data/cleaned_text/.gitkeep
-!data/chunked/element_based/.gitkeep
-!data/chunked/maxmin_semantic/.gitkeep
-!data/chunked/recursive/.gitkeep
-!data/embeddings/.gitkeep
-!data/chroma/.gitkeep
+
 
 # Models & Weights
 # ----------------
