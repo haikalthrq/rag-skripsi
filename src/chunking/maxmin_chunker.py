@@ -3,7 +3,10 @@ Modul MaxMin Semantic Chunking.
 
 Modul ini memanggil library maxmin_chunker untuk melakukan semantic chunking
 berdasarkan similarity threshold dinamis. Menggunakan Qwen3-Embedding model
-untuk generate sentence embeddings.
+dalam format GGUF untuk generate sentence embeddings.
+
+Supported Models:
+- Qwen3-Embedding-4B-GGUF (q4_K_M, q5_0, q5_K_M, q6_K, q8_0, f16)
 """
 
 import json
@@ -20,11 +23,21 @@ except ImportError:
     nltk = None  # type: ignore[assignment]
     sent_tokenize = None  # type: ignore[assignment]
 
+# Cosine similarity dari sklearn
 try:
-    from maxmin_chunker import process_sentences  # type: ignore[import-not-found, import-untyped]
+    from sklearn.metrics.pairwise import cosine_similarity  # type: ignore[import-not-found]
 except ImportError:
-    process_sentences = None  # type: ignore[assignment]
+    cosine_similarity = None  # type: ignore[assignment]
 
+# GGUF Support via llama-cpp-python
+try:
+    from llama_cpp import Llama  # type: ignore[import-not-found, import-untyped]
+    _LLAMA_CPP_AVAILABLE = True
+except ImportError:
+    Llama = None  # type: ignore[misc]
+    _LLAMA_CPP_AVAILABLE = False
+
+# Fallback: SentenceTransformer (optional)
 try:
     from sentence_transformers import SentenceTransformer  # type: ignore[import-not-found, import-untyped]
     _SENTENCE_TRANSFORMER_AVAILABLE = True
@@ -40,6 +53,218 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+# ==============================================================================
+# MAXMIN CHUNKING ALGORITHM IMPLEMENTATION
+# Berdasarkan paper: "Max-Min Semantic Chunking of Documents for RAG application"
+# ==============================================================================
+
+def sigmoid(x: float) -> float:
+    """
+    Fungsi sigmoid untuk adaptive threshold.
+    
+    Karakteristik:
+    - Input: cluster_size - 1 (jumlah sentence di cluster minus 1)
+    - Output: nilai 0 hingga 1
+    - Cluster size kecil → sigmoid kecil → threshold rendah → mudah gabung
+    - Cluster size besar → sigmoid besar → threshold tinggi → sulit gabung
+    
+    Args:
+        x (float): Input value.
+        
+    Returns:
+        float: Sigmoid output (0-1).
+    """
+    return 1 / (1 + np.exp(-x))
+
+
+def process_sentences(
+    sentences: List[str],
+    embeddings: np.ndarray,
+    fixed_threshold: float = 0.6,
+    c: float = 0.9,
+    init_constant: float = 1.5
+) -> List[List[str]]:
+    """
+    Implementasi algoritma MaxMin Semantic Chunking.
+    
+    Mengelompokkan kalimat berdasarkan semantic similarity dengan threshold
+    yang adaptif. Kalimat yang semantically similar digabung dalam satu chunk.
+    
+    Algoritma:
+    1. Mulai dengan sentence pertama sebagai cluster awal
+    2. Untuk setiap sentence berikutnya:
+       - Hitung similarity dengan sentences di cluster saat ini
+       - Hitung adaptive threshold berdasarkan cluster size dan pairwise_min
+       - Jika similarity > threshold: gabung ke cluster
+       - Jika tidak: buat cluster baru
+    
+    Args:
+        sentences (List[str]): List kalimat yang sudah di-tokenize.
+        embeddings (np.ndarray): Sentence embeddings shape (n_sentences, embedding_dim).
+        fixed_threshold (float): Threshold minimum untuk gabung (default: 0.6).
+        c (float): Coefficient untuk adaptive threshold (default: 0.9).
+        init_constant (float): Boost factor untuk sentence ke-2 (default: 1.5).
+        
+    Returns:
+        List[List[str]]: List of paragraphs, setiap paragraph adalah list of sentences.
+    """
+    if cosine_similarity is None:
+        raise ImportError("sklearn tidak terinstall. Install dengan: pip install scikit-learn")
+    
+    if len(sentences) == 0:
+        return []
+    
+    if len(sentences) == 1:
+        return [sentences]
+    
+    # Validasi embeddings
+    if embeddings.shape[0] != len(sentences):
+        raise ValueError(f"Mismatch: {len(sentences)} sentences tapi {embeddings.shape[0]} embeddings")
+    
+    # Initialization (STEP 0 dari dokumentasi)
+    paragraphs: List[List[str]] = []
+    current_paragraph: List[str] = [sentences[0]]  # Start dengan sentence pertama
+    cluster_start: int = 0
+    cluster_end: int = 1
+    pairwise_min: float = float('-inf')  # Tracking minimum pairwise similarity
+    
+    # Iterasi untuk setiap sentence (STEP 1)
+    for i in range(1, len(sentences)):
+        # Ambil embeddings dari current cluster
+        cluster_embeddings = embeddings[cluster_start:cluster_end]
+        cluster_size = cluster_end - cluster_start
+        
+        # Hitung similarity antara sentence baru dengan cluster
+        new_sentence_embedding = embeddings[i].reshape(1, -1)
+        new_sentence_similarities = cosine_similarity(
+            new_sentence_embedding, 
+            cluster_embeddings
+        )[0]  # Result shape: (cluster_size,)
+        
+        if cluster_size > 1:
+            # CASE 1: Cluster memiliki lebih dari 1 sentence
+            # Hitung adjusted threshold menggunakan formula dari paper
+            adjusted_threshold = pairwise_min * c * sigmoid(cluster_size - 1)
+            
+            # Ambil maximum similarity (sentence baru paling similar dengan siapa)
+            new_sentence_similarity = float(np.max(new_sentence_similarities))
+            
+            # Update pairwise_min (tracking MIN dari semua similarities)
+            pairwise_min = min(float(np.min(new_sentence_similarities)), pairwise_min)
+            
+        else:
+            # CASE 2: Cluster hanya memiliki 1 sentence
+            # Set adjusted_threshold = 0 (threshold tidak ada untuk cluster size 1)
+            adjusted_threshold = 0.0
+            
+            # Similarity dengan satu sentence (scalar value)
+            pairwise_min = float(new_sentence_similarities[0])
+            
+            # Apply initial constant (boost untuk sentence ke-2)
+            # Ini membuat sentence ke-2 lebih mudah bergabung
+            new_sentence_similarity = init_constant * pairwise_min
+        
+        # DECISION: Gabung atau Pisah?
+        final_threshold = max(adjusted_threshold, fixed_threshold)
+        
+        if new_sentence_similarity > final_threshold:
+            # GABUNG: Tambahkan ke current paragraph
+            current_paragraph.append(sentences[i])
+            cluster_end += 1
+        else:
+            # PISAH: Start new paragraph
+            paragraphs.append(current_paragraph)
+            current_paragraph = [sentences[i]]
+            cluster_start = i
+            cluster_end = i + 1
+            pairwise_min = float('-inf')  # Reset untuk cluster baru
+    
+    # Finalization (STEP 2): Append paragraph terakhir
+    paragraphs.append(current_paragraph)
+    
+    return paragraphs
+
+
+# Default GGUF model paths - bisa diubah sesuai lokasi model
+DEFAULT_GGUF_MODEL_PATH = "models/Qwen3-Embedding-4B-Q8_0.gguf"
+
+
+def initialize_embedding_model_gguf(
+    model_path: str = DEFAULT_GGUF_MODEL_PATH,
+    n_gpu_layers: int = -1,
+    n_ctx: int = 8192,
+    n_batch: int = 512,
+    verbose: bool = False,
+    suppress_output: bool = True
+) -> Optional[Llama]:
+    """
+    Inisialisasi model embedding GGUF menggunakan llama-cpp-python.
+    
+    Model GGUF lebih hemat memory karena sudah di-quantize.
+    Quantization options: q4_K_M (~2GB), q5_K_M (~2.5GB), q8_0 (~4GB), f16 (~8GB)
+    
+    Args:
+        model_path (str): Path ke file GGUF model.
+        n_gpu_layers (int): Jumlah layer di GPU (-1 = semua layer).
+        n_ctx (int): Context length (default: 8192).
+        n_batch (int): Batch size untuk processing (default: 512).
+        verbose (bool): Tampilkan log detail dari llama.cpp.
+        suppress_output (bool): Suppress stderr warnings dari llama.cpp (default: True).
+        
+    Returns:
+        Optional[Any]: Model Llama atau None jika gagal.
+    """
+    if not _LLAMA_CPP_AVAILABLE:
+        logger.error("Library 'llama-cpp-python' tidak terinstall.")
+        logger.error("Install dengan: pip install llama-cpp-python")
+        logger.error("Untuk GPU (CUDA): pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu122")
+        return None
+    
+    try:
+        import sys
+        import os
+        
+        model_file = Path(model_path)
+        
+        if not model_file.exists():
+            logger.error(f"File model GGUF tidak ditemukan: {model_path}")
+            logger.error("Download model dari: https://huggingface.co/Qwen/Qwen3-Embedding-4B-GGUF")
+            logger.error("Contoh: huggingface-cli download Qwen/Qwen3-Embedding-4B-GGUF qwen3-embedding-4b-q8_0.gguf --local-dir models/")
+            return None
+        
+        logger.info(f"Inisialisasi GGUF embedding model: {model_path}")
+        logger.info(f"  - GPU Layers: {n_gpu_layers} (-1 = all)")
+        logger.info(f"  - Context Length: {n_ctx}")
+        logger.info(f"  - Batch Size: {n_batch}")
+        
+        # Load model GGUF dengan llama-cpp-python
+        model = Llama(
+            model_path=str(model_path),
+            embedding=True,  # Enable embedding mode
+            n_gpu_layers=n_gpu_layers,
+            n_ctx=n_ctx,
+            n_batch=n_batch,
+            verbose=verbose,
+            pooling_type=2  # LLAMA_POOLING_TYPE_LAST untuk Qwen3 embedding
+        )
+        
+        logger.info("✓ Model GGUF berhasil diinisialisasi")
+        
+        # Get model info
+        file_size_mb = model_file.stat().st_size / (1024 * 1024)
+        logger.info(f"  - File size: {file_size_mb:.2f} MB")
+        
+        return model
+        
+    except Exception as e:
+        logger.error(f"Error saat inisialisasi model GGUF: {str(e)}")
+        logger.error("Troubleshooting:")
+        logger.error("  1. Pastikan file GGUF valid dan tidak corrupt")
+        logger.error("  2. Pastikan llama-cpp-python terinstall dengan benar")
+        logger.error("  3. Untuk GPU support: CMAKE_ARGS='-DGGML_CUDA=on' pip install llama-cpp-python --force-reinstall")
+        return None
+
+
 def initialize_embedding_model(
     model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
@@ -47,6 +272,9 @@ def initialize_embedding_model(
 ) -> Optional[Any]:
     """
     Inisialisasi model embedding Qwen3 menggunakan SentenceTransformer.
+    
+    DEPRECATED: Gunakan initialize_embedding_model_gguf() untuk model GGUF.
+    Fungsi ini tetap tersedia untuk backward compatibility.
     
     Mengikuti best practices dari dokumentasi Qwen3:
     - Menggunakan SentenceTransformer API (lebih mudah dan stabil)
@@ -63,6 +291,9 @@ def initialize_embedding_model(
     if not _SENTENCE_TRANSFORMER_AVAILABLE:
         logger.error("Library 'sentence-transformers' tidak terinstall.")
         logger.error("Install dengan: pip install sentence-transformers>=2.7.0")
+        logger.error("")
+        logger.error("REKOMENDASI: Gunakan model GGUF untuk hemat memory!")
+        logger.error("  Gunakan: initialize_embedding_model_gguf()")
         return None
     
     try:
@@ -110,6 +341,9 @@ def initialize_embedding_model(
         logger.error("  1. Pastikan sudah install: pip install sentence-transformers>=2.7.0")
         logger.error("  2. Pastikan sudah install: pip install transformers>=4.51.0")
         logger.error("  3. Jika Keras error: pip install tf-keras ATAU pip uninstall keras && pip install keras==2.15.0")
+        logger.error("")
+        logger.error("REKOMENDASI: Gunakan model GGUF untuk hemat memory!")
+        logger.error("  Gunakan: initialize_embedding_model_gguf()")
         return None
 
 
@@ -197,22 +431,23 @@ def embed_sentences(
     embedding_model: Any,
     normalize: bool = True,
     show_progress: bool = True,
-    batch_size: int = 8
+    batch_size: int = 8,
+    use_gguf: bool = False
 ) -> Optional[np.ndarray]:
     """
-    Generate embeddings untuk setiap kalimat menggunakan SentenceTransformer.
+    Generate embeddings untuk setiap kalimat.
     
-    Mengikuti best practices Qwen3:
-    - Tidak menggunakan instruction untuk documents (hanya untuk queries)
-    - Normalisasi embeddings dengan L2 norm untuk cosine similarity
-    - Batch processing untuk efisiensi
+    Mendukung dua mode:
+    1. GGUF mode (use_gguf=True): Menggunakan llama-cpp-python
+    2. SentenceTransformer mode (use_gguf=False): Menggunakan sentence-transformers
     
     Args:
         sentences (List[str]): List kalimat.
-        embedding_model (Any): Model SentenceTransformer.
+        embedding_model (Any): Model embedding (Llama atau SentenceTransformer).
         normalize (bool): Normalize embeddings dengan L2 norm (default: True).
         show_progress (bool): Show progress bar (default: True).
-        batch_size (int): Batch size untuk encoding (default: 8, turunkan jika OOM).
+        batch_size (int): Batch size untuk encoding (default: 8).
+        use_gguf (bool): True jika menggunakan model GGUF (default: False).
         
     Returns:
         Optional[np.ndarray]: Array embeddings dengan shape (n_sentences, embedding_dim)
@@ -220,19 +455,58 @@ def embed_sentences(
     """
     try:
         logger.info(f"Generating embeddings untuk {len(sentences)} kalimat...")
-        logger.info(f"  - Normalization: {normalize} (recommended: True untuk cosine similarity)")
-        logger.info(f"  - Batch size: {batch_size} (turunkan jika OOM)")
+        logger.info(f"  - Mode: {'GGUF (llama-cpp)' if use_gguf else 'SentenceTransformer'}")
+        logger.info(f"  - Normalization: {normalize}")
         
-        # Generate embeddings menggunakan SentenceTransformer.encode()
-        # NOTE: Untuk documents, JANGAN gunakan prompt/instruction
-        # Sesuai dokumentasi Qwen3: instructions hanya untuk queries
-        embeddings = embedding_model.encode(
-            sentences,
-            normalize_embeddings=normalize,  # L2 normalization untuk cosine similarity
-            show_progress_bar=show_progress,
-            convert_to_numpy=True,
-            batch_size=batch_size  # Kurangi jika VRAM terbatas (RTX 4050: gunakan 4-8)
-        )
+        if use_gguf:
+            # Mode GGUF: gunakan llama-cpp-python
+            import sys
+            import os
+            
+            embeddings_list = []
+            
+            # Progress tracking
+            total = len(sentences)
+            for i, sentence in enumerate(sentences):
+                if show_progress and (i + 1) % 10 == 0:
+                    logger.info(f"  Progress: {i + 1}/{total} ({(i + 1) / total * 100:.1f}%)")
+                
+                # Suppress stderr warnings dari llama.cpp (init: embeddings required...)
+                # Warning ini normal dan tidak mempengaruhi hasil
+                stderr_fd = sys.stderr.fileno()
+                with open(os.devnull, 'w') as devnull:
+                    old_stderr = os.dup(stderr_fd)
+                    os.dup2(devnull.fileno(), stderr_fd)
+                    try:
+                        emb = embedding_model.embed(sentence)
+                    finally:
+                        os.dup2(old_stderr, stderr_fd)
+                        os.close(old_stderr)
+                
+                embeddings_list.append(emb)
+            
+            embeddings = np.array(embeddings_list)
+            
+            # Normalize jika diminta
+            if normalize:
+                norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+                norms = np.where(norms == 0, 1, norms)  # Avoid division by zero
+                embeddings = embeddings / norms
+        
+        else:
+            # Mode SentenceTransformer
+            logger.info(f"  - Batch size: {batch_size}")
+            
+            # Generate embeddings menggunakan SentenceTransformer.encode()
+            # NOTE: Untuk documents, JANGAN gunakan prompt/instruction
+            # Sesuai dokumentasi Qwen3: instructions hanya untuk queries
+            embeddings = embedding_model.encode(
+                sentences,
+                normalize_embeddings=normalize,
+                show_progress_bar=show_progress,
+                convert_to_numpy=True,
+                batch_size=batch_size
+            )
         
         logger.info(f"✓ Embeddings berhasil digenerate")
         logger.info(f"  - Shape: {embeddings.shape}")
@@ -259,7 +533,10 @@ def apply_maxmin_chunking(
     init_constant: float = 1.5
 ) -> Optional[List[List[str]]]:
     """
-    Memanggil process_sentences() dari library maxmin_chunker.
+    Apply algoritma MaxMin Semantic Chunking.
+    
+    Implementasi langsung dari paper "Max-Min Semantic Chunking of Documents 
+    for RAG application" (Kiss, Nagy, Szilágyi, 2025).
     
     Args:
         sentences (List[str]): List kalimat.
@@ -272,18 +549,13 @@ def apply_maxmin_chunking(
         Optional[List[List[str]]]: List of chunks, dimana setiap chunk adalah list of sentences,
                                    atau None jika gagal.
     """
-    if process_sentences is None:
-        logger.error("Library 'maxmin_chunker' tidak terinstall.")
-        logger.error("Install dengan: pip install maxmin-chunker")
-        return None
-    
     try:
         logger.info("Menjalankan MaxMin chunking...")
         logger.info(f"  - fixed_threshold: {fixed_threshold}")
         logger.info(f"  - c: {c}")
         logger.info(f"  - init_constant: {init_constant}")
         
-        # Panggil process_sentences dari library
+        # Panggil implementasi process_sentences
         paragraphs = process_sentences(
             sentences,
             embeddings,
@@ -403,7 +675,8 @@ def process_single_text(
     c: float = 0.9,
     init_constant: float = 1.5,
     include_metadata: bool = True,
-    batch_size: int = 8
+    batch_size: int = 8,
+    use_gguf: bool = False
 ) -> Optional[List[Dict[str, Any]]]:
     """
     Memproses satu file teks: load, split, embed, chunk, dan save.
@@ -417,6 +690,7 @@ def process_single_text(
         init_constant (float): Parameter init_constant untuk MaxMin.
         include_metadata (bool): Sertakan metadata dalam chunks.
         batch_size (int): Batch size untuk embedding (default: 8).
+        use_gguf (bool): True jika menggunakan model GGUF.
         
     Returns:
         Optional[List[Dict[str, Any]]]: List chunks jika berhasil, None jika gagal.
@@ -436,7 +710,12 @@ def process_single_text(
             return None
         
         # 3. Generate embeddings
-        embeddings = embed_sentences(sentences, embedding_model, batch_size=batch_size)
+        embeddings = embed_sentences(
+            sentences, 
+            embedding_model, 
+            batch_size=batch_size,
+            use_gguf=use_gguf
+        )
         if embeddings is None:
             return None
         
@@ -502,6 +781,8 @@ def get_text_files(input_dir: str) -> List[Path]:
 def run_maxmin_chunking(
     input_dir: str = "data/cleaned",
     output_dir: str = "data/chunked/maxmin_semantic",
+    model_path: str = DEFAULT_GGUF_MODEL_PATH,
+    use_gguf: bool = True,
     model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
     fixed_threshold: float = 0.6,
@@ -510,7 +791,8 @@ def run_maxmin_chunking(
     include_metadata: bool = True,
     skip_existing: bool = True,
     low_memory: bool = False,
-    batch_size: int = 8
+    batch_size: int = 8,
+    n_gpu_layers: int = -1
 ) -> Dict[str, Any]:
     """
     Menjalankan MaxMin semantic chunking untuk semua file teks di direktori input.
@@ -518,8 +800,10 @@ def run_maxmin_chunking(
     Args:
         input_dir (str): Direktori berisi file teks input (default: data/cleaned).
         output_dir (str): Direktori output untuk hasil chunking (default: data/chunked/maxmin_semantic).
-        model_name (str): Nama model embedding (default: Qwen3-Embedding).
-        device (str): Device untuk inference (default: 'cpu').
+        model_path (str): Path ke file GGUF model (untuk use_gguf=True).
+        use_gguf (bool): Gunakan model GGUF (default: True, RECOMMENDED).
+        model_name (str): Nama model HuggingFace (untuk use_gguf=False).
+        device (str): Device untuk inference (default: 'cuda').
         fixed_threshold (float): Fixed threshold untuk MaxMin (default: 0.6).
         c (float): Parameter c untuk MaxMin (default: 0.9).
         init_constant (float): Parameter init_constant untuk MaxMin (default: 1.5).
@@ -527,6 +811,7 @@ def run_maxmin_chunking(
         skip_existing (bool): Skip file yang sudah diproses (default: True).
         low_memory (bool): Gunakan mode hemat VRAM dengan float16 (default: False).
         batch_size (int): Batch size untuk embedding (default: 8).
+        n_gpu_layers (int): Jumlah layer di GPU untuk GGUF (-1 = semua).
         
     Returns:
         Dict[str, Any]: Statistik hasil chunking.
@@ -537,13 +822,30 @@ def run_maxmin_chunking(
     logger.info("="*70)
     logger.info(f"Input directory: {input_dir}")
     logger.info(f"Output directory: {output_dir}")
-    logger.info(f"Model: {model_name}")
-    logger.info(f"Device: {device}")
+    logger.info(f"Mode: {'GGUF (llama-cpp)' if use_gguf else 'SentenceTransformer'}")
+    if use_gguf:
+        logger.info(f"Model GGUF: {model_path}")
+        logger.info(f"GPU Layers: {n_gpu_layers}")
+    else:
+        logger.info(f"Model: {model_name}")
+        logger.info(f"Device: {device}")
     logger.info(f"Parameters: threshold={fixed_threshold}, c={c}, init={init_constant}")
     
     # Initialize embedding model
     logger.info("\nInisialisasi embedding model...")
-    embedding_model = initialize_embedding_model(model_name, device, low_memory=low_memory)
+    
+    if use_gguf:
+        embedding_model = initialize_embedding_model_gguf(
+            model_path=model_path,
+            n_gpu_layers=n_gpu_layers
+        )
+    else:
+        embedding_model = initialize_embedding_model(
+            model_name=model_name, 
+            device=device, 
+            low_memory=low_memory
+        )
+    
     if embedding_model is None:
         logger.error("Gagal inisialisasi embedding model")
         return {
@@ -603,7 +905,8 @@ def run_maxmin_chunking(
             c=c,
             init_constant=init_constant,
             include_metadata=include_metadata,
-            batch_size=batch_size
+            batch_size=batch_size,
+            use_gguf=use_gguf
         )
         
         if chunks:
@@ -642,7 +945,7 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(
-        description="MaxMin semantic chunking untuk dokumen teks"
+        description="MaxMin semantic chunking untuk dokumen teks dengan dukungan GGUF"
     )
     
     parser.add_argument(
@@ -659,11 +962,33 @@ if __name__ == "__main__":
         help='Direktori output untuk hasil chunking (default: data/chunked/maxmin_semantic)'
     )
     
+    # GGUF arguments (RECOMMENDED)
+    parser.add_argument(
+        '--gguf',
+        type=str,
+        default=DEFAULT_GGUF_MODEL_PATH,
+        help=f'Path ke file GGUF model (default: {DEFAULT_GGUF_MODEL_PATH})'
+    )
+    
+    parser.add_argument(
+        '--no-gguf',
+        action='store_true',
+        help='Gunakan SentenceTransformer bukan GGUF (tidak direkomendasikan karena butuh lebih banyak VRAM)'
+    )
+    
+    parser.add_argument(
+        '--n-gpu-layers',
+        type=int,
+        default=-1,
+        help='Jumlah layer di GPU untuk GGUF (-1 = semua layer, default: -1)'
+    )
+    
+    # SentenceTransformer arguments (fallback)
     parser.add_argument(
         '--model', '-m',
         type=str,
         default='Qwen/Qwen3-Embedding-4B',
-        help='Nama model embedding (default: Qwen3-Embedding-4B)'
+        help='Nama model HuggingFace (hanya jika --no-gguf, default: Qwen3-Embedding-4B)'
     )
     
     parser.add_argument(
@@ -671,9 +996,10 @@ if __name__ == "__main__":
         type=str,
         default='cuda',
         choices=['cpu', 'cuda'],
-        help='Device untuk inference (default: cpu)'
+        help='Device untuk inference (default: cuda)'
     )
     
+    # MaxMin parameters
     parser.add_argument(
         '--threshold', '-t',
         type=float,
@@ -695,6 +1021,7 @@ if __name__ == "__main__":
         help='Parameter init_constant untuk MaxMin (default: 1.5)'
     )
     
+    # Other arguments
     parser.add_argument(
         '--no-metadata',
         action='store_true',
@@ -716,7 +1043,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--low-memory',
         action='store_true',
-        help='Mode hemat VRAM: gunakan float16 (untuk GPU dengan VRAM terbatas seperti RTX 4050)'
+        help='Mode hemat VRAM: gunakan float16 (hanya untuk SentenceTransformer)'
     )
     
     parser.add_argument(
@@ -728,10 +1055,24 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
+    # Determine mode: GGUF or SentenceTransformer
+    use_gguf = not args.no_gguf
+    
     # Jalankan chunking
     if args.single:
         # Mode single file
-        embedding_model = initialize_embedding_model(args.model, args.device, low_memory=args.low_memory)
+        if use_gguf:
+            embedding_model = initialize_embedding_model_gguf(
+                model_path=args.gguf,
+                n_gpu_layers=args.n_gpu_layers
+            )
+        else:
+            embedding_model = initialize_embedding_model(
+                args.model, 
+                args.device, 
+                low_memory=args.low_memory
+            )
+        
         if embedding_model:
             chunks = process_single_text(
                 args.single,
@@ -741,7 +1082,8 @@ if __name__ == "__main__":
                 c=args.c,
                 init_constant=args.init,
                 include_metadata=not args.no_metadata,
-                batch_size=args.batch_size
+                batch_size=args.batch_size,
+                use_gguf=use_gguf
             )
             exit(0 if chunks else 1)
         else:
@@ -751,6 +1093,8 @@ if __name__ == "__main__":
         stats = run_maxmin_chunking(
             input_dir=args.input,
             output_dir=args.output,
+            model_path=args.gguf,
+            use_gguf=use_gguf,
             model_name=args.model,
             device=args.device,
             fixed_threshold=args.threshold,
@@ -759,7 +1103,8 @@ if __name__ == "__main__":
             include_metadata=not args.no_metadata,
             skip_existing=not args.no_skip,
             low_memory=args.low_memory,
-            batch_size=args.batch_size
+            batch_size=args.batch_size,
+            n_gpu_layers=args.n_gpu_layers
         )
         
         exit(0 if stats['processed'] > 0 else 1)
