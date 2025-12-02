@@ -24,8 +24,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--input', '-i',
         type=str,
-        default='data/cleaned_text',
-        help='Direktori input berisi file .txt (default: data/cleaned_text)'
+        default='data/cleaned',
+        help='Direktori input berisi file .txt (default: data/cleaned)'
     )
     
     parser.add_argument(
