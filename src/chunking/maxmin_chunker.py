@@ -229,7 +229,7 @@ def initialize_embedding_model_gguf(
         if not model_file.exists():
             logger.error(f"File model GGUF tidak ditemukan: {model_path}")
             logger.error("Download model dari: https://huggingface.co/Qwen/Qwen3-Embedding-4B-GGUF")
-            logger.error("Contoh: huggingface-cli download Qwen/Qwen3-Embedding-4B-GGUF qwen3-embedding-4b-q8_0.gguf --local-dir models/")
+            logger.error("Contoh: hf download Qwen/Qwen3-Embedding-4B-GGUF Qwen3-Embedding-4B-Q8_0.gguf --local-dir models/")
             return None
         
         logger.info(f"Inisialisasi GGUF embedding model: {model_path}")
