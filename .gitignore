@@ -150,3 +150,16 @@ temp/
 experiments/
 archived/
 .specstory/
+
+# Generated Data Artifacts (tidak perlu di-version control)
+# ----------------------------------------------------------
+data/chroma/
+data/embeddings/
+data/(backup)element_based/
+
+# Log files
+logs/
+*.log
+
+# Figures dari Unstructured PDF extraction
+figures/

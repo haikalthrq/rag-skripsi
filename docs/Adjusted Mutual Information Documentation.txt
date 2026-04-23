@@ -1,0 +1,196 @@
+================================================================================
+              ADJUSTED MUTUAL INFORMATION (AMI) DOCUMENTATION
+================================================================================
+
+Source: sklearn.metrics.adjusted_mutual_info_score
+Reference: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html
+
+================================================================================
+1. OVERVIEW
+================================================================================
+
+Function Signature:
+    sklearn.metrics.adjusted_mutual_info_score(
+        labels_true, 
+        labels_pred, 
+        *, 
+        average_method='arithmetic'
+    )
+
+Description:
+    Adjusted Mutual Information between two clusterings.
+
+    Adjusted Mutual Information (AMI) is an adjustment of the Mutual 
+    Information (MI) score to account for chance. It accounts for the fact 
+    that the MI is generally higher for two clusterings with a larger number 
+    of clusters, regardless of whether there is actually more information 
+    shared.
+
+================================================================================
+2. FORMULA
+================================================================================
+
+For two clusterings U and V, the AMI is given as:
+
+    AMI(U, V) = [MI(U, V) - E(MI(U, V))] / [avg(H(U), H(V)) - E(MI(U, V))]
+
+Where:
+    - MI(U, V)      : Mutual Information between U and V
+    - E(MI(U, V))   : Expected Mutual Information (chance correction)
+    - H(U), H(V)    : Entropy of clusterings U and V
+    - avg(...)      : Average function (depends on average_method parameter)
+
+================================================================================
+3. KEY PROPERTIES
+================================================================================
+
+LABEL INDEPENDENCE:
+    This metric is independent of the absolute values of the labels: 
+    a permutation of the class or cluster label values won't change 
+    the score value in any way.
+
+SYMMETRY:
+    This metric is symmetric: switching labels_true with labels_pred 
+    will return the same score value. This can be useful to measure 
+    the agreement of two independent label assignments strategies on 
+    the same dataset when the real ground truth is not known.
+
+PERFORMANCE NOTE:
+    Be mindful that this function is an order of magnitude slower than 
+    other metrics, such as the Adjusted Rand Index.
+
+================================================================================
+4. PARAMETERS
+================================================================================
+
+labels_true : int array-like of shape (n_samples,)
+    A clustering of the data into disjoint subsets, called U in the 
+    above formula.
+
+labels_pred : int array-like of shape (n_samples,)
+    A clustering of the data into disjoint subsets, called V in the 
+    above formula.
+
+average_method : {'min', 'geometric', 'arithmetic', 'max'}, default='arithmetic'
+    How to compute the normalizer in the denominator.
+    
+    Options:
+        - 'min'        : min(H(U), H(V))
+        - 'geometric'  : sqrt(H(U) * H(V))
+        - 'arithmetic' : (H(U) + H(V)) / 2
+        - 'max'        : max(H(U), H(V))
+    
+    Version History:
+        - Added in version 0.20
+        - Changed in version 0.22: Default changed from 'max' to 'arithmetic'
+
+================================================================================
+5. RETURNS
+================================================================================
+
+ami : float (upper-limited by 1.0)
+    The AMI returns a value of 1 when the two partitions are identical 
+    (i.e., perfectly matched).
+    
+    Random partitions (independent labellings) have an expected AMI 
+    around 0 on average, hence can be negative.
+    
+    The value is in adjusted nats (based on the natural logarithm).
+
+SCORE INTERPRETATION:
+    ┌─────────────────┬────────────────────────────────────────────────────┐
+    │ AMI Score       │ Interpretation                                     │
+    ├─────────────────┼────────────────────────────────────────────────────┤
+    │ 1.0             │ Perfect match (identical clusterings)              │
+    │ > 0             │ Better than random agreement                       │
+    │ ≈ 0             │ Random/independent labellings                      │
+    │ < 0             │ Worse than random (less agreement than expected)   │
+    └─────────────────┴────────────────────────────────────────────────────┘
+
+================================================================================
+6. RELATED FUNCTIONS
+================================================================================
+
+adjusted_rand_score:
+    Adjusted Rand Index - another chance-corrected clustering metric.
+    Faster than AMI.
+
+mutual_info_score:
+    Mutual Information (not adjusted for chance).
+    Does not account for random agreement.
+
+================================================================================
+7. REFERENCES
+================================================================================
+
+[1] Vinh, Epps, and Bailey (2010). 
+    "Information Theoretic Measures for Clusterings Comparison: 
+    Variants, Properties, Normalization and Correction for Chance"
+    Journal of Machine Learning Research (JMLR)
+
+[2] Wikipedia entry for the Adjusted Mutual Information
+    https://en.wikipedia.org/wiki/Adjusted_mutual_information
+
+================================================================================
+8. CODE EXAMPLES
+================================================================================
+
+EXAMPLE 1: Perfect Labeling
+---------------------------
+Perfect labelings are both homogeneous and complete, hence have score 1.0:
+
+    >>> from sklearn.metrics.cluster import adjusted_mutual_info_score
+    >>> adjusted_mutual_info_score([0, 0, 1, 1], [0, 0, 1, 1])
+    1.0
+
+EXAMPLE 2: Permuted Labels (Still Perfect)
+------------------------------------------
+Label permutation does not affect the score:
+
+    >>> adjusted_mutual_info_score([0, 0, 1, 1], [1, 1, 0, 0])
+    1.0
+
+EXAMPLE 3: Completely Split Classes (AMI = 0)
+---------------------------------------------
+If class members are completely split across different clusters, 
+the assignment is totally incomplete, hence the AMI is null:
+
+    >>> adjusted_mutual_info_score([0, 0, 0, 0], [0, 1, 2, 3])
+    0.0
+
+================================================================================
+9. USE CASE IN RAG CHUNKING EVALUATION
+================================================================================
+
+In the context of RAG (Retrieval-Augmented Generation) chunking evaluation,
+AMI can be used to:
+
+1. COMPARE CHUNKING METHODS:
+   - Compare how different chunking algorithms group sentences
+   - labels_true: Ground truth semantic groupings (if available)
+   - labels_pred: Chunk assignments from the algorithm
+
+2. EVALUATE SEMANTIC COHERENCE:
+   - Measure if chunks align with natural topic boundaries
+   - Higher AMI = better alignment with expected groupings
+
+3. CROSS-METHOD COMPARISON:
+   - Compare two chunking methods against each other
+   - Useful when no ground truth exists (symmetric property)
+
+EXAMPLE for Chunking:
+    # Suppose we have 10 sentences and two chunking methods
+    # Method 1 assigns sentences to chunks: [0, 0, 0, 1, 1, 1, 2, 2, 2, 2]
+    # Method 2 assigns sentences to chunks: [0, 0, 1, 1, 1, 2, 2, 2, 3, 3]
+    
+    from sklearn.metrics.cluster import adjusted_mutual_info_score
+    
+    method1_chunks = [0, 0, 0, 1, 1, 1, 2, 2, 2, 2]
+    method2_chunks = [0, 0, 1, 1, 1, 2, 2, 2, 3, 3]
+    
+    ami = adjusted_mutual_info_score(method1_chunks, method2_chunks)
+    print(f"AMI between methods: {ami:.4f}")
+
+================================================================================
+                              END OF DOCUMENTATION
+================================================================================

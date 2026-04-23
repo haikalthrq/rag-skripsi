@@ -80,7 +80,7 @@ def sigmoid(x: float) -> float:
 def process_sentences(
     sentences: List[str],
     embeddings: np.ndarray,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5
 ) -> List[List[str]]:
@@ -528,7 +528,7 @@ def embed_sentences(
 def apply_maxmin_chunking(
     sentences: List[str],
     embeddings: np.ndarray,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5
 ) -> Optional[List[List[str]]]:
@@ -671,7 +671,7 @@ def process_single_text(
     text_path: str,
     output_dir: str,
     embedding_model: Any,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5,
     include_metadata: bool = True,
@@ -785,7 +785,7 @@ def run_maxmin_chunking(
     use_gguf: bool = True,
     model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5,
     include_metadata: bool = True,
@@ -1003,8 +1003,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--threshold', '-t',
         type=float,
-        default=0.6,
-        help='Fixed threshold untuk MaxMin (default: 0.6)'
+        default=0.95,
+        help='Fixed threshold untuk MaxMin (default: 0.95 for Qwen3)'
     )
     
     parser.add_argument(

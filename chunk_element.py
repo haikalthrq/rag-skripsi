@@ -41,6 +41,27 @@ if __name__ == "__main__":
     )
     
     parser.add_argument(
+        '--target-chars',
+        type=int,
+        default=1500,
+        help='Target ukuran chunk dalam karakter (default: 1500)'
+    )
+    
+    parser.add_argument(
+        '--max-chars',
+        type=int,
+        default=3000,
+        help='Batas maksimal chunk dalam karakter (default: 3000)'
+    )
+    
+    parser.add_argument(
+        '--min-chars',
+        type=int,
+        default=300,
+        help='Minimal ukuran chunk, yang lebih kecil di-merge backward (default: 300)'
+    )
+    
+    parser.add_argument(
         '--no-metadata',
         action='store_true',
         help='Jangan sertakan metadata dalam chunks'
@@ -67,7 +88,10 @@ if __name__ == "__main__":
             args.single,
             args.output,
             strategy=args.strategy,
-            include_metadata=not args.no_metadata
+            include_metadata=not args.no_metadata,
+            target_chunk_chars=args.target_chars,
+            max_chunk_chars=args.max_chars,
+            min_chunk_chars=args.min_chars
         )
         exit(0 if chunks else 1)
     else:
@@ -77,7 +101,10 @@ if __name__ == "__main__":
             output_dir=args.output,
             strategy=args.strategy,
             include_metadata=not args.no_metadata,
-            skip_existing=not args.no_skip
+            skip_existing=not args.no_skip,
+            target_chunk_chars=args.target_chars,
+            max_chunk_chars=args.max_chars,
+            min_chunk_chars=args.min_chars
         )
         
         exit(0 if stats['processed'] > 0 else 1)
