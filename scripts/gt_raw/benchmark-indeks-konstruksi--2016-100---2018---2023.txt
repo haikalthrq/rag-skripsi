@@ -1,0 +1,659 @@
+DOC: benchmark-indeks-konstruksi--2016-100---2018---2023
+Total chunks: 241 | Usable: 233 | Sample 10% (25):
+================================================================================
+
+--- [chunk_id=chunk_7] ---
+Kata Pengantar/Preface “.ooooooooooooooooooooooooooooooooWooo om mmunnnnannnnnnanaan Daftar ISi/CONtents ..oooooooooooooooooooooooooo.coco.oWoWo. memukau Daftar Tabel/List of Tables Daftar Gambar/List of Figures Penjelasan/EXpIANAtION .rro..ooooooooocc oo onnen enakan nanas Tabel-Tabel/Tables Gambar-Gambar/Figures Daftar Pustaka/Bibliography .... Lampiran/Appendix: Kuesioner Survei Perusahaan Konstruksi Triwulanan (SKTR) 2023 Ouestionnaire of 2023 Ouarterly Construction Establishment Survey (SKTR)........... Kuesioner Survei Perusahaan Konstruksi Tahunan (SKTH) 2023 Ouestionnaire of 2023 Annual Construction Establishment Survey (SKTH) ..oee...... 103 111
+
+--- [chunk_id=chunk_9] ---
+Tabel/Tables
+
+Halaman
+
+Page
+
+21 Benchmark Indeks Konstruksi (2016-100) Triwulanan, 2018-2023 Benchmarked Ouarterly Indices of Construction (2016—100), 2018-2023
+
+--- [chunk_id=chunk_10] ---
+Benchmarked Ouarterly Indices of Construction (2016—100), 2018-2023 21. 1 21.2 213 214 21 5 21.6 21 7 218 219 21 21 21 21 21 21 21 21 21 21 10 11 12 13 14 15 16 17 18 19 21.20 21.21 21.22 21.23 21 21 21 21 21 24 25 .26 27 .28 Indonesia .......... Provinsi/Province Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : LACEh anna en Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Provinsi/Province : Sumatera Utara . Sumatera Barat .....oooooooooooooooooooooooooooooo RIAU “ee nererennnnneeetennnnnntananannaaannann nana JaMbi “error. Sumatera Selatan . Bengkulu ............. LAMPUNG weroe0nioereenenno nenen Kepulauan Bangka BelitUNg ........oooooooooooooooooooooo oo Kepulauan Riau . D.K.I. Jakarta Jawa Barat ... Jawa TENGAh “erdeeeeernooeroeerereneenenen00nn0nnnenn nana D.I. Yogyakarta ..oooooooooooo.oooo.oco moon Jawa Timur . Banten .. Bali ..... Nusa Tenggara Bafat “..oooo.ooooooooooooooooooooooooo Nusa Tenggara TIMUTF “.eooo..ooooooooooooooooooo oo Kalimantan Barat .. Kalimantan Tengah . Kalimantan Selatan . Kalimantan TIMUT “errooooooooooooccm”mo ewean Kalimantan Utara ..oooooooooo.ooooo.oooooo oo Sulawesi Utara ... Sulawesi Tengah .. Sulawesi Selatan “ereeoooooooooooooooooooooooooooooooooo como 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 M
+
+--- [chunk_id=chunk_26] ---
+4. Mandays of Casual Worker
+
+Hari-orang adalah jumlah pekerja harian dan hari yang dibutuhkan untuk menyelesaikan suatu pekerjaan.
+
+Mandays is the number of casual worker and days needed to complete a job.
+
+--- [chunk_id=chunk_27] ---
+5. Compensation of Permanent Worker
+
+Balas jasa adalah seluruh pengeluaran yang dibayarkan kepada pekerja tetap berupa upah gaji, upah lembur, hadiah, bonus, dana pensiun, tunjangan kecelakaan dan pengeluaran lainnya yang dibayarkan dalam bentuk uang maupun barang sebagai balas jasa.
+
+Compensation is all expenses paid to the permanent worker in the form of wage/salary, overtime payment, gifts, bonuses, pension funds, accidental allowance and other expenses either in the form of money or goods as compensation.
+
+Benchmark Indeks Konstruksi (2016-—100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+--- [chunk_id=chunk_30] ---
+1. Sampel
+
+Survei Perusahaan Konstruksi Tahunan mencakup badan usaha konstruksi yang beroperasi di Indonesia.
+
+Pada kegiatan Survei Perusahaan Konstruksi Tahunan 2023, dipilih sampel sebanyak 10.000 perusahaan meliputi perusahaan skala kecil, menengah, dan besar. Penarikan sampelnya dengan menggunakan metode sampling satu tahap, yaitu secara systematic linear sampling. Pemilihan sampel untuk survei perusahaan konstruksi tahun 2023 dilakukan secara independent pada masing-masing — skala perusahaan.
+
+Dengan pertimbangan jumlah populasi perusahaan konstruksi dan keterwakilan sampel pada setiap skala perusahaan serta keterbandingan data dari hasil survei sejenis sebelumnya, maka ditetapkan bahwa jumlah sampel pada setiap skala perusahaan konstruksi pada Survei Perusahaan Konstruksi Tahunan 2023 adalah sebagai berikut:
+
+a. Jumlah sampel perusahaan konstruksi skala besar adalah 1.356 artinya seluruh perusahaan konstruksi skala besar yang ada dilakukan pencacahan lengkap (take all).
+b. Jumlah sampel perusahaan konstruksi skala menengah adalah 5.281, dengan demikian pencacahan dilakukan hanya pada perusahaan konstruksi skala menengah terpilih (take some).
+c. Jumlah sampel perusahaan konstruksi
+
+--- [chunk_id=chunk_32] ---
+7. Value of Construction Works Completed
+
+Value of construction works completed is the total value of work completed by contractor (excluding value of land) based on the progress of project in a certain period of time, based on the contract value between bowheer and contractor.
+
+--- [chunk_id=chunk_39] ---
+2.2 2016 Base Year Indices
+
+2016 base year indices for each province are obtained from two sources, they are from guarterly chained indices and data of 2016 Economic Census by using those following method:
+
+--- [chunk_id=chunk_60] ---
+Uraian Tahun/Years Description 2018 2019 2020 2021 2022 2023 Pekerja Tetap/Permanent Workers Triwulan/Ouarter | 103,75 106,85 106,73 108,29 110,90 111,54 Triwulan/Ouarter II 104,61 108,17 106,13 109,00 110,71 11214 Triwulan/Ouarter II 105,35 109,12 106,63 110,11 110,97 114,66 Triwulan/Ouarter IV 106,20 109,44 107,44 111,46 111,62 115,92 Hari-Orang/Mandays Triwulan/Ouarter | 118,23 128,75 123,21 127,42 132,06 133,01 Triwulan/Ouarter II 118,65 133,87 121,34 127,54 131,38 134,36 Triwulan/Ouarter II 122,73 137,40 124,40 12917 13219 138,75 Triwulan/Ouarter IV 126,45 139,96 127,35 13212 133,41 143,03 Balas Jasa dan Upah/Compensation and Wages Triwulan/Ouarter | 120,40 134,95 13219 139,91 144,55 149,85 Triwulan/Ouarter II 122,77 141,08 127,37 139,33 143,51 150,68 Triwulan/Ouarter II 129,00 145,70 134,75 142,05 145,43 160,04 Triwulan/Ouarter IV 132,76 149,82 140,70 146,79 147,95 168,84 Balas Jasa Pekerja Tetap/Compensation of Permanent Workers Triwulan/Ouarter | 11019 117,74 121,00 127,67 13114 141,10 Triwulan/Ouarter II 112,35 123,14 116,86 126,84 130,89 140,51 Triwulan/Ouarter II 117,97 127,53 123,71 129,11 132,84 142,37 Triwulan/Ouarter IV 121,26 131,82 129,02 133,30 134,58 14412 Upah Pekerja Harian/Wages of Casual Workers Triwulan/Ouarter | 125,12 142,52 137,30 145,50 150,67 164,95 Triwulan/Ouarter II 127,58 149,01 13217 145,03 149,27 162,34 Triwulan/Ouarter II 134,04 154,00 139,80 147,96 151,18 163,69 Triwulan/Ouarter IV 137,89 158,57 146,03 152,94 154,06 166,43 Nilai Konstruksi yang Diselesaikan/Value of Construction Works Completed Triwulan/Ouarter | 120,09 143,02 138,92 147,86 153,21 158,60 Triwulan/Ouarter II 124,07 151,53 131,08 146,25 153,38 161,44
+
+--- [chunk_id=chunk_62] ---
+: Uraian Tahun/Years Description 2018 2019 2020 2021 2022 2023 Pekerja Tetap/Permanent Workers Triwulan/Ouarter | 102,00 105,65 105,59 105,20 106,38 107,06 Triwulan/Ouarter II 103,62 106,87 103,66 106,08 106,38 107,47 Triwulan/Ouarter III 105,15 107,66 105,30 106,52 107,13 108,71 Triwulan/Ouarter IV 106,63 108,06 105,54 106,96 108,39 109,81 Hari-Orang/Mandays Triwulan/Ouarter | 111,85 120,80 118,89 113,89 11817 121,10 Triwulan/Ouarter II 113,94 123,63 115,94 117,01 118,21 122,55 Triwulan/Ouarter III 117,54 127,02 111,43 119,06 119,47 127,18 Triwulan/Ouarter IV 120,91 128,45 113,33 120,82 122,39 129,84 Balas Jasa dan Upah/Compensation and Wages Triwulan/Ouarter | 111,85 125,02 127,74 120,65 127,46 133,06 Triwulan/Ouarter II 11616 128,28 122,85 125,93 127,48 135,12 Triwulan/Ouarter III 121,03 131,90 115,82 129,02 131,40 144,43 Triwulan/Ouarter IV 125,50 133,35 119,84 132,66 137,60 152,30 Balas Jasa Pekerja Tetap/Compensation of Permanent Workers Triwulan/Ouarter | 103,72 110,34 120,10 111,74 11812 126,88 Triwulan/Ouarter II 107,67 113,45 1151 116,27 11814 127,23 Triwulan/Ouarter III 111,84 118,20 108,12 118,89 121,80 131,41 Triwulan/Ouarter IV 115,29 122,41 111,43 12212 126,16 136,23 Upah Pekerja Harian/Wages of Casual Workers Triwulan/Ouarter | 116,63 129,45 131,63 125,17 132,20 141,39 Triwulan/Ouarter II 121,06 133,15 126,79 130,83 132,22 142,41 Triwulan/Ouarter III 125,69 139,00 119,73 13417 136,27 147,46 Triwulan/Ouarter IV 129,45 144,47 1241 138,02 143,42 155,57 Nilai Konstruksi yang Diselesaikan/Value of Construction Works Completed
+
+--- [chunk_id=chunk_64] ---
+Uraian Tahun/Years Description 2018 2019 2020 2021 2022 2023 Pekerja Tetap/Permanent Workers Triwulan/Ouarter | 102,00 104,62 104,25 104,38 105,87 106,76 Triwulan/Ouarter II 103,28 105,76 103,31 105,19 106,38 106,62 Triwulan/Ouarter II 103,94 106,50 104,31 105,81 106,69 108,10 Triwulan/Ouarter IV 104,61 106,56 10417 106,05 107,79 109,96 Hari-Orang/Mandays Triwulan/Ouarter | 114,26 127,40 123,18 124,76 131,16 134,24 Triwulan/Ouarter II 117,06 131,47 121,48 126,84 132,34 133,12 Triwulan/Ouarter II 121,64 134,31 124,56 127,69 133,28 135,88 Triwulan/Ouarter IV 125,81 136,92 12512 130,33 136,45 140,98 Balas Jasa dan Upah/Compensation and Wages Triwulan/Ouarter | 119,05 135,80 131,08 136,23 142,53 148,66 Triwulan/Ouarter II 123,64 140,46 128,98 139,05 143,37 147,26 Triwulan/Ouarter II 129,81 144,55 136,89 141,00 144,60 152,54 Triwulan/Ouarter IV 134,95 148,26 138,05 145,01 150,88 160,43 Balas Jasa Pekerja Tetap/Compensation of Permanent Workers Triwulan/Ouarter | 102,95 110,62 112,46 114,59 118,07 122,56 Triwulan/Ouarter II 106,91 114,43 110,00 115,88 118,66 12216 Triwulan/Ouarter II 112,23 117,86 115,88 116,73 119,39 122,23 Triwulan/Ouarter IV 116,63 121,06 115,79 119,64 123,32 125,90 Upah Pekerja Harian/Wages of Casual Workers Triwulan/Ouarter | 122,89 141,18 135,40 141,25 148,21 156,73 Triwulan/Ouarter II 127,61 146,09 133,38 144,43 149,10 156,83 Triwulan/Ouarter II 133,89 150,76 141,77 146,63 150,45 157,68 Triwulan/Ouarter IV 139,02 155,43 143,22 150,90 157,28 164,53 Nilai Konstruksi yang Diselesaikan/Value of Construction Works Completed Triwulan/Ouarter | 116,78 142,76 136,48 142,09 147,41 160,03 Triwulan/Ouarter II 123,32 149,71 131,61 145,59 153,96 158,56 Triwulan/Ouarter II 131,43 154,79 143,75 147,01 159,23 165,52
+
+--- [chunk_id=chunk_67] ---
+PROVINSI/PROVINCE : LAMPUNG
+
+Triwulan/Ouarter | Triwulan/Ouarter II
+
+114,85
+
+120,85
+
+134,49
+
+140,46
+
+128,09
+
+125,41
+
+127,16
+
+133,34
+
+135,24
+
+135,73
+
+Triwulan/Ouarter III
+
+127,47
+
+145,49
+
+138,50
+
+136,45
+
+138,30
+
+Triwulan/Ouarter IV
+
+133,33
+
+149,06
+
+129,78
+
+137,29
+
+144,62
+
+Tables
+
+141,53
+
+140,66
+
+146,63
+
+156,74
+
+TABEL yan Benchmark Indeks Konstruksi (2016-100) Triwulanan, 2018-2023 TABLE Benchmarked Ouarterly Indices of Construction (2016-100), 2018-2023
+
+--- [chunk_id=chunk_75] ---
+PROVINSI/PROVINCE : JAWA BARAT
+
+Triwulan/Ouarter II
+
+124,33
+
+150,58
+
+130,38
+
+148,12
+
+156,06
+
+Triwulan/Ouarter III
+
+134,93
+
+158,64
+
+139,19
+
+156,24
+
+163,63
+
+Triwulan/Ouarter IV
+
+142,90
+
+164,31
+
+152,43
+
+157,97
+
+170,27
+
+Tables
+
+166,06
+
+170,78
+
+180,60
+
+TABEL 2115 Benchmark Indeks Konstruksi (2016-100) Triwulanan, 2018-2023 TABLE Benchmarked Ouarterly Indices of Construction (2016-100), 2018-2023
+
+--- [chunk_id=chunk_113] ---
+PROVINSI/PROVINCE : MALUKU UTARA
+
+Triwulan/Ouarter II
+
+123,89
+
+142,80
+
+116,75
+
+137,03
+
+142,56
+
+Triwulan/Ouarter II
+
+125,78
+
+145,34
+
+132,09
+
+139,26
+
+143,78
+
+Triwulan/Ouarter IV
+
+131,81
+
+156,68
+
+138,79
+
+143,49
+
+147,99
+
+Benchmark Indeks Konstruksi (2016-100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+148,05
+
+148,21
+
+148,73
+
+TABEL 21.34 Benchmark Indeks Konstruksi (2016-100) Triwulanan, 2018-2023 TABLE Benchmarked Ouarterly Indices of Construction (2016-100), 2018-2023
+
+--- [chunk_id=chunk_135] ---
+PROVINSI/PROVINCE : RIAU
+
+-0,56
+
+0,52
+
+11,59
+
+1,00
+
+-5,33
+
+Triwulan/Ouarter II
+
+4,73
+
+4,59
+
+-7,00
+
+7,26
+
+0,02
+
+Triwulan/Ouarter III
+
+6,06
+
+3,71
+
+-9,92
+
+3,78
+
+3,60
+
+Triwulan/Ouarter IV
+
+5,62
+
+2,07
+
+3,37
+
+3,41
+
+549
+
+Tabel-tabel
+
+Tables
+
+-0,36
+
+-0,68
+
+5,76
+
+544
+
+TABEL 259 Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 TABLE Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_145] ---
+PROVINSI/PROVINCE : JAWA BARAT
+
+Triwulan/Ouarter II
+
+8,22
+
+5,58
+
+-9,27
+
+3,50
+
+017
+
+Triwulan/Ouarter III
+
+9,90
+
+5,29
+
+9,97
+
+4,30
+
+1,32
+
+Triwulan/Ouarter IV
+
+7,45
+
+3,36
+
+2,89
+
+4,72
+
+1,09
+
+Benchmark Indeks Konstruksi (2016-—100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+3,08
+
+4,43
+
+7,24
+
+TABEL TABLE Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_149] ---
+PROVINSI/PROVINCE : DI YOGYAKARTA
+
+Triwulan/Ouarter II
+
+6,76
+
+5,75
+
+-0,99
+
+2,89
+
+0,44
+
+Triwulan/Ouarter III
+
+8,52
+
+484
+
+118
+
+2,46
+
+5,49
+
+Triwulan/Ouarter IV
+
+7,00
+
+1,78
+
+1,20
+
+1,82
+
+5,38
+
+Benchmark Indeks Konstruksi (2016-—100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+4,07
+
+4,94
+
+5,62
+
+TABEL TABLE Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_157] ---
+PROVINSI/PROVINCE : BANTEN
+
+Triwulan/Ouarter II
+
+4,01
+
+5,01
+
+419
+
+3,25
+
+-0,96
+
+Triwulan/Ouarter II
+
+6,10
+
+3,34
+
+0,82
+
+0,63
+
+6,04
+
+Triwulan/Ouarter IV
+
+5,51
+
+2,92
+
+1,85
+
+0,69
+
+5,30
+
+Benchmark Indeks Konstruksi (2016-—100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+0,86
+
+7,55
+
+2,22
+
+TABEL TABLE Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_160] ---
+PROVINSI/PROVINCE : KALIMANTAN BARAT Uraian Tahun/Years Description 2018 2019 2020 2021 2022 2023 Pekerja Tetap/Permanent Workers Triwulan/Ouarter | -0,76 0,22 -212 0,04 -0,32 -0,04 Triwulan/Ouarter II 0,79 0,73 -0,91 -0,07 0,11 0,52 Triwulan/Ouarter II 114 0,73 0,43 0,07 0,20 0,22 Triwulan/Ouarter IV 1,09 0,21 0,07 0,14 0,26 1,06 Hari-Orang/Mandays Triwulan/Ouarter | 1,22 1,32 -5,83 0,62 -11,96 -0,76 Triwulan/Ouarter II 4,31 3,22 -2,75 0,13 0,15 242 Triwulan/Ouarter II 4,32 2,09 1,50 212 214 046 Triwulan/Ouarter IV 416 1,04 243 0,73 0,71 2,57 Balas Jasa dan Upah/Compensation and Wages Triwulan/Ouarter | 4,22 1,38 -4,98 0,04 -2,21 -4,76 Triwulan/Ouarter II 6,55 3,31 -6,68 -0,48 014 6,08 Triwulan/Ouarter II 6,00 2,88 416 346 3,70 243 Triwulan/Ouarter IV 4,79 1,40 448 0,58 1,62 448 Balas Jasa Pekerja Tetap/Compensation of Permanent Workers Triwulan/Ouarter | -2,58 -3,81 -3,29 2,54 1,44 -0,05 Triwulan/Ouarter II 6,55 3,32 -7,43 -0,08 0,13 0,22 Triwulan/Ouarter II 5,97 2,98 3,77 3,74 3,37 3,44 Triwulan/Ouarter IV 4,74 1,58 4,56 0,72 1,35 1,38 Upah Pekerja Harian/Wages of Casual Workers Triwulan/Ouarter | 5,90 2,00 -6,56 -046 -2,38 -0,44 Triwulan/Ouarter II 6,53 3,42 -6,53 -0,56 0,15 0,10 Triwulan/Ouarter II 5,83 3,57 4,23 3,40 3,77 3,73 Triwulan/Ouarter IV 4,47 2,68 446 0,55 1,68 1,66 Nilai Konstruksi yang Diselesaikan/Value of Construction Works Completed Triwulan/Ouarter | 2,40 2,25 -8,25 019 -2,68 -1,85
+
+--- [chunk_id=chunk_169] ---
+PROVINSI/PROVINCE : BANTEN
+
+Triwulan/Ouarter II
+
+4,28
+
+5,31
+
+-3,64
+
+-1,32
+
+-0,09
+
+Triwulan/Ouarter II
+
+6,92
+
+4,83
+
+10,21
+
+1,22
+
+0,52
+
+Triwulan/Ouarter IV
+
+5,58
+
+3,20
+
+2,65
+
+5,09
+
+2,49
+
+74
+
+Benchmark Indeks Konstruksi (2016-—100), 2018-2023 Benchmark of Construction Indices (2016-—100), 2018-2023
+
+6,50
+
+0,38
+
+219
+
+TABEL TABLE Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_179] ---
+PROVINSI/PROVINCE : BANTEN
+
+Triwulan/Ouarter |
+
+2,44
+
+1,45
+
+-12,02
+
+-1,81
+
+-1,85
+
+Triwulan/Ouarter II
+
+5,76
+
+5,26
+
+“610
+
+3,54
+
+-0,02
+
+Triwulan/Ouarter III
+
+6,53
+
+4,35
+
+1,79
+
+4,79
+
+0,44
+
+Triwulan/Ouarter IV
+
+5,87
+
+1,95
+
+3,03
+
+0,96
+
+1,75
+
+-1,92
+
+3,33
+
+2,59
+
+2,32
+
+TABEL 2931 Benchmark Pertumbuhan Indeks Konstruksi Triwulanan (persen), 2018-2023 TABLE Benchmarked Ouarterly Growth (g-to-g) of Construction (percent), 2018-2023
+
+--- [chunk_id=chunk_194] ---
+PROVINSI/PROVINCE 2018 2019 2020 2021 2022 2023 Aceh Sumatera Utara Sumatera Barat Riau Jambi Sumatera Selatan Bengkulu Lampung Kep. Bangka Belitung Kepulauan Riau D.K.I. Jakarta Jawa Barat Jawa Tengah D.I. Yogyakarta Jawa Timur Banten Bali Nusa Tenggara Barat Nusa Tenggara Timur Kalimantan Barat Kalimantan Tengah Kalimantan Selatan Kalimantan Timur Kalimantan Utara Sulawesi Utara Sulawesi Tengah Sulawesi Selatan Sulawesi Tenggara Gorontalo Sulawesi Barat Maluku Maluku Utara Papua Barat 117,25 122,59 117,92 123,22 114,27 121,52 116,06 119,69 117,42 116,46 123,35 125,07 121,46 118,16 120,13 120,48 117,42 116,27 107,27 119,64 110,14 123,63 121,18 125,84 106,43 107,30 119,70 116,18 115,48 113,23 116,88 113,85 120,55 119,53 125,15 132,80 127,30 137,34 122116 135,00 124,98 132,53 126,12 127,25 138,00 140,50 134,37 128,86 131,52 134,80 127,83 124,84 113,20 133,71 117,98 138,78 13417 140,22 11314 11516 131,79 125,76 124,59 119,96 127,73 121,76 133,29 131,51 122,41 124,69 122,90 133,55 115,07 124,08 114,90 123,59 115,56 119,79 106,10 134,10 123,90 127,27 126,26 129,40 115,64 109,46 98,57 128,25 99,34 123,38 131,13 136,56 110,74 98,29 129,27 107,53 112,64 106,84 111,67 110,02 117,60 114,27 123,95 127,53 132,79 139,76 117,71 129,06 117,69 127,40 116,97 124,73 108,87 139,04 130,00 129,26 129,24 134,60 118,49 111,61 101,25 133,21 104,07 127,68 132,45 138,37 112,57 100,27 133,59 109,97 115,07 109,71 116,23 112,92 119,80 115,87 126,29 12742 131,34 135,28 127,62 132,32 14211 147,78 120,87 122,79 132,26 137,29 119,56 12517 133,31 136,05 118,56 123,41 126,71 131,23 113,65 119,29 143,64 149,66 133,78 138,28 132,29 137,52 132,93 140,09 138,14 140,97 119,82 121,58 113,05 115,50 103,40 104,93 120,82 12517 105,59 108,91 130,51 133,20 134,36 139,36 141,64 139,94 114,80 117,91 106,70 108,63 139,43 146,87 111,28 113,98 116,88 120,27 111,75 11242 123,13 125,59 11518 116,97 121,87 119,43 117,76 118,93
+
+--- [chunk_id=chunk_195] ---
+PROVINSI/PROVINCE : PAPUA
+
+Papua
+
+INDONESIA
+
+121,23
+
+134,21
+
+118,42
+
+122,00
+
+125,55
+
+130,63
+
+Tabel-tabel
+
+Benchmarked Annual Growth (y-on-y) of Mandays of Construction Casual Workers Province (percent), 2018-2023
+
+--- [chunk_id=chunk_237] ---
+PEKERJAAN KONSTRUKSI TAHUN 2023
+
+.
+
+Nilai dari Pendapatan Lain (Blok VIII, Baris 9 Jumlah Kolom (2)J
+
+. JUMLAHB (142)
+
+Efisiensi Perusahaan
+
+(AIB x 10096)
+
+Persentase Keuntungan Terhadap Pengeluaran
+
+(BIA 1) x 100”
+
+Lampiran Appendix
+
+Lanjutan Lampiran/Continued Appendix 2
+
+1. Apakah perusahaan ini melakukan kegiatan penelitian dan pengembangan (litbang)?
+
+Ya
+
+1
+
+Tidak
+
+25 STOP, Lanjut ke Blok Catatan
+
+2. Jenis penelitian dan pengembangan yang dilakukan (bisa lebih dari satu pilihan):
+
+Penelitian Dasar - 1
+
+Penelitian Terapan - 2
+
+Pengembangan Eksperimental - 4
+
+3. Jika perusahaan melakukan kegiatan litbang sendiri, berapa jumlah SDM pelaku litbang?
+
+4. Berapa biaya belanja (pengeluaran) untuk kegiatan litbang?
+
+Intramural
+
+ii. Extramural
+
+kem
+
+kem
+
+rat
+
+rat
+
+... ...
+
+(000 Rp)
+
+(000 Rp)
+
+fi. Jumlah
+
+tm
+
+Lamtama
+
+..
+
+(000 Rp)
+
+Penelitian dan Pengembangan (Litbang) adalah kegiatan kreatif yang dilakukan dengan sistematis untuk menambah pengetahuan dan pemanfaatan pengetahuan untuk merancang penerapan baru. Contoh penerapan litbang di bidang konstruksi: pembuatan prototipe awal, pilot plant otomatisasi konstruksi, penerapan sumber material alternatif untuk beton.
+
+Belanja Litbang Intramural adalah semua belanja (pengeluaran) untuk kegiatan penelitian dan pengembangan yang dilakukan dalam unit perusahaan.
+
+Belanja Litbang Ekstramural adalah semua belanja (pengeluaran) untuk kegiatan penelitian dan pengembangan yang dilakukan oleh unit perusahaan lain (pihak lain), baik di dalam maupun luar negeri.
+
+. Menurut perusahaan, metode pengisian kuesioner selanjutnya lebih baik dilakukan dengan cara:
+
+--- [chunk_id=chunk_238] ---
+Pengisian mandiri via pendataan online /web base 1 Pengisian menggunakan kuesioner / paper base 2. Jika R1 berkode 1 (online/web base ), tuliskan email resmi yang dapat dihubungi: 'Tuliskan informasi penting yang berhubungan dengan isian kuesioner : Petugas Uraian Pemberi Jawaban Kabupaten/Kota Provinsi @ (5) Nomor HP / Telepon Jabatan Stempel Perusahaan
+

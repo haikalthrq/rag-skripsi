@@ -1,0 +1,333 @@
+DOC: benchmark-statistik-konstruksi--2018---2023
+Total chunks: 176 | Usable: 159 | Sample 10% (18):
+================================================================================
+
+--- [chunk_id=chunk_2] ---
+BENCHMARK STATISTIK KONSTRUKSI, 2018-2023 Benchmark of Construction Statistics, 2018-2023 Volume 14, 2025
+
+Katalog/Catalogue: 6302006 ISSN: 2460-4674 Nomor Publikasi/Publication Number: 05300.25012
+
+Ukuran Buku/Book Size: 18,2 cm x 25,7 cm Jumlah Halaman/Number of Pages: xiv-86 halaman/pages
+
+Penyusun Naskah/Manuscript Drafter: Direktorat Statistik Industri Directorate of Industrial Statistics
+
+Penyunting/Editor: Direktorat Statistik Industri Directorate of Industrial Statistics
+
+Pembuat Kover/Cover Designer: Direktorat Statistik Industri Directorate of Industrial Statistics
+
+Penerbit/Publisher: @Badan Pusat Statistik/BPS-Statistics Indonesia
+
+Sumber ilustrasi/!l/lustration- Source: www.freepik.com
+
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik.
+
+It is prohibited to reproduce and/or duplicate part or all of this book for commercial purpose without permission from BPS-Statistics Indonesia.
+
+--- [chunk_id=chunk_31] ---
+5. Balas Jasa Pekerja Tetap
+
+Balas jasa adalah seluruh pengeluaran yang dibayarkan kepada pekerja tetap berupa upah gaji, upah lembur, hadiah, bonus, dana pensiun, tunjangan kecelakaan dan pengeluaran lainnya dalam bentuk uang maupun barang.
+
+--- [chunk_id=chunk_32] ---
+6. Upah Pekerja Harian
+
+Upah adalah seluruh pengeluaran yang dibayarkan kepada pekerja harian dalam bentuk uang maupun barang sebagai balas jasa.
+
+4
+
+Benchmark Statistik Konstruksi, 2018-2023 Benchmark Construction Statistics, 2018-2023
+
+activities are building construction, road, bridge, railway and rail bridge, tunnel subway, waterwork and drainage, sanitary construction, airport, electricity and communication network, etc.
+
+--- [chunk_id=chunk_34] ---
+3. Worker
+
+Worker is a person who works in an establishment during enumeration, which includes technical worker and non-technical worker. Worker is divided into two categories, they are: permanent workers and casual workers.
+
+a. Permanent Worker is a worker who works at the establishment and receives fixed compensation/salaries without depending on the availability of activities.
+
+b.
+
+Casual Worker is a worker who works during the projectandhas nopermanentrelationship with the company when the project has been completed.
+
+--- [chunk_id=chunk_47] ---
+2.21 Dari Indeks Triwulanan
+
+a. Indeks yang diolah adalah: pekerja tetap, hari-orang, balas jasa dan upah, balas jasa, Upah, serta nilai kontruksi yang diselesaikan.
+b. Buat nilai indeks sama dengan 100 pada awal triwulan yang ada indeksnya.
+c. Bagi setiap indeks triwulan t dengan rata- rata indeks pada tahun dasar 2016 dan dikalikan dengan 100 persen.
+d. Indeks tahun i, merupakan rata-rata dari indeks triwulan t tahun ke-i.
+
+dimana,
+
+|
+
+- Indeks tahun dasar periode
+
+t
+
+compensation and wages, value of construction works completed company i, att"” guarter
+
+Number of permanent workers, mandays, compensation and wages, value of construction works completed company i, at (t-1)” guarter ten) 5
+
+The value of construction works completed is value of contract subtracted by value of subcontracted project to othercontractors multiplied by physical progress of the project completed.
+
+--- [chunk_id=chunk_48] ---
+where,
+
+- Value of construction works completed
+
+NK
+
+NP
+
+- Contract value of the project
+
+NS
+
+-— value of subcontracted project to other contractors
+YNR — percentage of physical progress of the project completed
+
+96NR is percentage of project completedattheendof a survey period subtracted by percentage of project completed at the beginning of survey period.
+
+--- [chunk_id=chunk_58] ---
+2.2.5 Benchmark of Construction Statistics
+
+a.
+
+Benchmarked Construction Permanent Workers Benchmarked — Construction — Permanent Workers for each province is obtained by setting the numberof construction permanent workers in one year as a benchmark, and then the data is driven by the previous and subseguent annual growth benchmark.
+Benchmarked Mandays of Construction Casual Workers
+
+b.
+
+Penjelasan Explanation
+
+Benchmark Hari-Orang Pekerja Harian Konstruksi masing-masing provinsi diperoleh dengan cara menetapkan jumlah hari-orang pekerja harian konstruksi pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya.
+
+c. Benchmark Balas Jasa dan Upah Pekerja Konstruksi
+
+Benchmark Balas Jasa dan Upah Pekerja setiap provinsi diperoleh dengan cara menetapkan nilai balas jasa dan upah pada salah satu tahun sebagai benchmark, selanjutnya data variabel tersebut digerakkan dengan benchmark pertumbuhan tahunan sebelum dan sesudahnya. Dari variabel Balas Jasa dan Upah dipecah menjadi 2 nilai variabel yaitu Benchmark Balas Jasa Pekerja Tetap dan Benchmark Upah Pekerja Harian dengan formula sebagai berikut:
+
+Selanjutnya upah pekerja harian merupakan hasil pengurangan balas jasa dan upah terhadap balas jasa.
+
+U, Benchmark —- BJU, Benchmark — BJ, Publikasi
+
+dimana,
+
+BJ, -— Balas jasa pekerja tetap provinsi ke-i tahun ke-t
+BJU, — Balas jasa dan upah pekerja provinsi ke-i tahun ke-t
+Upah pekerja harian provinsi ke-i tahun ke-t
+
+Setelah didapatkan nilai balas jasa pekerja tetap benchmark dan upah pekerja harian benchmark, dilakukan penghitungan rata- rata balas jasa pekerja tetap dan rata-rata Upah pekerja harian. Untuk penghitungannya digunakan formula sebagai berikut:
+
+Untuk penghitungan rata-rata balas jasa pekerja tetap dan rata-rata upah yang Outlier dilakukan penyesuaian (adjusment).
+
+Rata -rata Balas Jasa - Balas Jasa Pekerja Tetap Jumlah Pekerja Tetap
+
+10
+
+Benchmark Statistik Konstruksi, 2018-2023 Benchmark Construction Statistics, 2018-2023
+
+Benchmarked Mandays of Construction Casual Workers for each province is obtained by setting the number of mandays of construction casual workers in one year as a benchmark, and then the data is driven by the previous and subseguent annual growth benchmark.
+
+«.
+
+Benchmarked Compensation and Wages of Construction Workers
+
+Benchmarked Compensation and Wages of Construction workers for each province is obtained by setting the value of compensation and wages in one year as a benchmark, and then the data is driven by the previous and subseguent annual growth benchmark. This variable is split into two variables i.e.: Benchmarked Compensation of Permanent Workers and Benchmarked Wages of Casual Workers with the following provision:
+
+Meanwhile the wages of casual workers is the result ofa reduction compensation and wages minus compensation.
+
+U,, Benchmark — BJU, Benchmark — BJ, Publikasi
+
+--- [chunk_id=chunk_64] ---
+where,
+
+/ UBILIN
+
+pasn ponarow uondnugsuo) Jo 350) JO yiMo12 Isynaysuoy ueyeungig ueyeg uesenjabuag Uryngwnyag BL pasn jppuajow UoNIJSUO) JO 150) jeuayew/ueunGueg ueyeg uelenjabuad "11 SIM Uo/INIISUOI JO aNJDA JO YIMOID bueA IsynuysuOY lejIN UeyngwunUad '9L parajdwo) Sy10M U0/NJJSUO) J0 INJDA ueylesajasig Buek ISyNNySUOY IEJIN "GL Sa6DM PUD UO!JDSUSdWO) JO YJMOI) yedn Uep eser sejeg UryngnUad "PL UO!IIN/ISUO) JO Sa6DM PUD UO!JDSUadWO) Isinaysuoy ehayag yedn uep eser sejeg "EL UONINAISUO) JO SaDDM @DDI2NY JO YIMOID) efiayag yedn ejey-ejey ULUNngLunUad "TL JDNSD) UO/JINIJSUO) JO sabDM abbiany UeleH ellayag Yedn ejey-e1ey "LL IDNSD) UONINIISUOI JO SaBDM JO YIMOID ueueH eflayad yedn Ueyngwnuad "OL SIDJIOM IONSD) UOININIISUOI JO SabUM Isyniysuoy UeueH ellayag yedn "6 UOIJINISUOI JO SKDPUDIN JO YIMOIT) ue1O-UEH yejunr ueyngunyag 'g UONINIISUO) JO SADPUDIN JO IaGUINN UeueH efllayag BueiO-LeH yejunr "4 JO UONDSUadWO) ADDIANY JO YIMOID eser sejeg ejey-e)ey ULUNgWNHAd "9 UO/JNIJSUO) JO UO/JDsuadwO) abDIANY deaj eliayag eser sejeg ehey-eeY "S UO/1INIISUO) JO UONDSUSJLO) JO YIMOID) dejaj efiayag eser sejeg ULyNngWNHAd "P UO!JIN/ISUO) JO UO!)DSuadWO) 2YI Isinnsuoy deyaj efiayag eser sejeg "€ JUdUDUHAG UO!)IN/ISUO) JO YIMOII dejay efiayag yejunr Usyngwnyad "TC JUDUDUNAG UO!JINAISUO) JO IG INN ynaysuoy dejaj efiayag yejuunf "L
+
+w ha Tabel-Tabel
+
+Tables
+
+TABEL 23 Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi, 2018-2023 TABLE " Number of Construction Permanent Workers by Province, 2018-2023
+
+--- [chunk_id=chunk_65] ---
+PROVINSI/PROVINCE 2018 2019 2020 2021 2022 2023 PG“ “GG “gg “Gg “Gg AD Aceh 9.636 9911 9.722 9.742 9.761 9.822 Sumatera Utara 38.910 40.180 39.523 39.808 40.254 41.003 Sumatera Barat 9.448 9.652 9.554 9.770 9.908 10.110 Riau 24.887 25.774 25.415 26.051 26.324 26.853 Jambi 7.932 8.128 8.038 8.108 8.241 8.355 Sumatera Selatan 18.119 18.709 18.422 18.937 19.167 19.602 Bengkulu 6.355 6.520 6.396 6.467 6.521 6.593 Lampung 12.749 13.045 12.817 12.983 13.038 13.181 Kep. Bangka Belitung 6118 6.221 6.150 6.204 6.228 6.327 Kepulauan Riau 18.431 19.055 18.412 18.879 19.065 19.343 D.K.I. Jakarta 425.014 435.972 424.084 424.292 429.896 436.989 Jawa Barat 99.680 102.717 101.449 103.069 103.721 105.588 Jawa Tengah 42.474 43.879 42.964 44.097 44.285 44821 D.I. Yogyakarta 6.899 7.093 7.001 7.040 7.092 7.214 Jawa Timur 141.902 145.529 142.987 143.191 143.276 145.038 Banten 57.189 58.697 58.017 59.506 60.173 60.877 Bali 12.754 13.103 12.895 13.055 13.178 13.187 Nusa Tenggara Barat 6.663 6.800 6.714 6.805 6.854 6.953 Nusa Tenggara Timur 12.383 12.645 12.479 12.510 12.519 12.683 Kalimantan Barat 14.871 15.286 15.000 15.014 15.021 15.179 Kalimantan Tengah 11.165 11.305 11.080 11.425 11.511 11.709 Kalimantan Selatan 7.629 7.842 7.626 7794 7.895 7.952 Kalimantan Timur 30.289 31.684 31.296 31.632 31.921 32.492 Kalimantan Utara 5.026 5.314 5.240 5.244 5.269 5.211 Sulawesi Utara 6.158 6.278 6.162 6.164 6.222 6.271 Sulawesi Tengah 9.922 10.095 9.753 9771 9.896 10.023 Sulawesi Selatan 23.241 24.016 23.605 23.899 24.054 24.429 Sulawesi Tenggara 7.243 7.410 7.331 7.349 7.351 7.380 Gorontalo 2.912 2.986 2.887 2.889 2.890 2.928 Sulawesi Barat 2.388 2.429 2.365 2.401 2.414 2.425 Maluku 4.421 4.564 4.270 4.351 4.423 4.445 Maluku Utara 3.433 3.521 3.470 3.475 3.503 3.538 Papua Barat 9.720 10.088 9.711 9.789 9.845 9.707 34.854 35.351 35.459 35.529 35.781
+
+--- [chunk_id=chunk_81] ---
+TABEL maBiE
+
+Papua
+
+619
+
+6,43
+
+-0,56
+
+444
+
+244
+
+INDONESIA
+
+6,30
+
+6,56
+
+-0,69
+
+3,09
+
+4,98
+
+Tabel-Tabel Tables
+
+0,52
+
+3,93
+
+Percentage of Compensation of Construction Permanent Workers to Construction Works Completed by Province (percent), 2018-2023
+
+--- [chunk_id=chunk_96] ---
+PROVINSI/PROVINCE Aceh Sumatera Utara Sumatera Barat Riau Jambi Sumatera Selatan Bengkulu Lampung Kep. Bangka Belitung Kepulauan Riau D.K.I. Jakarta Jawa Barat Jawa Tengah D.I. Yogyakarta Jawa Timur Banten Bali Nusa Tenggara Barat Nusa Tenggara Timur Kalimantan Barat Kalimantan Tengah Kalimantan Selatan Kalimantan Timur Kalimantan Utara Sulawesi Utara Sulawesi Tengah Sulawesi Selatan Sulawesi Tenggara Gorontalo Sulawesi Barat Maluku Maluku Utara Papua Barat 2018 2019 2020 2021 2022 2023 Gg “GG “gg “GG DA 75.397 80.000 80.009 81.138 83.182 83.567 94.233 100.000 100.036 102.588 103.997 104.050 80.139 83.500 83.067 89.135 90.438 92.364 95.514 100.000 100.070 103.968 106.050 107.635 91.478 95.000 95.047 99.042 101.592 103.293 106.129 110.000 110.013 112.643 113.190 118.456 97.181 100.000 100.040 102.710 104.154 107.300 97.654 100.000 100.060 102.222 103.647 106.719 96.930 100.000 100.019 101.033 99.917 99.946 109.087 112.500 112.608 115.620 116.579 117110 140.842 150.000 150.009 154.597 158.373 162.840 95.370 100.000 100.033 102.710 104.876 106.129 77.60 82.500 82.556 83.575 84.826 86.110 79.344 82.125 82.150 86.240 89.018 89.047 80.991 86.000 86.044 88.775 91.637 97.334 96.839 100.000 100.068 105.672 107.680 109.659 85.517 90.000 90.021 91.406 93.022 93.900 73.509 76.250 76.310 78.438 79.311 82.202 89.206 92.500 92.530 93.793 92.872 97.494 96.692 100.000 100.055 100.809 101.149 102.654 109.203 115.250 115.342 118.899 120.831 124.781 96.193 100.000 100.088 104.270 106.516 108.423 95.085 100.000 100.082 103.226 106.258 106.295 91.402 100.000 100.046 102.253 104.015 104.173 113.870 120.000 120.054 120.470 123.502 124.599 88.563 92.500 92.571 93.467 95.335 97.011 95.888 100.000 100.089 104.931 105.654 108.720 99.263 102.500 102.576 106.861 109.469 111.047 100.769 105.000 105.022 107.367 108.904 109.537 81.591 85.000 85.082 86.641 88.186 89.037 104.581 107.500 107.595 109.187 110.425 111.231 131.628 140.000 140.035 145.340 147.837 149.301 112.920 120.000 120.037 123.975 126.686 127113
+
+--- [chunk_id=chunk_97] ---
+TABEL maBiE
+
+Papua
+
+130.387
+
+134.375
+
+134.468
+
+138.802
+
+141.908
+
+142.800
+
+INDONESIA
+
+107.350
+
+113.706
+
+111.251
+
+114.471
+
+117.241
+
+120.440
+
+Tabel-Tabel Tables
+
+Growth of Average Wages of Construction Casual Workers by Province (percent), 2018- 2023
+
+--- [chunk_id=chunk_107] ---
+TABEL maBiE
+
+Papua
+
+1,28
+
+1,24
+
+1,27
+
+1,26
+
+1,24
+
+INDONESIA
+
+100,00
+
+100,00
+
+100,00
+
+100,00
+
+100,00
+
+36
+
+Benchmark Statistik Konstruksi, 2018-2023 Benchmark Construction Statistics, 2018-2023
+
+118
+
+100,00
+
+AD
+
+Percentage of Compensation and Wages of Construction Workers to Value of Construction Works Completed by Province (percent), 2018-2023
+
+--- [chunk_id=chunk_118] ---
+PROVINSI/PROVINCE 2018 2019 2020 2021 2022 2023 PG“ “GG “gg “Gg “Gg Aceh 9,33 12,24 -2,07 3,40 4,74 1,20 Sumatera Utara 9,49 20,36 -5,98 4,62 5,75 4,44 Sumatera Barat 8,69 17,76 -6,56 9,28 7,42 5,34 Riau 10,48 23,96 “4,69 10,97 3,46 3,77 Jambi 8,67 21,56 “14,54 5,45 7,06 242 Sumatera Selatan 12,08 23,25 -10,68 6,74 4,33 8,08 Bengkulu 7,78 21,43 -1516 3,46 5,69 6,92 Lampung 9,06 19,73 -8,62 7,66 4,92 2,98 Kep. Bangka Belitung 912 16,55 -6,69 1,32 4,06 4,40 Kepulauan Riau 13,79 12,03 -4,83 3,75 4,87 5,33 D.K.I. Jakarta 16,38 23,83 -27,31 7,06 5,82 919 Jawa Barat 16,93 25,65 -5,59 8,09 7,44 7,30 Jawa Tengah 15,18 21,86 -8,58 13,60 5,27 271 D.I. Yogyakarta 14,93 2019 -219 10,31 6,87 3,52 Jawa Timur 15,89 17,63 -10,36 15,51 5,86 919 Banten 15,08 23,68 -6,72 18,67 4,58 5,31 Bali 13,83 17,84 11,97 6,36 6,00 3,64 Nusa Tenggara Barat 9,24 16,22 -12,85 1,40 2,49 7,55 Nusa Tenggara Timur 9,33 14,99 1010 541 3,88 6,10 Kalimantan Barat 1516 22,76 -9,55 16,08 3,62 1,86 Kalimantan Tengah 12,42 21,60 -18,89 4,00 6,76 4,69 Kalimantan Selatan 16,04 22,1 -16,73 12,66 3,78 5,23 Kalimantan Timur 15,86 2313 -9,22 9,46 8,06 0,03 Kalimantan Utara 13,42 2019 44,59 15,33 4,58 -5,64 Sulawesi Utara 11,23 13,80 -2,92 13,60 2,94 0,46 Sulawesi Tengah 12,94 17,95 -14,70 2,90 8,48 3,04 Sulawesi Selatan 13,78 20,05 -10,39 13,30 3,94 3,87 Sulawesi Tenggara 12,87 20,07 -15,69 6,55 6,99 0,21 Gorontalo 13,22 215 -9,35 119 2,58 5,39 Sulawesi Barat 9,79 1171 -8,36 8,37 2,41 4,60 Maluku 10,94 18,48 -10,24 6,81 5,56 271 Maluku Utara 9,38 17,29 -12,88 9,30 5,83 0,04 Papua Barat 17,46 14,01 -9,44 4,60 4,82 -1,64
+
+--- [chunk_id=chunk_119] ---
+TABEL maBiE
+
+Papua
+
+17,01
+
+20,38
+
+-16,76
+
+3,84
+
+4,00
+
+INDONESIA
+
+15,06
+
+2212
+
+1747
+
+9,08
+
+5,68
+
+Pn
+
+Benchmark Statistik Konstruksi, 2018-2023 Benchmark Construction Statistics, 2018-2023
+
+1,01
+
+6,79
+
+AD
+
+Structure of Cost of Construction Material Used by Province (percent), 2018-2023
+
+--- [chunk_id=chunk_126] ---
+PROVINSI/PROVINCE 2018 2019 2020 2021 2022 2023 PG“ “GG “gg “Gg “Gg Aceh 2,80 291 3,42 4,23 4,20 4,08 Sumatera Utara 4,66 4,61 4,37 5,02 4,87 4,66 Sumatera Barat 319 316 3,30 313 3,03 31 Riau 4,82 4,99 4,89 3,84 3,73 3,71 Jambi 1,96 1,87 1,86 1,66 1,53 148 Sumatera Selatan 210 2,20 2,23 2,75 2,79 2,64 Bengkulu 0,89 0,88 0,84 0,74 0,69 0,72 Lampung 2,23 217 2,56 2/13 2,09 2,23 Kep. Bangka Belitung 0,81 0,71 0,58 047 041 047 Kepulauan Riau 1,30 1,27 1,26 1,29 1,26 116 D.K.I. Jakarta 6,28 5,98 610 713 7,31 7,44 Jawa Barat 6,77 7,05 6,97 6,33 6,86 6,65 Jawa Tengah 6,84 7,04 719 7,85 8,23 8,44 D.I. Yogyakarta 1,03 1,00 112 0,93 0,93 0,89 Jawa Timur 12,92 12,34 12,20 12,09 12,06 12,39 Banten 1,88 2,01 1,97 3,57 3,60 3,48 Bali 1,35 1,28 117 0,99 0,94 0,91 Nusa Tenggara Barat 1,93 2,26 2,32 2,01 2,00 210 Nusa Tenggara Timur 3,52 3,57 3,69 2,99 3,04 2,90 Kalimantan Barat 3,40 3,29 3,43 3,79 3,74 3,94 Kalimantan Tengah 113 1,08 1,20 116 1,06 1,32 Kalimantan Selatan 244 2,42 2,33 218 213 2,04 Kalimantan Timur 3,02 2,92 2,80 3,35 3,53 3,71 Kalimantan Utara 1,01 0,98 0,82 0,72 0,63 0,62 Sulawesi Utara 1,58 1,52 1,25 1,22 1,07 0,95 Sulawesi Tengah 2,21 2,07 1,94 1,97 191 1,94 Sulawesi Selatan 649 6,64 6,92 5,62 5,73 5,98 Sulawesi Tenggara 211 210 2,06 1,77 1,70 1,74 Gorontalo 0,54 0,47 0,45 0,43 0,40 0,35 Sulawesi Barat 0,82 0,74 0,75 0,69 0,64 0,60 Maluku 1,29 1,32 114 115 1,00 0,87 Maluku Utara 1,56 1,48 1,33 110 1,02 0,87 Papua Barat 1,89 219 214 1,70 1,83 1,79 Papua 3,22 3,45 3,38 4,01 4,03 3,84
+
+--- [chunk_id=chunk_152] ---
+DAFTAR PUSTAKA BIBLIOGRAPHY
+
+Badan Pusat Statistik. 2023. Pedoman Survei Konstruksi 2023. Jakarta: BPS. Badan Pusat Statistik. 2024. Pedoman Survei Konstruksi 2024. Jakarta: BPS.
+
+Indonesia. 2021. Peraturan Pemerintah Republik Indonesia Nomor 5 Tahun 2021. Jakarta: Lembaran RI Nomor 6617.
+
+RI Nomor 6617.
+
+International Monetary Fund. 2018. Ouarterly National Accounts Manual 2017. Washington DC: International Monetary Fund.
+
+Daftar Pustaka Bibliography
+
+--- [chunk_id=chunk_165] ---
+PEKERJAAN KONSTRUKSI TAHUN 2023
+
+Pekerjaan yang dicakup pada Blok VII meliputi semua pekerjaan konstruksi yang dilaksanakan selama tahun 2023, baik yang dimulai pada
+

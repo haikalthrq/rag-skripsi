@@ -1,0 +1,90 @@
+================================================================================
+                             ROUGE SCORE - RAGAS
+  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#rouge-score
+================================================================================
+
+================================================================================
+DEFINISI
+================================================================================
+
+RougeScore adalah sekumpulan metrik yang digunakan untuk mengevaluasi kualitas
+natural language generations. Metrik ini mengukur overlap antara generated
+response dan teks reference berdasarkan n-gram recall, precision, dan F1
+score. ROUGE score berkisar dari 0 hingga 1, di mana 1 menunjukkan kecocokan
+sempurna antara response dan reference. Ini adalah metrik berbasis non-LLM.
+
+================================================================================
+PENGGUNAAN (Collections-Based API)
+================================================================================
+
+Kode:
+------
+from ragas.metrics.collections import RougeScore
+
+# Buat metrik (tidak memerlukan LLM/embeddings)
+scorer = RougeScore(rouge_type="rougeL", mode="fmeasure")
+
+# Evaluasi
+result = await scorer.ascore(
+    reference="The Eiffel Tower is located in Paris.",
+    response="The Eiffel Tower is located in India."
+)
+print(f"ROUGE Score: {result.value}")
+
+Output:
+  ROUGE Score: 0.8571428571428571
+
+Catatan - Penggunaan Sinkron:
+  Jika lebih suka kode sinkron, gunakan method .score() sebagai
+  pengganti .ascore():
+
+  result = scorer.score(
+      reference="The Eiffel Tower is located in Paris.",
+      response="The Eiffel Tower is located in India."
+  )
+
+================================================================================
+KONFIGURASI
+================================================================================
+
+Mengubah rouge_type:
+  - rouge_type="rouge1"  → menghitung ROUGE score berdasarkan unigrams
+  - rouge_type="rougeL"  → menghitung ROUGE score berdasarkan longest common
+                           subsequence
+
+  scorer = RougeScore(rouge_type="rouge1")
+
+Mengubah mode:
+  - mode="precision"  → menghitung ROUGE score berdasarkan precision
+  - mode="recall"     → menghitung ROUGE score berdasarkan recall
+  - mode="fmeasure"   → menghitung ROUGE score berdasarkan F1 score
+
+  scorer = RougeScore(mode="recall")
+
+================================================================================
+LEGACY METRICS API
+================================================================================
+
+PERINGATAN DEPRECATION:
+  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
+  Harap migrasi ke collections-based API yang ditunjukkan di atas.
+
+Contoh dengan SingleTurnSample:
+------
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import RougeScore
+
+sample = SingleTurnSample(
+    response="The Eiffel Tower is located in India.",
+    reference="The Eiffel Tower is located in Paris."
+)
+
+scorer = RougeScore()
+await scorer.single_turn_ascore(sample)
+
+Output: 0.8571428571428571
+
+--------------------------------------------------------------------------------
+Terakhir diperbarui: December 11, 2025
+Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#rouge-score
+================================================================================

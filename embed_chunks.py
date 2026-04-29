@@ -85,6 +85,13 @@ if __name__ == "__main__":
     )
     
     parser.add_argument(
+        '--methods',
+        nargs='+',
+        choices=['element_based', 'maxmin_semantic', 'recursive'],
+        help='Specific chunking methods untuk di-embed (default: semua)'
+    )
+    
+    parser.add_argument(
         '--no-skip',
         action='store_true',
         help='Proses ulang file yang sudah ada'
@@ -102,7 +109,8 @@ if __name__ == "__main__":
         device=args.device,
         normalize=not args.no_normalize,
         save_numpy=args.save_numpy,
-        skip_existing=not args.no_skip
+        skip_existing=not args.no_skip,
+        methods=args.methods
     )
     
     # Exit code based on results

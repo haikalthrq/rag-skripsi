@@ -49,6 +49,16 @@ mypy # type checker
 ipython  # enhanced REPL
 jupyter # notebook support
 
+# Evaluation
+# ----------
+ragas               # Context Precision, Context Recall, BLEU, ROUGE
+rank-eval           # Mean Reciprocal Rank (MRR)
+rapidfuzz           # Diperlukan oleh NonLLMContextPrecisionWithReference
+
+# Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
+# Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local
+# langchain-openai
+
 # Logging & Monitoring
 # --------------------
 loguru # advanced logging (optional)

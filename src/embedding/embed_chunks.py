@@ -138,7 +138,8 @@ def embed_all_chunks(
     device: str = "cuda",
     normalize: bool = True,
     save_numpy: bool = False,
-    skip_existing: bool = True
+    skip_existing: bool = True,
+    methods: Optional[List[str]] = None
 ) -> Dict[str, Any]:
     """
     Embed semua chunks dari 3 metode chunking.
@@ -199,7 +200,8 @@ def embed_all_chunks(
     logger.info("")
     
     # Process each chunking method
-    chunking_methods = ['element_based', 'maxmin_semantic', 'recursive']
+    all_methods = ['element_based', 'maxmin_semantic', 'recursive']
+    chunking_methods = methods if methods is not None else all_methods
     
     stats = {
         'total_files': 0,

@@ -1,0 +1,184 @@
+================================================================================
+                           CONTEXT RECALL - RAGAS
+  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_recall/
+================================================================================
+
+================================================================================
+DEFINISI
+================================================================================
+
+Context Recall mengukur berapa banyak dokumen relevan (atau informasi relevan)
+yang berhasil diambil oleh retriever. Metrik ini berfokus pada tidak melewatkan
+hasil yang penting. Semakin tinggi recall, semakin sedikit dokumen relevan yang
+terlewat. Singkatnya, recall adalah tentang tidak melewatkan apapun yang penting.
+
+Karena berfokus pada kelengkapan, perhitungan context recall selalu membutuhkan
+reference untuk dibandingkan. Metrik Context Recall berbasis LLM menggunakan
+`reference` sebagai proxy dari `reference_contexts`, yang membuatnya lebih mudah
+digunakan karena melabeli reference contexts secara manual sangat memakan waktu.
+Untuk memperkirakan context recall dari `reference`, reference dipecah menjadi
+klaim-klaim (claims), dan setiap klaim dianalisis apakah dapat diatribusikan ke
+retrieved context atau tidak. Dalam skenario ideal, semua klaim dalam reference
+answer seharusnya dapat diatribusikan ke retrieved context.
+
+Formula:
+
+  Context Recall = Jumlah klaim dalam reference yang didukung retrieved context
+                   -------------------------------------------------------------
+                   Total jumlah klaim dalam reference
+
+================================================================================
+PENGGUNAAN (Collections-Based API)
+================================================================================
+
+Kode:
+------
+from openai import AsyncOpenAI
+from ragas.llms import llm_factory
+from ragas.metrics.collections import ContextRecall
+
+# Setup LLM
+client = AsyncOpenAI()
+llm = llm_factory("gpt-4o-mini", client=client)
+
+# Buat metrik
+scorer = ContextRecall(llm=llm)
+
+# Evaluasi
+result = await scorer.ascore(
+    user_input="Di mana letak Menara Eiffel?",
+    retrieved_contexts=["Paris adalah ibu kota Perancis."],
+    reference="Menara Eiffel terletak di Paris."
+)
+print(f"Context Recall Score: {result.value}")
+
+Output:
+  Context Recall Score: 1.0
+
+Catatan - Penggunaan Sinkron:
+  Jika lebih suka kode sinkron, gunakan method .score() sebagai
+  pengganti .ascore():
+
+result = scorer.score(
+    user_input="Di mana letak Menara Eiffel?",
+    retrieved_contexts=["Paris adalah ibu kota Perancis."],
+    reference="Menara Eiffel terletak di Paris."
+)
+
+================================================================================
+LEGACY METRICS API (LLM BASED)
+================================================================================
+
+PERINGATAN DEPRECATION:
+  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
+  Harap migrasi ke collections-based API yang ditunjukkan di atas.
+
+Contoh dengan SingleTurnSample:
+------
+
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import LLMContextRecall
+
+sample = SingleTurnSample(
+    user_input="Di mana letak Menara Eiffel?",
+    response="Menara Eiffel terletak di Paris.",
+    reference="Menara Eiffel terletak di Paris.",
+    retrieved_contexts=["Paris adalah ibu kota Perancis."],
+)
+
+context_recall = LLMContextRecall(llm=evaluator_llm)
+await context_recall.single_turn_ascore(sample)
+
+Output:
+1.0
+
+================================================================================
+NON-LLM BASED CONTEXT RECALL
+================================================================================
+
+Metrik NonLLMContextRecall dihitung menggunakan `retrieved_contexts` dan
+`reference_contexts`, dengan nilai antara 0 dan 1. Nilai yang lebih tinggi
+menunjukkan performa yang lebih baik. Metrik ini menggunakan perbandingan
+string berbasis non-LLM untuk menentukan apakah retrieved context relevan.
+Anda dapat menggunakan metrik berbasis non-LLM apapun sebagai distance measure
+untuk menentukan relevansi retrieved context.
+
+Formula:
+
+  Context Recall = |Jumlah context relevan yang berhasil diambil|
+                   -----------------------------------------------
+                   |Total jumlah reference contexts|
+
+Kode:
+------
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import NonLLMContextRecall
+
+sample = SingleTurnSample(
+    retrieved_contexts=["Paris adalah ibu kota Perancis."],
+    reference_contexts=[
+        "Paris adalah ibu kota Perancis.",
+        "Menara Eiffel adalah salah satu landmark paling terkenal di Paris."
+    ]
+)
+
+context_recall = NonLLMContextRecall()
+await context_recall.single_turn_ascore(sample)
+
+Output:
+0.5
+
+================================================================================
+ID BASED CONTEXT RECALL
+================================================================================
+
+IDBasedContextRecall menyediakan cara yang langsung dan efisien untuk mengukur
+recall dengan membandingkan ID dari retrieved contexts dengan reference context
+IDs. Metrik ini sangat berguna ketika Anda memiliki sistem ID unik untuk dokumen
+dan ingin mengevaluasi performa retrieval tanpa membandingkan konten aktual.
+
+Metrik ini menghitung recall menggunakan `retrieved_context_ids` dan
+`reference_context_ids`, dengan nilai antara 0 dan 1. Nilai yang lebih tinggi
+menunjukkan performa yang lebih baik. Metrik ini bekerja dengan ID bertipe
+string maupun integer.
+
+Formula:
+
+  ID-Based Context Recall = Jumlah reference context IDs yang ditemukan dalam retrieved
+                            ------------------------------------------------------------
+                            Total jumlah reference context IDs
+
+Kode:
+------
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import IDBasedContextRecall
+
+sample = SingleTurnSample(
+    retrieved_context_ids=["doc_1", "doc_2", "doc_3"],
+    reference_context_ids=["doc_1", "doc_4", "doc_5", "doc_6"]
+)
+
+id_recall = IDBasedContextRecall()
+await id_recall.single_turn_ascore(sample)
+
+Output: 0.25
+
+Penjelasan:
+  Dari 4 reference context IDs, hanya 1 ("doc_1") yang ditemukan dalam
+  retrieved context IDs, menghasilkan recall score sebesar 0.25 atau 25%.
+
+================================================================================
+RINGKASAN VARIAN METRIK
+================================================================================
+
+| Metrik                 | Kebutuhan Input                               | Metode   |
+|------------------------|-----------------------------------------------|----------|
+| ContextRecall          | user_input + reference + retrieved_contexts   | LLM      |
+| LLMContextRecall       | user_input + response + reference + contexts  | LLM      |
+| NonLLMContextRecall    | retrieved_contexts + reference_contexts       | Non-LLM  |
+| IDBasedContextRecall   | retrieved_context_ids + reference_context_ids | ID-based |
+
+--------------------------------------------------------------------------------
+Terakhir diperbarui: December 9, 2025
+Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_recall/
+================================================================================
