@@ -7,624 +7,205 @@ Terakhir diperbarui: 2026-05-20 (02:40 WIB)
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. GAMBARAN UMUM PROJECT
+1. GAMBARAN UMUM
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Ini adalah project SKRIPSI mahasiswa S1 yang membangun dan mengevaluasi sistem
-RAG (Retrieval-Augmented Generation) berbasis dokumen statistik BPS Indonesia.
+Skripsi S1 — membangun dan mengevaluasi sistem RAG berbasis dokumen statistik BPS Indonesia.
+Bahasa: Python 3.11.9 | OS: Windows | Repo: rag-skripsi | Branch aktif: dev
 
-Nama folder   : rag-skripsi
-Bahasa        : Python 3.11.9
-OS            : Windows
+Tujuan:
+  - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
+  - Embedding: Qwen3-Embedding-4B-Q8_0.gguf (llama.cpp, CPU only)
+  - Generator: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, GPU RTX 4050 6GB)
+  - Vector DB: ChromaDB (persistent, lokal di data/chroma/)
+  - Evaluasi retrieval: Precision@k, Recall@k, MRR  — NDCG tidak dipakai
+  - Evaluasi generasi: BLEU (sacrebleu), ROUGE-L Recall (rouge-score)
 
-Tujuan akhir penelitian:
-  - Membandingkan 3 metode chunking (element_based, maxmin_semantic, recursive)
-  - Menggunakan embedding Qwen3-Embedding-4B-GGUF
-  - Generator: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers)
-  - Vector DB: ChromaDB
-  - Evaluasi retrieval: Precision@k, Recall@k, MRR  (NDCG tidak dipakai)
-  - Evaluasi generasi: BLEU, ROUGE-L Recall (RAGAS sementara tidak dipakai)
+Dokumen BPS (10 dokumen, di data/raw/ + scripts/gt_raw/):
+  benchmark-indeks-konstruksi, benchmark-statistik-konstruksi,
+  cerita-data (mismatch pendidikan-pekerjaan), indeks-unit-value-ekspor-impor,
+  neraca-lembaga-non-profit, neraca-pemerintahan-umum, neraca-rumah-tangga,
+  statistik-pendidikan-2025, statistik-perdagangan-bulanan-impor,
+  statistik-perdagangan-moda-transportasi
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-2. STRUKTUR FOLDER
+2. STRUKTUR FOLDER (RINGKAS)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 rag-skripsi/
-├── chunk_element.py          # [LEGACY] Chunking unstructured (element-based)
-├── chunk_maxmin.py           # [LEGACY] Chunking MaxMin semantic
-├── chunk_recursive.py        # [LEGACY] Chunking RecursiveCharacterTextSplitter
-├── embed_chunks.py           # [LEGACY] Embed chunks → ChromaDB
-├── load_to_chroma.py         # [LEGACY] Load chunks ke ChromaDB
-├── preprocess.py             # [LEGACY] Preprocessing PDF → teks bersih
-├── requirements.txt          # Dependensi project (semua package utama)
-├── out.txt                   # [TEMP] Output log sementara
-│
-│   CATATAN: rag_query.py TIDAK ADA di root — sudah dipindah ke backup/cli_rag/
-│            evaluate.py  TIDAK ADA di root — sudah dipindah ke backup/legacy_unused_root/
-│
-├── models/                   # Model lokal (download via scripts/)
-│   ├── Qwen3-4B-Instruct-2507-FP8/  # HF transformers model (5.2 GB, model.safetensors)
-│   └── Qwen3-Embedding-4B-Q8_0.gguf # Embedding model (4.3 GB GGUF)
-│
-├── backup/                   # ← File yang dipindah dari area aktif (JANGAN EDIT)
-│   ├── cli_rag/              # rag_query_encoding_fix.py (legacy CLI)
-│   ├── legacy_unused_root/   # evaluate.py + README.md
-│   ├── redundant_cleanup_20260512/ # evaluate.py, test logs, results lama
-│   ├── chroma_broken_*/      # Snapshot ChromaDB yang rusak
-│   ├── chroma_journals/      # Journal file ChromaDB lama
-│   └── streamlit_backup/     # Backup versi lama Streamlit apps
-│
-├── configs/                  # (kosong — untuk konfigurasi YAML/JSON jika perlu)
-├── figures/                  # (kosong — untuk output plot/visualisasi)
-├── logs/                     # (kosong — untuk log aplikasi)
-├── notebooks/                # (kosong — untuk Jupyter notebook eksplorasi)
-├── .gitignore                # Git ignore rules
-│
-├── data/
-│   ├── raw/                  # PDF dokumen BPS asli
-│   ├── cleaned/              # Teks hasil preprocessing
-│   ├── chunked/              # Chunks per metode (JSON)
-│   │   ├── element_based/
-│   │   ├── maxmin_semantic/
-│   │   └── recursive/
-│   ├── embeddings/           # File embedding
-│   ├── chroma/               # ChromaDB persistent storage
-│   └── ground_truth/         # ← AREA KERJA UTAMA KITA
-│       ├── audit/                                               # File audit stale (sebelum narrative revision)
-│       ├── qa_gold_standard_rag_bps_30qa.xlsx                   # QA gold asli (sebelum fix)
-│       ├── qa_gold_standard_rag_bps_30qa_fixed.xlsx             # QA gold (setelah fix awal)
-│       ├── qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx  # ← INPUT UTAMA AKTIF
-│       ├── qa_gold_narrative_revision_log.csv                   # Log revisi evidence_text narasi
-│       ├── retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx  # ← KANDIDAT AKTIF (412 baris)
-│       ├── retrieval_relevant_chunks_candidate_v3_evidence_aware.csv
-│       ├── summary_candidate_v3_evidence_aware.txt              # Ringkasan statistik + validasi
-│       ├── validation_candidate_v3_after_narrative_revision.txt # Laporan validasi post-revisi
-│       ├── retrieval_labels_final.xlsx                          # ← OUTPUT ANOTASI MANUAL
-│       └── retrieval_labels_final.csv
-│
+├── src/
+│   ├── chunking/       element_based.py, maxmin_chunker.py, recursive_split.py
+│   ├── embedding/      embedder.py, embed_chunks.py, io.py
+│   ├── chroma/         client.py, loader.py, query.py
+│   ├── rag/            pipeline.py, generator.py
+│   ├── evaluation/     evaluator.py, metrics.py
+│   ├── preprocessing/  pdf_extractor.py, text_cleaner.py
+│   └── streamlit/      app.py (anotasi), rag_chat.py (demo RAG), test_app.py
 ├── scripts/
-│   ├── build_candidates_v3.py            # ← generate kandidat v3 evidence-aware
-│   ├── run_generation_eval.py            # ← evaluasi BLEU+ROUGE-L langsung (format question-first)
-│   ├── download_embedding_model.py       # Download Qwen3-Embedding-4B-GGUF ke models/
-│   ├── download_generator_model.py       # Download Qwen3-4B-Instruct-2507-FP8 ke models/
-│   ├── convert_ground_truth_to_json.py   # Konversi label final → JSON untuk evaluasi retrieval
-│   ├── inspect_qa.py                     # Util: inspeksi QA gold
-│   └── gt_raw/                           # Teks mentah dokumen BPS (10 dokumen .txt)
-│
+│   ├── build_candidates_v3.py          generate kandidat anotasi
+│   ├── convert_ground_truth_to_json.py labels → JSON evaluasi retrieval
+│   ├── run_retrieval_eval.py           P@k, R@k, MRR
+│   ├── run_generation_eval.py          BLEU + ROUGE-L
+│   ├── download_embedding_model.py
+│   ├── download_generator_model.py
+│   └── inspect_qa.py
 ├── data/
-│   └── artifacts/            # ← Output batch eval cepat (5 QA)
-│       └── eval_results.csv  # Hasil quick eval: 5 QA × 3 metode
-│
+│   ├── raw/              PDF asli
+│   ├── cleaned/          teks hasil preprocessing
+│   ├── chunked/          {element_based,maxmin_semantic,recursive}/*.json
+│   ├── chroma/           ChromaDB (ignored by git)
+│   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
-│   ├── generation/           # (kosong — untuk output generation lama)
-│   ├── generation_eval/    # ← Output run_generation_eval.py (CLI)
-│   │   ├── per_query_<ts>.csv
-│   │   ├── summary_<ts>.csv
-│   │   ├── report_<ts>.txt
-│   │   └── run_<ts>.log
-│   │   └── streamlit/        # ← Output batch eval dari rag_chat.py Streamlit
-│   │       └── eval_<ts>.csv # Persistent history per run
-│   └── retrieval/            # (kosong — untuk output evaluasi retrieval nanti)
-│
-├── src/                          # Modul utama (refactor dari root scripts)
-│   ├── streamlit/
-│   │   ├── app.py            # ← Streamlit annotation app v3 (aktif)
-│   │   ├── rag_chat.py       # ← Streamlit RAG chat demo (single/compare, inline scoring)
-│   │   ├── test_app.py       # ← Test suite 62 test (T1–T11), semua PASS
-│   │   └── requirements.txt  # streamlit, pandas, openpyxl
-│   ├── chunking/             # element_based.py, maxmin_chunker.py, recursive_split.py
-│   ├── embedding/            # embedder.py (llama.cpp), embed_chunks.py, io.py
-│   ├── chroma/               # client.py, loader.py, query.py
-│   ├── rag/                  # pipeline.py (RAGPipeline), generator.py (HF + GGUF)
-│   ├── evaluation/           # evaluator.py, metrics.py (BLEU, ROUGE, P@k, R@k, MRR)
-│   ├── preprocessing/        # pdf_extractor.py, text_cleaner.py, pipeline.py
-│   └── utils/                # (kosong — placeholder utility functions)
-│
-├── tests/
-│   └── test_evaluation.py    # 20 unit test metrics (T1–T20): BLEU, ROUGE, P@k, R@k, MRR
-│
-└── docs/
-    ├── PROJECT_CONTEXT.txt           # ← FILE INI
-    ├── Panduan Pengerjaan.pdf
-    ├── [Adjusted Mutual Information Documentation].txt
-    ├── [BLEU] Documentation.txt
-    ├── [ChromaDB] Documentation.txt
-    ├── [Element-Based Documentation] partition_pdf with hi_res.txt
-    ├── [MaxMin Chunking Documentation] Cara Kerja MaxMin Semantic Chunking.txt
-    ├── [MRR] Mean Reciprocal Rank Documentation.txt
-    ├── [Precision@k] Documentation.txt
-    ├── [Qwen3-4B-Instruct-2507-FP8] Documentation.txt
-    ├── [Qwen3-Embedding-4B-GGUF] Documentation.txt
-    ├── [ROUGE] Documentation.txt
-    ├── [Recall@k] Documentation.txt
-    ├── [Recursive Chunking Documentation] Cara Kerja RecursiveCharacterTextSplitter.txt
-    ├── Triton Windows Documentation.md
-    └── maxmin_chunker.py             # Contoh implementasi MaxMin (referensi)
+│   ├── generation_eval/  per_query*.csv, summary*.csv, report*.txt (log di-ignore)
+│   └── retrieval_eval_*.csv + *_summary.csv
+├── models/               Qwen3-Embedding-4B-Q8_0.gguf, Qwen3-4B-Instruct-2507-FP8/
+├── tests/                test_evaluation.py (20 unit test metrics)
+└── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
+
+CATATAN: backup/, data/artifacts/, old QA gold xlsx, generation_eval/*.log
+         semuanya di-ignore oleh git. Legacy root scripts (chunk_*.py, embed_chunks.py, dll.)
+         masih ada tapi tidak aktif — gunakan src/ dan scripts/.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-3. QA GOLD STANDARD
+3. GROUND TRUTH
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-File aktif : data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
-Sheet      : qa_gold
-Baris      : 30 QA
+QA Gold Standard (AKTIF):
+  File  : data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx
+  Sheet : qa_gold | 30 QA
+  Query ID tidak berurutan: Q001, Q003, Q005, ... (ini NORMAL, bukan bug)
+  26/30 pertanyaan direvisi (lebih natural, tanpa referensi nomor tabel eksplisit)
+  Jawaban tidak berubah dari versi sebelumnya.
+  File lama (JANGAN dipakai, sudah di-ignore git):
+    qa_gold_standard_rag_bps_30qa.xlsx
+    qa_gold_standard_rag_bps_30qa_fixed.xlsx
+    qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
 
-Riwayat file QA gold:
-  qa_gold_standard_rag_bps_30qa.xlsx                  — asli (sebelum fix)
-  qa_gold_standard_rag_bps_30qa_fixed.xlsx            — setelah fix Q025
-  qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx  — ← AKTIF
-    Perubahan: evidence_text QA narasi direvisi agar lebih literal/verbatim
-    dari teks PDF (bukan ringkasan sintetis). QA tabel tidak berubah.
+Kolom kunci: query_id, question, gold_answer, evidence_type, table_id,
+             row_label, column_label, gold_value, evidence_text, evidence_anchor
 
-PENTING — Query ID TIDAK berurutan (bukan Q001–Q030):
-  Dataset memilih 30 query dari kumpulan lebih besar.
-  ID aktual: Q001, Q003, Q005, Q006, Q009, Q010, Q011, Q013, Q015, Q016,
-             Q017, Q020, Q021, Q023, Q025, Q026, Q027, Q029, Q031, Q032, ...
-  Streamlit menampilkan display number (Q1/30, Q2/30, ...) bukan raw query_id.
+Evidence types: table_row_column (20), paragraph (8), bullet (1), paragraph_table (1)
 
-Kolom penting:
-  query_id          non-contiguous (Q001, Q003, ...)
-  doc_id            ID dokumen BPS
-  source_file       nama file PDF
-  doc_title         judul dokumen
-  category          topik/kategori
-  question_subtype  tipe pertanyaan
-  difficulty        easy/medium/hard
-  question          pertanyaan lengkap
-  gold_answer       jawaban referensi
-  evidence_page_pdf halaman PDF tempat bukti
-  evidence_type     lihat di bawah
-  table_id          ID tabel (khusus tipe tabel)
-  row_label         label baris tabel
-  column_label      label kolom tabel
-  unit              satuan nilai
-  gold_value        nilai jawaban dari tabel
-  evidence_text     kutipan teks bukti
-  evidence_anchor   judul section/tabel
-  validation_status validated / needs_review
+Pipeline Ground Truth (2 tahap):
+  TAHAP 1 — scripts/build_candidates_v3.py (Oracle Pooling, BUKAN ChromaDB)
+    Input : qa_gold xlsx + data/chunked/{method}/*.json
+    Output: retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx/.csv
+    Fungsi: scan semua chunk vs QA gold → scoring → top-5 kandidat per grup
+    Metodologi: oracle pooling (text-matching) untuk hindari circular dependency
+    Hasil (2026-05-17): 413 baris, 90 grup (30 query × 3 metode), 0 not_found
 
-Evidence types dalam dataset (dari 30 QA):
-  table_row_column  : 20 QA — berbasis sel tabel (gold_value, row_label, col_label)
-  paragraph         :  8 QA — berbasis paragraf teks
-  bullet            :  1 QA — berbasis poin/bullet
-  paragraph_table   :  1 QA — tabel dalam paragraf (hybrid scoring)
+  TAHAP 2 — Anotasi Manual via src/streamlit/app.py
+    Input : kandidat v3 xlsx
+    Output: data/ground_truth/retrieval_labels_final.xlsx/.csv
+    Status: SELESAI — 416/416 baris dianotasi (label 0/1/2)
 
-Fix yang sudah dilakukan:
-  - Q025: evidence_text dan evidence_anchor diperbaiki (sebelumnya kosong/salah)
-  - QA narasi (10 QA): evidence_text direvisi ke teks literal/verbatim dari PDF
-    agar exact matching di scorer bisa bekerja lebih akurat
-    → Log perubahan: data/ground_truth/qa_gold_narrative_revision_log.csv
+Ground Truth JSON (output evaluasi retrieval):
+  data/ground_truth/qa_pairs_strict.json   — label == 2, 58 chunk relevan
+  data/ground_truth/qa_pairs_lenient.json  — label >= 1, 175 chunk relevan
+  Format: [{id, question, reference_answer, relevant_chunk_ids: {method: [ids]}}]
+
+Label anotasi:
+  2 — Relevan Utama: chunk cukup untuk menjawab question
+  1 — Pendukung: relevan sebagian / konteks tambahan
+  0 — Tidak Relevan
+  suggested_label di kandidat adalah SARAN algoritma, BUKAN label final
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-4. PIPELINE RETRIEVAL GROUND TRUTH
+4. KOMPONEN TEKNIS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Pipeline 2 tahap (versi v3, menggantikan pipeline v1 lama yang 3 tahap):
+Chunking:
+  element_based   : unstructured partition_pdf hi_res → elemen semantik
+                    composite chunking (bukan 1 elemen = 1 chunk)
+                    schema: {text, chunk_id, metadata:{chunk_type, element_types,
+                    section_title, page_numbers, source_file, text_as_html, ...}}
+  maxmin_semantic : MaxMin semantic diversity (paket maxmin-chunker)
+  recursive       : LangChain RecursiveCharacterTextSplitter dengan overlap
+  File chunks: data/chunked/{method}/{doc_id}_chunks.json
 
-TAHAP 1 — build_candidates_v3.py  (scripts/build_candidates_v3.py)
-  Input  : qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
-           + data/chunked/{method}/*.json
-  Output : retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx/.csv
-           summary_candidate_v3_evidence_aware.txt
-           validation_candidate_v3_after_narrative_revision.txt
-  Fungsi :
-    - Scan SEMUA chunk per query × method
-    - Hitung evidence score & tentukan match_type per chunk
-    - Pre-filter top-10, lalu pilih top-5 terbaik per grup
-    - Re-verifikasi semua flag dari chunk_text akhir (verify_and_fix_candidate)
-    - Jika tidak ada kandidat relevan → buat baris "not_found" placeholder
-    - Hasilkan kolom boolean eksplisit: has_gold_value, has_row_label, dll.
-    - Generate laporan validasi ke summary .txt
-  Jalankan: python scripts/build_candidates_v3.py [--top_k 5 --pre_k 10]
+Embedding:
+  Model : Qwen3-Embedding-4B-Q8_0.gguf (lokal, via llama.cpp)
+  Device: CPU only (hemat VRAM untuk generator)
+  n_batch: 64 (diubah dari 512 untuk hindari OOM)
+  Enrichment: enrich_table_chunk_texts() di src/embedding/io.py
+    → Parse text_as_html tabel + prefix judul dari chunk sebelumnya
+    → Hanya memengaruhi data/embeddings/ dan ChromaDB, TIDAK ubah data/chunked/
 
-  Sistem scoring TABLE QA (evidence_type = table_row_column):
-    gold_value_found   +5  (sinyal terpenting)
-    page_match         +3
-    row_label_found    +3
-    col_label_found    +3
-    table_id_found     +2
-    anchor_found       +1
-    evidence_text_found+1
-  match_type TABLE:
-    exact_table_evidence    → gv + rl + cl semua ditemukan → suggested=2, high
-    partial_table_evidence  → gv ATAU (rl+cl) ditemukan   → suggested=1, medium
-    keyword_only            → hanya sebagian sinyal kecil  → suggested=0, low
-    not_relevant            → tidak ada sinyal → DIBUANG (tidak masuk kandidat)
+ChromaDB:
+  Path: data/chroma/ | Collections: collection_element_based,
+        collection_maxmin_semantic, collection_recursive
 
-  Sistem scoring NARRATIVE QA (paragraph, bullet, paragraph_table):
-    evidence_text_found +5
-    gold_answer_kw      +3  (word_overlap ≥50% kata ≥4 karakter dari gold_answer)
-    anchor_found        +2
-    question_kw         +2  (word_overlap ≥50% kata ≥4 karakter dari question)
-    page_match          +1
-    gold_value_pt       +1  (hanya paragraph_table)
-  match_type NARRATIVE:
-    exact_narrative_evidence   → evidence_text exact ditemukan → suggested=2, high
-    partial_narrative_context  → ga_kw AND anc_found (keduanya harus ada) → suggested=1, medium
-    keyword_only               → hanya sebagian sinyal (termasuk q_kw saja) → suggested=0, low
-    not_relevant               → tidak ada sinyal → DIBUANG
+Generator:
+  Model: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, lokal di models/)
+  Fallback: Qwen/Qwen3-4B-Instruct-2507-FP8 (HF Hub)
+  BUKAN Thinking model — Instruct dipilih karena lebih stabil
+  VRAM: ~5 GB (auto max_memory: GPU=5GiB, CPU=16GiB) | GPU: RTX 4050 6GB sm86
+  Parameter LOCKED (sesuai dokumentasi resmi, tidak adjustable):
+    Temperature=0.7, Top-P=0.8, Top-K=20, MinP=0, Max-tokens=16384
 
-  PERUBAHAN dari versi sebelumnya:
-    partial rule lama: (ga_kw AND anc) OR score>=5  ← dihapus
-    partial rule baru: ga_kw AND anc_found SAJA
-    → q_kw saja atau ga_kw saja TIDAK bisa masuk partial
-    → score>=5 shortcut dihapus karena bisa promosi ga_kw+q_kw tanpa anchor
-
-  reason field NARRATIVE (detail per kata):
-    Sekarang menampilkan kata-kata yang cocok + count, bukan hanya "found"
-    Contoh: gold_answer_kw=16/30 [nilai, konstruksi, yang, ...]; question_kw=8/13 [...]
-
-  Matching rules penting:
-    label_match_strict : word-boundary matching (mencegah "Riau" match "Kepulauan Riau")
-    gold_value_variants: normalisasi angka (titik ribuan, koma desimal, dll.)
-                         TIDAK memakai fallback v in tn (mencegah false positive)
-
-TAHAP 2 — Anotasi Manual (via Streamlit app)
-  Input  : retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx
-  Output : retrieval_labels_final.xlsx/.csv
-  Tool   : src/streamlit/app.py
-  Fungsi : peneliti memberi label 0/1/2 secara manual untuk setiap kandidat
-
-Statistik kandidat v3 saat ini (post narrative revision, re-run 2026-05-17):
-  QA unik                 : 30
-  Kombinasi query×method  : 90 (30 × 3 metode)
-  Total kandidat          : 413 baris (~4.59 per grup rata-rata)
-  not_found               : 0
-  match_type distribution :
-    keyword_only              : 206
-    partial_table_evidence    : 147
-    exact_table_evidence      :  23
-    exact_narrative_evidence  :  21
-    partial_narrative_context :  16
-  Grup dengan ≥1 exact evidence: 41 dari 90
-  Validasi wajib:
-    - label_0_1_2 semua KOSONG ✓
-    - status semua needs_manual_validation ✓
-    - 10/10 query narasi punya exact_narrative_evidence ✓
-    - 0 kandidat masuk hanya karena question_kw saja
-
-CATATAN: Beberapa grup punya < 5 kandidat. Ini NORMAL dan disebabkan oleh:
-  1. verify_and_fix_candidate() mengembalikan None → chunk dibuang
-     (tidak ada sinyal sama sekali setelah re-verifikasi dari chunk_text)
-  2. Seluruh dokumen tidak punya cukup chunk bersinyal (< 5 chunk relevan)
-  3. not_found placeholder jika 0 chunk bersinyal (tidak ada kasus ini saat ini)
-
-Kolom di file kandidat v3:
-  query_id, doc_id, source_file, question_preview, evidence_type,
-  method, chunk_id, chunk_page_start, chunk_page_end,
-  strength_score, match_type, suggested_label, confidence,
-  has_gold_value, has_row_label, has_column_label, has_table_id,
-  has_evidence_anchor, has_evidence_text, page_match,
-  evidence_quote, reason,
-  label_0_1_2 (KOSONG — diisi manual), annotator, status,
-  chunk_text_excerpt, chunk_text
+Streamlit Apps:
+  src/streamlit/app.py      — annotation tool v3 (anotasi sudah selesai)
+  src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
+    DEFAULT_TOP_K=8, slider max=10
+    Batch eval: persistent ke results/generation_eval/streamlit/
+    Quick eval: Q005, Q010, Q011, Q013, Q020
+    st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
+    Cache model: @st.cache_resource — tidak reload per query
+  Versi Streamlit: 1.57.0
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-5. ATURAN ANOTASI LABEL
+5. HASIL EVALUASI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Label 2 — RELEVAN UTAMA
-  Tabel  : chunk memuat relasi row_label + col_label + gold_value secara jelas
-           (semua 3 flag has_gold_value + has_row_label + has_column_label = True)
-  Narasi : chunk memuat klaim utama yang CUKUP untuk menjawab question
-  JANGAN beri label 2 hanya karena ada keyword/angka tanpa konteks yang jelas
+Evaluasi Retrieval (top_k=5, 2026-05-20):
+  Strict (label=2):
+    element_based   P@5=0.027  R@5=0.083  MRR=0.100  (15 query)
+    maxmin_semantic P@5=0.011  R@5=0.056  MRR=0.056  (18 query)
+    recursive       P@5=0.013  R@5=0.033  MRR=0.067  (15 query)
+  Lenient (label≥1):
+    element_based   P@5=0.021  R@5=0.052  MRR=0.089  (28 query)
+    maxmin_semantic P@5=0.021  R@5=0.043  MRR=0.081  (29 query)
+    recursive       P@5=0.028  R@5=0.063  MRR=0.103  (29 query)
+  Output: results/retrieval_eval_strict.csv, results/retrieval_eval_lenient.csv
+  Root cause skor rendah: header tabel terpisah dari baris data (recursive/maxmin)
+    → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
+    → Keterbatasan chunking, BUKAN bug. ID chunk cocok, semua chunk ada di ChromaDB.
 
-Label 1 — PENDUKUNG
-  Chunk memuat informasi relevan sebagian, bukan bukti utama
-  Bisa dipakai sebagai konteks tambahan RAG
+Evaluasi Generasi — Metrik:
+  BLEU   : sacrebleu.sentence_bleu(), dinormalisasi ke 0–1
+  ROUGE-L: rouge_score RougeScorer, recall mode (LCS recall)
+  Output : results/generation_eval/per_query_*.csv, summary_*.csv, report_*.txt
+  Script : python scripts/run_generation_eval.py
 
-Label 0 — TIDAK RELEVAN
-  Chunk tidak memuat bukti atau konteks yang relevan sama sekali
-
-needs_review — PERLU REVIEW ULANG
-  Chunk ambigu, perlu diperiksa lebih lanjut sebelum diberi label final
-
-PENTING:
-  - Label TIDAK boleh ditetapkan otomatis oleh script
-  - Harus dilakukan validasi manual oleh peneliti
-  - suggested_label di kandidat adalah SARAN dari algoritma, bukan label final
-  - Label 2 hanya untuk chunk yang benar-benar bisa menjawab question
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-6. STREAMLIT ANNOTATION APP (v3)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-File    : src/streamlit/app.py
-Jalankan: streamlit run src/streamlit/app.py
-         (JANGAN python app.py — itu bukan cara yang benar!)
-
-Fitur app (versi terkini):
-
-  DATA & RESUME
-  - Load dari retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx
-  - Merge otomatis dengan qa_gold_standard untuk tampilkan full question,
-    gold_answer, evidence_text, table_id, row_label, col_label, dll.
-  - Auto-resume: jika retrieval_labels_final.xlsx sudah ada, label yang
-    sebelumnya disimpan akan dimuat kembali
-  - Kolom yang di-restore saat resume: label_0_1_2, annotator, rationale
-    (rationale persisten walau Streamlit restart)
-  - Kolom rationale selalu diinisialisasi kosong di _load_fresh() agar
-    df.loc[...] = new_rat tidak crash saat kolom belum ada
-
-  NAVIGASI
-  - Navigation bar atas dan bawah: tombol ◀ dan ▶ dengan info grup
-  - Display number: "Q1 / 30" bukan raw query_id (karena ID tidak berurutan)
-  - Format nav bar: "Grup X / 90  ·  Q1 / 30  element_based"
-  - Keyboard shortcuts: [2] [1] [0] untuk label, [N] untuk next grup
-    (berlaku untuk kandidat PERTAMA yang belum dilabeli dalam grup aktif)
-  - Auto-scroll ke atas halaman saat pindah grup (via JS injection via st.iframe)
-  - Posisi grup persisten saat refresh (disimpan di URL param ?g=N)
-  - JS injection pakai st.iframe(height=1) — BUKAN components.html (deprecated)
-    st.components.v1.html dihapus Streamlit setelah 2026-06-01
-
-  SIDEBAR
-  - Badge "v3 evidence-aware" (hijau) dengan info file path
-  - Stats: total baris, query unik, metode, grup
-  - Progress bar + counter label (2/1/0/NR)
-  - Input nama anotator
-  - Filter: Query ID, Method, "Hanya belum dilabeli"
-  - Aturan anotasi ringkas
-  - Keyboard shortcut reference
-  - Tombol "💾 Simpan Progress" (primary) dengan timestamp terakhir disimpan
-  - Tombol "📥 Export Final" (secondary)
-
-  PER CHUNK CARD
-  - Header: CHUNK #ID, method badge, halaman, strength score,
-            suggested_label badge, confidence badge
-  - match_type display (v3 field diutamakan)
-  - Flag row: ✓/✗ untuk gold_value, row_label, col_label, table_id,
-              anchor, ev_text, page match
-  - Excerpt dengan highlight warna:
-      hijau  = gold_value
-      biru   = row_label
-      amber  = column_label
-      ungu   = evidence keywords
-  - Warning otomatis jika table_row_column tapi flag tidak lengkap untuk Label 2
-  - Expander "Show full chunk" — selalu muncul jika chunk_text ada
-  - Expander "Why this candidate?" — berisi match_type, suggested_label,
-    confidence, reason, evidence_quote
-  - Tombol label: "2 — Relevan Utama" / "1 — Pendukung" /
-                  "0 — Tidak Relevan" / "Review"
-  - Input rationale (catatan anotator)
-  - Auto-save setiap klik label
-
-  GRUP SUMMARY
-  - Bar di atas daftar chunk: N kandidat · N exact · N partial · N keyword-only
-    · ✓/✗ ada exact evidence
-
-  SORTING KANDIDAT
-  - sort_group_df(): urutan exact > partial > keyword > not_found
-    lalu suggested_label (desc), confidence, strength_score (desc)
-
-  JUMP
-  - Expander "🔍 Jump ke Query ID" untuk navigasi langsung ke query×method
-
-Output app:
-  data/ground_truth/retrieval_labels_final.xlsx  (sheet: labels)
-  data/ground_truth/retrieval_labels_final.csv
-
-Kolom output:
-  Semua kolom dari kandidat v3 + label_0_1_2 (diisi), annotator, status
-
-Status otomatis:
-  "labeled"                 jika label_0_1_2 sudah diisi
-  "needs_manual_validation" jika label_0_1_2 masih kosong
+Keterbatasan per Metode Chunking:
+  element_based   : OCR corruption nilai tabel (koma hilang), bilingual table rows
+                    dari unstructured.partition_pdf (bukan bug kode)
+  maxmin_semantic : cluster terlalu besar untuk appendix tabel → embedding dilusi
+  recursive       : lemah untuk pertanyaan definitif yang butuh paragraf ringkas
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-7. TEST SUITE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-File    : src/streamlit/test_app.py
-Jalankan: python src/streamlit/test_app.py
-
-62 test mencakup:
-  T1  (8 test)  Data Loading & Merge
-                - file exists, rows > 0, QA cols ada, no None labels,
-                  candidate priority, v2+ cols, auto-excerpt, top_k warn
-  T2  (4 test)  Groups & Navigation
-                - filter qid, filter unlabeled, urutan method
-  T3  (4 test)  Progress Counting
-                - 0%, 100%, n2/n1/n0/nnr, total == len(df)
-  T4  (7 test)  Highlight Excerpt
-                - gold_value, row_label, col_label, evidence_kw highlighted
-                - empty → placeholder, XSS escaped, <mark> balanced
-  T5  (5 test)  Evidence Match Type
-                - gold_value, evidence_text, narrative signals, no_signal, table signals
-  T6  (3 test)  HTML Structure (chunk card)
-                - tidak ada standalone </div>, excerpt dalam 1 markdown block,
-                  <div> balanced
-  T7  (3 test)  apply_label
-                - update label benar, annotator di-set, row lain tidak berubah
-  T8  (4 test)  Save & Export
-                - CSV/XLSX dibuat, kolom required ada, status column benar
-  T9  (4 test)  Resume
-                - label dari output sebelumnya dipulihkan dengan benar
-  T10 (6 test)  V2 Column Display
-                - suggested_label, confidence, evidence_quote di card,
-                  v2 match_type diutamakan, top_k limit warn
-  T11 (12 test) Evidence-Aware UI Functions
-                - sidebar badge v3, row count matches file,
-                  evidence_flags_html table+narrative, group_summary_html exact/no-exact,
-                  table warning block, 'Why this candidate?' expander,
-                  sort_group_df order, no auto-label, button text eksplisit,
-                  save_data has label_0_1_2+status
-
-Hasil saat ini: 62/62 PASS
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-8. BUG YANG PERNAH DITEMUKAN DAN DIPERBAIKI
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-BUG 1 — HTML split across multiple st.markdown() calls
-  Lokasi  : src/streamlit/app.py → render_chunk_card()
-  Gejala  : Raw HTML tags muncul sebagai teks literal di app
-  Penyebab: Membuka <div> di satu st.markdown() lalu menutupnya di call terpisah
-  Fix     : Gabungkan semua konten kartu dalam SATU st.markdown() self-contained
-  Status  : FIXED ✓
-
-BUG 2 — Missing ScriptRunContext warnings saat test
-  Lokasi  : src/streamlit/test_app.py
-  Gejala  : Ratusan warning saat menjalankan python test_app.py
-  Fix     : logging.getLogger("streamlit.*").setLevel(ERROR) sebelum import app
-  Status  : FIXED ✓
-
-BUG 3 — Q025 evidence_text dan evidence_anchor kosong
-  Lokasi  : data/ground_truth/qa_gold_standard_rag_bps_30qa.xlsx
-  Fix     : Di-update manual → _fixed.xlsx
-  Status  : FIXED ✓
-
-BUG 4 — gold_value false positive (v3)
-  Lokasi  : scripts/build_candidates_v3.py → score_chunk()
-  Gejala  : "18,55" bisa match "1855" karena fallback `v in tn`
-  Fix     : Hapus fallback; pakai hanya label_match_strict + gold_value_variants
-  Status  : FIXED ✓
-
-BUG 5 — not_relevant chunks lolos filter karena page_hit
-  Lokasi  : scripts/build_candidates_v3.py → build_candidates_for_group()
-  Gejala  : Chunk dengan match_type="not_relevant" tetap masuk kandidat
-  Fix     : Eksplisit exclude rows dengan match_type == "not_relevant"
-  Status  : FIXED ✓
-
-BUG 6 — "Show Full Chunk" tidak muncul untuk chunk pendek
-  Lokasi  : src/streamlit/app.py → render_chunk_card()
-  Gejala  : Expander tidak muncul untuk ~26% kandidat (chunk ≤800 char)
-  Penyebab: Kondisi len(full_text) > len(excerpt) False karena excerpt strip
-            newlines sehingga panjangnya sama
-  Fix     : Ganti kondisi menjadi `if full_text:` saja
-  Status  : FIXED ✓
-
-BUG 7 — reason field narasi tidak informatif (hanya "gold_answer_kw=found")
-  Lokasi  : scripts/build_candidates_v3.py → score_chunk() + verify_and_fix_candidate()
-  Gejala  : reason narrative hanya "gold_answer_kw=found; question_kw=found"
-            tidak ada detail kata apa yang cocok
-  Penyebab: word_overlap() hanya return bool
-  Fix     : Tambah word_overlap_detail() → return (bool, matched_words, total_words)
-            Format baru: gold_answer_kw=16/30 [nilai, konstruksi, ...]
-  Status  : FIXED ✓
-
-BUG 8 — UnicodeEncodeError saat print ke Windows console (cp1252)
-  Lokasi  : scripts/build_candidates_v3.py → validate() + main()
-            src/streamlit/test_app.py
-  Gejala  : Crash saat print karakter ✓/✗/≥ ke PowerShell Windows
-  Fix     : sys.stdout.reconfigure(encoding='utf-8', errors='replace') di main()
-            dan test_app.py; ganti ✓/✗ di validate() dengan [OK]/[WARN]
-  Status  : FIXED ✓
-
-BUG 9 — verify_and_fix_candidate() masih pakai rule partial lama
-  Lokasi  : scripts/build_candidates_v3.py → verify_and_fix_candidate()
-  Gejala  : Fungsi ini masih pakai (ga_kw AND anc) OR score>=5
-            sementara score_chunk() sudah diperbaiki ke ga_kw AND anc saja
-  Fix     : Samakan rule di kedua fungsi: ga_kw AND anc_found
-  Status  : FIXED ✓
-
-BUG 10 — Hidden error saat load HF generator
-  Lokasi  : src/rag/generator.py → initialize_hf_generator()
-  Gejala  : Exception ditangkap dan return None, error asli hilang
-  Fix     : Re-raise exception dengan RuntimeError + traceback
-  Status  : FIXED ✓
-
-BUG 11 — Model reload tiap query di Streamlit
-  Lokasi  : src/streamlit/rag_chat.py → load_pipeline()
-  Gejala  : top_k masuk cache key, model reload saat slider berubah
-  Fix     : Hapus top_k dari cache key; gunakan DEFAULT_TOP_K di dalam fungsi
-  Status  : FIXED ✓
-
-BUG 12 — st.components.v1.html deprecated (akan dihapus 2026-06-01)
-  Lokasi  : src/streamlit/app.py → inject_keyboard_listener() + _scroll_to_top()
-  Gejala  : Streamlit 1.57.0 menampilkan warning deprecation;
-            akan crash setelah Juni 2026
-  Penyebab: Streamlit mengganti components.html dengan st.iframe
-  Fix     : Ganti components.html(..., height=0) → st.iframe(..., height=1)
-            (st.iframe tidak menerima height=0, minimum height=1)
-  Status  : FIXED ✓
-
-BUG 13 — Rationale hilang saat Streamlit restart
-  Lokasi  : src/streamlit/app.py → load_data() + _load_fresh()
-  Gejala  : Catatan rationale yang diketik user hilang setelah Streamlit restart
-  Penyebab: load_data() hanya merge label_0_1_2 dan annotator dari saved file,
-            tidak merge rationale; _load_fresh() tidak inisialisasi kolom rationale
-  Fix     : (1) Tambah if "rationale" not in df.columns: df["rationale"] = "" di _load_fresh()
-            (2) Extend _restore list di load_data() untuk include rationale
-  Status  : FIXED ✓
-
-BUG 14 — Bilingual text (Indonesia + English) masuk chunk dari PDF dua kolom
-  Lokasi  : src/preprocessing/pdf_extractor.py → _extract_page_hybrid()
-  Gejala  : Dokumen BPS neraca (DOC06, DOC07) layout dua kolom bilingual. Kolom
-            kanan (English) ikut terekstrak dan masuk ke chunk maxmin/recursive.
-  Penyebab: Deteksi kolom pakai x0 (sisi kiri blok) — blok lebar dari kolom
-            kiri bisa melebihi mid_x sehingga lolos filter.
-  Fix     : Ganti deteksi dari x0 ke block center: (x0 + x1) / 2 < mid_x.
-            Ini memastikan blok yang center-nya di kolom kanan tetap terfilter.
-  Status  : FIXED ✓ (2026-05-18)
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-9. STATUS PEKERJAAN SAAT INI
+6. STATUS PEKERJAAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SELESAI ✓
-  [x] QA Gold Standard 30 QA — selesai & tervalidasi
-  [x] QA narasi direvisi (evidence_text literal) → narrative_revised.xlsx
-  [x] Pipeline build_candidates_v3.py — selesai (evidence-aware, strict)
-  [x] Kandidat v3 di-regenerate (2026-05-17):
-      413 baris, 90 grup, 0 not_found
-      10/10 query narasi punya exact_narrative_evidence
-  [x] Streamlit annotation app v3 — selesai & berjalan
-      - BUG 12 fixed: st.iframe(height=1) menggantikan components.html
-      - BUG 13 fixed: rationale persisten saat restart
-  [x] Test suite 62/62 PASS — selesai
-  [x] reason field narasi sekarang detail (matched words + count)
-  [x] run_generation_eval.py — evaluasi BLEU+ROUGE-L tanpa anotasi manual
-  [x] Format output evaluasi: question-first (per query tampil 3 method)
-  [x] Output eval berkurang: 4 file (per_query.csv, summary.csv, report.txt, run.log)
-  [x] sacrebleu + rouge-score installed & metrics.py direfactor
-  [x] Download scripts terpisah: embedding vs generator model
-  [x] src/streamlit/rag_chat.py — Streamlit demo RAG chat (single/compare mode)
-  [x] Batch eval Streamlit: persistent + history (results/generation_eval/streamlit/)
-  [x] Quick eval 5 QA: QUICK_EVAL_IDS = [Q005, Q010, Q011, Q013, Q020]
-      Hasil: data/artifacts/eval_results.csv (5×3=15 baris)
-  [x] DEFAULT_TOP_K ditingkatkan: 5 → 8 (RAG pipeline + Streamlit slider max=10)
-  [x] enrich_table_chunk_texts() di src/embedding/io.py:
-      OCR table text diganti dengan HTML-parsed text + title prefix dari chunk sebelumnya
-      → re-embed element_based → ChromaDB diperbarui
-  [x] Parameter generator locked: temp=0.7, top-p=0.8, top-k=20, max-tokens=16384
-  [x] Error handling: exception re-raise + traceback di HF generator & Streamlit
-  [x] Fix bilingual PDF extraction — center-based column detection (BUG 14)
-  [x] Re-ekstraksi DOC06 & DOC07 (neraca bilingual) setelah fix
-  [x] Re-chunk maxmin_semantic & recursive untuk 2 dokumen tersebut
-  [x] Re-embed (batch size 512→64 untuk hindari OOM) + reload ChromaDB --reset
-  [x] Regenerate kandidat v3 setelah pipeline bersih — 413 baris, 90 grup
-  [x] Temuan: element_based chunk masih bawa baris tabel bilingual (limitasi
-      unstructured.partition_pdf, BUKAN bug kode) → dijadikan keterbatasan skripsi
-  [x] Anotasi manual selesai 100% (416/416 baris, label 0/1/2)
-  [x] Convert labels → JSON ground truth:
-        data/ground_truth/qa_pairs_strict.json   (threshold=2, 58 chunk relevan)
-        data/ground_truth/qa_pairs_lenient.json  (threshold=1, 175 chunk relevan)
-  [x] Buat scripts/run_retrieval_eval.py (P@k, R@k, MRR, output CSV)
-  [x] Unifikasi QA gold → hanya qa_gold_standard_rag_bps_30qa_question_newest.xlsx
-        (26/30 pertanyaan direvisi, jawaban sama)
-        Script yang diupdate: convert_ground_truth_to_json.py, run_generation_eval.py,
-        rag_chat.py, build_candidates_v3.py, inspect_qa.py
-  [x] Regenerate qa_pairs_strict.json + qa_pairs_lenient.json dengan pertanyaan terbaru
-  [x] JALUR A — Evaluasi retrieval selesai dijalankan (top_k=5):
-        Strict (label=2): element_based P@5=0.027 R@5=0.083 MRR=0.100
-                          maxmin_semantic P@5=0.011 R@5=0.056 MRR=0.056
-                          recursive P@5=0.013 R@5=0.033 MRR=0.067
-        Lenient (label≥1): element_based P@5=0.021 R@5=0.052 MRR=0.089
-                           maxmin_semantic P@5=0.021 R@5=0.043 MRR=0.081
-                           recursive P@5=0.028 R@5=0.063 MRR=0.103
-        Hasil disimpan: results/retrieval_eval_strict.csv + results/retrieval_eval_lenient.csv
-        Catatan: skor rendah disebabkan header tabel terpisah dari baris data di
-        recursive/maxmin — keterbatasan chunking, bukan bug (lihat Section 10)
-  [x] Update .gitignore: ignore backup/, old QA xlsx, generation_eval/*.log, dll.
-  [x] Push ke GitHub branch dev (commit 4c32b76)
+  [x] QA Gold Standard 30 QA + revisi narasi + unifikasi ke _question_newest.xlsx
+  [x] Pipeline build_candidates_v3.py (evidence-aware, oracle pooling)
+  [x] Anotasi manual 416/416 baris, label 0/1/2
+  [x] Ground truth JSON: qa_pairs_strict.json + qa_pairs_lenient.json
+  [x] Evaluasi retrieval (P@k, R@k, MRR, top_k=5) — strict & lenient
+  [x] Evaluasi generasi (BLEU, ROUGE-L) via run_generation_eval.py
+  [x] enrich_table_chunk_texts() untuk element_based table chunks
+  [x] Fix BUG 14: bilingual PDF extraction (center-based column detection)
+  [x] Re-ekstraksi DOC06 & DOC07, re-chunk, re-embed, reload ChromaDB
+  [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
+  [x] Streamlit RAG chat demo (single/compare mode, batch eval)
+  [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
+  [x] Update .gitignore + push ke GitHub branch dev (commit 4d1ab97)
 
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking
@@ -632,422 +213,98 @@ BELUM DIMULAI ○
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-10. CATATAN TEKNIS PENTING
+7. BUG YANG PERNAH DIPERBAIKI (RINGKASAN)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Chunking methods:
-  element_based   : unstructured partition_pdf dengan hi_res strategy
-                    menghasilkan elemen semantik (Table, NarrativeText, dll.)
-                    Implementasi: src/chunking/element_based.py (refactor)
-                    Legacy: chunk_element.py (root)
-  maxmin_semantic : algoritma MaxMin untuk memaksimalkan semantic diversity
-                    per chunk (paket maxmin-chunker)
-                    Implementasi: src/chunking/maxmin_chunker.py
-                    Legacy: chunk_maxmin.py (root)
-  recursive       : LangChain RecursiveCharacterTextSplitter dengan overlap
-                    Implementasi: src/chunking/recursive_split.py
-                    Legacy: chunk_recursive.py (root)
-
-Preprocessing pipeline (root scripts → src/preprocessing/):
-  preprocess.py / src/preprocessing/pipeline.py
-  pdf_extractor.py    : ekstraksi teks dari PDF (PyMuPDF)
-  text_cleaner.py     : normalisasi teks (whitespace, encoding, dsb.)
-
-Tech stack / dependensi utama (requirements.txt):
-  PDF Processing    : PyMuPDF, unstructured[pdf], pdfplumber, pytesseract
-  Chunking          : langchain-text-splitters, maxmin-chunker, nltk
-  Embedding         : sentence-transformers, torch, transformers, accelerate
-  Vector DB         : chromadb
-  Evaluation        : sacrebleu, rouge-score, ragas, rank-eval, rapidfuzz
-  LLM Backend       : transformers (HF), llama-cpp-python (opsional GGUF)
-  Dev & Utils       : pytest, black, flake8, mypy, pandas, openpyxl, tqdm
-  Streamlit         : streamlit (di src/streamlit/requirements.txt)
-
-Embedding model:
-  Qwen3-Embedding-4B-GGUF (lokal, via llama.cpp)
-  Dimensi embedding: perlu dicek dari konfigurasi
-  n_batch default: 64 (diubah dari 512 pada 2026-05-18 untuk menghindari OOM)
-  File terkait: src/embedding/embedder.py, src/chunking/maxmin_chunker.py
-
-Vector DB:
-  ChromaDB (persistent, lokal)
-  Path: data/chroma/
-  Collection names: collection_element_based, collection_maxmin_semantic,
-                    collection_recursive
-
-LLM untuk generasi:
-  Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, lokal di models/)
-  Fallback: Qwen/Qwen3-4B-Instruct-2507-FP8 (HF Hub)
-  BUKAN Thinking model — Instruct (non-thinking) dipilih karena lebih stabil
-  Size: ~5.2 GB (model.safetensors)
-
-  Parameter sampling (LOCKED ke dokumentasi resmi, tidak adjustable):
-    Temperature = 0.7
-    Top-P       = 0.8
-    Top-K       = 20
-    MinP        = 0
-    Max tokens  = 16,384 (recommended untuk sebagian besar query)
-
-  VRAM strategy:
-    GPU user: RTX 4050 6 GB (sm86, Ampere)
-    Embedder: CPU only (embedder_n_gpu_layers=0) — hemat VRAM buat generator
-    Generator: ~5 GB VRAM (auto max_memory: GPU=5GiB, CPU=16GiB)
-    triton-windows >= 3.5.0.post21 dibutuhkan untuk FP8 di RTX 30xx/40xx
-
-Streamlit RAG Chat (src/streamlit/rag_chat.py) — fitur aktif:
-  - Mode single: 1 metode, output 1 jawaban
-  - Mode compare: 3 kolom berdampingan (element_based, maxmin_semantic, recursive)
-  - Inline BLEU/ROUGE scoring: tampil otomatis jika query exact-match QA gold standard
-  - HF user-agent patch: monkey-patch _deduplicate_user_agent untuk bug
-    huggingface_hub 1.14.0 + kernels 0.14.0 (trailing "; " di header)
-  - Cache model: @st.cache_resource — tidak reload per query
-  - Riwayat query per sesi (sidebar)
-  - DEFAULT_TOP_K = 8 (ditingkatkan dari 5 untuk coverage lebih baik)
-  - Slider top_k: min=1, max=10, default=8
-  - Batch eval tab: persistent ke results/generation_eval/streamlit/eval_<ts>.csv
-    History: semua run sebelumnya bisa di-load dan di-export
-  - Quick eval: QUICK_EVAL_IDS = ["Q005","Q010","Q011","Q013","Q020"]
-    (3 tabel + 2 narasi, dipilih untuk diagnostik cepat)
-  - Gold answer retrieval: fuzzy match (SequenceMatcher ≥0.75) untuk toleransi typo
-  - Context truncation: max_context_tokens=1500 via tokenizer (binary search)
-
-Streamlit version yang digunakan: 1.57.0
-  - st.iframe() (bukan components.html yang deprecated) untuk JS injection
-
-Embedding enrichment (src/embedding/io.py — enrich_table_chunk_texts):
-  FUNGSI: Memperbaiki kualitas embedding untuk element_based table chunks
-  MASALAH yang dipecahkan:
-    - OCR unstructured-io hi_res menghasilkan nilai numerik korup di tabel PDF
-      Contoh: "1,1531" → "11531", "1,0737" → "10737", "Overeducated" → "Mereduate"
-    - Tabel hanya berisi angka/simbol → embedding lemah secara semantik
-  SOLUSI:
-    - Parse text_as_html dari metadata → representasi teks bersih
-    - Tambahkan prefix judul/heading dari chunk teks sebelumnya sebagai konteks
-    - Chunk yang sudah diperkaya digunakan untuk embedding (bukan OCR text)
-  DIPANGGIL di: src/embedding/embed_chunks.py (sebelum clean_and_filter_chunks)
-  TIDAK mengubah data/chunked/ — hanya data/embeddings/ dan ChromaDB
-
-OCR Corruption — Temuan Penting (2026-05-17):
-  Dokumen: cerita-data-statistik..._chunks.json (element_based)
-  chunk[30] Lampiran 1 (Q011): "1,1531" → "11531" (koma desimal hilang dari OCR)
-  chunk[32] Lampiran 3 (Q013): "Overeducated" → "Mereduate", "1,0737" → "10737"
-  chunk[33] pg=28: "Lampiran\nHarmonis ey Megi ptif Kolaboratif"
-    → OCR garbage dari elemen grafis/infografis halaman 28
-  KONFIRMASI: Corruption ada di raw data/chunked/ JSON, BUKAN hasil kode pipeline
-  AKAR MASALAH: unstructured-io hi_res mode (OCR) untuk PDF dengan tabel kompleks
-
-Metodologi Kandidat Anotasi — Oracle Pooling (bukan Retrieval Pooling):
-  Kandidat anotasi (build_candidates_v3.py) menggunakan text-matching terhadap
-  QA gold (gold_value, row_label, dll.) — BUKAN dari ChromaDB retrieval.
-  Alasan: menghindari circular dependency (ground truth dari output sistem sendiri)
-  Bedanya dengan retrieval pooling standar:
-    Retrieval pooling: retrieve top-k dari setiap metode → pool → label
-    Oracle pooling:    scan semua chunk vs QA gold → scoring → pool → label
-  Keunggulan: bisa mendeteksi false negative (chunk yang seharusnya diambil
-              tapi gagal di-retrieve oleh ChromaDB)
-
-Keterbatasan per metode chunking (temuan dari quick eval 5 QA):
-  element_based:
-    - OCR corruption nilai tabel decimal (koma hilang → angka utuh)
-    - Cross-doc interference: chunk dokumen lain mendominasi top-k untuk query numerik
-    - Definisi pendek (<200 char) tidak kompetitif vs chunk tabel dengan keyword
-    - Bilingual table rows: unstructured.partition_pdf tidak bisa memfilter kolom
-      bahasa Inggris di layout dua kolom → baris tabel bilingual tetap masuk chunk
-  maxmin_semantic:
-    - Cluster terlalu besar untuk appendix tabel → embedding dilusi
-    - Tabel Lampiran 1,3 berisi banyak topik berbeda → ranked >30 untuk query spesifik
-  recursive:
-    - Terbaik untuk nilai numerik tabel (ekstraksi teks, bukan OCR)
-    - Lemah untuk pertanyaan definitif yang membutuhkan paragraf ringkas
-
-QA Gold Standard — versi aktif:
-  File  : data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx
-  Sheet : qa_gold
-  Catatan: 26/30 pertanyaan direvisi (menghapus referensi eksplisit ke nomor
-           tabel/lampiran, menjadi lebih natural/standalone), jawaban tidak berubah.
-  File lama (JANGAN dipakai):
-    qa_gold_standard_rag_bps_30qa.xlsx
-    qa_gold_standard_rag_bps_30qa_fixed.xlsx
-    qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
-
-Evaluasi retrieval menggunakan:
-  Precision@k : berapa banyak dari k hasil teratas yang relevan
-  Recall@k    : berapa banyak dokumen relevan yang berhasil ditemukan dalam k
-  MRR         : Mean Reciprocal Rank — posisi dokumen relevan pertama
-  NDCG        : TIDAK DIPAKAI dalam penelitian ini
-
-Hasil evaluasi retrieval (top_k=5, 2026-05-20):
-  Strict (label=2):
-    element_based   : P@5=0.0267  R@5=0.0833  MRR=0.1000  (15 query dievaluasi)
-    maxmin_semantic : P@5=0.0111  R@5=0.0556  MRR=0.0556  (18 query dievaluasi)
-    recursive       : P@5=0.0133  R@5=0.0333  MRR=0.0667  (15 query dievaluasi)
-  Lenient (label≥1):
-    element_based   : P@5=0.0214  R@5=0.0518  MRR=0.0893  (28 query dievaluasi)
-    maxmin_semantic : P@5=0.0207  R@5=0.0431  MRR=0.0805  (29 query dievaluasi)
-    recursive       : P@5=0.0276  R@5=0.0632  MRR=0.1034  (29 query dievaluasi)
-  Root cause skor rendah:
-    - recursive/maxmin: header tabel terpisah dari baris data → chunk data-only
-      tidak punya konteks semantik, kalah dari chunk dokumen lain yang header+data menyatu
-    - Bukan bug — keterbatasan fixed-size/semantic chunking untuk tabel multi-baris
-    - ID chunk sudah cocok (verified), semua chunk ada di ChromaDB
-  Output: results/retrieval_eval_strict.csv, results/retrieval_eval_lenient.csv
-
-Evaluasi generasi menggunakan:
-  BLEU        : sentence-level via sacrebleu.sentence_bleu()
-                hasil di-normalize ke 0–1 (sacrebleu native: 0–100)
-  ROUGE-L     : recall mode via rouge_score.rouge_scorer.RougeScorer
-                mengukur longest common subsequence recall
-  Dependencies: pip install sacrebleu rouge-score
-
-Unit test metrics (tests/test_evaluation.py):
-  T1–T4   : compute_bleu (perfect, zero, partial, empty)
-  T5–T9   : compute_rouge (perfect, zero, partial, recall mode, empty)
-  T10–T12 : compute_precision_at_k (semua relevan, tidak ada, sebagian)
-  T13–T15 : compute_recall_at_k (semua ditemukan, tidak ada, empty ids)
-  T16–T18 : compute_mrr (posisi 1, posisi 2, tidak ada)
-  T19     : build_summary (agregasi mean BLEU + ROUGE-L per method)
-  T20     : load_qa_gold (baca xlsx dan validasi field wajib)
-  Jalankan: python -m pytest tests/test_evaluation.py -v
-
-Format ground truth JSON (output convert_ground_truth_to_json.py):
-  [
-    {
-      "id": "Q001",
-      "question": "...",
-      "reference_answer": "...",
-      "relevant_chunk_ids": {
-        "element_based":   ["chunk_id_1", ...],
-        "recursive":       ["chunk_id_2", ...],
-        "maxmin_semantic": ["chunk_id_3", ...]
-      }
-    }, ...
-  ]
-  Mode strict: hanya label == 2
-  Mode lenient: label >= 1
-
-File chunks ada di:
-  data/chunked/element_based/{doc_id}_chunks.json
-  data/chunked/maxmin_semantic/{doc_id}_chunks.json
-  data/chunked/recursive/{doc_id}_chunks.json
-
-Chunk JSON schema:
-  { "text", "chunk_id", "metadata": { "chunk_type", "element_types",
-    "section_title", "page_numbers", "page_range", "source_file",
-    "source_filename", "element_count", "order_index", "num_characters",
-    ["text_as_html" untuk tabel] } }
-
-Dokumen BPS yang dipakai (10 dokumen, ada di scripts/gt_raw/*.txt):
-  - benchmark-indeks-konstruksi--2016-100---2018---2023
-  - benchmark-statistik-konstruksi--2018---2023
-  - cerita-data-statistik-untuk-indonesia (mismatch pendidikan-pekerjaan)
-  - indeks-unit-value-ekspor-impor
-  - neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024
-  - neraca-pemerintahan-umum-indonesia-2019-2024
-  - neraca-rumah-tangga-indonesia--2022-2024
-  - statistik-pendidikan-2025
-  - statistik-perdagangan-luar-negeri-bulanan-impor
-  - statistik-perdagangan-luar-negeri-menurut-moda-transportasi
+BUG 1  HTML split di st.markdown() berbeda → raw tag muncul. Fix: satu markdown block.
+BUG 2  ScriptRunContext warnings di test. Fix: set logging level ERROR.
+BUG 3  Q025 evidence_text/anchor kosong di QA gold. Fix: update manual.
+BUG 4  gold_value false positive ("18,55" match "1855"). Fix: hapus fallback `v in tn`.
+BUG 5  not_relevant chunk lolos filter karena page_hit. Fix: eksplisit exclude.
+BUG 6  "Show Full Chunk" tidak muncul untuk chunk pendek. Fix: ganti kondisi ke `if full_text`.
+BUG 7  reason field narasi tidak informatif. Fix: word_overlap_detail() dengan matched words.
+BUG 8  UnicodeEncodeError Windows console (cp1252). Fix: reconfigure UTF-8 + ganti simbol.
+BUG 9  verify_and_fix_candidate() masih pakai rule partial lama. Fix: samakan rule.
+BUG 10 HF generator swallow exception → return None. Fix: re-raise dengan RuntimeError.
+BUG 11 Model reload tiap query di Streamlit (top_k di cache key). Fix: hapus top_k dari key.
+BUG 12 components.html deprecated (akan crash Juni 2026). Fix: ganti ke st.iframe(height=1).
+BUG 13 Rationale hilang saat Streamlit restart. Fix: merge rationale + inisialisasi kolom.
+BUG 14 Bilingual text dari PDF 2-kolom masuk chunk. Fix: center-based column detection.
+       (src/preprocessing/pdf_extractor.py, 2026-05-18)
+BUGS element_based chunking (April 2026): B1 list buffer lost at boundary, B2 PageBreak
+     filtered before handler, B3 table chunk missing source_filename, B4 section_context
+     vs section_title inconsistency, B5 title-only orphan before table, B6 missing source_file.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-11. PERINTAH YANG SERING DIPAKAI
+8. PERINTAH YANG SERING DIPAKAI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# Jalankan Streamlit annotation app (anotasi manual ground truth)
+# Streamlit annotation app (anotasi sudah selesai, tapi bisa dibuka ulang)
 streamlit run src/streamlit/app.py --server.port 8502
 
-# Jalankan Streamlit RAG Chat + Batch Eval
+# Streamlit RAG Chat + Batch Eval
 streamlit run src/streamlit/rag_chat.py --server.port 8501
 
-# Jalankan test suite
+# Test suite
 python src/streamlit/test_app.py
+python -m pytest tests/test_evaluation.py -v
 
-# Generate ulang kandidat v3 (jika perlu ulang dari awal)
+# Generate ulang kandidat v3
 python scripts/build_candidates_v3.py
-python scripts/build_candidates_v3.py --top_k 5 --pre_k 10
 
-# Evaluasi generasi (BLEU + ROUGE-L Recall) — tanpa anotasi manual
-# Default sudah di-set ke Qwen3-4B-Instruct-2507-FP8:
+# Konversi labels → JSON evaluasi retrieval
+python scripts/convert_ground_truth_to_json.py \
+    --output data/ground_truth/qa_pairs_strict.json --relevance_threshold 2
+python scripts/convert_ground_truth_to_json.py \
+    --output data/ground_truth/qa_pairs_lenient.json --relevance_threshold 1
+
+# Evaluasi retrieval
+python scripts/run_retrieval_eval.py \
+    --gt data/ground_truth/qa_pairs_strict.json \
+    --output results/retrieval_eval_strict.csv --top_k 5
+python scripts/run_retrieval_eval.py \
+    --gt data/ground_truth/qa_pairs_lenient.json \
+    --output results/retrieval_eval_lenient.csv --top_k 5
+
+# Evaluasi generasi
 python scripts/run_generation_eval.py
-
-# Resume dari run sebelumnya:
 python scripts/run_generation_eval.py --resume
-
-# Hanya 1 method untuk test cepat:
 python scripts/run_generation_eval.py --methods element_based --top_k 5
 
-# !! rag_query.py TIDAK ADA di root (dipindah ke backup/cli_rag/)
-# Gunakan Streamlit sebagai interactive tool:
-streamlit run src/streamlit/rag_chat.py  # single mode atau compare 3 metode sekaligus
-
-# Download model embedding:
+# Download model
 python scripts/download_embedding_model.py
-
-# Download model generator:
 python scripts/download_generator_model.py
 
-# Konversi ground truth ke JSON untuk evaluasi (setelah anotasi selesai)
-# Strict (hanya label 2):
-python scripts/convert_ground_truth_to_json.py \
-    --qa_csv data/ground_truth/qa_gold_validated.csv \
-    --labels_csv data/ground_truth/retrieval_labels_final.csv \
-    --output data/ground_truth/qa_pairs_strict.json \
-    --relevance_threshold 2
-
-# Lenient (label 1 dan 2):
-python scripts/convert_ground_truth_to_json.py \
-    --labels_csv data/ground_truth/retrieval_labels_final.csv \
-    --output data/ground_truth/qa_pairs_lenient.json \
-    --relevance_threshold 1
+# Git
+git add -A && git commit -m "..." && git push origin dev
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-12. INSTRUKSI UNTUK AI ASSISTANT YANG MEMBACA FILE INI
+9. INSTRUKSI UNTUK AI ASSISTANT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Kamu adalah asisten AI yang sedang membantu mahasiswa S1 mengerjakan skripsi
-tentang sistem RAG. Berikut hal yang perlu kamu ketahui tentang preferensi dan
-konteks user:
+Konteks user:
+  Mahasiswa S1 skripsi, komunikasi Indonesia informal (gua/lu/ngga/dong), Windows.
 
-KONTEKS USER:
-  - Mahasiswa S1, sedang mengerjakan skripsi
-  - Bahasa komunikasi: Indonesia (campur informal/slang Jakarta — "gua", "lu",
-    "ngga", "tapi", "dong", dll.)
-  - User berbicara santai dan langsung ke poin
-  - User bekerja di Windows dengan Python 3.11.9
-
-PREFERENSI TEKNIS:
-  - Selalu pakai path absolut saat membuat/membaca file Python
-  - Sheet name XLSX untuk QA gold    : "qa_gold"
-  - Sheet name XLSX untuk candidates : "candidates"
-  - Sheet name XLSX untuk labels     : "labels"
-  - NDCG TIDAK dipakai di penelitian ini — jangan sarankan
-  - Streamlit annotation: streamlit run src/streamlit/app.py
-  - Streamlit RAG chat:   streamlit run src/streamlit/rag_chat.py
-  - Test dijalankan dengan: python src/streamlit/test_app.py
-  - suggested_label di file kandidat adalah SARAN algoritma, bukan label final
-    Label final harus diisi manual via Streamlit app
-  - Query ID tidak berurutan (Q001, Q003, Q005, ...) — ini normal, bukan bug
-  - Model generator default: Qwen3-4B-Instruct-2507-FP8 (HF transformers)
-    BUKAN Thinking model — selalu pakai Instruct
-  - Parameter generator LOCKED ke dokumentasi: temp=0.7, top-p=0.8, top-k=20, max-tokens=16384
-    Jangan buat adjustable UI slider untuk parameter ini — tampilkan sebagai caption saja
-  - rag_query.py sudah TIDAK ADA di root (dipindah ke backup/cli_rag/)
-    Gunakan Streamlit sebagai gantinya: streamlit run src/streamlit/rag_chat.py
-  - Output evaluasi generation: 4 file (per_query.csv, summary.csv, report.txt, run.log)
-    config.json dan full.json sudah dihapus (redundant)
-  - Report format: question-first (tiap query tampil 3 method + jawaban + skor)
-  - Exception handling HF generator: gunakan re-raise (bukan return None) agar error asli kelihatan
-  - DEFAULT_TOP_K = 8 (bukan 5) untuk RAG pipeline; slider max=10
-  - Kandidat anotasi (build_candidates_v3.py) TIDAK memakai ChromaDB retrieval
-    → Oracle pooling via text-matching terhadap QA gold (menghindari circular dependency)
-  - Beberapa grup kandidat punya < 5 chunk: ini NORMAL (bukan bug)
-    → verify_and_fix_candidate() return None jika tidak ada sinyal → chunk dibuang
-  - enrich_table_chunk_texts() di src/embedding/io.py sudah dipanggil saat embed
-    → TIDAK ubah data/chunked/; hanya data/embeddings/ dan ChromaDB
-  - OCR corruption di element_based chunks (data/chunked/) adalah bawaan unstructured-io
-    → BUKAN bug kode; sudah dikonfirmasi dari raw JSON files
-  - Streamlit version: 1.57.0 — gunakan st.iframe(height=1) bukan components.html
-  - Jangan delete atau override data/artifacts/eval_results.csv tanpa konfirmasi
-
-LANGKAH SELANJUTNYA YANG MUNGKIN DIBUTUHKAN USER:
-  JALUR A — Lengkap (retrieval + generation):
-    1. Anotasi manual 413 kandidat via Streamlit app (dari 0)
-    2. Jalankan convert_ground_truth_to_json.py
-    3. Evaluasi retrieval (Precision@k, Recall@k, MRR)
-    4. Evaluasi generasi (BLEU, ROUGE, RAGAS)
-    5. Analisis dan visualisasi perbandingan 3 metode chunking
-
-  JALUR B — Skip retrieval, langsung generation:
-    1. Langsung evaluasi generasi dengan QA gold (question + gold_answer)
-    2. BLEU dan ROUGE-L bisa dijalankan tanpa GT retrieval
-    3. Quick eval 5 QA sudah selesai — hasil di data/artifacts/eval_results.csv
-    4. KEKURANGAN: tidak bisa bandingkan chunking secara retrieval-level
-    → Lihat Section 13 untuk analisis lengkap trade-off
-
-  TOOLS INTERAKTIF (siap pakai):
-    - Streamlit: streamlit run src/streamlit/rag_chat.py
-    - CLI rag_query.py sudah dipindah ke backup — tidak aktif
-
-FILE-FILE KUNCI YANG SERING DIEDIT:
-  src/streamlit/app.py                          — annotation tool v3 (aktif)
-  src/streamlit/rag_chat.py                     — RAG chat demo (single/compare mode)
-  src/streamlit/test_app.py                     — test suite (62/62 pass)
-  scripts/build_candidates_v3.py                — candidate generator v3
-  scripts/run_generation_eval.py                — evaluasi BLEU+ROUGE-L
-  scripts/download_embedding_model.py           — download embedding model
-  scripts/download_generator_model.py           — download generator model
-  scripts/convert_ground_truth_to_json.py       — konversi ke JSON evaluasi
-  backup/cli_rag/rag_query_encoding_fix.py      — legacy CLI (tidak aktif)
-  data/ground_truth/                            — semua file GT ada di sini
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-13. ANALISIS: SKIP RETRIEVAL EVAL → LANGSUNG GENERATION EVAL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PERTANYAAN: Bisakah skip anotasi manual + evaluasi retrieval dan langsung ke
-            evaluasi generasi?
-
-JAWABAN: BISA — tapi dengan konsekuensi metodologis yang perlu dipahami.
-
-─────────────────────────────────────────────────────────────────────────────
-APA YANG BISA DILAKUKAN TANPA RETRIEVAL GROUND TRUTH:
-─────────────────────────────────────────────────────────────────────────────
-
-  BLEU & ROUGE (100% bisa tanpa GT retrieval):
-    Input: question → RAG pipeline → generated_answer vs gold_answer
-    Tidak butuh chunk labels sama sekali.
-    Mengukur kemiripan teks jawaban dengan referensi.
-
-  RAGAS metrics yang BISA tanpa GT retrieval:
-    answer_relevancy      — apakah jawaban relevan dengan question
-    faithfulness          — apakah jawaban sesuai retrieved context
-    answer_correctness    — apakah jawaban secara faktual benar (vs gold_answer)
-
-  RAGAS metrics yang TIDAK BISA tanpa GT retrieval:
-    context_recall        — butuh tahu chunk mana yang "seharusnya" di-retrieve
-    context_precision     — butuh labeled ground truth chunks
-
-─────────────────────────────────────────────────────────────────────────────
-KONSEKUENSI JIKA SKIP RETRIEVAL EVAL:
-─────────────────────────────────────────────────────────────────────────────
-
-  1. TIDAK BISA bandingkan 3 metode chunking di level retrieval
-     (Precision@k, Recall@k, MRR per metode tidak tersedia)
-
-  2. Perbandingan chunking hanya bisa dilakukan di level generasi
-     → "metode A menghasilkan jawaban lebih baik dari metode B"
-       tanpa tahu KENAPA (apakah karena retrieval lebih baik atau bukan)
-
-  3. Dari sisi metodologi skripsi:
-     - RAG = Retrieval + Generation
-     - Jika hanya evaluasi generation: penelitian kurang menjelaskan
-       kontribusi masing-masing komponen
-     - Reviewer/pembimbing bisa mempertanyakan validitas hasil
-
-  4. Alternatif tengah: anotasi SUBSET kecil (misal 1-2 query per doc = ~30
-     baris) untuk tetap bisa hitung retrieval metric, sambil tetap jalan
-     generation eval. Lebih cepat dari anotasi penuh 412 baris.
-
-─────────────────────────────────────────────────────────────────────────────
-REKOMENDASI:
-─────────────────────────────────────────────────────────────────────────────
-
-  Jika WAKTU TERBATAS:
-    → Lakukan anotasi subset ~60-90 baris (1 query × 3 method per dokumen)
-    → Tetap bisa hitung retrieval metric (terbatas)
-    → Langsung paralel mulai generation eval
-
-  Jika INGIN SKIP TOTAL retrieval eval:
-    → Bisa — pakai BLEU, ROUGE, RAGAS (answer_relevancy, faithfulness,
-      answer_correctness)
-    → Akui di metodologi skripsi bahwa retrieval eval tidak dilakukan
-    → Fokus evaluasi ke kualitas jawaban akhir (end-to-end)
-
-  Jika INGIN LENGKAP:
-    → Anotasi semua 412 kandidat (estimasi: 2-4 jam dengan Streamlit app)
-    → Lalu jalankan semua evaluasi
-
+Hal penting yang JANGAN salah:
+  - QA gold aktif: qa_gold_standard_rag_bps_30qa_question_newest.xlsx (sheet: qa_gold)
+  - Query ID tidak berurutan (Q001, Q003, ...) — NORMAL, bukan bug
+  - NDCG TIDAK dipakai dalam penelitian ini
+  - Parameter generator LOCKED: temp=0.7, top-p=0.8, top-k=20, max-tokens=16384
+    Jangan buat slider UI untuk ini — tampilkan sebagai caption saja
+  - suggested_label = SARAN algoritma, label final wajib anotasi manual
+  - Kandidat build_candidates_v3.py TIDAK pakai ChromaDB (oracle pooling, bukan retrieval pooling)
+  - Beberapa grup kandidat < 5 chunk — NORMAL, bukan bug
+  - enrich_table_chunk_texts() TIDAK mengubah data/chunked/, hanya embeddings + ChromaDB
+  - OCR corruption di element_based (data/chunked/) = bawaan unstructured-io, BUKAN bug kode
+  - Streamlit: gunakan st.iframe(height=1), BUKAN components.html (deprecated Juni 2026)
+  - rag_query.py TIDAK ada di root (backup/cli_rag/). Gunakan: streamlit run src/streamlit/rag_chat.py
+  - Sheet names: qa_gold | candidates | labels
+  - Test dijalankan: python src/streamlit/test_app.py (bukan pytest)
+  - DEFAULT_TOP_K = 8 (bukan 5)
+  - Output evaluasi generasi: 4 file (per_query.csv, summary.csv, report.txt, run.log)
+  - Jangan delete data/artifacts/eval_results.csv tanpa konfirmasi user
 
 ================================================================================
 END OF DOCUMENT
