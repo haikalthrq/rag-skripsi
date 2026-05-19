@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-18 (23:15 WIB)
+Terakhir diperbarui: 2026-05-20 (02:40 WIB)
 ================================================================================
 
 
@@ -608,14 +608,26 @@ SELESAI ✓
         data/ground_truth/qa_pairs_strict.json   (threshold=2, 58 chunk relevan)
         data/ground_truth/qa_pairs_lenient.json  (threshold=1, 175 chunk relevan)
   [x] Buat scripts/run_retrieval_eval.py (P@k, R@k, MRR, output CSV)
+  [x] Unifikasi QA gold → hanya qa_gold_standard_rag_bps_30qa_question_newest.xlsx
+        (26/30 pertanyaan direvisi, jawaban sama)
+        Script yang diupdate: convert_ground_truth_to_json.py, run_generation_eval.py,
+        rag_chat.py, build_candidates_v3.py, inspect_qa.py
+  [x] Regenerate qa_pairs_strict.json + qa_pairs_lenient.json dengan pertanyaan terbaru
+  [x] JALUR A — Evaluasi retrieval selesai dijalankan (top_k=5):
+        Strict (label=2): element_based P@5=0.027 R@5=0.083 MRR=0.100
+                          maxmin_semantic P@5=0.011 R@5=0.056 MRR=0.056
+                          recursive P@5=0.013 R@5=0.033 MRR=0.067
+        Lenient (label≥1): element_based P@5=0.021 R@5=0.052 MRR=0.089
+                           maxmin_semantic P@5=0.021 R@5=0.043 MRR=0.081
+                           recursive P@5=0.028 R@5=0.063 MRR=0.103
+        Hasil disimpan: results/retrieval_eval_strict.csv + results/retrieval_eval_lenient.csv
+        Catatan: skor rendah disebabkan header tabel terpisah dari baris data di
+        recursive/maxmin — keterbatasan chunking, bukan bug (lihat Section 10)
+  [x] Update .gitignore: ignore backup/, old QA xlsx, generation_eval/*.log, dll.
+  [x] Push ke GitHub branch dev (commit 4c32b76)
 
 BELUM DIMULAI ○
-  [ ] JALUR A — Evaluasi retrieval (P@k, R@k, MRR)
-      → Siap dijalankan:
-          python scripts/run_retrieval_eval.py --gt data/ground_truth/qa_pairs_strict.json --output results/retrieval_eval_strict.csv --top_k 5
-          python scripts/run_retrieval_eval.py --gt data/ground_truth/qa_pairs_lenient.json --output results/retrieval_eval_lenient.csv --top_k 5
-      → Ground truth JSON sudah dibuat (strict: 19/30 query punya rel, lenient: 30/30)
-  [ ] Analisis perbandingan antar metode chunking
+  [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
 
 
@@ -748,11 +760,37 @@ Keterbatasan per metode chunking (temuan dari quick eval 5 QA):
     - Terbaik untuk nilai numerik tabel (ekstraksi teks, bukan OCR)
     - Lemah untuk pertanyaan definitif yang membutuhkan paragraf ringkas
 
+QA Gold Standard — versi aktif:
+  File  : data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx
+  Sheet : qa_gold
+  Catatan: 26/30 pertanyaan direvisi (menghapus referensi eksplisit ke nomor
+           tabel/lampiran, menjadi lebih natural/standalone), jawaban tidak berubah.
+  File lama (JANGAN dipakai):
+    qa_gold_standard_rag_bps_30qa.xlsx
+    qa_gold_standard_rag_bps_30qa_fixed.xlsx
+    qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
+
 Evaluasi retrieval menggunakan:
   Precision@k : berapa banyak dari k hasil teratas yang relevan
   Recall@k    : berapa banyak dokumen relevan yang berhasil ditemukan dalam k
   MRR         : Mean Reciprocal Rank — posisi dokumen relevan pertama
   NDCG        : TIDAK DIPAKAI dalam penelitian ini
+
+Hasil evaluasi retrieval (top_k=5, 2026-05-20):
+  Strict (label=2):
+    element_based   : P@5=0.0267  R@5=0.0833  MRR=0.1000  (15 query dievaluasi)
+    maxmin_semantic : P@5=0.0111  R@5=0.0556  MRR=0.0556  (18 query dievaluasi)
+    recursive       : P@5=0.0133  R@5=0.0333  MRR=0.0667  (15 query dievaluasi)
+  Lenient (label≥1):
+    element_based   : P@5=0.0214  R@5=0.0518  MRR=0.0893  (28 query dievaluasi)
+    maxmin_semantic : P@5=0.0207  R@5=0.0431  MRR=0.0805  (29 query dievaluasi)
+    recursive       : P@5=0.0276  R@5=0.0632  MRR=0.1034  (29 query dievaluasi)
+  Root cause skor rendah:
+    - recursive/maxmin: header tabel terpisah dari baris data → chunk data-only
+      tidak punya konteks semantik, kalah dari chunk dokumen lain yang header+data menyatu
+    - Bukan bug — keterbatasan fixed-size/semantic chunking untuk tabel multi-baris
+    - ID chunk sudah cocok (verified), semua chunk ada di ChromaDB
+  Output: results/retrieval_eval_strict.csv, results/retrieval_eval_lenient.csv
 
 Evaluasi generasi menggunakan:
   BLEU        : sentence-level via sacrebleu.sentence_bleu()
