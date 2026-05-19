@@ -51,6 +51,108 @@ def load_chunks_from_json(json_path: str) -> Optional[List[Dict[str, Any]]]:
         return None
 
 
+def _html_table_to_text(html: str) -> str:
+    """Parse HTML table menjadi teks baris pipe-separated.
+    
+    Digunakan untuk menggantikan teks OCR yang korup pada table chunks
+    element_based dengan representasi teks yang bersih dari HTML.
+    """
+    from html.parser import HTMLParser as _HTMLParser
+
+    class _TblParser(_HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.rows: List[List[str]] = []
+            self._row: List[str] = []
+            self._cell: List[str] = []
+            self._in_cell = False
+
+        def handle_starttag(self, tag: str, attrs: list) -> None:
+            if tag == "tr":
+                self._row = []
+            elif tag in ("td", "th"):
+                self._cell = []
+                self._in_cell = True
+
+        def handle_data(self, data: str) -> None:
+            if self._in_cell:
+                t = " ".join(data.split())
+                if t:
+                    self._cell.append(t)
+
+        def handle_endtag(self, tag: str) -> None:
+            if tag in ("td", "th"):
+                self._row.append(" ".join(self._cell).strip())
+                self._cell = []
+                self._in_cell = False
+            elif tag == "tr" and self._row:
+                self.rows.append(self._row)
+                self._row = []
+
+    p = _TblParser()
+    p.feed(html)
+    return "\n".join(" | ".join(c for c in row if c) for row in p.rows)
+
+
+def enrich_table_chunk_texts(chunks: List[Dict[str, Any]]) -> int:
+    """Enrichment untuk element_based table chunks: ganti teks OCR yang korup
+    dengan teks yang di-parse dari text_as_html metadata, lalu tambahkan
+    judul/section dari chunk teks sebelumnya sebagai prefix konteks.
+
+    Fungsi ini memodifikasi list ``chunks`` secara in-place sehingga:
+    - ``chunk['text']`` berisi representasi bersih dari tabel HTML
+    - Chunk tabel mendapat prefix judul agar embedding-nya lebih dekat ke query
+    - Embedding yang dihasilkan dan teks yang disimpan ke ChromaDB konsisten
+
+    Hanya berdampak pada chunk yang memiliki ``metadata.text_as_html`` dan
+    ``metadata.chunk_type == 'table'``. Aman dijalankan pada metode chunking
+    lain (maxmin_semantic, recursive) karena mereka tidak punya text_as_html.
+
+    Returns:
+        Jumlah chunk yang berhasil di-enrich.
+    """
+    enriched = 0
+    for idx, chunk in enumerate(chunks):
+        meta = chunk.get("metadata") or {}
+        html = meta.get("text_as_html") or ""
+        if not html.strip():
+            continue
+        if meta.get("chunk_type") != "table":
+            continue
+        table_text = _html_table_to_text(html)
+        if not table_text.strip():
+            continue
+
+        # Cari judul/heading dari chunk teks sebelumnya sebagai prefix konteks.
+        # Ini penting agar embedding tabel (yang hanya berisi angka/simbol)
+        # mendapat konteks semantik yang membantu kemiripan dengan query natural.
+        prefix = ""
+        curr_pgs = set(str(meta.get("page_numbers") or "").replace("[", "")
+                       .replace("]", "").replace(" ", "").split(","))
+        for back in range(1, min(4, idx + 1)):
+            prev = chunks[idx - back]
+            prev_meta = prev.get("metadata") or {}
+            if prev_meta.get("chunk_type") == "table":
+                continue  # skip jika prev juga tabel
+            prev_text = (prev.get("text") or "").strip()
+            if not prev_text or len(prev_text) > 300:
+                continue  # terlalu panjang – bukan heading
+            # Cek halaman overlap
+            prev_pgs = set(str(prev_meta.get("page_numbers") or "")
+                           .replace("[", "").replace("]", "")
+                           .replace(" ", "").split(","))
+            if curr_pgs & prev_pgs:  # ada halaman yang sama
+                prefix = prev_text + "\n\n"
+                break
+
+        chunk["text"] = prefix + table_text
+        enriched += 1
+
+    if enriched:
+        logger.info(f"enrich_table_chunk_texts: {enriched} table chunks enriched from HTML (with title prefix)")
+    return enriched
+
+
 def clean_and_filter_chunks(chunks: List[Dict[str, Any]]) -> Tuple[List[str], List[int]]:
     """
     Clean whitespace dan filter chunk kosong.

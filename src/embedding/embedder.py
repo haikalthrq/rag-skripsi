@@ -141,8 +141,8 @@ class QwenEmbedder:
 def initialize_gguf_embedder(
     model_path: str = DEFAULT_GGUF_MODEL_PATH,
     n_gpu_layers: int = -1,
-    n_ctx: int = 8192,
-    n_batch: int = 512,
+    n_ctx: int = 8192,  # Harus cukup untuk chunk terpanjang (~3500 token dari kalimat 13753 chars)
+    n_batch: int = 64,  # Kecilkan dari 512 → 64 untuk hindari OOM
     normalize: bool = True,
     verbose: bool = False
 ) -> Optional[QwenEmbedder]:

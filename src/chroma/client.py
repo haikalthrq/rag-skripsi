@@ -3,6 +3,8 @@ ChromaDB client initialization dan collection management.
 """
 
 import logging
+import sqlite3
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
@@ -19,6 +21,42 @@ logger = logging.getLogger(__name__)
 
 # Default storage path
 DEFAULT_PERSIST_DIRECTORY = "data/chroma"
+
+
+def _recover_stale_sqlite_journal(persist_path: Path) -> None:
+    """
+    Move a stale Chroma SQLite rollback journal out of the way.
+
+    On Windows, an interrupted Streamlit/Chroma process can leave
+    chroma.sqlite3-journal behind. The main DB can still be valid, but normal
+    SQLite open tries to rollback the journal and may fail with disk I/O error.
+    We only quarantine the journal when the DB passes immutable quick_check.
+    """
+    db_path = persist_path / "chroma.sqlite3"
+    journal_path = persist_path / "chroma.sqlite3-journal"
+
+    if not db_path.exists() or not journal_path.exists():
+        return
+
+    try:
+        db_uri = f"file:{db_path.resolve().as_posix()}?immutable=1"
+        with sqlite3.connect(db_uri, uri=True, timeout=5) as conn:
+            result = conn.execute("PRAGMA quick_check;").fetchone()
+        if not result or result[0] != "ok":
+            logger.warning(
+                "ChromaDB journal exists but DB quick_check is not OK; "
+                "leaving journal in place."
+            )
+            return
+
+        backup_dir = persist_path.parent.parent / "backup" / "chroma_journals"
+        backup_dir.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_path = backup_dir / f"chroma.sqlite3-journal_{stamp}"
+        journal_path.replace(backup_path)
+        logger.warning(f"Moved stale ChromaDB journal to: {backup_path}")
+    except Exception as e:
+        logger.warning(f"Failed to recover stale ChromaDB journal: {e}")
 
 
 def initialize_chroma_client(
@@ -49,13 +87,22 @@ def initialize_chroma_client(
         else:
             persist_path = Path(persist_directory)
             persist_path.mkdir(parents=True, exist_ok=True)
+            _recover_stale_sqlite_journal(persist_path)
             
             logger.info(f"Initializing ChromaDB client (PERSISTENT mode)")
             logger.info(f"  - Storage path: {persist_path.absolute()}")
             
-            client = chromadb.PersistentClient(
-                path=str(persist_path.absolute())
-            )
+            try:
+                client = chromadb.PersistentClient(
+                    path=str(persist_path.absolute())
+                )
+            except Exception as e:
+                if "disk I/O error" not in str(e):
+                    raise
+                _recover_stale_sqlite_journal(persist_path)
+                client = chromadb.PersistentClient(
+                    path=str(persist_path.absolute())
+                )
         
         logger.info("✓ ChromaDB client initialized successfully")
         return client

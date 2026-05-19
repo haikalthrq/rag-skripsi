@@ -1,0 +1,735 @@
+================================================================================
+  LAPORAN EVALUASI GENERASI RAG
+  Perbandingan Metode Chunking: element_based | maxmin_semantic | recursive
+================================================================================
+
+KONFIGURASI RUN
+--------------------------------------------------------------------------------
+  Tanggal/Waktu    : 20260516_115009
+  Model Generator  : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\models\Qwen3-4B-Instruct-2507-FP8
+  Tipe Generator   : hf
+  Embedding Model  : Qwen3-Embedding-4B-Q8_0.gguf
+  ChromaDB Path    : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\data\chroma
+  QA Gold File     : qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
+  Top-K Retrieval  : 5
+  Max Tokens Out   : 1024
+  Temperature      : 0.7
+  Top-P            : 0.8
+  Top-K Sampling   : 20
+
+RINGKASAN METRIK — PERBANDINGAN CHUNKING METHOD
+--------------------------------------------------------------------------------
+  Method                       mean_bleu    mean_rouge_l       n_success       n_queries
+  --------------------------------------------------------------------------------------
+  element_based                   0.1266          0.5868              27              30
+  maxmin_semantic                 0.1528          0.5983              29              30
+  recursive                       0.0896          0.7178              18              30
+
+--------------------------------------------------------------------------------
+
+DETAIL PER QUERY — FORMAT: PERTANYAAN => 3 METODE
+================================================================================
+
+================================================================================
+Q001 | Berapa Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.
+
+[element_based]  BLEU=0.3795  ROUGE-L=0.7143
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan "Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi" di Provinsi Riau pada tahun 2023. Konteks hanya menyebutkan "Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi (2016–100) Tahunan Menurut Provinsi, 2018–2023", tetapi tidak memberikan nilai spesifik untuk Provinsi Riau pada tahun 2023.
+
+Jadi, **tidak memiliki informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[maxmin_semantic]  BLEU=0.2488  ROUGE-L=0.6190
+Jawaban:
+Tidak ada informasi yang memadai dalam konteks yang diberikan mengenai "Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023".
+
+Jawaban: **Tidak ada informasi yang tersedia.**
+
+[recursive]  BLEU=0.0763  ROUGE-L=0.7143
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan tentang **Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023**.
+
+Meskipun konteks menyebutkan data untuk beberapa provinsi (seperti Sumatera Barat, Kepulauan Bangka Belitung, dan Riau) terkait dengan **upah pekerja harian** atau **hari-orang**, tidak ada nilai eksplisit untuk **"Hari-Orang Pekerja Tidak Tetap/Harian"** di **Provinsi Riau** pada **tahun 2023**.
+
+Konteks 3 menyebutkan rata-rata upah pekerja harian, tetapi tidak menyediakan data triwulanan atau indeks hari-orang per provinsi, termasuk Riau.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q003 | Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.
+
+[element_based]  BLEU=0.4656  ROUGE-L=0.6667
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan nilai **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**. Tabel yang disebutkan hanya menyebutkan bahwa ada data untuk tahun 2018–2023, namun tidak memuat angka spesifik per provinsi seperti Jawa Barat.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[maxmin_semantic]  BLEU=0.0101  ROUGE-L=0.6190
+Jawaban:
+Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak mencantumkan data tentang "Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023".
+
+[recursive]  BLEU=0.0733  ROUGE-L=0.6667
+Jawaban:
+Berdasarkan konteks yang diberikan, tidak ada data langsung yang menyebutkan **"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023"**.
+
+Namun, dalam **Konteks 2 (Sumatera Barat)** dan **Konteks 3 (Kepulauan Bangka Belitung)** terdapat data **Upah Pekerja Harian (Wages of Casual Workers)** per triwulan, tetapi tidak disebutkan untuk **Jawa Barat**.
+
+Konteks 1 dan 4 hanya menyebutkan rata-rata upah pekerja harian secara provinsi, tetapi tidak memberikan indeks atau nilai eksplisit untuk **Jawa Barat** pada tahun 2023.
+
+**Kesimpulan:**  
+Tidak ada informasi yang cukup dalam konteks untuk menentukan **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**.
+
+👉 **Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q005 | Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100)?
+--------------------------------------------------------------------------------
+Referensi : Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.
+
+[element_based]  BLEU=0.0836  ROUGE-L=0.5667
+Jawaban:
+Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100) merujuk pada total nilai pekerjaan konstruksi yang telah selesai oleh kontraktor (dengan menghilangkan nilai tanah) berdasarkan perkembangan proyek dalam suatu periode waktu, yang dihitung berdasarkan nilai kontrak antara Bowheer dan kontraktor. Nilai ini digunakan untuk mengukur kemajuan proyek dan dinyatakan dalam indeks dengan tahun dasar 2016 yang dianggap sebagai 100.
+
+[maxmin_semantic]  BLEU=0.1250  ROUGE-L=0.5333
+Jawaban:
+Nilai Konstruksi yang Diselesaikan dimaksudkan sebagai total nilai pekerjaan yang telah selesai dikerjakan oleh kontraktor (dengan menghilangkan nilai tanah), berdasarkan perkembangan proyek dalam periode tertentu, sesuai dengan nilai kontrak antara Bowheer dan kontraktor.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 958.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 11.94 GiB is allocated by PyTorch, and 106.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q006 | Berapa jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi?
+--------------------------------------------------------------------------------
+Referensi : Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.
+
+[element_based]  BLEU=0.1984  ROUGE-L=0.5833
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi.  
+
+Jawaban: Tidak ada informasi yang memadai.
+
+[maxmin_semantic]  BLEU=0.1692  ROUGE-L=0.5833
+Jawaban:
+Tidak ada informasi yang memadai dalam konteks yang diberikan mengenai jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi.  
+
+Jawaban: **Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 928.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 11.69 GiB is allocated by PyTorch, and 354.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q009 | Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.
+
+[element_based]  BLEU=0.5396  ROUGE-L=0.8000
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks tentang persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023. Maka, **tidak dapat ditentukan** berdasarkan konteks yang diberikan.
+
+[maxmin_semantic]  BLEU=0.5396  ROUGE-L=0.8000
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks tentang persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023.  
+
+Jawaban: **Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 890.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 11.39 GiB is allocated by PyTorch, and 667.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q010 | Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi?
+--------------------------------------------------------------------------------
+Referensi : Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.
+
+[element_based]  BLEU=0.0994  ROUGE-L=0.2083
+Jawaban:
+Pengeluaran bahan/material dalam Benchmark Statistik Konstruksi merujuk pada rata-rata persentase penggunaan bahan atau material terhadap nilai konstruksi yang diselesaikan selama suatu tahun, seperti tahun 2023. Nilai ini mencerminkan proporsi biaya bahan/material yang dikeluarkan dalam proses pembangunan konstruksi terhadap total nilai konstruksi yang telah diselesaikan. Data ini biasanya dikumpulkan dan dianalisis untuk memahami efisiensi penggunaan bahan dalam sektor konstruksi.
+
+[maxmin_semantic]  BLEU=0.2455  ROUGE-L=0.4167
+Jawaban:
+Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi, khususnya terkait dengan bahan baku dan bahan penolong yang digunakan dalam proses konstruksi.
+
+[recursive]  BLEU=0.0492  ROUGE-L=0.2917
+Jawaban:
+Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi dimaksudkan sebagai biaya yang dikeluarkan untuk membeli bahan dan material dalam proses konstruksi. Nilai ini dihitung dengan cara menetapkan nilai konstruksi yang diselesaikan pada suatu tahun sebagai benchmark, lalu data pengeluaran bahan/material digerakkan berdasarkan pertumbuhan tahunan sebelum dan sesudahnya. Setelah diperoleh nilai benchmark, dilakukan penyesuaian terhadap nilai outlier untuk memastikan akurasi data. Variabel ini digunakan sebagai dasar perhitungan untuk variabel lainnya dalam analisis statistik konstruksi.
+
+================================================================================
+Q011 | Dalam Lampiran 1, berapa nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)?
+--------------------------------------------------------------------------------
+Referensi : Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.
+
+[element_based]  BLEU=0.2705  ROUGE-L=0.8462
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai nilai kecenderungan mismatch untuk variabel "Lama Bekerja (0–14 Tahun)" dalam Lampiran 1. Konteks hanya menyebutkan bahwa Lampiran 1 berisi hasil model regresi logistik mengenai determinan mismatch pemuda, namun tidak memuat data atau nilai spesifik terkait lama bekerja atau kecenderungan mismatch untuk rentang waktu tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[maxmin_semantic]  BLEU=0.1717  ROUGE-L=0.7692
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai "Lampiran 1" atau nilai kecenderungan mismatch untuk variabel "Lama Bekerja (0–14 Tahun)".
+
+Jawaban: **Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.2888  ROUGE-L=1.0000
+Jawaban:
+Dalam Lampiran 1, nilai kecenderungan mismatch untuk variabel **Lama Bekerja (0–14 Tahun)** adalah **1,1531**.
+
+================================================================================
+Q013 | Dalam Lampiran 3, berapa hazard ratio untuk status Overeducated dibandingkan matched?
+--------------------------------------------------------------------------------
+Referensi : Hazard ratio untuk status Overeducated adalah 1,0737.
+
+[element_based]  BLEU=0.0344  ROUGE-L=0.6250
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai "hazard ratio" untuk status "Overeducated" dibandingkan "matched" dalam Lampiran 3. Konteks 3 hanya menyebutkan "Harmonis ey Megi ptif Kolaboratif", yang tidak memberikan data statistik seperti hazard ratio.
+
+Oleh karena itu, **tidak memiliki informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+[maxmin_semantic]  BLEU=0.0320  ROUGE-L=0.6250
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diminta mengenai "Lampiran 3" atau nilai "hazard ratio" untuk status overeducated dibandingkan dengan matched. Semua konteks yang diberikan membahas secara umum tentang status mismatch, overeducation, dan dampaknya terhadap pencarian pekerjaan atau upah, tetapi tidak menyertakan angka atau data hazard ratio dari lampiran tertentu.
+
+Jawaban: **Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**
+
+[recursive]  BLEU=0.0638  ROUGE-L=1.0000
+Jawaban:
+Dalam Lampiran 3, hazard ratio untuk status **Overeducated** dibandingkan dengan **matched** adalah **1,0737**.
+
+================================================================================
+Q015 | Berapa persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi?
+--------------------------------------------------------------------------------
+Referensi : Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.
+
+[element_based]  BLEU=0.0752  ROUGE-L=0.3478
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan persentase angkatan kerja muda yang mengalami **vertical mismatch**. Konteks yang diberikan membahas **mismatch pendidikan-perkerjaan**, termasuk **horizontal mismatch** (perpindahan sektor) dan **undereducated/overeducated**, namun tidak menyebutkan secara eksplisit angka persentase untuk **vertical mismatch**.
+
+Maka, jawabannya adalah:
+
+**Tidak ada informasi yang memadai untuk menentukan persentase angkatan kerja muda yang mengalami vertical mismatch.**
+
+[maxmin_semantic]  BLEU=0.0878  ROUGE-L=0.3043
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan persentase angkatan kerja muda yang mengalami vertical mismatch. Maka, **tidak memiliki informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+[recursive]  BLEU=0.0293  ROUGE-L=0.5217
+Jawaban:
+Berdasarkan konteks yang diberikan, **tidak disebutkan secara eksplisit persentase angkatan kerja muda yang mengalami vertical mismatch** dalam ikhtisar publikasi.
+
+Namun, dalam **Konteks 2** disebutkan bahwa **35,36 persen pekerja muda tidak berada pada posisi kerja yang sesuai dengan tingkat pendidikan mereka**, yang merupakan indikasi dari **mismatch pendidikan–pekerjaan**, dan fenomena ini dikenal sebagai **vertical mismatch** (ketidaksesuaian vertikal antara tingkat pendidikan dan posisi kerja).
+
+Jadi, meskipun tidak disebutkan secara langsung sebagai "persentase vertical mismatch", angka **35,36 persen** adalah data yang paling mendekati jawaban yang diminta.
+
+**Jawaban: 35,36 persen**.
+
+================================================================================
+Q016 | Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 01 pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.7500
+Jawaban:
+Tidak memiliki informasi yang memadai. Konteks yang diberikan tidak mencakup Tabel 4 atau data mengenai Indeks Unit Value Impor HS 01 pada Agustus 2025.
+
+[maxmin_semantic]  BLEU=0.0000  ROUGE-L=0.7500
+Jawaban:
+Tidak memiliki informasi yang memadai. Konteks yang diberikan tidak mencantumkan Tabel 4 atau data terkait Indeks Unit Value Impor HS 01 pada Agustus 2025.
+
+[recursive]  BLEU=0.0000  ROUGE-L=0.8333
+Jawaban:
+Tidak memiliki informasi yang memadai.  
+
+Dalam konteks yang diberikan, tidak ada data atau tabel yang menyebutkan nilai indeks unit value impor untuk HS 01 pada Agustus 2025. Semua informasi tentang indeks unit value impor hanya disebutkan untuk kode HS seperti 51, 10, 61, 92, 82, dan 69, tetapi tidak disebutkan untuk HS 01.  
+
+Jadi, **tidak dapat ditentukan** berdasarkan informasi yang tersedia.
+
+================================================================================
+Q017 | Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 27 pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.7500
+Jawaban:
+Tidak memiliki informasi yang memadai. Konteks yang diberikan tidak mencakup Tabel 4 atau data mengenai Indeks Unit Value Impor HS 27 pada Agustus 2025.
+
+[maxmin_semantic]  BLEU=0.0000  ROUGE-L=0.7500
+Jawaban:
+Tidak memiliki informasi yang memadai.  
+Konteks yang diberikan tidak memuat data tentang Indeks Unit Value Impor HS 27 pada Agustus 2025. Tabel 4 tidak disertakan, dan tidak ada informasi spesifik mengenai kelompok HS 27 dalam konteks yang tersedia.
+
+[recursive]  BLEU=0.3159  ROUGE-L=0.8333
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang menyebutkan nilai **Indeks Unit Value Impor HS 27 pada Agustus 2025** secara eksplisit. Meskipun konteks menyebutkan bahwa HS 27 adalah "Bahan Bakar Mineral", dan ada referensi pada perkembangan indeks unit value impor menurut kode HS 2 digit, **Tabel 4** (yang dimaksud sebagai sumber data) tidak disertakan secara lengkap atau dapat dianalisis dalam konteks yang diberikan.
+
+Karena tidak ada data numerik yang dapat diidentifikasi dari Tabel 4 dalam konteks yang diberikan, maka **tidak dapat ditentukan** nilai Indeks Unit Value Impor HS 27 pada Agustus 2025.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q020 | Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 5.23 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 9.83 GiB is allocated by PyTorch, and 170.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+[maxmin_semantic]  BLEU=0.3469  ROUGE-L=0.5000
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor. Konteks hanya menyebutkan "pemilihan sampel komoditas" di bagian yang tercantum dalam Konteks 3, namun tidak memberikan jumlah spesifik untuk komoditas HS 8-digit.
+
+Jadi, **tidak ada informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.2069  ROUGE-L=0.8750
+Jawaban:
+Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025 adalah **2.800 komoditas**.
+
+Penjelasan:  
+Dalam konteks 1 disebutkan bahwa "Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas".  
+Informasi ini merupakan data yang relevan dan langsung menjawab pertanyaan tentang jumlah komoditas HS 8-digit yang terpilih sebagai sampel.
+
+Jawaban: **2.800**
+
+================================================================================
+Q021 | Pada Lampiran 7.4, berapa proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.
+
+[element_based]  BLEU=0.1536  ROUGE-L=0.6667
+Jawaban:
+Tidak ada informasi yang memadai dalam konteks yang diberikan mengenai proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024, khususnya untuk Lampiran 7.4. Konteks hanya menyebutkan lampiran terkait struktur neraca produksi, penerimaan dan pengeluaran, serta capaian dokumen SKLNPT, tetapi tidak menyertakan data spesifik tentang transfer masuk untuk COPNI 8 pada tahun 2024.
+
+Jawaban: **Tidak ada informasi yang tersedia.**
+
+[maxmin_semantic]  BLEU=0.1144  ROUGE-L=0.6667
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai "Lampiran 7.4" atau "proporsi Transfer Masuk untuk COPNI 8" pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024. Semua konteks yang diberikan membahas transfer secara umum, proporsi penggunaan penerimaan, atau jenis transfer, tetapi tidak menyebutkan data spesifik mengenai COPNI 8 atau lampiran tertentu.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.0214  ROUGE-L=0.7500
+Jawaban:
+Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menjawab pertanyaan tentang **proporsi Transfer Masuk untuk COPNI 8** pada **struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024**.
+
+Alasannya:
+- Konteks hanya menyebutkan **struktur sumber transfer masuk** untuk LNPRT (dari rumah tangga, pemerintah, badan usaha, dll), bukan berdasarkan klasifikasi COPNI.
+- **COPNI 8** adalah **"Lingkungan Hidup" (Environmental Protection)**.
+- Tidak ada tabel atau data yang menyebutkan proporsi transfer masuk **berdasarkan COPNI**, terutama untuk COPNI 8.
+- Tabel dalam konteks 2 (struktur neraca penerimaan dan pengeluaran) mengelompokkan data berdasarkan **pelaku (actors)**, bukan berdasarkan **COPNI**.
+
+Maka, **tidak dapat ditentukan** proporsi transfer masuk untuk COPNI 8 dari data yang tersedia.
+
+👉 **Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q023 | Pada Lampiran 8.1, berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?
+--------------------------------------------------------------------------------
+Referensi : Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.
+
+[element_based]  BLEU=0.0253  ROUGE-L=0.0000
+Jawaban:
+Tidak memiliki informasi yang memadai.
+
+[maxmin_semantic]  BLEU=0.1523  ROUGE-L=0.6154
+Jawaban:
+Berdasarkan Lampiran 8.1, untuk Provinsi Jambi (Kode 15), capaian pemasukan dokumen SKLNPT 2024 adalah **117,50%**.
+
+**Jawaban: 117,50%**
+
+[recursive]  BLEU=0.0000  ROUGE-L=0.6154
+Jawaban:
+Tidak memiliki informasi yang memadai. Konteks yang diberikan tidak menyebutkan Lampiran 8.1 atau capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi.
+
+================================================================================
+Q025 | Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam berapa kelompok tujuan kegiatan utama?
+--------------------------------------------------------------------------------
+Referensi : COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.
+
+[element_based]  BLEU=0.0263  ROUGE-L=0.1765
+Jawaban:
+Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam **sembilan kelompok tujuan kegiatan utama**.
+
+[maxmin_semantic]  BLEU=0.0373  ROUGE-L=0.1176
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan tentang konsep COPNI atau klasifikasi kelompok tujuan kegiatan utama LNPRT menurut konsep tersebut.
+
+Jawaban: **Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**
+
+[recursive]  BLEU=0.0263  ROUGE-L=0.1765
+Jawaban:
+Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam **sembilan kelompok tujuan kegiatan utama**.
+
+================================================================================
+Q026 | Pada Lampiran 4.3, berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.5000
+Jawaban:
+Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak menyebutkan data tentang "Pajak Pendapatan pemerintah daerah pada tahun 2024" dalam Lampiran 4.3. Selain itu, tidak ada data numerik atau deskripsi yang relevan dengan nilai pajak pendapatan pemerintah daerah di tahun 2024 dalam dokumen yang tersedia.
+
+[maxmin_semantic]  BLEU=0.0925  ROUGE-L=0.5833
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai nilai **Pajak Pendapatan pemerintah daerah** pada **Lampiran 4.3** tahun 2024. Semua konteks yang disebutkan membahas topik seperti PDB, pendapatan pemerintah umum, bunga, atau laporan keuangan, tetapi tidak menyebutkan nilai pajak pendapatan pemerintah daerah secara eksplisit.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.0154  ROUGE-L=0.8333
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan nilai **Pajak Pendapatan Pemerintah Daerah** pada **Lampiran 4.3** atau pada tahun **2024**.
+
+Konteks hanya menyebutkan bahwa:
+- Lampiran 4.3 adalah *"Neraca Distribusi Pendapatan Sekunder Pemerintahan Daerah (miliar rupiah), 2019–2024"*, namun tidak menyertakan nilai pajak pendapatan pemerintah daerah.
+- Ada informasi tentang **pajak pendapatan pemerintah daerah** dalam konteks lain (misalnya di bagian 2.2.4.3), tetapi hanya menjelaskan kategori dan sifat kontribusi sosial, bukan nilai pajak pendapatan pemerintah daerah.
+
+**Kesimpulan:** Tidak ada data nilai pajak pendapatan pemerintah daerah pada tahun 2024 dalam Lampiran 4.3.
+
+👉 **Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q027 | Pada Lampiran 6.2, berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.6429
+Jawaban:
+Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak memuat data nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024 di Lampiran 6.2.
+
+[maxmin_semantic]  BLEU=0.1821  ROUGE-L=0.6429
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang memadai untuk menentukan nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024 dari Lampiran 6.2.
+
+Jawaban: Tidak ada informasi yang memadai.
+
+[recursive]  BLEU=0.1262  ROUGE-L=0.7857
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan nilai **Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024** secara eksplisit, terutama dalam **Lampiran 6.2** yang hanya disebutkan sebagai *"Neraca Modal Pemerintahan Pusat (miliar rupiah), 2019–2024"*. 
+
+Meskipun konteks 1 menyebutkan nilai-nilai pembentukan modal tetap bruto (seperti untuk perlengkapan dan peralatan, bangunan), nilai-nilai tersebut tidak terkait secara langsung dengan **pemerintahan pusat** atau tahun **2024** secara spesifik.
+
+Konteks lain hanya menyebutkan struktur dan definisi, bukan angka tahunan.
+
+**Kesimpulan:**  
+Tidak ada data yang memadai dalam konteks untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak diketahui.**
+
+================================================================================
+Q029 | Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?
+--------------------------------------------------------------------------------
+Referensi : Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.
+
+[element_based]  BLEU=0.0365  ROUGE-L=0.5238
+Jawaban:
+Tidak ada informasi dalam konteks yang menjelaskan apa yang dimaksud dengan "tabungan" dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum. Konteks hanya menyebutkan elemen-elemen seperti pendapatan disposabel bruto, transfer sosial, dan perubahan pendapatan disposabel pemerintahan umum, namun tidak menyebutkan konsep tabungan.
+
+Oleh karena itu, **tidak ada informasi yang memadai** untuk menjawab pertanyaan tentang arti tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum.
+
+[maxmin_semantic]  BLEU=0.3371  ROUGE-L=0.7619
+Jawaban:
+Tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum dimaksudkan sebagai selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir. Secara matematis, tabungan dihitung sebagai **pendapatan disposabel dikurangi pengeluaran konsumsi akhir**. Artinya, jika pendapatan disposabel lebih besar dari pengeluaran konsumsi, maka sisanya merupakan tabungan yang dapat digunakan untuk keperluan lain seperti investasi atau penyimpanan.
+
+[recursive]  BLEU=0.0307  ROUGE-L=0.5714
+Jawaban:
+Dalam konteks yang diberikan, **tabungan** dalam **Neraca Penggunaan Pendapatan Disposabel pemerintahan umum** merujuk pada bagian dari pendapatan disposabel yang **tidak digunakan untuk konsumsi**, melainkan **dipertahankan atau disimpan** oleh pemerintahan umum untuk digunakan di masa depan.
+
+Berdasarkan Konteks 3, tabungan bruto (savings, gross) dinyatakan sebagai bagian dari penggunaan pendapatan disposabel. Dalam neraca ini, tabungan bruto mencakup semua bentuk penahanan pendapatan, baik dalam bentuk uang tunai maupun aset non-tunai, dan mencerminkan kemampuan pemerintah untuk menyimpan sebagian dari pendapatan yang tersedia.
+
+Namun, perlu dicatat bahwa **konteks tidak secara eksplisit menyebutkan struktur atau komponen penggunaan pendapatan disposabel yang lebih detail** dalam neraca pemerintahan umum. Jadi, meskipun tabungan dianggap sebagai bagian dari penggunaan pendapatan disposabel, **definisi dan komposisi penggunaannya** (misalnya, tabungan untuk investasi, cadangan, atau pembayaran kewajiban) **tidak dijelaskan secara lengkap** dalam dokumen yang tersedia.
+
+**Jawaban yang paling tepat:**
+
+**Tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum adalah bagian dari pendapatan disposabel yang tidak digunakan untuk konsumsi, tetapi disimpan untuk digunakan di masa depan.**
+
+================================================================================
+Q031 | Pada Lampiran 2.7, berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.7778
+Jawaban:
+Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak memuat data tentang "Lampiran 2.7" atau proporsi "Transfer Berjalan" dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024. Semua lampiran yang disebutkan hanya menyebutkan judul atau tema umum, tanpa detail numerik atau data spesifik yang diminta.
+
+[maxmin_semantic]  BLEU=0.3417  ROUGE-L=0.7778
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai "proporsi Transfer Berjalan" dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024, terutama pada Lampiran 2.7. Semua konteks hanya menyebutkan data terkait transfer modal, proporsi transfer keluar pada tahun 2022, dan nilai transfer, tetapi tidak menyebutkan proporsi transfer berjalan untuk tahun 2024.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.1055  ROUGE-L=0.8333
+Jawaban:
+Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menjawab pertanyaan tentang proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 pada Lampiran 2.7.
+
+Konteks yang tersedia mencakup lampiran seperti 2.4, 2.8, 2.9, 2.10, hingga 2.14, tetapi **tidak ada konten yang mengacu secara eksplisit pada Lampiran 2.7**, dan **tidak ada tabel atau data yang menunjukkan proporsi Transfer Berjalan dalam struktur penggunaan untuk tahun 2024**.
+
+Jadi, **tidak dapat ditentukan** berdasarkan informasi yang tersedia.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+================================================================================
+Q032 | Pada Lampiran 2.9, berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.7500
+Jawaban:
+Tidak memiliki informasi yang memadai.  
+
+Meskipun konteks menyebutkan data tentang proporsi Pengeluaran Konsumsi Akhir dalam struktur neraca rumah tangga, tidak ada informasi yang menyebutkan bahwa data tersebut terdapat di "Lampiran 2.9" atau tahun 2024 secara eksplisit. Tabel yang disebutkan dalam konteks 5 menunjukkan bahwa pada tahun 2024, proporsi Pengeluaran Konsumsi Akhir adalah **86,08%**, namun tidak disebutkan bahwa ini adalah Lampiran 2.9.  
+
+Karena tidak ada bukti bahwa Lampiran 2.9 adalah referensi yang tepat untuk data tersebut, maka tidak dapat dipastikan keakuratan atau keterkaitannya.  
+
+**Jawaban: Tidak dapat ditentukan berdasarkan informasi yang diberikan.**
+
+[maxmin_semantic]  BLEU=0.0165  ROUGE-L=0.6667
+Jawaban:
+Tidak ada informasi yang cukup dalam konteks yang diberikan mengenai "Lampiran 2.9" atau nilai proporsi pengeluaran konsumsi akhir rumah tangga secara eksplisit pada tahun 2024. Meskipun konteks 2 menyebutkan proporsi konsumsi antara 63,76% dan 36,24%, ini merujuk pada proporsi konsumsi antara output (NPISHs) dan konsumsi antar (intermediate consumption), bukan proporsi pengeluaran konsumsi akhir rumah tangga.
+
+Karena tidak disebutkan secara langsung proporsi pengeluaran konsumsi akhir rumah tangga pada tahun 2024 dalam Lampiran 2.9, maka **tidak dapat ditentukan** dari informasi yang diberikan.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=0.0333  ROUGE-L=0.8333
+Jawaban:
+Tidak ada informasi tentang "Lampiran 2.9" dalam konteks yang diberikan, dan tidak ada data yang menyebutkan proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024 secara eksplisit dalam lampiran atau tabel yang tersedia.
+
+Namun, dari **Konteks 3**, kita tahu bahwa:
+
+- Pengeluaran konsumsi akhir rumah tangga pada tahun 2024 adalah **11.964,95 triliun rupiah**.
+- Pendapatan disposabel bruto pada tahun 2024 adalah **12.924,89 triliun rupiah**.
+
+Maka, proporsi Pengeluaran Konsumsi Akhir Rumah Tangga terhadap Pendapatan Disposabel Bruto pada tahun 2024 adalah:
+
+\[
+\frac{11.964,95}{12.924,89} \times 100\% \approx 92,56\%
+\]
+
+Jadi, **proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024 adalah sekitar 92,56%**.
+
+**Jawaban: 92,56%**.
+
+================================================================================
+Q034 | Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam kelompok aktivitas apa saja?
+--------------------------------------------------------------------------------
+Referensi : Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.
+
+[element_based]  BLEU=0.1514  ROUGE-L=0.7143
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan kelompok aktivitas ekonomi rumah tangga yang dikelompokkan dalam publikasi ini. Konteks hanya menyebutkan aktivitas seperti **output usaha rumah tangga** dan **konsumsi antara yang digunakan dalam proses produksi**, namun tidak menyebutkan kelompok kategori aktivitas ekonomi secara umum (misalnya: konsumsi, produksi, pendapatan, investasi, dll).
+
+Maka, **jawaban yang dapat diberikan adalah**:
+
+**Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**
+
+[maxmin_semantic]  BLEU=0.1633  ROUGE-L=0.6429
+Jawaban:
+Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam tiga kelompok aktivitas yaitu **produksi, konsumsi, dan investasi**.
+
+[recursive]  BLEU=0.1514  ROUGE-L=0.7857
+Jawaban:
+Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam tiga kelompok utama, yaitu:
+
+1. **Aktivitas konsumsi** – rumah tangga sebagai pelaku konsumsi, membeli barang dan jasa untuk kebutuhan pribadi (konsumsi akhir).  
+2. **Aktivitas penyediaan faktor produksi** – rumah tangga menyediakan tenaga kerja dan faktor produksi non-labor (seperti tenaga kerja, lahan, dan aset lain) dan memperoleh balas jasa (upah, gaji, dan pendapatan lainnya).  
+3. **Aktivitas investasi (sebagai institusi surplus)** – rumah tangga dapat menjadi institusi surplus (tabungan positif) yang menyediakan dana untuk investasi kepada institusi defisit (yang memiliki tabungan negatif), sehingga memengaruhi aktivitas investasi secara ekonomi.
+
+Dengan demikian, aktivitas ekonomi rumah tangga dikelompokkan ke dalam **aktivitas konsumsi, penyediaan faktor produksi, dan aktivitas investasi (melalui tabungan)**.
+
+================================================================================
+Q036 | Pada Tabel 3.35, berapa estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025?
+--------------------------------------------------------------------------------
+Referensi : Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.
+
+[element_based]  BLEU=0.2013  ROUGE-L=0.7333
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diminta mengenai "Tabel 3.35" atau estimasi total Angka Partisipasi Sekolah (APS) 13–15 tahun untuk Provinsi Aceh pada 2025. Konteks yang diberikan hanya menyebutkan tabel-tabel terkait partisipasi pendidikan, seperti Tabel 3.4 (APK), Tabel 3.5 (APM), dan tabel lainnya, tetapi tidak ada referensi ke Tabel 3.35 atau data spesifik untuk Aceh pada rentang usia 13–15 tahun.
+
+Jawaban: **Tidak ada informasi yang memadai.**
+
+[maxmin_semantic]  BLEU=0.0657  ROUGE-L=0.7333
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan tentang Tabel 3.35, estimasi total Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun, atau data khusus untuk Provinsi Aceh pada tahun 2025.
+
+Jawaban: **Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 858.00 MiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 11.23 GiB is allocated by PyTorch, and 981.06 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q037 | Pada Tabel 3.36, berapa estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025?
+--------------------------------------------------------------------------------
+Referensi : Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.
+
+[element_based]  BLEU=0.0245  ROUGE-L=0.6250
+Jawaban:
+Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak mencakup Tabel 3.36, dan tidak ada data tentang estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025. Tabel yang disebutkan hanya mencakup Tabel 3.4 (APK) dan Tabel 3.5 (APM), serta tidak ada informasi mengenai Tabel 3.36. Oleh karena itu, tidak dapat diberikan estimasi yang akurat.
+
+[maxmin_semantic]  BLEU=0.2091  ROUGE-L=0.7500
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan tentang **Tabel 3.36** atau **estimasi total APS (Angka Partisipasi Sekolah) 16–18 tahun untuk Provinsi Sumatera Barat pada 2025**. Semua konteks yang diberikan membahas tentang **AMH (Angka Keaksaraan)**, **analisis alur pendidikan**, dan data dari Survei Sosial Ekonomi Nasional (Susenas) 2025, tetapi tidak menyertakan data spesifik terkait APS pada kelompok usia 16–18 tahun di Sumatera Barat.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 4.21 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 8.71 GiB is allocated by PyTorch, and 142.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q040 | Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?
+--------------------------------------------------------------------------------
+Referensi : Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.
+
+[element_based]  BLEU=0.1352  ROUGE-L=0.4231
+Jawaban:
+Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menentukan tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025. Meskipun disebutkan adanya tabel tentang tingkat penyelesaian pendidikan dan angka putus sekolah, tidak ada data spesifik yang tercantum mengenai angka penyelesaian untuk jenjang SD, SMP, dan SMA/SMK.
+
+Jawaban: **Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**
+
+[maxmin_semantic]  BLEU=0.0902  ROUGE-L=0.3462
+Jawaban:
+Tidak ada informasi dalam konteks yang menyediakan data tentang **tingkat penyelesaian pendidikan** untuk SD, SMP, dan SMA/SMK pada tahun 2025. Konteks hanya menyebutkan tahun ajaran (2024/2025) dan jenis sekolah, tetapi tidak menyertakan angka atau data penyelesaian pendidikan.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 2.98 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 7.54 GiB is allocated by PyTorch, and 4.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q041 | Pada Tabel 2.7, berapa total berat bersih impor Indonesia pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 7.74 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 4.93 GiB is allocated by PyTorch, and 123.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+[maxmin_semantic]  BLEU=0.0000  ROUGE-L=1.0000
+Jawaban:
+Tidak ada informasi tentang "Tabel 2.7" dalam konteks yang diberikan. Konteks hanya menyebutkan Tabel 2.1 dan Tabel 2.2, serta data lainnya terkait nilai CIF dan berat bersih impor.
+
+Namun, pada **Tabel 2.1** (Ringkasan Perkembangan Impor Indonesia, Agustus 2025), terdapat baris "Total" yang menyebutkan:
+
+- **Total Berat Bersih (kg)** pada Agustus 2025 adalah **19.944.279.991 kg**.
+
+Jadi, meskipun tidak disebutkan sebagai "Tabel 2.7", berdasarkan data yang tersedia, total berat bersih impor Indonesia pada Agustus 2025 adalah:
+
+**19.944.279.991 kg**
+
+**Jawaban: 19.944.279.991 kg**.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 2.90 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 7.55 GiB is allocated by PyTorch, and 4.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q042 | Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untuk HS 94032090 Metal furniture other than fume cupboards, not used in offices?
+--------------------------------------------------------------------------------
+Referensi : Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 5.24 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 9.84 GiB is allocated by PyTorch, and 462.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+[maxmin_semantic]  BLEU=0.0257  ROUGE-L=0.3333
+Jawaban:
+Tidak ada informasi dalam konteks yang menyebutkan tentang Tabel 2.3 atau komoditi dengan kode HS 94032090 (Metal furniture other than fume cupboards, not used in offices). Konteks hanya menyediakan data impor menurut golongan barang HS 2 digit untuk Agustus 2024 dan Agustus 2025, tetapi tidak mencakup kode HS 94032090.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 3.56 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 8.01 GiB is allocated by PyTorch, and 862.21 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q044 | Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?
+--------------------------------------------------------------------------------
+Referensi : Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.
+
+[element_based]  BLEU=0.2034  ROUGE-L=0.3571
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai total nilai impor Indonesia pada Agustus 2025, maupun rinciannya menurut migas dan nonmigas. Konteks hanya menyebutkan tabel tentang volume impor (dalam ribu ton), bukan nilai impor, dan tidak menyertakan data nilai atau rinciannya. Oleh karena itu, tidak dapat ditentukan total nilai impor atau rinciannya berdasarkan informasi yang diberikan.
+
+[maxmin_semantic]  BLEU=0.1712  ROUGE-L=0.3571
+Jawaban:
+Tidak ada informasi yang memadai dalam konteks yang diberikan mengenai **total nilai impor Indonesia pada Agustus 2025** atau **rinciannya menurut migas dan nonmigas**. Konteks hanya menyebutkan nilai indeks unit value impor (92,44 untuk kelompok nonmigas), serta perubahan terhadap bulan sebelumnya dan tahun sebelumnya, namun tidak menyediakan data nilai absolut impor dalam rupiah atau dolar.
+
+Jadi, **tidak dapat ditentukan total nilai impor Indonesia pada Agustus 2025 dan rinciannya menurut migas dan nonmigas** berdasarkan informasi yang tersedia.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 2.47 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 7.01 GiB is allocated by PyTorch, and 4.31 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q046 | Pada Tabel 4.1, berapa nilai impor Indonesia melalui moda transportasi laut pada 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.8000
+Jawaban:
+Tidak memiliki informasi yang memadai. Pertanyaan mengacu pada "Tabel 4.1", namun dalam konteks yang diberikan, hanya disebutkan Tabel 4.6 dan Tabel 4.7, serta data impor melalui moda transportasi laut pada 2024 sebesar US$209.268,6 juta. Namun, tidak ada informasi yang menyebutkan bahwa Tabel 4.1 ada atau berisi data tersebut. Oleh karena itu, tidak dapat dipastikan bahwa Tabel 4.1 adalah sumber data yang dimaksud.
+
+Jawaban: **Tidak ada informasi yang memadai untuk menjawab pertanyaan tersebut.**
+
+[maxmin_semantic]  BLEU=0.0947  ROUGE-L=0.6667
+Jawaban:
+Tidak ada informasi yang tersedia dalam konteks untuk menjawab pertanyaan tentang nilai impor Indonesia melalui moda transportasi laut pada 2024 berdasarkan Tabel 4.1.
+
+Meskipun konteks menyebutkan bahwa Tabel 4.1 adalah "Impor Menurut Moda Transportasi, 2023 dan 2024", tidak ada nilai numerik yang disebutkan dalam konteks tersebut untuk impor melalui moda transportasi laut pada tahun 2024.
+
+**Jawaban: Tidak ada informasi yang memadai.**
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 4.72 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 9.28 GiB is allocated by PyTorch, and 2.56 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q048 | Pada Tabel 5.13, berapa nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.
+
+[element_based]  BLEU=0.0000  ROUGE-L=0.7778
+Jawaban:
+Tidak memiliki informasi yang memadai. Konteks yang diberikan tidak mencantumkan data dari Tabel 5.13, terutama nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024. Hanya ada informasi tentang impor secara umum menggunakan moda laut pada tahun 2024 (US$209.268,6 juta), namun tidak disebutkan per breakdown berdasarkan golongan barang seperti HS 10 Serealia. Oleh karena itu, tidak dapat ditentukan nilai tersebut.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 6.32 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 7.88 GiB is allocated by PyTorch, and 803.69 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 3.83 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 8.30 GiB is allocated by PyTorch, and 1.07 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+Q049 | Mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar menurut publikasi moda transportasi?
+--------------------------------------------------------------------------------
+Referensi : Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.
+
+[element_based]  BLEU=0.3147  ROUGE-L=0.5161
+Jawaban:
+Konteks yang diberikan tidak menyediakan alasan spesifik mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar. Meskipun disebutkan bahwa impor menggunakan moda laut mencapai US$209.268,6 juta (88,97%) dalam tahun 2024, tidak ada penjelasan mengenai faktor-faktor seperti biaya, kapasitas, jarak, atau efisiensi yang mendukung pilihan moda laut tersebut.
+
+Oleh karena itu, **tidak ada informasi yang memadai** dalam konteks untuk menjawab pertanyaan tersebut secara lengkap dan berdasarkan data yang tersedia.
+
+[maxmin_semantic]  BLEU=0.3618  ROUGE-L=0.4194
+Jawaban:
+Karena Indonesia merupakan negara maritim dengan banyak pelabuhan laut yang menjadi pintu keluar-masuk barang ekspor maupun impor, sehingga moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: CUDA out of memory. Tried to allocate 2.36 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Of the allocated memory 6.94 GiB is allocated by PyTorch, and 4.80 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+================================================================================
+  END OF REPORT
+================================================================================

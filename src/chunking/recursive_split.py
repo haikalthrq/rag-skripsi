@@ -202,23 +202,39 @@ def convert_chunks_to_dict(
     Returns:
         List[Dict[str, Any]]: List chunks dengan metadata.
     """
+    import re as _re
+    _PAGE_MARKER = _re.compile(r'<<<PAGE_(\d+)>>>')
+
     chunk_dicts = []
-    
+    last_seen_page: Optional[int] = None
+
     try:
         for chunk_id, chunk_text in enumerate(chunks):
+            # Ekstrak nomor halaman dari marker <<<PAGE_N>>> lalu hapus markernya
+            page_numbers = sorted({int(m) for m in _PAGE_MARKER.findall(chunk_text)})
+            chunk_text = _PAGE_MARKER.sub('', chunk_text).strip()
+
+            # Forward propagation: jika tidak ada marker di chunk ini,
+            # gunakan halaman terakhir yang terlihat
+            if page_numbers:
+                last_seen_page = page_numbers[-1]
+            elif last_seen_page is not None:
+                page_numbers = [last_seen_page]
+
             chunk_dict: Dict[str, Any] = {
                 'chunk_id': chunk_id,
                 'text': chunk_text,
                 'num_characters': len(chunk_text)
             }
-            
+
             if include_metadata:
                 chunk_dict['metadata'] = {
                     'source_file': source_filename,
                     'chunking_method': 'recursive_character_text_splitter',
-                    'chunk_length': len(chunk_text)
+                    'chunk_length': len(chunk_text),
+                    'page_numbers': page_numbers if page_numbers else None,
                 }
-            
+
             chunk_dicts.append(chunk_dict)
         
         logger.info(f"✓ Konversi {len(chunks)} chunks ke format dictionary")

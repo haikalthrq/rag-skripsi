@@ -16,6 +16,7 @@ Mendukung 3 chunking method:
 
 import logging
 import time
+from html.parser import HTMLParser
 from typing import Optional, List, Dict, Any
 
 from .generator import (
@@ -96,6 +97,78 @@ class RAGPipeline:
         logger.info(f"  - Collection      : {collection_name} ({doc_count} docs)")
         logger.info(f"  - Top-k           : {top_k}")
 
+    @staticmethod
+    def _html_table_to_text(html: str) -> str:
+        """Convert simple HTML table metadata into row-oriented text."""
+        class _TableParser(HTMLParser):
+            def __init__(self) -> None:
+                super().__init__()
+                self.rows: List[List[str]] = []
+                self.current_row: List[str] = []
+                self.current_cell: List[str] = []
+                self.in_cell = False
+
+            def handle_starttag(self, tag: str, attrs: List[tuple]) -> None:
+                if tag == "tr":
+                    self.current_row = []
+                elif tag in ("td", "th"):
+                    self.current_cell = []
+                    self.in_cell = True
+
+            def handle_data(self, data: str) -> None:
+                if self.in_cell:
+                    text = " ".join(data.split())
+                    if text:
+                        self.current_cell.append(text)
+
+            def handle_endtag(self, tag: str) -> None:
+                if tag in ("td", "th"):
+                    cell = " ".join(self.current_cell).strip()
+                    self.current_row.append(cell)
+                    self.current_cell = []
+                    self.in_cell = False
+                elif tag == "tr" and self.current_row:
+                    self.rows.append(self.current_row)
+                    self.current_row = []
+
+        parser = _TableParser()
+        parser.feed(html)
+        return "\n".join(" | ".join(cell for cell in row if cell) for row in parser.rows)
+
+    @classmethod
+    def _format_context(cls, doc: Dict[str, Any]) -> str:
+        """Build generator context with metadata and structured table text."""
+        metadata = doc.get("metadata") or {}
+        parts: List[str] = []
+
+        source = metadata.get("source_file") or metadata.get("source_filename")
+        pages = metadata.get("page_numbers") or metadata.get("page_range")
+        section = metadata.get("section_title")
+        table_html = metadata.get("text_as_html")
+
+        header = []
+        if source:
+            header.append(f"Sumber: {source}")
+        if pages:
+            header.append(f"Halaman: {pages}")
+        # Element-based table chunks can inherit a noisy section_title from PDF
+        # extraction, so avoid treating it as authoritative table context.
+        if section and not table_html:
+            header.append(f"Bagian: {section}")
+        if header:
+            parts.append(" | ".join(header))
+
+        if isinstance(table_html, str) and table_html.strip():
+            table_text = cls._html_table_to_text(table_html)
+            if table_text:
+                parts.append("Tabel terstruktur:\n" + table_text)
+
+        document = (doc.get("document") or "").strip()
+        if document:
+            parts.append("Teks chunk:\n" + document)
+
+        return "\n\n".join(parts).strip()
+
     def retrieve(
         self,
         query: str,
@@ -119,6 +192,27 @@ class RAGPipeline:
         results = similarity_search(self.collection, query_vec, k=k)
         logger.info(f"Retrieved {len(results)} chunks untuk query: '{query[:60]}...'")
 
+        return results
+
+    def retrieve_by_vector(
+        self,
+        query_vec,
+        k: Optional[int] = None,
+    ) -> List[Dict[str, Any]]:
+        """
+        Retrieve top-k chunks menggunakan pre-computed query vector.
+        Berguna di compare mode agar embed hanya dilakukan sekali untuk 3 metode.
+
+        Args:
+            query_vec : 1-D numpy array hasil embedder.embed(query)[0]
+            k         : Jumlah chunk (default: self.top_k)
+
+        Returns:
+            List of dicts: {id, document, metadata, distance}
+        """
+        k = k if k is not None else self.top_k
+        results = similarity_search(self.collection, query_vec, k=k)
+        logger.info(f"Retrieved {len(results)} chunks (by vector, collection={self.chunking_method})")
         return results
 
     def run(
@@ -158,8 +252,8 @@ class RAGPipeline:
                 "elapsed_seconds": round(time.time() - start, 3),
             }
 
-        # --- Step 2: Extract context texts ---
-        contexts = [doc["document"] for doc in retrieved]
+        # --- Step 2: Build context texts ---
+        contexts = [self._format_context(doc) for doc in retrieved]
 
         # --- Step 3: Generate ---
         logger.info(f"Generating dari {len(contexts)} konteks...")
@@ -193,6 +287,7 @@ def build_pipeline(
     chroma_path: str = DEFAULT_CHROMA_PATH,
     top_k: int = 5,
     n_gpu_layers: int = -1,
+    embedder_n_gpu_layers: int | None = None,
     n_ctx: int = 4096,
     max_tokens: int = 512,
     temperature: float = 0.7,
@@ -211,7 +306,9 @@ def build_pipeline(
         generator_type  : 'gguf' atau 'hf'
         chroma_path     : Path ke ChromaDB persistent storage
         top_k           : Jumlah chunk per query
-        n_gpu_layers    : GPU layers untuk GGUF (-1 = semua)
+        n_gpu_layers    : GPU layers untuk GGUF generator (-1 = semua)
+        embedder_n_gpu_layers : GPU layers untuk embedder (None = ikut n_gpu_layers,
+                          0 = CPU only — berguna saat VRAM terbatas untuk generator)
         n_ctx           : Context length untuk GGUF generator
         max_tokens      : Max output tokens
         temperature     : Sampling temperature
@@ -229,11 +326,14 @@ def build_pipeline(
     if generator_type not in ("gguf", "hf"):
         raise ValueError(f"generator_type harus 'gguf' atau 'hf', bukan '{generator_type}'")
 
+    # Embedder GPU layers: default ke n_gpu_layers jika tidak di-set eksplisit
+    emb_gpu = embedder_n_gpu_layers if embedder_n_gpu_layers is not None else n_gpu_layers
+
     # Load embedder
     logger.info("Memuat embedder...")
     embedder = initialize_gguf_embedder(
         model_path=embedder_path,
-        n_gpu_layers=n_gpu_layers,
+        n_gpu_layers=emb_gpu,
         verbose=verbose,
     )
     if embedder is None:

@@ -1,184 +1,161 @@
 ================================================================================
-                           CONTEXT RECALL - RAGAS
-  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_recall/
+                            RECALL@K - RETRIEVAL TOP-K
 ================================================================================
+
+CATATAN RUANG LINGKUP
+================================================================================
+Dokumentasi ini membahas Recall@k untuk evaluasi retrieval top-k, BUKAN
+Context Recall pada RAGAS.
+
+Recall@k digunakan ketika sistem retrieval mengembalikan daftar hasil
+berperingkat, misalnya top-3, top-5, atau top-10 chunk. Metrik ini menilai
+seberapa banyak chunk relevan yang berhasil ditemukan dalam k hasil teratas
+dibandingkan dengan seluruh chunk relevan yang tersedia berdasarkan ground
+truth.
 
 ================================================================================
 DEFINISI
 ================================================================================
+Recall@k adalah metrik yang mengukur proporsi item relevan yang berhasil
+diambil dalam top-k hasil retrieval dari seluruh item relevan yang tersedia.
 
-Context Recall mengukur berapa banyak dokumen relevan (atau informasi relevan)
-yang berhasil diambil oleh retriever. Metrik ini berfokus pada tidak melewatkan
-hasil yang penting. Semakin tinggi recall, semakin sedikit dokumen relevan yang
-terlewat. Singkatnya, recall adalah tentang tidak melewatkan apapun yang penting.
+Dalam konteks Retrieval-Augmented Generation (RAG), item yang dinilai biasanya
+berupa chunk dokumen. Recall@k menunjukkan kemampuan retriever dalam
+menjangkau atau menemukan chunk penting yang dibutuhkan untuk menjawab query.
 
-Karena berfokus pada kelengkapan, perhitungan context recall selalu membutuhkan
-reference untuk dibandingkan. Metrik Context Recall berbasis LLM menggunakan
-`reference` sebagai proxy dari `reference_contexts`, yang membuatnya lebih mudah
-digunakan karena melabeli reference contexts secara manual sangat memakan waktu.
-Untuk memperkirakan context recall dari `reference`, reference dipecah menjadi
-klaim-klaim (claims), dan setiap klaim dianalisis apakah dapat diatribusikan ke
-retrieved context atau tidak. Dalam skenario ideal, semua klaim dalam reference
-answer seharusnya dapat diatribusikan ke retrieved context.
-
-Formula:
-
-  Context Recall = Jumlah klaim dalam reference yang didukung retrieved context
-                   -------------------------------------------------------------
-                   Total jumlah klaim dalam reference
+Semakin tinggi Recall@k, semakin sedikit chunk relevan yang terlewat oleh
+retriever.
 
 ================================================================================
-PENGGUNAAN (Collections-Based API)
+NOTASI
 ================================================================================
+R_retrieved^k  = himpunan chunk yang diambil oleh sistem pada peringkat 1
+                 sampai k.
 
-Kode:
-------
-from openai import AsyncOpenAI
-from ragas.llms import llm_factory
-from ragas.metrics.collections import ContextRecall
+R_relevant     = himpunan seluruh chunk yang dianggap relevan berdasarkan
+                 ground truth.
 
-# Setup LLM
-client = AsyncOpenAI()
-llm = llm_factory("gpt-4o-mini", client=client)
+| . |          = jumlah anggota dalam suatu himpunan.
 
-# Buat metrik
-scorer = ContextRecall(llm=llm)
+k              = jumlah hasil teratas yang dievaluasi.
 
-# Evaluasi
-result = await scorer.ascore(
-    user_input="Di mana letak Menara Eiffel?",
-    retrieved_contexts=["Paris adalah ibu kota Perancis."],
-    reference="Menara Eiffel terletak di Paris."
-)
-print(f"Context Recall Score: {result.value}")
+================================================================================
+FORMULA
+================================================================================
+Recall@k = | R_retrieved^k ∩ R_relevant |
+           ------------------------------
+                      | R_relevant |
+
+================================================================================
+INTERPRETASI
+================================================================================
+- Nilai Recall@k berada pada rentang 0 sampai 1.
+- Nilai 1 berarti seluruh chunk relevan berhasil ditemukan dalam top-k hasil.
+- Nilai 0 berarti tidak ada chunk relevan yang ditemukan dalam top-k hasil.
+- Recall@k fokus pada kelengkapan hasil retrieval, bukan kebersihan hasil dari
+  chunk tidak relevan.
+
+================================================================================
+CONTOH HITUNG MANUAL
+================================================================================
+Misalkan sistem mengembalikan top-5 chunk untuk sebuah query sebagai berikut:
+
+Peringkat | ID Chunk
+----------|---------
+1         | C3
+2         | C5
+3         | C2
+4         | C9
+5         | C11
+
+Dari anotasi ground truth, chunk yang relevan adalah:
+
+R_relevant = {C2, C5, C7}
+
+Himpunan hasil retrieval sampai posisi 5 adalah:
+
+R_retrieved^5 = {C3, C5, C2, C9, C11}
+
+Irisan antara hasil retrieval dan ground truth relevan adalah:
+
+R_retrieved^5 ∩ R_relevant = {C5, C2}
+
+Jumlah chunk relevan yang berhasil ditemukan dalam top-5 = 2
+Jumlah seluruh chunk relevan berdasarkan ground truth = 3
+
+Recall@5 = 2 / 3
+         = 0.6667
+
+Jadi, Recall@5 = 0.6667 atau sekitar 66.67%.
+
+================================================================================
+LANGKAH MANUALISASI
+================================================================================
+1. Tentukan nilai k, misalnya k = 5.
+2. Ambil daftar top-k chunk hasil retrieval.
+3. Tentukan seluruh chunk relevan berdasarkan ground truth.
+4. Hitung jumlah chunk di top-k yang juga muncul dalam ground truth relevan.
+5. Bagi jumlah tersebut dengan total jumlah chunk relevan berdasarkan ground
+   truth.
+
+================================================================================
+PSEUDOCODE
+================================================================================
+Input:
+  retrieved_top_k = daftar chunk hasil retrieval sampai posisi k
+  relevant_chunks = daftar seluruh chunk relevan berdasarkan ground truth
+  k = jumlah hasil yang dievaluasi
+
+Process:
+  hit = jumlah chunk dalam retrieved_top_k yang juga ada di relevant_chunks
+  recall_at_k = hit / jumlah relevant_chunks
 
 Output:
-  Context Recall Score: 1.0
-
-Catatan - Penggunaan Sinkron:
-  Jika lebih suka kode sinkron, gunakan method .score() sebagai
-  pengganti .ascore():
-
-result = scorer.score(
-    user_input="Di mana letak Menara Eiffel?",
-    retrieved_contexts=["Paris adalah ibu kota Perancis."],
-    reference="Menara Eiffel terletak di Paris."
-)
+  recall_at_k
 
 ================================================================================
-LEGACY METRICS API (LLM BASED)
+CONTOH IMPLEMENTASI PYTHON
 ================================================================================
+def recall_at_k(retrieved_top_k, relevant_chunks, k):
+    retrieved_k = retrieved_top_k[:k]
+    relevant_set = set(relevant_chunks)
+    hit = sum(1 for chunk in retrieved_k if chunk in relevant_set)
+    return hit / len(relevant_set) if len(relevant_set) > 0 else 0.0
 
-PERINGATAN DEPRECATION:
-  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
-  Harap migrasi ke collections-based API yang ditunjukkan di atas.
 
-Contoh dengan SingleTurnSample:
-------
+retrieved = ["C3", "C5", "C2", "C9", "C11"]
+relevant = ["C2", "C5", "C7"]
 
-from ragas.dataset_schema import SingleTurnSample
-from ragas.metrics import LLMContextRecall
-
-sample = SingleTurnSample(
-    user_input="Di mana letak Menara Eiffel?",
-    response="Menara Eiffel terletak di Paris.",
-    reference="Menara Eiffel terletak di Paris.",
-    retrieved_contexts=["Paris adalah ibu kota Perancis."],
-)
-
-context_recall = LLMContextRecall(llm=evaluator_llm)
-await context_recall.single_turn_ascore(sample)
-
-Output:
-1.0
+score = recall_at_k(retrieved, relevant, 5)
+print(score)  # Output: 0.6666666666666666
 
 ================================================================================
-NON-LLM BASED CONTEXT RECALL
+PERBEDAAN DENGAN CONTEXT RECALL RAGAS
 ================================================================================
+Recall@k retrieval klasik:
+- Berbasis top-k ranked retrieval.
+- Menggunakan daftar ground truth chunk relevan.
+- Formula utamanya adalah jumlah chunk relevan di top-k dibagi seluruh chunk
+  relevan.
+- Tidak membutuhkan LLM judge.
+- Cocok untuk evaluasi retrieval manual.
 
-Metrik NonLLMContextRecall dihitung menggunakan `retrieved_contexts` dan
-`reference_contexts`, dengan nilai antara 0 dan 1. Nilai yang lebih tinggi
-menunjukkan performa yang lebih baik. Metrik ini menggunakan perbandingan
-string berbasis non-LLM untuk menentukan apakah retrieved context relevan.
-Anda dapat menggunakan metrik berbasis non-LLM apapun sebagai distance measure
-untuk menentukan relevansi retrieved context.
-
-Formula:
-
-  Context Recall = |Jumlah context relevan yang berhasil diambil|
-                   -----------------------------------------------
-                   |Total jumlah reference contexts|
-
-Kode:
-------
-from ragas.dataset_schema import SingleTurnSample
-from ragas.metrics import NonLLMContextRecall
-
-sample = SingleTurnSample(
-    retrieved_contexts=["Paris adalah ibu kota Perancis."],
-    reference_contexts=[
-        "Paris adalah ibu kota Perancis.",
-        "Menara Eiffel adalah salah satu landmark paling terkenal di Paris."
-    ]
-)
-
-context_recall = NonLLMContextRecall()
-await context_recall.single_turn_ascore(sample)
-
-Output:
-0.5
+Context Recall RAGAS:
+- Mengevaluasi apakah retrieved contexts mendukung klaim dalam reference answer.
+- Dapat menggunakan reference answer sebagai dasar penilaian klaim.
+- Berbasis atribusi klaim atau reference contexts, bukan sekadar irisan top-k
+  chunk dengan ground truth chunk.
+- Bukan metrik yang digunakan dalam dokumentasi ini.
 
 ================================================================================
-ID BASED CONTEXT RECALL
+RUJUKAN YANG DISARANKAN
 ================================================================================
+Yu et al. (2024) - Evaluation of Retrieval-Augmented Generation: A Survey.
+Gunakan sebagai rujukan utama untuk menempatkan Recall@k dalam konteks
+evaluasi retrieval pada sistem RAG.
 
-IDBasedContextRecall menyediakan cara yang langsung dan efisien untuk mengukur
-recall dengan membandingkan ID dari retrieved contexts dengan reference context
-IDs. Metrik ini sangat berguna ketika Anda memiliki sistem ID unik untuk dokumen
-dan ingin mengevaluasi performa retrieval tanpa membandingkan konten aktual.
-
-Metrik ini menghitung recall menggunakan `retrieved_context_ids` dan
-`reference_context_ids`, dengan nilai antara 0 dan 1. Nilai yang lebih tinggi
-menunjukkan performa yang lebih baik. Metrik ini bekerja dengan ID bertipe
-string maupun integer.
-
-Formula:
-
-  ID-Based Context Recall = Jumlah reference context IDs yang ditemukan dalam retrieved
-                            ------------------------------------------------------------
-                            Total jumlah reference context IDs
-
-Kode:
-------
-from ragas.dataset_schema import SingleTurnSample
-from ragas.metrics import IDBasedContextRecall
-
-sample = SingleTurnSample(
-    retrieved_context_ids=["doc_1", "doc_2", "doc_3"],
-    reference_context_ids=["doc_1", "doc_4", "doc_5", "doc_6"]
-)
-
-id_recall = IDBasedContextRecall()
-await id_recall.single_turn_ascore(sample)
-
-Output: 0.25
-
-Penjelasan:
-  Dari 4 reference context IDs, hanya 1 ("doc_1") yang ditemukan dalam
-  retrieved context IDs, menghasilkan recall score sebesar 0.25 atau 25%.
-
-================================================================================
-RINGKASAN VARIAN METRIK
-================================================================================
-
-| Metrik                 | Kebutuhan Input                               | Metode   |
-|------------------------|-----------------------------------------------|----------|
-| ContextRecall          | user_input + reference + retrieved_contexts   | LLM      |
-| LLMContextRecall       | user_input + response + reference + contexts  | LLM      |
-| NonLLMContextRecall    | retrieved_contexts + reference_contexts       | Non-LLM  |
-| IDBasedContextRecall   | retrieved_context_ids + reference_context_ids | ID-based |
-
---------------------------------------------------------------------------------
-Terakhir diperbarui: December 9, 2025
-Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_recall/
+Catatan:
+Jika membutuhkan rujukan teori Information Retrieval klasik, dapat menggunakan
+buku Information Retrieval atau referensi IR standar, tetapi pastikan sesuai
+dengan daftar referensi yang diizinkan oleh dosen pembimbing.
 ================================================================================

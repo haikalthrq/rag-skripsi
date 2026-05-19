@@ -1,5 +1,0 @@
-=== QUERY PERLU VALIDASI MANUAL ===
-! Q025/recursive/chunk_88: score=0.343 (promoted, low confidence)
-! Q030/element/chunk_65: score=0.345 (promoted, low confidence)
-
-=== NOT_FOUND ===

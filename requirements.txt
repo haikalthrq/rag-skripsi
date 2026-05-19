@@ -1,10 +1,7 @@
 # ===================================
 # RAG Skripsi - Requirements
 # ===================================
-
-# Core Dependencies
-# -----------------
-python==3.11.9
+# Python version: 3.11.9 (install manually, not via pip)
 
 # PDF Processing & Text Extraction
 # ---------------------------------
@@ -16,7 +13,7 @@ pytesseract  # OCR support untuk unstructured
 # Text Processing & Chunking
 # ---------------------------
 langchain-text-splitters # RecursiveCharacterTextSplitter
-maxmin-chunker # MaxMin semantic chunking
+# maxmin-chunker: custom implementation (src/chunking/maxmin_chunker.py), not a PyPI package
 nltk # sentence tokenization untuk maxmin chunker
 
 # Embeddings & Vector Database
@@ -24,6 +21,7 @@ nltk # sentence tokenization untuk maxmin chunker
 sentence-transformers # model embedding (Qwen3-Embedding)
 torch # PyTorch untuk model embedding
 transformers  # Hugging Face transformers
+accelerate    # diperlukan untuk device_map='auto' saat load HF model
 chromadb # vector database
 
 # Scientific Computing
@@ -36,10 +34,15 @@ scipy  # scientific computing
 tqdm  # progress bars
 python-dotenv # environment variables management
 
+# Data Processing & I/O
+# ----------------------
+pandas
+openpyxl         # diperlukan untuk pd.read_excel() membaca file .xlsx
+
 # Optional: Visualization & Analysis
 # -----------------------------------
-matplotlibseaborn
-pandas
+matplotlib
+seaborn
 # Development Tools
 # -----------------
 pytest # unit testing
@@ -51,9 +54,16 @@ jupyter # notebook support
 
 # Evaluation
 # ----------
-ragas               # Context Precision, Context Recall, BLEU, ROUGE
+ragas               # BLEU + ROUGE-L via ragas.metrics.collections (BleuScore, RougeScore)
+                    # ragas menggunakan sacrebleu (corpus_bleu) dan rouge-score secara internal
 rank-eval           # Mean Reciprocal Rank (MRR)
 rapidfuzz           # Diperlukan oleh NonLLMContextPrecisionWithReference
+sacrebleu           # Dependency ragas BleuScore (sacrebleu.corpus_bleu)
+rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
+
+# Opsional: GGUF generator — hanya jika menggunakan --generator_type gguf
+# Install manual (butuh build flags GPU/CPU): pip install llama-cpp-python
+# llama-cpp-python
 
 # Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
 # Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local

@@ -157,9 +157,33 @@ data/chroma/
 data/embeddings/
 data/(backup)element_based/
 
+# Backup folders (tidak perlu di-version control)
+# -------------------------------------------------
+backup/
+data/artifacts/
+data/cleaned/backup/
+data/ground_truth/audit/
+data/ground_truth/backup_question_revision/
+
+# QA Gold versi lama — hanya question_newest yang aktif
+# ------------------------------------------------------
+data/ground_truth/qa_gold_standard_rag_bps_30qa.xlsx
+data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed.xlsx
+data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
+
+# Results — ignore log files besar, keep CSV/report
+# ---------------------------------------------------
+results/generation_eval/*.log
+results/generation_eval/streamlit/
+
 # Log files
 logs/
 *.log
 
 # Figures dari Unstructured PDF extraction
 figures/
+
+# IDE cache & temp output
+# -----------------------
+.claude/
+out.txt

@@ -1,0 +1,4 @@
+method,n_queries,n_success,mean_bleu,mean_rouge_l
+element_based,30,0,,
+maxmin_semantic,30,0,,
+recursive,30,0,,

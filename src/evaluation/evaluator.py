@@ -10,8 +10,8 @@ Alur:
     → output tabel perbandingan
 
 Metrik yang dihitung:
-  Retrieval  : Context Precision, Context Recall (LLM atau NonLLM), MRR (rank_eval)
-  Generation : BLEU, ROUGE-1 F1, ROUGE-L F1
+  Retrieval  : Precision@k, Recall@k, MRR (pure Python, berbasis chunk ID)
+  Generation : BLEU, ROUGE-L Recall
 """
 
 import json
@@ -22,10 +22,8 @@ from typing import Any, Dict, List, Optional
 from .metrics import (
     compute_bleu,
     compute_rouge,
-    compute_context_precision_llm,
-    compute_context_precision_nonllm,
-    compute_context_recall_llm,
-    compute_context_recall_nonllm,
+    compute_precision_at_k,
+    compute_recall_at_k,
     compute_mrr,
 )
 from ..chroma.client import initialize_chroma_client, get_or_create_collection
@@ -56,8 +54,11 @@ def load_ground_truth(path: str) -> List[Dict[str, Any]]:
         "id": "q_001",
         "question": "...",
         "reference_answer": "...",
-        "relevant_chunk_ids": ["chunk_id_1"],  // opsional, untuk MRR
-        "reference_contexts": ["teks konteks"] // opsional, untuk NonLLM Precision/Recall
+        "relevant_chunk_ids": {
+          "element_based": ["chunk_id_1"],
+          "recursive": ["chunk_id_2"],
+          "maxmin_semantic": ["chunk_id_3"]
+        }
       },
       ...
     ]
@@ -66,49 +67,6 @@ def load_ground_truth(path: str) -> List[Dict[str, Any]]:
         data = json.load(f)
     logger.info(f"Loaded {len(data)} ground truth items dari: {path}")
     return data
-
-
-# ─── Evaluator LLM ─────────────────────────────────────────────────────────────
-
-def build_evaluator_llm(
-    llm_type: str = "openai",
-    model: str = "gpt-4o-mini",
-    base_url: Optional[str] = None,
-    api_key: str = "EMPTY",
-) -> Optional[Any]:
-    """
-    Buat evaluator LLM untuk LLM-based Ragas metrics.
-
-    Args:
-        llm_type : 'openai' atau 'local' (OpenAI-compatible endpoint)
-        model    : Nama model
-        base_url : Untuk 'local' → base URL endpoint (contoh: http://localhost:8000/v1)
-        api_key  : API key
-
-    Returns:
-        LangchainLLMWrapper instance atau None jika gagal
-    """
-    try:
-        from langchain_openai import ChatOpenAI
-        from ragas.llms import LangchainLLMWrapper
-
-        kwargs: Dict[str, Any] = {"model": model, "temperature": 0.0, "api_key": api_key}
-        if llm_type == "local" and base_url:
-            kwargs["base_url"] = base_url
-
-        lc_llm = ChatOpenAI(**kwargs)
-        logger.info(f"Evaluator LLM: {llm_type} / {model}")
-        return LangchainLLMWrapper(lc_llm)
-
-    except ImportError:
-        logger.error(
-            "langchain-openai tidak tersedia. "
-            "Install: pip install langchain-openai"
-        )
-        return None
-    except Exception as e:
-        logger.error(f"build_evaluator_llm error: {e}")
-        return None
 
 
 # ─── Result Container ──────────────────────────────────────────────────────────
@@ -140,34 +98,20 @@ class RAGEvaluator:
         ground_truth = load_ground_truth("data/ground_truth/qa_pairs.json")
         results = evaluator.evaluate_all(ground_truth)
 
-    Prioritas metrik:
-      Context Precision/Recall:
-        1. LLM-based  → jika eval_llm tersedia
-        2. Non-LLM    → jika reference_contexts ada di ground truth
-        3. Di-skip    → jika keduanya tidak tersedia
-
-      MRR:
-        → Dihitung jika relevant_chunk_ids ada di ground truth
-
-      BLEU / ROUGE:
-        → Dihitung jika generator tersedia
+    Metrik:
+      Precision@k, Recall@k, MRR → berbasis chunk ID matching (relevant_chunk_ids per method)
+      BLEU / ROUGE-L Recall       → Dihitung jika generator tersedia
     """
 
     def __init__(
         self,
         embedder: QwenEmbedder,
         chroma_client: Any,
-        eval_llm: Optional[Any] = None,
     ):
         self.embedder = embedder
         self.chroma_client = chroma_client
-        self.eval_llm = eval_llm
-        self.use_llm_metrics = eval_llm is not None
 
         logger.info("RAGEvaluator initialized")
-        logger.info(
-            f"  - LLM metrics  : {'enabled' if self.use_llm_metrics else 'disabled (NonLLM/skip)'}"
-        )
 
     def _retrieve(
         self,
@@ -186,7 +130,6 @@ class RAGEvaluator:
         ground_truth: List[Dict[str, Any]],
         top_k: int = 5,
         generator: Optional[Any] = None,
-        mrr_at_k: Optional[int] = None,
     ) -> MethodResult:
         """
         Evaluasi satu chunking method terhadap ground truth.
@@ -196,7 +139,6 @@ class RAGEvaluator:
             ground_truth    : List item ground truth (dari load_ground_truth)
             top_k           : Jumlah chunk per query
             generator       : RAGGenerator/HFRAGGenerator (opsional, untuk BLEU/ROUGE)
-            mrr_at_k        : MRR@K threshold (None = tanpa threshold)
 
         Returns:
             MethodResult dengan per_query scores dan aggregated metrics
@@ -224,25 +166,21 @@ class RAGEvaluator:
 
         result = MethodResult(chunking_method)
 
-        # Akumulasi untuk MRR
-        qrels_data: Dict[str, List[str]] = {}
-        run_data: Dict[str, Dict[str, float]] = {}
-
         for item in ground_truth:
             q_id          = item["id"]
             question      = item["question"]
             reference     = item["reference_answer"]
-            rel_ids       = item.get("relevant_chunk_ids", [])
-            ref_contexts  = item.get("reference_contexts", [])
+            rel_ids_all   = item.get("relevant_chunk_ids", {})
+            rel_ids       = rel_ids_all.get(chunking_method, []) if isinstance(rel_ids_all, dict) else rel_ids_all
 
             logger.info(f"  [{q_id}] {question[:60]}...")
 
-            # ── Retrieve ──────────────────────────────────────────────────────
-            retrieved      = self._retrieve(collection, question, top_k=top_k)
+            # ── Retrieve ────────────────────────────────────────────────
+            retrieved       = self._retrieve(collection, question, top_k=top_k)
             retrieved_texts = [r["document"] for r in retrieved]
             retrieved_ids   = [r["id"]       for r in retrieved]
 
-            # ── Generate (opsional) ──────────────────────────────────────────
+            # ── Generate (opsional) ───────────────────────────────────────
             answer = None
             if generator is not None:
                 try:
@@ -252,7 +190,7 @@ class RAGEvaluator:
                 except Exception as e:
                     logger.warning(f"    generation error: {e}")
 
-            # ── Per-query result ──────────────────────────────────────────────
+            # ── Per-query result ───────────────────────────────────────────
             q_result: Dict[str, Any] = {
                 "q_id"          : q_id,
                 "question"      : question,
@@ -260,63 +198,37 @@ class RAGEvaluator:
                 "answer"        : answer,
             }
 
-            # ── BLEU + ROUGE ──────────────────────────────────────────────────
+            # ── BLEU + ROUGE-L ───────────────────────────────────────────────
             if answer:
                 q_result["bleu"]   = compute_bleu(answer, reference)
-                q_result["rouge1"] = compute_rouge(answer, reference, "rouge1", "fmeasure")
-                q_result["rougeL"] = compute_rouge(answer, reference, "rougeL", "fmeasure")
+                q_result["rouge_l"] = compute_rouge(answer, reference, "rougeL", "recall")
                 logger.info(
                     f"    BLEU={q_result['bleu']:.4f} | "
-                    f"R1={q_result['rouge1']:.4f} | "
-                    f"RL={q_result['rougeL']:.4f}"
+                    f"RL={q_result['rouge_l']:.4f}"
                 )
 
-            # ── Context Precision & Recall ────────────────────────────────────
-            if self.use_llm_metrics:
-                q_result["context_precision"] = compute_context_precision_llm(
-                    question, retrieved_texts, reference, self.eval_llm
-                )
-                q_result["context_recall"] = compute_context_recall_llm(
-                    question, retrieved_texts, reference, self.eval_llm
-                )
-                logger.info(
-                    f"    P={q_result['context_precision']:.4f} | "
-                    f"R={q_result['context_recall']:.4f} (LLM)"
-                )
-            elif ref_contexts:
-                q_result["context_precision"] = compute_context_precision_nonllm(
-                    retrieved_texts, ref_contexts
-                )
-                q_result["context_recall"] = compute_context_recall_nonllm(
-                    retrieved_texts, ref_contexts
-                )
-                logger.info(
-                    f"    P={q_result['context_precision']:.4f} | "
-                    f"R={q_result['context_recall']:.4f} (NonLLM)"
-                )
-
-            # ── Akumulasi data untuk MRR ──────────────────────────────────────
+            # ── Precision@k, Recall@k, MRR ──────────────────────────────────────
             if rel_ids:
-                qrels_data[q_id] = rel_ids
-                run_data[q_id] = {
-                    r["id"]: float(1.0 - r["distance"])
-                    if r.get("distance") is not None
-                    else 1.0
-                    for r in retrieved
-                }
+                q_result["precision_at_k"] = compute_precision_at_k(retrieved_ids, rel_ids, top_k)
+                q_result["recall_at_k"]    = compute_recall_at_k(retrieved_ids, rel_ids, top_k)
+                q_result["mrr"]            = compute_mrr(retrieved_ids, rel_ids)
+                logger.info(
+                    f"    P@{top_k}={q_result['precision_at_k']:.4f} | "
+                    f"R@{top_k}={q_result['recall_at_k']:.4f} | "
+                    f"MRR={q_result['mrr']:.4f}"
+                )
+            else:
+                logger.warning(
+                    f"    [{q_id}] no relevant_chunk_ids for method '{chunking_method}' — skipping retrieval metrics"
+                )
 
             result.per_query.append(q_result)
 
-        # ── Aggregate (mean) ──────────────────────────────────────────────────
-        for key in ["bleu", "rouge1", "rougeL", "context_precision", "context_recall"]:
+        # ── Aggregate (mean) ─────────────────────────────────────────────────
+        for key in ["precision_at_k", "recall_at_k", "mrr", "bleu", "rouge_l"]:
             values = [q[key] for q in result.per_query if key in q]
             if values:
                 result.metrics[key] = round(sum(values) / len(values), 6)
-
-        # ── MRR ───────────────────────────────────────────────────────────────
-        if qrels_data:
-            result.metrics["mrr"] = compute_mrr(qrels_data, run_data, mrr_at_k)
-            logger.info(f"  MRR = {result.metrics['mrr']:.4f}")
 
         logger.info(f"✓ {chunking_method}: {result.metrics}")
         return result
@@ -351,7 +263,6 @@ class RAGEvaluator:
                 ground_truth=ground_truth,
                 top_k=top_k,
                 generator=generator,
-                mrr_at_k=mrr_at_k,
             )
             results.append(r)
 
@@ -364,22 +275,14 @@ def build_evaluator(
     embedder_path: str = DEFAULT_EMBEDDER_PATH,
     chroma_path: str = DEFAULT_CHROMA_PATH,
     n_gpu_layers: int = -1,
-    eval_llm_type: Optional[str] = None,
-    eval_llm_model: str = "gpt-4o-mini",
-    eval_llm_base_url: Optional[str] = None,
-    eval_llm_api_key: str = "EMPTY",
 ) -> RAGEvaluator:
     """
     Factory function: load komponen dan return RAGEvaluator.
 
     Args:
-        embedder_path     : Path ke GGUF embedding model
-        chroma_path       : Path ke ChromaDB persistent storage
-        n_gpu_layers      : GPU layers untuk embedder (-1 = semua)
-        eval_llm_type     : 'openai' atau 'local' (None = non-LLM only)
-        eval_llm_model    : Nama model evaluator LLM
-        eval_llm_base_url : Base URL untuk local LLM server
-        eval_llm_api_key  : API key
+        embedder_path : Path ke GGUF embedding model
+        chroma_path   : Path ke ChromaDB persistent storage
+        n_gpu_layers  : GPU layers untuk embedder (-1 = semua)
 
     Returns:
         RAGEvaluator yang siap digunakan
@@ -401,17 +304,7 @@ def build_evaluator(
     if chroma_client is None:
         raise RuntimeError(f"Gagal koneksi ChromaDB: {chroma_path}")
 
-    eval_llm = None
-    if eval_llm_type:
-        eval_llm = build_evaluator_llm(
-            llm_type=eval_llm_type,
-            model=eval_llm_model,
-            base_url=eval_llm_base_url,
-            api_key=eval_llm_api_key,
-        )
-
     return RAGEvaluator(
         embedder=embedder,
         chroma_client=chroma_client,
-        eval_llm=eval_llm,
     )

@@ -10,6 +10,7 @@ Mendukung 2 backend:
 """
 
 import logging
+import sys
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Union
 
@@ -34,12 +35,20 @@ _THINK_CLOSE_TOKEN_ID = 151668
 
 logger = logging.getLogger(__name__)
 
+# Fix Windows console encoding for logging
+if sys.platform == "win32":
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 DEFAULT_GENERATOR_MODEL_PATH = "models/Qwen3-4B-Instruct-Q8_0.gguf"
 
 SYSTEM_PROMPT = (
     "Anda adalah asisten AI yang bertugas menjawab pertanyaan berdasarkan "
     "konteks dokumen yang diberikan. Gunakan informasi dari konteks untuk "
-    "memberikan jawaban yang akurat dan relevan. Jika konteks tidak memuat "
+    "memberikan jawaban yang akurat dan relevan. Jika konteks memuat tabel, "
+    "identifikasi nilai berdasarkan relasi baris dan kolom yang diminta "
+    "sebelum menjawab. Jika konteks tidak memuat "
     "informasi yang cukup untuk menjawab pertanyaan, nyatakan bahwa Anda "
     "tidak memiliki informasi yang memadai. Jawab dalam Bahasa Indonesia "
     "dengan jelas dan ringkas."
@@ -147,11 +156,14 @@ class RAGGenerator:
                 stream=False,
             )
             answer: str = response["choices"][0]["message"]["content"]
-            return answer.strip()
+            answer = answer.strip()
+            if not answer:
+                raise RuntimeError("GGUF generator returned an empty answer")
+            return answer
 
         except Exception as e:
             logger.error(f"Error saat generate: {e}")
-            return ""
+            raise RuntimeError(f"GGUF generation failed: {e}") from e
 
 
 class HFRAGGenerator:
@@ -206,12 +218,41 @@ class HFRAGGenerator:
         self,
         query: str,
         contexts: List[str],
+        max_context_tokens: int = 1500,
     ) -> List[Dict[str, str]]:
-        """Bangun messages list untuk chat template."""
-        context_block = "\n\n".join(
-            f"[Konteks {i + 1}]\n{ctx.strip()}"
-            for i, ctx in enumerate(contexts)
-        )
+        """Bangun messages list untuk chat template.
+
+        max_context_tokens: batas total token context block (dihitung via tokenizer).
+        Mencegah KV cache overflow pada GPU 6GB dengan context sangat panjang.
+        """
+        def count_tokens(text: str) -> int:
+            return len(self.tokenizer.encode(text, add_special_tokens=False))
+
+        chunks_truncated = []
+        running = 0
+        for i, ctx in enumerate(contexts):
+            ctx = ctx.strip()
+            ctx_tokens = count_tokens(ctx)
+            if running + ctx_tokens > max_context_tokens:
+                remain = max_context_tokens - running
+                if remain > 50:
+                    # Binary search untuk truncate tepat ke remain tokens
+                    lo, hi = 0, len(ctx)
+                    while lo < hi - 1:
+                        mid = (lo + hi) // 2
+                        if count_tokens(ctx[:mid]) <= remain:
+                            lo = mid
+                        else:
+                            hi = mid
+                    ctx = ctx[:lo] + "…"
+                else:
+                    break
+            chunks_truncated.append(f"[Konteks {i + 1}]\n{ctx}")
+            running += count_tokens(ctx)
+            if running >= max_context_tokens:
+                break
+
+        context_block = "\n\n".join(chunks_truncated)
         user_content = (
             f"Konteks:\n{context_block}\n\n"
             f"Pertanyaan: {query}\n\n"
@@ -245,21 +286,23 @@ class HFRAGGenerator:
             messages,
             tokenize=False,
             add_generation_prompt=True,
+            enable_thinking=self.return_thinking,
         )
         model_inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
 
         try:
-            generated_ids = self.model.generate(
-                **model_inputs,
-                max_new_tokens=self.max_new_tokens,
-                temperature=self.temperature,
-                top_p=self.top_p,
-                top_k=self.top_k,
-                do_sample=True,
-            )
+            with torch.inference_mode():
+                generated_ids = self.model.generate(
+                    **model_inputs,
+                    max_new_tokens=self.max_new_tokens,
+                    temperature=self.temperature,
+                    top_p=self.top_p,
+                    top_k=self.top_k,
+                    do_sample=True,
+                )
         except Exception as e:
             logger.error(f"Error saat generate: {e}")
-            return ("", "") if self.return_thinking else ""
+            raise RuntimeError(f"HF generation failed: {e}") from e
 
         output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist()
 
@@ -282,8 +325,68 @@ class HFRAGGenerator:
             logger.warning("Answer kosong setelah </think> — mengembalikan full output sebagai answer")
             answer = self.tokenizer.decode(output_ids, skip_special_tokens=True).strip()
             thinking = ""
+            if not answer:
+                raise RuntimeError(
+                    "HF generator returned an empty answer "
+                    f"(generated_tokens={len(output_ids)})"
+                )
 
         return (answer, thinking) if self.return_thinking else answer
+
+    def generate_stream(
+        self,
+        query: str,
+        contexts: List[str],
+    ):
+        """
+        Stream jawaban token-per-token menggunakan TextIteratorStreamer.
+        Hanya berlaku untuk non-thinking mode (return_thinking=False).
+
+        Yields:
+            str : token/chunk teks secara incremental
+
+        Usage di Streamlit:
+            st.write_stream(generator.generate_stream(query, contexts))
+        """
+        from threading import Thread
+        from transformers import TextIteratorStreamer  # type: ignore[import-not-found]
+
+        if not contexts:
+            yield "Tidak ada informasi konteks yang tersedia untuk menjawab pertanyaan ini."
+            return
+
+        messages = self.build_messages(query, contexts)
+        text = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+            enable_thinking=False,
+        )
+        model_inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
+
+        streamer = TextIteratorStreamer(
+            self.tokenizer,
+            skip_prompt=True,
+            skip_special_tokens=True,
+        )
+
+        gen_kwargs = dict(
+            **model_inputs,
+            max_new_tokens=self.max_new_tokens,
+            temperature=self.temperature,
+            top_p=self.top_p,
+            top_k=self.top_k,
+            do_sample=True,
+            streamer=streamer,
+        )
+
+        thread = Thread(target=self.model.generate, kwargs=gen_kwargs, daemon=True)
+        thread.start()
+
+        for token in streamer:
+            yield token
+
+        thread.join()
 
 
 def initialize_hf_generator(
@@ -294,6 +397,7 @@ def initialize_hf_generator(
     top_k: int = 20,
     system_prompt: str = SYSTEM_PROMPT,
     return_thinking: bool = False,
+    max_memory: Optional[Dict[Any, str]] = None,
 ) -> Optional["HFRAGGenerator"]:
     """
     Load HuggingFace model dan return HFRAGGenerator.
@@ -306,6 +410,8 @@ def initialize_hf_generator(
         top_k           : Top-K sampling (rekomendasi: 20)
         system_prompt   : System prompt override
         return_thinking : Kembalikan juga thinking content
+        max_memory      : Dict max memory per device, misal {0: "5GiB", "cpu": "16GiB"}.
+                          Jika None, auto-detect dari VRAM tersedia (reserve 1 GB overhead).
 
     Returns:
         HFRAGGenerator instance atau None jika gagal
@@ -321,12 +427,25 @@ def initialize_hf_generator(
         logger.info(f"Loading HF tokenizer: {model_name}")
         tokenizer = AutoTokenizer.from_pretrained(model_name)
 
+        # Auto-detect max_memory jika tidak diset eksplisit
+        if max_memory is None and torch is not None and torch.cuda.is_available():
+            total_vram_gb = torch.cuda.get_device_properties(0).total_memory / (1024 ** 3)
+            # Reserve 2 GB untuk KV cache + aktivasi + Triton buffer.
+            # Gunakan round() bukan int() agar 5.96 GB → 6 (bukan 5).
+            usable_gb = max(1, round(total_vram_gb) - 2)
+            max_memory = {0: f"{usable_gb}GiB", "cpu": "16GiB"}
+            logger.info(f"Auto max_memory: GPU={usable_gb}GiB (total={total_vram_gb:.1f}GiB), CPU=16GiB")
+
+        load_kwargs: Dict[str, Any] = {
+            "torch_dtype": "auto",
+            "device_map": "auto",
+            "trust_remote_code": True,  # Diperlukan agar kernels package dapat load FP8 CUDA kernel
+        }
+        if max_memory is not None:
+            load_kwargs["max_memory"] = max_memory
+
         logger.info(f"Loading HF model: {model_name} (torch_dtype=auto, device_map=auto)")
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype="auto",
-            device_map="auto",
-        )
+        model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
 
         logger.info(f"✓ HF model loaded: {model_name}")
         if hasattr(model, 'hf_device_map'):
@@ -344,8 +463,8 @@ def initialize_hf_generator(
         )
 
     except Exception as e:
-        logger.error(f"Error loading HF model: {e}")
-        return None
+        logger.error(f"Error loading HF model '{model_name}': {e}", exc_info=True)
+        raise RuntimeError(f"Gagal memuat HF model: {e}") from e
 
 
 def initialize_gguf_generator(

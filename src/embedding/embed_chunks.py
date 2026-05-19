@@ -22,6 +22,7 @@ from .embedder import QwenEmbedder, initialize_gguf_embedder, initialize_hf_embe
 from .io import (
     load_chunks_from_json,
     clean_and_filter_chunks,
+    enrich_table_chunk_texts,
     save_embeddings,
     save_embeddings_numpy
 )
@@ -66,7 +67,12 @@ def embed_single_file(
             logger.error("Failed to load chunks")
             return None
         
-        # 2. Clean and filter
+        # 2a. Enrich table chunks: ganti OCR text dengan HTML-parsed text
+        n_enriched = enrich_table_chunk_texts(chunks)
+        if n_enriched:
+            logger.info(f"  {n_enriched} table chunks enriched from HTML before embedding")
+
+        # 2b. Clean and filter
         logger.info("Cleaning and filtering chunks...")
         cleaned_texts, valid_indices = clean_and_filter_chunks(chunks)
         

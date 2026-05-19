@@ -1,0 +1,653 @@
+[
+  {
+    "id": "Q001",
+    "doc_id": "DOC01_BIK",
+    "question": "Berapa nilai Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?",
+    "reference_answer": "Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.",
+    "evidence_page": "",
+    "anchor": "Baris Riau, kolom 2023: 147,78.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_194"
+      ],
+      "maxmin_semantic": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_67"
+      ],
+      "recursive": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_114",
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_113"
+      ]
+    }
+  },
+  {
+    "id": "Q003",
+    "doc_id": "DOC01_BIK",
+    "question": "Berapa nilai Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?",
+    "reference_answer": "Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.",
+    "evidence_page": "",
+    "anchor": "Baris Jawa Barat, kolom 2023: 183,90.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_206"
+      ],
+      "maxmin_semantic": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_67"
+      ],
+      "recursive": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_122",
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_121"
+      ]
+    }
+  },
+  {
+    "id": "Q005",
+    "doc_id": "DOC01_BIK",
+    "question": "Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?",
+    "reference_answer": "Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.",
+    "evidence_page": "",
+    "anchor": "Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_29"
+      ],
+      "maxmin_semantic": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_30",
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_155"
+      ],
+      "recursive": [
+        "benchmark-indeks-konstruksi--2016-100---2018---2023_chunks_embeddings_12"
+      ]
+    }
+  },
+  {
+    "id": "Q006",
+    "doc_id": "DOC02_BSK",
+    "question": "Berapa jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023?",
+    "reference_answer": "Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.",
+    "evidence_page": "",
+    "anchor": "Baris Jumlah Pekerja Tetap Konstruksi, kolom 2023: 1.174.009 orang.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_66"
+      ],
+      "maxmin_semantic": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_76",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_72",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_73"
+      ],
+      "recursive": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_28",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_31",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_29"
+      ]
+    }
+  },
+  {
+    "id": "Q009",
+    "doc_id": "DOC02_BSK",
+    "question": "Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?",
+    "reference_answer": "Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Jambi, kolom 2023: 18,55.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_108"
+      ],
+      "maxmin_semantic": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_76"
+      ],
+      "recursive": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_58",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_59"
+      ]
+    }
+  },
+  {
+    "id": "Q010",
+    "doc_id": "DOC02_BSK",
+    "question": "Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?",
+    "reference_answer": "Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.",
+    "evidence_page": "",
+    "anchor": "Pengeluaran bahan/material yang digunakan adalah seluruh biaya/ pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_39"
+      ],
+      "maxmin_semantic": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_29",
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_31"
+      ],
+      "recursive": [
+        "benchmark-statistik-konstruksi--2018---2023_chunks_embeddings_14"
+      ]
+    }
+  },
+  {
+    "id": "Q011",
+    "doc_id": "DOC03_CERDAS",
+    "question": "Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?",
+    "reference_answer": "Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.",
+    "evidence_page": "",
+    "anchor": "Baris Lama Bekerja, kolom Kecenderungan Mismatch: 1,1531.",
+    "relevant_chunk_ids": {
+      "element_based": [],
+      "maxmin_semantic": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_117"
+      ],
+      "recursive": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_27",
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_28"
+      ]
+    }
+  },
+  {
+    "id": "Q013",
+    "doc_id": "DOC03_CERDAS",
+    "question": "Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?",
+    "reference_answer": "Hazard ratio untuk status Overeducated adalah 1,0737.",
+    "evidence_page": "",
+    "anchor": "Baris Overeducated, kolom Hazard Ratio: 1,0737.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_31"
+      ],
+      "maxmin_semantic": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_119"
+      ],
+      "recursive": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_28",
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_29"
+      ]
+    }
+  },
+  {
+    "id": "Q015",
+    "doc_id": "DOC03_CERDAS",
+    "question": "Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?",
+    "reference_answer": "Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.",
+    "evidence_page": "",
+    "anchor": "Salah satu akar masalahnya adalah fenomena vertical mismatch dimana lebih dari sepertiga (36,36 persen) angkatan kerja muda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_10"
+      ],
+      "maxmin_semantic": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_7"
+      ],
+      "recursive": [
+        "cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi_chunks_embeddings_2"
+      ]
+    }
+  },
+  {
+    "id": "Q016",
+    "doc_id": "DOC04_IUV",
+    "question": "Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 01 pada Agustus 2025?",
+    "reference_answer": "Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.",
+    "evidence_page": "",
+    "anchor": "Baris HS 01, kolom Agt 2025: 95,61.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_51"
+      ],
+      "maxmin_semantic": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_51"
+      ],
+      "recursive": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_29",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_30"
+      ]
+    }
+  },
+  {
+    "id": "Q017",
+    "doc_id": "DOC04_IUV",
+    "question": "Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 27 pada Agustus 2025?",
+    "reference_answer": "Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.",
+    "evidence_page": "",
+    "anchor": "Baris HS 27, kolom Agt 2025: 82,14.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_54",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_55"
+      ],
+      "maxmin_semantic": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_51"
+      ],
+      "recursive": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_31",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_3",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_5"
+      ]
+    }
+  },
+  {
+    "id": "Q020",
+    "doc_id": "DOC04_IUV",
+    "question": "Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?",
+    "reference_answer": "Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.",
+    "evidence_page": "",
+    "anchor": "Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_20",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_19"
+      ],
+      "maxmin_semantic": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_28",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_29"
+      ],
+      "recursive": [
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_12",
+        "indeks-unit-value-ekspor-impor---agustus-2025_chunks_embeddings_11"
+      ]
+    }
+  },
+  {
+    "id": "Q021",
+    "doc_id": "DOC05_LNPRT",
+    "question": "Berapa proporsi Transfer Masuk untuk COPNI 8 dalam struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?",
+    "reference_answer": "Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Transfer Masuk, kolom COPNI 8: 94,35.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_303"
+      ],
+      "maxmin_semantic": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_366"
+      ],
+      "recursive": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_337"
+      ]
+    }
+  },
+  {
+    "id": "Q023",
+    "doc_id": "DOC05_LNPRT",
+    "question": "Berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?",
+    "reference_answer": "Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Jambi: target 80, dokumen 94, persentase 117,50.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_322",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_321",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_319"
+      ],
+      "maxmin_semantic": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_382",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_383"
+      ],
+      "recursive": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_353",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_354",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_367",
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_366"
+      ]
+    }
+  },
+  {
+    "id": "Q025",
+    "doc_id": "DOC05_LNPRT",
+    "question": "Berapa jumlah kelompok tujuan kegiatan utama yang digunakan untuk mengklasifikasikan LNPRT dalam sistem COPNI?",
+    "reference_answer": "COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.",
+    "evidence_page": "",
+    "anchor": "Klasifikasi ini membagi LNPRT menjadi sembilan, yaitu perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/ jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_50"
+      ],
+      "maxmin_semantic": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_57"
+      ],
+      "recursive": [
+        "neraca-lembaga-non-profit-yang-melayani-rumahtangga--2022-2024_chunks_embeddings_31"
+      ]
+    }
+  },
+  {
+    "id": "Q026",
+    "doc_id": "DOC06_NPU",
+    "question": "Berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?",
+    "reference_answer": "Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.",
+    "evidence_page": "",
+    "anchor": "Baris Pajak Pendapatan, kolom 2024: 58.974.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_134",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_124",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_133"
+      ],
+      "maxmin_semantic": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_184"
+      ],
+      "recursive": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_241",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_244",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_239",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_189"
+      ]
+    }
+  },
+  {
+    "id": "Q027",
+    "doc_id": "DOC06_NPU",
+    "question": "Berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?",
+    "reference_answer": "Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.",
+    "evidence_page": "",
+    "anchor": "Baris Pembentukan Modal Tetap Bruto, kolom 2024: 337.257.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_144",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_143"
+      ],
+      "maxmin_semantic": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_186"
+      ],
+      "recursive": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_289",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_290"
+      ]
+    }
+  },
+  {
+    "id": "Q029",
+    "doc_id": "DOC06_NPU",
+    "question": "Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?",
+    "reference_answer": "Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.",
+    "evidence_page": "",
+    "anchor": "Rincian tabungan merupakan faktor penyeimbang di dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_56"
+      ],
+      "maxmin_semantic": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_69",
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_63"
+      ],
+      "recursive": [
+        "neraca-pemerintahan-umum-indonesia-2019-2024_chunks_embeddings_52"
+      ]
+    }
+  },
+  {
+    "id": "Q031",
+    "doc_id": "DOC07_NRT",
+    "question": "Berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?",
+    "reference_answer": "Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Transfer berjalan, kolom 2024: 8,04.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_171",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_173"
+      ],
+      "maxmin_semantic": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_189"
+      ],
+      "recursive": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_221",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_222"
+      ]
+    }
+  },
+  {
+    "id": "Q032",
+    "doc_id": "DOC07_NRT",
+    "question": "Berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024?",
+    "reference_answer": "Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Pengeluaran konsumsi akhir, kolom 2024: 92,38.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_175"
+      ],
+      "maxmin_semantic": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_189"
+      ],
+      "recursive": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_236",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_237"
+      ]
+    }
+  },
+  {
+    "id": "Q034",
+    "doc_id": "DOC07_NRT",
+    "question": "Ke dalam kelompok aktivitas ekonomi apa saja kegiatan rumah tangga diklasifikasikan dalam neraca ekonomi?",
+    "reference_answer": "Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.",
+    "evidence_page": "",
+    "anchor": "Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_64"
+      ],
+      "maxmin_semantic": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_66"
+      ],
+      "recursive": [
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_56",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_55",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_3",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_15",
+        "neraca-rumah-tangga-indonesia--2022-2024_chunks_embeddings_16"
+      ]
+    }
+  },
+  {
+    "id": "Q036",
+    "doc_id": "DOC08_PEND",
+    "question": "Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025?",
+    "reference_answer": "Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Aceh, bagian Total, kolom Estimasi: 97,65.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-pendidikan-2025_chunks_embeddings_255",
+        "statistik-pendidikan-2025_chunks_embeddings_171",
+        "statistik-pendidikan-2025_chunks_embeddings_130"
+      ],
+      "maxmin_semantic": [
+        "statistik-pendidikan-2025_chunks_embeddings_115",
+        "statistik-pendidikan-2025_chunks_embeddings_177"
+      ],
+      "recursive": [
+        "statistik-pendidikan-2025_chunks_embeddings_213",
+        "statistik-pendidikan-2025_chunks_embeddings_215",
+        "statistik-pendidikan-2025_chunks_embeddings_216",
+        "statistik-pendidikan-2025_chunks_embeddings_218",
+        "statistik-pendidikan-2025_chunks_embeddings_219"
+      ]
+    }
+  },
+  {
+    "id": "Q037",
+    "doc_id": "DOC08_PEND",
+    "question": "Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025?",
+    "reference_answer": "Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.",
+    "evidence_page": "",
+    "anchor": "Baris Sumatera Barat, bagian Total, kolom Estimasi: 85,04.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-pendidikan-2025_chunks_embeddings_120",
+        "statistik-pendidikan-2025_chunks_embeddings_173",
+        "statistik-pendidikan-2025_chunks_embeddings_130"
+      ],
+      "maxmin_semantic": [
+        "statistik-pendidikan-2025_chunks_embeddings_115"
+      ],
+      "recursive": [
+        "statistik-pendidikan-2025_chunks_embeddings_223",
+        "statistik-pendidikan-2025_chunks_embeddings_226",
+        "statistik-pendidikan-2025_chunks_embeddings_229",
+        "statistik-pendidikan-2025_chunks_embeddings_88",
+        "statistik-pendidikan-2025_chunks_embeddings_94"
+      ]
+    }
+  },
+  {
+    "id": "Q040",
+    "doc_id": "DOC08_PEND",
+    "question": "Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?",
+    "reference_answer": "Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.",
+    "evidence_page": "",
+    "anchor": "Tingkat penyelesaian pendidikan untuk jenjang pendidikan SD sederajat sebesar 97,65 persen, jenjang SMP sederajat sebesar 91,45 persen, sedangkan untuk jenjang SMA/SMK sederajat hanya sebesar 73,90 persen.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-pendidikan-2025_chunks_embeddings_6"
+      ],
+      "maxmin_semantic": [
+        "statistik-pendidikan-2025_chunks_embeddings_15"
+      ],
+      "recursive": []
+    }
+  },
+  {
+    "id": "Q041",
+    "doc_id": "DOC09_IMPOR",
+    "question": "Berapa total berat bersih impor Indonesia pada Agustus 2025?",
+    "reference_answer": "Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.",
+    "evidence_page": "",
+    "anchor": "Baris Total Impor, kolom Berat Bersih Agustus 2025: 19.944.279.991 kg.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_46",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_698",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_707",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_716",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_730"
+      ],
+      "maxmin_semantic": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_66",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_65",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_33",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_36"
+      ],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_899",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_19",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_25",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_876",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_877"
+      ]
+    }
+  },
+  {
+    "id": "Q042",
+    "doc_id": "DOC09_IMPOR",
+    "question": "Berapa nilai CIF impor untuk komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) pada Agustus 2025?",
+    "reference_answer": "Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.",
+    "evidence_page": "",
+    "anchor": "Baris HS 94032090, kolom Nilai CIF Agustus 2025: 22.573.548.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_673",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_9",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_47",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_49",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_51"
+      ],
+      "maxmin_semantic": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_63",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_6",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_36",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_38",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_39"
+      ],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_844",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_845",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_2",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_25",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_28"
+      ]
+    }
+  },
+  {
+    "id": "Q044",
+    "doc_id": "DOC09_IMPOR",
+    "question": "Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?",
+    "reference_answer": "Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.",
+    "evidence_page": "",
+    "anchor": "Total nilai impor Indonesia Agustus 2025 mencapai US$19.475,2 juta, yang terdiri dari migas senilai US$2.732,5 juta dan nonmigas US$16.742,7 juta atau masing-masing memberikan peranan 14,03 dan 85,97 persen.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_22",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_24"
+      ],
+      "maxmin_semantic": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_14",
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_17"
+      ],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-bulanan-impor--agustus-2025_chunks_embeddings_5"
+      ]
+    }
+  },
+  {
+    "id": "Q046",
+    "doc_id": "DOC10_MODA",
+    "question": "Berapa nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024?",
+    "reference_answer": "Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.",
+    "evidence_page": "",
+    "anchor": "Baris Laut, kolom Nilai 2024: 209.268,6 juta US$.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_49",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_48",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_47",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_66"
+      ],
+      "maxmin_semantic": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_59",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_58",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_85"
+      ],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_33",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_34",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_35"
+      ]
+    }
+  },
+  {
+    "id": "Q048",
+    "doc_id": "DOC10_MODA",
+    "question": "Berapa nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024?",
+    "reference_answer": "Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.",
+    "evidence_page": "",
+    "anchor": "Baris HS 10 Serealia, kolom Nilai 2024: 6.812.761.125.",
+    "relevant_chunk_ids": {
+      "element_based": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_253",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_254",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_231"
+      ],
+      "maxmin_semantic": [],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_191",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_192",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_175"
+      ]
+    }
+  },
+  {
+    "id": "Q049",
+    "doc_id": "DOC10_MODA",
+    "question": "Mengapa moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia?",
+    "reference_answer": "Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.",
+    "evidence_page": "",
+    "anchor": "Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya yang lebih ekonomis. Sementara itu, moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.",
+    "relevant_chunk_ids": {
+      "element_based": [],
+      "maxmin_semantic": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_5"
+      ],
+      "recursive": [
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_6",
+        "statistik-perdagangan-luar-negeri-menurut-moda-transportasi--2023-dan-2024_chunks_embeddings_9"
+      ]
+    }
+  }
+]

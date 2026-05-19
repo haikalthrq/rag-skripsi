@@ -1,304 +1,156 @@
 ================================================================================
-                         CONTEXT PRECISION - RAGAS
-  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/
+                          PRECISION@K - RETRIEVAL TOP-K
 ================================================================================
+
+CATATAN RUANG LINGKUP
+================================================================================
+Dokumentasi ini membahas Precision@k untuk evaluasi retrieval top-k, BUKAN
+Context Precision pada RAGAS.
+
+Precision@k digunakan ketika sistem retrieval mengembalikan daftar hasil
+berperingkat, misalnya top-3, top-5, atau top-10 chunk. Metrik ini menilai
+seberapa besar proporsi chunk relevan di antara k hasil teratas yang dikembalikan
+oleh sistem.
 
 ================================================================================
 DEFINISI
 ================================================================================
+Precision@k adalah metrik yang mengukur proporsi item relevan dari total item
+yang berhasil diambil pada posisi 1 sampai k.
 
-Context Precision adalah metrik yang mengevaluasi kemampuan retriever untuk
-menempatkan chunk yang relevan lebih tinggi daripada yang tidak relevan untuk
-suatu query dalam retrieved context. Secara khusus, metrik ini menilai sejauh
-mana chunk yang relevan dalam retrieved context ditempatkan di posisi teratas
-ranking.
+Dalam konteks Retrieval-Augmented Generation (RAG), item yang dinilai biasanya
+berupa chunk dokumen. Precision@k menunjukkan seberapa tepat retriever dalam
+menempatkan chunk relevan pada hasil teratas.
+
+Semakin tinggi Precision@k, semakin sedikit chunk tidak relevan yang ikut
+masuk ke dalam top-k retrieved results.
+
+================================================================================
+NOTASI
+================================================================================
+R_retrieved^k  = himpunan chunk yang diambil oleh sistem pada peringkat 1
+                 sampai k.
+
+R_relevant     = himpunan chunk yang dianggap relevan berdasarkan ground truth.
+
+| . |          = jumlah anggota dalam suatu himpunan.
+
+k              = jumlah hasil teratas yang dievaluasi.
 
 ================================================================================
 FORMULA
 ================================================================================
-
-Context Precision@K dihitung sebagai mean dari precision@k untuk setiap chunk
-dalam context.
-
-  Context Precision@K = SUM(k=1 to K) [Precision@k x v_k]
-                        ----------------------------------
-                        Total number of relevant items in the top K results
-
-  Precision@k = true positives@k
-                ----------------------------------------
-                (true positives@k + false positives@k)
-
-Keterangan:
-  - K    = total jumlah chunk dalam retrieved_contexts
-  - v_k  = indikator relevansi pada rank k, di mana v_k ∈ {0, 1}
+Precision@k = | R_retrieved^k ∩ R_relevant |
+              ------------------------------
+                           k
 
 ================================================================================
-CONTOH PENGGUNAAN
+INTERPRETASI
 ================================================================================
+- Nilai Precision@k berada pada rentang 0 sampai 1.
+- Nilai 1 berarti seluruh k hasil teratas relevan.
+- Nilai 0 berarti tidak ada hasil relevan dalam k hasil teratas.
+- Precision@k fokus pada ketepatan hasil retrieval, bukan kelengkapan semua
+  chunk relevan yang tersedia.
 
-== 1. ContextPrecision (Collections-Based API) ==
+================================================================================
+CONTOH HITUNG MANUAL
+================================================================================
+Misalkan sistem mengembalikan top-5 chunk untuk sebuah query sebagai berikut:
 
-Metrik ContextPrecision mengevaluasi apakah retrieved contexts berguna untuk
-menjawab pertanyaan dengan membandingkan setiap context terhadap reference
-answer. Gunakan ini ketika Anda memiliki reference answer yang tersedia.
+Peringkat | ID Chunk
+----------|---------
+1         | C3
+2         | C5
+3         | C2
+4         | C9
+5         | C11
 
-Kode:
-------
-from openai import AsyncOpenAI
-from ragas.llms import llm_factory
-from ragas.metrics.collections import ContextPrecision
+Dari anotasi ground truth, chunk yang relevan adalah:
 
-# Setup LLM
-client = AsyncOpenAI()
-llm = llm_factory("gpt-4o-mini", client=client)
+R_relevant = {C2, C5, C7}
 
-# Buat metrik
-scorer = ContextPrecision(llm=llm)
+Himpunan hasil retrieval sampai posisi 5 adalah:
 
-# Evaluasi
-result = await scorer.ascore(
-    user_input="Di mana Menara Eiffel berlokasi?",
-    reference="Menara Eiffel berlokasi di Paris.",
-    retrieved_contexts=[
-        "Menara Eiffel berlokasi di Paris.",
-        "Gerbang Brandenburg berlokasi di Berlin."
-    ]
-)
-print(f"Context Precision Score: {result.value}")
+R_retrieved^5 = {C3, C5, C2, C9, C11}
+
+Irisan antara hasil retrieval dan ground truth relevan adalah:
+
+R_retrieved^5 ∩ R_relevant = {C5, C2}
+
+Jumlah chunk relevan dalam top-5 = 2
+Jumlah hasil yang dievaluasi = 5
+
+Precision@5 = 2 / 5
+            = 0.4
+
+Jadi, Precision@5 = 0.4 atau 40%.
+
+================================================================================
+LANGKAH MANUALISASI
+================================================================================
+1. Tentukan nilai k, misalnya k = 5.
+2. Ambil daftar top-k chunk hasil retrieval.
+3. Tentukan daftar chunk relevan berdasarkan ground truth.
+4. Hitung jumlah chunk di top-k yang juga muncul dalam ground truth relevan.
+5. Bagi jumlah tersebut dengan k.
+
+================================================================================
+PSEUDOCODE
+================================================================================
+Input:
+  retrieved_top_k = daftar chunk hasil retrieval sampai posisi k
+  relevant_chunks = daftar chunk relevan berdasarkan ground truth
+  k = jumlah hasil yang dievaluasi
+
+Process:
+  hit = jumlah chunk dalam retrieved_top_k yang juga ada di relevant_chunks
+  precision_at_k = hit / k
 
 Output:
-  Context Precision Score: 0.9999999999
-
-Catatan - Penggunaan Sinkron:
-  Jika lebih suka kode sinkron, gunakan method .score() sebagai
-  pengganti .ascore():
-
-  result = scorer.score(
-      user_input="Di mana Menara Eiffel berlokasi?",
-      reference="Menara Eiffel berlokasi di Paris.",
-      retrieved_contexts=[...],
-  )
-
---------------------------------------------------------------------------------
-
-== 2. ContextUtilization (Collections-Based API) ==
-
-Metrik ContextUtilization mengevaluasi apakah retrieved contexts berguna
-dengan membandingkan setiap context terhadap generated response. Gunakan ini
-ketika Anda TIDAK memiliki reference answer, tetapi memiliki response yang
-telah di-generate.
-
-Kode:
-------
-from openai import AsyncOpenAI
-from ragas.llms import llm_factory
-from ragas.metrics.collections import ContextUtilization
-
-# Setup LLM
-client = AsyncOpenAI()
-llm = llm_factory("gpt-4o-mini", client=client)
-
-# Buat metrik
-scorer = ContextUtilization(llm=llm)
-
-# Evaluasi
-result = await scorer.ascore(
-    user_input="Di mana Menara Eiffel berlokasi?",
-    response="Menara Eiffel berlokasi di Paris.",
-    retrieved_contexts=[
-        "Menara Eiffel berlokasi di Paris.",
-        "Gerbang Brandenburg berlokasi di Berlin."
-    ]
-)
-print(f"Context Utilization Score: {result.value}")
-
-Output:
-  Context Utilization Score: 0.9999999999
-
-PENTING - Pengaruh Urutan Chunk:
-  Jika chunk yang tidak relevan berada di posisi kedua → context precision TETAP SAMA.
-  Jika chunk yang tidak relevan berada di posisi PERTAMA → context precision BERKURANG.
-
-  Contoh (chunk tidak relevan di posisi pertama):
-  result = await scorer.ascore(
-      user_input="Di mana Menara Eiffel berlokasi?",
-      response="Menara Eiffel berlokasi di Paris.",
-      retrieved_contexts=[
-          "Gerbang Brandenburg berlokasi di Berlin.",   # <-- tidak relevan di posisi 1
-          "Menara Eiffel berlokasi di Paris."
-      ]
-  )
-  Output: Context Utilization Score: 0.49999999995
+  precision_at_k
 
 ================================================================================
-LEGACY METRICS API
+CONTOH IMPLEMENTASI PYTHON
 ================================================================================
+def precision_at_k(retrieved_top_k, relevant_chunks, k):
+    retrieved_k = retrieved_top_k[:k]
+    relevant_set = set(relevant_chunks)
+    hit = sum(1 for chunk in retrieved_k if chunk in relevant_set)
+    return hit / k if k > 0 else 0.0
 
-PERINGATAN DEPRECATION:
-  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
-  Harap migrasi ke collections-based API yang ditunjukkan di atas.
 
-== Contoh dengan SingleTurnSample ==
+retrieved = ["C3", "C5", "C2", "C9", "C11"]
+relevant = ["C2", "C5", "C7"]
 
-from ragas import SingleTurnSample
-from ragas.metrics import LLMContextPrecisionWithoutReference
-
-context_precision = LLMContextPrecisionWithoutReference(llm=evaluator_llm)
-
-sample = SingleTurnSample(
-    user_input="Di mana Menara Eiffel berlokasi?",
-    response="Menara Eiffel berlokasi di Paris.",
-    retrieved_contexts=["Menara Eiffel berlokasi di Paris."],
-)
-
-await context_precision.single_turn_ascore(sample)
-
-Output: 0.9999999999
-
---------------------------------------------------------------------------------
-
-== Context Precision TANPA Reference ==
-
-Metrik LLMContextPrecisionWithoutReference dapat digunakan tanpa ketersediaan
-reference answer. Untuk memperkirakan apakah retrieved contexts relevan, metrik
-ini menggunakan LLM untuk membandingkan setiap chunk dalam retrieved_contexts
-dengan response.
-
-Kode:
-------
-from ragas import SingleTurnSample
-from ragas.metrics import LLMContextPrecisionWithoutReference
-
-context_precision = LLMContextPrecisionWithoutReference(llm=evaluator_llm)
-
-sample = SingleTurnSample(
-    user_input="Di mana Menara Eiffel berlokasi?",
-    response="Menara Eiffel berlokasi di Paris.",
-    retrieved_contexts=["Menara Eiffel berlokasi di Paris."],
-)
-
-await context_precision.single_turn_ascore(sample)
-
-Output: 0.9999999999
-
---------------------------------------------------------------------------------
-
-== Context Precision DENGAN Reference ==
-
-Metrik LLMContextPrecisionWithReference dapat digunakan ketika Anda memiliki
-retrieved contexts DAN reference response yang terkait dengan user_input.
-Untuk memperkirakan apakah retrieved contexts relevan, metrik ini menggunakan
-LLM untuk membandingkan setiap chunk dalam retrieved_contexts dengan reference.
-
-Kode:
-------
-from ragas import SingleTurnSample
-from ragas.metrics import LLMContextPrecisionWithReference
-
-context_precision = LLMContextPrecisionWithReference(llm=evaluator_llm)
-
-sample = SingleTurnSample(
-    user_input="Di mana Menara Eiffel berlokasi?",
-    reference="Menara Eiffel berlokasi di Paris.",
-    retrieved_contexts=["Menara Eiffel berlokasi di Paris."],
-)
-
-await context_precision.single_turn_ascore(sample)
-
-Output: 0.9999999999
+score = precision_at_k(retrieved, relevant, 5)
+print(score)  # Output: 0.4
 
 ================================================================================
-NON-LLM BASED CONTEXT PRECISION
+PERBEDAAN DENGAN CONTEXT PRECISION RAGAS
 ================================================================================
+Precision@k retrieval klasik:
+- Berbasis top-k ranked retrieval.
+- Menggunakan ground truth chunk relevan.
+- Formula utamanya adalah jumlah chunk relevan di top-k dibagi k.
+- Tidak membutuhkan LLM judge.
+- Cocok untuk evaluasi retrieval manual.
 
-Metrik ini menggunakan metode berbasis non-LLM (seperti Levenshtein distance)
-untuk menentukan apakah retrieved context relevan.
-
-== Context Precision dengan Reference Contexts ==
-
-Metrik NonLLMContextPrecisionWithReference dirancang untuk skenario di mana
-baik retrieved contexts maupun reference contexts tersedia untuk suatu
-user_input. Untuk menentukan apakah retrieved context relevan, metrik ini
-membandingkan setiap retrieved context atau chunk dalam retrieved_contexts
-dengan setiap context dalam reference_contexts menggunakan ukuran similaritas
-berbasis non-LLM.
-
-Catatan: Metrik ini memerlukan instalasi paket rapidfuzz:
-  pip install rapidfuzz
-
-Kode:
-------
-from ragas import SingleTurnSample
-from ragas.metrics import NonLLMContextPrecisionWithReference
-
-context_precision = NonLLMContextPrecisionWithReference()
-
-sample = SingleTurnSample(
-    retrieved_contexts=["Menara Eiffel berlokasi di Paris."],
-    reference_contexts=[
-        "Paris adalah ibu kota Perancis.",
-        "Menara Eiffel adalah salah satu landmark paling terkenal di Paris."
-    ]
-)
-
-await context_precision.single_turn_ascore(sample)
-
-Output: 0.9999999999
+Context Precision RAGAS:
+- Mengevaluasi kualitas retrieved contexts dalam kerangka RAGAS.
+- Dapat menggunakan LLM atau pendekatan lain untuk menilai relevansi context.
+- Memperhitungkan ranking context relevan dalam retrieved contexts.
+- Bukan metrik yang digunakan dalam dokumentasi ini.
 
 ================================================================================
-ID BASED CONTEXT PRECISION
+RUJUKAN YANG DISARANKAN
 ================================================================================
+Yu et al. (2024) - Evaluation of Retrieval-Augmented Generation: A Survey.
+Gunakan sebagai rujukan utama untuk menempatkan Precision@k dalam konteks
+evaluasi retrieval pada sistem RAG.
 
-IDBasedContextPrecision menyediakan cara yang langsung dan efisien untuk
-mengukur precision dengan membandingkan ID dari retrieved contexts dengan
-reference context IDs. Metrik ini sangat berguna ketika Anda memiliki sistem
-ID unik untuk dokumen dan ingin mengevaluasi performa retrieval tanpa
-membandingkan konten aktual.
-
-Metrik ini menghitung precision menggunakan retrieved_context_ids dan
-reference_context_ids, dengan nilai antara 0 dan 1. Nilai yang lebih tinggi
-menunjukkan performa yang lebih baik. Metrik ini bekerja dengan ID bertipe
-string maupun integer.
-
-Formula:
-  ID-Based Context Precision = Jumlah retrieved context IDs yang ditemukan dalam reference
-                               ----------------------------------------------------------
-                               Total jumlah retrieved context IDs
-
-Kode:
-------
-from ragas import SingleTurnSample
-from ragas.metrics import IDBasedContextPrecision
-
-sample = SingleTurnSample(
-    retrieved_context_ids=["doc_1", "doc_2", "doc_3", "doc_4"],
-    reference_context_ids=["doc_1", "doc_4", "doc_5", "doc_6"]
-)
-
-id_precision = IDBasedContextPrecision()
-
-await id_precision.single_turn_ascore(sample)
-
-Output: 0.5
-
-Penjelasan:
-  Dari 4 retrieved context IDs, hanya 2 ("doc_1" dan "doc_4") yang ditemukan
-  dalam reference context IDs, menghasilkan precision score sebesar 0.5 atau 50%.
-
-================================================================================
-RINGKASAN VARIAN METRIK
-================================================================================
-
-| Metrik                              | Kebutuhan Input                     | Metode   |
-|-------------------------------------|-------------------------------------|----------|
-| ContextPrecision                    | user_input + reference + contexts   | LLM      |
-| ContextUtilization                  | user_input + response + contexts    | LLM      |
-| LLMContextPrecisionWithoutReference | user_input + response + contexts    | LLM      |
-| LLMContextPrecisionWithReference    | user_input + reference + contexts   | LLM      |
-| NonLLMContextPrecisionWithReference | retrieved + reference contexts      | Non-LLM  |
-| IDBasedContextPrecision             | retrieved + reference context IDs   | ID-based |
-
---------------------------------------------------------------------------------
-Terakhir diperbarui: December 9, 2025
-Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/
+Catatan:
+Jika membutuhkan rujukan teori Information Retrieval klasik, dapat menggunakan
+buku Information Retrieval atau referensi IR standar, tetapi pastikan sesuai
+dengan daftar referensi yang diizinkan oleh dosen pembimbing.
 ================================================================================

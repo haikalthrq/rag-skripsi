@@ -1,0 +1,137 @@
+================================================================================
+  LAPORAN EVALUASI GENERASI RAG
+  Perbandingan Metode Chunking: element_based | maxmin_semantic | recursive
+================================================================================
+
+KONFIGURASI RUN
+--------------------------------------------------------------------------------
+  Tanggal/Waktu    : 20260511_210342
+  Model Generator  : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\models\Qwen3-4B-Instruct-2507-FP8
+  Tipe Generator   : hf
+  Embedding Model  : Qwen3-Embedding-4B-Q8_0.gguf
+  ChromaDB Path    : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\data\chroma
+  QA Gold File     : qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
+  Top-K Retrieval  : 5
+  Max Tokens Out   : 16384
+  Temperature      : 0.7
+  Top-P            : 0.8
+  Top-K Sampling   : 20
+
+RINGKASAN METRIK — PERBANDINGAN CHUNKING METHOD
+--------------------------------------------------------------------------------
+  Method                       mean_bleu    mean_rouge_l       n_success       n_queries
+  --------------------------------------------------------------------------------------
+  element_based                   0.1628          0.6839              30              30
+  maxmin_semantic                 0.1763          0.7092              30              30
+  recursive                       0.1752          0.7504              30              30
+
+--------------------------------------------------------------------------------
+
+DETAIL PER QUERY — ELEMENT_BASED
+--------------------------------------------------------------------------------
+  ID             BLEU    ROUGE-L  Pertanyaan (ringkas)
+  ----------------------------------------------------------------------
+  Q001         0.0949     0.5714  Berapa Benchmark Indeks Hari-Orang Pekerja Tidak T
+  Q003         0.4656     0.6667  Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/H
+  Q005         0.0786     0.4667  Apa yang dimaksud dengan Nilai Konstruksi yang Dis
+  Q006         0.1779     0.5833  Berapa jumlah pekerja tetap konstruksi nasional pa
+  Q009         0.1448     0.8000  Berapa persentase balas jasa dan upah pekerja kons
+  Q010         0.2951     0.8542  Apa yang dimaksud dengan Pengeluaran Bahan/Materia
+  Q011         0.0486     0.8462  Dalam Lampiran 1, berapa nilai kecenderungan misma
+  Q013         0.0134     0.8750  Dalam Lampiran 3, berapa hazard ratio untuk status
+  Q015         0.0737     0.6522  Berapa persentase angkatan kerja muda yang mengala
+  Q016         0.3368     0.7500  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q017         0.0602     0.7500  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q020         0.4098     0.5833  Berapa jumlah komoditas HS 8-digit yang terpilih s
+  Q021         0.0852     0.7500  Pada Lampiran 7.4, berapa proporsi Transfer Masuk 
+  Q023         0.4759     0.6154  Pada Lampiran 8.1, berapa persentase capaian pemas
+  Q025         0.0263     0.1765  Menurut konsep COPNI, LNPRT diklasifikasikan ke da
+  Q026         0.0274     0.5833  Pada Lampiran 4.3, berapa nilai Pajak Pendapatan p
+  Q027         0.1118     0.8571  Pada Lampiran 6.2, berapa nilai Pembentukan Modal 
+  Q029         0.2823     0.7619  Apa yang dimaksud dengan tabungan dalam Neraca Pen
+  Q031         0.4170     1.0000  Pada Lampiran 2.7, berapa proporsi Transfer Berjal
+  Q032         0.0882     0.7500  Pada Lampiran 2.9, berapa proporsi Pengeluaran Kon
+  Q034         0.1584     0.7143  Aktivitas ekonomi rumah tangga dalam publikasi ini
+  Q036         0.0261     0.5333  Pada Tabel 3.35, berapa estimasi total APS 13–15 t
+  Q037         0.1190     0.7500  Pada Tabel 3.36, berapa estimasi total APS 16–18 t
+  Q040         0.1295     0.5000  Berapa tingkat penyelesaian pendidikan SD, SMP, da
+  Q041         0.0000     0.5714  Pada Tabel 2.7, berapa total berat bersih impor In
+  Q042         0.0150     0.4167  Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untu
+  Q044         0.2012     0.8571  Berapa total nilai impor Indonesia pada Agustus 20
+  Q046         0.2050     1.0000  Pada Tabel 4.1, berapa nilai impor Indonesia melal
+  Q048         0.0196     0.6667  Pada Tabel 5.13, berapa nilai impor menggunakan mo
+  Q049         0.2976     0.6129  Mengapa moda laut masih menjadi pilihan utama untu
+
+DETAIL PER QUERY — MAXMIN_SEMANTIC
+--------------------------------------------------------------------------------
+  ID             BLEU    ROUGE-L  Pertanyaan (ringkas)
+  ----------------------------------------------------------------------
+  Q001         0.0112     0.5714  Berapa Benchmark Indeks Hari-Orang Pekerja Tidak T
+  Q003         0.3892     0.7143  Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/H
+  Q005         1.0000     1.0000  Apa yang dimaksud dengan Nilai Konstruksi yang Dis
+  Q006         0.0481     1.0000  Berapa jumlah pekerja tetap konstruksi nasional pa
+  Q009         0.1175     0.8000  Berapa persentase balas jasa dan upah pekerja kons
+  Q010         0.2750     0.6667  Apa yang dimaksud dengan Pengeluaran Bahan/Materia
+  Q011         0.2705     0.7692  Dalam Lampiran 1, berapa nilai kecenderungan misma
+  Q013         0.0424     0.7500  Dalam Lampiran 3, berapa hazard ratio untuk status
+  Q015         0.1046     0.7826  Berapa persentase angkatan kerja muda yang mengala
+  Q016         0.0000     0.7500  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q017         0.0000     0.7500  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q020         0.0861     0.7083  Berapa jumlah komoditas HS 8-digit yang terpilih s
+  Q021         0.0410     0.7500  Pada Lampiran 7.4, berapa proporsi Transfer Masuk 
+  Q023         0.2982     0.6154  Pada Lampiran 8.1, berapa persentase capaian pemas
+  Q025         0.0263     0.1765  Menurut konsep COPNI, LNPRT diklasifikasikan ke da
+  Q026         0.0158     0.5833  Pada Lampiran 4.3, berapa nilai Pajak Pendapatan p
+  Q027         0.0225     0.6429  Pada Lampiran 6.2, berapa nilai Pembentukan Modal 
+  Q029         0.0497     0.7619  Apa yang dimaksud dengan tabungan dalam Neraca Pen
+  Q031         0.0000     0.7778  Pada Lampiran 2.7, berapa proporsi Transfer Berjal
+  Q032         0.1382     0.6667  Pada Lampiran 2.9, berapa proporsi Pengeluaran Kon
+  Q034         0.1633     0.6429  Aktivitas ekonomi rumah tangga dalam publikasi ini
+  Q036         0.3623     0.7333  Pada Tabel 3.35, berapa estimasi total APS 13–15 t
+  Q037         0.2557     0.7500  Pada Tabel 3.36, berapa estimasi total APS 16–18 t
+  Q040         0.0894     0.6538  Berapa tingkat penyelesaian pendidikan SD, SMP, da
+  Q041         0.1645     0.5714  Pada Tabel 2.7, berapa total berat bersih impor In
+  Q042         0.0403     0.5833  Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untu
+  Q044         0.2669     0.8571  Berapa total nilai impor Indonesia pada Agustus 20
+  Q046         0.4622     1.0000  Pada Tabel 4.1, berapa nilai impor Indonesia melal
+  Q048         0.1528     0.6667  Pada Tabel 5.13, berapa nilai impor menggunakan mo
+  Q049         0.3960     0.5806  Mengapa moda laut masih menjadi pilihan utama untu
+
+DETAIL PER QUERY — RECURSIVE
+--------------------------------------------------------------------------------
+  ID             BLEU    ROUGE-L  Pertanyaan (ringkas)
+  ----------------------------------------------------------------------
+  Q001         0.0882     0.7143  Berapa Benchmark Indeks Hari-Orang Pekerja Tidak T
+  Q003         0.0865     0.7619  Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/H
+  Q005         0.0243     0.4333  Apa yang dimaksud dengan Nilai Konstruksi yang Dis
+  Q006         0.2873     1.0000  Berapa jumlah pekerja tetap konstruksi nasional pa
+  Q009         0.0905     0.8500  Berapa persentase balas jasa dan upah pekerja kons
+  Q010         0.2750     0.7708  Apa yang dimaksud dengan Pengeluaran Bahan/Materia
+  Q011         0.2888     1.0000  Dalam Lampiran 1, berapa nilai kecenderungan misma
+  Q013         0.0166     0.7500  Dalam Lampiran 3, berapa hazard ratio untuk status
+  Q015         0.3264     0.6522  Berapa persentase angkatan kerja muda yang mengala
+  Q016         0.1999     0.8333  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q017         0.4797     0.8333  Berdasarkan Tabel 4, berapa Indeks Unit Value Impo
+  Q020         0.1866     0.8750  Berapa jumlah komoditas HS 8-digit yang terpilih s
+  Q021         0.0000     0.6667  Pada Lampiran 7.4, berapa proporsi Transfer Masuk 
+  Q023         0.4444     0.9231  Pada Lampiran 8.1, berapa persentase capaian pemas
+  Q025         0.0263     0.1765  Menurut konsep COPNI, LNPRT diklasifikasikan ke da
+  Q026         0.0242     0.5833  Pada Lampiran 4.3, berapa nilai Pajak Pendapatan p
+  Q027         0.0000     0.5714  Pada Lampiran 6.2, berapa nilai Pembentukan Modal 
+  Q029         0.0670     0.7619  Apa yang dimaksud dengan tabungan dalam Neraca Pen
+  Q031         0.0183     0.7778  Pada Lampiran 2.7, berapa proporsi Transfer Berjal
+  Q032         0.0166     0.8333  Pada Lampiran 2.9, berapa proporsi Pengeluaran Kon
+  Q034         0.1633     0.6429  Aktivitas ekonomi rumah tangga dalam publikasi ini
+  Q036         0.0905     0.8000  Pada Tabel 3.35, berapa estimasi total APS 13–15 t
+  Q037         0.2884     0.7500  Pada Tabel 3.36, berapa estimasi total APS 16–18 t
+  Q040         0.0723     0.7308  Berapa tingkat penyelesaian pendidikan SD, SMP, da
+  Q041         0.4002     0.6429  Pada Tabel 2.7, berapa total berat bersih impor In
+  Q042         0.1273     0.9167  Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untu
+  Q044         0.1986     0.8929  Berapa total nilai impor Indonesia pada Agustus 20
+  Q046         0.2426     1.0000  Pada Tabel 4.1, berapa nilai impor Indonesia melal
+  Q048         0.3840     0.7222  Pada Tabel 5.13, berapa nilai impor menggunakan mo
+  Q049         0.3412     0.6452  Mengapa moda laut masih menjadi pilihan utama untu
+
+================================================================================
+  END OF REPORT
+================================================================================
