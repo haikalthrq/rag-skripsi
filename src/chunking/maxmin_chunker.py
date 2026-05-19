@@ -80,7 +80,7 @@ def sigmoid(x: float) -> float:
 def process_sentences(
     sentences: List[str],
     embeddings: np.ndarray,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5
 ) -> List[List[str]]:
@@ -193,7 +193,7 @@ def initialize_embedding_model_gguf(
     model_path: str = DEFAULT_GGUF_MODEL_PATH,
     n_gpu_layers: int = -1,
     n_ctx: int = 8192,
-    n_batch: int = 512,
+    n_batch: int = 64,  # Kecilkan dari 512 → 64 untuk hindari OOM
     verbose: bool = False,
     suppress_output: bool = True
 ) -> Optional[Llama]:
@@ -409,7 +409,20 @@ def split_sentences(text: str) -> Optional[List[str]]:
         
         # Filter kalimat kosong
         sentences = [s.strip() for s in sentences if s.strip()]
-        
+
+        # Safety: skip kalimat yang melebihi kapasitas model (n_ctx=8192 ≈ ~32000 chars).
+        # Kalimat sepanjang ini biasanya artefak parsing (tabel besar), bukan kalimat semantik.
+        SKIP_CHARS_LIMIT = 32000
+        filtered, skipped = [], 0
+        for s in sentences:
+            if len(s) <= SKIP_CHARS_LIMIT:
+                filtered.append(s)
+            else:
+                skipped += 1
+        if skipped:
+            logger.warning(f"  Melewati {skipped} kalimat yang melebihi {SKIP_CHARS_LIMIT} karakter (artefak non-semantik)")
+        sentences = filtered
+
         logger.info(f"✓ Berhasil split menjadi {len(sentences)} kalimat")
         
         # Log statistik
@@ -528,7 +541,7 @@ def embed_sentences(
 def apply_maxmin_chunking(
     sentences: List[str],
     embeddings: np.ndarray,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5
 ) -> Optional[List[List[str]]]:
@@ -636,26 +649,42 @@ def convert_paragraphs_to_chunks(
         List[Dict[str, Any]]: List chunks dengan metadata.
     """
     chunks = []
-    
+    last_seen_page: Optional[int] = None
+
+    import re as _re
+    _PAGE_MARKER = _re.compile(r'<<<PAGE_(\d+)>>>')
+
     try:
         for chunk_id, paragraph in enumerate(paragraphs):
             # Gabungkan kalimat menjadi text
             chunk_text = ' '.join(paragraph)
-            
+
+            # Ekstrak nomor halaman dari marker <<<PAGE_N>>> lalu hapus markernya
+            page_numbers = sorted({int(m) for m in _PAGE_MARKER.findall(chunk_text)})
+            chunk_text = _PAGE_MARKER.sub('', chunk_text).strip()
+
+            # Forward propagation: jika tidak ada marker di chunk ini,
+            # gunakan halaman terakhir yang terlihat
+            if page_numbers:
+                last_seen_page = page_numbers[-1]
+            elif last_seen_page is not None:
+                page_numbers = [last_seen_page]
+
             chunk: Dict[str, Any] = {
                 'chunk_id': chunk_id,
                 'text': chunk_text,
                 'num_sentences': len(paragraph)
             }
-            
+
             if include_metadata:
                 chunk['metadata'] = {
                     'source_file': source_filename,
                     'chunking_method': 'maxmin_semantic',
                     'sentences': paragraph,
-                    'num_characters': len(chunk_text)
+                    'num_characters': len(chunk_text),
+                    'page_numbers': page_numbers if page_numbers else None,
                 }
-            
+
             chunks.append(chunk)
         
         logger.info(f"✓ Konversi {len(chunks)} paragraphs menjadi chunks")
@@ -671,7 +700,7 @@ def process_single_text(
     text_path: str,
     output_dir: str,
     embedding_model: Any,
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5,
     include_metadata: bool = True,
@@ -785,7 +814,7 @@ def run_maxmin_chunking(
     use_gguf: bool = True,
     model_name: str = "Qwen/Qwen3-Embedding-4B",
     device: str = "cuda",
-    fixed_threshold: float = 0.6,
+    fixed_threshold: float = 0.95,
     c: float = 0.9,
     init_constant: float = 1.5,
     include_metadata: bool = True,
@@ -837,12 +866,14 @@ def run_maxmin_chunking(
     if use_gguf:
         embedding_model = initialize_embedding_model_gguf(
             model_path=model_path,
-            n_gpu_layers=n_gpu_layers
+            n_gpu_layers=n_gpu_layers,
+            n_ctx=8192,   # Chunking: 8192 cukup untuk kalimat ≤4000 chars (~2000 token)
+            n_batch=64,   # Kurangi dari 512: forward pass 4B model butuh VRAM besar per batch
         )
     else:
         embedding_model = initialize_embedding_model(
-            model_name=model_name, 
-            device=device, 
+            model_name=model_name,
+            device=device,
             low_memory=low_memory
         )
     
@@ -1003,8 +1034,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--threshold', '-t',
         type=float,
-        default=0.6,
-        help='Fixed threshold untuk MaxMin (default: 0.6)'
+        default=0.95,
+        help='Fixed threshold untuk MaxMin (default: 0.95 for Qwen3)'
     )
     
     parser.add_argument(

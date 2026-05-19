@@ -83,8 +83,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--threshold', '-t',
         type=float,
-        default=0.6,
-        help='Fixed threshold untuk MaxMin (default: 0.6)'
+        default=0.95,
+        help='Fixed threshold untuk MaxMin (default: 0.95 for Qwen3)'
     )
     
     parser.add_argument(

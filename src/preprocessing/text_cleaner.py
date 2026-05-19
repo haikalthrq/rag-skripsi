@@ -44,12 +44,16 @@ def clean_text(text: str) -> str:
     cleaned = re.sub(r'[\ufeff\u200b\u200c\u200d]', '', cleaned)
     
     # 2. Hapus nomor halaman yang umum
-    # Pola: "Page 1", "Halaman 1", "1 of 10", "[1]", dll
+    # Penanda <<<PAGE_N>>> dari pdf_extractor TIDAK dihapus di sini —
+    # dipertahankan agar chunker (MaxMin/Recursive) bisa ekstrak page_numbers sebagai metadata.
+    # Pola eksplisit: "Page 1", "Halaman 1", "1 of 10"
     cleaned = re.sub(r'\b[Pp]age\s+\d+\b', '', cleaned)
     cleaned = re.sub(r'\b[Hh]alaman\s+\d+\b', '', cleaned)
     cleaned = re.sub(r'\b\d+\s+of\s+\d+\b', '', cleaned)
     cleaned = re.sub(r'^\s*\[\d+\]\s*$', '', cleaned, flags=re.MULTILINE)
-    cleaned = re.sub(r'^\s*\d+\s*$', '', cleaned, flags=re.MULTILINE)
+    # HATI-HATI: jangan hapus semua baris angka — nilai tabel statistik juga berupa angka per baris.
+    # Hanya hapus baris integer kecil (1–3 digit) yang dikelilingi baris kosong (ciri nomor halaman).
+    cleaned = re.sub(r'(?<=\n)\n(\s*\d{1,3}\s*)\n(?=\n)', '\n', cleaned)
     
     # 3. Hapus header/footer yang berulang
     # Pola umum: garis horizontal, copyright, URL, email
@@ -73,8 +77,9 @@ def clean_text(text: str) -> str:
     cleaned = re.sub(r'^[\s•\-\*\+●○■□▪▫]+', '', cleaned, flags=re.MULTILINE)
     
     # 8. Hapus referensi footnote/endnote
+    # HATI-HATI: jangan hapus notasi tahun dasar seperti (2016) atau (2016=100).
+    # Hanya hapus [angka] sebagai referensi footnote — bukan (angka) karena ambigu.
     cleaned = re.sub(r'\[\d+\]', '', cleaned)
-    cleaned = re.sub(r'\(\d+\)', '', cleaned)
     
     # 9. Normalisasi whitespace
     # Hapus spasi di awal dan akhir baris
@@ -91,18 +96,21 @@ def clean_text(text: str) -> str:
     # Hapus 3+ newlines berturut-turut menjadi 2 newlines
     cleaned = re.sub(r'\n{3,}', '\n\n', cleaned)
     
-    # Hapus newlines di tengah kalimat (line breaks yang tidak perlu)
-    # Hati-hati agar tidak menggabungkan paragraf yang berbeda
-    cleaned = re.sub(r'(?<=[a-z,;])\n(?=[a-z])', ' ', cleaned)
+    # Gabungkan baris lanjutan hanya jika baris berikutnya dimulai huruf kecil
+    # DAN baris sebelumnya diakhiri huruf/koma/titik koma (bukan angka — angka bisa data tabel).
+    # Ini mencegah penggabungan label kolom dengan nilai numerik di baris berikutnya.
+    cleaned = re.sub(r'(?<=[a-z;])\n(?=[a-z])', ' ', cleaned)
     
     # 11. Hapus baris kosong yang hanya berisi whitespace
     cleaned = re.sub(r'^\s*$\n', '', cleaned, flags=re.MULTILINE)
     
     # 12. Hapus pola repetitif (misalnya "..." atau "---")
     cleaned = re.sub(r'\.{3,}', '...', cleaned)  # Normalisasi ellipsis
-    cleaned = re.sub(r'-{3,}', '', cleaned)  # Hapus garis panjang
-    cleaned = re.sub(r'_{3,}', '', cleaned)
-    cleaned = re.sub(r'={3,}', '', cleaned)
+    # HATI-HATI: jangan hapus --- di dalam baris Markdown tabel (|---|---|).
+    # Hanya hapus baris yang SELURUHNYA terdiri dari tanda hubung (garis horizontal).
+    cleaned = re.sub(r'^-{3,}$', '', cleaned, flags=re.MULTILINE)
+    cleaned = re.sub(r'^_{3,}$', '', cleaned, flags=re.MULTILINE)
+    cleaned = re.sub(r'^={3,}$', '', cleaned, flags=re.MULTILINE)
     
     # 13. Trim awal dan akhir
     cleaned = cleaned.strip()

@@ -1,0 +1,348 @@
+================================================================================
+                             ROUGE SCORE - RAGAS
+  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#rouge-score
+================================================================================
+
+================================================================================
+DEFINISI
+================================================================================
+
+RougeScore adalah sekumpulan metrik yang digunakan untuk mengevaluasi kualitas
+natural language generations. Metrik ini mengukur overlap antara generated
+response dan teks reference berdasarkan n-gram recall, precision, dan F1
+score. ROUGE score berkisar dari 0 hingga 1, di mana 1 menunjukkan kecocokan
+sempurna antara response dan reference. Ini adalah metrik berbasis non-LLM.
+
+================================================================================
+PENGGUNAAN (Collections-Based API)
+================================================================================
+
+Kode:
+------
+from ragas.metrics.collections import RougeScore
+
+# Buat metrik (tidak memerlukan LLM/embeddings)
+scorer = RougeScore(rouge_type="rougeL", mode="fmeasure")
+
+# Evaluasi
+result = await scorer.ascore(
+    reference="The Eiffel Tower is located in Paris.",
+    response="The Eiffel Tower is located in India."
+)
+print(f"ROUGE Score: {result.value}")
+
+Output:
+  ROUGE Score: 0.8571428571428571
+
+Catatan - Penggunaan Sinkron:
+  Jika lebih suka kode sinkron, gunakan method .score() sebagai
+  pengganti .ascore():
+
+  result = scorer.score(
+      reference="The Eiffel Tower is located in Paris.",
+      response="The Eiffel Tower is located in India."
+  )
+
+================================================================================
+KONFIGURASI
+================================================================================
+
+Mengubah rouge_type:
+  - rouge_type="rouge1"  → menghitung ROUGE score berdasarkan unigrams
+  - rouge_type="rougeL"  → menghitung ROUGE score berdasarkan longest common
+                           subsequence
+
+  scorer = RougeScore(rouge_type="rouge1")
+
+Mengubah mode:
+  - mode="precision"  → menghitung ROUGE score berdasarkan precision
+  - mode="recall"     → menghitung ROUGE score berdasarkan recall
+  - mode="fmeasure"   → menghitung ROUGE score berdasarkan F1 score
+
+  scorer = RougeScore(mode="recall")
+
+================================================================================
+LEGACY METRICS API
+================================================================================
+
+PERINGATAN DEPRECATION:
+  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
+  Harap migrasi ke collections-based API yang ditunjukkan di atas.
+
+Contoh dengan SingleTurnSample:
+------
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import RougeScore
+
+sample = SingleTurnSample(
+    response="The Eiffel Tower is located in India.",
+    reference="The Eiffel Tower is located in Paris."
+)
+
+scorer = RougeScore()
+await scorer.single_turn_ascore(sample)
+
+Output: 0.8571428571428571
+
+--------------------------------------------------------------------------------
+Terakhir diperbarui: December 11, 2025
+Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#rouge-score
+================================================================================
+
+================================================================================
+                         ROUGE-L RECALL - DOKUMENTASI
+================================================================================
+
+CATATAN RUANG LINGKUP
+================================================================================
+Dokumentasi ini membahas ROUGE-L Recall untuk evaluasi hasil generation pada
+sistem Retrieval-Augmented Generation (RAG).
+
+Dokumentasi ini TIDAK membahas ROUGE-L F1 sebagai metrik utama. Dalam
+penelitian ini, nilai yang digunakan adalah ROUGE-L-R atau ROUGE-L Recall.
+
+================================================================================
+DEFINISI UMUM ROUGE-L
+================================================================================
+ROUGE-L adalah metrik evaluasi teks yang mengukur kemiripan antara teks hasil
+prediksi sistem dan teks referensi berdasarkan Longest Common Subsequence
+(LCS), yaitu urutan token terpanjang yang muncul pada kedua teks dengan urutan
+yang sama, tanpa harus bersebelahan secara langsung.
+
+Dalam konteks RAG, ROUGE-L digunakan untuk menilai seberapa jauh jawaban yang
+dihasilkan model memiliki kesamaan urutan informasi dengan jawaban referensi
+atau ground truth answer.
+
+Dokumentasi PyTorch-Ignite menjelaskan bahwa RougeL menghitung skor ROUGE-L
+berdasarkan panjang longest common subsequence antara candidate dan reference.
+Metric ini menghasilkan tiga nilai utama:
+- Rouge-L-P : ROUGE-L Precision
+- Rouge-L-R : ROUGE-L Recall
+- Rouge-L-F : ROUGE-L F-score
+
+Karena penelitian ini menggunakan ROUGE-L Recall, nilai yang dipakai adalah
+Rouge-L-R.
+
+================================================================================
+DEFINISI ROUGE-L RECALL
+================================================================================
+ROUGE-L Recall mengukur proporsi token dalam teks referensi yang berhasil
+dicakup oleh longest common subsequence antara teks hasil prediksi dan teks
+referensi.
+
+Dengan kata lain, ROUGE-L Recall menjawab pertanyaan:
+
+"Seberapa banyak urutan informasi penting dalam jawaban referensi yang berhasil
+muncul kembali dalam jawaban sistem?"
+
+Semakin tinggi nilai ROUGE-L Recall, semakin besar bagian dari jawaban referensi
+yang berhasil dicakup oleh jawaban sistem.
+
+================================================================================
+NOTASI
+================================================================================
+X = teks hasil prediksi atau generated answer dari sistem.
+
+Y = teks referensi atau ground truth answer.
+
+LCS(X, Y) = panjang longest common subsequence antara X dan Y.
+
+|Y| = jumlah token dalam teks referensi.
+
+================================================================================
+FORMULA ROUGE-L RECALL
+================================================================================
+ROUGE-L Recall = LCS(X, Y)
+                 ---------
+                    |Y|
+
+Keterangan:
+- LCS(X, Y) adalah jumlah token pada longest common subsequence antara jawaban
+  sistem dan jawaban referensi.
+- |Y| adalah jumlah token pada jawaban referensi.
+
+================================================================================
+INTERPRETASI NILAI
+================================================================================
+Nilai ROUGE-L Recall berada pada rentang 0 sampai 1.
+
+- Nilai 1 berarti seluruh token penting dalam referensi berhasil tercakup dalam
+  urutan LCS.
+- Nilai 0 berarti tidak ada kesamaan urutan token antara hasil prediksi dan
+  referensi.
+- Nilai yang lebih tinggi menunjukkan bahwa jawaban sistem semakin mampu
+  mencakup isi jawaban referensi.
+
+================================================================================
+CONTOH HITUNG MANUAL
+================================================================================
+Misalkan:
+
+Generated answer / candidate:
+"the cat is not there"
+
+Reference answer:
+"the cat is on the mat"
+
+Token candidate:
+["the", "cat", "is", "not", "there"]
+
+Token reference:
+["the", "cat", "is", "on", "the", "mat"]
+
+Longest Common Subsequence (LCS):
+["the", "cat", "is"]
+
+Panjang LCS = 3
+Jumlah token reference = 6
+
+ROUGE-L Recall = 3 / 6
+               = 0.5
+
+Jadi, ROUGE-L Recall = 0.5.
+
+================================================================================
+CONTOH DARI PYTORCH-IGNITE
+================================================================================
+Dokumentasi PyTorch-Ignite memberikan contoh berikut:
+
+Candidate:
+"the cat is not there"
+
+References:
+1. "the cat is on the mat"
+2. "there is a cat on the mat"
+
+Jika menggunakan RougeL(multiref="best"), output yang ditampilkan adalah:
+
+{
+  'Rouge-L-P': 0.6,
+  'Rouge-L-R': 0.5,
+  'Rouge-L-F': 0.5
+}
+
+Karena penelitian ini menggunakan ROUGE-L Recall, nilai yang diambil adalah:
+
+Rouge-L-R = 0.5
+
+================================================================================
+LANGKAH MANUALISASI ROUGE-L RECALL
+================================================================================
+1. Siapkan jawaban hasil sistem sebagai candidate.
+2. Siapkan jawaban referensi sebagai ground truth answer.
+3. Tokenisasi kedua teks menjadi daftar token.
+4. Cari Longest Common Subsequence (LCS) antara candidate dan reference.
+5. Hitung jumlah token dalam LCS.
+6. Hitung jumlah token dalam reference.
+7. Bagi panjang LCS dengan jumlah token pada reference.
+
+================================================================================
+PSEUDOCODE
+================================================================================
+Input:
+  candidate_tokens = token hasil jawaban sistem
+  reference_tokens = token jawaban referensi
+
+Process:
+  lcs_length = panjang LCS(candidate_tokens, reference_tokens)
+  rouge_l_recall = lcs_length / len(reference_tokens)
+
+Output:
+  rouge_l_recall
+
+================================================================================
+CONTOH IMPLEMENTASI PYTHON MANUAL
+================================================================================
+def lcs_length(a, b):
+    m, n = len(a), len(b)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if a[i - 1] == b[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+    return dp[m][n]
+
+
+def rouge_l_recall(candidate, reference):
+    candidate_tokens = candidate.split()
+    reference_tokens = reference.split()
+
+    if len(reference_tokens) == 0:
+        return 0.0
+
+    lcs = lcs_length(candidate_tokens, reference_tokens)
+    return lcs / len(reference_tokens)
+
+
+candidate = "the cat is not there"
+reference = "the cat is on the mat"
+
+score = rouge_l_recall(candidate, reference)
+print(score)  # Output: 0.5
+
+================================================================================
+CONTOH IMPLEMENTASI MENGGUNAKAN PYTORCH-IGNITE
+================================================================================
+from ignite.metrics import RougeL
+
+m = RougeL(multiref="best")
+
+candidate = "the cat is not there".split()
+references = [
+    "the cat is on the mat".split(),
+    "there is a cat on the mat".split()
+]
+
+m.update(([candidate], [references]))
+result = m.compute()
+
+rouge_l_recall_score = result["Rouge-L-R"]
+print(rouge_l_recall_score)
+
+================================================================================
+CATATAN PENTING UNTUK SKRIPSI
+================================================================================
+1. Gunakan istilah ROUGE-L Recall atau ROUGE-L-R secara konsisten.
+2. Jangan menulis bahwa penelitian menggunakan ROUGE-L secara umum jika yang
+   dipakai hanya nilai recall.
+3. Jika menggunakan library PyTorch-Ignite, ambil nilai dari key 'Rouge-L-R'.
+4. ROUGE-L Recall cocok ketika penelitian ingin menilai cakupan isi jawaban
+   referensi oleh jawaban sistem.
+5. ROUGE-L Recall tidak secara langsung menilai kebenaran faktual, melainkan
+   overlap urutan token berbasis LCS.
+6. Untuk jawaban berbahasa Indonesia, hasil ROUGE-L dapat dipengaruhi oleh
+   tokenisasi, variasi kata, sinonim, dan parafrase.
+
+================================================================================
+PERBEDAAN ROUGE-L RECALL, PRECISION, DAN F-SCORE
+================================================================================
+ROUGE-L Recall:
+- Fokus pada seberapa banyak isi referensi tercakup oleh jawaban sistem.
+- Formula: LCS(X, Y) / |Y|
+
+ROUGE-L Precision:
+- Fokus pada seberapa banyak isi jawaban sistem cocok dengan referensi.
+- Formula: LCS(X, Y) / |X|
+
+ROUGE-L F-score:
+- Menggabungkan precision dan recall.
+- Digunakan ketika ingin menyeimbangkan ketepatan dan kelengkapan.
+
+Dalam penelitian ini, metrik yang digunakan adalah ROUGE-L Recall karena fokus
+evaluasi diarahkan pada sejauh mana jawaban sistem mencakup informasi yang
+terdapat pada jawaban referensi.
+
+================================================================================
+RUJUKAN
+================================================================================
+PyTorch-Ignite Documentation. RougeL — PyTorch-Ignite v0.5.4 Documentation.
+Dokumentasi menjelaskan bahwa RougeL menghitung ROUGE-L berdasarkan longest
+common subsequence antara candidate dan reference, serta menghasilkan skor
+Rouge-L-P, Rouge-L-R, dan Rouge-L-F.
+
+Lin, C.-Y. (2004). ROUGE: A Package for Automatic Evaluation of Summaries.
+================================================================================

@@ -1,0 +1,156 @@
+================================================================================
+                          PRECISION@K - RETRIEVAL TOP-K
+================================================================================
+
+CATATAN RUANG LINGKUP
+================================================================================
+Dokumentasi ini membahas Precision@k untuk evaluasi retrieval top-k, BUKAN
+Context Precision pada RAGAS.
+
+Precision@k digunakan ketika sistem retrieval mengembalikan daftar hasil
+berperingkat, misalnya top-3, top-5, atau top-10 chunk. Metrik ini menilai
+seberapa besar proporsi chunk relevan di antara k hasil teratas yang dikembalikan
+oleh sistem.
+
+================================================================================
+DEFINISI
+================================================================================
+Precision@k adalah metrik yang mengukur proporsi item relevan dari total item
+yang berhasil diambil pada posisi 1 sampai k.
+
+Dalam konteks Retrieval-Augmented Generation (RAG), item yang dinilai biasanya
+berupa chunk dokumen. Precision@k menunjukkan seberapa tepat retriever dalam
+menempatkan chunk relevan pada hasil teratas.
+
+Semakin tinggi Precision@k, semakin sedikit chunk tidak relevan yang ikut
+masuk ke dalam top-k retrieved results.
+
+================================================================================
+NOTASI
+================================================================================
+R_retrieved^k  = himpunan chunk yang diambil oleh sistem pada peringkat 1
+                 sampai k.
+
+R_relevant     = himpunan chunk yang dianggap relevan berdasarkan ground truth.
+
+| . |          = jumlah anggota dalam suatu himpunan.
+
+k              = jumlah hasil teratas yang dievaluasi.
+
+================================================================================
+FORMULA
+================================================================================
+Precision@k = | R_retrieved^k ∩ R_relevant |
+              ------------------------------
+                           k
+
+================================================================================
+INTERPRETASI
+================================================================================
+- Nilai Precision@k berada pada rentang 0 sampai 1.
+- Nilai 1 berarti seluruh k hasil teratas relevan.
+- Nilai 0 berarti tidak ada hasil relevan dalam k hasil teratas.
+- Precision@k fokus pada ketepatan hasil retrieval, bukan kelengkapan semua
+  chunk relevan yang tersedia.
+
+================================================================================
+CONTOH HITUNG MANUAL
+================================================================================
+Misalkan sistem mengembalikan top-5 chunk untuk sebuah query sebagai berikut:
+
+Peringkat | ID Chunk
+----------|---------
+1         | C3
+2         | C5
+3         | C2
+4         | C9
+5         | C11
+
+Dari anotasi ground truth, chunk yang relevan adalah:
+
+R_relevant = {C2, C5, C7}
+
+Himpunan hasil retrieval sampai posisi 5 adalah:
+
+R_retrieved^5 = {C3, C5, C2, C9, C11}
+
+Irisan antara hasil retrieval dan ground truth relevan adalah:
+
+R_retrieved^5 ∩ R_relevant = {C5, C2}
+
+Jumlah chunk relevan dalam top-5 = 2
+Jumlah hasil yang dievaluasi = 5
+
+Precision@5 = 2 / 5
+            = 0.4
+
+Jadi, Precision@5 = 0.4 atau 40%.
+
+================================================================================
+LANGKAH MANUALISASI
+================================================================================
+1. Tentukan nilai k, misalnya k = 5.
+2. Ambil daftar top-k chunk hasil retrieval.
+3. Tentukan daftar chunk relevan berdasarkan ground truth.
+4. Hitung jumlah chunk di top-k yang juga muncul dalam ground truth relevan.
+5. Bagi jumlah tersebut dengan k.
+
+================================================================================
+PSEUDOCODE
+================================================================================
+Input:
+  retrieved_top_k = daftar chunk hasil retrieval sampai posisi k
+  relevant_chunks = daftar chunk relevan berdasarkan ground truth
+  k = jumlah hasil yang dievaluasi
+
+Process:
+  hit = jumlah chunk dalam retrieved_top_k yang juga ada di relevant_chunks
+  precision_at_k = hit / k
+
+Output:
+  precision_at_k
+
+================================================================================
+CONTOH IMPLEMENTASI PYTHON
+================================================================================
+def precision_at_k(retrieved_top_k, relevant_chunks, k):
+    retrieved_k = retrieved_top_k[:k]
+    relevant_set = set(relevant_chunks)
+    hit = sum(1 for chunk in retrieved_k if chunk in relevant_set)
+    return hit / k if k > 0 else 0.0
+
+
+retrieved = ["C3", "C5", "C2", "C9", "C11"]
+relevant = ["C2", "C5", "C7"]
+
+score = precision_at_k(retrieved, relevant, 5)
+print(score)  # Output: 0.4
+
+================================================================================
+PERBEDAAN DENGAN CONTEXT PRECISION RAGAS
+================================================================================
+Precision@k retrieval klasik:
+- Berbasis top-k ranked retrieval.
+- Menggunakan ground truth chunk relevan.
+- Formula utamanya adalah jumlah chunk relevan di top-k dibagi k.
+- Tidak membutuhkan LLM judge.
+- Cocok untuk evaluasi retrieval manual.
+
+Context Precision RAGAS:
+- Mengevaluasi kualitas retrieved contexts dalam kerangka RAGAS.
+- Dapat menggunakan LLM atau pendekatan lain untuk menilai relevansi context.
+- Memperhitungkan ranking context relevan dalam retrieved contexts.
+- Bukan metrik yang digunakan dalam dokumentasi ini.
+
+================================================================================
+RUJUKAN YANG DISARANKAN
+================================================================================
+Yu et al. (2024) - Evaluation of Retrieval-Augmented Generation: A Survey.
+Gunakan sebagai rujukan utama untuk menempatkan Precision@k dalam konteks
+evaluasi retrieval pada sistem RAG.
+
+Catatan:
+Jika membutuhkan rujukan teori Information Retrieval klasik, dapat menggunakan
+buku Information Retrieval atau referensi IR standar, tetapi pastikan sesuai
+dengan daftar referensi yang diizinkan oleh dosen pembimbing.
+================================================================================

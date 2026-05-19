@@ -1,0 +1,1535 @@
+DOC: statistik-pendidikan-2025
+Total chunks: 316 | Usable: 249 | Sample 10% (32):
+================================================================================
+
+--- [chunk_id=chunk_2] ---
+STATISTIK PENDIDIKAN 2025 Volume 14, 2025
+
+Katalog
+
+: 4301002
+
+ISSN
+
+: 2086-4566
+
+Nomor Publikasi
+
+: 04200.25022
+
+Ukuran Buku
+
+: 18,2 cm x 25,7 cm
+
+https://www.bps.go.id
+
+Jumlah Halaman
+
+: xxx+217 halaman
+
+Penyusun Naskah : Direktorat Statistik Kesejahteraan Rakyat
+
+Penyunting
+
+:
+
+Direktorat Statistik Kesejahteraan Rakyat
+
+Pembuat Kover
+
+:
+
+Direktorat Statistik Kesejahteraan Rakyat
+
+Penerbit
+
+:
+
+©Badan Pusat Statistik
+
+Sumber Ilustrasi : flaticon.com; freepik.com; canva.com
+
+Dilarang mereproduksi dan/atau menggandakan sebagian atau seluruh isi buku ini untuk tujuan komersial tanpa izin tertulis dari Badan Pusat Statistik
+
+Katalog
+
+4 G
+
+| 2
+
+Pengarah:
+
+https://www.bps.go.id
+
+Penanggung Jawab:
+
+Penyunting: Yeni Rachmawati Raden Sinang Ika Maylasari Budi Santoso
+
+Penulis Naskah dan Pengolah Data: Mega Silviliyana Nindya Putri Sulistyowati Ruth Juniar Herista Ganish Anggraeni
+
+Penata Letak: Mega Silviliyana
+
+--- [chunk_id=chunk_4] ---
+KATA PENGANTAR
+
+Pemerataan akses pendidikan tidak cukup hanya pada upaya peningkatan jumlah dan pemenuhan kualitas sekolah dan ruang kelas saja, tetapi juga perlu memperhatikan kecukupan antara ruang kelas yang tersedia dengan jumlah peserta didik. Pada tahun ajaran 2024/2025 terlihat bahwa rasio peserta didik per rombongan belajar (rombel) pada jenjang SD, SMP, SMA, dan SMK masih berada
+
+vii
+
+pada rentang ketentuan yang berlaku. Selain itu, jika dilihat menurut rasio rombongan belajar per kelas baik pada jenjang SD, SMP, SMA, maupun SMK bernilai kurang dari satu. Artinya jumlah ruang kelas yang tersedia masih mencukupi untuk menampung rombongan belajar peserta didik pada setiap jenjang.
+
+Bukan hanya kuantitas sekolah dan ruang kelas, satinasi sekolah juga menjadi langkah awal dalam mewujudkan lingkungan belajar yang sehat. Mayoritas sekolah pada setiap jenjang pendidikan telah memiliki sumber air cukup. Akan tetapi, masih terdapat sekitar 1 hingga 2 persen sekolah yang perlu perhatian pada jenjang SD hingga SMA dan SMK karena tidak memiliki sumber air. Apabila ditinjau dari sisi ketersediaan toilet, pada setiap jenjang pendidikan secara umum mayoritas sekolah telah memiliki sarana toilet siswa, baik itu toilet terpisah ataupun toilet bersama. Meskipun masih ada sekolah yang tidak memiliki toilet, yaitu 18,76 persen pada jenjang SD, 13,93 persen SMP, 10,85 persen SMA, dan 12,91 persen SMK yang tidak memiliki toilet.
+
+https://www.bps.go.id
+
+Sebagai pendidik profesional yang mendidik, mengajar, membimbing, mengarahkan, melatih, menilai, dan mengevaluasi murid, kualitas guru turut menentukan kualitas pendidikan di setiap sekolah. Pada tahun ajaran 2024/2025 jumlah guru pada jenjang SD, SMP, dan SMK mengalami peningkatan, namun pada jenjang SMK mengalami penurunan jumlah guru. Meskipun demikian, dari sisi persentase guru yang memenuhi kualifikasi akademik S1/D4 mengalami peningkatan pada setiap jenjang pada tahun ajaran 2024/2025 jika dibandingkan tahun ajaran 2023/2024. Peraturan Pemerintah Nomor 74 Tahun 2008 tentang Guru Pasal 17 menyebutkan bahwa pada jenjang pendidikan SD, SMP, dan SMA idealnya satu guru bertanggung jawab terhadap 20 murid, sementara pada jenjang SMK idealnya satu guru bertanggung jawab pada 15 murid. Pada Tahun Ajaran 2024/2025, rasio murid-guru pada semua jenjang pendidikan masih memenuhi standar ideal yang ditetapkan.
+
+Pendidikan Anak Usia Dini (PAUD) merupakan program pendidikan yang paling fundamental dalam menyiapkan sumber daya manusia yang berkualitas. Namun, hasil pendataan Susenas Maret 2025 menunjukkan hanya sebesar 34,15
+
+viii
+
+--- [chunk_id=chunk_19] ---
+STATISTIK PENDIDIKAN 2025 Volume 14, 2025
+
+Menurut Provinsi dan Klasifikasi Desa, 2025 ................................... 100
+
+Tabel 3.42 Sampling Error Angka Partisipasi Murni (APM) SD Sederajat Menurut Provinsi dan Klasifikasi Desa, 2025 ................................... 101
+Tabel 3.43 Sampling Error Angka Partisipasi Murni (APM) SMP Sederajat Menurut Provinsi dan Klasifikasi Desa, 2025 ................................... 102
+
+xvi
+
+Tabel 3.44
+
+Sampling Error Angka Partisipasi Murni (APM) SMA/SMK
+
+--- [chunk_id=chunk_32] ---
+STATISTIK PENDIDIKAN 2025 Volume 14, 2025
+
+Nilai-nilai indikator yang diestimasi dari hasil Susenas Maret 2025 dipengaruhi
+
+oleh dua jenis kesalahan (error), yaitu non sampling error dan sampling error. Non sampling error adalah kesalahan yang terjadi ketika proses pengumpulan maupun pengolahan data. Sedangkan sampling error adalah kesalahan yang terjadi sebagai akibat dari penggunaan teknik sampling tertentu dalam suatu survei. Secara statistik, besarnya sampling error hasil Susenas 2025 ditunjukkan oleh nilai standard error (galat baku) dari suatu ukuran statistik (rata-rata, persentase, atau jumlah). Untuk mengukur presisi suatu indikator digunakan nilai relative standard error (RSE), yaitu perbandingan nilai standard error terhadap estimasi indikatornya, yang dinyatakan dalam persen. Standard error juga digunakan untuk menghitung besaran selang kepercayaan (confidence interval), yaitu interval nilai yang dapat menggambarkan populasi. Dengan tingkat kepercayaan 95 persen, dapat disajikan selang kepercayaan (interval estimation) dengan batas bawah/atas sebesar nilai estimasi dikurangi/ditambah dua standard error. Semakin rendah nilai RSE atau semakin pendek selang
+
+https://www.bps.go.id
+
+kepercayaan menunjukkan nilai indikator yang semakin baik.
+
+Kualitas hasil estimasi suatu survei bisa diamati dari RSE yang dihasilkan dimana keputusan mengenai keakuratan suatu estimasi bisa diamati dari hasil penghitungan RSE tersebut. Kesalahan sampling dari beberapa estimasi harus digunakan secara hati-hati. Secara umum, besaran SE meningkat seiring dengan meningkatnya besaran estimasi begitu juga sebaliknya. Nilai estimasi dengan RSE≤25% dianggap akurat, sedangkan nilai estimasi dengan RSE>25% tetapi ≤50% perlu hati-hati jika ingin digunakan, dan estimasi dengan RSE>50% dianggap sangat tidak akurat dan seharusnya digabungkan dengan estimasi yang lain untuk memberikan estimasi dengan RSE≤25 %. Penghitungan tingkat sampling error menggunakan paket pemrograman dengan desain yang mengikuti desain sampling Susenas. Pada publikasi ini, selain dari RSE, keakuratan nilai estimasi juga dilihat dari jumlah sampel. Nilai estimasi dengan
+
+jumlah sampel n≤30, tidak disajikan.
+
+xxvi
+
+--- [chunk_id=chunk_33] ---
+STATISTIK PENDIDIKAN 2025 Volume 14, 2025
+
+Klasifikasi Desa menggambarkan kelompok desa/kelurahan yang termasuk daerah perkotaan atau perdesaan. Penentuan suatu desa/kelurahan termasuk perkotaan atau perdesaan menggunakan suatu indikator komposit (indikator gabungan) yang skor atau nilainya didasarkan pada skor atau nilai-nilai tiga buah variabel: kepadatan penduduk, persentase rumah tangga pertanian, dan akses ke fasilitas perkotaan.
+
+Kepala Rumah Tangga (KRT) adalah salah seorang dari Anggota Rumah Tangga (ART) yang bertanggung jawab atas pemenuhan kebutuhan sehari-hari di rumah tangga atau orang yang dituakan/dianggap/ditunjuk sebagai KRT.
+
+Anggota Rumah Tangga (ART) adalah semua orang yang biasanya bertempat tinggal di suatu rumah tangga, baik yang pada waktu pencacahan berada di rumah tangga tersebut maupun yang sedang bepergian kurang dari 1 tahun dan tidak berniat pindah.
+
+https://www.bps.go.id
+
+Tidak Termasuk Anggota Rumah Tangga yakni orang yang telah bepergian selama 1 tahun atau lebih, atau kurang dari 1 tahun tetapi dengan tujuan pindah (akan meninggalkan rumah selama 1 tahun atau lebih). Di sisi lain, orang yang telah 1 tahun atau lebih tinggal di rumah tangga yang sedang dicacah atau yang telah tinggal kurang dari 1 tahun tetapi berniat menetap dianggap sebagai anggota rumah tangga dari rumah tangga yang sedang dicacah tersebut.
+
+Distribusi Pengeluaran Rumah Tangga diukur menggunakan pendekatan pengeluaran perkapita sebulan, dengan asumsi bahwa pengeluaran perkapita sebulan sama dengan pendapatannya. Distribusi pengeluaran rumah tangga digolongkan menjadi lima kuintil. Kuintil 1 dan 2 untuk status ekonomi terendah, Kuintil 3 dan 4 untuk status ekonomi menengah, dan Kuintil 5 untuk status ekonomi tertinggi.
+
+Rasio Murid-Guru adalah gambaran jumlah murid terhadap jumlah guru pada jenjang pendidikan tertentu.
+
+Rasio Murid-Kelas adalah perbandingan jumlah murid dalam suatu jenjang pendidikan tertentu terhadap jumlah kelas yang tersedia.
+
+--- [chunk_id=chunk_44] ---
+2.2 Ketersediaan dan Kondisi Ruang Kelas
+
+Selain dilihat dari jumlah dan kondisi ruang kelas, keseimbangan dan kecukupan antara jumlah kelas yang tersedia dengan jumlah peserta didik juga menjadi hal penting untuk diperhatikan dalam proses pembelajaran. Kecukupan tersebut dapat diukur dari rasio peserta didik per rombongan belajar (rombel) dan rasio rombel per kelas. Rombongan belajar diartikan sebagai kelompok peserta didik yang terdaftar pada satuan kelas dalam satu satuan pendidikan (Kementerian Pendidikan Dasar dan Menengah, 2025a.)
+
+Dalam Peraturan Menteri Pendidikan dan Kebudayaan Nomor 17 Tahun
+
+2017 dijelaskan bahwa rombel merupakan kelompok peserta didik yang terdaftar pada satuan kelas dalam satu satuan pendidikan. Pada Peraturan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia Nomor 47 https://www.bps.go.id Tahun 2023 tentang Standar Pengelolaan pada Pendidikan Anak Usia Dini, Jenjang Pendidikan Dasar, dan Jenjang Pendidikan Menengah diatur jumlah paling banyak peserta didik pada rombongan belajar di setiap jenjang pendidikan. Jumlah peserta didik yang diatur pada jenjang SD/Madrasah Ibtidaiyah (MI) mencakup maksimal 28 peserta didik, SMP/Madrasah Tsanawiyah (MTs) maksimal 32 peserta didik, dan SMA/Madrasah Aliyah (MA)/SMK/Madrasah Aliyah Kejuruan (MAK) maksimal mencakup 36 peserta didik pada setiap rombel. Sementara itu, jumlah rombel pada setiap satuan pendidikan juga diatur sebagai berikut: pada jenjang SD/MI mencakup 6–24 rombongan belajar, SMP/MTs mencakup 3–33 rombongan belajar, SMA/MA maksimal mencakup 3–36 rombongan belajar, dan SMK/MAK mencakup 3–72 rombongan belajar pada setiap satuan pendidikan.
+
+Untuk menjaga efektivitas dan kenyamanan proses belajar mengajar, diperlukan aturan jumlah peserta didik di setiap rombongan belajar maupun jumlah rombongan belajar pada setiap satuan pendidikan. Pada Peraturan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia Nomor 47 Tahun 2023 juga dijelaskan mengenai ketentuan peserta didik per rombongan belajar paling banyak ditetapkan sebagai berikut: 28 peserta didik pada jenjang SD/MI, 32 peserta didik SMP/MTs, dan 36 peserta didik SMA/MA/SMK/MAK.
+
+14
+
+STATISTIK PENDIDIKAN 2025
+
+--- [chunk_id=chunk_69] ---
+Kecukupan Sumber Air Provinsi Cukup Kurang Tidak Ada (1) (2) (3) (4) 81,94 16,26 1,81 80,62 17,75 1,63 84,36 14,39 1,26 83,27 15,27 1,46 83,59 15,24 1,17 85,02 13,38 1,60 83,74 14,70 1,56 88,25 10,50 1,24 84,01 14,42 1,56 86,74 10,32 2,94 96,63 2,34 1,03 87,91 10,56 1,53 https://www.bps.go.id 93,13 5,54 1,33 95,27 4,07 0,65 91,86 6,91 1,22 89,36 9,22 1,42 92,90 6,15 0,96 85,71 12,74 1,55 59,90 38,08 2,02 67,41 30,71 1,89 78,55 20,02 1,43 89,02 9,65 1,33 81,84 16,46 1,70 74,28 23,66 2,06 86,97 11,27 1,76 81,45 17,12 1,42 86,61 12,00 1,39 82,53 16,50 0,98 85,74 12,86 1,39 80,27 17,77 1,96 77,40 20,04 2,56 82,47 14,49 3,03 65,68 33,10 1,22 66,43 31,41 2,17 63,41 33,29 3,29
+
+--- [chunk_id=chunk_73] ---
+Kecukupan Sumber Air Provinsi Cukup Kurang Tidak Ada (1) (2) (3) (4) 86,92 11,23 1,84 86,33 11,72 1,95 88,41 10,72 0,87 86,28 11,23 2,49 88,10 9,92 1,98 87,10 11,29 1,61 86,93 11,11 1,96 91,82 6,88 1,30 79,22 18,18 2,60 84,83 10,67 4,49 97,42 0,79 1,79 91,04 6,81 2,14 https://www.bps.go.id 94,70 4,15 1,15 96,00 3,43 0,57 91,75 6,13 2,11 93,44 4,59 1,97 93,79 4,97 1,24 90,48 7,14 2,38 72,33 26,38 1,29 76,40 20,50 3,11 80,24 17,74 2,02 88,10 10,00 1,90 87,55 10,37 2,07 81,69 16,90 1,41 89,52 10,04 0,44 86,13 12,61 1,26 91,00 7,86 1,15 84,59 14,15 1,26 85,92 12,68 1,41 81,72 18,28 – 76,03 21,92 2,05 85,33 12,44 2,22 74,24 24,24 1,52 66,67 30,86 2,47 78,81 20,34 0,85
+
+--- [chunk_id=chunk_80] ---
+Tabel 2.16 Persentase Sekolah Menengah Pertama (SMP) Menurut Provinsi dan Kepemilikan Toilet Siswa, Tahun Ajaran 2024/2025
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+Papua Tengah
+
+Papua Pegunungan
+
+36,06
+
+11,06
+
+52,88
+
+Indonesia
+
+76,17
+
+9,90
+
+13,93
+
+Sumber: Kementerian Pendidikan Dasar dan Menengah (Pusat Data dan Teknologi Informasi), Statistik Persekolahan SD, SMP, SMA, dan SMK 2024/2025
+
+SARANA DAN PRASARANA
+
+37
+
+PENDIDIKAN
+
+--- [chunk_id=chunk_93] ---
+3.1 Pendidikan Anak Usia Dini
+
+https://www.bps.go.id
+
+Gambar 3.4 Partisipasi Anak Usia 3–6 Tahun yang Tidak/Belum Pernah Mengikuti Pendidikan Prasekolah, Tetapi Mengikuti Kegiatan Kursus Menurut Karakteristik Demografi, 2025
+
+Tingkat partisipasi dalam pembelajaran yang terorganisir (satu tahun sebelum usia sekolah dasar) yang digambarkan pada Gambar 3.5 merupakan indikator yang mengukur persentase anak usia 6 tahun (satu tahun sebelum usia resmi masuk sekolah dasar) yang terdaftar sebagai peserta didik aktif, baik di tingkat PAUD maupun SD sederajat. Indikator ini digunakan untuk mengetahui seberapa jauh anak usia dini terpapar dengan proses belajar yang terorganisir, khususnya satu tahun sebelum masuk SD. Paparan terhadap pendidikan yang terorganisir membantu anak untuk lebih siap bersekolah di SD, sehingga tingginya proporsi anak usia 6 tahun yang bersekolah dapat mengindikasikan tingginya akses pendidikan untuk anak-anak usia dini.
+
+Tingkat partisipasi dalam pembelajaran yang terorganisir (satu tahun sebelum usia sekolah dasar) merupakan indikator yang mengukur angka partisipasi anak usia 6 tahun (satu tahun sebelum usia resmi masuk sekolah dasar) dalam program pendidikan yang terorganisir, yaitu pendidikan anak usia dini (prasekolah) yang meliputi Taman Kanak-kanak (TK), Raudhatul Athfal (RA), Bustanul Athfal (BA), dan PAUD, serta SD sederajat. Pada Gambar 3.5 dapat dilihat bahwa capaian indikator tersebut adalah sebesar 97,70 persen di tahun
+
+49
+
+PARTISIPASI PENDIDIKAN
+
+2025. Hal ini mengindikasikan bahwa akses pendidikan untuk anak usia dini di Indonesia sudah cukup tinggi. Jika dibandingkan berdasarkan jenis kelamin, tidak terlihat perbedaan yang signifikan antara laki-laki dan perempuan. Selain itu, jika dibandingkan berdasarkan wilayah, perbedaan persentase antara perkotaan dan perdesaan hanya sekitar 0,96 persen poin.
+
+https://www.bps.go.id
+
+Catatan: Usia yang digunakan dalam perhitungan indikator ini adalah usia sekolah (school age) Sumber: Badan Pusat Statistik, Survei Sosial Ekonomi Nasional (Susenas) Maret 2025
+
+Gambar 3.5 Tingkat Partisipasi dalam Pembelajaran yang Terorganisir (Satu Tahun Sebelum Usia Sekolah Dasar) Menurut Jenis Kelamin dan Klasifikasi Desa, 2025
+
+Gambar 3.6 menunjukkan bahwa capaian Angka Kesiapan Sekolah (AKS) tahun 2025 meningkat jika dibandingkan dengan tahun sebelumnya. Meskipun menunjukkan penurunan pada tahun 2022, capaian AKS menunjukkan peningkatan pada tahun 2023 sampai 2025. Sebanyak 80,29 persen anak yang sedang bersekolah di kelas 1 SD sederajat pernah mengikuti pendidikan prasekolah jenis TK/RA/BA dan PAUD sejenis lainnya pada tahun 2025.
+
+50
+
+STATISTIK PENDIDIKAN 2025
+
+--- [chunk_id=chunk_103] ---
+Kelompok Umur Karakteristik 7–12 Tahun 13–15 Tahun (1) (2) (3) (4) (5) Total 99,23 96,30 77,86 29,13 Jenis Kelamin Laki-laki 99,04 95,43 76,21 27,25 Perempuan 99,42 97,22 79,56 31,07 Status Disabilitas Nondisabilitas 99,31 96,63 78,18 29,26 Disabilitas 84,81 46,17 40,54 16,35 Distribusi Pengeluaran Kuintil 5 99,52 98,71 85,11 43,69 Kuintil 4 99,29 97,53 79,88 30,70 Kuintil 3 99,35 97,09 78,68 25,82 Kuintil 2 99,17 95,85 77,16 22,66 Kuintil 1 98,95 93,53 69,20 19,60 Klasifikasi Desa Perkotaan 99,42 97,35 80,91 33,23 Perdesaan 98,95 94,88 73,30 22,12
+
+--- [chunk_id=chunk_104] ---
+Tabel 3.2 Angka Partisipasi Sekolah (APS) Menurut Kelompok Umur dan Karakteristik Demografi, 2025
+
+16–18 Tahun 19–23 Tahun
+
+https://www.bps.go.id
+
+61
+
+PARTISIPASI PENDIDIKAN
+
+Tabel 3.3 Persentase Penduduk 7–23 Tahun Menurut Kelompok Umur dan Alasan Utama Belum Pernah Bersekolah atau Tidak Bersekolah Lagi, 2025
+
+--- [chunk_id=chunk_115] ---
+Provinsi Laki-laki Perempuan Perkotaan Perdesaan Total (1) (2) (3) (4) (5) (6) Aceh 29,73 29,05 31,44 28,25 29,39 Sumatera Utara 23,36 22,69 25,43 20,25 23,03 Sumatera Barat 30,85 29,21 31,38 28,65 30,04 Riau 23,16 26,16 26,39 23,50 24,58 Jambi 33,07 30,79 34,38 30,70 31,93 Sumatera Selatan 24,77 24,88 28,01 22,90 24,82 Bengkulu 28,54 25,91 29,99 25,72 27,22 Lampung 32,10 32,65 33,17 31,94 32,37 Kep. Bangka Belitung 26,19 30,76 29,02 27,73 28,49 Kepulauan Riau 25,63 24,77 24,60 35,46 25,20 DKI Jakarta 40,07 34,43 37,19 – 37,19 Jawa Barat 33,89 31,75 32,60 33,81 32,82 https://www.bps.go.id Jawa Tengah 48,12 49,11 51,02 45,81 48,61 DI Yogyakarta 67,39 67,90 67,56 67,92 67,63 Jawa Timur 56,37 54,82 58,14 52,00 55,60 Banten 27,25 25,79 28,57 18,22 26,51 Bali 34,80 32,47 35,56 27,33 33,60 Nusa Tenggara Barat 40,81 40,93 43,12 38,37 40,86 Nusa Tenggara Timur 30,44 33,08 30,91 32,04 31,76 Kalimantan Barat 22,51 23,53 27,80 20,30 23,03 Kalimantan Tengah 37,86 37,74 34,67 40,22 37,80 Kalimantan Selatan 42,89 45,30 43,99 44,22 44,10 Kalimantan Timur 30,28 30,97 29,85 32,37 30,62 Kalimantan Utara 34,38 31,44 36,49 27,02 32,94 Sulawesi Utara 32,91 33,72 34,21 32,25 33,32 Sulawesi Tengah 34,64 38,42 36,13 36,65 36,48 Sulawesi Selatan 30,77 30,11 28,03 32,65 30,45 Sulawesi Tenggara 32,57 31,84 26,02 35,51 32,20 Gorontalo 47,69 49,72 46,54 50,62 48,72 Sulawesi Barat 40,32 38,11 34,63 40,40 39,22 Maluku 29,71 33,04 24,48 35,97 31,31 Maluku Utara 31,22 31,58 28,84 32,36 31,40 Papua Barat 24,52 25,95 29,59 23,27 25,27 Papua Barat Daya 19,72 19,93 18,01 21,99 19,83 Papua 21,41 22,00 16,83 28,30 21,71
+
+--- [chunk_id=chunk_120] ---
+Provinsi Laki-laki Perempuan Perkotaan Perdesaan Total (1) (2) (3) (4) (5) (6) Aceh 77,32 78,08 83,67 74,62 77,73 Sumatera Utara 72,73 76,35 79,61 69,27 74,53 Sumatera Barat 85,39 84,52 87,08 83,10 84,97 Riau 67,41 70,39 75,01 64,93 68,85 Jambi 80,34 81,68 85,04 79,06 80,99 Sumatera Selatan 66,12 70,50 68,63 68,00 68,21 Bengkulu 78,45 79,64 86,46 75,56 79,06 Lampung 80,53 88,66 79,24 87,06 84,68 Kep. Bangka Belitung 82,70 84,03 81,00 85,97 83,35 Kepulauan Riau 70,21 74,34 72,00 73,59 72,10 DKI Jakarta 77,42 86,35 82,14 – 82,14 Jawa Barat 80,78 78,62 80,55 76,11 79,75 https://www.bps.go.id Jawa Tengah 91,71 92,27 93,18 90,58 91,98 DI Yogyakarta 94,51 98,27 97,07 94,65 96,48 Jawa Timur 91,01 90,04 91,64 89,20 90,54 Banten 70,98 69,35 70,24 70,16 70,22 Bali 90,56 82,39 88,35 82,14 86,52 Nusa Tenggara Barat 78,05 86,00 87,35 77,43 82,12 Nusa Tenggara Timur 69,61 66,99 81,36 64,39 68,34 Kalimantan Barat 55,60 54,35 54,01 55,57 55,03 Kalimantan Tengah 86,05 84,87 89,83 81,83 85,51 Kalimantan Selatan 93,65 90,20 92,93 90,91 91,90 Kalimantan Timur 83,79 72,08 79,65 74,38 78,02 Kalimantan Utara 76,12 80,63 79,07 77,61 78,49 Sulawesi Utara 86,64 89,28 85,20 91,19 87,92 Sulawesi Tengah 78,05 83,86 81,02 80,56 80,70 Sulawesi Selatan 79,91 79,29 80,40 78,80 79,60 Sulawesi Tenggara 80,81 83,79 84,17 80,81 82,15 Gorontalo 90,52 88,95 90,50 89,20 89,79 Sulawesi Barat 75,61 83,52 87,87 77,94 79,67 Maluku 69,03 67,44 63,72 71,16 68,21 Maluku Utara 69,14 66,45 62,26 69,69 67,76 Papua Barat 54,68 61,25 80,72 50,58 57,64 Papua Barat Daya 45,96 50,06 58,50 39,76 47,97 Papua 53,31 59,01 62,26 47,36 55,91
+
+--- [chunk_id=chunk_129] ---
+Tabel 3.14 Angka Partisipasi Sekolah (APS) Perempuan Menurut Provinsi dan Kelompok Umur, 2025
+
+19–23 Tahun
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+Papua Tengah
+
+81,49
+
+68,99
+
+45,42
+
+15,46
+
+Papua Pegunungan
+
+82,89
+
+73,44
+
+50,34
+
+10,58
+
+Indonesia
+
+99,42
+
+97,22
+
+79,56
+
+31,07
+
+73
+
+PARTISIPASI PENDIDIKAN
+
+Indonesia
+
+Tabel 3.15 Angka Partisipasi Sekolah (APS) Menurut Provinsi dan Kelompok Umur, 2025
+
+--- [chunk_id=chunk_133] ---
+Tabel 3.16 Angka Partisipasi Kasar (APK) di Perkotaan Menurut Provinsi dan Jenjang Pendidikan, 2025
+
+(19–23 Tahun)
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+107,32
+
+112,76
+
+92,99
+
+53,20
+
+Papua Tengah
+
+97,71
+
+95,53
+
+121,63
+
+30,87
+
+Papua Pegunungan
+
+NA
+
+NA
+
+NA
+
+NA
+
+Indonesia
+
+104,13
+
+94,15
+
+90,53
+
+38,58
+
+75
+
+PARTISIPASI PENDIDIKAN
+
+--- [chunk_id=chunk_149] ---
+Tabel 3.24 Angka Partisipasi Murni (APM) Perempuan Menurut Provinsi dan Jenjang Pendidikan, 2025
+
+(19–23 Tahun)
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+88,47
+
+54,29
+
+45,30
+
+NA
+
+Papua Tengah
+
+74,78
+
+56,48
+
+38,34
+
+11,01
+
+Papua Pegunungan
+
+77,14
+
+58,06
+
+40,57
+
+NA
+
+Indonesia
+
+97,01
+
+80,93
+
+68,66
+
+25,85
+
+83
+
+PARTISIPASI PENDIDIKAN
+
+45,30
+
+--- [chunk_id=chunk_151] ---
+Tabel 3.25 Angka Partisipasi Murni (APM) Menurut Provinsi dan Jenjang Pendidikan, 2025
+
+(19–23 Tahun)
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+87,64
+
+57,72
+
+45,48
+
+15,32
+
+Papua Tengah
+
+72,55
+
+54,33
+
+35,59
+
+10,63
+
+Papua Pegunungan
+
+74,85
+
+56,16
+
+39,87
+
+9,20
+
+Indonesia
+
+97,00
+
+80,65
+
+67,44
+
+23,28
+
+84
+
+STATISTIK PENDIDIKAN 2025
+
+Tabel 3.26 Angka Anak Tidak Sekolah (Out of School Children/OOSC) Menurut Provinsi dan Kelompok Umur, 2025
+
+--- [chunk_id=chunk_157] ---
+STATISTIK PENDIDIKAN 2025
+
+87
+
+PARTISIPASI PENDIDIKAN
+
+Papua Pegunungan
+
+NA
+
+NA
+
+NA
+
+59,83
+
+NA
+
+NA
+
+NA
+
+5624
+
+NA
+
+NA
+
+NA
+
+4261
+
+Indonesia
+
+--- [chunk_id=chunk_179] ---
+Tabel 3.39 Sampling Error Angka Partisipasi Kasar (APK) SMP Sederajat Menurut Provinsi dan Klasifikasi Desa, 2025
+
+98
+
+STATISTIK PENDIDIKAN 2025
+
+Papua Tengah
+
+9533 NA
+
+8042 NA
+
+11064 NA
+
+807
+
+6474 49
+
+58,07 6863
+
+Lan) 81,30
+
+528
+
+71,89 781
+
+6568 71,66
+
+TM
+
+Papua Pegunungan
+
+129
+
+4381
+
+8456
+
+Indonesia
+
+--- [chunk_id=chunk_199] ---
+4.1 Akses Teknologi Informasi dan Komunikasi (TIK)
+
+https://www.bps.go.id
+
+Gambar 4.4 Persentase Peserta Didik Umur 5–23 Tahun yang Menggunakan Internet Menurut Tujuan Penggunaan Internet, 2025
+
+4.2 Aktivitas Peserta Didik selain Bersekolah
+
+Selain bersekolah, terdapat peserta didik yang melakukan kegiatan mengurus rumah tangga dan membantu menambah penghasilan atau bekerja dalam kegiatan sehari-harinya. Gambar 4.5 menunjukkan perkembangan persentase peserta didik berumur 10–23 tahun yang bekerja dan mengurus rumah tangga dalam seminggu terakhir dari tahun 2021 sampai 2025. Dalam lima tahun terakhir, lebih banyak peserta didik berumur 10–23 tahun yang bekerja daripada mengurus rumah tangga. Pada tahun 2021, terdapat sebanyak 39,03 persen peserta didik umur 10–23 tahun yang bekerja. Angka ini mengalami penurunan persentase sebanyak 8,77 persen poin pada tahun 2022, kemudian mengalami kenaikan pada tahun 2023 sampai tahun 2025 (40,76 persen). Sementara itu, persentase peserta didik umur 10–23 tahun yang mengurus rumah tangga mengalami perubahan yang fluktuatif selama lima tahun terakhir
+
+dan mencapai 7,27 persen pada tahun 2025.
+
+113
+
+KEGIATAN PESERTA DIDIK
+
+https://www.bps.go.id
+
+Gambar 4.5 Persentase Peserta Didik Umur 10–23 Tahun yang Bekerja dan Mengurus Rumah Tangga, 2021–2025
+
+Dilihat dari jenjang pendidikan, pola peserta didik yang bekerja dan mengurus rumah tangga sejalan dengan kenaikan jenjang pendidikan. Semakin tinggi jenjang pendidikan, semakin besar persentase peserta didik umur 10–23 tahun yang bekerja maupun mengurus rumah tangga (Gambar 4.6).
+
+Selisih persentase peserta didik yang bekerja antara jenjang pendidikan PT dengan jenjang di bawahnya tampak lebih jauh dibandingkan selisih peserta didik yang mengurus rumah tangga. Terdapat sebanyak 30,55 persen peserta didik pada jenjang PT yang bekerja, sementara peserta didik pada jenjang SMA/SMK sederajat, SMP sederajat, dan SD sederajat yang bekerja masing- masing sebesar 7,56 persen, 3,37 persen, dan 1,25 persen. Di sisi lain, terdapat 52,65 persen peserta didik jenjang PT yang mengurus rumah tangga. Selanjutnya diikuti oleh 46,31 persen peserta didik pada jenjang SMA/SMK sederajat, 40,34 persen pada jenjang SMP sederajat, dan 31,76 persen pada jenjang SD sederajat yang melakukan kegiatan mengurus rumah tangga.
+
+114
+
+STATISTIK PENDIDIKAN 2025
+
+--- [chunk_id=chunk_212] ---
+Tabel 4.6 Persentase Peserta Didik Umur 10–23 Tahun yang Bekerja Menurut Provinsi, Jenis Kelamin, dan Klasifikasi Desa, 2025
+
+Papua Selatan
+
+4,84
+
+3,36
+
+NA
+
+6,03
+
+4,15
+
+NA
+
+Papua Tengah
+
+11,89
+
+8,86
+
+14,34
+
+10,46
+
+NA
+
+Papua Pegunungan
+
+18,49
+
+13,01
+
+15,32
+
+15,84
+
+Indonesia
+
+8,10
+
+6,43
+
+6,60
+
+8,31
+
+7,27
+
+121
+
+KEGIATAN PESERTA DIDIK
+
+Indonesia
+
+Tabel 4.7 Persentase Peserta Didik Umur 10–23 Tahun yang Mengurus Rumah Tangga Menurut Provinsi, Jenis Kelamin, dan Klasifikasi Desa, 2025
+
+--- [chunk_id=chunk_228] ---
+5.1 Angka Putus Sekolah
+
+https://www.bps.go.id
+
+Gambar 5.3 Tingkat Penyelesaian Pendidikan Menurut Provinsi dan Kelompok Umur, 2025
+
+136
+
+STATISTIK PENDIDIKAN 2025
+
+Indikator tingkat penyelesaian pendidikan dapat menggambarkan proporsi individu dalam kelompok usia tertentu yang tepat waktu atau terlambat (delay) dalam pendaftaran hingga penyelesaian pada suatu jenjang pendidikan. Namun demikian, indikator ini belum dapat melihat pada jenjang mana peserta didik keluar dari sistem pendidikan sebelum menyelesaikan pendidikan menengah atas. Analisis alur pendidikan menyediakan informasi tersebut dengan memetakan proporsi individu yang masuk dan bertransisi ke dan serta menyelesaikan semua tingkat pendidikan hingga pendidikan menengah atas. Analisis ini memungkinkan identifikasi hambatan dalam sistem pendidikan di mana sebagian besar peserta didik meninggalkan sekolah.
+
+https://www.bps.go.id
+
+Gambar 5.4 Analisis Alur Pendidikan Penduduk Usia 19–21 Tahun, 2025
+
+Analisis alur berdasarkan data Susenas 2025 didasarkan pada penduduk yang pada saat pendataan berumur 19 hingga 21 tahun (1–3 tahun di atas usia kelulusan SMA/SMK sederajat yang resmi, yaitu 18 tahun). Di antara penduduk kelompok umur 19–21 tahun tersebut, ditemukan bahwa 99,35 persen pernah mengenyam pendidikan di SD sederajat dan sisanya sekitar 0,65 persen penduduk yang belum pernah bersekolah. Dari seluruh penduduk yang mengenyam pendidikan di SD sederajat, sekitar 98,21 persen di antaranya tamat SD sederajat, sedangkan sisanya putus sekolah dan masih bersekolah di SD.
+
+137
+
+PROSES DAN CAPAIAN PENDIDIKAN
+
+--- [chunk_id=chunk_236] ---
+U − 5 U − Karakteristik Tahun Lulus SD Tahun Lulus SMP Lulus SMA/SMK Sederajat Sederajat Sederajat (1) (2) (3) (4) 97,65 91,45 73,90 Total Jenis Kelamin Laki-laki 97,36 89,83 71,25 Perempuan 97,97 93,12 76,63 Status Disabilitas 97,96 91,85 74,36 Nondisabilitas 54,42 43,88 24,95 Disabilitas Kuintil Pengeluaran 98,98 95,53 86,11 Kuintil 5 Kuintil 4 97,81 93,26 79,69 Kuintil 3 97,85 91,77 73,45 Kuintil 2 97,40 90,58 69,53 Kuintil 1 96,67 86,41 56,41 Klasifikasi Desa 98,41 93,47 79,36 Perkotaan 96,62 88,37 64,40 Perdesaan
+
+--- [chunk_id=chunk_240] ---
+Karakteristik 15–24 Tahun 15–59 Tahun (1) (2) (3) (4) 99,83 99,08 97,10 Total Jenis Kelamin Laki-laki 99,82 99,30 98,18 Perempuan 99,83 98,87 96,03 Status Disabilitas 99,89 99,21 97,56 Nondisabilitas 92,79 88,99 80,94 Disabilitas Kuintil Pengeluaran 99,93 99,63 99,04 Kuintil 5 Kuintil 4 99,86 99,35 98,12 Kuintil 3 99,81 99,16 97,50 Kuintil 2 99,82 98,95 96,41 Kuintil 1 99,69 98,16 93,98 Klasifikasi Desa 99,93 99,71 98,35 Perkotaan 99,65 98,12 95,23 Perdesaan
+
+--- [chunk_id=chunk_246] ---
+Umur 13–15 Umur 16–18 Provinsi Tahun Lulus SD Tahun Lulus SMP Lulus SMA/SMK Sederajat Sederajat Sederajat (1) (2) (3) (4) 70,95 98,65 92,20 76,66 98,93 92,55 59,08 94,61 88,70 68,49 95,33 86,80 68,16 95,84 86,94 61,89 96,64 86,49 69,42 96,66 90,87 66,81 98,52 90,43 68,81 92,57 81,87 61,31 98,36 91,98 https://www.bps.go.id − − − 59,96 98,44 90,34 65,21 97,47 92,29 93,46 100,00 98,16 68,90 98,32 90,82 50,44 98,83 82,99 75,74 99,06 96,32 69,84 98,09 91,17 51,23 94,70 82,31 54,27 94,89 84,31 60,98 96,89 87,85 67,60 97,00 87,05 75,42 96,18 89,99 64,68 96,56 78,59 68,11 97,68 90,81 61,85 96,45 87,05 66,66 97,73 88,72 67,14 97,56 90,17 54,24 92,68 77,31 61,66 96,29 83,36 70,85 97,04 89,69 67,99 95,34 86,72 50,25 90,52 80,07 54,56 89,07 75,22
+
+--- [chunk_id=chunk_265] ---
+Tidak/ Tidak Tamat Tamat Tamat Tamat Belum Provinsi Tamat SD SMP SMA/SMK Pernah SD Sederajat Sederajat Sederajat Tinggi Sekolah (1) (2) (3) (4) (5) (6) (7) Aceh 19,49 1,00 3,87 24,92 36,71 14,01 Sumatera Utara 16,91 1,24 5,77 23,43 41,49 11,14 Sumatera Barat 18,55 0,81 10,02 22,96 33,79 13,89 Riau 23,34 1,94 6,28 23,26 33,72 11,46 Jambi 24,48 2,35 9,55 22,84 30,11 10,66 Sumatera Selatan 25,85 1,51 10,16 21,89 30,29 10,30 Bengkulu 21,22 1,74 10,47 22,18 30,63 13,76 Lampung 24,85 1,39 11,16 26,35 28,47 7,78 Kep. Bangka Belitung 25,44 2,04 12,21 18,90 30,75 10,66 Kepulauan Riau 14,56 1,21 4,86 18,92 45,80 14,65 https://www.bps.go.id DKI Jakarta 11,92 0,63 2,09 18,70 45,85 20,82 Jawa Barat 27,03 1,46 7,02 22,86 31,70 9,92 Jawa Tengah 27,70 3,59 10,94 24,42 25,33 8,04 DI Yogyakarta 14,04 2,57 6,78 20,74 38,86 17,01 Jawa Timur 26,31 4,54 10,11 21,76 27,99 9,29 Banten 23,57 1,80 5,31 23,42 34,64 11,25 Bali 18,88 4,11 5,50 20,40 34,92 16,19 Nusa Tenggara Barat 22,65 6,08 11,97 21,15 26,57 11,59 Nusa Tenggara Timur 27,75 3,69 12,44 20,85 22,88 12,39 Kalimantan Barat 25,29 4,43 13,39 22,08 26,20 8,61 Kalimantan Tengah 28,89 1,04 7,66 24,28 27,28 10,85 Kalimantan Selatan 25,91 1,20 12,28 21,40 28,16 11,05 Kalimantan Timur 18,24 1,14 6,39 21,19 40,10 12,94 Kalimantan Utara 22,19 2,28 9,20 20,69 32,74 12,90 Sulawesi Utara 18,33 0,47 8,76 22,70 38,52 11,22 Sulawesi Tengah 28,80 2,30 6,19 25,01 26,72 10,98 Sulawesi Selatan 22,19 4,42 10,71 19,71 28,66 14,29 Sulawesi Tenggara 19,92 2,86 7,75 25,89 28,00 15,58 Gorontalo 23,98 0,89 19,95 19,16 24,19 11,82 Sulawesi Barat 27,18 3,64 12,58 20,07 23,97 12,57 Maluku 18,82 1,49 4,21 20,72 38,85 15,91 Maluku Utara 21,63 1,41 9,96 22,80 31,58 12,62 Papua Barat 18,95 4,39 8,31 21,05 34,26 13,04
+
+--- [chunk_id=chunk_278] ---
+Tabel 5.20 Angka Melek Huruf (AMH) Menurut Provinsi dan Kelompok Umur, 2025
+
+15 Tahun ke Atas
+
+Aceh
+
+Sumatera Utara
+
+Sumatera Barat
+
+Riau
+
+Jambi
+
+Sumatera Selatan
+
+Bengkulu
+
+Lampung
+
+Kep. Bangka Belitung
+
+Kepulauan Riau
+
+DKI Jakarta
+
+Jawa Barat
+
+Jawa Tengah
+
+DI Yogyakarta
+
+Jawa Timur
+
+Banten
+
+Bali
+
+Nusa Tenggara Barat
+
+Nusa Tenggara Timur
+
+Kalimantan Barat
+
+Kalimantan Tengah
+
+Kalimantan Selatan
+
+Kalimantan Timur
+
+Kalimantan Utara
+
+Sulawesi Utara
+
+Sulawesi Tengah
+
+Sulawesi Selatan
+
+Sulawesi Tenggara
+
+Gorontalo
+
+Sulawesi Barat
+
+Maluku
+
+Maluku Utara
+
+Papua Barat
+
+Papua Barat Daya
+
+Papua
+
+Papua Selatan
+
+Papua Tengah
+
+85,82
+
+90,52
+
+86,68
+
+Papua Pegunungan
+
+68,32
+
+90,48
+
+69,32
+
+Indonesia
+
+97,10
+
+99,83
+
+99,08
+
+165
+
+PROSES DAN CAPAIAN PENDIDIKAN
+
+Tabel 5.21 Rata-rata Lama Sekolah Penduduk Umur 15 Tahun ke Atas Menurut Provinsi dan Klasifikasi Desa, 2025
+
+--- [chunk_id=chunk_290] ---
+Lanjutan Tabel 5.25
+
+Catatan: Warna kuning ( ) artinya perlu kehati-hatian dalam menggunakan hasil estimasi Warna merah ( ) artinya hasil estimasi dianggap tidak akurat
+
+NA : Data tidak dapat ditampilkan
+
+171
+
+PROSES DAN CAPAIAN PENDIDIKAN
+
+Papua
+
+18,67
+
+15,74
+
+21,59
+
+7,99 6,54 22,35
+
+4191
+
+37,89
+
+4592
+
+489 3,50 1486
+
+21,09
+
+14
+
+25,05 19,94 NA
+
+9,56
+
+Papua Tengah
+
+15,75
+
+1373
+
+TANI 22,99
+
+4951
+
+4612
+
+5291
+
+1715
+
+14,36 NA
+
+831
+
+Papua Pegunungan
+
+15,98
+
+898
+
+3431
+
+2432
+
+4430
+
+NA
+
+28,03
+
+--- [chunk_id=chunk_307] ---
+n a r i p m a L n a t u j n
+
+a
+
+L
+
+199
+
+LAMPIRAN
+
+LAMPIRAN
+
+https://www.bps.go.id
+
+1
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+200
+
+https://www.bps.go.id
+
+1
+
+n a r i p m a L n a t u j n
+
+a
+
+L
+
+201
+
+LAMPIRAN
+
+LAMPIRAN
+
+https://www.bps.go.id
+
+1
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+202
+
+https://www.bps.go.id
+
+1
+
+--- [chunk_id=chunk_309] ---
+a r i p m a L n a t u j n
+
+a
+
+L
+
+208
+
+STATISTIK PENDIDIKAN 2025
+
+https://www.bps.go.id
+
+2
+
+A
+
+N
+
+T
+
+A
+
+A
+
+R
+
+D
+
+I
+
+P
+
+A
+
+M
+
+T
+
+E
+
+A
+
+M
+
+L
+
+209
+
+LAMPIRAN
+
+LAMPIRAN
+
+https://www.bps.go.id
+
+2
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+210
+
+https://www.bps.go.id
+
+2
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+211
+
+LAMPIRAN
+
+LAMPIRAN
+
+--- [chunk_id=chunk_315] ---
+a r i p m a L n a t u j n
+
+2
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+215
+
+LAMPIRAN
+
+LAMPIRAN
+
+https://www.bps.go.id
+
+2
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+216
+
+2
+
+n
+
+a
+
+r
+
+i
+
+p
+
+m
+
+a
+
+L
+
+n
+
+a
+
+t
+
+u
+
+j
+
+n
+
+a
+
+L
+
+217
+
+LAMPIRAN
+
+LAMPIRAN
+
+https://www.bps.go.id
+
+STATISTIK PENDIDIKAN 2025
+

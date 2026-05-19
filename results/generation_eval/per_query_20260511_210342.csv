@@ -1,0 +1,491 @@
+method,q_id,question,reference,answer,bleu,rouge_l,elapsed_s,error
+element_based,Q001,Berapa Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Tidak ada informasi dalam konteks yang menyebutkan nilai **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023**.
+
+Meskipun konteks menyebutkan tabel tentang benchmark indeks upah pekerja tidak tetap/harian konstruksi (Tabel 211), tidak ada data spesifik untuk provinsi Riau pada tahun 2023 yang disebutkan secara eksplisit.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.094902,0.571429,22.98,
+element_based,Q003,Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.","Tidak ada informasi dalam konteks yang menyebutkan nilai **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**. Data yang tersedia hanya mencakup provinsi seperti Papua dan Indonesia secara keseluruhan, serta tidak menyebutkan Jawa Barat secara eksplisit untuk tahun 2023.
+
+**Jawaban: Tidak diketahui.**",0.465633,0.666667,12.3,
+element_based,Q005,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100)?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100) adalah nilai kontrak proyek dikurangi nilai pekerjaan yang disubkontrakkan, lalu dikalikan dengan persentase realisasi fisik pekerjaan yang diselesaikan. 
+
+Secara rumus:
+
+**NK = NP – (NS × YoNR)**
+
+di mana:  
+- **NK** = Nilai konstruksi yang diselesaikan  
+- **NP** = Nilai kontrak proyek  
+- **NS** = Nilai pekerjaan yang disubkontrakkan ke kontraktor lain  
+- **YoNR** = Persentase realisasi fisik pekerjaan yang diselesaikan (diperoleh dari selisih persentase pekerjaan di akhir dan awal periode survei).
+
+Nilai ini digunakan sebagai dasar perhitungan variabel lainnya dalam benchmarking indeks konstruksi.",0.078609,0.466667,24.83,
+element_based,Q006,Berapa jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,"Tidak ada informasi langsung mengenai **jumlah pekerja tetap konstruksi nasional pada tahun 2023** dalam konteks yang diberikan. Meskipun terdapat data jumlah pekerja tetap konstruksi di Papua (35.849) dan beberapa indikator seperti indeks dan banyaknya pekerja tetap, **tidak disebutkan jumlah total pekerja tetap konstruksi seluruh Indonesia pada tahun 2023**.
+
+Jadi, **tidak ada data yang memadai** untuk menjawab pertanyaan tersebut secara spesifik.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan jumlah pekerja tetap konstruksi nasional pada tahun 2023.**",0.177939,0.583333,18.91,
+element_based,Q009,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Tidak ada informasi dalam konteks yang menyebutkan persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di **Jambi** pada tahun 2023.
+
+Konteks hanya menyediakan data untuk **Papua** dan **Indonesia secara nasional**, serta tabel-tabel umum tentang struktur balas jasa dan upah, namun tidak menyebutkan data khusus untuk **Jambi**.
+
+**Jawaban: Tidak diketahui.**",0.144771,0.8,15.7,
+element_based,Q010,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi, termasuk bahan baku dan bahan penolong. Nilai ini dihitung berdasarkan pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dengan biaya bahan dan penolong yang diproduksi sendiri dinilai berdasarkan harga pasar atau pengeluaran untuk memperolehnya. 
+
+Dalam konteks benchmarking, nilai Pengeluaran Bahan/Material yang Digunakan dihitung menggunakan rumus yang melibatkan nilai konstruksi yang diselesaikan sebagai dasar, dengan penyesuaian terhadap pertumbuhan tahunan sebelum dan sesudahnya. Nilai ini kemudian disesuaikan untuk mengatasi outlier, sehingga memberikan representasi yang lebih akurat dan konsisten terhadap tren pengeluaran bahan/material dalam sektor konstruksi.",0.295051,0.854167,25.73,
+element_based,Q011,"Dalam Lampiran 1, berapa nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)?","Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Berdasarkan konteks yang diberikan, dalam **Lampiran 1 Hasil Model Regresi Logistik Determinan Mismatch Pemuda, 2024**, tidak disebutkan secara eksplisit nilai kecenderungan mismatch untuk variabel **Lama Bekerja (0–14 Tahun)**.
+
+Namun, dalam **Konteks 2** (yang tampaknya merupakan bagian dari analisis regresi yang terkait dengan mismatch), terdapat data yang menyebutkan nilai **koefisien (B)** untuk variabel ""Lama Bekerja (0-14 Tahun)"" sebesar **0,1425**.
+
+Meskipun ini adalah koefisien dari model regresi, dan bukan nilai ""kecenderungan mismatch"" secara langsung, dalam konteks analisis statistik, **koefisien B** dapat diartikan sebagai ukuran kecenderungan atau efek dari variabel tersebut terhadap hasil (dalam hal ini, mismatch).
+
+Oleh karena itu, **nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)** dalam konteks ini adalah:
+
+**0,1425**
+
+✅ **Jawaban: 0,1425**",0.048589,0.846154,35.31,
+element_based,Q013,"Dalam Lampiran 3, berapa hazard ratio untuk status Overeducated dibandingkan matched?","Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan **Lampiran 3** dalam Konteks 4, yang merupakan hasil dari **Cox Proportional Hazards Model** untuk durasi waktu mencari kerja pemuda, dapat dilihat dari tabel berikut:
+
+| Variabel | Hazard Ratio (HR) |
+|--------|-------------------|
+| **Matched** | Referensi (HR = 1) |
+| **Overeducated** | 1.1363 |
+
+Jadi, **hazard ratio untuk status Overeducated dibandingkan dengan status Matched adalah 1.1363**.
+
+Artinya, pemuda yang **overeducated** memiliki risiko **1,1363 kali lebih tinggi** untuk menemukan pekerjaan baru dibandingkan pemuda yang **sesuai dengan pendidikannya (matched)**, dalam konteks durasi waktu mencari kerja.
+
+Namun, perlu diperhatikan bahwa **hazard ratio > 1** menunjukkan bahwa risiko terjadi lebih cepat, artinya mereka **lebih cepat mendapatkan pekerjaan**, sesuai dengan penjelasan dalam teks bahwa overeducated lebih cepat menemukan pekerjaan karena fleksibilitas sektor informal.
+
+### Jawaban:  
+**1.1363**",0.013364,0.875,32.58,
+element_based,Q015,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menentukan **persentase angkatan kerja muda yang mengalami vertical mismatch** secara eksplisit.
+
+Meskipun konteks menyebutkan bahwa **""dari sepertiga pemuda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya""**, ini berarti **sekitar 33,3%** (1/3) pemuda mengalami vertical mismatch, namun pernyataan ini tidak secara eksplisit dikonfirmasi sebagai data yang dianggap akurat atau dinyatakan dalam bentuk persentase resmi dalam ikhtisar publikasi.
+
+Oleh karena itu, berdasarkan informasi yang tersedia, **persentase angkatan kerja muda yang mengalami vertical mismatch adalah sekitar 33,3%**, namun perlu diperjelas bahwa ini merupakan interpretasi dari kalimat ""dari sepertiga pemuda"", bukan data yang disebutkan secara langsung dalam ikhtisar publikasi.
+
+**Jawaban: Sekitar 33,3%**.",0.073707,0.652174,28.46,
+element_based,Q016,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 01 pada Agustus 2025?","Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak ada informasi dalam Tabel 4 tentang Indeks Unit Value Impor untuk kode HS 01 pada Agustus 2025. Tabel 4 hanya mencakup kode HS 23 hingga HS 24, dan tidak menyebutkan HS 01.
+
+Jawaban: **Tidak diketahui**.",0.336802,0.75,9.17,
+element_based,Q017,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 27 pada Agustus 2025?","Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak ada informasi dalam Konteks 1 (Tabel 4) yang menyebutkan nilai Indeks Unit Value Impor untuk kode HS 27 pada Agustus 2025.
+
+Konteks 3 menyebutkan bahwa ada gambar yang membahas perkembangan indeks unit value impor untuk **bahan bakar mineral (HS 27)**, tetapi tidak memberikan angka atau nilai spesifik untuk Agustus 2025.
+
+Oleh karena itu, **tidak ada data yang tersedia dalam konteks untuk menjawab pertanyaan tersebut secara spesifik**.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.060242,0.75,16.65,
+element_based,Q020,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.",Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025 adalah **2.800 komoditas**.,0.409809,0.583333,6.75,
+element_based,Q021,"Pada Lampiran 7.4, berapa proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?","Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak ada informasi yang memadai dalam konteks yang diberikan untuk menjawab pertanyaan tentang proporsi transfer masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024.  
+
+Konteks hanya menyebutkan lampiran 7.4 sebagai ""Struktur Neraca Penerimaan dan Pengeluaran LNPRT Menurut COPNI dari Sisi Penggunaan (persen), 2024"", dan tidak menyebutkan data terkait transfer masuk atau COPNI 8.  
+
+Jawaban: **Tidak dapat ditentukan berdasarkan informasi yang diberikan.**",0.085174,0.75,18.46,
+element_based,Q023,"Pada Lampiran 8.1, berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?","Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.","Tidak ada informasi dalam konteks yang menyebutkan capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi. Data yang tersedia hanya mencakup provinsi seperti Gorontalo, Sulawesi Barat, dan Maluku, serta angka-angka neraca lembaga nonprofit, tetapi tidak disebutkan secara eksplisit capaian untuk Jambi.
+
+**Jawaban: Tidak diketahui.**",0.475873,0.615385,11.85,
+element_based,Q025,"Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam berapa kelompok tujuan kegiatan utama?","COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam **sembilan kelompok tujuan kegiatan utama**.",0.026268,0.176471,4.67,
+element_based,Q026,"Pada Lampiran 4.3, berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?",Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak ada informasi yang memadai dalam konteks yang diberikan untuk menjawab pertanyaan tentang nilai Pajak Pendapatan pemerintah daerah pada tahun 2024 di Lampiran 4.3.
+
+Konteks yang tersedia membahas:
+- Pajak pendapatan, kekayaan, dan pajak lainnya pada **pemerintahan umum**, bukan pemerintahan daerah.
+- Data penerimaan pajak pada tahun 2024 sebesar Rp1.121 triliun, tetapi ini untuk **pemerintahan umum**, bukan daerah.
+- Tidak disebutkan nilai spesifik untuk **pajak pendapatan pemerintah daerah** dalam Lampiran 4.3.
+
+Karena tidak ada data yang mendukung nilai pajak pendapatan pemerintah daerah pada tahun 2024, maka **tidak dapat ditentukan** berdasarkan informasi yang diberikan.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.027379,0.583333,25.64,
+element_based,Q027,"Pada Lampiran 6.2, berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?",Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Tidak memiliki informasi yang memadai.
+
+Konteks yang diberikan tidak menyebutkan adanya ""Lampiran 6.2"" atau nilai Pembentukan Modal Tetap Bruto (PMTB) Pemerintahan Pusat pada tahun 2024 secara eksplisit. Meskipun dalam Konteks 3 terdapat data PMTB untuk tahun 2022, 2023, dan 2024 (922,46; 879,90; 934,99), namun tidak disebutkan secara jelas bahwa data tersebut berasal dari Lampiran 6.2. Selain itu, satuan yang disebutkan dalam Konteks 3 adalah dalam miliar rupiah, namun tidak jelas apakah ini merujuk pada Pemerintahan Pusat atau Pemerintahan Umum.
+
+Oleh karena itu, **tidak dapat ditentukan dengan pasti nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024 dari Lampiran 6.2** berdasarkan informasi yang tersedia.",0.111834,0.857143,27.05,
+element_based,Q029,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **item penyeimbang** yang diperoleh dari selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah. Secara lebih rinci, tabungan dihitung sebagai pengurangan dari pendapatan disposabel (yang mencakup pendapatan yang diperoleh dari distribusi pendapatan sekunder dan penyesuaian terhadap perubahan hak pensiun) terhadap pengeluaran konsumsi akhir pemerintah. Dengan kata lain, tabungan mewakili bagian dari pendapatan yang tidak digunakan untuk konsumsi, dan digunakan untuk pembentukan modal atau dibiayai oleh pemerintah dalam proses investasi.",0.282332,0.761905,21.86,
+element_based,Q031,"Pada Lampiran 2.7, berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?","Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Pada Lampiran 2.7, proporsi **Transfer Berjalan** dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah **8,04 persen**.",0.417012,1.0,6.82,
+element_based,Q032,"Pada Lampiran 2.9, berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024?","Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Berdasarkan Konteks 2 dan Konteks 4, pada Lampiran 2.9, proporsi **Pengeluaran Konsumsi Akhir Rumah Tangga** pada tahun **2024** adalah **86,08%**.
+
+**Jawaban: 86,08%**.",0.088159,0.75,8.89,
+element_based,Q034,Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam kelompok aktivitas apa saja?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam empat kelompok aktivitas, yaitu:
+
+1. **Produksi**  
+2. **Konsumsi**  
+3. **Investasi**  
+4. **Pendapatan**
+
+Ini seperti yang disebutkan dalam konteks 1 dan 3, di mana publikasi menyajikan gambaran menyeluruh mengenai aktivitas ekonomi rumah tangga selama periode 2022–2024, khususnya terkait produksi, konsumsi, investasi, dan pendapatan.",0.158445,0.714286,17.21,
+element_based,Q036,"Pada Tabel 3.35, berapa estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025?","Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Tidak ada informasi dalam konteks yang menyebutkan Tabel 3.35 atau data APS (Angka Partisipasi Sekolah) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025.
+
+Konteks yang diberikan hanya mencakup data APS untuk kelompok usia 19–23 tahun, dan tidak menyertakan data untuk kelompok usia 13–15 tahun, baik untuk Aceh maupun provinsi lainnya.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**",0.026082,0.533333,17.5,
+element_based,Q037,"Pada Tabel 3.36, berapa estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025?","Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Tidak ada informasi dalam Tabel 3.36 yang menyebutkan angka partisipasi sekolah (APS) untuk kelompok umur 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025. Tabel tersebut hanya menyertakan data untuk beberapa provinsi, termasuk Papua Tengah dan Papua Pegunungan, serta mencantumkan nilai seperti ""NA"" (tidak berlaku), tetapi tidak mencantumkan data untuk Sumatera Barat.
+
+Oleh karena itu, **tidak dapat ditentukan** estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 berdasarkan Tabel 3.36.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.11902,0.75,21.52,
+element_based,Q040,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Tidak ada informasi dalam konteks yang menyebutkan tingkat penyelesaian pendidikan untuk jenjang SD, SMP, dan SMA/SMK sederajat secara khusus. Konteks hanya menyebutkan data penyelesaian pendidikan untuk **SMA/SMK sederajat** dan **umur 19–21 tahun**, serta data per provinsi dan per desa, tetapi tidak memberikan angka penyelesaian untuk jenjang SD dan SMP.
+
+Namun, dalam **Tabel 5.1** disebutkan bahwa **jumlah angka putus sekolah SMA/SMK sederajat adalah 146**, tetapi ini adalah angka putus, bukan tingkat penyelesaian.
+
+Karena tidak ada data eksplisit tentang tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025, maka:
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**",0.129544,0.5,27.8,
+element_based,Q041,"Pada Tabel 2.7, berapa total berat bersih impor Indonesia pada Agustus 2025?",Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,"Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Tabel 2.7 tidak disebutkan dalam konteks yang diberikan, dan tidak ada data tentang total berat bersih impor Indonesia pada Agustus 2025 dalam konteks yang tersedia.",0.0,0.571429,7.98,
+element_based,Q042,"Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untuk HS 94032090 Metal furniture other than fume cupboards, not used in offices?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Tidak ada informasi dalam konteks yang menyebutkan nilai CIF untuk HS 94032090 ""Metal furniture other than fume cupboards, not used in offices"" pada Tabel 2.3 atau di mana pun dalam dokumen yang diberikan.
+
+Konteks 4 hanya menyebutkan data untuk kode HS seperti 94029014, 94029015, 94029019, dan 94031000, 94032010 (fume cupboards), tetapi tidak menyebutkan kode **94032090** secara eksplisit.
+
+Karena tidak ada data yang sesuai dengan HS 94032090 dalam konteks yang diberikan, maka:
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.01503,0.416667,22.03,
+element_based,Q044,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Total nilai impor Indonesia pada Agustus 2025 adalah **US$19.475,2 juta**.
+
+Rinciannya menurut jenis migas dan nonmigas sebagai berikut:
+- **Migas**: senilai **US$2.732,5 juta** (14,03 persen)
+- **Nonmigas**: senilai **US$16.742,7 juta** (85,97 persen)",0.201182,0.857143,12.98,
+element_based,Q046,"Pada Tabel 4.1, berapa nilai impor Indonesia melalui moda transportasi laut pada 2024?","Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah **US$209.268,6 juta**.
+
+*(Diperoleh dari Konteks 1 dan Konteks 4 yang menyebutkan bahwa 88,97 persen dari total impor Indonesia (US$235.199,6 juta) masuk melalui moda transportasi laut, dengan nilai sebesar US$209.268,6 juta.)*",0.205037,1.0,13.42,
+element_based,Q048,"Pada Tabel 5.13, berapa nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024?",Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,"Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut.  
+
+Pertanyaan menanyakan nilai impor menggunakan moda transportasi laut untuk **HS 10 Serealia** pada tahun 2024, namun dalam konteks yang diberikan, **tidak ada data tentang HS 10 Serealia** dalam Tabel 5.13 atau di mana pun tercantum. Data yang tersedia hanya mencakup beberapa golongan barang seperti kosmetik, sabun, perekat, bahan peledak, dan produk kimia, tetapi tidak menyebutkan HS 10 Serealia.  
+
+Maka, **tidak dapat ditentukan nilai impornya** berdasarkan informasi yang diberikan.",0.019601,0.666667,18.82,
+element_based,Q049,Mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar menurut publikasi moda transportasi?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.","Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena:
+
+1. **Kapasitas angkut yang besar** – Moda laut dapat mengangkut barang dalam jumlah besar dibandingkan moda transportasi lainnya, seperti darat atau udara.  
+2. **Biaya angkut yang relatif lebih murah** – Biaya transportasi laut lebih ekonomis, terutama untuk barang dalam jumlah besar, sehingga lebih menarik bagi pelaku perdagangan.  
+3. **Kondisi geografis Indonesia yang kepulauan** – Indonesia sebagai negara kepulauan memiliki banyak koneksi antarpulau dan antarnegara melalui laut, sehingga transportasi laut sangat memudahkan pergerakan barang.  
+
+Kedua faktor ini menjadikan moda laut sebagai moda transportasi yang paling efektif dan efisien untuk kegiatan ekspor dan impor dalam skala besar.",0.297614,0.612903,23.77,
+maxmin_semantic,Q001,Berapa Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan membahas secara umum tentang benchmark indeks konstruksi, termasuk komponen seperti hari-orang pekerja tidak tetap/harian, namun **tidak menyebutkan data spesifik untuk provinsi Riau pada tahun 2023**. Oleh karena itu, tidak mungkin menentukan nilai benchmark indeks hari-orang pekerja tidak tetap/harian di Provinsi Riau pada tahun 2023 berdasarkan informasi yang tersedia.",0.011246,0.571429,14.87,
+maxmin_semantic,Q003,Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.","Tidak ada informasi yang memadai dalam konteks yang diberikan untuk menjawab pertanyaan tentang **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**.  
+
+Konteks hanya menyebutkan bahwa **Benchmark Indeks Konstruksi (2016=100)** digunakan untuk periode 2018–2023, namun tidak menyertakan data spesifik per provinsi seperti Jawa Barat, atau nilai benchmark untuk **upah pekerja tidak tetap/harian** di provinsi tersebut.  
+
+**Jawaban: Tidak dapat ditentukan berdasarkan informasi yang diberikan.**",0.389187,0.714286,17.8,
+maxmin_semantic,Q005,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100)?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.",1.0,1.0,8.45,
+maxmin_semantic,Q006,Berapa jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,"Berdasarkan konteks yang diberikan, jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi adalah **1.174.009** orang.
+
+Ini dapat diperoleh dari data dalam **Konteks 2**, yang mencantumkan jumlah pekerja tetap konstruksi untuk tahun-tahun 2018 hingga 2023:
+
+- 2018: 1.130.815  
+- 2019: 1.162.297  
+- 2020: 1.138.186  
+- 2021: 1.147.170  
+- 2022: 1.157.245  
+- 2023: **1.174.009**
+
+Jadi, jawabannya adalah **1.174.009**.",0.048117,1.0,24.26,
+maxmin_semantic,Q009,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Tidak ada informasi dalam konteks yang menyebutkan data tentang persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di **Jambi** pada tahun 2023.
+
+Konteks yang diberikan membahas data dari **Kota Surakarta** dan **Kabupaten Grobogan**, serta umum mengenai sektor konstruksi di Indonesia secara nasional, tetapi tidak menyebutkan data khusus untuk **Jambi** atau persentase balas jasa dan upah terhadap nilai konstruksi di wilayah tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.11748,0.8,18.63,
+maxmin_semantic,Q010,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi, khususnya terkait dengan bahan baku dan bahan penolong. Nilai ini dihitung berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dan dihitung menggunakan rumus:
+
+\[
+Mit = \left( \frac{M_{\text{Publikasi}}}{N_{\text{K Benchmark}}} \right) \times N_{\text{K Publikasi}}
+\]
+
+dengan:
+- \( Mit \) = Pengeluaran bahan/material yang digunakan di provinsi ke-i tahun ke-t,
+- \( M_{\text{Publikasi}} \) = Nilai pengeluaran bahan/material yang digunakan dalam publikasi,
+- \( N_{\text{K Benchmark}} \) = Nilai konstruksi yang diselesaikan sebagai benchmark,
+- \( N_{\text{K Publikasi}} \) = Nilai konstruksi yang diselesaikan dalam publikasi.
+
+Setelah diperoleh nilai \( Mit \) benchmark, dilakukan penyesuaian terhadap nilai outlier untuk memastikan akurasi data. Variabel ini digunakan sebagai dasar perhitungan untuk variabel lainnya dalam benchmark statistik konstruksi.",0.275018,0.666667,35.62,
+maxmin_semantic,Q011,"Dalam Lampiran 1, berapa nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)?","Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Tidak ada informasi dalam konteks yang menyebutkan tentang ""Lampiran 1"" atau nilai kecenderungan mismatch untuk variabel ""Lama Bekerja (0–14 Tahun)"". Semua konteks membahas mismatch tenaga kerja, status pendidikan, peluang mismatch, dan analisis berdasarkan teori, tetapi tidak menyediakan data numerik spesifik mengenai kecenderungan mismatch untuk variabel lama bekerja dalam rentang 0–14 tahun.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.270466,0.769231,14.42,
+maxmin_semantic,Q013,"Dalam Lampiran 3, berapa hazard ratio untuk status Overeducated dibandingkan matched?","Hazard ratio untuk status Overeducated adalah 1,0737.","Tidak ada informasi dalam konteks yang menyebutkan **hazard ratio** secara eksplisit untuk status overeducated dibandingkan matched. Meskipun konteks menyebutkan bahwa pemuda yang overeducated memiliki **peluang 7,37 persen lebih cepat** untuk kembali bekerja dibandingkan yang matched, ini merupakan perbedaan dalam **peluang (probability)** atau **kecepatan transisi**, bukan **hazard ratio**.
+
+Hazard ratio adalah ukuran risiko relatif dalam analisis statistik (misalnya dalam model survival analysis), yang tidak sama dengan ""peluang lebih cepat"" atau ""persentase lebih cepat"".
+
+Karena tidak ada data yang menyebutkan nilai hazard ratio secara langsung, maka **tidak dapat ditentukan** dari konteks yang diberikan.
+
+**Jawaban: Tidak dapat ditentukan.**",0.042377,0.75,21.2,
+maxmin_semantic,Q015,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Menurut ikhtisar publikasi, **lebih dari sepertiga** angkatan kerja muda mengalami vertical mismatch.  
+
+Dalam konteks, disebutkan bahwa *""lebih dari sepertiga pemuda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya""* dan juga *""35,36 persen pekerja muda yang tidak berada pada posisi kerja yang sesuai dengan tingkat pendidikan mereka""*.  
+
+Namun, karena pertanyaannya menanyakan **persentase menurut ikhtisar publikasi**, dan ikhtisar menyebutkan *""lebih dari sepertiga""*, maka jawaban yang paling tepat berdasarkan informasi dalam ikhtisar adalah:
+
+**Lebih dari 33,33 persen**.
+
+Namun, jika diminta angka eksak dari data yang disebutkan dalam ikhtisar, maka **35,36 persen** adalah angka yang paling mendekati dan disebutkan secara eksplisit dalam konteks 2 dan 5.
+
+**Jawaban akhir: 35,36 persen.**",0.104648,0.782609,28.15,
+maxmin_semantic,Q016,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 01 pada Agustus 2025?","Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut.  
+
+Meskipun konteks menyebutkan Tabel 4 yang berisi ""Indeks Unit Value Impor Menurut Kode HS 2 Digit (2023=100), Agustus 2024–Agustus 2025"", **tidak ada data spesifik mengenai nilai indeks unit value impor untuk kode HS 01 pada Agustus 2025** dalam konteks yang diberikan.  
+
+Jadi, **tidak dapat ditentukan berdasarkan informasi yang tersedia**.",0.0,0.75,16.52,
+maxmin_semantic,Q017,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 27 pada Agustus 2025?","Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut.  
+
+Meskipun konteks menyebutkan adanya **Tabel 4** yang berisi **Indeks Unit Value Impor Menurut Kode HS 2 Digit**, tidak ada data spesifik mengenai **Indeks Unit Value Impor HS 27 pada Agustus 2025** yang disebutkan dalam konteks yang diberikan.  
+
+Oleh karena itu, **tidak dapat ditentukan** berapa nilai indeks unit value impor untuk HS 27 pada Agustus 2025 berdasarkan informasi yang tersedia.  
+
+**Jawaban: Tidak dapat ditentukan (tidak ada informasi yang memadai).**",0.0,0.75,21.19,
+maxmin_semantic,Q020,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel **ekspor** dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025 adalah **1.215 komoditas**, dengan rincian 6 komoditas migas dan 1.209 nonmigas.
+
+Namun, **pertanyaan menanyakan jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor**.
+
+Dalam **Konteks 2**, hanya disebutkan jumlah komoditas ekspor yang terpilih, dan tidak disebutkan jumlah komoditas impor yang terpilih secara eksplisit.
+
+Konteks lain tidak menyebutkan jumlah komoditas impor yang terpilih.
+
+**Kesimpulan**: Tidak ada informasi yang cukup dalam konteks untuk mengetahui jumlah komoditas HS 8-digit yang terpilih sebagai sampel **impor**.
+
+👉 **Jawaban: Tidak ada informasi yang memadai.**",0.086091,0.708333,26.19,
+maxmin_semantic,Q021,"Pada Lampiran 7.4, berapa proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?","Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak ada informasi yang tersedia dalam konteks yang diberikan mengenai ""Lampiran 7.4"" atau ""proporsi Transfer Masuk untuk COPNI 8"" pada struktur sumber neraca penerimaan dan pengeluaran LNPRT tahun 2024.
+
+Konteks hanya menyebutkan bahwa pada tahun 2024, sebagian besar transfer yang diterima LNPRT berasal dari perorangan atau rumah tangga (69,38 persen), dan bahwa sumber dana investasi untuk LNPRT berasal dari tabungan, konsumsi barang modal tetap, transfer modal neto (sekitar 57,26 persen), serta transaksi finansial seperti hutang dan menggadaikan barang (neto). Namun, tidak disebutkan apapun mengenai ""COPNI 8"" atau ""Lampiran 7.4"".
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**",0.041005,0.75,25.52,
+maxmin_semantic,Q023,"Pada Lampiran 8.1, berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?","Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.","Tidak ada informasi dalam konteks yang menyebutkan tentang ""Lampiran 8.1"" atau ""capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi"". Maka, **tidak ada data yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang tersedia.**",0.298179,0.615385,10.67,
+maxmin_semantic,Q025,"Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam berapa kelompok tujuan kegiatan utama?","COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam **sembilan kelompok tujuan kegiatan utama**.",0.026268,0.176471,4.67,
+maxmin_semantic,Q026,"Pada Lampiran 4.3, berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?",Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak dapat ditentukan dari konteks yang diberikan.
+
+Penjelasan:  
+Lampiran 4.3 menyebutkan **""Neraca Distribusi Pendapatan Sekunder Pemerintah Daerah""** dan mencantumkan beberapa item seperti **Pendapatan Primer**, **Pajak Pendapatan**, dan **Transfer Lainnya**. Namun, **nilai pajak pendapatan pada tahun 2024 tidak disebutkan secara eksplisit** dalam tabel atau teks yang diberikan. Data yang tersedia hanya berupa angka-angka per tahun dari 2019 hingga 2024, tetapi tidak mencantumkan nilai **Pajak Pendapatan** secara spesifik untuk tahun 2024.
+
+Selain itu, konteks lain membahas **penerimaan pajak pendapatan, kekayaan, dan pajak lainnya pada tingkat pemerintahan umum** (bukan pemerintah daerah), sehingga tidak dapat digunakan untuk menjawab pertanyaan tentang **pajak pendapatan pemerintah daerah**.
+
+**Kesimpulan:** Tidak ada informasi yang cukup dalam konteks untuk menentukan nilai pajak pendapatan pemerintah daerah pada tahun 2024.
+
+👉 Jawaban: **Tidak diketahui**.",0.015813,0.583333,35.13,
+maxmin_semantic,Q027,"Pada Lampiran 6.2, berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?",Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Tidak ada informasi yang memadai dalam konteks yang diberikan mengenai nilai **Pembentukan Modal Tetap Bruto (PMTB) Pemerintahan Pusat pada tahun 2024** dalam **Lampiran 6.2**.
+
+Meskipun konteks menyebutkan bahwa realisasi belanja modal pemerintah pusat digunakan sebagai indikator penyusunan PMTB pemerintah pusat tahun 2024, dan menyebutkan nilai belanja modal (misalnya: 40,19; 39,76; 53,51; dst.), namun nilai-nilai tersebut tidak secara eksplisit disebutkan sebagai **PMTB**, dan tidak disebutkan dalam konteks **Lampiran 6.2** yang dimaksud.
+
+Karena tidak ada data numerik yang secara langsung menyebutkan nilai PMTB pemerintah pusat pada tahun 2024 dalam Lampiran 6.2, maka **tidak dapat ditentukan**.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan nilai PMTB Pemerintahan Pusat pada tahun 2024 dalam Lampiran 6.2.**",0.0225,0.642857,30.33,
+maxmin_semantic,Q029,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **item penyeimbang** yang mewakili bagian dari pendapatan disposabel yang **tidak dihabiskan untuk konsumsi barang dan jasa**. Secara teknis, tabungan dihitung sebagai **selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah**. Tabungan ini mencerminkan pendapatan yang tersisa setelah digunakan untuk konsumsi, dan dapat disesuaikan dengan perubahan pada hak pensiun. Dalam konteks ini, tabungan menunjukkan kemampuan pemerintah untuk menahan sebagian pendapatannya untuk digunakan di masa depan, baik dalam bentuk simpanan maupun investasi.",0.049654,0.761905,20.82,
+maxmin_semantic,Q031,"Pada Lampiran 2.7, berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?","Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Tidak memiliki informasi yang memadai.  
+
+Konteks yang diberikan tidak menyebutkan adanya ""Lampiran 2.7"" atau data proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024. Semua informasi yang tersedia terkait dengan struktur transfer yang diterima atau dibayar, namun tidak menyediakan data proporsi transfer berjalan secara keseluruhan dalam struktur penggunaan pada tahun 2024.  
+
+Jawaban: **Tidak dapat ditentukan berdasarkan informasi yang diberikan.**",0.0,0.777778,17.41,
+maxmin_semantic,Q032,"Pada Lampiran 2.9, berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024?","Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Berdasarkan konteks, pada tahun 2024, proporsi Pengeluaran Konsumsi Akhir Rumah Tangga adalah **82,99 persen**.
+
+**Jawaban: 82,99 persen**.",0.138211,0.666667,7.4,
+maxmin_semantic,Q034,Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam kelompok aktivitas apa saja?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam tiga kelompok aktivitas yaitu **produksi, konsumsi, dan investasi**.",0.163319,0.642857,5.7,
+maxmin_semantic,Q036,"Pada Tabel 3.35, berapa estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025?","Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Tidak ada informasi dalam konteks yang menyebutkan tentang **estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025**. Semua data yang disebutkan hanya berkaitan dengan angka partisipasi secara nasional atau kelompok umur secara umum, bukan data spesifik per provinsi seperti Aceh.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**",0.362276,0.733333,12.32,
+maxmin_semantic,Q037,"Pada Tabel 3.36, berapa estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025?","Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Tidak ada informasi dalam konteks yang menyebutkan tentang **estimasi total Angka Partisipasi Sekolah (APS) 16–18 tahun untuk Provinsi Sumatera Barat pada 2025**. Semua konteks yang diberikan membahas data nasional secara umum, seperti angka partisipasi murni (APM), angka tidak sekolah (ATS), penggunaan TIK, atau analisis alur pendidikan, namun **tidak menyertakan data provinsi tertentu seperti Sumatera Barat** atau **angka APS spesifik untuk kelompok usia 16–18 tahun**.
+
+Oleh karena itu, **tidak memiliki informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.25568,0.75,21.53,
+maxmin_semantic,Q040,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Tingkat penyelesaian pendidikan pada tahun 2025 menurut konteks adalah:
+
+- **SD sederajat**: **97,65 persen**  
+- **SMP sederajat**: **91,45 persen**  
+- **SMA/SMK sederajat**: **73,90 persen**
+
+*Catatan: Angka-angka ini didapatkan dari Konteks 1, 2, dan 3, serta dikonfirmasi secara konsisten dalam berbagai konteks terkait.*",0.089405,0.653846,14.0,
+maxmin_semantic,Q041,"Pada Tabel 2.7, berapa total berat bersih impor Indonesia pada Agustus 2025?",Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,"Tidak ada informasi tentang ""total berat bersih impor Indonesia"" dalam konteks yang diberikan. Semua data yang disebutkan berkaitan dengan nilai moneter (dalam US$), seperti nilai impor total, peran berbagai golongan barang, negara asal, dan indeks unit value, namun tidak menyebutkan data berat bersih (dalam satuan ton atau kg).
+
+Oleh karena itu, **tidak ada informasi yang memadai** untuk menjawab pertanyaan mengenai total berat bersih impor Indonesia pada Agustus 2025.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.164519,0.571429,16.9,
+maxmin_semantic,Q042,"Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untuk HS 94032090 Metal furniture other than fume cupboards, not used in offices?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Tidak ada informasi dalam konteks yang menyebutkan nilai CIF untuk kode HS 94032090 ""Metal furniture other than fume cupboards, not used in offices"" pada Agustus 2025. Konteks hanya menyebutkan data CIF untuk beberapa golongan HS lainnya, seperti HS 21, 79, 12, 92, 82, dan 69, namun tidak menyebutkan data spesifik untuk HS 94032090.
+
+Oleh karena itu, **tidak ada informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang tersedia.**",0.040276,0.583333,18.16,
+maxmin_semantic,Q044,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Total nilai impor Indonesia pada Agustus 2025 adalah **US$19.475,2 juta**.  
+
+Rinciannya menurut jenisnya:  
+- **Migas**: US$2.732,5 juta (kontribusi 14,03 persen)  
+- **Nonmigas**: US$16.742,7 juta (kontribusi 85,97 persen)",0.266856,0.857143,11.68,
+maxmin_semantic,Q046,"Pada Tabel 4.1, berapa nilai impor Indonesia melalui moda transportasi laut pada 2024?","Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Berdasarkan Tabel 4.1, nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah **US$209.268,6 juta**.",0.462238,1.0,5.92,
+maxmin_semantic,Q048,"Pada Tabel 5.13, berapa nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024?",Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,"Tidak ada informasi dalam konteks yang menyebutkan nilai impor menggunakan moda transportasi laut untuk golongan barang HS 10 (Serealia) pada tahun 2024.
+
+Jawaban: **Tidak ada data yang tersedia**.",0.152797,0.666667,7.75,
+maxmin_semantic,Q049,Mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar menurut publikasi moda transportasi?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.","Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena Indonesia merupakan negara kepulauan dengan banyak pulau yang terhubung melalui laut, sehingga moda laut memudahkan pergerakan barang antarpulau dan antarnegara. Selain itu, biaya angkut melalui moda laut lebih ekonomis dibandingkan moda lainnya, dan moda ini mampu mengangkut barang dalam jumlah besar secara efisien.",0.395954,0.580645,12.14,
+recursive,Q001,Berapa Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Tidak ada informasi dalam konteks yang menyebutkan ""Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi"" di Provinsi Riau pada tahun 2023.
+
+Konteks yang tersedia hanya menyediakan data tentang:
+- Benchmark Indeks Konstruksi (2016=100) untuk Provinsi Riau (dalam Konteks 1 dan 5),
+- Data Hari-Orang (Mandays) dan Upah Pekerja Harian, tetapi tidak secara eksplisit menyebutkan ""Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian"".
+
+Karena tidak ada data yang sesuai dengan pertanyaan tersebut, maka **tidak dapat ditentukan**.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan ini.**",0.08818,0.714286,24.45,
+recursive,Q003,Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.","Berdasarkan konteks yang diberikan, **tidak ada data langsung** yang menyebutkan nilai **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**.
+
+Meskipun ada data upah pekerja harian (casual workers) di Jawa Barat pada tahun 2023 dalam konteks 4, yaitu **162.840 rupiah**, ini adalah **rata-rata upah per hari**, bukan **indeks** (dalam satuan 2016=100).
+
+Konteks 1 dan 2 menyebutkan nilai indeks konstruksi, tetapi tidak menyertakan indeks upah pekerja tidak tetap/harian secara spesifik per provinsi.
+
+**Kesimpulan:**
+Tidak ada informasi yang memadai dalam konteks untuk menentukan **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023**.
+
+👉 **Jawaban: Tidak diketahui.**",0.086513,0.761905,31.66,
+recursive,Q005,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100)?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Dalam publikasi **Benchmark Indeks Konstruksi (2016=100)**, **Nilai Konstruksi yang Diselesaikan** merujuk pada **jumlah nilai atau nilai uang yang telah dikerjakan dan selesai dalam suatu proyek konstruksi** selama periode tertentu. Ini merupakan salah satu indikator penting yang digunakan untuk mengukur perkembangan aktivitas sektor konstruksi.
+
+Nilai ini dihitung berdasarkan nilai konstruksi yang telah selesai pada suatu periode, dan digunakan dalam perhitungan indeks dengan mengacu pada tahun dasar 2016 (diberi indeks 100). Data ini diperoleh dari **Survei Perusahaan Konstruksi Triwulanan (SKTR)** dan digunakan untuk mengukur pertumbuhan atau perubahan nilai pekerjaan yang selesai secara tahunan dan triwulanan.
+
+Dalam konteks indeks, **Nilai Konstruksi yang Diselesaikan** menjadi bagian dari indeks yang dibenchmark dengan tahun 2016 sebagai dasar, sehingga memungkinkan perbandingan pertumbuhan sektor konstruksi dari tahun ke tahun.",0.024342,0.433333,32.13,
+recursive,Q006,Berapa jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,Jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi adalah **1.174.009 orang**.,0.28728,1.0,6.33,
+recursive,Q009,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Tidak ada informasi langsung dalam konteks yang menyebutkan **persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023**.
+
+Meskipun konteks 3 menyediakan data pertumbuhan (growth) per triwulan untuk Jambi (misalnya, nilai konstruksi, upah pekerja harian, dll.), tidak ada nilai persentase **balas jasa dan upah terhadap nilai konstruksi yang diselesaikan** yang disebutkan secara eksplisit untuk Jambi pada tahun 2023.
+
+Konteks 2.23 menyebutkan topik ""Persentase Balas Jasa dan Upah Pekerja Konstruksi terhadap Nilai Konstruksi yang Diselesaikan Menurut Provinsi (persen), 2018–2023"", tetapi tidak diberikan data numerik untuk provinsi Jambi atau tahun 2023.
+
+**Kesimpulan: Tidak ada informasi yang memadai untuk menjawab pertanyaan tersebut.**
+
+👉 **Jawaban: Tidak diketahui.**",0.090495,0.85,34.45,
+recursive,Q010,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi, terutama terkait dengan bahan baku dan bahan penolong. Pengeluaran ini mencakup biaya bahan dan penolong yang dibeli maupun yang diproduksi sendiri, dengan nilai bahan yang diproduksi sendiri dinilai berdasarkan harga pasar atau pengeluaran untuk memperolehnya. Nilai ini kemudian dihitung dan dibenchmark dengan mempertimbangkan nilai konstruksi yang diselesaikan sebagai dasar perhitungan, serta dilakukan penyesuaian terhadap nilai outlier untuk memastikan akurasi data.",0.275018,0.770833,20.79,
+recursive,Q011,"Dalam Lampiran 1, berapa nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)?","Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Dalam Lampiran 1, nilai kecenderungan mismatch untuk variabel **Lama Bekerja (0–14 Tahun)** adalah **1,1531**.",0.288801,1.0,5.92,
+recursive,Q013,"Dalam Lampiran 3, berapa hazard ratio untuk status Overeducated dibandingkan matched?","Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan Konteks 1, hazard ratio untuk **status Overeducated** dibandingkan **matched** adalah:
+
+**0,07110**
+
+Namun, perlu diperhatikan bahwa nilai ini terdapat dalam kolom ""Hazard Ratio"" untuk ""Overeducated (Referensi=Matched)"", dan nilai tersebut adalah **0,07110**.
+
+Jadi, jawabannya adalah:
+
+**0,07110** ✅",0.016551,0.75,12.04,
+recursive,Q015,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Menurut ikhtisar publikasi dalam Konteks 2, **lebih dari sepertiga (36,36 persen)** angkatan kerja muda di Indonesia bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.  
+
+Jadi, **persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi adalah 36,36 persen**.",0.32637,0.652174,11.91,
+recursive,Q016,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 01 pada Agustus 2025?","Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak memiliki informasi yang memadai.
+
+Konteks yang diberikan tidak mencantumkan data dari Tabel 4, terutama tidak menyebutkan nilai Indeks Unit Value Impor untuk HS 01 pada Agustus 2025. Semua informasi yang tersedia berhubungan dengan HS 51, HS 10, HS 61, HS 92, HS 82, dan HS 69, tetapi tidak disebutkan nilai untuk HS 01. Oleh karena itu, tidak mungkin menjawab pertanyaan tersebut berdasarkan dokumen yang diberikan.",0.199888,0.833333,17.37,
+recursive,Q017,"Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 27 pada Agustus 2025?","Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak ada informasi dalam konteks yang menyebutkan nilai Indeks Unit Value Impor HS 27 pada Agustus 2025. Semua data yang disebutkan hanya mencakup komoditas seperti HS 10, 61, 92, 82, dan 69, serta tidak disebutkan HS 27.
+
+**Jawaban: Tidak dapat ditentukan berdasarkan informasi yang diberikan.**",0.479676,0.833333,13.45,
+recursive,Q020,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi *Indeks Unit Value Ekspor-Impor Agustus 2025* adalah **2.800 komoditas**.
+
+Penjelasan:  
+Dalam **Konteks 1**, disebutkan bahwa ""Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas"". Ini merupakan data yang relevan dengan pertanyaan mengenai jumlah komoditas HS 8-digit yang terpilih sebagai sampel **impor**.
+
+Meskipun konteks lain membahas ekspor atau kelompok HS 2-digit, jawaban yang diminta spesifik terkait **komoditas HS 8-digit** yang terpilih sebagai **sampel impor**. Jadi, jawaban yang sesuai adalah:
+
+**2.800**.",0.186614,0.875,29.02,
+recursive,Q021,"Pada Lampiran 7.4, berapa proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?","Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak memiliki informasi yang memadai.  
+
+Dalam konteks yang diberikan, tidak ada referensi atau data mengenai **Lampiran 7.4** maupun **proporsi Transfer Masuk untuk COPNI 8** pada **struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024**. Konteks 2 menyediakan data transfer masuk untuk beberapa COPNI pada tahun 2024, tetapi hanya secara umum dan tidak disebutkan khusus untuk COPNI 8. Selain itu, tidak ada informasi tentang Lampiran 7.4.  
+
+Oleh karena itu, **tidak dapat ditentukan proporsi Transfer Masuk untuk COPNI 8** berdasarkan informasi yang tersedia.",0.0,0.666667,21.24,
+recursive,Q023,"Pada Lampiran 8.1, berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?","Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.","Pada Lampiran 8.1, capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah **117,50 persen**.",0.444418,0.923077,6.52,
+recursive,Q025,"Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam berapa kelompok tujuan kegiatan utama?","COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam **sembilan kelompok tujuan kegiatan utama**.",0.026268,0.176471,5.22,
+recursive,Q026,"Pada Lampiran 4.3, berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?",Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak ada informasi yang memadai dalam konteks yang diberikan untuk menjawab pertanyaan tentang nilai **Pajak Pendapatan pemerintah daerah pada tahun 2024** di **Lampiran 4.3**.
+
+Semua konteks yang tersedia membahas:
+- Penerimaan pajak pendapatan, kekayaan, dan pajak lainnya secara umum (pemerintah umum),
+- Penurunan disbursement PKH sebagai faktor peningkatan penerimaan pajak,
+- Tren peningkatan penerimaan pajak dari 2019–2024,
+- Tren pajak produksi dan impor,
+- Tidak disebutkan nilai spesifik untuk **pajak pendapatan pemerintah daerah** pada tahun 2024.
+
+Karena tidak ada data numerik atau referensi langsung terhadap **Lampiran 4.3** atau **pajak pendapatan pemerintah daerah** pada tahun 2024, maka **tidak dapat ditentukan nilai tersebut**.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.024244,0.583333,29.86,
+recursive,Q027,"Pada Lampiran 6.2, berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?",Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Tidak memiliki informasi yang memadai.  
+
+Konteks yang diberikan tidak mencantumkan Lampiran 6.2, dan tidak ada data tentang ""Pembentukan Modal Tetap Bruto Pemerintahan Pusat"" pada tahun 2024 dalam konteks yang tersedia. Meskipun ada informasi mengenai ""Konsumsi Barang Modal Tetap"" dan ""Nilai Tambah Bruto"" pada Lampiran 2.2 dan 2.3, tidak ada angka eksplisit untuk ""Pembentukan Modal Tetap Bruto"" pada pemerintahan pusat tahun 2024.  
+
+Jawaban: **Tidak diketahui**.",0.0,0.571429,19.5,
+recursive,Q029,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **penyeimbang (balancing item)** yang dihitung sebagai selisih antara **pendapatan disposabel** dan **pengeluaran konsumsi akhir pemerintahan umum**. Secara matematis, dapat dirumuskan sebagai:
+
+**Tabungan = Pendapatan Disposabel – Pengeluaran Konsumsi Akhir**
+
+Tabungan ini menunjukkan seberapa besar jumlah pendapatan yang tidak digunakan untuk konsumsi, dan dapat digunakan untuk keperluan lain seperti pembentukan modal, pinjaman, atau disimpan dalam bentuk aset. Dalam konteks neraca, tabungan mencerminkan kemampuan pemerintah untuk tidak mengurangi kas, menjual aset, atau meningkatkan kewajiban untuk membiayai pengeluaran.",0.066987,0.761905,24.15,
+recursive,Q031,"Pada Lampiran 2.7, berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?","Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Berdasarkan Konteks 2 dan Konteks 3, dalam **Lampiran 2.7 – Struktur Neraca Distribusi Pendapatan Sekunder Rumah Tangga Menurut Penggunaan (persen), 2022–2024**, item **Transfer Berjalan** tidak secara eksplisit disebutkan dalam tabel yang diberikan.
+
+Namun, dalam **Konteks 3**, terdapat tabel struktur penggunaan yang mencakup:
+
+- **Pajak pendapatan, kekayaan, dll**: 2,27% (2022), 2,12% (2023), 2,21% (2024)  
+- **Kontribusi sosial neto**: 1,68% (2022), 1,54% (2023), 1,47% (2024)  
+- **Transfer lainnya**: 4,52% (2022), 4,11% (2023), 4,36% (2024)  
+- **Premi asuransi non-jiwa neto**: 0,03% (2022), 0,08% (2023), 0,08% (2024)  
+- **Transfer lainnya, yang belum diklasifikasikan**: 4,48% (2022), 4,04% (2023), 4,29% (2024)  
+- **Pendapatan disposabel bruto**: 91,54% (2022), 92,23% (2024), 91,96% (2024)  
+- **Total**: 100,00%
+
+Namun, **Transfer Berjalan** secara umum mencakup **transfer berjalan yang diterima dan dibayar**, tetapi dalam **sisi penggunaan**, hanya **pembayaran** yang dicatat.
+
+Dalam **Konteks 4**, disebutkan bahwa rumah tangga lebih dominan melakukan pembayaran transfer berupa **transfer lainnya yang belum diklasifikasikan** dengan proporsi **51,95% pada 2023**, dan **52,97% pada 2022**. Namun tidak disebutkan angka tahun 2024 secara eksplisit.
+
+Karena tidak ada angka yang secara langsung menyebutkan **Transfer Berjalan** dalam **sisi penggunaan** untuk tahun 2024, dan hanya ada data untuk **transfer lainnya** dan **pajak**, maka **proporsi Transfer Berjalan secara keseluruhan** tidak dapat ditentukan dari data yang tersedia.
+
+Namun, jika kita mengasumsikan bahwa **Transfer Berjalan** mencakup **pembayaran transfer berjalan**, dan dari Konteks 4 diketahui bahwa **transfer lainnya yang belum diklasifikasikan** adalah bagian dari transfer berjalan, maka **proporsi transfer berjalan** yang paling mendekati adalah **transfer lainnya yang belum diklasifikasikan** pada tahun 2024, yaitu **4,29%**.
+
+Tetapi ini hanya merupakan bagian dari transfer berjalan, bukan seluruhnya.
+
+**Kesimpulan**: Tidak ada data langsung tentang proporsi **Transfer Berjalan** dalam **sisi penggunaan** untuk tahun 2024 dalam Lampiran 2.7.
+
+👉 **Jawaban: Tidak ada informasi yang memadai untuk menentukan proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024.**",0.018329,0.777778,102.21,
+recursive,Q032,"Pada Lampiran 2.9, berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024?","Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Berdasarkan konteks yang diberikan, terutama dari **Konteks 1**, **Konteks 2**, dan **Konteks 4**, proporsi pengeluaran konsumsi akhir rumah tangga pada tahun 2024 adalah **82,99 persen**.
+
+Jawaban: **82,99 persen**.",0.016623,0.833333,10.8,
+recursive,Q034,Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam kelompok aktivitas apa saja?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam tiga kelompok aktivitas yaitu **produksi, konsumsi, dan investasi**.",0.163319,0.642857,6.02,
+recursive,Q036,"Pada Tabel 3.35, berapa estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025?","Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Tidak ada informasi dalam konteks yang menyediakan estimasi total Angka Partisipasi Sekolah (APS) 13–15 tahun untuk Provinsi Aceh pada tahun 2025 secara eksplisit.
+
+Meskipun konteks 3 menyebutkan data untuk Aceh dalam tabel yang berisi nilai batas bawah dan atas, serta relative standard error, namun data tersebut mencakup berbagai variabel seperti penggunaan komputer, bukan APS 13–15 tahun. Selain itu, nilai-nilai yang disebutkan (seperti 10,18, 9,02, 11,33) adalah batas bawah dan atas untuk persentase peserta didik yang menggunakan komputer, bukan APS.
+
+Oleh karena itu, **tidak dapat ditentukan estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 berdasarkan konteks yang diberikan.**
+
+**Jawaban: Tidak dapat ditentukan dari konteks yang diberikan.**",0.090548,0.8,28.22,
+recursive,Q037,"Pada Tabel 3.36, berapa estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025?","Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Tidak ada informasi dalam konteks yang menyediakan estimasi total Angka Partisipasi Sekolah (APS) 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 secara eksplisit. Meskipun Tabel 3.36 mencantumkan ""Sampling Error Angka Partisipasi Sekolah (APS) 16–18 Tahun Menurut Provinsi dan Klasifikasi Desa, 2025"", konteks tidak memuat angka estimasi aktual untuk Sumatera Barat pada kategori usia 16–18 tahun.
+
+Jadi, **tidak dapat ditentukan** dari informasi yang diberikan.
+
+**Jawaban: Tidak dapat ditentukan.**",0.288389,0.75,20.78,
+recursive,Q040,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Berdasarkan konteks yang diberikan, tingkat penyelesaian pendidikan pada tahun 2025 sebagai berikut:
+
+- **Pendidikan SD sederajat**: Sebesar **97,65 persen**.  
+  (Dari 100 orang berumur 13–15 tahun, 97 hingga 98 orang telah menyelesaikan SD sederajat.)
+
+- **Pendidikan SMP sederajat**: Tidak disebutkan secara eksplisit dalam konteks, tetapi diketahui bahwa **sekitar 91,66 persen** yang tamat SMP sederajat (dari 94,40 persen yang melanjutkan ke SMP sederajat).
+
+- **Pendidikan SMA/SMK sederajat**: Sebesar **73 hingga 74 persen** (dari 100 penduduk berumur 19–21 tahun).  
+  (Dalam konteks juga disebutkan bahwa hanya sekitar 71,01 persen yang tamat SMA/SMK sederajat, namun angka 73–74 persen lebih sesuai dengan data penyelesaian umum yang dinyatakan dalam Gambar 5.2.)
+
+Namun, perlu diperjelas bahwa **angka 71,01 persen** (dalam konteks 4) adalah tingkat penyelesaian pendidikan SMA/SMK sederajat secara lebih spesifik berdasarkan data Susenas 2025.
+
+### Jadi, jawaban akhirnya adalah:
+
+- **SD sederajat**: **97,65 persen**  
+- **SMP sederajat**: **91,66 persen**  
+- **SMA/SMK sederajat**: **71,01 persen**
+
+✅ **Jawaban:**
+Tingkat penyelesaian pendidikan pada tahun 2025 adalah:
+- SD sederajat: **97,65 persen**
+- SMP sederajat: **91,66 persen**
+- SMA/SMK sederajat: **71,01 persen**",0.072328,0.730769,57.81,
+recursive,Q041,"Pada Tabel 2.7, berapa total berat bersih impor Indonesia pada Agustus 2025?",Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,"Tidak ada informasi dalam konteks yang menyebutkan total berat bersih impor Indonesia pada Agustus 2025. Semua data yang disebutkan adalah nilai dalam US$ (nilai impor), bukan berat bersih (dalam ribu ton atau satuan berat). Tabel 2.7 hanya disebutkan sebagai ""Impor Menurut Golongan Penggunaan Barang dan HS Terbesar, Agustus 2025"", namun tidak mencantumkan data berat bersih.
+
+**Jawaban: Tidak ada informasi yang memadai untuk mengetahui total berat bersih impor Indonesia pada Agustus 2025.**",0.40016,0.642857,19.02,
+recursive,Q042,"Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untuk HS 94032090 Metal furniture other than fume cupboards, not used in offices?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Berdasarkan Tabel 2.3, nilai CIF Agustus 2025 untuk HS **94032090 Metal furniture other than fume cupboards, not used in offices** adalah **22.573.548 US$**.",0.127299,0.916667,9.61,
+recursive,Q044,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Total nilai impor Indonesia pada Agustus 2025 mencapai **US$19.475,2 juta**.
+
+Rinciannya menurut jenis komoditas adalah:
+- **Migas**: senilai **US$2.732,5 juta** (sebesar 14,03 persen dari total)
+- **Nonmigas**: senilai **US$16.742,7 juta** (sebesar 85,97 persen dari total)",0.198568,0.892857,15.33,
+recursive,Q046,"Pada Tabel 4.1, berapa nilai impor Indonesia melalui moda transportasi laut pada 2024?","Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Berdasarkan **Tabel 4.1 Impor Menurut Moda Transportasi, 2023 dan 2024**, nilai impor Indonesia melalui moda transportasi laut pada tahun 2024 adalah **US$209.268,6 juta**.",0.242638,1.0,9.21,
+recursive,Q048,"Pada Tabel 5.13, berapa nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024?",Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,"Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menentukan nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024. Meskipun konteks menyebutkan bahwa impor serealia (HS 10) meningkat sebesar 21,23 persen dan beratnya meningkat sebesar 3.233,7 ribu ton, tidak disebutkan nilai uang (dalam juta US$) impor serealia secara khusus melalui moda laut.
+
+Oleh karena itu, **tidak dapat ditentukan nilai impor HS 10 Serealia melalui moda transportasi laut pada tahun 2024 berdasarkan konteks yang diberikan.**
+
+**Jawaban: Tidak diketahui.**",0.383982,0.722222,22.88,
+recursive,Q049,Mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar menurut publikasi moda transportasi?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.","Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena beberapa alasan utama:
+
+1. **Kondisi geografis Indonesia sebagai negara kepulauan** yang saling terhubung melalui laut, sehingga transportasi laut menjadi jalan utama antarpulau dan antarnegara.  
+2. **Biaya angkut yang lebih ekonomis** dibandingkan moda lainnya, terutama untuk barang dalam jumlah besar.  
+3. **Kapasitas angkut yang besar**, di mana moda laut dapat mengangkut barang dalam jumlah besar, terutama melalui kapal kontainer dan kapal tanker.  
+4. **Dominasi dalam angkutan barang impor**, sebanyak 88,97% barang impor masuk melalui moda laut, dengan peningkatan nilai dan berat barang yang signifikan dari tahun ke tahun.  
+
+Oleh karena itu, berdasarkan publikasi statistik dan analisis kebijakan, moda laut dipilih karena efektivitasnya dalam mengangkut barang dalam jumlah besar secara ekonomis dan logistik, sesuai dengan kondisi geografis dan kebutuhan perdagangan Indonesia.",0.341198,0.645161,29.54,
