@@ -61,13 +61,17 @@ rapidfuzz           # Diperlukan oleh NonLLMContextPrecisionWithReference
 sacrebleu           # Dependency ragas BleuScore (sacrebleu.corpus_bleu)
 rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
 
-# Opsional: GGUF generator — hanya jika menggunakan --generator_type gguf
+# llama-cpp-python: WAJIB untuk embedder GGUF (Qwen3-Embedding-4B-Q8_0.gguf)
 # Install manual (butuh build flags GPU/CPU): pip install llama-cpp-python
 # llama-cpp-python
 
 # Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
 # Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local
 # langchain-openai
+
+# Streamlit
+# --------
+streamlit  # UI annotation app + RAG chat demo
 
 # Logging & Monitoring
 # --------------------
