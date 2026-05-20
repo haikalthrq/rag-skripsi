@@ -1,0 +1,116 @@
+==============================================================
+VALIDATION REPORT — KANDIDAT V3
+==============================================================
+
+  Total baris           : 416
+  Total grup            : 90
+
+  match_type distribution:
+    keyword_only                       : 268
+    partial_table_evidence             : 83
+    exact_narrative_evidence           : 27
+    exact_table_evidence               : 24
+    partial_narrative_context          : 14
+
+  suggested_label distribution:
+    label 0: 268
+    label 1: 97
+    label 2: 51
+
+  Exact evidence total  : 51
+  exact_table valid (gv+rl+cl) : 24 / 24
+
+  evidence_quote mismatch: 0
+
+  Grup tanpa exact evidence: 44
+    Q001 × element_based          best=partial_table_evidence
+    Q006 × element_based          best=partial_table_evidence
+    Q006 × recursive              best=partial_table_evidence
+    Q011 × element_based          best=keyword_only
+    Q011 × maxmin_semantic        best=partial_table_evidence
+    Q011 × recursive              best=partial_table_evidence
+    Q013 × element_based          best=keyword_only
+    Q013 × maxmin_semantic        best=partial_table_evidence
+    Q013 × recursive              best=partial_table_evidence
+    Q016 × element_based          best=partial_table_evidence
+    Q016 × maxmin_semantic        best=partial_table_evidence
+    Q016 × recursive              best=partial_table_evidence
+    Q017 × element_based          best=partial_table_evidence
+    Q017 × maxmin_semantic        best=partial_table_evidence
+    Q017 × recursive              best=partial_table_evidence
+    Q021 × element_based          best=partial_table_evidence
+    Q021 × maxmin_semantic        best=partial_table_evidence
+    Q021 × recursive              best=partial_table_evidence
+    Q023 × element_based          best=partial_table_evidence
+    Q023 × maxmin_semantic        best=partial_table_evidence
+    Q023 × recursive              best=partial_table_evidence
+    Q025 × maxmin_semantic        best=keyword_only
+    Q026 × recursive              best=partial_table_evidence
+    Q027 × element_based          best=partial_table_evidence
+    Q027 × maxmin_semantic        best=partial_table_evidence
+    Q027 × recursive              best=keyword_only
+    Q036 × element_based          best=partial_table_evidence
+    Q036 × maxmin_semantic        best=partial_table_evidence
+    Q036 × recursive              best=partial_table_evidence
+    Q037 × element_based          best=partial_table_evidence
+    Q037 × maxmin_semantic        best=partial_table_evidence
+    Q037 × recursive              best=partial_table_evidence
+    Q040 × recursive              best=keyword_only
+    Q041 × element_based          best=partial_table_evidence
+    Q041 × maxmin_semantic        best=partial_table_evidence
+    Q041 × recursive              best=partial_table_evidence
+    Q042 × element_based          best=partial_table_evidence
+    Q042 × maxmin_semantic        best=partial_table_evidence
+    Q042 × recursive              best=partial_table_evidence
+    Q048 × element_based          best=partial_table_evidence
+    Q048 × maxmin_semantic        best=keyword_only
+    Q048 × recursive              best=partial_table_evidence
+    Q049 × element_based          best=partial_narrative_context
+    Q049 × maxmin_semantic        best=keyword_only
+
+--------------------------------------------------------------
+NARASI — QUERY TANPA EXACT EVIDENCE
+--------------------------------------------------------------
+  Query narasi total            : 10
+  Query narasi dg exact evidence: 10
+  Query narasi tanpa exact       : 0
+
+--------------------------------------------------------------
+KANDIDAT YANG MASUK HANYA KARENA question_kw
+--------------------------------------------------------------
+  Total kandidat masuk hanya question_kw: 26
+    Q010 / element_based / chunk 4  mt=keyword_only
+    Q010 / element_based / chunk 23  mt=keyword_only
+    Q010 / element_based / chunk 56  mt=keyword_only
+    Q010 / element_based / chunk 58  mt=keyword_only
+    Q010 / maxmin_semantic / chunk 1  mt=keyword_only
+    Q010 / maxmin_semantic / chunk 11  mt=keyword_only
+    Q010 / recursive / chunk 13  mt=keyword_only
+    Q010 / recursive / chunk 1  mt=keyword_only
+    Q010 / recursive / chunk 11  mt=keyword_only
+    Q010 / recursive / chunk 22  mt=keyword_only
+    Q020 / element_based / chunk 22  mt=keyword_only
+    Q020 / maxmin_semantic / chunk 2  mt=keyword_only
+    Q020 / maxmin_semantic / chunk 21  mt=keyword_only
+    Q025 / element_based / chunk 31  mt=keyword_only
+    Q025 / element_based / chunk 69  mt=keyword_only
+    Q025 / element_based / chunk 77  mt=keyword_only
+    Q025 / element_based / chunk 82  mt=keyword_only
+    Q025 / recursive / chunk 20  mt=keyword_only
+    Q025 / recursive / chunk 26  mt=keyword_only
+    Q044 / element_based / chunk 9  mt=keyword_only
+    Q044 / element_based / chunk 35  mt=keyword_only
+    Q044 / element_based / chunk 37  mt=keyword_only
+    Q044 / recursive / chunk 2  mt=keyword_only
+    Q044 / recursive / chunk 10  mt=keyword_only
+    Q049 / element_based / chunk 48  mt=keyword_only
+    Q049 / maxmin_semantic / chunk 57  mt=keyword_only
+
+--------------------------------------------------------------
+INTEGRITAS LABEL
+--------------------------------------------------------------
+  label_0_1_2 semua KOSONG ✓
+
+  status semua 'needs_manual_validation' ✓
+
+--------------------------------------------------------------

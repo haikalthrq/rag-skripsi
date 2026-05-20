@@ -1,0 +1,83 @@
+================================================================================
+                              BLEU SCORE - RAGAS
+  Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#bleu-score
+================================================================================
+
+================================================================================
+DEFINISI
+================================================================================
+
+Metrik BleuScore digunakan untuk mengevaluasi kualitas response dengan
+membandingkannya dengan reference. Metrik ini mengukur kemiripan antara
+response dan reference berdasarkan n-gram precision dan brevity penalty.
+BLEU score awalnya dirancang untuk mengevaluasi sistem machine translation,
+tetapi juga digunakan dalam tugas natural language processing lainnya.
+BLEU score berkisar dari 0 hingga 1, di mana 1 menunjukkan kecocokan
+sempurna antara response dan reference. Ini adalah metrik berbasis non-LLM.
+
+================================================================================
+PENGGUNAAN (Collections-Based API)
+================================================================================
+
+Kode:
+------
+from ragas.metrics.collections import BleuScore
+
+# Buat metrik
+scorer = BleuScore()
+
+# Evaluasi
+result = await scorer.ascore(
+    reference="The Eiffel Tower is located in Paris.",
+    response="The Eiffel Tower is located in India."
+)
+print(f"BLEU Score: {result.value}")
+
+Output:
+  BLEU Score: 0.7071067811865478
+
+Catatan - Penggunaan Sinkron:
+  Jika lebih suka kode sinkron, gunakan method .score() sebagai
+  pengganti .ascore():
+
+  result = scorer.score(
+      reference="The Eiffel Tower is located in Paris.",
+      response="The Eiffel Tower is located in India."
+  )
+
+================================================================================
+KONFIGURASI
+================================================================================
+
+Anda dapat meneruskan argumen tambahan ke fungsi sacrebleu.corpus_bleu yang
+mendasarinya menggunakan parameter kwargs:
+
+  scorer = BleuScore(kwargs={"smooth_method": "exp"})
+
+================================================================================
+LEGACY METRICS API
+================================================================================
+
+PERINGATAN DEPRECATION:
+  API ini akan di-deprecated pada versi 0.4 dan dihapus pada versi 1.0.
+  Harap migrasi ke collections-based API yang ditunjukkan di atas.
+
+Contoh dengan SingleTurnSample:
+------
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import BleuScore
+
+sample = SingleTurnSample(
+    response="The Eiffel Tower is located in India.",
+    reference="The Eiffel Tower is located in Paris."
+)
+
+scorer = BleuScore()
+await scorer.single_turn_ascore(sample)
+
+Output: 0.7071067811865478
+
+--------------------------------------------------------------------------------
+Terakhir diperbarui: December 11, 2025
+Sumber: https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/traditional/#bleu-score
+================================================================================

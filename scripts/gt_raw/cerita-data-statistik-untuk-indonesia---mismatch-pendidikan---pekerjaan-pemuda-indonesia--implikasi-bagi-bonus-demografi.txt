@@ -1,0 +1,56 @@
+DOC: cerita-data-statistik-untuk-indonesia---mismatch-pendidikan---pekerjaan-pemuda-indonesia--implikasi-bagi-bonus-demografi
+Total chunks: 35 | Usable: 31 | Sample 10% (4):
+================================================================================
+
+--- [chunk_id=chunk_9] ---
+MISMATCH PENDIDIKAN-PEKERJAAN PEMUDA INDONESIA: IMPLIKASI BAGI BONUS DEMOGRAFI
+
+Ledakan Pemuda: Bonus Demografi atau Bom Waktu... ........ Jo... 8 Pendidikan Tinggi, Kerja Rendah? Fenomena Vertical Mismatch ................. 10 Menunggu di Pintu Kerja: Survival Analysis Pencari Kerja ............ 12 Mimpi vs Realita: Apa Kata Data?................ 13 Mengapa Bisa Begitu? Mengurai Akar Masalah.............. oo. 19 Referensi. ............ oa 21 Lampiran... ...... io... 23
+
+--- [chunk_id=chunk_12] ---
+Ledakan Pemuda: Bonus Demografi atau Bom Waktu
+
+menekan angka pengangguran secara umum, tantangan utama justru terletak pada penciptaan lapangan kerja yang layak bagi generasi muda. Kondisi ini penting dicermati, mengingat pemuda merupakan bonus demografi yang seharusnya menjadi motor penggerak produktivitas bangsa, bukan justru terjebak dalam siklus pengangguran.
+
+Ketidakselarasan ini diperparah dengan fakta bahwa persentase pemuda yang terjun sebagai wirausahawan kerah putih? (white-collar) masih sangat rendah, bahkan menyentuh titik terendah dalam tiga tahun terakhir. Padahal, kemandirian pemuda melalui wirausaha adalah salah satu pilar penting untuk mengoptimalkan bonus demografi. Persentase pemuda Indonesia yang berusaha di sektor white collar sepanjang 2017-2024 hanya bergerak pada kisaran 0,39-0,53 persen, dengan kecenderungan stagnan dan bahkan
+
+menurun pada 2024. Angka ini menandakan bahwa jalur kewirausahaan formal kelas menengah belum menjadi pilihan dominan di kalangan pemuda, meskipun bonus demografi tengah berlangsung. Keterbatasan akses terhadap modal, rendahnya literasi keuangan, serta minimnya dukungan ekosistem kewirausahaan berkontribusi terhadap rendahnya partisipasi ini. Padahal, literatur internasional menegaskan bahwa kewirausahaan pemuda berperan penting dalam menciptakan lapangan kerja, memperkuat inovasi, serta mengurangi ketergantungan pada sektor informal di negara berkembang (RSD Journal 2019: UNDP Indonesia 2021).
+
+Di sisi lain, hambatan struktural dan sosial- ekologis membuat kewirausahaan pemuda sulit berkembang secara berkelanjutan. Studi menunjukkan bahwa faktor-faktor seperti pendidikan kewirausahaan, pengalaman
+
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2017-2024 Gambar 2 Persentase Pemuda Bekerja dengan Status Berusaha White Collar, 2017-2024
+
+Wirausahawan kerah putih didefinisikan sebagai pemuda yang bekerja dengan status berusaha (baik itu berusaha sendiri, berusaha dengan dibantu buruh tidak tetap, atau berusaha dengan dibantu buruh tetap), dengan jenis pekerjaan white collar (tenaga profesional atau teknisi, kepemimpinan atau ketatalaksanaan, pejabat pelaksana, atau tenaga tata usaha)
+
+2
+
+praktis, serta adaptasi teknologi merupakan determinan utama keberhasilan wirausaha muda di era digital (Zuraidah, Maudya, dan Mufidaturrohmah 2022). Namun, tanpa kebijakan yang mendukung—seperti kemudahan perizinan bisnis, inkubasi
+
+Mismatch Pendidikan-Perkerjaan Pemuda Indonesia: Implikasi bagi Bonus Demografi
+
+9
+
+--- [chunk_id=chunk_20] ---
+Mimpi vs Realita: Apa Kata Data?
+
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah
+
+Gambar9 Persentase Pemuda Berstatus Pengangguran Berdasarkan Tingkat Pendidikan, 2024
+
+Di samping itu, tingkat pendidikan memperlihatkan hal yang cukup mengejutkan. Pemuda yang berstatus terdidik (pendidikan terakhir SMA ke atas) justru 24,50 persen lebih lambat untuk mendapatkan pekerjaan. Fenomena ini tercermin dari Gambar 9 yang menunjukkan masih tingginya persentase pemuda yang berstatus pengangguran terdidik sebesar 79,90 persen. Temuan ini menunjukkan bahwa Teori Modal Manusia yang berasumsi pendidikan tinggi meningkatkan peluang
+
+kerja tidak sepenuhnya berlaku dalam kondisi pemuda saat ini. Pendidikan tinggi tidak menjamin pemuda cepat mendapatkan pekerjaan, sebaliknya melewati proses yang lebih lama karena keterampilan yang dimiliki kurang sesuai dengan kebutuhan pasar kerja (Friska dan Damayanti 2021).
+
+Kemudian dari kacamata ekonomi, lapangan usaha dari pekerjaan pemuda juga turut memengaruhi transisi ke pasar kerja. Pemuda yang berpengalaman kerja di sektor-sektor penyerap tenaga kerja terbesar, yaitu pertanian, kehutanan, dan peternakan, serta perdagangan dan industri pengolahan (BPS 2024c) yang selanjutnya disebut sektor utama memiliki peluang 13,63 persen lebih cepat memeroleh pekerjaan baru dibandingkan dengan pemuda yang bekerja di sektor lain. Luasnya basis kesempatan kerja di sektor utama mampu mempermudah pemuda untuk terserap ke pasar kerja.
+
+Semua ini memberi gambaran bahwa mimpi pemuda tidak selalu berjalan lurus dengan realita. Pendidikan tinggi, tinggal di kota, atau status belum menikah tidak otomatis menjadi tiket emas untuk cepat bekerja. Ada faktor demografi, sosial, ekonomi, dan struktural yang ikut menentukan seberapa
+
+c & E E Ki S 2 aj .
+
+Sumber: Badan Pusat Statistik, Survei Angkatan Kerja Nasional Agustus 2024, diolah Gambar 10 Heatmap Pemuda Menurut Lapangan Usaha dari Pengalaman Kerja dan Pekerjaan Saat ini Berdasarkan Status Mismatch, 2024
+
+16 Cerita Data Statistik Untuk Indonesia Volume 2, Nomor 10, 2025
+
+--- [chunk_id=chunk_30] ---
+. PN , Kecenderungan Variabel B Std.Error Signifikansi Mismatch (1) (2) (3) (3) (5) Lama Bekerja (0-14 Tahun) 0,1425 0,0047 0,0000 11531 Penggunaan Teknologi Digital | (1-Ya:O-Tidak) 0,0718 0,0127 0,0000 0,9307 Sertifikasi (1-Ya:O-Tidak) -0,0345 0,0103 0,0008 0,9661 Tingkat Pendidikan (1-Dasar: 2-Menengah: 3-Tinggi) 0,2365 0,0086 0,0000 0,7894 Sektor Pekerjaan (1-Primer: 2-Sekunder: 3-Tersier) 100190 O,00GA 00051 09812 Keikutsertaan Kartu Prakerja (1-Ya: O-Tidak) -0,0548 0,0118 0,0000 0,9466 Umur (16-30 Tahun) -0,0012 0,0005 0,0215 0,9988 Jansen -0,0402 0,0096 0,0000 0,9606 (1-Laki-lakis 2-Perempuan) ? ? ? ? Status Perkawinan (1-Pernah Kawin, O-Belum Pernah) OMA) 0005 Ketat C1 Klasifikasi Wilayah (1-Perkotaan, 2-Perdesaan) 100210 (00098 00321 OM Constant 0,4932 0,0397 0,0000 1,6376
+

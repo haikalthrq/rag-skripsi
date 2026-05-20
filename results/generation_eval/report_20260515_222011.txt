@@ -1,0 +1,545 @@
+================================================================================
+  LAPORAN EVALUASI GENERASI RAG
+  Perbandingan Metode Chunking: element_based | maxmin_semantic | recursive
+================================================================================
+
+KONFIGURASI RUN
+--------------------------------------------------------------------------------
+  Tanggal/Waktu    : 20260515_222011
+  Model Generator  : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\models\Qwen3-4B-Instruct-2507-FP8
+  Tipe Generator   : hf
+  Embedding Model  : Qwen3-Embedding-4B-Q8_0.gguf
+  ChromaDB Path    : D:\My Files\Kuliah\SKRIPSI\rag-skripsi\data\chroma
+  QA Gold File     : qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
+  Top-K Retrieval  : 5
+  Max Tokens Out   : 1024
+  Temperature      : 0.7
+  Top-P            : 0.8
+  Top-K Sampling   : 20
+
+RINGKASAN METRIK — PERBANDINGAN CHUNKING METHOD
+--------------------------------------------------------------------------------
+  Method                       mean_bleu    mean_rouge_l       n_success       n_queries
+  --------------------------------------------------------------------------------------
+  element_based                        —               —               0              30
+  maxmin_semantic                      —               —               0              30
+  recursive                            —               —               0              30
+
+--------------------------------------------------------------------------------
+
+DETAIL PER QUERY — FORMAT: PERTANYAAN => 3 METODE
+================================================================================
+
+================================================================================
+Q001 | Berapa Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q003 | Berapa Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q005 | Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam publikasi Benchmark Indeks Konstruksi (2016=100)?
+--------------------------------------------------------------------------------
+Referensi : Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q006 | Berapa jumlah pekerja tetap konstruksi nasional pada tahun 2023 dalam Benchmark Statistik Konstruksi?
+--------------------------------------------------------------------------------
+Referensi : Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q009 | Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?
+--------------------------------------------------------------------------------
+Referensi : Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q010 | Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam Benchmark Statistik Konstruksi?
+--------------------------------------------------------------------------------
+Referensi : Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q011 | Dalam Lampiran 1, berapa nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun)?
+--------------------------------------------------------------------------------
+Referensi : Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q013 | Dalam Lampiran 3, berapa hazard ratio untuk status Overeducated dibandingkan matched?
+--------------------------------------------------------------------------------
+Referensi : Hazard ratio untuk status Overeducated adalah 1,0737.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q015 | Berapa persentase angkatan kerja muda yang mengalami vertical mismatch menurut ikhtisar publikasi?
+--------------------------------------------------------------------------------
+Referensi : Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q016 | Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 01 pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q017 | Berdasarkan Tabel 4, berapa Indeks Unit Value Impor HS 27 pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q020 | Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor dalam publikasi Indeks Unit Value Ekspor-Impor Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q021 | Pada Lampiran 7.4, berapa proporsi Transfer Masuk untuk COPNI 8 pada struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q023 | Pada Lampiran 8.1, berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?
+--------------------------------------------------------------------------------
+Referensi : Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q025 | Menurut konsep COPNI, LNPRT diklasifikasikan ke dalam berapa kelompok tujuan kegiatan utama?
+--------------------------------------------------------------------------------
+Referensi : COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q026 | Pada Lampiran 4.3, berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q027 | Pada Lampiran 6.2, berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q029 | Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?
+--------------------------------------------------------------------------------
+Referensi : Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q031 | Pada Lampiran 2.7, berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q032 | Pada Lampiran 2.9, berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q034 | Aktivitas ekonomi rumah tangga dalam publikasi ini dikelompokkan ke dalam kelompok aktivitas apa saja?
+--------------------------------------------------------------------------------
+Referensi : Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q036 | Pada Tabel 3.35, berapa estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025?
+--------------------------------------------------------------------------------
+Referensi : Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q037 | Pada Tabel 3.36, berapa estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025?
+--------------------------------------------------------------------------------
+Referensi : Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q040 | Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?
+--------------------------------------------------------------------------------
+Referensi : Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q041 | Pada Tabel 2.7, berapa total berat bersih impor Indonesia pada Agustus 2025?
+--------------------------------------------------------------------------------
+Referensi : Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q042 | Pada Tabel 2.3, berapa nilai CIF Agustus 2025 untuk HS 94032090 Metal furniture other than fume cupboards, not used in offices?
+--------------------------------------------------------------------------------
+Referensi : Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q044 | Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?
+--------------------------------------------------------------------------------
+Referensi : Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q046 | Pada Tabel 4.1, berapa nilai impor Indonesia melalui moda transportasi laut pada 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q048 | Pada Tabel 5.13, berapa nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada tahun 2024?
+--------------------------------------------------------------------------------
+Referensi : Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+Q049 | Mengapa moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar menurut publikasi moda transportasi?
+--------------------------------------------------------------------------------
+Referensi : Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.
+
+[element_based]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[maxmin_semantic]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+[recursive]  BLEU=—  ROUGE-L=—
+Jawaban:
+[ERROR] HF generation failed: Kernel repository 'kernels-community/finegrained-fp8' could not verify publisher trust status. Set trust_remote_code=True to allow loading kernels from untrusted sources.
+
+================================================================================
+  END OF REPORT
+================================================================================
