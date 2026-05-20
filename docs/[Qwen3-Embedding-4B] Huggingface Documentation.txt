@@ -1,0 +1,363 @@
+================================================================================
+                    QWEN3-EMBEDDING-4B DOCUMENTATION
+================================================================================
+
+Model: Qwen/Qwen3-Embedding-4B
+Type: Text Embedding / Feature Extraction
+
+================================================================================
+1. HIGHLIGHTS
+================================================================================
+
+Qwen3-Embedding-4B is a 4B-parameter text embedding model designed for semantic
+search, retrieval, classification, clustering, and RAG pipelines.
+
+Key features:
+  Supports 100+ languages.
+  32K token context length.
+  2560-dimensional embeddings (customizable from 32 to 2560 via MRL).
+  Instruction-aware: query performance improves 1-5% with task-specific
+    instructions.
+  MRL (Matryoshka Representation Learning) support for flexible dimensions.
+  Designed to pair with Qwen3-Reranker for two-stage retrieval.
+
+This model is DIFFERENT from Qwen3-4B-Instruct. Use Embedding-4B for
+retrieval/embedding, and Instruct for text generation.
+
+================================================================================
+2. MODEL OVERVIEW
+================================================================================
+
+Property                    Value
+------------------------------------------------------------------------
+Type                        Text Embedding / Feature Extraction
+Base Model                  Qwen/Qwen3-4B-Base
+Parameters                  4.0B
+Layers                      36
+Context Length              32,768 tokens
+Embedding Dimension (max)   2560
+Customizable Dimension      32 to 2560 (via MRL)
+MRL Support                 Yes
+Instruction Aware           Yes
+Languages                   100+
+License                     Apache-2.0
+Paper                       Qwen3 Embedding, arXiv:2506.05176
+
+================================================================================
+3. MODEL FAMILY
+================================================================================
+
+A. Text Embedding
+
+Model                Size   Layers  Seq Len   Embed Dim  MRL Support
+------------------------------------------------------------------------
+Qwen3-Embedding-0.6B 0.6B   28      32K       1024       Yes
+Qwen3-Embedding-4B   4.0B   36      32K       2560       Yes
+Qwen3-Embedding-8B   8.0B   36      32K       4096       Yes
+
+B. Text Reranking
+
+Model                Size   Layers  Seq Len   Instruction
+------------------------------------------------------------------------
+Qwen3-Reranker-0.6B  0.6B   28      32K       Yes
+Qwen3-Reranker-4B    4.0B   36      32K       Yes
+Qwen3-Reranker-8B    8.0B   36      32K       Yes
+
+RAG pipeline:
+  1. Qwen3-Embedding-4B retrieves initial top-k candidates.
+  2. Qwen3-Reranker re-ranks candidates for sharper relevance.
+  3. Generator uses re-ranked context.
+
+================================================================================
+4. REQUIREMENTS
+================================================================================
+
+  transformers >= 4.51.0
+  sentence-transformers >= 2.7.0
+  vllm >= 0.8.5 (if using vLLM)
+
+With transformers < 4.51.0, you will encounter: KeyError: 'qwen3'
+
+Acceleration recommendations:
+  Use flash_attention_2 if available.
+  Use padding_side='left'.
+  Use device_map='auto' for automatic device placement.
+
+================================================================================
+5. QUICKSTART
+================================================================================
+
+--------------------------------------------------------------------------------
+5.1 Sentence Transformers (Recommended for Simple RAG)
+--------------------------------------------------------------------------------
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("Qwen/Qwen3-Embedding-4B")
+
+queries = [
+    "What is the capital of China?",
+    "Explain gravity",
+]
+documents = [
+    "The capital of China is Beijing.",
+    "Gravity is a force that attracts two bodies towards each other...",
+]
+
+query_embeddings = model.encode(queries, prompt_name="query")
+document_embeddings = model.encode(documents)
+
+similarity = model.similarity(query_embeddings, document_embeddings)
+print(similarity)
+
+# Output example: [[0.7534, 0.1147], [0.0320, 0.6258]]
+
+Acceleration version:
+
+model = SentenceTransformer(
+    "Qwen/Qwen3-Embedding-4B",
+    model_kwargs={"attn_implementation": "flash_attention_2", "device_map": "auto"},
+    tokenizer_kwargs={"padding_side": "left"},
+)
+
+IMPORTANT:
+  Use prompt_name='query' for queries.
+  Do NOT use prompt query for documents.
+
+--------------------------------------------------------------------------------
+5.2 Transformers (Manual Control)
+--------------------------------------------------------------------------------
+
+from transformers import AutoTokenizer, AutoModel
+import torch
+import torch.nn.functional as F
+from torch import Tensor
+
+def last_token_pool(last_hidden_states: Tensor, attention_mask: Tensor) -> Tensor:
+    left_padding = (attention_mask[:, -1].sum() == attention_mask.shape[0])
+    if left_padding:
+        return last_hidden_states[:, -1]
+    else:
+        sequence_lengths = attention_mask.sum(dim=1) - 1
+        batch_size = last_hidden_states.shape[0]
+        return last_hidden_states[
+            torch.arange(batch_size, device=last_hidden_states.device),
+            sequence_lengths
+        ]
+
+def get_detailed_instruct(task_description: str, query: str) -> str:
+    return f'Instruct: {task_description}\nQuery:{query}'
+
+task = 'Given a web search query, retrieve relevant passages that answer the query'
+queries = [
+    get_detailed_instruct(task, 'What is the capital of China?'),
+    get_detailed_instruct(task, 'Explain gravity')
+]
+documents = [
+    "The capital of China is Beijing.",
+    "Gravity is a force that attracts two bodies towards each other...",
+]
+
+input_texts = queries + documents
+
+tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3-Embedding-4B', padding_side='left')
+model = AutoModel.from_pretrained('Qwen/Qwen3-Embedding-4B')
+
+max_length = 8192
+batch_dict = tokenizer(
+    input_texts,
+    padding=True,
+    truncation=True,
+    max_length=max_length,
+    return_tensors='pt',
+)
+batch_dict.to(model.device)
+
+outputs = model(**batch_dict)
+embeddings = last_token_pool(outputs.last_hidden_state, batch_dict['attention_mask'])
+embeddings = F.normalize(embeddings, p=2, dim=1)
+
+scores = embeddings[:2] @ embeddings[2:].T
+print(scores.tolist())
+
+# Output example: [[0.7534, 0.1147], [0.0320, 0.6258]]
+
+Note: max_length=8192 in the example is NOT the model's context limit.
+The model supports 32K tokens. Adjust max_length based on needs, memory, and framework.
+
+--------------------------------------------------------------------------------
+5.3 vLLM (Efficient Serving)
+--------------------------------------------------------------------------------
+
+from vllm import LLM
+import torch
+
+def get_detailed_instruct(task_description: str, query: str) -> str:
+    return f'Instruct: {task_description}\nQuery:{query}'
+
+task = 'Given a web search query, retrieve relevant passages that answer the query'
+queries = [
+    get_detailed_instruct(task, 'What is the capital of China?'),
+    get_detailed_instruct(task, 'Explain gravity')
+]
+documents = [
+    "The capital of China is Beijing.",
+    "Gravity is a force that attracts two bodies towards each other...",
+]
+
+input_texts = queries + documents
+
+model = LLM(model="Qwen/Qwen3-Embedding-4B", task="embed")
+outputs = model.embed(input_texts)
+embeddings = torch.tensor([o.outputs.embedding for o in outputs])
+
+scores = embeddings[:2] @ embeddings[2:].T
+print(scores.tolist())
+
+# Output example: [[0.7525, 0.1143], [0.0309, 0.6240]]
+
+--------------------------------------------------------------------------------
+5.4 Text Embeddings Inference (TEI) - HTTP Endpoint
+--------------------------------------------------------------------------------
+
+Docker (NVIDIA GPU):
+  docker run --gpus all -p 8080:80 -v hf_cache:/data --pull always
+      ghcr.io/huggingface/text-embeddings-inference:1.7.2
+      --model-id Qwen/Qwen3-Embedding-4B --dtype float16
+
+Docker (CPU):
+  docker run -p 8080:80 -v hf_cache:/data --pull always
+      ghcr.io/huggingface/text-embeddings-inference:cpu-1.7.2
+      --model-id Qwen/Qwen3-Embedding-4B --dtype float16
+
+Request:
+  curl http://localhost:8080/embed -X POST
+    -d '{"inputs": ["Instruct: ...\nQuery: ...", "document text"]}'
+    -H "Content-Type: application/json"
+
+Note: Send documents WITHOUT instruction. Send queries WITH instruction.
+
+================================================================================
+6. BENCHMARKS
+================================================================================
+
+A. MTEB Multilingual
+
+Model                Mean(Task)  Bitext Mining  Classify  Cluster  Retrieval  STS
+------------------------------------------------------------------------
+Qwen3-Embedding-4B   69.45       79.36          72.33     57.15    69.60      80.86
+Qwen3-Embedding-8B   70.58       -              -         -        -          -
+
+Additional 4B scores: Instruction Retrieval 11.56, Multi Classification 26.77,
+Pair Classification 85.05, Rerank 65.08.
+8B is ranked No.1 on MTEB multilingual leaderboard as of 5 June 2025 (score 70.58).
+
+B. MTEB English v2
+
+Qwen3-Embedding-4B: Mean(Task)=74.60, Classification=89.84, Clustering=57.51,
+Pair Classification=87.01, Rerank=50.76, Retrieval=68.46, STS=88.72,
+Summarization=34.39.
+
+C. C-MTEB Chinese
+
+Qwen3-Embedding-4B: Mean(Task)=72.27, Classification=75.46, Clustering=77.89,
+Pair Classification=83.34, Rerank=66.05, Retrieval=77.03, STS=61.26.
+
+Interpretation:
+  Qwen3-Embedding-4B is a strong mid-weight option - lighter than 8B but still
+  achieves high benchmark scores. For local RAG with limited VRAM, 4B is more
+  realistic than 8B.
+
+================================================================================
+7. NOTES FOR RAG PIPELINE
+================================================================================
+
+A. Document Embedding
+  Input: raw chunk text.
+  Do NOT add: Instruct / Query prefix.
+  Reason: documentation states retrieval documents do not need instructions.
+
+B. Query Embedding
+  Input: instruction + query.
+  Recommended format:
+    Instruct: Given an Indonesian statistical question, retrieve relevant passages,
+    tables, or rows from official BPS publications that answer the question.
+    Query: <user question>
+
+C. Scoring
+  SentenceTransformers: model.similarity(query_emb, doc_emb)
+  Transformers manual: F.normalize embeddings, then dot product
+    (equivalent to cosine similarity after normalization).
+
+D. Embedding Dimension
+  Default: 2560 (safe).
+  If storage or latency is too heavy: test smaller dimensions (1024, 768, 512).
+  Risk: retrieval accuracy may drop. Do not change without evaluating P@k, R@k, MRR.
+
+E. Input Length
+  Model supports 32K tokens.
+  Example code uses max_length=8192.
+  For BPS documents: chunk size should be balanced - too small breaks table
+  relations, too large dilutes retrieval focus.
+
+F. Reranker
+  Recommended pipeline:
+    1. Qwen3-Embedding-4B -> initial top-k retrieval.
+    2. Qwen3-Reranker -> re-rank.
+    3. Generator -> final answer.
+  If the research only compares chunking methods without reranker, do NOT
+  add reranker unless the methodology explicitly allows it.
+
+================================================================================
+8. DO AND DON'T FOR AI AGENT
+================================================================================
+
+DO:
+  Use Qwen3-Embedding-4B for query and chunk embedding.
+  Add instruction to query retrieval.
+  Use English instruction for multilingual retrieval.
+  Do NOT add instruction to documents.
+  Normalize embeddings if using Transformers manual.
+  Use cosine similarity or dot product on normalized embeddings.
+  Use transformers >= 4.51.0.
+  Keep embedding dimension consistent in the vector DB.
+  Evaluate retrieval with P@k, R@k, MRR.
+
+DON'T:
+  Do NOT use Qwen3-Embedding-4B as an answer generator.
+  Do NOT mix query embeddings without instruction with documents if optimal
+    performance is the target.
+  Do NOT mix different embedding dimensions in one collection.
+  Do NOT change embedding dimension without rebuilding the index.
+  Do NOT use old transformers (KeyError: 'qwen3').
+  Do NOT assume 8B is always better - 4B may be more realistic for local experiments.
+
+================================================================================
+9. CITATION
+================================================================================
+
+@article{qwen3embedding,
+  title={Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models},
+  author={Zhang, Yanzhao and Li, Mingxin and Long, Dingkun and Zhang, Xin and Lin, Huan and Yang, Baosong and Xie, Pengjun and Yang, An and Liu, Dayiheng and Lin, Junyang and Huang, Fei and Zhou, Jingren},
+  journal={arXiv preprint arXiv:2506.05176},
+  year={2025}
+}
+
+================================================================================
+10. ONE-PARAGRAPH SUMMARY FOR AI AGENT
+================================================================================
+
+Qwen3-Embedding-4B is a 4B-parameter text embedding model from the Qwen3 family,
+supporting 100+ languages, 32K context length, 2560 max embedding dimensions,
+and MRL support for flexible output dimensions (32-2560). It is instruction-aware
+and designed for retrieval, ranking, semantic search, code retrieval,
+classification, clustering, and bitext mining. For RAG, queries should include
+task-specific instructions (typically improving performance by 1-5%), while
+documents should NOT include instructions. The model requires transformers >= 4.51.0.
+Implementation options include SentenceTransformers, Transformers, vLLM, or TEI.
+For BPS document RAG, this model is suitable as the embedder, but results must
+still be evaluated with retrieval metrics such as Precision@k, Recall@k, and MRR.
+
+================================================================================
+                             END OF DOCUMENTATION
+================================================================================
