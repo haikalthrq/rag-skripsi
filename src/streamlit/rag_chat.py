@@ -17,6 +17,7 @@ Jalankan:
 # Monkey-patch _deduplicate_user_agent BEFORE any HF import to strip it.
 import os
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")  # reduce noise
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 def _patch_hf_user_agent() -> None:
     """Patch huggingface_hub user-agent to strip trailing semicolons."""
@@ -65,11 +66,35 @@ from src.rag.pipeline import (
     DEFAULT_EMBEDDER_PATH,
     DEFAULT_CHROMA_PATH,
 )
-from src.evaluation.metrics import compute_bleu, compute_rouge
+from src.evaluation.metrics import (
+    compute_bleu, compute_rouge,
+    compute_precision_at_k, compute_recall_at_k, compute_mrr,
+)
 
 # ── Load QA Gold Standard (for BLEU/ROUGE scoring) ───────────────────────────────
 
 _QA_GOLD_DF = None
+_RETRIEVAL_GT: dict = {}  # {query_id: {method: [chunk_ids]}}
+
+_QA_PAIRS_JSON = ROOT / "data/ground_truth/qa_pairs_strict.json"
+
+def _load_retrieval_gt() -> dict:
+    """Load relevant_chunk_ids dari qa_pairs_strict.json → {query_id: {method: [ids]}}."""
+    global _RETRIEVAL_GT
+    if not _RETRIEVAL_GT:
+        try:
+            import json
+            if _QA_PAIRS_JSON.exists():
+                with open(_QA_PAIRS_JSON, encoding="utf-8") as f:
+                    items = json.load(f)
+                _RETRIEVAL_GT = {
+                    item["id"]: item.get("relevant_chunk_ids", {})
+                    for item in items
+                }
+                logger.info(f"Loaded retrieval GT: {len(_RETRIEVAL_GT)} queries")
+        except Exception as e:
+            logger.warning(f"Could not load retrieval GT: {e}")
+    return _RETRIEVAL_GT
 
 def _load_qa_gold():
     """Load QA gold standard for reference answers."""
@@ -110,9 +135,9 @@ def get_gold_answer(query: str):
 
 # ── Defaults ──────────────────────────────────────────────────────────────────
 
-_LOCAL_GEN        = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
+_LOCAL_GEN        = ROOT / "models/Qwen3-4B-Instruct-2507"
 DEFAULT_GEN_TYPE  = "hf"
-DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-Instruct-2507-FP8"
+DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-Instruct-2507"
 DEFAULT_TEMP      = 0.7
 DEFAULT_TOP_P     = 0.8
 DEFAULT_TOP_K_GEN = 20
@@ -198,7 +223,7 @@ def load_pipeline() -> RAGPipeline:
         generator_type=DEFAULT_GEN_TYPE,
         chroma_path=str(ROOT / DEFAULT_CHROMA_PATH),
         top_k=DEFAULT_TOP_K,
-        embedder_n_gpu_layers=0,   # CPU — hemat VRAM untuk generator
+        embedder_n_gpu_layers=0,  # CPU — RTX 5060 Ti 16GB tidak cukup untuk dua model 4B (16GB) + KV cache
         temperature=DEFAULT_TEMP,
         top_p=DEFAULT_TOP_P,
         top_k_gen=DEFAULT_TOP_K_GEN,
@@ -469,10 +494,10 @@ with tab_chat:
 # TAB 2 — Evaluasi Batch (Persistent + History)
 # ══════════════════════════════════════════════════════════════════════════════
 with tab_eval:
-    st.subheader("Evaluasi Batch — BLEU & ROUGE-L")
+    st.subheader("Evaluasi Batch — BLEU & ROUGE-L + Retrieval")
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
-        "Precision@k / Recall@k / MRR = N/A (belum ada retrieval label)."
+        "Retrieval metrics (P@k, R@k, MRR) dihitung dari `qa_pairs_strict.json`."
     )
 
     # ── Konfigurasi run ───────────────────────────────────────────────────
@@ -504,6 +529,7 @@ with tab_eval:
         prog = st.progress(0, text="Memulai evaluasi...")
         status_txt = st.empty()
         rows, step = [], 0
+        retrieval_gt = _load_retrieval_gt()
 
         for _, qa_row in qa_subset.iterrows():
             question = str(qa_row["question"])
@@ -544,15 +570,24 @@ with tab_eval:
                     rouge_val  = None
                     error_msg  = str(exc)
 
+                retrieved_ids = [r["id"] for r in retrieved] if 'retrieved' in dir() and retrieved else []
+                rel_ids = retrieval_gt.get(q_id, {}).get(method, [])
+                if rel_ids:
+                    prec_val = round(compute_precision_at_k(retrieved_ids, rel_ids, top_k), 4)
+                    rec_val  = round(compute_recall_at_k(retrieved_ids, rel_ids, top_k), 4)
+                    mrr_val  = round(compute_mrr(retrieved_ids, rel_ids), 4)
+                else:
+                    prec_val = rec_val = mrr_val = None
+
                 rows.append({
                     "query_id"         : q_id,
                     "method"           : METHOD_LABELS[method],
                     "question"         : question,
                     "gold_answer"      : gold_ans,
                     "generated_answer" : gen_answer,
-                    "precision_at_k"   : "N/A",
-                    "recall_at_k"      : "N/A",
-                    "mrr"              : "N/A",
+                    "precision_at_k"   : prec_val,
+                    "recall_at_k"      : rec_val,
+                    "mrr"              : mrr_val,
                     "bleu"             : round(bleu_val,  4) if bleu_val  is not None else None,
                     "rouge_l_recall"   : round(rouge_val, 4) if rouge_val is not None else None,
                     "error"            : error_msg,
@@ -583,6 +618,8 @@ with tab_eval:
                 f"✅ Selesai: {len(df_new)} baris ({n_q} pertanyaan × {len(METHODS)} metode) "
                 f"— disimpan sebagai **{saved_path.name}**"
             )
+            # Rerun agar riwayat evaluasi di bawah terupdate
+            st.rerun()
 
     st.divider()
 
@@ -617,6 +654,9 @@ with tab_eval:
                 "question"         : st.column_config.TextColumn(width="medium"),
                 "gold_answer"      : st.column_config.TextColumn(width="medium"),
                 "generated_answer" : st.column_config.TextColumn(width="large"),
+                "precision_at_k"   : st.column_config.NumberColumn(format="%.4f"),
+                "recall_at_k"      : st.column_config.NumberColumn(format="%.4f"),
+                "mrr"              : st.column_config.NumberColumn(format="%.4f"),
                 "bleu"             : st.column_config.NumberColumn(format="%.4f"),
                 "rouge_l_recall"   : st.column_config.NumberColumn(format="%.4f"),
             },

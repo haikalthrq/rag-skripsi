@@ -321,15 +321,15 @@ if __name__ == "__main__":
     parser.add_argument(
         '--mode', '-m',
         type=str,
-        default='gguf',
+        default='huggingface',
         choices=['gguf', 'huggingface'],
-        help='Mode embedding: gguf (recommended) atau huggingface (default: gguf)'
+        help='Mode embedding: huggingface (recommended) atau gguf (default: huggingface)'
     )
     
     parser.add_argument(
         '--gguf-model',
         type=str,
-        help='Path ke GGUF model (default: models/Qwen3-Embedding-4B-Q8_0.gguf)'
+        help='Path ke GGUF model (default: models/Qwen3-Embedding-4B-Q8_0.gguf, tidak digunakan untuk mode huggingface)'
     )
     
     parser.add_argument(

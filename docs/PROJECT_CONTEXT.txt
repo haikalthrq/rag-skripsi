@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-20 (02:40 WIB)
+Terakhir diperbarui: 2026-05-21 (12:55 WIB)
 ================================================================================
 
 
@@ -11,12 +11,20 @@ Terakhir diperbarui: 2026-05-20 (02:40 WIB)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Skripsi S1 — membangun dan mengevaluasi sistem RAG berbasis dokumen statistik BPS Indonesia.
-Bahasa: Python 3.11.9 | OS: Windows | Repo: rag-skripsi | Branch aktif: dev
+Bahasa: Python 3.11.9 | Repo: rag-skripsi | Branch aktif: dev
+
+Environment / Hardware:
+  - Lokal (laptop): Windows | GPU RTX 4050 6GB
+    → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
+    → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
+  - Cloud (Vast AI): Linux | GPU RTX 3090 atau RTX 2080 Ti
+    → Embedding: Qwen3-Embedding-4B (full HuggingFace safetensors, GPU)
+    → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
 
 Tujuan:
   - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
-  - Embedding: Qwen3-Embedding-4B-Q8_0.gguf (llama.cpp, CPU only)
-  - Generator: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, GPU RTX 4050 6GB)
+  - Embedding: lihat Environment di atas (GGUF untuk RTX 4050, full untuk RTX 3090/2080 Ti)
+  - Generator: Qwen3-4B-Instruct-2507 — FP8 untuk RTX 4050, BF16 untuk RTX 3090/2080 Ti
   - Vector DB: ChromaDB (persistent, lokal di data/chroma/)
   - Evaluasi retrieval: Precision@k, Recall@k, MRR  — NDCG tidak dipakai
   - Evaluasi generasi: BLEU (sacrebleu), ROUGE-L Recall (rouge-score)
@@ -54,12 +62,13 @@ rag-skripsi/
 │   ├── raw/              PDF asli
 │   ├── cleaned/          teks hasil preprocessing
 │   ├── chunked/          {element_based,maxmin_semantic,recursive}/*.json
-│   ├── chroma/           ChromaDB (ignored by git)
+│   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
 │   ├── generation_eval/  per_query*.csv, summary*.csv, report*.txt (log di-ignore)
 │   └── retrieval_eval_*.csv + *_summary.csv
-├── models/               Qwen3-Embedding-4B-Q8_0.gguf, Qwen3-4B-Instruct-2507-FP8/
+│   CATATAN: di Vast AI, results/ adalah symlink ke /workspace/results/
+├── models/               embedding + generator (symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
 
@@ -127,22 +136,31 @@ Chunking:
   File chunks: data/chunked/{method}/{doc_id}_chunks.json
 
 Embedding:
-  Model : Qwen3-Embedding-4B-Q8_0.gguf (lokal, via llama.cpp)
-  Device: CPU only (hemat VRAM untuk generator)
-  n_batch: 64 (diubah dari 512 untuk hindari OOM)
+  Lokal (RTX 4050):
+    Model : Qwen3-Embedding-4B-Q8_0.gguf (via llama.cpp, CPU only)
+    Device: CPU only (hemat VRAM untuk generator)
+    n_batch: 64 (diubah dari 512 untuk hindari OOM)
+  Vast AI (RTX 3090 / 2080 Ti):
+    Model : Qwen3-Embedding-4B (full HuggingFace safetensors, lokal di models/)
+    Device: GPU (tidak perlu GGUF karena VRAM besar)
   Enrichment: enrich_table_chunk_texts() di src/embedding/io.py
     → Parse text_as_html tabel + prefix judul dari chunk sebelumnya
     → Hanya memengaruhi data/embeddings/ dan ChromaDB, TIDAK ubah data/chunked/
 
 ChromaDB:
-  Path: data/chroma/ | Collections: collection_element_based,
-        collection_maxmin_semantic, collection_recursive
+  Path: data/chroma/ (di Vast AI: symlink ke /workspace/chroma/)
+  Collections: collection_element_based, collection_maxmin_semantic, collection_recursive
 
 Generator:
-  Model: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, lokal di models/)
-  Fallback: Qwen/Qwen3-4B-Instruct-2507-FP8 (HF Hub)
+  Lokal (RTX 4050):
+    Model: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, lokal di models/)
+    VRAM: ~5 GB (auto max_memory: GPU=5GiB, CPU=16GiB)
+    GPU: RTX 4050 6GB sm86
+  Vast AI (RTX 3090 / 2080 Ti):
+    Model: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, lokal di models/)
+    VRAM: cukup untuk BF16 penuh (RTX 3090 24GB / 2080 Ti 11GB)
+  Fallback: Qwen/Qwen3-4B-Instruct-2507 (HF Hub)
   BUKAN Thinking model — Instruct dipilih karena lebih stabil
-  VRAM: ~5 GB (auto max_memory: GPU=5GiB, CPU=16GiB) | GPU: RTX 4050 6GB sm86
   Parameter LOCKED (sesuai dokumentasi resmi, tidak adjustable):
     Temperature=0.7, Top-P=0.8, Top-K=20, MinP=0, Max-tokens=16384
 
@@ -206,9 +224,11 @@ SELESAI ✓
   [x] Streamlit RAG chat demo (single/compare mode, batch eval)
   [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
   [x] Update .gitignore + push ke GitHub branch dev (commit 4d1ab97)
+  [x] Re-run evaluasi retrieval (Non-GGUF) — MRR significantly improved
+  [ ] Re-run evaluasi generasi (BF16) — IN PROGRESS via scripts/run_generation_eval.py
 
 BELUM DIMULAI ○
-  [ ] Analisis mendalam perbandingan antar metode chunking
+  [ ] Analisis mendalam perbandingan antar metode chunking (menggunakan hasil BF16 terbaru)
   [ ] Penulisan laporan skripsi
 
 

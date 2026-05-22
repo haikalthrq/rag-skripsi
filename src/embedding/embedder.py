@@ -8,7 +8,7 @@ Mendukung 2 mode:
 
 import logging
 import numpy as np
-from typing import List, Optional, Union
+from typing import Dict, List, Optional, Union, Any
 from pathlib import Path
 
 # GGUF Support via llama-cpp-python
@@ -106,13 +106,20 @@ class QwenEmbedder:
     
     def _embed_hf(self, texts: List[str]) -> np.ndarray:
         """Generate embeddings using HuggingFace model."""
-        # SentenceTransformer.encode() handles batching automatically
+        # Batch size kecil untuk mencegah OOM di RTX 3090 24GB
         embeddings = self.model.encode(
             texts,
             convert_to_numpy=True,
-            show_progress_bar=len(texts) > 100
+            show_progress_bar=len(texts) > 100,
+            batch_size=4,
         )
-        
+        # Bebersihkan cache CUDA agar VRAM tidak terfragmentasi antar-file
+        try:
+            import torch
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        except Exception:
+            pass
         return embeddings
     
     def _normalize_embeddings(self, embeddings: np.ndarray) -> np.ndarray:
@@ -142,7 +149,7 @@ def initialize_gguf_embedder(
     model_path: str = DEFAULT_GGUF_MODEL_PATH,
     n_gpu_layers: int = -1,
     n_ctx: int = 8192,  # Harus cukup untuk chunk terpanjang (~3500 token dari kalimat 13753 chars)
-    n_batch: int = 64,  # Kecilkan dari 512 → 64 untuk hindari OOM
+    n_batch: int = 512,  # RTX 3090 24GB: kembali ke 512 (64 adalah workaround OOM 6GB)
     normalize: bool = True,
     verbose: bool = False
 ) -> Optional[QwenEmbedder]:
@@ -226,7 +233,25 @@ def initialize_hf_embedder(
         logger.info(f"Loading HuggingFace model: {model_name}")
         logger.info(f"  - Device: {device}")
         
-        model = SentenceTransformer(model_name, device=device)
+        model_kwargs: Dict[str, Any] = {}
+        try:
+            model_kwargs["attn_implementation"] = "flash_attention_2"
+            model = SentenceTransformer(
+                model_name,
+                device=device,
+                model_kwargs=model_kwargs,
+                processor_kwargs={"padding_side": "left"},
+            )
+            logger.info("  - Attention: flash_attention_2")
+        except Exception:
+            model_kwargs.pop("attn_implementation", None)
+            model = SentenceTransformer(
+                model_name,
+                device=device,
+                model_kwargs=model_kwargs,
+                processor_kwargs={"padding_side": "left"},
+            )
+            logger.info("  - Attention: default (flash_attention_2 tidak tersedia)")
         
         logger.info(f"✓ HuggingFace model loaded successfully")
         

@@ -28,7 +28,7 @@ from .metrics import (
 )
 from ..chroma.client import initialize_chroma_client, get_or_create_collection
 from ..chroma.query import similarity_search
-from ..embedding.embedder import QwenEmbedder, initialize_gguf_embedder
+from ..embedding.embedder import QwenEmbedder, initialize_hf_embedder
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +38,7 @@ COLLECTION_NAMES: Dict[str, str] = {
     "recursive":       "collection_recursive",
 }
 
-DEFAULT_EMBEDDER_PATH = "models/Qwen3-Embedding-4B-Q8_0.gguf"
+DEFAULT_EMBEDDER_PATH = "models/Qwen3-Embedding-4B"
 DEFAULT_CHROMA_PATH   = "data/chroma"
 
 
@@ -280,9 +280,9 @@ def build_evaluator(
     Factory function: load komponen dan return RAGEvaluator.
 
     Args:
-        embedder_path : Path ke GGUF embedding model
+        embedder_path : HF model name atau path lokal embedding model
         chroma_path   : Path ke ChromaDB persistent storage
-        n_gpu_layers  : GPU layers untuk embedder (-1 = semua)
+        n_gpu_layers  : Tidak digunakan (kompatibilitas backward)
 
     Returns:
         RAGEvaluator yang siap digunakan
@@ -292,10 +292,9 @@ def build_evaluator(
     """
     logger.info("Building RAGEvaluator...")
 
-    embedder = initialize_gguf_embedder(
-        model_path=embedder_path,
-        n_gpu_layers=n_gpu_layers,
-        verbose=False,
+    embedder = initialize_hf_embedder(
+        model_name=embedder_path,
+        device="cpu",
     )
     if embedder is None:
         raise RuntimeError(f"Gagal memuat embedder: {embedder_path}")

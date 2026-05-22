@@ -1,143 +1,220 @@
-================================================================================
-           QWEN3-4B-INSTRUCT-2507-BF16 DOCUMENTATION
-================================================================================
+Qwen3-4B-Instruct-2507
+Sumber: PDF Model Card Hugging Face Qwen/Qwen3-4B-Instruct-2507
+Bahasa: Indonesia
+Tujuan: Ringkasan teknis padat untuk implementasi, deployment, dan evaluasi model.
 
-Model: Qwen/Qwen3-4B-Instruct-2507-BF16
-Type: Chat / Instruct Model (BF16, Non-Thinking)
+============================================================
+1. IDENTITAS MODEL
+============================================================
 
-================================================================================
-1. HIGHLIGHTS
-================================================================================
+Nama repo resmi:
+Qwen/Qwen3-4B-Instruct-2507
 
-We introduce the updated version of the Qwen3-4B-BF16 non-thinking mode, named
-Qwen3-4B-Instruct-2507-BF16, featuring the following key enhancements:
+Nama model:
+Qwen3-4B-Instruct-2507
 
-  Significant improvements in general capabilities, including instruction
-    following, logical reasoning, text comprehension, mathematics, science,
-    coding, and tool usage.
+Keluarga model:
+Qwen3
 
-  Substantial gains in long-tail knowledge coverage across multiple languages.
+Jenis tugas:
+Text Generation / Conversational
 
-  Markedly better alignment with user preferences in subjective and open-ended
-    tasks, enabling more helpful responses and higher-quality text generation.
+Format distribusi:
+Hugging Face Transformers + Safetensors
 
-  Enhanced capabilities in 256K long-context understanding.
+Tensor type:
+BF16
 
-================================================================================
-2. MODEL OVERVIEW
-================================================================================
+Ukuran model:
+4B parameters
 
-Property                            Value
-------------------------------------------------------------------------
-Type                                Causal Language Models
-Training Stage                      Pretraining & Post-training
-Number of Parameters                4.0B
-Number of Parameters (Non-Embedding) 3.6B
-Number of Layers                    36
-Number of Attention Heads (GQA)     32 for Q and 8 for KV
-Context Length                      262,144 tokens (natively)
-Tensor Type                         BF16
-License                             Apache 2.0
-Paper                               Qwen3 Technical Report, arXiv:2505.09388
+Lisensi:
+Apache-2.0
 
-IMPORTANT NOTES:
-  This model supports ONLY non-thinking mode.
-  It does NOT generate <think> blocks in its output.
-  Specifying enable_thinking=False is NO LONGER required.
-  This is a generator/instruct model. For embedding or semantic retrieval,
-    use a separate embedding model such as Qwen3-Embedding-4B.
+Paper rujukan:
+Qwen3 Technical Report
+arXiv: 2505.09388
+Tanggal publikasi paper: 14 Mei 2025
 
-For more details, including benchmark evaluation, hardware requirements,
-and inference performance, please refer to:
-  - Blog  : https://qwenlm.github.io/blog/
-  - GitHub: https://github.com/QwenLM/Qwen3
-  - Docs  : https://qwen.readthedocs.io/
+Catatan penting untuk AI Agent:
+- Repo resmi adalah Qwen/Qwen3-4B-Instruct-2507.
+- Jangan menambahkan suffix seperti -BF16 pada repo ID, kecuali repo itu memang ada.
+- BF16 adalah tipe tensor di dalam model card, bukan nama repo resmi.
+- Contoh repo yang benar di kode resmi: Qwen/Qwen3-4B-Instruct-2507.
 
-================================================================================
-3. PERFORMANCE BENCHMARKS
-================================================================================
+============================================================
+2. POSISI MODEL DALAM EKOSISTEM HUGGING FACE
+============================================================
 
-Benchmark                      GPT-4.1-nano     Qwen3-30B-A3B  Qwen3-4B      Qwen3-4B-Instruct
-                               2025-04-14       Non-Thinking Non-Thinking  2507
-------------------------------------------------------------------------
-KNOWLEDGE
-MMLU-Pro                       62.8             69.1           58.0          69.6
-MMLU-Redux                     80.2             84.1           77.3          84.2
-GPQA                           50.3             54.8           41.7          62.0
-SuperGPQA                      32.2             42.2           32.0          42.8
+Model tree pada halaman Hugging Face menampilkan:
+- Adapters: 5496 models
+- Finetunes: 1703 models
+- Merges: 23 models
+- Quantizations: 243 models
+- Spaces using Qwen/Qwen3-4B-Instruct-2507: 100 spaces
 
-REASONING
-AIME25                         22.7             21.6           19.1          47.4
-HMMT25                         9.7              12.0           12.1          31.0
-ZebraLogic                     14.8             33.2           35.2          80.2
-LiveBench 20241125             41.5             59.4           48.4          63.0
+Inference provider yang terlihat pada halaman:
+- Nscale
 
-CODING
-LiveCodeBench v6 (25.02-25.05) 31.5             29.0           26.4          35.1
-MultiPL-E                      76.3             74.6           66.6          76.8
-Aider-Polyglot                 9.8              24.4           13.8          12.9
+Komponen halaman model:
+- Model card
+- Files
+- Community
+- Eval Results
+- text-generation-inference
+- Chat template
+- Files info
 
-ALIGNMENT
-IFEval                         74.5             83.7           81.2          83.4
-Arena-Hard v2 *                15.9             24.8           9.5           43.4
-Creative Writing v3            72.7             68.1           53.6          83.5
-WritingBench                   66.9             72.2           68.5          83.4
+============================================================
+3. HIGHLIGHTS UTAMA
+============================================================
 
-AGENT
-BFCL-v3                        53.0             58.6           57.6          61.9
-TAU1-Retail                    23.5             38.3           24.3          48.7
-TAU1-Airline                   14.0             18.0           16.0          32.0
-TAU2-Retail                    -                31.6           28.1          40.4
-TAU2-Airline                   -                18.0           12.0          24.0
-TAU2-Telecom                   -                18.4           17.5          13.2
+Qwen3-4B-Instruct-2507 adalah versi update dari Qwen3-4B mode non-thinking.
+Model ini fokus pada penggunaan instruksi langsung, bukan reasoning eksplisit dengan blok <think>.
 
-MULTILINGUALISM
-MultiIF                        60.7             70.8           61.3          69.0
-MMLU-ProX                      56.2             65.1           49.6          61.6
-INCLUDE                        58.6             67.8           53.8          60.1
-PolyMATH                       15.6             23.3           16.6          31.1
+Peningkatan utama:
+1. Kemampuan umum meningkat signifikan.
+   Area yang disebutkan:
+   - instruction following
+   - logical reasoning
+   - text comprehension
+   - mathematics
+   - science
+   - coding
+   - tool usage
 
-* For reproducibility, we report the win rates evaluated by GPT-4.1.
+2. Cakupan long-tail knowledge meningkat.
+   Model punya peningkatan pengetahuan pada banyak bahasa.
 
-Benchmark Notes:
-  - Qwen3-4B-Instruct-2507 surpasses the previous Qwen3-4B Non-Thinking model
-    on most benchmarks, especially GPQA, AIME25, HMMT25, ZebraLogic, LiveBench,
-    Creative Writing, and WritingBench.
-  - Aider-Polyglot and TAU2-Telecom are not the strongest scores in the table.
+3. Alignment dengan preferensi user meningkat.
+   Model lebih cocok untuk tugas subjektif dan open-ended.
+   Dampaknya: respons lebih membantu dan kualitas generasi teks lebih baik.
 
-================================================================================
-4. DEPENDENCIES
-================================================================================
+4. Long-context understanding meningkat.
+   Model mendukung konteks panjang 256K.
 
-REQUIREMENTS:
-  transformers >= 4.51.0 (required)
+============================================================
+4. SPESIFIKASI MODEL
+============================================================
 
-  With transformers < 4.51.0, you will encounter: KeyError: 'qwen3'
+Type:
+Causal Language Models
 
-For deployment (OpenAI-compatible endpoint):
-  sglang >= 0.4.6.post1
-  vllm >= 0.8.5
+Training Stage:
+Pretraining dan Post-training
 
-Local applications supporting Qwen3:
-  Ollama
-  LMStudio
-  MLX-LM
-  llama.cpp
-  KTransformers
+Number of Parameters:
+4.0B
 
-================================================================================
-5. QUICKSTART
-================================================================================
+Number of Parameters Non-Embedding:
+3.6B
 
---------------------------------------------------------------------------------
-5.1 Basic Usage with Transformers
---------------------------------------------------------------------------------
+Number of Layers:
+36
+
+Attention Heads dengan GQA:
+- 32 heads untuk Q
+- 8 heads untuk KV
+
+Context Length:
+262,144 tokens secara native
+
+Mode berpikir:
+Non-thinking only
+
+Catatan mode thinking:
+- Model ini hanya mendukung non-thinking mode.
+- Model tidak menghasilkan blok <think> dan </think> pada output.
+- Parameter enable_thinking=False tidak perlu lagi disetel.
+
+Implikasi praktis:
+- Cocok untuk respons langsung.
+- Cocok untuk RAG yang membutuhkan jawaban final tanpa chain-of-thought eksplisit.
+- Untuk prompt yang butuh penalaran, gunakan instruksi eksplisit seperti "reason step by step" jika memang dibutuhkan dalam output.
+
+============================================================
+5. PERFORMA BENCHMARK
+============================================================
+
+Tabel di model card membandingkan:
+- GPT-4.1-nano-2025-04-14
+- Qwen3-30B-A3B Non-Thinking
+- Qwen3-4B Non-Thinking
+- Qwen3-4B-Instruct-2507
+
+Skor Qwen3-4B-Instruct-2507:
+
+Knowledge:
+- MMLU-Pro: 69.6
+- MMLU-Redux: 84.2
+- GPQA: 62.0
+- SuperGPQA: 42.8
+
+Reasoning:
+- AIME25: 47.4
+- HMMT25: 31.0
+- ZebraLogic: 80.2
+- LiveBench 20241125: 63.0
+
+Coding:
+- LiveCodeBench v6 (25.02-25.05): 35.1
+- MultiPL-E: 76.8
+- Aider-Polyglot: 12.9
+
+Alignment:
+- IFEval: 83.4
+- Arena-Hard v2: 43.4
+- Creative Writing v3: 83.5
+- WritingBench: 83.4
+
+Agent:
+- BFCL-v3: 61.9
+- TAU1-Retail: 48.7
+- TAU1-Airline: 32.0
+- TAU2-Retail: 40.4
+- TAU2-Airline: 24.0
+- TAU2-Telecom: 13.2
+
+Multilingualism:
+- MultiIF: 69.0
+- MMLU-ProX: 61.6
+- INCLUDE: 60.1
+- PolyMATH: 31.1
+
+Catatan benchmark:
+- Untuk reproduksibilitas, win rate pada Arena-Hard v2 dievaluasi oleh GPT-4.1.
+- Benchmark hanya indikator umum. Untuk pipeline RAG, tetap perlu evaluasi lokal sesuai dataset, chunking, retriever, prompt, dan metrik penelitian.
+
+============================================================
+6. REQUIREMENT PENTING
+============================================================
+
+Gunakan versi terbaru Hugging Face Transformers.
+
+Jika memakai transformers versi lebih lama dari 4.51.0, error yang bisa muncul:
+KeyError: 'qwen3'
+
+Perintah update yang disarankan:
+pip install -U transformers accelerate safetensors huggingface_hub
+
+Catatan:
+- Error KeyError: 'qwen3' biasanya bukan masalah token Hugging Face.
+- Error itu terjadi karena versi transformers belum mengenali arsitektur Qwen3.
+
+============================================================
+7. QUICKSTART HUGGING FACE TRANSFORMERS
+============================================================
+
+Kode resmi menggunakan repo ID:
+Qwen/Qwen3-4B-Instruct-2507
+
+Contoh penggunaan:
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name = "Qwen/Qwen3-4B-Instruct-2507-BF16"
+model_name = "Qwen/Qwen3-4B-Instruct-2507"
 
-# Load tokenizer and model
+# Load tokenizer dan model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
@@ -145,168 +222,219 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-# Prepare input
+# Siapkan input
 prompt = "Give me a short introduction to large language model."
-messages = [{"role": "user", "content": prompt}]
+messages = [
+    {"role": "user", "content": prompt}
+]
+
 text = tokenizer.apply_chat_template(
     messages,
     tokenize=False,
     add_generation_prompt=True,
 )
+
 model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
 
-# Generate
+# Generate output
 generated_ids = model.generate(
     **model_inputs,
     max_new_tokens=16384
 )
+
 output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist()
 content = tokenizer.decode(output_ids, skip_special_tokens=True)
+
 print("content:", content)
 
-Notes:
-  - apply_chat_template is mandatory for correct chat formatting.
-  - add_generation_prompt=True adds the assistant prompt so the model starts answering.
-  - max_new_tokens=16384 follows the recommended output length from the documentation.
-  - output_ids is sliced to contain only the model's answer, not the input prompt.
+Penjelasan untuk AI Agent:
+- tokenizer.apply_chat_template wajib dipakai agar format chat sesuai model.
+- add_generation_prompt=True menambahkan sinyal agar model mulai menjawab.
+- max_new_tokens=16384 adalah output length yang direkomendasikan untuk banyak query instruct.
+- device_map="auto" membiarkan Transformers memilih distribusi device otomatis.
+- torch_dtype="auto" mengikuti tipe yang cocok dari model, dalam konteks ini BF16 jika environment mendukung.
 
---------------------------------------------------------------------------------
-5.2 Deployment with SGLang / vLLM
---------------------------------------------------------------------------------
+============================================================
+8. DEPLOYMENT
+============================================================
 
-SGLang:
-  python -m sglang.launch_server
-      --model-path Qwen/Qwen3-4B-Instruct-2507-BF16
-      --context-length 262144
+Model dapat dideploy dengan:
+- sglang >= 0.4.6.post1
+- vllm >= 0.8.5
 
-vLLM:
-  vllm serve Qwen/Qwen3-4B-Instruct-2507-BF16
-      --max-model-len 262144
+Tujuan deployment:
+Membuat endpoint yang kompatibel dengan OpenAI API.
 
-NOTE: If you encounter OOM, reduce context length, e.g., to 32,768.
+Contoh SGLang:
+python -m sglang.launch_server --model-path Qwen/Qwen3-4B-Instruct-2507
 
---------------------------------------------------------------------------------
-5.3 Agentic Use with Qwen-Agent
---------------------------------------------------------------------------------
+Catatan:
+PDF menampilkan command SGLang yang terpotong karena line wrapping.
+Repo ID resmi tetap Qwen/Qwen3-4B-Instruct-2507.
 
-Qwen3 excels in tool calling. We recommend Qwen-Agent to maximize agentic ability.
+Contoh vLLM:
+vllm serve Qwen/Qwen3-4B-Instruct-2507 --max-model-len 262144
+
+Jika terjadi OOM:
+Kurangi context length, misalnya menjadi 32768.
+
+Contoh:
+vllm serve Qwen/Qwen3-4B-Instruct-2507 --max-model-len 32768
+
+Framework lokal yang disebut mendukung Qwen3:
+- Ollama
+- LMStudio
+- MLX-LM
+- llama.cpp
+- KTransformers
+
+Catatan praktis:
+- Context 262144 sangat besar dan bisa boros VRAM/RAM.
+- Untuk laptop atau GPU kecil, gunakan context lebih pendek.
+- Untuk RAG skripsi, context 32768 sering lebih realistis daripada 262144.
+
+============================================================
+9. AGENTIC USE DAN TOOL CALLING
+============================================================
+
+Qwen3 disebut unggul dalam tool calling.
+Qwen merekomendasikan Qwen-Agent untuk memaksimalkan kemampuan agentic.
+
+Alasan memakai Qwen-Agent:
+- Qwen-Agent sudah membungkus tool-calling template.
+- Qwen-Agent sudah menyediakan parser tool-calling.
+- Ini mengurangi kompleksitas implementasi manual.
+
+Cara mendefinisikan tools:
+- Pakai file konfigurasi MCP.
+- Pakai tool bawaan Qwen-Agent.
+- Integrasikan tool sendiri.
+
+Contoh struktur kode dari model card:
 
 from qwen_agent.agents import Assistant
 
+# Define LLM
 llm_cfg = {
-    'model': 'Qwen3-4B-Instruct-2507-BF16',
+    'model': 'Qwen3-4B-Instruct-2507',
     'model_server': 'http://localhost:8000/v1',
     'api_key': 'EMPTY',
 }
 
+# Define tools
 tools = [
-    {'mcpServers': {
-        'time': {'command': 'uvx', 'args': ['mcp-server-time', '--local-timezone=Asia/Shanghai']},
-        'fetch': {'command': 'uvx', 'args': ['mcp-server-fetch']}
-    }},
-    'code_interpreter',
+    {
+        'mcpServers': {
+            'time': {
+                'command': 'uvx',
+                'args': ['mcp-server-time', '--local-timezone=Asia/Shanghai']
+            },
+            'fetch': {
+                'command': 'uvx',
+                'args': ['mcp-server-fetch']
+            }
+        }
+    },
+    'code_interpreter'
 ]
 
+# Define agent
 bot = Assistant(llm=llm_cfg, function_list=tools)
 
-messages = [{'role': 'user', 'content': 'https://qwenlm.github.io/blog/ Introduce the latest developments of Qwen'}]
+# Streaming generation
+messages = [{'role': 'user', 'content': 'https://qwenlm.github.io/blog/'}]
 for responses in bot.run(messages=messages):
     pass
+
 print(responses)
 
-================================================================================
-6. BEST PRACTICES
-================================================================================
+Catatan:
+- PDF menampilkan beberapa baris kode yang terpotong karena layout halaman.
+- Contoh di atas dirapikan agar mudah dipahami AI Agent.
+- model_server menunjuk endpoint lokal OpenAI-compatible.
+- api_key dapat diisi EMPTY jika endpoint lokal tidak butuh autentikasi.
 
---------------------------------------------------------------------------------
-6.1 Sampling Parameters (Official Recommendation)
---------------------------------------------------------------------------------
+============================================================
+10. BEST PRACTICES
+============================================================
 
-  Temperature = 0.7
-  TopP        = 0.8
-  TopK        = 20
-  MinP        = 0
+Parameter sampling yang direkomendasikan:
+- Temperature: 0.7
+- TopP: 0.8
+- TopK: 20
+- MinP: 0
 
-For supported frameworks, presence_penalty can be set between 0 and 2 to reduce
-endless repetitions. However, a higher value may occasionally result in language
-mixing and slight performance decrease.
+Presence penalty:
+- Jika framework mendukung, presence_penalty bisa diatur antara 0 sampai 2.
+- Tujuannya mengurangi repetisi tanpa akhir.
+- Nilai terlalu tinggi bisa menyebabkan language mixing dan sedikit penurunan performa.
 
---------------------------------------------------------------------------------
-6.2 Output Length
---------------------------------------------------------------------------------
+Output length:
+- Rekomendasi umum: 16,384 token untuk sebagian besar query instruct.
 
-  Most queries: 16,384 tokens (recommended for instruct models)
+Standardisasi output untuk benchmark:
+1. Masalah matematika:
+   Tambahkan instruksi:
+   Please reason step by step, and put your final answer within oxed{}.
 
-For short answers, still limit max_new_tokens for faster inference.
+2. Multiple-choice questions:
+   Tambahkan instruksi agar jawaban memakai format JSON.
+   Contoh:
+   Please show your choice in the answer field with only the choice letter, e.g., "answer": "C".
 
---------------------------------------------------------------------------------
-6.3 Standardize Output Format
---------------------------------------------------------------------------------
+Implikasi untuk evaluasi:
+- Prompt perlu distandarkan agar output model lebih mudah dinilai.
+- Untuk eksperimen skripsi, format output yang konsisten mengurangi noise evaluasi BLEU, ROUGE-L, dan evaluasi manual.
 
-For benchmarking, use prompts that force consistent output format:
+============================================================
+11. CATATAN UNTUK RAG PIPELINE
+============================================================
 
-Math problems:
-  Include: "Please reason step by step, and put your final answer within \boxed{}."
+Model ini bisa dipakai sebagai generator dalam pipeline RAG.
 
-Multiple-choice:
-  Add: "Please show your choice in the answer field with only the choice letter, e.g., \"answer\": \"C\"."
+Kelebihan untuk RAG:
+- Instruction following lebih kuat.
+- Text comprehension meningkat.
+- Long context besar.
+- Non-thinking output lebih ringkas dan tidak mencampur blok reasoning internal.
+- Tool usage dan agentic capability tersedia jika dibutuhkan.
 
-================================================================================
-7. NOTES FOR RAG PIPELINE
-================================================================================
+Hal yang perlu dijaga:
+- Jangan mengandalkan context length besar sebagai solusi tunggal.
+- Tetap optimalkan chunking, retrieval, prompt, dan reranking jika ada.
+- Untuk evaluasi ilmiah, catat model ID, versi model, framework, parameter decoding, context length, dan prompt template.
+- Karena model ini non-thinking only, jangan berharap output berisi <think>...</think>.
 
-Role in RAG:
-  This model is the generator, NOT the retriever. Use a separate embedding model
-  (e.g., Qwen3-Embedding-4B) for document embedding and retrieval.
+Setting awal yang masuk akal untuk RAG:
+- model_id: Qwen/Qwen3-4B-Instruct-2507
+- max_new_tokens: sesuaikan tugas; dokumentasi memberi contoh 16384
+- temperature: 0.7 untuk generasi umum
+- top_p: 0.8
+- top_k: 20
+- min_p: 0
+- context length deployment: 32768 jika resource terbatas; 262144 jika resource cukup
 
-Architecture:
-  1. User asks a question.
-  2. Embedding model embeds the query.
-  3. Vector DB retrieves top-k relevant chunks.
-  4. Prompt is built from instruction, retrieved chunks, and question.
-  5. Qwen3-4B-Instruct-2507-BF16 generates the answer.
-  6. Evaluate retrieval and generation separately.
+============================================================
+12. KESIMPULAN PADAT
+============================================================
 
-Example RAG prompt:
+Qwen3-4B-Instruct-2507 adalah model Causal LM 4B berbasis Qwen3 untuk text generation dan chat.
+Model ini adalah versi non-thinking mode yang diperbarui.
+Model tidak menghasilkan blok <think> dan tidak perlu enable_thinking=False.
+Repo resmi adalah Qwen/Qwen3-4B-Instruct-2507.
+Model memakai Safetensors dengan tensor type BF16.
+Model mendukung context length native 262144 token.
+Model direkomendasikan memakai Transformers terbaru karena versi <4.51.0 bisa menghasilkan KeyError: 'qwen3'.
+Deployment dapat memakai vLLM atau SGLang untuk endpoint OpenAI-compatible.
+Jika OOM, kurangi context length, misalnya ke 32768.
+Untuk agentic workflow, Qwen merekomendasikan Qwen-Agent karena sudah menyediakan template dan parser tool calling.
+Sampling yang direkomendasikan: Temperature 0.7, TopP 0.8, TopK 20, MinP 0.
+Output length yang direkomendasikan untuk banyak query instruct: 16384 token.
+Untuk benchmarking, format output perlu distandarkan agar hasil evaluasi lebih konsisten.
 
-You are a document-based QA assistant. Answer based only on the provided context.
-If the answer is not in the context, respond: "Not found in context."
-
-[CONTEXT]
-{retrieved_chunks}
-
-[QUESTION]
-{question}
-
-[ANSWER]
-
-Parameter recommendations for factual RAG:
-  Use lower temperature (0.1-0.3) for stable factual answers.
-  Use official Temperature=0.7 for more open-ended tasks.
-  Limit max_new_tokens to the expected answer length.
-  Use consistent output format for automatic evaluation.
-
-================================================================================
-8. LIMITATIONS
-================================================================================
-
-  This model is non-thinking mode only.
-  No <think> blocks in output.
-  Hardware requirements are not detailed in the PDF documentation.
-  Full context 262,144 tokens may cause OOM on limited hardware.
-  Some benchmarks do not always outperform specific competitors.
-  Aider-Polyglot and TAU2-Telecom are not the top scores for this model.
-
-Technical checks required:
-  transformers version must be recent (>= 4.51.0).
-  Chat template must be used.
-  Context length must match available VRAM.
-  For agentic tool use, parser and tool schema must be tested.
-  For automatic evaluation, output must be standardized.
-
-================================================================================
-9. CITATION
-================================================================================
+============================================================
+13. SITASI RESMI
+============================================================
 
 @misc{qwen3technicalreport,
     title={Qwen3 Technical Report},
@@ -317,23 +445,3 @@ Technical checks required:
     primaryClass={cs.CL},
     url={https://arxiv.org/abs/2505.09388},
 }
-
-================================================================================
-10. ONE-PARAGRAPH SUMMARY FOR AI AGENT
-================================================================================
-
-Qwen/Qwen3-4B-Instruct-2507-BF16 is a 4B-parameter causal language model for text
-generation and instruction following, updated from the previous Qwen3-4B
-non-thinking mode. It supports 262,144 native context tokens, 36 layers, GQA
-with 32 Q heads and 8 KV heads, 4.0B parameters (3.6B non-embedding), BF16
-tensor type, and Apache 2.0 license. The model does not generate <think>
-blocks and does not require enable_thinking=False. Use it as the generator in
-a RAG pipeline; do NOT use it as an embedding model. Use transformers >= 4.51.0
-to avoid KeyError: 'qwen3'. For OpenAI-compatible deployment, use
-sglang >= 0.4.6.post1 or vllm >= 0.8.5. Official sampling recommendation:
-Temperature=0.7, TopP=0.8, TopK=20, MinP=0. Recommended output length for most
-queries: 16,384 tokens. For factual RAG, consider lower temperature (0.1-0.3).
-
-================================================================================
-                             END OF DOCUMENTATION
-================================================================================

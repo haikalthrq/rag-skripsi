@@ -170,10 +170,10 @@ class HFRAGGenerator:
     """
     Generator untuk RAG menggunakan HuggingFace Transformers.
 
-    Dioptimalkan untuk Qwen3-4B-Thinking-2507-FP8 (thinking model):
-    - Output diawali dengan blok <think>...</think> berisi chain-of-thought.
-    - Jawaban akhir berada SETELAH token </think> (token ID 151668).
-    - Blok thinking otomatis di-strip; hanya jawaban final yang dikembalikan.
+    Dioptimalkan untuk Qwen3-4B-Instruct-2507 (non-thinking model, BF16 tensor type):
+    - Output langsung berupa jawaban tanpa blok <think>.
+    - Logika strip </think> (token ID 151668) tetap ada sebagai fallback kompatibilitas.
+    - Tidak perlu enable_thinking=False; model ini non-thinking only.
     """
 
     def __init__(
@@ -218,7 +218,7 @@ class HFRAGGenerator:
         self,
         query: str,
         contexts: List[str],
-        max_context_tokens: int = 1500,
+        max_context_tokens: int = 6000,
     ) -> List[Dict[str, str]]:
         """Bangun messages list untuk chat template.
 
@@ -390,10 +390,10 @@ class HFRAGGenerator:
 
 
 def initialize_hf_generator(
-    model_name: str = "Qwen/Qwen3-4B-Thinking-2507-FP8",
+    model_name: str = "Qwen/Qwen3-4B-Instruct-2507",
     max_new_tokens: int = 32768,
-    temperature: float = 0.6,
-    top_p: float = 0.95,
+    temperature: float = 0.7,
+    top_p: float = 0.8,
     top_k: int = 20,
     system_prompt: str = SYSTEM_PROMPT,
     return_thinking: bool = False,
@@ -439,12 +439,19 @@ def initialize_hf_generator(
         load_kwargs: Dict[str, Any] = {
             "torch_dtype": "auto",
             "device_map": "auto",
-            "trust_remote_code": True,  # Diperlukan agar kernels package dapat load FP8 CUDA kernel
+            "trust_remote_code": True,
         }
         if max_memory is not None:
             load_kwargs["max_memory"] = max_memory
 
-        logger.info(f"Loading HF model: {model_name} (torch_dtype=auto, device_map=auto)")
+        # Coba flash_attention_2 untuk throughput lebih tinggi di RTX 3090
+        try:
+            import flash_attn  # type: ignore[import-not-found]
+            load_kwargs["attn_implementation"] = "flash_attention_2"
+            logger.info(f"Loading HF model: {model_name} (flash_attention_2)")
+        except ImportError:
+            logger.info(f"Loading HF model: {model_name} (torch_dtype=auto, device_map=auto)")
+
         model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
 
         logger.info(f"✓ HF model loaded: {model_name}")

@@ -80,6 +80,7 @@ checkpoints/
 
 # Logs & Results
 # --------------
+results/
 !results/.gitkeep
 
 # Figures & Plots

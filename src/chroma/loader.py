@@ -157,9 +157,16 @@ def load_to_chroma(
         documents = []
         metadatas = []
         
-        for chunk in chunks:
-            # Generate ID (gunakan original_index jika ada, atau generate)
-            chunk_id = f"{file_path.stem}_{chunk.get('original_index', chunk.get('embedding_index', 0))}"
+        for idx, chunk in enumerate(chunks):
+            # Generate ID: prefer original_index, fallback ke embedding_index, lalu counter
+            orig_idx = chunk.get('original_index')
+            emb_idx = chunk.get('embedding_index')
+            if orig_idx is not None:
+                chunk_id = f"{file_path.stem}_{orig_idx}"
+            elif emb_idx is not None:
+                chunk_id = f"{file_path.stem}_{emb_idx}"
+            else:
+                chunk_id = f"{file_path.stem}_{idx}"
             ids.append(chunk_id)
             
             # Document text

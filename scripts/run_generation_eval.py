@@ -23,7 +23,7 @@ Usage:
   # HuggingFace — Instruct (non-thinking, direkomendasikan):
   python scripts/run_generation_eval.py \\
       --generator_type hf \\
-      --generator_path Qwen/Qwen3-4B-Instruct-2507-FP8
+      --generator_path Qwen/Qwen3-4B-Instruct-2507
 
   # HuggingFace — Thinking:
   python scripts/run_generation_eval.py \\
@@ -39,14 +39,14 @@ Usage:
   # Hanya 1 method, resume dari run sebelumnya:
   python scripts/run_generation_eval.py \\
       --generator_type hf \\
-      --generator_path Qwen/Qwen3-4B-Instruct-2507-FP8 \\
+      --generator_path Qwen/Qwen3-4B-Instruct-2507 \\
       --methods element_based \\
       --resume
 """
 
 import os
-# Fix: kernels package memerlukan trust_remote_code untuk load FP8 CUDA kernel
-# dari kernels-community/finegrained-fp8. Tanpa ini, setiap generate() gagal.
+# Fix: beberapa model HuggingFace memerlukan trust_remote_code untuk custom modeling code.
+# BF16 model umumnya tidak memerlukan ini, tapi dibiarkan untuk kompatibilitas.
 os.environ.setdefault("TRUST_REMOTE_CODE", "1")
 # Fix: CUDA memory fragmentation menyebabkan OOM di method ke-3 (recursive).
 # expandable_segments memungkinkan PyTorch memakai memory yang tidak kontinu.
@@ -90,17 +90,17 @@ def _setup_logging(log_path: Path) -> None:
 
 QA_GOLD_XLSX  = ROOT / "data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx"
 RESULTS_DIR   = ROOT / "results/generation_eval"
-EMBEDDER_PATH = ROOT / "models/Qwen3-Embedding-4B-Q8_0.gguf"
+EMBEDDER_PATH = ROOT / "models/Qwen3-Embedding-4B"
 CHROMA_PATH   = ROOT / "data/chroma"
 
-# ── Default: Qwen3-4B-Instruct-2507-FP8 (sesuai dokumentasi model) ──────────────────
+# ── Default: Qwen3-4B-Instruct-2507 (BF16 tensor type, sesuai dokumentasi model) ────────
 # Prioritas: local models/ folder → HF Hub (butuh internet)
 # Download lokal: from huggingface_hub import snapshot_download
-#   snapshot_download("Qwen/Qwen3-4B-Instruct-2507-FP8",
-#                     local_dir="models/Qwen3-4B-Instruct-2507-FP8")
+#   snapshot_download("Qwen/Qwen3-4B-Instruct-2507",
+#                     local_dir="models/Qwen3-4B-Instruct-2507")
 DEFAULT_GENERATOR_TYPE = "hf"
-_LOCAL_GENERATOR        = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
-DEFAULT_GENERATOR_PATH  = str(_LOCAL_GENERATOR) if _LOCAL_GENERATOR.exists() else "Qwen/Qwen3-4B-Instruct-2507-FP8"
+_LOCAL_GENERATOR        = ROOT / "models/Qwen3-4B-Instruct-2507"
+DEFAULT_GENERATOR_PATH  = str(_LOCAL_GENERATOR) if _LOCAL_GENERATOR.exists() else "Qwen/Qwen3-4B-Instruct-2507"
 DEFAULT_TEMPERATURE    = 0.7    # Instruct: 0.7 (Thinking: 0.6)
 DEFAULT_TOP_P          = 0.8    # Instruct: 0.8 (Thinking: 0.95)
 DEFAULT_TOP_K_GEN      = 20
@@ -383,7 +383,7 @@ def main() -> None:
     parser.add_argument("--qa_xlsx", default=str(QA_GOLD_XLSX),
                         help=f"Path ke QA gold xlsx (default: {QA_GOLD_XLSX.name})")
     parser.add_argument("--embedder_path", default=str(EMBEDDER_PATH),
-                        help="Path ke GGUF embedding model")
+                        help="HF model name atau path lokal embedding model")
     parser.add_argument("--chroma_path", default=str(CHROMA_PATH),
                         help="Path ke ChromaDB storage")
 

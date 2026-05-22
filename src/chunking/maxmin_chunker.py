@@ -193,7 +193,7 @@ def initialize_embedding_model_gguf(
     model_path: str = DEFAULT_GGUF_MODEL_PATH,
     n_gpu_layers: int = -1,
     n_ctx: int = 8192,
-    n_batch: int = 64,  # Kecilkan dari 512 → 64 untuk hindari OOM
+    n_batch: int = 512,  # RTX 3090 24GB: kembali ke 512 (64 adalah workaround OOM 6GB)
     verbose: bool = False,
     suppress_output: bool = True
 ) -> Optional[Llama]:
@@ -868,7 +868,7 @@ def run_maxmin_chunking(
             model_path=model_path,
             n_gpu_layers=n_gpu_layers,
             n_ctx=8192,   # Chunking: 8192 cukup untuk kalimat ≤4000 chars (~2000 token)
-            n_batch=64,   # Kurangi dari 512: forward pass 4B model butuh VRAM besar per batch
+            n_batch=512,  # RTX 3090 24GB: kembali ke 512 (64 adalah workaround OOM 6GB)
         )
     else:
         embedding_model = initialize_embedding_model(

@@ -61,9 +61,15 @@ rapidfuzz           # Diperlukan oleh NonLLMContextPrecisionWithReference
 sacrebleu           # Dependency ragas BleuScore (sacrebleu.corpus_bleu)
 rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
 
-# llama-cpp-python: WAJIB untuk embedder GGUF (Qwen3-Embedding-4B-Q8_0.gguf)
-# Install manual (butuh build flags GPU/CPU): pip install llama-cpp-python
-# llama-cpp-python
+# llama-cpp-python: diperlukan jika menggunakan GGUF embedder/generator
+# Install manual dengan CUDA (RTX 3090, sm86):
+#   CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python --force-reinstall --no-cache-dir
+llama-cpp-python
+
+# flash-attn: opsional, meningkatkan throughput ~20-40% di RTX 3090
+# Install manual (butuh CUDA toolkit + torch sudah terinstall):
+#   pip install flash-attn --no-build-isolation
+# flash-attn
 
 # Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
 # Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local

@@ -3,7 +3,7 @@ Evaluasi retrieval RAG pipeline: Precision@k, Recall@k, MRR.
 
 Pipeline:
   1. Load ground truth JSON (dari convert_ground_truth_to_json.py)
-  2. Load GGUF embedder + ChromaDB
+  2. Load HuggingFace embedder + ChromaDB
   3. Untuk setiap method (element_based, maxmin_semantic, recursive):
        - Embed setiap query
        - Retrieve top-k dari ChromaDB
@@ -54,7 +54,7 @@ COLLECTION_NAMES: Dict[str, str] = {
 DEFAULT_GT          = "data/ground_truth/qa_pairs_strict.json"
 DEFAULT_OUTPUT      = "results/retrieval_eval_strict.csv"
 DEFAULT_TOP_K       = 5
-DEFAULT_EMBEDDER    = "models/Qwen3-Embedding-4B-Q8_0.gguf"
+DEFAULT_EMBEDDER    = "models/Qwen3-Embedding-4B"
 DEFAULT_CHROMA_PATH = "data/chroma"
 
 
@@ -240,7 +240,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--embedder", type=str, default=DEFAULT_EMBEDDER,
-        help=f"Path ke GGUF embedding model (default: {DEFAULT_EMBEDDER})",
+        help=f"HF model name atau path lokal embedding model (default: {DEFAULT_EMBEDDER})",
     )
     parser.add_argument(
         "--chroma_path", type=str, default=DEFAULT_CHROMA_PATH,
@@ -273,14 +273,13 @@ def main() -> None:
 
     # Load embedder
     logger.info(f"Loading embedder: {args.embedder}")
-    from src.embedding.embedder import initialize_gguf_embedder
-    embedder = initialize_gguf_embedder(
-        model_path=args.embedder,
-        n_gpu_layers=-1,
-        verbose=False,
+    from src.embedding.embedder import initialize_hf_embedder
+    embedder = initialize_hf_embedder(
+        model_name=args.embedder,
+        device="cpu",
     )
     if embedder is None:
-        logger.error("Gagal load embedder. Pastikan model GGUF ada di models/")
+        logger.error("Gagal load embedder. Pastikan model ada di models/Qwen3-Embedding-4B/")
         sys.exit(1)
 
     # Load ChromaDB

@@ -1,9 +1,9 @@
 """
 Download embedding model ke models/ lokal.
 
-Model : Qwen3-Embedding-4B-Q8_0.gguf
-Repo  : Qwen/Qwen3-Embedding-4B-GGUF (HuggingFace)
-Ukuran: ~4.3 GB
+Model : Qwen/Qwen3-Embedding-4B (HuggingFace, non-GGUF)
+Repo  : Qwen/Qwen3-Embedding-4B
+Ukuran: ~8 GB (BF16)
 
 Usage:
   python scripts/download_embedding_model.py
@@ -16,33 +16,33 @@ from pathlib import Path
 os.environ["PYTHONUTF8"] = "1"
 
 ROOT           = Path(__file__).resolve().parent.parent
-EMBEDDING_REPO = "Qwen/Qwen3-Embedding-4B-GGUF"
-EMBEDDING_FILE = "Qwen3-Embedding-4B-Q8_0.gguf"
-EMBEDDING_PATH = ROOT / "models" / EMBEDDING_FILE
+EMBEDDING_REPO = "Qwen/Qwen3-Embedding-4B"
+EMBEDDING_DIR  = ROOT / "models" / "Qwen3-Embedding-4B"
 
 
 def main() -> None:
-    from huggingface_hub import hf_hub_download
+    from huggingface_hub import snapshot_download
 
     print("=" * 60)
     print("  DOWNLOAD EMBEDDING MODEL")
     print("=" * 60)
     print(f"  Repo  : {EMBEDDING_REPO}")
-    print(f"  File  : {EMBEDDING_FILE}")
-    print(f"  Target: {EMBEDDING_PATH}\n")
+    print(f"  Target: {EMBEDDING_DIR}")
+    print(f"  Ukuran: ~8 GB (BF16)\n")
 
-    if EMBEDDING_PATH.exists():
-        size_gb = EMBEDDING_PATH.stat().st_size / (1024 ** 3)
-        print(f"[SKIP] Sudah ada: {EMBEDDING_PATH} ({size_gb:.1f} GB)")
+    if EMBEDDING_DIR.exists() and any(EMBEDDING_DIR.glob("*.safetensors")):
+        size_gb = sum(
+            f.stat().st_size for f in EMBEDDING_DIR.glob("*.safetensors")
+        ) / (1024 ** 3)
+        print(f"[SKIP] Sudah ada: {EMBEDDING_DIR} ({size_gb:.1f} GB safetensors)")
         return
 
-    path = hf_hub_download(
+    EMBEDDING_DIR.mkdir(parents=True, exist_ok=True)
+    path = snapshot_download(
         repo_id   = EMBEDDING_REPO,
-        filename  = EMBEDDING_FILE,
-        local_dir = str(ROOT / "models"),
+        local_dir = str(EMBEDDING_DIR),
     )
-    size_gb = Path(path).stat().st_size / (1024 ** 3)
-    print(f"\n[OK] Embedding model tersimpan: {path} ({size_gb:.1f} GB)")
+    print(f"\n[OK] Embedding model tersimpan: {path}")
 
 
 if __name__ == "__main__":
