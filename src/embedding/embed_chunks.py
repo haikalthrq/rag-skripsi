@@ -18,6 +18,8 @@ from pathlib import Path
 from typing import List, Optional, Dict, Any
 import sys
 
+import torch
+
 from .embedder import QwenEmbedder, initialize_gguf_embedder, initialize_hf_embedder
 from .io import (
     load_chunks_from_json,
@@ -33,6 +35,45 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Metode yang mendapat context prefix injection (bukan element_based yang sudah punya enrich)
+_METHODS_WITH_CONTEXT_PREFIX = {"maxmin_semantic", "recursive"}
+
+# Jumlah karakter dari chunk sebelumnya yang di-prepend sebagai prefix konteks
+CONTEXT_PREFIX_CHARS = 200
+
+
+def inject_context_prefix(chunks: List[Dict[str, Any]], context_chars: int = CONTEXT_PREFIX_CHARS) -> List[str]:
+    """Buat daftar teks untuk embedding dengan context prefix dari chunk sebelumnya.
+
+    Untuk setiap chunk ke-i (i > 0), prepend ``context_chars`` karakter terakhir
+    dari teks chunk ke-(i-1) sebagai prefix. Ini membantu chunk tabel/pendek
+    mendapatkan konteks semantik dari konten sebelumnya.
+
+    Fungsi ini TIDAK memodifikasi chunks in-place — hanya mengembalikan daftar
+    teks yang dipakai untuk embedding. File chunks JSON tidak berubah, sehingga
+    chunk IDs di ChromaDB dan ground truth tetap valid.
+
+    Args:
+        chunks: List of chunk dicts dengan field ``text``.
+        context_chars: Jumlah chars dari chunk sebelumnya yang di-prepend (default: 200).
+
+    Returns:
+        List of strings siap di-embed, satu per chunk.
+    """
+    texts = []
+    for i, chunk in enumerate(chunks):
+        text = (chunk.get("text") or "").strip()
+        if i > 0 and context_chars > 0:
+            prev_text = (chunks[i - 1].get("text") or "").strip()
+            suffix = prev_text[-context_chars:].strip()
+            if suffix:
+                text = suffix + "\n\n" + text
+        texts.append(text)
+    injected = sum(1 for i in range(1, len(chunks)) if (chunks[i - 1].get("text") or "").strip())
+    if injected:
+        logger.info(f"inject_context_prefix: {injected} chunks mendapat context prefix ({context_chars} chars)")
+    return texts
 
 
 def embed_single_file(
@@ -68,6 +109,7 @@ def embed_single_file(
             return None
         
         # 2a. Enrich table chunks: ganti OCR text dengan HTML-parsed text
+        #     (hanya berlaku untuk element_based yang punya text_as_html)
         n_enriched = enrich_table_chunk_texts(chunks)
         if n_enriched:
             logger.info(f"  {n_enriched} table chunks enriched from HTML before embedding")
@@ -81,10 +123,28 @@ def embed_single_file(
             return None
         
         logger.info(f"Valid chunks: {len(cleaned_texts)}/{len(chunks)}")
-        
+
+        # 2c. Context prefix injection untuk maxmin_semantic dan recursive.
+        #     Prepend N chars dari chunk sebelumnya agar chunk tabel/pendek
+        #     mendapat konteks semantik dari konten sekitarnya.
+        #     TIDAK mengubah chunks JSON — hanya teks yang di-embed yang berbeda.
+        valid_chunks = [chunks[i] for i in valid_indices]
+        if chunking_method in _METHODS_WITH_CONTEXT_PREFIX:
+            embed_texts = inject_context_prefix(valid_chunks, CONTEXT_PREFIX_CHARS)
+        else:
+            embed_texts = [c.get("text", "") for c in valid_chunks]
+
+        # Gunakan embed_texts (bukan cleaned_texts) agar prefix sudah tercakup
+        # namun tetap lakukan strip/whitespace-norm yang sama
+        embed_texts = [' '.join(t.split()) for t in embed_texts]
+
         # 3. Generate embeddings
-        logger.info(f"Generating embeddings for {len(cleaned_texts)} chunks...")
-        embeddings = embedder.embed(cleaned_texts)
+        logger.info(f"Generating embeddings for {len(embed_texts)} chunks...")
+        embeddings = embedder.embed(embed_texts)
+        
+        # Bersihkan cache GPU agar memori tidak terfragmentasi antar-file
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
         
         logger.info(f"✓ Generated {embeddings.shape[0]} embeddings (dim: {embeddings.shape[1]})")
         

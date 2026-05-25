@@ -1,0 +1,93 @@
+query_id,method,question,gold_answer,generated_answer,precision_at_k,recall_at_k,mrr,bleu,rouge_l_recall,error
+Q005,Element-Based,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi merujuk pada nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor. 
+
+Secara lebih spesifik, nilai ini dihitung dengan rumus:  
+**NK = NP – (NS × YoNR)**  
+dengan:  
+- **NK** = Nilai konstruksi yang diselesaikan  
+- **NP** = Nilai kontrak proyek  
+- **NS** = Nilai pekerjaan yang disubkontrakkan ke kontraktor lain  
+- **YoNR** = Persentase realisasi fisik pekerjaan yang diselesaikan (diperoleh dari persentase pekerjaan di akhir periode survei dikurangi persentase di awal periode survei).
+
+Nilai ini kemudian digunakan sebagai dasar untuk menghitung benchmark pertumbuhan tahunan dan menjadi dasar perhitungan variabel lainnya dalam pengembangan Indeks Konstruksi.",0.1,1.0,1.0,0.7027,0.9667,
+Q005,MaxMin Semantic,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi merujuk pada nilai total pekerjaan yang telah diselesaikan oleh pihak pemborong, **dengan menghitung berdasarkan nilai kontrak antara pemilik dan kontraktor**, serta **realisasi fisik proyek dalam jangka waktu tertentu**.  
+
+Secara lebih spesifik, nilai ini dihitung menggunakan rumus:  
+**NK = (NP – NS) × %NR**  
+di mana:  
+- NK = Nilai konstruksi yang diselesaikan  
+- NP = Nilai kontrak proyek  
+- NS = Nilai pekerjaan yang disubkontrakkan  
+- %NR = Persentase realisasi fisik pekerjaan yang diselesaikan (dihitung dari perbedaan persentase pekerjaan yang diselesaikan di akhir dan awal periode survei).  
+
+Nilai konstruksi yang diselesaikan ini kemudian digunakan sebagai **pegangan utama** dalam proses selarasan pertumbuhan (growth alignment) terhadap variabel lain seperti jumlah pekerja, upah, dan PDRB sektor konstruksi, serta dijadikan dasar untuk menghitung indeks benchmark dengan tahun dasar 2016 = 100.",0.1,1.0,0.5,0.2673,0.7,
+Q005,Recursive,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi dimaksudkan sebagai nilai kontrak proyek yang telah diselesaikan, dikurangi nilai pekerjaan yang disubkontrakkan kepada kontraktor lain, lalu dikalikan dengan persentase realisasi fisik pekerjaan yang telah selesai. Secara rumus:
+
+**NK = NP – (NS × %NR)**
+
+Di mana:  
+- **NK** = Nilai konstruksi yang diselesaikan  
+- **NP** = Nilai kontrak proyek  
+- **NS** = Nilai pekerjaan yang disubkontrakkan kepada kontraktor lain  
+- **%NR** = Persentase realisasi fisik pekerjaan yang telah diselesaikan (dihitung dari persentase pekerjaan di akhir periode survei dikurangi persentase di awal periode survei).  
+
+Nilai ini digunakan sebagai dasar untuk menghitung berbagai indeks konstruksi lainnya, seperti indeks pekerja tetap, upah, dan pertumbuhan sektor konstruksi.",0.1,1.0,0.1,0.1316,0.5,
+Q010,Element-Based,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi merujuk pada **seluruh biaya atau pengeluaran yang berkaitan langsung dengan aktivitas konstruksi**, khususnya terkait dengan **bahan baku dan bahan penolong**. Biaya ini ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dan dinilai atas dasar **harga pasar atau pengeluaran untuk memperolehnya**. Pengeluaran ini digunakan sebagai dasar perhitungan dalam analisis efisiensi dan struktur biaya konstruksi.",0.1,1.0,1.0,0.1532,0.7917,
+Q010,MaxMin Semantic,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan aktivitas konstruksi, khususnya terkait dengan bahan baku dan bahan penolong. Biaya ini dihitung berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dan dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya. Pengeluaran ini merupakan bagian dari total pengeluaran konstruksi dan digunakan sebagai dasar perhitungan variabel lainnya, seperti rasio penggunaan bahan terhadap nilai konstruksi yang diselesaikan.",0.1,1.0,1.0,0.1948,0.7708,
+Q010,Recursive,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi adalah seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi, terdiri dari bahan baku dan bahan penolong. Biaya ini ditentukan berdasarkan konsep pemakaian, baik bahan yang dibeli maupun yang diproduksi sendiri, dan dihitung berdasarkan harga pasar atau pengeluaran untuk memperolehnya. Pengeluaran ini digunakan sebagai dasar perhitungan variabel lainnya dalam statistik konstruksi, dan dihitung dengan memperhitungkan pertumbuhan tahunan serta melakukan penyesuaian terhadap nilai outlier.",0.1,1.0,1.0,0.3183,0.7708,
+Q011,Element-Based,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Tidak ada informasi dalam konteks yang menyebutkan nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun. Semua data yang disebutkan berkaitan dengan status mismatch (overeducated, undereducated, matched), tingkat pendidikan, durasi pencarian kerja, atau faktor demografi lainnya, namun **tidak ada nilai atau angka yang khusus menggambarkan kecenderungan mismatch berdasarkan lama bekerja 0 hingga 14 tahun**.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menjawab pertanyaan tersebut.**",,,,0.0402,0.6923,
+Q011,MaxMin Semantic,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun adalah **1,1531**.
+
+Ini didapatkan dari Lampiran 1 (Tabel Hasil Model Regresi Logistik Determinan Mismatch Pemuda, 2024), di mana kolom ""Kecenderungan Mismatch"" untuk variabel ""Lama Bekerja (0-14 Tahun)"" memiliki nilai **1,1531**. Nilai ini menunjukkan bahwa pemuda dengan lama bekerja dalam rentang 0 hingga 14 tahun cenderung memiliki kecenderungan lebih tinggi terhadap mismatch pendidikan dibandingkan kelompok lainnya.",,,,0.0468,0.9231,
+Q011,Recursive,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun adalah **1,1531**.
+
+Ini diperoleh dari Lampiran 1: Hasil Model Regresi Logistik Determinan Mismatch Pemuda, 2024, di mana variabel ""Lama Bekerja (0-14 Tahun)"" memiliki nilai kecenderungan mismatch sebesar **1,1531** dengan signifikansi 0,0000, yang menunjukkan bahwa pemuda dengan lama bekerja dalam rentang tersebut memiliki kecenderungan lebih tinggi terhadap mismatch pendidikan.",,,,0.0353,0.9231,
+Q013,Element-Based,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan konteks yang diberikan, **hazard ratio (HR)** pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja adalah **1,0737**.
+
+Penjelasan:
+Dalam **Konteks 2**, di bagian ""Mimpi vs Realita: Apa Kata Data?"", disebutkan secara eksplisit:
+> ""Pemuda yang overeducated memiliki peluang 7,37 persen lebih cepat untuk kembali bekerja dibandingkan dengan yang matched.""
+
+Nilai ini diinterpretasikan sebagai **hazard ratio (HR) = 1,0737**, karena:
+- 7,37 persen lebih cepat berarti peningkatan kecepatan (hazard) sebesar 7,37%.
+- Dalam perhitungan, **HR = 1 + (7,37/100) = 1,0737**.
+
+Jadi, jawabannya adalah:
+
+**1,0737**.",,,,0.0037,0.75,
+Q013,MaxMin Semantic,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan konteks, dalam tabel **Error|Signifikansi|Hazard Ratio**, di baris:
+
+- **_Overeducated_ (Referensi = _Matched_)**  
+  Hazard Ratio = **1,0737**
+
+Ini berarti bahwa pemuda overeducated memiliki **hazard ratio 1,0737** dibandingkan dengan pemuda yang memiliki pendidikan yang sesuai (matched) dalam durasi mencari kerja.
+
+**Jawaban: 1,0737**",,,,0.0069,0.625,
+Q013,Recursive,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan data dalam **Lampiran 3: Hasil Cox Proportional Hazards Model Untuk Durasi Waktu Mencari Kerja Pemuda, 2024**, hazard ratio (HR) pemuda overeducated dibandingkan dengan pemuda yang memiliki pendidikan yang matched adalah:
+
+**1,0737**
+
+Artinya, pemuda overeducated memiliki risiko **lebih tinggi sekitar 7,37%** untuk mendapatkan pekerjaan dalam waktu lebih cepat dibandingkan dengan pemuda yang sesuai dengan pendidikannya (matched), meskipun secara umum mereka lebih cepat menemukan pekerjaan karena fleksibilitas sektor informal.
+
+Namun, perlu diperhatikan bahwa meskipun HR > 1, ini menunjukkan bahwa **peristiwa (mendapatkan pekerjaan)** terjadi **lebih cepat** pada kelompok overeducated dibandingkan dengan kelompok matched, yang sesuai dengan pernyataan bahwa mereka lebih cepat menyesuaikan diri.
+
+**Jawaban: 1,0737**",,,,0.0036,0.75,
+Q020,Element-Based,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025 adalah **2.800 komoditas**, dengan rincian:
+
+- 25 komoditas dari kelompok migas  
+- 2.775 komoditas dari kelompok nonmigas  
+
+Ini disebutkan dalam konteks 1: *""Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas.""*",0.1,1.0,1.0,0.1574,0.9167,
+Q020,MaxMin Semantic,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Tidak ada informasi dalam konteks yang menyebutkan jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025.
+
+Meskipun konteks menyebutkan beberapa komoditas seperti HS 01, HS 02, HS 03, HS 04, HS 05, HS 06, HS 07, HS 08, HS 09, HS 10, HS 11, HS 12, HS 13, HS 15, HS 16, HS 17, HS 19, HS 20, HS 21, HS 22, HS 23, HS 24, HS 25, HS 26, HS 27, HS 31, HS 32, HS 33, HS 34, HS 35, HS 38, HS 39, HS 40, HS 42, HS 44, HS 46, HS 47, HS 48, HS 52, HS 54, HS 55, HS 56, HS 57, HS 58, HS 59, HS 60, HS 61, HS 62, HS 64, HS 67, HS 68, HS 69, HS 70, HS 71, HS 72, HS 74, HS 75, HS 79, HS 83, HS 84, HS 85, HS 87, HS 92, HS 94, HS 95, HS 96, dan lainnya, **tidak disebutkan secara eksplisit jumlah total komoditas HS 8-digit yang digunakan sebagai sampel**.
+
+Oleh karena itu, **tidak dapat ditentukan jumlah komoditas HS 8-digit yang terpilih sebagai sampel** berdasarkan informasi yang tersedia.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0,0.0,0.0,0.0296,0.5833,
+Q020,Recursive,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025 adalah **2.800 komoditas**.
+
+Ini didapatkan dari konteks 1, yang menyebutkan:  
+*""Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas.""*",0.1,1.0,1.0,0.182,0.9167,

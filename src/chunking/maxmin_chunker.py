@@ -444,7 +444,7 @@ def embed_sentences(
     embedding_model: Any,
     normalize: bool = True,
     show_progress: bool = True,
-    batch_size: int = 8,
+: int = 8,
     use_gguf: bool = False
 ) -> Optional[np.ndarray]:
     """

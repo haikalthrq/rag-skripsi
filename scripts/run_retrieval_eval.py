@@ -53,7 +53,9 @@ COLLECTION_NAMES: Dict[str, str] = {
 
 DEFAULT_GT          = "data/ground_truth/qa_pairs_strict.json"
 DEFAULT_OUTPUT      = "results/retrieval_eval_strict.csv"
-DEFAULT_TOP_K       = 5
+DEFAULT_TOP_K       = 8
+DEFAULT_MODE        = "huggingface"
+DEFAULT_HF_MODEL    = "/workspace/models/Qwen3-Embedding-4B"
 DEFAULT_EMBEDDER    = "models/Qwen3-Embedding-4B-Q8_0.gguf"
 DEFAULT_CHROMA_PATH = "data/chroma"
 
@@ -239,6 +241,15 @@ def main() -> None:
         help="Comma-separated methods (default: semua). Contoh: element_based,recursive",
     )
     parser.add_argument(
+        "--mode", type=str, default=DEFAULT_MODE,
+        choices=["gguf", "huggingface"],
+        help=f"Mode embedder: gguf atau huggingface (default: {DEFAULT_MODE})",
+    )
+    parser.add_argument(
+        "--hf-model", type=str, default=DEFAULT_HF_MODEL,
+        help=f"Path ke HuggingFace embedding model (default: {DEFAULT_HF_MODEL})",
+    )
+    parser.add_argument(
         "--embedder", type=str, default=DEFAULT_EMBEDDER,
         help=f"Path ke GGUF embedding model (default: {DEFAULT_EMBEDDER})",
     )
@@ -272,15 +283,24 @@ def main() -> None:
     logger.info(f"  {len(ground_truth)} QA pairs loaded")
 
     # Load embedder
-    logger.info(f"Loading embedder: {args.embedder}")
-    from src.embedding.embedder import initialize_gguf_embedder
-    embedder = initialize_gguf_embedder(
-        model_path=args.embedder,
-        n_gpu_layers=-1,
-        verbose=False,
-    )
+    if args.mode == "huggingface":
+        logger.info(f"Loading HF embedder: {args.hf_model}")
+        from src.embedding.embedder import initialize_hf_embedder
+        embedder = initialize_hf_embedder(
+            model_name=args.hf_model,
+            device='cuda',
+            normalize=True,
+        )
+    else:
+        logger.info(f"Loading GGUF embedder: {args.embedder}")
+        from src.embedding.embedder import initialize_gguf_embedder
+        embedder = initialize_gguf_embedder(
+            model_path=args.embedder,
+            n_gpu_layers=-1,
+            verbose=False,
+        )
     if embedder is None:
-        logger.error("Gagal load embedder. Pastikan model GGUF ada di models/")
+        logger.error("Gagal load embedder.")
         sys.exit(1)
 
     # Load ChromaDB

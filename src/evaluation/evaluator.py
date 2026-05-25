@@ -28,7 +28,7 @@ from .metrics import (
 )
 from ..chroma.client import initialize_chroma_client, get_or_create_collection
 from ..chroma.query import similarity_search
-from ..embedding.embedder import QwenEmbedder, initialize_gguf_embedder
+from ..embedding.embedder import QwenEmbedder, initialize_gguf_embedder, initialize_hf_embedder
 
 logger = logging.getLogger(__name__)
 
@@ -275,6 +275,8 @@ def build_evaluator(
     embedder_path: str = DEFAULT_EMBEDDER_PATH,
     chroma_path: str = DEFAULT_CHROMA_PATH,
     n_gpu_layers: int = -1,
+    embedder_mode: str = "gguf",
+    hf_model_name: str = "/workspace/models/Qwen3-Embedding-4B",
 ) -> RAGEvaluator:
     """
     Factory function: load komponen dan return RAGEvaluator.
@@ -283,6 +285,8 @@ def build_evaluator(
         embedder_path : Path ke GGUF embedding model
         chroma_path   : Path ke ChromaDB persistent storage
         n_gpu_layers  : GPU layers untuk embedder (-1 = semua)
+        embedder_mode : "gguf" atau "huggingface"
+        hf_model_name : Path ke HF embedding model (jika mode=huggingface)
 
     Returns:
         RAGEvaluator yang siap digunakan
@@ -292,11 +296,18 @@ def build_evaluator(
     """
     logger.info("Building RAGEvaluator...")
 
-    embedder = initialize_gguf_embedder(
-        model_path=embedder_path,
-        n_gpu_layers=n_gpu_layers,
-        verbose=False,
-    )
+    if embedder_mode == "huggingface":
+        embedder = initialize_hf_embedder(
+            model_name=hf_model_name,
+            device='cuda',
+            normalize=True,
+        )
+    else:
+        embedder = initialize_gguf_embedder(
+            model_path=embedder_path,
+            n_gpu_layers=n_gpu_layers,
+            verbose=False,
+        )
     if embedder is None:
         raise RuntimeError(f"Gagal memuat embedder: {embedder_path}")
 

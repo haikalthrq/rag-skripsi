@@ -54,14 +54,6 @@ env/
 .DS_Store
 Thumbs.db
 
-# Data Files - IMPORTANT!
-# -----------------------
-
-# Embeddings (bisa sangat besar)
-data/embeddings/**/*.npy
-data/embeddings/**/*.pkl
-data/embeddings/**/*.bin
-
 # Keep directory structure but ignore contents
 # (Gunakan .gitkeep untuk preserve empty folders)
 
@@ -172,7 +164,6 @@ data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
 # Results — ignore log files besar, keep CSV/report
 # ---------------------------------------------------
 results/generation_eval/*.log
-results/generation_eval/streamlit/
 
 # Log files
 logs/
@@ -180,6 +171,11 @@ logs/
 
 # Figures dari Unstructured PDF extraction
 figures/
+
+# Embeddings & ChromaDB (large binary/data files)
+# ------------------------------------------------
+data/embeddings/
+data/chroma/
 
 # IDE cache & temp output
 # -----------------------
