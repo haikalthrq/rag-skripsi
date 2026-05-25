@@ -1,3 +1,0 @@
-method,n_queries,n_success,mean_bleu,mean_rouge_l
-element_based,30,18,0.251411,0.680712
-recursive,30,30,0.185749,0.634747

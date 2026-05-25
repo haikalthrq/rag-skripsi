@@ -1,4 +1,0 @@
-method,n_queries_evaluated,precision_at_5,recall_at_5,mrr
-element_based,15,0.026667,0.083333,0.1
-maxmin_semantic,18,0.011111,0.055556,0.055556
-recursive,15,0.013333,0.033333,0.066667
