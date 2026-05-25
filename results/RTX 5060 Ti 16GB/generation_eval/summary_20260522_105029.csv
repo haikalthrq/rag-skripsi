@@ -1,0 +1,2 @@
+method,n_queries,n_success,mean_bleu,mean_rouge_l
+element_based,30,16,0.243407,0.679343

@@ -172,11 +172,6 @@ logs/
 # Figures dari Unstructured PDF extraction
 figures/
 
-# Embeddings & ChromaDB (large binary/data files)
-# ------------------------------------------------
-data/embeddings/
-data/chroma/
-
 # IDE cache & temp output
 # -----------------------
 .claude/
