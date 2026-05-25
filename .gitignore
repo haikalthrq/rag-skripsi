@@ -153,8 +153,6 @@ archived/
 
 # Generated Data Artifacts (tidak perlu di-version control)
 # ----------------------------------------------------------
-data/chroma/
-data/embeddings/
 data/(backup)element_based/
 
 # Backup folders (tidak perlu di-version control)
