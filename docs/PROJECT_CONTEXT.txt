@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-21 (08:55 WIB)
+Terakhir diperbarui: 2026-05-25 (10:40 WIB)
 ================================================================================
 
 
@@ -11,7 +11,7 @@ Terakhir diperbarui: 2026-05-21 (08:55 WIB)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Skripsi S1 — membangun dan mengevaluasi sistem RAG berbasis dokumen statistik BPS Indonesia.
-Bahasa: Python 3.11.9 | Repo: rag-skripsi | Branch aktif: dev
+Bahasa: Python 3.11.9 | Repo: rag-skripsi | Branch aktif: main
 
 Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
@@ -62,6 +62,7 @@ rag-skripsi/
 │   ├── raw/              PDF asli
 │   ├── cleaned/          teks hasil preprocessing
 │   ├── chunked/          {element_based,maxmin_semantic,recursive}/*.json
+│   ├── embeddings/       JSON embeddings (tracked by git, ~540MB)
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
@@ -179,23 +180,41 @@ Streamlit Apps:
 5. HASIL EVALUASI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Evaluasi Retrieval (top_k=5, 2026-05-20):
-  Strict (label=2):
-    element_based   P@5=0.027  R@5=0.083  MRR=0.100  (15 query)
-    maxmin_semantic P@5=0.011  R@5=0.056  MRR=0.056  (18 query)
-    recursive       P@5=0.013  R@5=0.033  MRR=0.067  (15 query)
-  Lenient (label≥1):
-    element_based   P@5=0.021  R@5=0.052  MRR=0.089  (28 query)
-    maxmin_semantic P@5=0.021  R@5=0.043  MRR=0.081  (29 query)
-    recursive       P@5=0.028  R@5=0.063  MRR=0.103  (29 query)
-  Output: results/retrieval_eval_strict.csv, results/retrieval_eval_lenient.csv
-  Root cause skor rendah: header tabel terpisah dari baris data (recursive/maxmin)
+Evaluasi Retrieval (top_k=5):
+
+  BASELINE (GGUF CPU, 2026-05-20):
+    Strict (label=2):
+      element_based   P@5=0.027  R@5=0.083  MRR=0.100  (15 query)
+      maxmin_semantic P@5=0.011  R@5=0.056  MRR=0.056  (18 query)
+      recursive       P@5=0.013  R@5=0.033  MRR=0.067  (15 query)
+    Lenient (label≥1):
+      element_based   P@5=0.021  R@5=0.052  MRR=0.089  (28 query)
+      maxmin_semantic P@5=0.021  R@5=0.043  MRR=0.081  (29 query)
+      recursive       P@5=0.028  R@5=0.063  MRR=0.103  (29 query)
+
+  LATEST (BF16 GPU, 2026-05-21):
+    Strict (label=2):
+      element_based   P@5=0.160  R@5=0.650  MRR=0.583  (15 query)
+      maxmin_semantic P@5=0.167  R@5=0.778  MRR=0.476  (18 query)
+      recursive       P@5=0.160  R@5=0.600  MRR=0.667  (15 query)
+    Lenient (label≥1):
+      element_based   P@5=0.143  R@5=0.445  MRR=0.409  (28 query)
+      maxmin_semantic P@5=0.179  R@5=0.606  MRR=0.471  (29 query)
+      recursive       P@5=0.152  R@5=0.372  MRR=0.487  (29 query)
+    Kenaikan signifikan berkat penggunaan model embedding BF16 (bukan GGUF).
+
+  Output: results/retrieval_eval_strict_new.csv, results/retrieval_eval_lenient_new.csv
+  Root cause skor rendah (baseline): header tabel terpisah dari baris data (recursive/maxmin)
     → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok, semua chunk ada di ChromaDB.
 
 Evaluasi Generasi — Metrik:
   BLEU   : sacrebleu.sentence_bleu(), dinormalisasi ke 0–1
   ROUGE-L: rouge_score RougeScorer, recall mode (LCS recall)
+  Hasil (BF16, 2026-05-21):
+    element_based   BLEU=0.1245  ROUGE-L=0.7378
+    maxmin_semantic BLEU=0.1527  ROUGE-L=0.7137
+    recursive       BLEU=0.1306  ROUGE-L=0.7401
   Output : results/generation_eval/per_query_*.csv, summary_*.csv, report_*.txt
   Script : python scripts/run_generation_eval.py
 
@@ -223,10 +242,13 @@ SELESAI ✓
   [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
   [x] Streamlit RAG chat demo (single/compare mode, batch eval)
   [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
-  [x] Update .gitignore + push ke GitHub branch dev (commit 4d1ab97)
+  [x] Setup symlinks folder (chroma, models, results) ke /workspace/
+  [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
+  [x] Re-run evaluasi retrieval (Non-GGUF) — MRR significantly improved
+  [x] Re-run evaluasi generasi (BF16) — SELESAI (summary_20260521_125007.csv)
 
 BELUM DIMULAI ○
-  [ ] Analisis mendalam perbandingan antar metode chunking
+  [x] Analisis mendalam perbandingan antar metode chunking (menggunakan hasil BF16 terbaru)
   [ ] Penulisan laporan skripsi
 
 
