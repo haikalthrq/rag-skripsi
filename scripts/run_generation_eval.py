@@ -105,7 +105,7 @@ DEFAULT_TEMPERATURE    = 0.7    # Instruct: 0.7 (Thinking: 0.6)
 DEFAULT_TOP_P          = 0.8    # Instruct: 0.8 (Thinking: 0.95)
 DEFAULT_TOP_K_GEN      = 20
 DEFAULT_MAX_TOKENS     = 1024   # Eval: kompromi antara dok (16384) dan batas VRAM 6GB; cukup untuk jawaban faktual BPS
-DEFAULT_TOP_K          = 5
+DEFAULT_TOP_K          = 8
 
 
 # ── QA Gold loader ─────────────────────────────────────────────────────────────
@@ -140,6 +140,8 @@ def _build_config(args, methods: list, ts: str) -> dict:
         "timestamp":       ts,
         "generator_type":  args.generator_type,
         "generator_path":  args.generator_path,
+        "embedder_mode":   args.embedder_mode,
+        "hf_model":        args.hf_model,
         "embedder_path":   args.embedder_path,
         "chroma_path":     args.chroma_path,
         "qa_xlsx":         args.qa_xlsx,
@@ -382,6 +384,11 @@ def main() -> None:
     # QA gold + paths
     parser.add_argument("--qa_xlsx", default=str(QA_GOLD_XLSX),
                         help=f"Path ke QA gold xlsx (default: {QA_GOLD_XLSX.name})")
+    parser.add_argument("--embedder_mode", default="huggingface",
+                        choices=["gguf", "huggingface"],
+                        help="Mode embedder (default: huggingface)")
+    parser.add_argument("--hf_model", default="/workspace/models/Qwen3-Embedding-4B",
+                        help="Path ke HF embedding model")
     parser.add_argument("--embedder_path", default=str(EMBEDDER_PATH),
                         help="Path ke GGUF embedding model")
     parser.add_argument("--chroma_path", default=str(CHROMA_PATH),
@@ -461,6 +468,8 @@ def main() -> None:
             embedder_path=args.embedder_path,
             chroma_path=args.chroma_path,
             n_gpu_layers=args.n_gpu_layers,
+            embedder_mode=args.embedder_mode,
+            hf_model_name=args.hf_model,
         )
     except RuntimeError as e:
         logger.error(f"[FATAL] Gagal memuat evaluator: {e}")

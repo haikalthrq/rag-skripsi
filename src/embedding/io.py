@@ -94,6 +94,34 @@ def _html_table_to_text(html: str) -> str:
     return "\n".join(" | ".join(c for c in row if c) for row in p.rows)
 
 
+def _is_noise_text(text: str) -> bool:
+    """Deteksi apakah teks adalah noise OCR/header PDF, bukan judul bermakna.
+
+    Noise patterns:
+    - Baris pertama berisi "PROVINSI/PROVINCE" (header tabel berulang)
+    - Teks yang mayoritas adalah angka, simbol, atau karakter non-alfabet
+    - Teks yang dimulai dengan nomor halaman atau kode kolom ("(1)", "(2)", dll)
+    """
+    if not text:
+        return True
+    first_line = text.split("\n")[0].strip()
+    # Terlalu pendek untuk jadi judul bermakna (< 3 kata)
+    words = first_line.split()
+    if len(words) < 2:
+        return True
+    # Header tabel berulang dari PDF dua kolom
+    if "PROVINSI/PROVINCE" in first_line.upper():
+        return True
+    if "INDONESIA" == first_line.upper().strip():
+        return True
+    # Baris pertama hanya angka/simbol (nomor halaman, kode kolom)
+    import re as _re
+    stripped = _re.sub(r"[\d\s\.,\-\(\)\|/]", "", first_line)
+    if len(stripped) < 3:  # hampir tidak ada huruf bermakna
+        return True
+    return False
+
+
 def enrich_table_chunk_texts(chunks: List[Dict[str, Any]]) -> int:
     """Enrichment untuk element_based table chunks: ganti teks OCR yang korup
     dengan teks yang di-parse dari text_as_html metadata, lalu tambahkan
@@ -137,6 +165,9 @@ def enrich_table_chunk_texts(chunks: List[Dict[str, Any]]) -> int:
             prev_text = (prev.get("text") or "").strip()
             if not prev_text or len(prev_text) > 300:
                 continue  # terlalu panjang – bukan heading
+            # Tolak teks yang merupakan noise OCR/header PDF berulang
+            if _is_noise_text(prev_text):
+                continue
             # Cek halaman overlap
             prev_pgs = set(str(prev_meta.get("page_numbers") or "")
                            .replace("[", "").replace("]", "")
@@ -144,6 +175,12 @@ def enrich_table_chunk_texts(chunks: List[Dict[str, Any]]) -> int:
             if curr_pgs & prev_pgs:  # ada halaman yang sama
                 prefix = prev_text + "\n\n"
                 break
+
+        # Fallback: jika tidak ada prev chunk valid, gunakan section_title metadata
+        if not prefix:
+            section_title = (meta.get("section_title") or "").strip()
+            if section_title and not _is_noise_text(section_title):
+                prefix = section_title + "\n\n"
 
         chunk["text"] = prefix + table_text
         enriched += 1

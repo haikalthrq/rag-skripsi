@@ -104,13 +104,24 @@ class QwenEmbedder:
         
         return np.array(embeddings, dtype=np.float32)
     
+    # Maksimum karakter per teks sebelum encode. Qwen3-Embedding memiliki
+    # max_seq_length 8192 token; 4096 chars ≈ 2048 token (rata-rata 2 char/token BPE).
+    # Diturunkan dari 8192 → 4096 agar aman di RTX 3090 24GB tanpa OOM.
+    _MAX_CHARS_HF = 4096
+
     def _embed_hf(self, texts: List[str]) -> np.ndarray:
         """Generate embeddings using HuggingFace model."""
-        # SentenceTransformer.encode() handles batching automatically
+        # Truncate teks yang terlalu panjang sebelum encode untuk mencegah OOM.
+        truncated = [t[:self._MAX_CHARS_HF] if len(t) > self._MAX_CHARS_HF else t for t in texts]
+        n_truncated = sum(1 for t in texts if len(t) > self._MAX_CHARS_HF)
+        if n_truncated:
+            logger.warning(f"_embed_hf: {n_truncated} texts truncated to {self._MAX_CHARS_HF} chars (mencegah OOM)")
+        # batch_size=1 untuk keamanan memori maksimal pada model 4B param.
         embeddings = self.model.encode(
-            texts,
+            truncated,
+            batch_size=1,
             convert_to_numpy=True,
-            show_progress_bar=len(texts) > 100
+            show_progress_bar=len(truncated) > 100
         )
         
         return embeddings
