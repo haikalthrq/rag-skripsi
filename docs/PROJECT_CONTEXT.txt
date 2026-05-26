@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-25 (10:40 WIB)
+Terakhir diperbarui: 2026-05-26 (05:40 WIB)
 ================================================================================
 
 
@@ -67,9 +67,9 @@ rag-skripsi/
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
 │   ├── generation_eval/  per_query*.csv, summary*.csv, report*.txt (log di-ignore)
+│   │   Diorganisir dalam subfolder per GPU: No GPU Info, RTX 3090 24GB, RTX 4050 6GB, RTX 5060 Ti 16GB
 │   └── retrieval_eval_*.csv + *_summary.csv
-│   CATATAN: di Vast AI, results/ adalah symlink ke /workspace/results/
-├── models/               embedding + generator (symlink ke /workspace/models/ di Vast AI)
+├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
 
@@ -203,7 +203,7 @@ Evaluasi Retrieval (top_k=5):
       recursive       P@5=0.152  R@5=0.372  MRR=0.487  (29 query)
     Kenaikan signifikan berkat penggunaan model embedding BF16 (bukan GGUF).
 
-  Output: results/retrieval_eval_strict_new.csv, results/retrieval_eval_lenient_new.csv
+  Output: results/{GPU}/retrieval_eval_*.csv — diorganisir dalam subfolder per GPU
   Root cause skor rendah (baseline): header tabel terpisah dari baris data (recursive/maxmin)
     → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok, semua chunk ada di ChromaDB.
@@ -242,7 +242,7 @@ SELESAI ✓
   [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
   [x] Streamlit RAG chat demo (single/compare mode, batch eval)
   [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
-  [x] Setup symlinks folder (chroma, models, results) ke /workspace/
+  [x] Setup symlinks folder (chroma, models) ke /workspace/
   [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
   [x] Re-run evaluasi retrieval (Non-GGUF) — MRR significantly improved
   [x] Re-run evaluasi generasi (BF16) — SELESAI (summary_20260521_125007.csv)
