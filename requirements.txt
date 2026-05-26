@@ -20,6 +20,7 @@ nltk # sentence tokenization untuk maxmin chunker
 # -----------------------------
 sentence-transformers # model embedding (Qwen3-Embedding)
 torch # PyTorch untuk model embedding
+torchvision  # dependency for transformers (torchvision)
 transformers  # Hugging Face transformers
 accelerate    # diperlukan untuk device_map='auto' saat load HF model
 chromadb # vector database
@@ -28,11 +29,14 @@ chromadb # vector database
 # --------------------
 numpy  # array operations
 scipy  # scientific computing
+scikit-learn  # cosine similarity untuk maxmin chunker
 
 # Utilities
 # ---------
 tqdm  # progress bars
 python-dotenv # environment variables management
+huggingface_hub  # download model dari HF Hub
+psutil  # system info (CPU, memory) for hardware logging
 
 # Data Processing & I/O
 # ----------------------
@@ -63,7 +67,9 @@ rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
 
 # llama-cpp-python: WAJIB untuk embedder GGUF (Qwen3-Embedding-4B-Q8_0.gguf)
 # Install manual (butuh build flags GPU/CPU): pip install llama-cpp-python
-# llama-cpp-python
+# Untuk GPU: CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python --force-reinstall
+llama-cpp-python
+diskcache  # dependency of llama-cpp-python
 
 # Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
 # Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local
@@ -72,6 +78,9 @@ rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
 # Streamlit
 # --------
 streamlit  # UI annotation app + RAG chat demo
+altair  # dependency for streamlit charts
+gitpython  # dependency for streamlit
+watchdog  # dependency for streamlit file watching
 
 # Logging & Monitoring
 # --------------------

@@ -35,14 +35,18 @@ _patch_hf_user_agent()
 
 import html
 import io
+import json
 import logging
+import platform
 import sys
 import time
 import traceback
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pandas as pd
+import psutil
+import torch
 
 import streamlit as st
 
@@ -65,11 +69,19 @@ from src.rag.pipeline import (
     DEFAULT_EMBEDDER_PATH,
     DEFAULT_CHROMA_PATH,
 )
-from src.evaluation.metrics import compute_bleu, compute_rouge
+from src.evaluation.metrics import (
+    compute_bleu,
+    compute_rouge,
+    compute_precision_at_k,
+    compute_recall_at_k,
+    compute_mrr,
+)
 
 # ── Load QA Gold Standard (for BLEU/ROUGE scoring) ───────────────────────────────
 
 _QA_GOLD_DF = None
+_GT_STRICT = None
+_GT_LENIENT = None
 
 def _load_qa_gold():
     """Load QA gold standard for reference answers."""
@@ -87,6 +99,47 @@ def _load_qa_gold():
             logger.warning(f"Could not load QA gold: {e}")
             _QA_GOLD_DF = pd.DataFrame()
     return _QA_GOLD_DF
+
+
+def _load_ground_truth(mode: str):
+    """Load ground truth JSON for retrieval evaluation.
+    
+    Args:
+        mode: 'strict' or 'lenient'
+    
+    Returns:
+        List of QA pairs with relevant_chunk_ids
+    """
+    global _GT_STRICT, _GT_LENIENT
+    
+    if mode == "strict":
+        if _GT_STRICT is None:
+            try:
+                gt_path = ROOT / "data/ground_truth/qa_pairs_strict.json"
+                if gt_path.exists():
+                    with open(gt_path, encoding="utf-8") as f:
+                        _GT_STRICT = json.load(f)
+                    logger.info(f"Loaded strict ground truth: {len(_GT_STRICT)} QA pairs")
+                else:
+                    _GT_STRICT = []
+            except Exception as e:
+                logger.warning(f"Could not load strict ground truth: {e}")
+                _GT_STRICT = []
+        return _GT_STRICT
+    else:  # lenient
+        if _GT_LENIENT is None:
+            try:
+                gt_path = ROOT / "data/ground_truth/qa_pairs_lenient.json"
+                if gt_path.exists():
+                    with open(gt_path, encoding="utf-8") as f:
+                        _GT_LENIENT = json.load(f)
+                    logger.info(f"Loaded lenient ground truth: {len(_GT_LENIENT)} QA pairs")
+                else:
+                    _GT_LENIENT = []
+            except Exception as e:
+                logger.warning(f"Could not load lenient ground truth: {e}")
+                _GT_LENIENT = []
+        return _GT_LENIENT
 
 def get_gold_answer(query: str):
     """Find gold answer for a query from QA gold standard.
@@ -108,11 +161,41 @@ def get_gold_answer(query: str):
     # Threshold 0.75: cukup fleksibel tapi hindari false positive
     return best_answer if best_ratio >= 0.75 else None
 
+
+def get_hardware_info() -> dict:
+    """Collect hardware information for logging.
+    
+    Returns:
+        Dictionary with GPU/CPU/VRAM info
+    """
+    hw_info = {
+        "cpu": platform.processor(),
+        "cpu_count": psutil.cpu_count(),
+        "cpu_count_logical": psutil.cpu_count(logical=True),
+        "ram_total_gb": round(psutil.virtual_memory().total / (1024**3), 2),
+        "ram_available_gb": round(psutil.virtual_memory().available / (1024**3), 2),
+    }
+    
+    if torch.cuda.is_available():
+        hw_info["gpu_available"] = True
+        hw_info["gpu_count"] = torch.cuda.device_count()
+        hw_info["gpu_name"] = torch.cuda.get_device_name(0)
+        
+        props = torch.cuda.get_device_properties(0)
+        hw_info["gpu_vram_total_gb"] = round(props.total_memory / (1024**3), 2)
+        hw_info["gpu_vram_allocated_gb"] = round(torch.cuda.memory_allocated(0) / (1024**3), 2)
+        hw_info["gpu_vram_reserved_gb"] = round(torch.cuda.memory_reserved(0) / (1024**3), 2)
+        hw_info["gpu_vram_free_gb"] = hw_info["gpu_vram_total_gb"] - hw_info["gpu_vram_reserved_gb"]
+    else:
+        hw_info["gpu_available"] = False
+    
+    return hw_info
+
 # ── Defaults ──────────────────────────────────────────────────────────────────
 
-_LOCAL_GEN        = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
+_LOCAL_GEN        = ROOT / "models/Qwen3-4B-Instruct-2507"
 DEFAULT_GEN_TYPE  = "hf"
-DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-Instruct-2507-FP8"
+DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-Instruct-2507"
 DEFAULT_TEMP      = 0.7
 DEFAULT_TOP_P     = 0.8
 DEFAULT_TOP_K_GEN = 20
@@ -469,23 +552,35 @@ with tab_chat:
 # TAB 2 — Evaluasi Batch (Persistent + History)
 # ══════════════════════════════════════════════════════════════════════════════
 with tab_eval:
-    st.subheader("Evaluasi Batch — BLEU & ROUGE-L")
+    st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR) + Generation (BLEU, ROUGE-L)")
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
-        "Precision@k / Recall@k / MRR = N/A (belum ada retrieval label)."
+        "Menghasilkan 20 file per run (2 mode relevance × 10 top-k)."
     )
 
     # ── Konfigurasi run ───────────────────────────────────────────────────
-    col_mode, col_topk, col_btn = st.columns([2, 1, 2])
-    with col_mode:
+    col_qa_mode, col_rel_mode, col_topk, col_btn = st.columns([1.5, 1.5, 1, 1])
+    
+    with col_qa_mode:
         eval_mode = st.radio(
-            "Mode Evaluasi",
-            ["Full — 30 QA", "Quick — 5 QA (3 tabel + 2 narasi)"],
+            "Mode QA",
+            ["Full — 30 QA", "Quick — 5 QA"],
             horizontal=True,
             key="eval_mode",
         )
+    
+    with col_rel_mode:
+        relevance_mode = st.radio(
+            "Relevance",
+            ["Strict (label=2)", "Lenient (label≥1)"],
+            horizontal=True,
+            key="relevance_mode",
+        )
+    
     with col_topk:
-        top_k_eval = st.slider("Top-K Retrieval", 1, 10, DEFAULT_TOP_K, key="eval_topk")
+        top_k_min = st.number_input("Min Top-K", min_value=1, max_value=10, value=1, key="top_k_min")
+        top_k_max = st.number_input("Max Top-K", min_value=1, max_value=10, value=10, key="top_k_max")
+    
     with col_btn:
         st.write("")
         run_btn = st.button("▶ Jalankan Evaluasi", use_container_width=True, type="primary")
@@ -496,76 +591,166 @@ with tab_eval:
             "(Q005 Nilai Konstruksi · Q010 Pengeluaran Bahan · "
             "Q011 Mismatch Lama Bekerja · Q013 Hazard Ratio · Q020 Sampel HS 8-digit)"
         )
+    
+    # Validate top-k range
+    if top_k_min > top_k_max:
+        st.error("❌ Min Top-K tidak boleh lebih besar dari Max Top-K")
+        run_btn = False
 
     # ── Helper: jalankan satu run dan simpan ke disk ──────────────────────
-    def _run_eval_and_save(qa_subset: pd.DataFrame, mode_tag: str, top_k: int) -> tuple:
-        """Evaluasi semua query × 3 metode, simpan CSV ke disk, return (df, path)."""
-        total_steps = len(qa_subset) * len(METHODS)
+    def _run_eval_and_save(qa_subset: pd.DataFrame, mode_tag: str, relevance_mode: str, 
+                          top_k_range: tuple) -> list:
+        """Evaluasi semua query × 3 metode × top-k range, simpan CSV ke disk.
+        
+        Args:
+            qa_subset: DataFrame dengan QA pairs
+            mode_tag: 'quick' atau 'full'
+            relevance_mode: 'strict' atau 'lenient'
+            top_k_range: tuple (min_k, max_k) untuk top-k evaluation
+            
+        Returns:
+            List of (df, path) tuples untuk setiap top-k
+        """
+        # Load ground truth
+        gt_data = _load_ground_truth(relevance_mode)
+        if not gt_data:
+            st.error(f"❌ Ground truth {relevance_mode} tidak ditemukan.")
+            return []
+        
+        # Create lookup dict for ground truth
+        gt_lookup = {item["id"]: item for item in gt_data}
+        
+        # Get hardware info
+        hw_info = get_hardware_info()
+        hw_info_str = json.dumps(hw_info, ensure_ascii=False)
+        
+        min_k, max_k = top_k_range
+        total_files = max_k - min_k + 1
+        total_steps = len(qa_subset) * len(METHODS) * total_files
+        
+        all_results = []
         prog = st.progress(0, text="Memulai evaluasi...")
         status_txt = st.empty()
-        rows, step = [], 0
-
-        for _, qa_row in qa_subset.iterrows():
-            question = str(qa_row["question"])
-            gold_ans = str(qa_row["gold_answer"])
-            q_id     = str(qa_row["query_id"])
-
-            try:
-                q_vec    = pipeline.embedder.embed(question)[0]
-                embed_ok = True
-            except Exception:
-                embed_ok = False
-
-            for method in METHODS:
-                step += 1
-                prog.progress(step / total_steps,
-                              text=f"[{q_id}] {METHOD_LABELS[method]} ({step}/{total_steps})")
-                status_txt.caption(f"⏳ {question[:80]}...")
-
+        step = 0
+        
+        # Loop through each top-k
+        for current_k in range(min_k, max_k + 1):
+            rows = []
+            
+            for _, qa_row in qa_subset.iterrows():
+                question = str(qa_row["question"])
+                gold_ans = str(qa_row["gold_answer"])
+                q_id     = str(qa_row["query_id"])
+                
+                # Get ground truth item for this query
+                gt_item = gt_lookup.get(q_id)
+                
+                # Embed query (once per query, reuse for all methods)
                 try:
-                    p = RAGPipeline(
-                        embedder=pipeline.embedder,
-                        generator=pipeline.generator,
-                        chroma_client=pipeline.chroma_client,
-                        chunking_method=method,
-                        top_k=top_k,
-                    )
-                    retrieved  = (p.retrieve_by_vector(q_vec, k=top_k) if embed_ok
-                                  else p.retrieve(question, k=top_k))
-                    contexts   = [p._format_context(doc) for doc in retrieved]
-                    raw        = pipeline.generator.generate(question, contexts)
-                    gen_answer = raw[0] if isinstance(raw, tuple) else raw
-                    bleu_val   = compute_bleu(gen_answer, gold_ans)
-                    rouge_val  = compute_rouge(gen_answer, gold_ans, rouge_type="rougeL", mode="recall")
-                    error_msg  = ""
-                except Exception as exc:
-                    gen_answer = f"[ERROR] {exc}"
-                    bleu_val   = None
-                    rouge_val  = None
-                    error_msg  = str(exc)
-
-                rows.append({
-                    "query_id"         : q_id,
-                    "method"           : METHOD_LABELS[method],
-                    "question"         : question,
-                    "gold_answer"      : gold_ans,
-                    "generated_answer" : gen_answer,
-                    "precision_at_k"   : "N/A",
-                    "recall_at_k"      : "N/A",
-                    "mrr"              : "N/A",
-                    "bleu"             : round(bleu_val,  4) if bleu_val  is not None else None,
-                    "rouge_l_recall"   : round(rouge_val, 4) if rouge_val is not None else None,
-                    "error"            : error_msg,
-                })
-
+                    q_vec = pipeline.embedder.embed(question)[0]
+                    embed_ok = True
+                except Exception:
+                    embed_ok = False
+                
+                for method in METHODS:
+                    step += 1
+                    prog.progress(step / total_steps,
+                                  text=f"[{q_id}] {METHOD_LABELS[method]} top-{current_k} ({step}/{total_steps})")
+                    status_txt.caption(f"⏳ {question[:80]}...")
+                    
+                    # Get relevant chunk IDs for this method
+                    if gt_item:
+                        rel_all = gt_item.get("relevant_chunk_ids", {})
+                        rel_ids = rel_all.get(method, []) if isinstance(rel_all, dict) else rel_all
+                    else:
+                        rel_ids = []
+                    
+                    # Initialize metrics
+                    precision_val = recall_val = mrr_val = None
+                    gen_answer = bleu_val = rouge_val = None
+                    error_msg = ""
+                    is_oom = False
+                    
+                    try:
+                        # Retrieve with OOM handling
+                        p = RAGPipeline(
+                            embedder=pipeline.embedder,
+                            generator=pipeline.generator,
+                            chroma_client=pipeline.chroma_client,
+                            chunking_method=method,
+                            top_k=current_k,
+                        )
+                        
+                        if embed_ok:
+                            retrieved = p.retrieve_by_vector(q_vec, k=current_k)
+                        else:
+                            retrieved = p.retrieve(question, k=current_k)
+                        
+                        # Get retrieved chunk IDs
+                        retrieved_ids = [doc.get("id", "") for doc in retrieved]
+                        
+                        # Compute retrieval metrics if relevant chunks exist
+                        if rel_ids:
+                            precision_val = compute_precision_at_k(retrieved_ids, rel_ids, current_k)
+                            recall_val = compute_recall_at_k(retrieved_ids, rel_ids, current_k)
+                            mrr_val = compute_mrr(retrieved_ids, rel_ids)
+                        else:
+                            # No relevant chunks for this query
+                            precision_val = recall_val = mrr_val = "N/A"
+                        
+                        # Generate answer
+                        contexts = [p._format_context(doc) for doc in retrieved]
+                        raw = pipeline.generator.generate(question, contexts)
+                        gen_answer = raw[0] if isinstance(raw, tuple) else raw
+                        bleu_val = compute_bleu(gen_answer, gold_ans)
+                        rouge_val = compute_rouge(gen_answer, gold_ans, rouge_type="rougeL", mode="recall")
+                        
+                    except torch.cuda.OutOfMemoryError as oom_exc:
+                        # OOM handling
+                        is_oom = True
+                        gen_answer = "[OOM - Out of Memory]"
+                        precision_val = recall_val = mrr_val = "OOM"
+                        bleu_val = rouge_val = "OOM"
+                        error_msg = f"OOM at top-{current_k}: {str(oom_exc)}"
+                        logger.error(f"OOM error for {q_id} {method} top-{current_k}: {oom_exc}")
+                        
+                        # Clear GPU cache
+                        if torch.cuda.is_available():
+                            torch.cuda.empty_cache()
+                    
+                    except Exception as exc:
+                        gen_answer = f"[ERROR] {exc}"
+                        precision_val = recall_val = mrr_val = None
+                        bleu_val = rouge_val = None
+                        error_msg = str(exc)
+                    
+                    rows.append({
+                        "query_id"         : q_id,
+                        "method"           : METHOD_LABELS[method],
+                        "question"         : question,
+                        "gold_answer"      : gold_ans,
+                        "generated_answer" : gen_answer,
+                        "precision_at_k"   : round(precision_val, 4) if isinstance(precision_val, (int, float)) else precision_val,
+                        "recall_at_k"      : round(recall_val, 4) if isinstance(recall_val, (int, float)) else recall_val,
+                        "mrr"              : round(mrr_val, 4) if isinstance(mrr_val, (int, float)) else mrr_val,
+                        "bleu"             : round(bleu_val, 4) if isinstance(bleu_val, (int, float)) else bleu_val,
+                        "rouge_l_recall"   : round(rouge_val, 4) if isinstance(rouge_val, (int, float)) else rouge_val,
+                        "error"            : error_msg,
+                        "hardware_info"    : hw_info_str,
+                    })
+            
+            # Save file for this top-k
+            df_result = pd.DataFrame(rows)
+            # WIB timestamp (UTC+7)
+            ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
+            save_path = EVAL_RESULTS_DIR / f"eval_{relevance_mode}_{ts_wib}_{mode_tag}_top{current_k}.csv"
+            df_result.to_csv(save_path, index=False)
+            all_results.append((df_result, save_path))
+        
         prog.empty()
         status_txt.empty()
-
-        df_result = pd.DataFrame(rows)
-        ts        = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = EVAL_RESULTS_DIR / f"eval_{ts}_{mode_tag}_top{top_k}.csv"
-        df_result.to_csv(save_path, index=False)
-        return df_result, save_path
+        
+        return all_results
 
     # ── Jalankan evaluasi ─────────────────────────────────────────────────
     if run_btn:
@@ -576,39 +761,73 @@ with tab_eval:
             is_quick  = eval_mode.startswith("Quick")
             mode_tag  = "quick" if is_quick else "full"
             qa_subset = qa_df[qa_df["query_id"].isin(QUICK_EVAL_IDS)] if is_quick else qa_df
-
-            df_new, saved_path = _run_eval_and_save(qa_subset, mode_tag, top_k_eval)
-            n_q = len(qa_subset)
-            st.success(
-                f"✅ Selesai: {len(df_new)} baris ({n_q} pertanyaan × {len(METHODS)} metode) "
-                f"— disimpan sebagai **{saved_path.name}**"
-            )
+            
+            # Determine relevance mode string
+            rel_mode_str = "strict" if relevance_mode.startswith("Strict") else "lenient"
+            
+            # Run evaluation for top-k range
+            results = _run_eval_and_save(qa_subset, mode_tag, rel_mode_str, (top_k_min, top_k_max))
+            
+            if results:
+                n_q = len(qa_subset)
+                n_files = len(results)
+                total_rows = sum(len(df) for df, _ in results)
+                
+                st.success(
+                    f"✅ Selesai: {n_files} file ({total_rows} baris total, "
+                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k)"
+                )
+                
+                # Show list of generated files
+                st.markdown("**File yang di-generate:**")
+                for df, path in results:
+                    oom_count = len(df[df["precision_at_k"] == "OOM"])
+                    oom_note = f" ({oom_count} OOM)" if oom_count > 0 else ""
+                    st.markdown(f"- `{path.name}`{oom_note}")
+            else:
+                st.error("❌ Evaluasi gagal. Cek log untuk detail.")
 
     st.divider()
 
     # ── Helper: render DataFrame hasil ───────────────────────────────────
     def _render_results(df_res: pd.DataFrame) -> None:
         """Tampilkan ringkasan + detail + tombol export untuk DataFrame hasil eval."""
-        # Ringkasan per metode
+        # Ringkasan per metode (termasuk retrieval metrics)
         st.markdown("**Ringkasan per Metode**")
-        ok = df_res[df_res["error"].fillna("") == ""]
-        if not ok.empty:
+        
+        # Filter out OOM and N/A for numeric aggregation
+        valid_metrics = df_res[
+            (df_res["precision_at_k"] != "OOM") & 
+            (df_res["precision_at_k"] != "N/A") &
+            (df_res["error"].fillna("") == "")
+        ]
+        
+        if not valid_metrics.empty:
+            # Convert to numeric for aggregation
+            numeric_cols = ["precision_at_k", "recall_at_k", "mrr", "bleu", "rouge_l_recall"]
+            for col in numeric_cols:
+                valid_metrics[col] = pd.to_numeric(valid_metrics[col], errors="coerce")
+            
             summary = (
-                ok.groupby("method")[["bleu", "rouge_l_recall"]]
-                .agg(n=("bleu", "count"), mean_bleu=("bleu", "mean"),
+                valid_metrics.groupby("method")[numeric_cols]
+                .agg(n=("bleu", "count"), 
+                     mean_precision=("precision_at_k", "mean"),
+                     mean_recall=("recall_at_k", "mean"),
+                     mean_mrr=("mrr", "mean"),
+                     mean_bleu=("bleu", "mean"),
                      mean_rouge_l=("rouge_l_recall", "mean"))
                 .round(4)
             )
             st.dataframe(summary, use_container_width=True)
         else:
-            st.warning("Semua query mengalami error.")
+            st.warning("Tidak ada data valid untuk ringkasan.")
             summary = pd.DataFrame()
 
         # Detail per query
         st.markdown("**Detail Per Query**")
         display_cols = ["query_id", "method", "question", "gold_answer",
                         "generated_answer", "precision_at_k", "recall_at_k",
-                        "mrr", "bleu", "rouge_l_recall"]
+                        "mrr", "bleu", "rouge_l_recall", "error"]
         st.dataframe(
             df_res[display_cols],
             use_container_width=True,
@@ -617,6 +836,9 @@ with tab_eval:
                 "question"         : st.column_config.TextColumn(width="medium"),
                 "gold_answer"      : st.column_config.TextColumn(width="medium"),
                 "generated_answer" : st.column_config.TextColumn(width="large"),
+                "precision_at_k"   : st.column_config.TextColumn(width="small"),
+                "recall_at_k"      : st.column_config.TextColumn(width="small"),
+                "mrr"              : st.column_config.TextColumn(width="small"),
                 "bleu"             : st.column_config.NumberColumn(format="%.4f"),
                 "rouge_l_recall"   : st.column_config.NumberColumn(format="%.4f"),
             },

@@ -31,10 +31,8 @@ pip-delete-this-directory.txt
 
 # Virtual Environment
 # -------------------
-venv/
 ENV/
 env/
-.venv
 .env
 .virtualenv
 
@@ -160,10 +158,6 @@ data/ground_truth/backup_question_revision/
 data/ground_truth/qa_gold_standard_rag_bps_30qa.xlsx
 data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed.xlsx
 data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
-
-# Results — ignore log files besar, keep CSV/report
-# ---------------------------------------------------
-results/generation_eval/*.log
 
 # Log files
 logs/
