@@ -144,8 +144,8 @@ archived/
 # Generated Data Artifacts (tidak perlu di-version control)
 # ----------------------------------------------------------
 data/(backup)element_based/
-data/chroma/chroma.sqlite3
-data/chroma/*/data_level0.bin
+data/chroma/
+data/embeddings/
 
 # Backup folders (tidak perlu di-version control)
 # -------------------------------------------------
