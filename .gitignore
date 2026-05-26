@@ -144,6 +144,8 @@ archived/
 # Generated Data Artifacts (tidak perlu di-version control)
 # ----------------------------------------------------------
 data/(backup)element_based/
+data/chroma/
+data/embeddings/
 
 # Backup folders (tidak perlu di-version control)
 # -------------------------------------------------
