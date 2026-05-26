@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-26 (05:40 WIB)
+Terakhir diperbarui: 2026-05-26 (19:20 WIB)
 ================================================================================
 
 
@@ -17,16 +17,16 @@ Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
-  - Cloud (Vast AI): Linux | GPU RTX 3090 atau RTX 2080 Ti
-    → Embedding: Qwen3-Embedding-4B (full HuggingFace safetensors, GPU)
+  - Cloud (Vast AI): Linux | GPU RTX 5060 Ti 16GB (AKTIF)
+    → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
 
 Tujuan:
   - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
-  - Embedding: lihat Environment di atas (GGUF untuk RTX 4050, full untuk RTX 3090/2080 Ti)
-  - Generator: Qwen3-4B-Instruct-2507 — FP8 untuk RTX 4050, BF16 untuk RTX 3090/2080 Ti
+  - Embedding: Qwen3-Embedding-4B-Q8_0.gguf (konsisten di semua env)
+  - Generator: Qwen3-4B-Instruct-2507 (FP8/BF16 tergantung GPU)
   - Vector DB: ChromaDB (persistent, lokal di data/chroma/)
-  - Evaluasi retrieval: Precision@k, Recall@k, MRR  — NDCG tidak dipakai
+  - Evaluasi retrieval: Precision@k, Recall@k, MRR
   - Evaluasi generasi: BLEU (sacrebleu), ROUGE-L Recall (rouge-score)
 
 Dokumen BPS (10 dokumen, di data/raw/ + scripts/gt_raw/):
@@ -68,6 +68,7 @@ rag-skripsi/
 ├── results/
 │   ├── generation_eval/  per_query*.csv, summary*.csv, report*.txt (log di-ignore)
 │   │   Diorganisir dalam subfolder per GPU: No GPU Info, RTX 3090 24GB, RTX 4050 6GB, RTX 5060 Ti 16GB
+│   │   Streamlit batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/
 │   └── retrieval_eval_*.csv + *_summary.csv
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
@@ -137,13 +138,10 @@ Chunking:
   File chunks: data/chunked/{method}/{doc_id}_chunks.json
 
 Embedding:
-  Lokal (RTX 4050):
-    Model : Qwen3-Embedding-4B-Q8_0.gguf (via llama.cpp, CPU only)
+  Lokal (RTX 4050) & Cloud (Vast AI RTX 5060 Ti):
+    Model : Qwen3-Embedding-4B-Q8_0.gguf (via llama.cpp)
     Device: CPU only (hemat VRAM untuk generator)
     n_batch: 64 (diubah dari 512 untuk hindari OOM)
-  Vast AI (RTX 3090 / 2080 Ti):
-    Model : Qwen3-Embedding-4B (full HuggingFace safetensors, lokal di models/)
-    Device: GPU (tidak perlu GGUF karena VRAM besar)
   Enrichment: enrich_table_chunk_texts() di src/embedding/io.py
     → Parse text_as_html tabel + prefix judul dari chunk sebelumnya
     → Hanya memengaruhi data/embeddings/ dan ChromaDB, TIDAK ubah data/chunked/
@@ -169,7 +167,8 @@ Streamlit Apps:
   src/streamlit/app.py      — annotation tool v3 (anotasi sudah selesai)
   src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
     DEFAULT_TOP_K=8, slider max=10
-    Batch eval: persistent ke results/generation_eval/streamlit/
+    Batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/
+    Auto-run: otomatis menjalankan Strict & Lenient relevance modes
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
@@ -240,15 +239,18 @@ SELESAI ✓
   [x] Fix BUG 14: bilingual PDF extraction (center-based column detection)
   [x] Re-ekstraksi DOC06 & DOC07, re-chunk, re-embed, reload ChromaDB
   [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
-  [x] Streamlit RAG chat demo (single/compare mode, batch eval)
+  [x] Streamlit RAG chat demo (single/compare mode, batch eval auto-run)
+  [x] Update embedding model ke GGUF (Q8_0) di Vast AI
+  [x] Batch evaluation (Strict) — SELESAI (10/10 files)
   [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
   [x] Setup symlinks folder (chroma, models) ke /workspace/
   [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
-  [x] Re-run evaluasi retrieval (Non-GGUF) — MRR significantly improved
-  [x] Re-run evaluasi generasi (BF16) — SELESAI (summary_20260521_125007.csv)
+
+SEDANG BERJALAN ⏳
+  [ ] Batch evaluation (Lenient) — top-1 s/d top-10
 
 BELUM DIMULAI ○
-  [x] Analisis mendalam perbandingan antar metode chunking (menggunakan hasil BF16 terbaru)
+  [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
 
 

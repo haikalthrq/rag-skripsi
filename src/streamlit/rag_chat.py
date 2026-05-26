@@ -56,7 +56,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
 
 # ── Eval persistence & quick-eval subset ─────────────────────────────────────
-EVAL_RESULTS_DIR = ROOT / "results" / "generation_eval" / "streamlit"
+EVAL_RESULTS_DIR = ROOT / "results" / "RTX 5060 Ti 16GB" / "generation_eval_streamlit"
 EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # 3 table-lookup + 2 narrative/definition — subset stabil untuk demo cepat
@@ -555,11 +555,12 @@ with tab_eval:
     st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR) + Generation (BLEU, ROUGE-L)")
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
+        "Menjalankan otomatis kedua mode relevance (Strict & Lenient). "
         "Menghasilkan 20 file per run (2 mode relevance × 10 top-k)."
     )
 
     # ── Konfigurasi run ───────────────────────────────────────────────────
-    col_qa_mode, col_rel_mode, col_topk, col_btn = st.columns([1.5, 1.5, 1, 1])
+    col_qa_mode, col_topk, col_btn = st.columns([2, 1, 1])
     
     with col_qa_mode:
         eval_mode = st.radio(
@@ -567,14 +568,6 @@ with tab_eval:
             ["Full — 30 QA", "Quick — 5 QA"],
             horizontal=True,
             key="eval_mode",
-        )
-    
-    with col_rel_mode:
-        relevance_mode = st.radio(
-            "Relevance",
-            ["Strict (label=2)", "Lenient (label≥1)"],
-            horizontal=True,
-            key="relevance_mode",
         )
     
     with col_topk:
@@ -762,25 +755,26 @@ with tab_eval:
             mode_tag  = "quick" if is_quick else "full"
             qa_subset = qa_df[qa_df["query_id"].isin(QUICK_EVAL_IDS)] if is_quick else qa_df
             
-            # Determine relevance mode string
-            rel_mode_str = "strict" if relevance_mode.startswith("Strict") else "lenient"
+            # Run evaluation for both relevance modes
+            all_results = []
+            for rel_mode_str in ["strict", "lenient"]:
+                st.info(f"🔄 Menjalankan evaluasi mode: {rel_mode_str.upper()}...")
+                results = _run_eval_and_save(qa_subset, mode_tag, rel_mode_str, (top_k_min, top_k_max))
+                all_results.extend(results)
             
-            # Run evaluation for top-k range
-            results = _run_eval_and_save(qa_subset, mode_tag, rel_mode_str, (top_k_min, top_k_max))
-            
-            if results:
+            if all_results:
                 n_q = len(qa_subset)
-                n_files = len(results)
-                total_rows = sum(len(df) for df, _ in results)
+                n_files = len(all_results)
+                total_rows = sum(len(df) for df, _ in all_results)
                 
                 st.success(
                     f"✅ Selesai: {n_files} file ({total_rows} baris total, "
-                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k)"
+                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k × 2 mode relevance)"
                 )
                 
                 # Show list of generated files
                 st.markdown("**File yang di-generate:**")
-                for df, path in results:
+                for df, path in all_results:
                     oom_count = len(df[df["precision_at_k"] == "OOM"])
                     oom_note = f" ({oom_count} OOM)" if oom_count > 0 else ""
                     st.markdown(f"- `{path.name}`{oom_note}")
