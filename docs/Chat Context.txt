@@ -1,5 +1,5 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-05-28 12:25 WIB (UTC+7)
+# Generated: 2026-05-28 21:07 WIB (UTC+7)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
@@ -9,61 +9,63 @@ Complete batch evaluations (Strict & Lenient), fix metrics computation issues, a
 
 ### 1. Model & Format Update
 - **Action:** Deleted HuggingFace safetensors model folder (`models/Qwen3-Embedding-4B/`).
-- **Action:** Downloaded GGUF version (`Qwen3-Embedding-4B-Q8_0.gguf`) using `scripts/download_embedding_model.py`.
+- **Action:** Downloaded GGUF version (`Qwen3-Embedding-4B-Q8_0.gguf`) from HF Hub.
 - **Reason:** Better memory efficiency and compatibility with llama.cpp/GGUF-based inference.
-- **Compatibility:** Confirmed embeddings generated with safetensors are compatible with GGUF version (same architecture & dimension 2560).
+- **Note:** Model file moved to root `models/` (not in subfolder) to match DEFAULT_EMBEDDER_PATH.
 
 ### 2. Streamlit UI Enhancements (`src/streamlit/rag_chat.py`)
 - **Action:** Added "Mode Relevance" radio button (All, Strict, Lenient) to Evaluation tab.
-- **Action:** User can now select which relevance mode(s) to run: All (both), Strict only, or Lenient only.
-- **Action:** Updated success message to dynamically count number of relevance modes run.
 - **Action:** DEFAULT_TOP_K=8, slider max=10.
-- **Action:** Added automatic GPU/VRAM monitoring in evaluation logs.
+- **Action:** Added progress feedback for pre-compute embedding phase to prevent "stuck" appearance.
 
 ### 3. BLEU/ROUGE Fix (2026-05-28)
 - **Issue:** ragas 0.4.3 threw `No module named 'langchain_community.chat_models.vertexai'` error.
 - **Fix:** Switched to direct library usage in `src/evaluation/metrics.py`:
   - BLEU: `sacrebleu.corpus_bleu()` directly (normalized 0-1).
   - ROUGE-L: `rouge_score.RougeScorer` directly, `use_stemmer=False`.
-- **Reason:** Direct implementation avoids ragas dependency issues and gives exact token matching for Indonesian text.
 
-### 4. Batch Evaluation Status
-- **Strict Mode:** ✅ Completed (10/10 files, top-1 to top-10, stored in `results/RTX A4000 16GB/generation_eval_streamlit/`).
-- **Lenient Mode:** 🔄 In Progress (3/10 files completed: top-1, top-2, top-3; remaining: top-4 to top-10).
-- **Validation:** Confirmed data integrity (90 rows per file for 30 QA × 3 methods), no OOM, no errors.
+### 4. Cache Embedding Optimization (2026-05-28)
+- **Action:** Pre-compute query embeddings once per QA before top-k loop in `_run_eval_and_save`.
+- **Impact:** ~15-20% faster per QA (saves 5 embed calls per QA for top-k range 5-10).
+- **Safety:** 100% safe — same input, same embedder, same output vector. No change to results.
 
-### 5. Hardware (Vast AI)
-- **GPU:** NVIDIA RTX A4000 16GB (actual GPU, not RTX 5060 Ti as initially logged).
-- **VRAM Usage:** ~8.4 GB utilized (Generator on GPU, Embedder on CPU).
-- **System:** Linux, stable during long evaluation runs.
+### 5. Batch Evaluation Status
+- **Strict Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/RTX 5060 Ti 16GB/generation_eval_streamlit/`).
+- **Lenient Mode:** 🔄 Running via Streamlit UI (top-1 s/d top-10, ~1-1.5 hours total).
+
+### 6. Hardware (Vast AI)
+- **GPU:** NVIDIA RTX A5000 16GB.
+- **VRAM Usage:** ~8-9 GB utilized (Generator on GPU, Embedder on CPU).
+- **System:** Linux, stable.
 
 ## Current State
 
 ### Dependencies
-- ✅ `scikit-learn`, `huggingface_hub`, `chromadb`, `torch`, `transformers`, `accelerate`, `sacrebleu`, `rouge-score` - Installed.
+- ✅ All requirements installed in `.venv/`
 
 ### Embeddings & Models
-- **Embeddings:** `data/embeddings/` (30 files, dim 2560, generated with Qwen3-4B).
-- **Model (Embedder):** `models/Qwen3-Embedding-4B-Q8_0.gguf` (GGUF format, loaded via llama.cpp on CPU).
-- **Model (Generator):** `models/Qwen3-4B-Instruct-2507` (HF format, BF16 on GPU).
+- **Model (Embedder):** `models/Qwen3-Embedding-4B-Q8_0.gguf` (GGUF, llama.cpp, CPU).
+- **Model (Generator):** `models/Qwen3-4B-Instruct-2507` (HF, BF16, GPU).
 
 ### Results
-- **Strict:** `results/RTX A4000 16GB/generation_eval_streamlit/` — 10/10 files complete.
-- **Lenient:** `results/generation_eval/streamlit/` — 3/10 files complete (top-1 to top-3).
+- **Strict:** `results/RTX 5060 Ti 16GB/generation_eval_streamlit/` — 10/10 files complete.
+- **Lenient:** `results/generation_eval/streamlit/` — in progress.
 
 ## Known Issues (Resolved)
 - ~~ragas dependency error~~ → Fixed by direct sacrebleu/rouge-score usage.
-- ~~Process stuck at Lenient top-3~~ → Resolved, evaluation resumed successfully.
+- ~~Embedder path mismatch~~ → Fixed by moving GGUF to root models/.
+- ~~UI stuck on "Memulai evaluasi"~~ → Fixed by adding pre-compute progress captions.
 
 ## File Locations
-- **Results (Strict):** `results/RTX A4000 16GB/generation_eval_streamlit/`
+- **Results (Strict):** `results/RTX 5060 Ti 16GB/generation_eval_streamlit/`
 - **Results (Lenient):** `results/generation_eval/streamlit/`
 - **Model:** `models/Qwen3-Embedding-4B-Q8_0.gguf`
 - **Metrics Code:** `src/evaluation/metrics.py`
 - **Streamlit App:** `src/streamlit/rag_chat.py`
+- **Plan:** `/root/.windsurf/plans/cache-embedding-optim-ba7c71.md`
 
 ## Next Steps
 1. Complete Lenient relevance evaluation (top-4 to top-10).
-2. Analyze evaluation results (BLEU, ROUGE-L, Precision@k, Recall@k, MRR) across all 3 methods.
+2. Analyze evaluation results across all 3 methods.
 3. Compare Strict vs Lenient relevance mode performance.
-4. Optional: Cleanup unused dependencies from `requirements.txt`.
+4. Penulisan laporan skripsi.

@@ -632,6 +632,20 @@ with tab_eval:
         status_txt = st.empty()
         step = 0
         
+        # Pre-compute query embeddings once per query (reused for all top-k & methods)
+        query_embeddings: dict[str, tuple] = {}
+        embed_status = st.empty()
+        for i, (_, qa_row) in enumerate(qa_subset.iterrows(), 1):
+            q_id = str(qa_row["query_id"])
+            question = str(qa_row["question"])
+            embed_status.caption(f"⏳ Pre-computing embeddings... {i}/{len(qa_subset)} ({q_id})")
+            try:
+                q_vec = pipeline.embedder.embed(question)[0]
+                query_embeddings[q_id] = (q_vec, True)
+            except Exception:
+                query_embeddings[q_id] = (None, False)
+        embed_status.empty()
+        
         # Loop through each top-k
         for current_k in range(min_k, max_k + 1):
             rows = []
@@ -644,12 +658,8 @@ with tab_eval:
                 # Get ground truth item for this query
                 gt_item = gt_lookup.get(q_id)
                 
-                # Embed query (once per query, reuse for all methods)
-                try:
-                    q_vec = pipeline.embedder.embed(question)[0]
-                    embed_ok = True
-                except Exception:
-                    embed_ok = False
+                # Reuse cached embedding
+                q_vec, embed_ok = query_embeddings.get(q_id, (None, False))
                 
                 for method in METHODS:
                     step += 1

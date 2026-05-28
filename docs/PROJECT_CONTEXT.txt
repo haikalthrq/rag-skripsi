@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-28 (15:50 WIB)
+Terakhir diperbarui: 2026-05-28 (21:07 WIB)
 ================================================================================
 
 
@@ -17,7 +17,7 @@ Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
-  - Cloud (Vast AI): Linux | GPU RTX A4000 16GB (AKTIF)
+  - Cloud (Vast AI): Linux | GPU RTX A5000 16GB (AKTIF)
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
 
@@ -268,12 +268,14 @@ SELESAI ✓
   [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
 
 SEDANG BERJALAN ⏳
-  [ ] Batch evaluation (Lenient) — BERJALAN (3/10 file, top1–top3 selesai; butuh top4–top10)
+  [ ] Batch evaluation (Lenient) — BERJALAN via Streamlit UI (top-1 s/d top-10)
 
 BARU SELESAI ✓ (2026-05-28)
   [x] Fix BLEU/ROUGE: ganti dari ragas wrapper ke sacrebleu/rouge-score langsung
   [x] Fix use_stemmer=False untuk ROUGE-L (exact match, cocok untuk Bahasa Indonesia)
   [x] Kembalikan opsi Mode Relevance (All/Strict/Lenient) di Streamlit UI
+  [x] Pindah model embedder GGUF ke root models/ (path: models/Qwen3-Embedding-4B-Q8_0.gguf)
+  [x] Optimasi cache embedding di src/streamlit/rag_chat.py (pre-compute q_vec sekali per QA)
 
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking
