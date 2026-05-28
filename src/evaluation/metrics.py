@@ -96,8 +96,8 @@ def compute_mrr(
 
 def compute_bleu(response: str, reference: str) -> float:
     """
-    BLEU score via ragas BleuScore (collections-based API, non-LLM).
-    Internally menggunakan sacrebleu.corpus_bleu.
+    BLEU score via sacrebleu.corpus_bleu (non-LLM).
+    Menggunakan library sacrebleu langsung untuk menghindari dependency issue dengan ragas.
 
     Args:
         response : Generated answer
@@ -107,10 +107,10 @@ def compute_bleu(response: str, reference: str) -> float:
         BLEU score (0.0 – 1.0)
     """
     try:
-        from ragas.metrics.collections import BleuScore
-        scorer = BleuScore()
-        result = scorer.score(response=response, reference=reference)
-        return float(result.value)
+        from sacrebleu import corpus_bleu
+        # sacrebleu expects list of references and list of hypotheses
+        result = corpus_bleu([reference], [response])
+        return result.score / 100.0  # sacrebleu returns 0-100, convert to 0-1
     except Exception as e:
         logger.error(f"compute_bleu error: {e}")
         return 0.0
@@ -125,7 +125,8 @@ def compute_rouge(
     mode: str = "recall",
 ) -> float:
     """
-    ROUGE score via ragas RougeScore (collections-based API, non-LLM).
+    ROUGE score via rouge-score (non-LLM).
+    Menggunakan library rouge-score langsung untuk menghindari dependency issue dengan ragas.
     Default: rouge_type='rougeL', mode='recall' → ROUGE-L Recall.
 
     Args:
@@ -138,10 +139,20 @@ def compute_rouge(
         ROUGE score (0.0 – 1.0)
     """
     try:
-        from ragas.metrics.collections import RougeScore
-        scorer = RougeScore(rouge_type=rouge_type, mode=mode)
-        result = scorer.score(response=response, reference=reference)
-        return float(result.value)
+        from rouge_score import rouge_scorer
+        scorer = rouge_scorer.RougeScorer([rouge_type], use_stemmer=False)
+        scores = scorer.score(reference, response)
+        # Extract the appropriate metric based on mode
+        rouge_score = scores[rouge_type]
+        if mode == "precision":
+            return rouge_score.precision
+        elif mode == "recall":
+            return rouge_score.recall
+        elif mode == "fmeasure":
+            return rouge_score.fmeasure
+        else:
+            logger.warning(f"Unknown mode: {mode}, defaulting to recall")
+            return rouge_score.recall
     except Exception as e:
         logger.error(f"compute_rouge ({rouge_type}, {mode}) error: {e}")
         return 0.0

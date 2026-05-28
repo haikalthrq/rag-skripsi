@@ -17,7 +17,7 @@ Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
-  - Cloud (Vast AI): Linux | GPU RTX 5060 Ti 16GB (AKTIF)
+  - Cloud (Vast AI): Linux | GPU RTX A4000 16GB (AKTIF)
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
 
@@ -185,8 +185,9 @@ Streamlit Apps:
   src/streamlit/app.py      — annotation tool v3 (anotasi sudah selesai)
   src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
     DEFAULT_TOP_K=8, slider max=10
-    Batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/
-    Auto-run: otomatis menjalankan Strict & Lenient relevance modes
+    Batch eval: results/RTX A4000 16GB/generation_eval_streamlit/ (Strict)
+                results/generation_eval/streamlit/ (Lenient)
+    Relevance mode: radio button (All, Strict, Lenient) — user-selectable
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
@@ -226,8 +227,8 @@ Evaluasi Retrieval (top_k=5):
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok, semua chunk ada di ChromaDB.
 
 Evaluasi Generasi — Metrik:
-  BLEU   : sacrebleu.sentence_bleu(), dinormalisasi ke 0–1
-  ROUGE-L: rouge_score RougeScorer, recall mode (LCS recall)
+  BLEU   : sacrebleu.corpus_bleu() langsung, dinormalisasi ke 0–1 (bukan via ragas)
+  ROUGE-L: rouge_score.RougeScorer langsung, rouge_type='rougeL', mode='recall', use_stemmer=False
   Hasil (BF16, 2026-05-21):
     element_based   BLEU=0.1245  ROUGE-L=0.7378
     maxmin_semantic BLEU=0.1527  ROUGE-L=0.7137
@@ -269,6 +270,11 @@ SELESAI ✓
 SEDANG BERJALAN ⏳
   [ ] Batch evaluation (Lenient) — BERJALAN (3/10 file, top1–top3 selesai; butuh top4–top10)
 
+BARU SELESAI ✓ (2026-05-28)
+  [x] Fix BLEU/ROUGE: ganti dari ragas wrapper ke sacrebleu/rouge-score langsung
+  [x] Fix use_stemmer=False untuk ROUGE-L (exact match, cocok untuk Bahasa Indonesia)
+  [x] Kembalikan opsi Mode Relevance (All/Strict/Lenient) di Streamlit UI
+
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
@@ -293,6 +299,9 @@ BUG 12 components.html deprecated (akan crash Juni 2026). Fix: ganti ke st.ifram
 BUG 13 Rationale hilang saat Streamlit restart. Fix: merge rationale + inisialisasi kolom.
 BUG 14 Bilingual text dari PDF 2-kolom masuk chunk. Fix: center-based column detection.
        (src/preprocessing/pdf_extractor.py, 2026-05-18)
+BUG 15 ragas 0.4.3 error: No module named 'langchain_community.chat_models.vertexai'
+       saat compute BLEU/ROUGE. Fix: ganti ke sacrebleu.corpus_bleu & rouge_score.RougeScorer langsung.
+       (src/evaluation/metrics.py, 2026-05-28)
 BUGS element_based chunking (April 2026): B1 list buffer lost at boundary, B2 PageBreak
      filtered before handler, B3 table chunk missing source_filename, B4 section_context
      vs section_title inconsistency, B5 title-only orphan before table, B6 missing source_file.

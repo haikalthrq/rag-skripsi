@@ -569,6 +569,12 @@ with tab_eval:
             horizontal=True,
             key="eval_mode",
         )
+        relevance_mode = st.radio(
+            "Mode Relevance",
+            ["All", "Strict", "Lenient"],
+            horizontal=True,
+            key="relevance_mode",
+        )
     
     with col_topk:
         top_k_min = st.number_input("Min Top-K", min_value=1, max_value=10, value=1, key="top_k_min")
@@ -755,9 +761,16 @@ with tab_eval:
             mode_tag  = "quick" if is_quick else "full"
             qa_subset = qa_df[qa_df["query_id"].isin(QUICK_EVAL_IDS)] if is_quick else qa_df
             
-            # Run evaluation for both relevance modes
+            # Run evaluation based on selected relevance mode
             all_results = []
-            for rel_mode_str in ["strict", "lenient"]:
+            if relevance_mode == "All":
+                modes_to_run = ["strict", "lenient"]
+            elif relevance_mode == "Strict":
+                modes_to_run = ["strict"]
+            else:  # Lenient
+                modes_to_run = ["lenient"]
+            
+            for rel_mode_str in modes_to_run:
                 st.info(f"🔄 Menjalankan evaluasi mode: {rel_mode_str.upper()}...")
                 results = _run_eval_and_save(qa_subset, mode_tag, rel_mode_str, (top_k_min, top_k_max))
                 all_results.extend(results)
@@ -769,7 +782,7 @@ with tab_eval:
                 
                 st.success(
                     f"✅ Selesai: {n_files} file ({total_rows} baris total, "
-                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k × 2 mode relevance)"
+                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k × {len(modes_to_run)} mode relevance)"
                 )
                 
                 # Show list of generated files
