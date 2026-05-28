@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-26 (19:20 WIB)
+Terakhir diperbarui: 2026-05-28 (15:50 WIB)
 ================================================================================
 
 
@@ -52,12 +52,17 @@ rag-skripsi/
 │   └── streamlit/      app.py (anotasi), rag_chat.py (demo RAG), test_app.py
 ├── scripts/
 │   ├── build_candidates_v3.py          generate kandidat anotasi
+│   ├── check_nan_percentage.py         cek persentase NaN di CSV results
+│   ├── cleanup_nan_results.py          hapus file result dengan NaN tinggi
+│   ├── compare_results.py              bandingkan old vs new results
 │   ├── convert_ground_truth_to_json.py labels → JSON evaluasi retrieval
-│   ├── run_retrieval_eval.py           P@k, R@k, MRR
-│   ├── run_generation_eval.py          BLEU + ROUGE-L
 │   ├── download_embedding_model.py
 │   ├── download_generator_model.py
-│   └── inspect_qa.py
+│   ├── inspect_qa.py
+│   ├── load_embeddings_to_chroma.py    load embeddings JSON ke ChromaDB
+│   ├── rank_results.py                 ranking hasil evaluasi
+│   ├── run_generation_eval.py          BLEU + ROUGE-L
+│   └── run_retrieval_eval.py           P@k, R@k, MRR
 ├── data/
 │   ├── raw/              PDF asli
 │   ├── cleaned/          teks hasil preprocessing
@@ -66,10 +71,23 @@ rag-skripsi/
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
-│   ├── generation_eval/  per_query*.csv, summary*.csv, report*.txt (log di-ignore)
-│   │   Diorganisir dalam subfolder per GPU: No GPU Info, RTX 3090 24GB, RTX 4050 6GB, RTX 5060 Ti 16GB
-│   │   Streamlit batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/
-│   └── retrieval_eval_*.csv + *_summary.csv
+│   ├── generation_eval/                    ← INCOMPLETE: lenient streamlit eval (top1–top3)
+│   ├── No GPU Info/
+│   │   ├── retrieval/                      JSON eval files
+│   │   ├── retrieval_vast/                 JSON eval files dari branch vast
+│   │   └── retrieval_eval_*.csv            banyak varian: _strict/_lenient, _new/_v2, _k8/_k10
+│   ├── RTX 3090 24GB/
+│   │   └── generation_eval/                per_query, summary, report
+│   ├── RTX 4050 6GB/
+│   │   └── generation_eval/                per_query, summary, report
+│   └── RTX 5060 Ti 16GB/
+│       ├── generation_eval/                per_query, summary, report (FP8)
+│       ├── generation_eval_bf16/           per_query, summary, report (BF16)
+│       ├── generation_eval_bf16_vast/      dari merge branch vast
+│       ├── generation_eval_streamlit/      Strict batch eval (top1–top10) ← SELESAI
+│       └── generation_eval_vast/           dari merge branch vast
+│
+│   CATATAN: File .log dihapus (tidak di-track git). Folder diorganisir per GPU environment.
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
@@ -214,7 +232,9 @@ Evaluasi Generasi — Metrik:
     element_based   BLEU=0.1245  ROUGE-L=0.7378
     maxmin_semantic BLEU=0.1527  ROUGE-L=0.7137
     recursive       BLEU=0.1306  ROUGE-L=0.7401
-  Output : results/generation_eval/per_query_*.csv, summary_*.csv, report_*.txt
+  Output : results/{GPU}/generation_eval/per_query_*.csv, summary_*.csv, report_*.txt
+  Streamlit batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/ (Strict)
+                         results/generation_eval/streamlit/ (Lenient — IN PROGRESS)
   Script : python scripts/run_generation_eval.py
 
 Keterbatasan per Metode Chunking:
@@ -247,7 +267,7 @@ SELESAI ✓
   [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
 
 SEDANG BERJALAN ⏳
-  [ ] Batch evaluation (Lenient) — top-1 s/d top-10
+  [ ] Batch evaluation (Lenient) — BERJALAN (3/10 file, top1–top3 selesai; butuh top4–top10)
 
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking
