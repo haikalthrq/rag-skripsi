@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-28 (21:07 WIB)
+Terakhir diperbarui: 2026-05-30 (02:43 WIB)
 ================================================================================
 
 
@@ -18,12 +18,13 @@ Environment / Hardware:
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
   - Cloud (Vast AI): Linux | GPU RTX A5000 16GB (AKTIF)
-    → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
+    → Embedding: Qwen3-Embedding-4B (HuggingFace, safetensors) via sentence-transformers
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
+    → Virtual Environment: .venv di folder rag-skripsi (requirements.txt terinstall)
 
 Tujuan:
   - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
-  - Embedding: Qwen3-Embedding-4B-Q8_0.gguf (konsisten di semua env)
+  - Embedding: Qwen3-Embedding-4B (HuggingFace) — Vast AI; GGUF — Laptop
   - Generator: Qwen3-4B-Instruct-2507 (FP8/BF16 tergantung GPU)
   - Vector DB: ChromaDB (persistent, lokal di data/chroma/)
   - Evaluasi retrieval: Precision@k, Recall@k, MRR
@@ -156,10 +157,14 @@ Chunking:
   File chunks: data/chunked/{method}/{doc_id}_chunks.json
 
 Embedding:
-  Lokal (RTX 4050) & Cloud (Vast AI RTX 5060 Ti):
+  Lokal (RTX 4050):
     Model : Qwen3-Embedding-4B-Q8_0.gguf (via llama.cpp)
     Device: CPU only (hemat VRAM untuk generator)
     n_batch: 64 (diubah dari 512 untuk hindari OOM)
+  Cloud (Vast AI RTX A5000):
+    Model : Qwen3-Embedding-4B (HuggingFace, safetensors) via sentence-transformers
+    Device: GPU (CUDA)
+    Path  : models/Qwen3-Embedding-4B/
   Enrichment: enrich_table_chunk_texts() di src/embedding/io.py
     → Parse text_as_html tabel + prefix judul dari chunk sebelumnya
     → Hanya memengaruhi data/embeddings/ dan ChromaDB, TIDAK ubah data/chunked/
@@ -191,6 +196,7 @@ Streamlit Apps:
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
+    Embedder mode: 'huggingface' (HF safetensors) di Vast AI; 'gguf' di laptop
   Versi Streamlit: 1.57.0
 
 
@@ -276,6 +282,14 @@ BARU SELESAI ✓ (2026-05-28)
   [x] Kembalikan opsi Mode Relevance (All/Strict/Lenient) di Streamlit UI
   [x] Pindah model embedder GGUF ke root models/ (path: models/Qwen3-Embedding-4B-Q8_0.gguf)
   [x] Optimasi cache embedding di src/streamlit/rag_chat.py (pre-compute q_vec sekali per QA)
+
+BARU SELESAI ✓ (2026-05-29)
+  [x] Update embedder ke HuggingFace model (Qwen3-Embedding-4B safetensors) di Vast AI
+  [x] Tambah parameter embedder_mode di pipeline.py ('gguf' / 'huggingface')
+  [x] Setup virtual environment .venv di folder rag-skripsi
+  [x] Install semua requirements.txt ke .venv
+  [x] Push perubahan ke GitHub main branch
+  [x] Streamlit rag_chat.py berjalan (port 8501)
 
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking
