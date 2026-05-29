@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-30 (02:43 WIB)
+Terakhir diperbarui: 2026-05-30 (03:12 WIB)
 ================================================================================
 
 
@@ -72,23 +72,17 @@ rag-skripsi/
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
-│   ├── generation_eval/                    ← INCOMPLETE: lenient streamlit eval (top1–top3)
-│   ├── No GPU Info/
-│   │   ├── retrieval/                      JSON eval files
-│   │   ├── retrieval_vast/                 JSON eval files dari branch vast
-│   │   └── retrieval_eval_*.csv            banyak varian: _strict/_lenient, _new/_v2, _k8/_k10
-│   ├── RTX 3090 24GB/
-│   │   └── generation_eval/                per_query, summary, report
-│   ├── RTX 4050 6GB/
-│   │   └── generation_eval/                per_query, summary, report
-│   └── RTX 5060 Ti 16GB/
-│       ├── generation_eval/                per_query, summary, report (FP8)
-│       ├── generation_eval_bf16/           per_query, summary, report (BF16)
-│       ├── generation_eval_bf16_vast/      dari merge branch vast
-│       ├── generation_eval_streamlit/      Strict batch eval (top1–top10) ← SELESAI
-│       └── generation_eval_vast/           dari merge branch vast
+│   ├── final/                              ← HASIL DEFINITIVE untuk skripsi
+│   │   └── generation/
+│   │       ├── strict/                     eval_strict_top1–top10.csv
+│   │       └── lenient/                    eval_lenient_top1–top10.csv
+│   └── archive/                            ← Semua run lama (referensi)
+│       ├── No GPU Info/                    retrieval eval files
+│       ├── RTX 3090 24GB/                  generation_eval/
+│       ├── RTX 4050 6GB/                   generation_eval/
+│       └── RTX 5060 Ti 16GB/               generation_eval, bf16, vast, streamlit
 │
-│   CATATAN: File .log dihapus (tidak di-track git). Folder diorganisir per GPU environment.
+│   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
@@ -267,14 +261,14 @@ SELESAI ✓
   [x] Re-ekstraksi DOC06 & DOC07, re-chunk, re-embed, reload ChromaDB
   [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
   [x] Streamlit RAG chat demo (single/compare mode, batch eval auto-run)
-  [x] Update embedding model ke GGUF (Q8_0) di Vast AI
+  [x] Update embedding model ke GGUF (Q8_0) di Vast AI (lalu revert ke HF)
   [x] Batch evaluation (Strict) — SELESAI (10/10 files)
   [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
   [x] Setup symlinks folder (chroma, models) ke /workspace/
   [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
 
-SEDANG BERJALAN ⏳
-  [ ] Batch evaluation (Lenient) — BERJALAN via Streamlit UI (top-1 s/d top-10)
+SELESAI ✓
+  [x] Batch evaluation (Lenient) — SELESAI (10/10 files, top-1 s/d top-10)
 
 BARU SELESAI ✓ (2026-05-28)
   [x] Fix BLEU/ROUGE: ganti dari ragas wrapper ke sacrebleu/rouge-score langsung
@@ -290,6 +284,9 @@ BARU SELESAI ✓ (2026-05-29)
   [x] Install semua requirements.txt ke .venv
   [x] Push perubahan ke GitHub main branch
   [x] Streamlit rag_chat.py berjalan (port 8501)
+  [x] Install GitHub CLI (gh) dan authenticated
+  [x] Restructure folder results/ → final/ + archive/
+  [x] Update rag_chat.py, rank_results.py, run_generation_eval.py paths
 
 BELUM DIMULAI ○
   [ ] Analisis mendalam perbandingan antar metode chunking

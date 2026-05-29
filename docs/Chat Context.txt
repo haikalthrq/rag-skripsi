@@ -1,5 +1,5 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-05-29 21:07 WIB (UTC+7)
+# Generated: 2026-05-30 03:12 WIB (UTC+7)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
@@ -30,16 +30,23 @@ Complete batch evaluations (Strict & Lenient), fix metrics computation issues, a
 - **Safety:** 100% safe — same input, same embedder, same output vector. No change to results.
 
 ### 5. Batch Evaluation Status
-- **Strict Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/RTX 5060 Ti 16GB/generation_eval_streamlit/`).
-- **Lenient Mode:** 🔄 Running via Streamlit UI (top-1 s/d top-10, ~1-1.5 hours total).
+- **Strict Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/final/generation/strict/`).
+- **Lenient Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/final/generation/lenient/`).
 
 ### 6. Environment Setup (2026-05-29)
 - **Action:** Created virtual environment `.venv/` di folder rag-skripsi.
 - **Action:** Installed all dependencies from `requirements.txt`.
 - **Action:** Installed GitHub CLI (`gh`) dan authenticated.
-- **Action:** Pushed changes ke GitHub main branch (commit 84386f9).
+- **Action:** Pushed changes ke GitHub main branch.
 
-### 7. Hardware (Vast AI)
+### 7. Results Restructure (2026-05-30)
+- **Action:** Restructured `results/` folder:
+  - `results/final/generation/strict/` — definitive strict results (top1–top10)
+  - `results/final/generation/lenient/` — definitive lenient results (top1–top10)
+  - `results/archive/` — all old/legacy runs organized by GPU
+- **Code updates:** rag_chat.py, rank_results.py, run_generation_eval.py paths updated.
+
+### 8. Hardware (Vast AI)
 - **GPU:** NVIDIA A100 SXM4 40GB VRAM.
 - **VRAM Usage:** ~8-9 GB utilized (Generator on GPU, Embedder on GPU via HF).
 - **System:** Linux, stable.
@@ -56,13 +63,13 @@ Complete batch evaluations (Strict & Lenient), fix metrics computation issues, a
 - **Model (Generator):** `models/Qwen3-4B-Instruct-2507` (HF, BF16, GPU).
 
 ### Results
-- **Strict:** `results/RTX 5060 Ti 16GB/generation_eval_streamlit/` — 10/10 files complete.
-- **Lenient:** `results/generation_eval/streamlit/` — in progress.
+- **Strict:** `results/final/generation/strict/` — 10/10 files complete.
+- **Lenient:** `results/final/generation/lenient/` — 10/10 files complete.
 
 ### Git Status
 - Branch: main
-- Latest commit: Update embedder to use HuggingFace model instead of GGUF
-- Commit hash: 84386f9
+- Latest commit: Restructure results folder: separate final vs archive
+- Commit hash: 4ed1bde
 
 ## Known Issues (Resolved)
 - ~~ragas dependency error~~ → Fixed by direct sacrebleu/rouge-score usage.
@@ -71,18 +78,17 @@ Complete batch evaluations (Strict & Lenient), fix metrics computation issues, a
 - ~~Embedder mode hardcoded to GGUF~~ → Fixed by adding `embedder_mode` parameter ('gguf' / 'huggingface').
 
 ## File Locations
-- **Results (Strict):** `results/RTX 5060 Ti 16GB/generation_eval_streamlit/`
-- **Results (Lenient):** `results/generation_eval/streamlit/`
+- **Results (Strict):** `results/final/generation/strict/`
+- **Results (Lenient):** `results/final/generation/lenient/`
 - **Model (Embedder):** `models/Qwen3-Embedding-4B/` (HuggingFace safetensors)
 - **Model (Generator):** `models/Qwen3-4B-Instruct-2507/`
 - **Metrics Code:** `src/evaluation/metrics.py`
 - **Streamlit App:** `src/streamlit/rag_chat.py`
 - **Pipeline:** `src/rag/pipeline.py`
+- **Scripts:** `scripts/run_generation_eval.py`, `scripts/run_retrieval_eval.py`
 
 ## Next Steps
-1. Complete Lenient relevance evaluation (top-4 to top-10) via Streamlit UI.
-2. Re-run retrieval evaluation with HF embedder (expecting better scores).
-3. Analyze evaluation results across all 3 methods.
-4. Compare Strict vs Lenient relevance mode performance.
-5. Update scripts (run_generation_eval.py, run_retrieval_eval.py) to support HF embedder mode.
-6. Penulisan laporan skripsi.
+1. Re-run retrieval evaluation with HF embedder (expecting better scores).
+2. Analyze evaluation results across all 3 methods.
+3. Compare Strict vs Lenient relevance mode performance.
+4. Penulisan laporan skripsi.
