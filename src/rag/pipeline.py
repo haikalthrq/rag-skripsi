@@ -27,7 +27,7 @@ from .generator import (
 )
 from ..chroma.client import initialize_chroma_client, get_or_create_collection
 from ..chroma.query import similarity_search
-from ..embedding.embedder import QwenEmbedder, initialize_gguf_embedder
+from ..embedding.embedder import QwenEmbedder, initialize_gguf_embedder, initialize_hf_embedder
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +37,7 @@ COLLECTION_NAMES: Dict[str, str] = {
     "recursive":       "collection_recursive",
 }
 
-DEFAULT_EMBEDDER_PATH = "models/Qwen3-Embedding-4B-Q8_0.gguf"
+DEFAULT_EMBEDDER_PATH = "models/Qwen3-Embedding-4B"
 DEFAULT_CHROMA_PATH   = "data/chroma"
 
 
@@ -284,6 +284,7 @@ def build_pipeline(
     embedder_path: str = DEFAULT_EMBEDDER_PATH,
     generator_path: str = "",
     generator_type: str = "gguf",
+    embedder_mode: str = "gguf",
     chroma_path: str = DEFAULT_CHROMA_PATH,
     top_k: int = 5,
     n_gpu_layers: int = -1,
@@ -301,9 +302,10 @@ def build_pipeline(
 
     Args:
         chunking_method : Metode chunking ('element_based', 'maxmin_semantic', 'recursive')
-        embedder_path   : Path ke GGUF embedding model
+        embedder_path   : Path ke embedding model (GGUF atau HF)
         generator_path  : Path/nama model generator (GGUF path atau HF model name)
         generator_type  : 'gguf' atau 'hf'
+        embedder_mode   : 'gguf' atau 'huggingface'
         chroma_path     : Path ke ChromaDB persistent storage
         top_k           : Jumlah chunk per query
         n_gpu_layers    : GPU layers untuk GGUF generator (-1 = semua)
@@ -325,17 +327,25 @@ def build_pipeline(
     """
     if generator_type not in ("gguf", "hf"):
         raise ValueError(f"generator_type harus 'gguf' atau 'hf', bukan '{generator_type}'")
-
-    # Embedder GPU layers: default ke n_gpu_layers jika tidak di-set eksplisit
-    emb_gpu = embedder_n_gpu_layers if embedder_n_gpu_layers is not None else n_gpu_layers
+    if embedder_mode not in ("gguf", "huggingface"):
+        raise ValueError(f"embedder_mode harus 'gguf' atau 'huggingface', bukan '{embedder_mode}'")
 
     # Load embedder
     logger.info("Memuat embedder...")
-    embedder = initialize_gguf_embedder(
-        model_path=embedder_path,
-        n_gpu_layers=emb_gpu,
-        verbose=verbose,
-    )
+    if embedder_mode == "huggingface":
+        embedder = initialize_hf_embedder(
+            model_name=embedder_path,
+            device='cuda',
+            normalize=True,
+        )
+    else:
+        # Embedder GPU layers: default ke n_gpu_layers jika tidak di-set eksplisit
+        emb_gpu = embedder_n_gpu_layers if embedder_n_gpu_layers is not None else n_gpu_layers
+        embedder = initialize_gguf_embedder(
+            model_path=embedder_path,
+            n_gpu_layers=emb_gpu,
+            verbose=verbose,
+        )
     if embedder is None:
         raise RuntimeError(f"Gagal memuat embedder: {embedder_path}")
 

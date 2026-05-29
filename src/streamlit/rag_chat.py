@@ -279,9 +279,9 @@ def load_pipeline() -> RAGPipeline:
         embedder_path=str(ROOT / DEFAULT_EMBEDDER_PATH),
         generator_path=DEFAULT_GEN_PATH,
         generator_type=DEFAULT_GEN_TYPE,
+        embedder_mode="huggingface",
         chroma_path=str(ROOT / DEFAULT_CHROMA_PATH),
         top_k=DEFAULT_TOP_K,
-        embedder_n_gpu_layers=0,   # CPU — hemat VRAM untuk generator
         temperature=DEFAULT_TEMP,
         top_p=DEFAULT_TOP_P,
         top_k_gen=DEFAULT_TOP_K_GEN,
