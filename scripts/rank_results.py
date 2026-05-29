@@ -14,10 +14,10 @@ def collect_retrieval_results():
     """Collect all retrieval summary CSV files."""
     results = []
     
-    # No GPU Info folder
-    retrieval_dir = RESULTS_DIR / "No GPU Info"
-    if retrieval_dir.exists():
-        for csv_file in retrieval_dir.glob("*_summary.csv"):
+    # Check archive folder for old retrieval results
+    archive_dir = RESULTS_DIR / "archive" / "No GPU Info"
+    if archive_dir.exists():
+        for csv_file in archive_dir.glob("*_summary.csv"):
             df = pd.read_csv(csv_file)
             for _, row in df.iterrows():
                 results.append({
@@ -27,7 +27,7 @@ def collect_retrieval_results():
                     'recall_at_5': row.get('recall_at_5', 0),
                     'mrr': row.get('mrr', 0),
                     'n_queries': row.get('n_queries_evaluated', 0),
-                    'environment': 'No GPU Info'
+                    'environment': 'No GPU Info (archive)'
                 })
     
     return results
@@ -36,39 +36,41 @@ def collect_generation_results():
     """Collect all generation summary CSV files."""
     results = []
     
-    # Scan all GPU folders
-    for gpu_folder in RESULTS_DIR.iterdir():
-        if gpu_folder.is_dir() and gpu_folder.name != "No GPU Info":
-            gen_dir = gpu_folder / "generation_eval"
-            if gen_dir.exists():
-                for csv_file in gen_dir.glob("summary_*.csv"):
-                    df = pd.read_csv(csv_file)
-                    for _, row in df.iterrows():
-                        results.append({
-                            'file': f"{gpu_folder.name}/generation_eval/{csv_file.name}",
-                            'method': row['method'],
-                            'mean_bleu': row.get('mean_bleu', 0),
-                            'mean_rouge_l': row.get('mean_rouge_l', 0),
-                            'n_queries': row.get('n_queries', 0),
-                            'n_success': row.get('n_success', 0),
-                            'environment': gpu_folder.name
-                        })
-            
-            # Also check generation_eval_bf16 folder
-            gen_bf16_dir = gpu_folder / "generation_eval_bf16"
-            if gen_bf16_dir.exists():
-                for csv_file in gen_bf16_dir.glob("summary_*.csv"):
-                    df = pd.read_csv(csv_file)
-                    for _, row in df.iterrows():
-                        results.append({
-                            'file': f"{gpu_folder.name}/generation_eval_bf16/{csv_file.name}",
-                            'method': row['method'],
-                            'mean_bleu': row.get('mean_bleu', 0),
-                            'mean_rouge_l': row.get('mean_rouge_l', 0),
-                            'n_queries': row.get('n_queries', 0),
-                            'n_success': row.get('n_success', 0),
-                            'environment': f"{gpu_folder.name} (BF16)"
-                        })
+    # Scan archive GPU folders
+    archive_dir = RESULTS_DIR / "archive"
+    if archive_dir.exists():
+        for gpu_folder in archive_dir.iterdir():
+            if gpu_folder.is_dir():
+                gen_dir = gpu_folder / "generation_eval"
+                if gen_dir.exists():
+                    for csv_file in gen_dir.glob("summary_*.csv"):
+                        df = pd.read_csv(csv_file)
+                        for _, row in df.iterrows():
+                            results.append({
+                                'file': f"{gpu_folder.name}/generation_eval/{csv_file.name}",
+                                'method': row['method'],
+                                'mean_bleu': row.get('mean_bleu', 0),
+                                'mean_rouge_l': row.get('mean_rouge_l', 0),
+                                'n_queries': row.get('n_queries', 0),
+                                'n_success': row.get('n_success', 0),
+                                'environment': gpu_folder.name
+                            })
+                
+                # Also check generation_eval_bf16 folder
+                gen_bf16_dir = gpu_folder / "generation_eval_bf16"
+                if gen_bf16_dir.exists():
+                    for csv_file in gen_bf16_dir.glob("summary_*.csv"):
+                        df = pd.read_csv(csv_file)
+                        for _, row in df.iterrows():
+                            results.append({
+                                'file': f"{gpu_folder.name}/generation_eval_bf16/{csv_file.name}",
+                                'method': row['method'],
+                                'mean_bleu': row.get('mean_bleu', 0),
+                                'mean_rouge_l': row.get('mean_rouge_l', 0),
+                                'n_queries': row.get('n_queries', 0),
+                                'n_success': row.get('n_success', 0),
+                                'environment': f"{gpu_folder.name} (BF16)"
+                            })
     
     return results
 

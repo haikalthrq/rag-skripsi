@@ -89,8 +89,8 @@ def _setup_logging(log_path: Path) -> None:
 # ── Paths default ──────────────────────────────────────────────────────────────
 
 QA_GOLD_XLSX  = ROOT / "data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx"
-RESULTS_DIR   = ROOT / "results/generation_eval"
-EMBEDDER_PATH = ROOT / "models/Qwen3-Embedding-4B-Q8_0.gguf"
+RESULTS_DIR   = ROOT / "results/final/generation"
+EMBEDDER_PATH = ROOT / "models/Qwen3-Embedding-4B"
 CHROMA_PATH   = ROOT / "data/chroma"
 
 # ── Default: Qwen3-4B-Instruct-2507-FP8 (sesuai dokumentasi model) ──────────────────

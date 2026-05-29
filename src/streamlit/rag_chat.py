@@ -56,7 +56,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT))
 
 # ── Eval persistence & quick-eval subset ─────────────────────────────────────
-EVAL_RESULTS_DIR = ROOT / "results" / "RTX 5060 Ti 16GB" / "generation_eval_streamlit"
+EVAL_RESULTS_DIR = ROOT / "results" / "final" / "generation"
 EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # 3 table-lookup + 2 narrative/definition — subset stabil untuk demo cepat
