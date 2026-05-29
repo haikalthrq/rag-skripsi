@@ -40,7 +40,7 @@ Complete batch evaluations (Strict & Lenient), fix metrics computation issues, a
 - **Action:** Pushed changes ke GitHub main branch (commit 84386f9).
 
 ### 7. Hardware (Vast AI)
-- **GPU:** NVIDIA RTX A5000 16GB.
+- **GPU:** NVIDIA A100 SXM4 40GB VRAM.
 - **VRAM Usage:** ~8-9 GB utilized (Generator on GPU, Embedder on GPU via HF).
 - **System:** Linux, stable.
 - **Virtual Environment:** `.venv/` di folder rag-skripsi
