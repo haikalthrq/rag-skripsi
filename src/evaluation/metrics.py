@@ -108,8 +108,11 @@ def compute_bleu(response: str, reference: str) -> float:
     """
     try:
         from sacrebleu import corpus_bleu
-        # sacrebleu expects list of references and list of hypotheses
-        result = corpus_bleu([reference], [response])
+        # sacrebleu signature: corpus_bleu(hypotheses, references)
+        #   - hypotheses : Sequence[str]            → [response]
+        #   - references : Sequence[Sequence[str]]  → [[reference]]
+        # Urutan/nesting argumen WAJIB seperti ini; jika tertukar, skor selalu 0.0.
+        result = corpus_bleu([response], [[reference]])
         return result.score / 100.0  # sacrebleu returns 0-100, convert to 0-1
     except Exception as e:
         logger.error(f"compute_bleu error: {e}")

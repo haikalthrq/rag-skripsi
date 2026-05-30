@@ -2,89 +2,87 @@
 # RAG Skripsi - Requirements
 # ===================================
 # Python version: 3.11.9 (install manually, not via pip)
+#
+# CATATAN REPRODUSIBILITAS:
+#   File ini berisi dependency high-level (tanpa pin versi) untuk keterbacaan.
+#   Untuk reproduksi PERSIS, gunakan: pip freeze > requirements.lock.txt
+#   setelah environment final terpasang.
 
 # PDF Processing & Text Extraction
 # ---------------------------------
-PyMuPDF  # fitz - ekstraksi teks dari PDF
-unstructured[pdf]  # element-based chunking
-pdfplumber  # alternative PDF parsing
-pytesseract  # OCR support untuk unstructured
+PyMuPDF             # fitz - ekstraksi teks dari PDF (src/preprocessing/pdf_extractor.py)
+unstructured[pdf]   # element-based chunking (partition_pdf hi_res)
+pytesseract         # OCR backend untuk unstructured partition_pdf(strategy="hi_res")
+# pdfplumber        # opsional: parsing PDF alternatif (transitif via unstructured; aktifkan jika perlu)
 
 # Text Processing & Chunking
 # ---------------------------
-langchain-text-splitters # RecursiveCharacterTextSplitter
-# maxmin-chunker: custom implementation (src/chunking/maxmin_chunker.py), not a PyPI package
-nltk # sentence tokenization untuk maxmin chunker
+langchain-text-splitters  # RecursiveCharacterTextSplitter (recursive chunking)
+nltk                      # sentence tokenization untuk maxmin chunker
+# maxmin-chunker: implementasi custom (src/chunking/maxmin_chunker.py), bukan paket PyPI
 
 # Embeddings & Vector Database
 # -----------------------------
-sentence-transformers # model embedding (Qwen3-Embedding)
-torch # PyTorch untuk model embedding
-torchvision  # dependency for transformers (torchvision)
-transformers  # Hugging Face transformers
-accelerate    # diperlukan untuk device_map='auto' saat load HF model
-chromadb # vector database
+sentence-transformers  # model embedding Qwen3-Embedding-4B (HuggingFace safetensors)
+torch                  # PyTorch untuk model embedding + generator
+transformers           # HuggingFace transformers (generator Qwen3-4B-Instruct)
+accelerate             # diperlukan untuk device_map='auto' saat load HF model
+chromadb               # vector database (persistent)
 
 # Scientific Computing
 # --------------------
-numpy  # array operations
-scipy  # scientific computing
-scikit-learn  # cosine similarity untuk maxmin chunker
+numpy          # array operations
+scikit-learn   # cosine similarity untuk maxmin chunker (sklearn.metrics.pairwise)
+scipy          # transitif (scikit-learn / sentence-transformers); dieksplisitkan
 
 # Utilities
 # ---------
-tqdm  # progress bars
-python-dotenv # environment variables management
+tqdm             # progress bars
 huggingface_hub  # download model dari HF Hub
-psutil  # system info (CPU, memory) for hardware logging
+psutil           # hardware logging (CPU, RAM, GPU info)
 
 # Data Processing & I/O
 # ----------------------
 pandas
-openpyxl         # diperlukan untuk pd.read_excel() membaca file .xlsx
+openpyxl  # diperlukan untuk pd.read_excel() membaca QA gold .xlsx
 
-# Optional: Visualization & Analysis
-# -----------------------------------
-matplotlib
-seaborn
-# Development Tools
-# -----------------
-pytest # unit testing
-black  # code formatter
-flake8 # linter
-mypy # type checker
-ipython  # enhanced REPL
-jupyter # notebook support
+# Evaluation Metrics
+# ------------------
+# CATATAN: ragas, rank-eval, rapidfuzz TIDAK lagi digunakan (lihat BUG 15).
+#   BLEU   -> sacrebleu.corpus_bleu langsung
+#   ROUGE-L Recall -> rouge_score.RougeScorer langsung
+#   Precision@k, Recall@k, MRR -> implementasi pure-Python di src/evaluation/metrics.py
+sacrebleu     # BLEU (sacrebleu.corpus_bleu) — dependency LANGSUNG
+rouge-score   # ROUGE-L Recall (rouge_score.RougeScorer) — dependency LANGSUNG
 
-# Evaluation
-# ----------
-ragas               # BLEU + ROUGE-L via ragas.metrics.collections (BleuScore, RougeScore)
-                    # ragas menggunakan sacrebleu (corpus_bleu) dan rouge-score secara internal
-rank-eval           # Mean Reciprocal Rank (MRR)
-rapidfuzz           # Diperlukan oleh NonLLMContextPrecisionWithReference
-sacrebleu           # Dependency ragas BleuScore (sacrebleu.corpus_bleu)
-rouge-score         # Dependency ragas RougeScore (rouge_score.rouge_scorer)
-
-# llama-cpp-python: Optional — hanya untuk laptop (GGUF embedder di CPU)
-# Install manual (butuh build flags GPU/CPU): pip install llama-cpp-python
-# Untuk GPU: CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python --force-reinstall
+# GGUF Embedder/Generator (laptop only — CPU/GPU GGUF via llama.cpp)
+# ------------------------------------------------------------------
+# Install manual (butuh build flags):
+#   CPU : pip install llama-cpp-python
+#   GPU : CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python --force-reinstall
 llama-cpp-python
-diskcache  # dependency of llama-cpp-python
-
-# GitHub CLI (optional — untuk push dari terminal)
-# Install via apt: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-
-# Opsional: hanya dibutuhkan jika menggunakan --eval_llm_type (LLM-based Precision/Recall)
-# Untuk Qwen sebagai evaluator: serve via vLLM/SGLang lalu pakai --eval_llm_type local
-# langchain-openai
+diskcache  # dependency llama-cpp-python
 
 # Streamlit
-# --------
+# ---------
 streamlit  # UI annotation app + RAG chat demo
-altair  # dependency for streamlit charts
-gitpython  # dependency for streamlit
-watchdog  # dependency for streamlit file watching
+altair     # dependency streamlit charts
+gitpython  # dependency streamlit
+watchdog   # dependency streamlit file watching
 
-# Logging & Monitoring
-# --------------------
-loguru # advanced logging (optional)
+# Development Tools (opsional — hanya untuk dev, tidak untuk runtime eval)
+# -----------------------------------------------------------------------
+pytest      # unit testing (tests/test_evaluation.py)
+black       # code formatter
+flake8      # linter
+mypy        # type checker
+ipython     # enhanced REPL
+jupyter     # notebook support (notebooks/)
+
+# Visualization (opsional — hanya dipakai di notebooks, bukan di src/scripts)
+# ---------------------------------------------------------------------------
+# matplotlib
+# seaborn
+
+# GitHub CLI (opsional — install via apt/winget, bukan pip):
+#   https://github.com/cli/cli/blob/trunk/docs/install_linux.md

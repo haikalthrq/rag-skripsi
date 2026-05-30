@@ -199,7 +199,8 @@ DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-I
 DEFAULT_TEMP      = 0.7
 DEFAULT_TOP_P     = 0.8
 DEFAULT_TOP_K_GEN = 20
-DEFAULT_MAX_TOK   = 1024   # Chat: 1024 sweet spot — cepat tapi tidak terpotong. Eval tetap 16384.
+DEFAULT_MAX_TOK   = 16384  # Sesuai rekomendasi output length resmi model card Qwen3-4B-Instruct-2507.
+                           # Batas atas (bukan alokasi muka); KV cache tumbuh mengikuti token yang benar2 di-generate.
 DEFAULT_TOP_K     = 8
 METHODS           = list(COLLECTION_NAMES.keys())
 METHOD_LABELS     = {

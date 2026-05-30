@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-30 (03:12 WIB)
+Terakhir diperbarui: 2026-05-31 (03:50 WIB)
 ================================================================================
 
 
@@ -17,10 +17,12 @@ Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
-  - Cloud (Vast AI): Linux | GPU NVIDIA A100 SXM4 40GB VRAM (AKTIF)
+  - Cloud (Vast AI): Linux | GPU RTX 3090 24GB VRAM (TARGET HARDWARE BERIKUTNYA)
     → Embedding: Qwen3-Embedding-4B (HuggingFace, safetensors) via sentence-transformers (GPU)
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
     → Virtual Environment: .venv di folder rag-skripsi (requirements.txt terinstall)
+    → CATATAN: Hardware sebelumnya A100 SXM4 40GB sudah tidak aktif.
+               Run definitif berikutnya akan dilakukan di RTX 3090 24GB.
 
 Tujuan:
   - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
@@ -72,20 +74,24 @@ rag-skripsi/
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
-│   ├── final/                              ← HASIL DEFINITIVE untuk skripsi
-│   │   └── generation/
-│   │       ├── strict/                     eval_strict_top1–top10.csv
-│   │       └── lenient/                    eval_lenient_top1–top10.csv
-│   └── archive/                            ← Semua run lama (referensi)
-│       ├── No GPU Info/                    retrieval eval files
-│       ├── RTX 3090 24GB/                  generation_eval/
-│       ├── RTX 4050 6GB/                   generation_eval/
-│       └── RTX 5060 Ti 16GB/               generation_eval, bf16, vast, streamlit
+│   ├── final/                          ← KOSONG — siap untuk run definitif di RTX 3090
+│   │                                     (dibuat otomatis oleh rag_chat.py / run_generation_eval.py)
+│   └── archive/                        ← Semua run lama (referensi, jangan hapus)
+│       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
+│       │   ├── strict/                 eval_strict_top1–top10.csv  ← BLEU=0 semua, ROUGE=0 semua
+│       │   └── lenient/                eval_lenient_top1–top10.csv ← BLEU=0 semua, ROUGE benar top4–10
+│       ├── No GPU Info/                retrieval eval files (GGUF baseline)
+│       ├── RTX 3090 24GB/              generation_eval/ (run lama)
+│       ├── RTX 4050 6GB/               generation_eval/
+│       └── RTX 5060 Ti 16GB/           generation_eval, bf16, vast, streamlit
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
+│   CATATAN: former_final_generation/ = hasil RTX 5060 Ti yang TIDAK VALID untuk skripsi
+│            karena bug BLEU (argumen corpus_bleu kebalik) dan ROUGE strict (ragas crash).
+│            Disimpan sebagai referensi saja. Run ulang di RTX 3090 diperlukan.
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
-└── docs/                 PROJECT_CONTEXT.txt, dokumentasi komponen
+└── docs/                 PROJECT_CONTEXT.txt, Chat Context.txt, dokumentasi komponen
 
 CATATAN: backup/, data/artifacts/, old QA gold xlsx, generation_eval/*.log
          semuanya di-ignore oleh git. Legacy root scripts (chunk_*.py, embed_chunks.py, dll.)
@@ -130,11 +136,20 @@ Ground Truth JSON (output evaluasi retrieval):
   data/ground_truth/qa_pairs_lenient.json  — label >= 1, 175 chunk relevan
   Format: [{id, question, reference_answer, relevant_chunk_ids: {method: [ids]}}]
 
+  Distribusi query dengan GT chunk per metode:
+    Strict  (label=2): element 15/30, maxmin 18/30, recursive 15/30
+    Lenient (label≥1): element 28/30, maxmin 29/30, recursive 29/30
+  Query tanpa GT chunk → metrik retrieval = N/A (by design, bukan bug)
+
 Label anotasi:
   2 — Relevan Utama: chunk cukup untuk menjawab question
   1 — Pendukung: relevan sebagian / konteks tambahan
   0 — Tidak Relevan
   suggested_label di kandidat adalah SARAN algoritma, BUKAN label final
+
+CATATAN MRR: |Q| dalam agregasi MRR = hanya query yang punya GT chunk (bukan 30).
+  Ini pilihan metodologis yang valid — query tanpa GT tidak bisa dinilai retrieval-nya.
+  Pastikan definisi |Q| di laporan skripsi konsisten dengan ini.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -146,7 +161,7 @@ Chunking:
                     composite chunking (bukan 1 elemen = 1 chunk)
                     schema: {text, chunk_id, metadata:{chunk_type, element_types,
                     section_title, page_numbers, source_file, text_as_html, ...}}
-  maxmin_semantic : MaxMin semantic diversity (paket maxmin-chunker)
+  maxmin_semantic : MaxMin semantic diversity (implementasi custom, bukan PyPI)
   recursive       : LangChain RecursiveCharacterTextSplitter dengan overlap
   File chunks: data/chunked/{method}/{doc_id}_chunks.json
 
@@ -155,7 +170,7 @@ Embedding:
     Model : Qwen3-Embedding-4B-Q8_0.gguf (via llama.cpp)
     Device: CPU only (hemat VRAM untuk generator)
     n_batch: 64 (diubah dari 512 untuk hindari OOM)
-  Cloud (Vast AI RTX A5000):
+  Cloud (Vast AI RTX 3090):
     Model : Qwen3-Embedding-4B (HuggingFace, safetensors) via sentence-transformers
     Device: GPU (CUDA)
     Path  : models/Qwen3-Embedding-4B/
@@ -166,26 +181,39 @@ Embedding:
 ChromaDB:
   Path: data/chroma/ (di Vast AI: symlink ke /workspace/chroma/)
   Collections: collection_element_based, collection_maxmin_semantic, collection_recursive
+  ID chunk format: {file_stem}_{original_index} — terverifikasi cocok 100% dengan GT JSON
 
 Generator:
   Lokal (RTX 4050):
     Model: Qwen3-4B-Instruct-2507-FP8 (HuggingFace transformers, lokal di models/)
     VRAM: ~5 GB (auto max_memory: GPU=5GiB, CPU=16GiB)
-    GPU: RTX 4050 6GB sm86
-  Vast AI (RTX 3090 / 2080 Ti):
+  Vast AI (RTX 3090 24GB):
     Model: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, lokal di models/)
-    VRAM: cukup untuk BF16 penuh (RTX 3090 24GB / 2080 Ti 11GB)
+    VRAM: ~8-9 GB untuk bobot; KV cache tumbuh bertahap (bukan alokasi muka)
+    Estimasi VRAM puncak (generator + embedder + KV cache): ~20-21 GB → aman di 24GB
   Fallback: Qwen/Qwen3-4B-Instruct-2507 (HF Hub)
-  BUKAN Thinking model — Instruct dipilih karena lebih stabil
-  Parameter LOCKED (sesuai dokumentasi resmi, tidak adjustable):
+  BUKAN Thinking model — Instruct dipilih karena lebih stabil untuk evaluasi faktual
+  Parameter LOCKED (sesuai rekomendasi resmi model card Qwen3-4B-Instruct-2507):
     Temperature=0.7, Top-P=0.8, Top-K=20, MinP=0, Max-tokens=16384
+    CATATAN: max_tokens=16384 adalah batas atas (bukan alokasi muka).
+             Jawaban rata-rata ~400 char (~150-250 token), terpanjang ~1400 token.
+             Sebelumnya 1024 (terlalu kecil, ~8 jawaban terpotong) — sudah diubah ke 16384.
+
+Metrik Evaluasi:
+  Retrieval : Precision@k, Recall@k, MRR — pure Python di src/evaluation/metrics.py
+              Tervalidasi unit test T10–T18 (20/20 pass)
+              MRR: RR(q)=1/rank_relevant(q), MRR=mean(RR) atas query yang punya GT chunk
+  Generasi  : BLEU via sacrebleu.corpus_bleu([response],[[reference]]) / 100
+              ROUGE-L via rouge_score.RougeScorer, rouge_type='rougeL', mode='recall',
+              use_stemmer=False (exact match, cocok Bahasa Indonesia)
+  CATATAN: ragas, rank-eval, rapidfuzz TIDAK dipakai (dihapus dari requirements.txt)
 
 Streamlit Apps:
   src/streamlit/app.py      — annotation tool v3 (anotasi sudah selesai)
   src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
     DEFAULT_TOP_K=8, slider max=10
-    Batch eval: results/RTX A4000 16GB/generation_eval_streamlit/ (Strict)
-                results/generation_eval/streamlit/ (Lenient)
+    DEFAULT_MAX_TOK=16384 (sesuai rekomendasi resmi)
+    Batch eval output: results/final/generation/ (dibuat otomatis)
     Relevance mode: radio button (All, Strict, Lenient) — user-selectable
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
@@ -221,22 +249,28 @@ Evaluasi Retrieval (top_k=5):
       recursive       P@5=0.152  R@5=0.372  MRR=0.487  (29 query)
     Kenaikan signifikan berkat penggunaan model embedding BF16 (bukan GGUF).
 
-  Output: results/{GPU}/retrieval_eval_*.csv — diorganisir dalam subfolder per GPU
+  Output: results/archive/{GPU}/retrieval_eval_*.csv
   Root cause skor rendah (baseline): header tabel terpisah dari baris data (recursive/maxmin)
     → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
-    → Keterbatasan chunking, BUKAN bug. ID chunk cocok, semua chunk ada di ChromaDB.
+    → Keterbatasan chunking, BUKAN bug. ID chunk cocok 100%, semua chunk ada di ChromaDB.
 
-Evaluasi Generasi — Metrik:
-  BLEU   : sacrebleu.corpus_bleu() langsung, dinormalisasi ke 0–1 (bukan via ragas)
-  ROUGE-L: rouge_score.RougeScorer langsung, rouge_type='rougeL', mode='recall', use_stemmer=False
-  Hasil (BF16, 2026-05-21):
-    element_based   BLEU=0.1245  ROUGE-L=0.7378
-    maxmin_semantic BLEU=0.1527  ROUGE-L=0.7137
-    recursive       BLEU=0.1306  ROUGE-L=0.7401
-  Output : results/{GPU}/generation_eval/per_query_*.csv, summary_*.csv, report_*.txt
-  Streamlit batch eval: results/RTX 5060 Ti 16GB/generation_eval_streamlit/ (Strict)
-                         results/generation_eval/streamlit/ (Lenient — IN PROGRESS)
-  Script : python scripts/run_generation_eval.py
+Evaluasi Generasi — STATUS SAAT INI:
+  ⚠️  SEMUA HASIL DI archive/former_final_generation/ TIDAK VALID UNTUK SKRIPSI:
+      - BLEU = 0.0 di SEMUA 20 file (1800 baris) → bug argumen corpus_bleu kebalik
+      - ROUGE-L = 0.0 di 13/20 file (strict top1–10 + lenient top1–3) → ragas crash pra-fix
+      - ROUGE-L benar hanya di lenient top4–10 (7 file, dibuat setelah fix 2026-05-28)
+      - generated_answer tersimpan UTUH (1800/1800 baris, 0 korup) → valid untuk recompute
+      - ~8 jawaban terpotong saat generasi (Q006 MaxMin, Q027 Element) karena max_tokens=1024
+
+  RENCANA: Re-run penuh di RTX 3090 dengan konfigurasi yang sudah diperbaiki:
+    - max_tokens=16384 (sudah diupdate di kode)
+    - compute_bleu sudah diperbaiki (argumen benar)
+    - Embedder HF safetensors (bukan GGUF)
+    - Hasil baru masuk ke results/final/generation/ (kosong, siap)
+
+  Metrik:
+    BLEU   : sacrebleu.corpus_bleu([response],[[reference]]) / 100
+    ROUGE-L: rouge_score.RougeScorer, rouge_type='rougeL', mode='recall', use_stemmer=False
 
 Keterbatasan per Metode Chunking:
   element_based   : OCR corruption nilai tabel (koma hilang), bilingual table rows
@@ -249,48 +283,47 @@ Keterbatasan per Metode Chunking:
 6. STATUS PEKERJAAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-SELESAI ✓
+SELESAI ✓ (sebelum 2026-05-30)
   [x] QA Gold Standard 30 QA + revisi narasi + unifikasi ke _question_newest.xlsx
   [x] Pipeline build_candidates_v3.py (evidence-aware, oracle pooling)
   [x] Anotasi manual 416/416 baris, label 0/1/2
   [x] Ground truth JSON: qa_pairs_strict.json + qa_pairs_lenient.json
-  [x] Evaluasi retrieval (P@k, R@k, MRR, top_k=5) — strict & lenient
-  [x] Evaluasi generasi (BLEU, ROUGE-L) via run_generation_eval.py
+  [x] Evaluasi retrieval (P@k, R@k, MRR, top_k=5) — strict & lenient (BF16 GPU)
   [x] enrich_table_chunk_texts() untuk element_based table chunks
   [x] Fix BUG 14: bilingual PDF extraction (center-based column detection)
   [x] Re-ekstraksi DOC06 & DOC07, re-chunk, re-embed, reload ChromaDB
   [x] Streamlit annotation app v3 (selesai dipakai, anotasi done)
   [x] Streamlit RAG chat demo (single/compare mode, batch eval auto-run)
-  [x] Update embedding model ke GGUF (Q8_0) di Vast AI (lalu revert ke HF)
-  [x] Batch evaluation (Strict) — SELESAI (10/10 files)
-  [x] Test suite 62/62 PASS (src/streamlit/test_app.py)
-  [x] Setup symlinks folder (chroma, models) ke /workspace/
-  [x] Update .gitignore + push data/embeddings/ & results/ ke GitHub main
-
-SELESAI ✓
-  [x] Batch evaluation (Lenient) — SELESAI (10/10 files, top-1 s/d top-10)
-
-BARU SELESAI ✓ (2026-05-28)
-  [x] Fix BLEU/ROUGE: ganti dari ragas wrapper ke sacrebleu/rouge-score langsung
-  [x] Fix use_stemmer=False untuk ROUGE-L (exact match, cocok untuk Bahasa Indonesia)
+  [x] Fix BUG 15: ganti ragas → sacrebleu/rouge-score langsung (2026-05-28)
+  [x] Fix use_stemmer=False untuk ROUGE-L
   [x] Kembalikan opsi Mode Relevance (All/Strict/Lenient) di Streamlit UI
-  [x] Pindah model embedder GGUF ke root models/ (path: models/Qwen3-Embedding-4B-Q8_0.gguf)
-  [x] Optimasi cache embedding di src/streamlit/rag_chat.py (pre-compute q_vec sekali per QA)
-
-BARU SELESAI ✓ (2026-05-29)
-  [x] Update embedder ke HuggingFace model (Qwen3-Embedding-4B safetensors) di Vast AI
-  [x] Tambah parameter embedder_mode di pipeline.py ('gguf' / 'huggingface')
-  [x] Setup virtual environment .venv di folder rag-skripsi
-  [x] Install semua requirements.txt ke .venv
-  [x] Push perubahan ke GitHub main branch
-  [x] Streamlit rag_chat.py berjalan (port 8501)
+  [x] Optimasi cache embedding (pre-compute q_vec sekali per QA)
+  [x] Setup virtual environment .venv + install requirements.txt
   [x] Install GitHub CLI (gh) dan authenticated
   [x] Restructure folder results/ → final/ + archive/
-  [x] Update rag_chat.py, rank_results.py, run_generation_eval.py paths
 
-BELUM DIMULAI ○
+SELESAI ✓ (2026-05-31 — sesi ini)
+  [x] Investigasi & diagnosis bug metrik evaluasi generasi (BLEU + ROUGE)
+      → BLEU: argumen corpus_bleu kebalik di semua 20 file (1800 baris)
+      → ROUGE: ragas crash pra-fix → 0.0 di 13/20 file
+      → Retrieval N/A: by design (bukan bug), ID 100% cocok
+      → Truncation: ~8 jawaban kepotong (max_tokens=1024), storage utuh
+  [x] Fix compute_bleu: corpus_bleu([response],[[reference]]) — argumen benar
+      (src/evaluation/metrics.py) — 20/20 unit test pass
+  [x] Set max_tokens → 16384 (rag_chat.py + run_generation_eval.py)
+  [x] Pindahkan results/final/ → results/archive/former_final_generation/ (git mv)
+  [x] Hapus duplikat results/archive/generation_eval/streamlit/ (git rm)
+  [x] Bersihkan requirements.txt: hapus ragas, rank-eval, rapidfuzz, python-dotenv,
+      loguru, torchvision; koreksi komentar sacrebleu/rouge-score; tandai opsional
+  [x] Verifikasi MRR pure Python sudah sesuai Persamaan 2.3 dan 2.4 di skripsi
+
+PERLU DILAKUKAN ○
+  [ ] Re-run evaluasi generasi penuh di RTX 3090 24GB (max_tokens=16384, HF embedder)
+      → Hasil masuk ke results/final/generation/ (strict/ + lenient/, top1–top10)
+  [ ] Re-run evaluasi retrieval di RTX 3090 (opsional, hasil BF16 2026-05-21 masih valid)
   [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
+  [ ] pip freeze > requirements.lock.txt setelah environment final terpasang di RTX 3090
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -313,8 +346,14 @@ BUG 13 Rationale hilang saat Streamlit restart. Fix: merge rationale + inisialis
 BUG 14 Bilingual text dari PDF 2-kolom masuk chunk. Fix: center-based column detection.
        (src/preprocessing/pdf_extractor.py, 2026-05-18)
 BUG 15 ragas 0.4.3 error: No module named 'langchain_community.chat_models.vertexai'
-       saat compute BLEU/ROUGE. Fix: ganti ke sacrebleu.corpus_bleu & rouge_score.RougeScorer langsung.
+       saat compute BLEU/ROUGE. Fix: ganti ke sacrebleu.corpus_bleu & rouge_score.RougeScorer.
        (src/evaluation/metrics.py, 2026-05-28)
+BUG 16 compute_bleu argumen corpus_bleu kebalik: corpus_bleu([ref],[resp]) → selalu 0.0.
+       Fix: corpus_bleu([response],[[reference]]) — urutan dan nesting benar.
+       (src/evaluation/metrics.py, 2026-05-31)
+       DAMPAK: BLEU = 0.0 di semua 1800 baris hasil RTX 5060 Ti → hasil tidak valid.
+               Terdeteksi oleh unit test T1 (BLEU identik = 1.0); bug lolos karena
+               test tidak dijalankan ulang setelah refactor BUG 15.
 BUGS element_based chunking (April 2026): B1 list buffer lost at boundary, B2 PageBreak
      filtered before handler, B3 table chunk missing source_filename, B4 section_context
      vs section_title inconsistency, B5 title-only orphan before table, B6 missing source_file.
@@ -331,7 +370,6 @@ streamlit run src/streamlit/app.py --server.port 8502
 streamlit run src/streamlit/rag_chat.py --server.port 8501
 
 # Test suite
-python src/streamlit/test_app.py
 python -m pytest tests/test_evaluation.py -v
 
 # Generate ulang kandidat v3
@@ -351,7 +389,7 @@ python scripts/run_retrieval_eval.py \
     --gt data/ground_truth/qa_pairs_lenient.json \
     --output results/retrieval_eval_lenient.csv --top_k 5
 
-# Evaluasi generasi
+# Evaluasi generasi (run definitif di RTX 3090)
 python scripts/run_generation_eval.py
 python scripts/run_generation_eval.py --resume
 python scripts/run_generation_eval.py --methods element_based --top_k 5
@@ -361,7 +399,10 @@ python scripts/download_embedding_model.py
 python scripts/download_generator_model.py
 
 # Git
-git add -A && git commit -m "..." && git push origin dev
+git add -A && git commit -m "..." && git push origin main
+
+# Freeze environment setelah setup final
+pip freeze > requirements.lock.txt
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -375,7 +416,8 @@ Hal penting yang JANGAN salah:
   - QA gold aktif: qa_gold_standard_rag_bps_30qa_question_newest.xlsx (sheet: qa_gold)
   - Query ID tidak berurutan (Q001, Q003, ...) — NORMAL, bukan bug
   - NDCG TIDAK dipakai dalam penelitian ini
-  - Parameter generator LOCKED: temp=0.7, top-p=0.8, top-k=20, max-tokens=16384
+  - Parameter generator LOCKED (rekomendasi resmi model card Qwen3-4B-Instruct-2507):
+    Temperature=0.7, Top-P=0.8, Top-K=20, MinP=0, Max-tokens=16384
     Jangan buat slider UI untuk ini — tampilkan sebagai caption saja
   - suggested_label = SARAN algoritma, label final wajib anotasi manual
   - Kandidat build_candidates_v3.py TIDAK pakai ChromaDB (oracle pooling, bukan retrieval pooling)
@@ -385,9 +427,19 @@ Hal penting yang JANGAN salah:
   - Streamlit: gunakan st.iframe(height=1), BUKAN components.html (deprecated Juni 2026)
   - rag_query.py TIDAK ada di root (backup/cli_rag/). Gunakan: streamlit run src/streamlit/rag_chat.py
   - Sheet names: qa_gold | candidates | labels
-  - Test dijalankan: python src/streamlit/test_app.py (bukan pytest)
   - DEFAULT_TOP_K = 8 (bukan 5)
-  - Output evaluasi generasi: 4 file (per_query.csv, summary.csv, report.txt, run.log)
+  - DEFAULT_MAX_TOK = 16384 (bukan 1024)
+  - Output evaluasi generasi Streamlit: kolom query_id, method, question, gold_answer,
+    generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
+  - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
+    bleu, rouge_l, elapsed_s, error
+  - results/final/generation/ KOSONG — siap untuk run definitif di RTX 3090
+  - results/archive/former_final_generation/ = hasil RTX 5060 Ti yang TIDAK VALID
+    (BLEU semua 0, ROUGE strict semua 0) — simpan sebagai referensi saja
+  - Retrieval N/A = by design (query tanpa GT chunk), BUKAN bug
+  - ID chunk di ChromaDB 100% cocok dengan GT JSON — skor 0 retrieval = performa asli
+  - ragas, rank-eval, rapidfuzz SUDAH DIHAPUS dari requirements.txt
+  - MRR pure Python sudah sesuai Persamaan 2.3 dan 2.4; |Q| = query yang punya GT chunk
   - Jangan delete data/artifacts/eval_results.csv tanpa konfirmasi user
 
 ================================================================================

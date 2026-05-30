@@ -1,94 +1,116 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-05-30 03:12 WIB (UTC+7)
+# Generated: 2026-05-31 (WIB)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
-Complete batch evaluations (Strict & Lenient), fix metrics computation issues, and ensure stable Streamlit operation for the RAG pipeline evaluation.
+Mempersiapkan re-run evaluasi definitif di RTX 3090 24GB setelah ditemukan bug
+metrik generasi (BLEU/ROUGE) pada hasil sebelumnya. Semua perbaikan kode sudah
+dilakukan; langkah berikutnya adalah menjalankan ulang di hardware baru.
 
-## Completed Tasks
+---
 
-### 1. Model & Format Update (2026-05-29)
-- **Action:** Reverted to HuggingFace safetensors model (`models/Qwen3-Embedding-4B/`).
-- **Reason:** HF model provides better retrieval performance (BF16 vs GGUF Q8_0).
-- **Update:** pipeline.py now supports dual mode via `embedder_mode` parameter ('gguf' / 'huggingface').
-- **Note:** Laptop still uses GGUF; Vast AI now uses HuggingFace model.
+## Completed Tasks (sesi 2026-05-31)
 
-### 2. Streamlit UI Enhancements (`src/streamlit/rag_chat.py`)
-- **Action:** Added "Mode Relevance" radio button (All, Strict, Lenient) to Evaluation tab.
-- **Action:** DEFAULT_TOP_K=8, slider max=10.
-- **Action:** Added progress feedback for pre-compute embedding phase to prevent "stuck" appearance.
+### 1. Diagnosis Bug Metrik Evaluasi Generasi
+- **Temuan:** Semua 20 file di `results/archive/former_final_generation/` tidak valid.
+- **Bug A — BLEU = 0.0 di SEMUA 1800 baris:**
+  - Penyebab: argumen `corpus_bleu` kebalik → `corpus_bleu([ref],[resp])` selalu 0.
+  - Berlaku di semua file (strict top1–10 + lenient top1–10).
+- **Bug B — ROUGE-L = 0.0 di 13/20 file:**
+  - Penyebab: file dibuat sebelum fix BUG 15 (2026-05-28); ragas crash → return 0.0.
+  - Berlaku di: strict top1–10 (semua) + lenient top1–3.
+  - ROUGE-L benar hanya di lenient top4–10 (7 file, dibuat setelah fix).
+- **Retrieval N/A:** by design, bukan bug. ID chunk 100% cocok dengan GT JSON.
+- **Truncation:** ~8 jawaban terpotong saat generasi (max_tokens=1024 terlalu kecil).
+  Storage `generated_answer` utuh (1800/1800 baris, 0 korup).
 
-### 3. BLEU/ROUGE Fix (2026-05-28)
-- **Issue:** ragas 0.4.3 threw `No module named 'langchain_community.chat_models.vertexai'` error.
-- **Fix:** Switched to direct library usage in `src/evaluation/metrics.py`:
-  - BLEU: `sacrebleu.corpus_bleu()` directly (normalized 0-1).
-  - ROUGE-L: `rouge_score.RougeScorer` directly, `use_stemmer=False`.
+### 2. Fix compute_bleu (BUG 16)
+- **File:** `src/evaluation/metrics.py`
+- **Fix:** `corpus_bleu([response], [[reference]])` — urutan dan nesting benar.
+- **Verifikasi:** teks mirip → 0.70, identik → 1.0, disjoint → 0.0. 20/20 unit test pass.
+- **Catatan:** `rag_chat.py` dan `run_generation_eval.py` impor dari `metrics.py` —
+  satu fix memperbaiki semua, tidak ada duplikat.
 
-### 4. Cache Embedding Optimization (2026-05-28)
-- **Action:** Pre-compute query embeddings once per QA before top-k loop in `_run_eval_and_save`.
-- **Impact:** ~15-20% faster per QA (saves 5 embed calls per QA for top-k range 5-10).
-- **Safety:** 100% safe — same input, same embedder, same output vector. No change to results.
+### 3. Set max_tokens → 16384
+- **File:** `src/streamlit/rag_chat.py` (DEFAULT_MAX_TOK) dan
+  `scripts/run_generation_eval.py` (DEFAULT_MAX_TOKENS).
+- **Alasan:** Rekomendasi resmi model card Qwen3-4B-Instruct-2507.
+  VRAM aman di RTX 3090 24GB (estimasi puncak ~20-21 GB).
+  max_tokens adalah batas atas, bukan alokasi muka.
+- **Sebelumnya:** 1024 (kompromi VRAM laptop, bukan angka resmi).
 
-### 5. Batch Evaluation Status
-- **Strict Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/final/generation/strict/`).
-- **Lenient Mode:** ✅ Completed (10/10 files, top-1 to top-10, `results/final/generation/lenient/`).
+### 4. Pemindahan results/final/ → archive/
+- `results/final/generation/` dipindah ke `results/archive/former_final_generation/`
+  via `git mv` (histori terjaga, terdeteksi sebagai rename).
+- `results/final/` sekarang KOSONG — siap untuk run definitif di RTX 3090.
+- Folder kosong `results/No GPU Info/` ikut dihapus.
 
-### 6. Environment Setup (2026-05-29)
-- **Action:** Created virtual environment `.venv/` di folder rag-skripsi.
-- **Action:** Installed all dependencies from `requirements.txt`.
-- **Action:** Installed GitHub CLI (`gh`) dan authenticated.
-- **Action:** Pushed changes ke GitHub main branch.
+### 5. Hapus duplikat results/archive/generation_eval/streamlit/
+- 3 file di folder itu identik byte-for-byte (MD5 sama) dengan lenient top1–3
+  di `former_final_generation/lenient/`.
+- Dihapus via `git rm` — histori terjaga.
 
-### 7. Results Restructure (2026-05-30)
-- **Action:** Restructured `results/` folder:
-  - `results/final/generation/strict/` — definitive strict results (top1–top10)
-  - `results/final/generation/lenient/` — definitive lenient results (top1–top10)
-  - `results/archive/` — all old/legacy runs organized by GPU
-- **Code updates:** rag_chat.py, rank_results.py, run_generation_eval.py paths updated.
+### 6. Bersihkan requirements.txt
+- **Dihapus (tidak dipakai):** `ragas`, `rank-eval`, `rapidfuzz`, `python-dotenv`,
+  `loguru`, `torchvision`.
+- **Dikoreksi:** komentar sacrebleu/rouge-score (dependency LANGSUNG, bukan via ragas).
+- **Dikomentari sebagai opsional:** `pdfplumber`, `matplotlib`, `seaborn`.
+- **Ditambah:** catatan reprodusibilitas (saran `pip freeze > requirements.lock.txt`).
+- Dari ~40 → 32 paket aktif.
 
-### 8. Hardware (Vast AI)
-- **GPU:** NVIDIA A100 SXM4 40GB VRAM.
-- **VRAM Usage:** ~8-9 GB utilized (Generator on GPU, Embedder on GPU via HF).
-- **System:** Linux, stable.
-- **Virtual Environment:** `.venv/` di folder rag-skripsi
+### 7. Verifikasi MRR
+- Implementasi pure Python di `src/evaluation/metrics.py` dan
+  `scripts/run_retrieval_eval.py` sudah sesuai Persamaan 2.3 dan 2.4 di skripsi.
+- Tervalidasi unit test T16–T18.
+- **Catatan penting untuk laporan:** |Q| dalam agregasi = hanya query yang punya
+  GT chunk (bukan 30). Perlu disebutkan eksplisit di definisi rumus di skripsi.
+
+---
 
 ## Current State
 
-### Dependencies
-- ✅ All requirements installed in `.venv/` (virtual environment di folder rag-skripsi)
-- ✅ GitHub CLI (gh) terinstall dan authenticated
+### Hardware Target
+- **GPU:** RTX 3090 24GB (Vast AI) — belum aktif, akan dipakai untuk re-run.
+- **Embedder:** Qwen3-Embedding-4B HuggingFace safetensors (GPU via sentence-transformers).
+- **Generator:** Qwen3-4B-Instruct-2507 BF16 (GPU).
 
-### Embeddings & Models
-- **Model (Embedder):** `models/Qwen3-Embedding-4B/` (HuggingFace safetensors, GPU via sentence-transformers).
-- **Model (Generator):** `models/Qwen3-4B-Instruct-2507` (HF, BF16, GPU).
+### Kode
+- `src/evaluation/metrics.py` — compute_bleu sudah diperbaiki (BUG 16).
+- `src/streamlit/rag_chat.py` — DEFAULT_MAX_TOK=16384.
+- `scripts/run_generation_eval.py` — DEFAULT_MAX_TOKENS=16384.
+- `requirements.txt` — sudah dibersihkan dari dependency redundan.
 
 ### Results
-- **Strict:** `results/final/generation/strict/` — 10/10 files complete.
-- **Lenient:** `results/final/generation/lenient/` — 10/10 files complete.
+- `results/final/generation/` — **KOSONG**, siap untuk run definitif.
+- `results/archive/former_final_generation/` — hasil RTX 5060 Ti (tidak valid, referensi).
+- `results/archive/` — semua run lama terorganisir per GPU.
 
-### Git Status
-- Branch: main
-- Latest commit: Restructure results folder: separate final vs archive
-- Commit hash: 4ed1bde
+### Git Status (uncommitted changes dari sesi ini)
+- R: results/final/generation/* → results/archive/former_final_generation/*
+- D: results/archive/generation_eval/streamlit/* (duplikat dihapus)
+- M: src/evaluation/metrics.py (fix BUG 16)
+- M: src/streamlit/rag_chat.py (max_tokens 16384)
+- M: scripts/run_generation_eval.py (max_tokens 16384)
+- M: requirements.txt (cleanup)
+- M: docs/PROJECT_CONTEXT.txt (update)
+- M: docs/Chat Context.txt (update)
+
+---
 
 ## Known Issues (Resolved)
-- ~~ragas dependency error~~ → Fixed by direct sacrebleu/rouge-score usage.
-- ~~Embedder path mismatch~~ → Fixed by moving GGUF to root models/.
-- ~~UI stuck on "Memulai evaluasi"~~ → Fixed by adding pre-compute progress captions.
-- ~~Embedder mode hardcoded to GGUF~~ → Fixed by adding `embedder_mode` parameter ('gguf' / 'huggingface').
-
-## File Locations
-- **Results (Strict):** `results/final/generation/strict/`
-- **Results (Lenient):** `results/final/generation/lenient/`
-- **Model (Embedder):** `models/Qwen3-Embedding-4B/` (HuggingFace safetensors)
-- **Model (Generator):** `models/Qwen3-4B-Instruct-2507/`
-- **Metrics Code:** `src/evaluation/metrics.py`
-- **Streamlit App:** `src/streamlit/rag_chat.py`
-- **Pipeline:** `src/rag/pipeline.py`
-- **Scripts:** `scripts/run_generation_eval.py`, `scripts/run_retrieval_eval.py`
+- ~~ragas dependency error~~ → Fixed BUG 15 (sacrebleu/rouge-score langsung).
+- ~~compute_bleu argumen kebalik~~ → Fixed BUG 16 (2026-05-31).
+- ~~ROUGE-L = 0 di file pra-fix~~ → Akan diperbaiki dengan re-run di RTX 3090.
+- ~~max_tokens=1024 terlalu kecil~~ → Diubah ke 16384.
+- ~~Duplikat file di archive~~ → Dihapus.
+- ~~requirements.txt redundan~~ → Dibersihkan.
 
 ## Next Steps
-1. Re-run retrieval evaluation with HF embedder (expecting better scores).
-2. Analyze evaluation results across all 3 methods.
-3. Compare Strict vs Lenient relevance mode performance.
-4. Penulisan laporan skripsi.
+1. **[PRIORITAS]** Sewa RTX 3090 24GB di Vast AI, setup environment (.venv).
+2. **[PRIORITAS]** Re-run batch eval generasi penuh (Streamlit atau script):
+   - Strict + Lenient, top-1 s/d top-10, semua 3 metode
+   - Output ke `results/final/generation/strict/` dan `results/final/generation/lenient/`
+3. Commit semua perubahan sesi ini ke GitHub main.
+4. `pip freeze > requirements.lock.txt` setelah environment RTX 3090 terpasang.
+5. Analisis mendalam perbandingan antar metode chunking.
+6. Penulisan laporan skripsi.

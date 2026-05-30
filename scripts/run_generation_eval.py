@@ -104,7 +104,7 @@ DEFAULT_GENERATOR_PATH  = str(_LOCAL_GENERATOR) if _LOCAL_GENERATOR.exists() els
 DEFAULT_TEMPERATURE    = 0.7    # Instruct: 0.7 (Thinking: 0.6)
 DEFAULT_TOP_P          = 0.8    # Instruct: 0.8 (Thinking: 0.95)
 DEFAULT_TOP_K_GEN      = 20
-DEFAULT_MAX_TOKENS     = 1024   # Eval: kompromi antara dok (16384) dan batas VRAM 6GB; cukup untuk jawaban faktual BPS
+DEFAULT_MAX_TOKENS     = 16384  # Sesuai rekomendasi output length resmi model card Qwen3-4B-Instruct-2507
 DEFAULT_TOP_K          = 8
 
 
