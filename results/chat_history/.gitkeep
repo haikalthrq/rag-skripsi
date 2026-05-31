@@ -1,0 +1,3 @@
+# Folder ini menyimpan riwayat chat persisten dari src/streamlit/rag_chat.py
+# File: chat_history.jsonl (1 baris JSON per percakapan)
+# Sengaja di-track git agar riwayat tetap sinkron antara laptop dan Vast AI.
