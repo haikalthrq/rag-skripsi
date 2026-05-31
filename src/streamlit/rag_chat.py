@@ -77,6 +77,74 @@ from src.evaluation.metrics import (
     compute_mrr,
 )
 
+# ── Chat history persistence (untuk dokumentasi sidang) ──────────────────────
+# Disimpan ke disk (JSONL) agar TIDAK hilang saat Streamlit restart/mati.
+CHAT_HISTORY_DIR  = ROOT / "results" / "chat_history"
+CHAT_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+CHAT_HISTORY_FILE = CHAT_HISTORY_DIR / "chat_history.jsonl"
+
+# Batas panjang teks chunk yang disimpan per entri (jaga ukuran file tetap wajar)
+_CHUNK_TEXT_CAP = 5000
+
+
+def _extract_chunk_records(retrieved: list) -> list:
+    """Ubah hasil retrieve menjadi record ringkas untuk disimpan (adaptif top-k)."""
+    chunks = []
+    for i, chunk in enumerate(retrieved, 1):
+        meta = chunk.get("metadata", {}) or {}
+        dist = chunk.get("distance")
+        chunks.append({
+            "rank":     i,
+            "source":   Path(meta.get("source_file", "?")).name,
+            "pages":    meta.get("page_numbers", "-"),
+            "distance": round(dist, 4) if isinstance(dist, (int, float)) else None,
+            "text":     (chunk.get("document", "") or "")[:_CHUNK_TEXT_CAP],
+        })
+    return chunks
+
+
+def _build_chat_record(query: str, mode: str, top_k: int,
+                       gold: str, results: list) -> dict:
+    """Bangun satu record turn chat untuk disimpan."""
+    return {
+        "id":          datetime.now().strftime("%Y%m%d_%H%M%S_%f"),
+        "timestamp":   (datetime.now() + timedelta(hours=7)).strftime("%Y-%m-%d %H:%M:%S"),
+        "query":       query,
+        "mode":        mode,
+        "top_k":       top_k,
+        "gold_answer": gold,
+        "results":     results,
+    }
+
+
+def _save_chat_turn(record: dict) -> None:
+    """Append satu turn chat ke JSONL (persisten, tahan restart)."""
+    try:
+        with open(CHAT_HISTORY_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception as e:
+        logger.warning(f"Gagal menyimpan chat history: {e}")
+
+
+def _load_chat_history() -> list:
+    """Load semua turn chat dari JSONL (terbaru di urutan depan)."""
+    if not CHAT_HISTORY_FILE.exists():
+        return []
+    records = []
+    try:
+        with open(CHAT_HISTORY_FILE, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    records.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    except Exception as e:
+        logger.warning(f"Gagal memuat chat history: {e}")
+    return list(reversed(records))
+
 # ── Load QA Gold Standard (for BLEU/ROUGE scoring) ───────────────────────────────
 
 _QA_GOLD_DF = None
@@ -348,6 +416,64 @@ def render_generation_error(error: Exception) -> None:
         st.code(traceback.format_exc(), language="python")
 
 
+def _render_history_turn(record: dict) -> None:
+    """Render satu turn chat tersimpan (untuk dokumentasi sidang)."""
+    ts     = record.get("timestamp", "-")
+    query  = record.get("query", "")
+    mode   = record.get("mode", "-")
+    top_k  = record.get("top_k", "-")
+    gold   = record.get("gold_answer")
+    results = record.get("results", [])
+
+    st.markdown(f"#### ❓ {query}")
+    st.caption(f"🕒 {ts} · Mode: {mode} · Top-K: {top_k}")
+
+    if gold:
+        st.markdown(
+            f'<div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:8px 12px; '
+            f'border-radius:4px; font-size:0.88rem; color:#15803d; margin-bottom:8px;">'
+            f'📖 <b>Jawaban Referensi:</b> {html.escape(str(gold))}</div>',
+            unsafe_allow_html=True,
+        )
+
+    for res in results:
+        method_label = res.get("method", "-")
+        answer       = res.get("answer", "") or "[kosong]"
+        bleu         = res.get("bleu")
+        rouge        = res.get("rouge_l")
+        elapsed      = res.get("elapsed_s")
+        chunks       = res.get("chunks", [])
+
+        st.markdown(f'<div class="method-header">📦 {method_label}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="answer-box">{html.escape(str(answer))}</div>',
+                    unsafe_allow_html=True)
+
+        meta_bits = []
+        if elapsed is not None:
+            meta_bits.append(f"⏱ {elapsed}s")
+        if isinstance(bleu, (int, float)) and isinstance(rouge, (int, float)):
+            meta_bits.append(f"BLEU **{bleu:.4f}** · ROUGE-L **{rouge:.4f}**")
+        if meta_bits:
+            st.caption(" · ".join(meta_bits))
+
+        if chunks:
+            with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
+                for ch in chunks:
+                    rank = ch.get("rank", "?")
+                    src  = ch.get("source", "?")
+                    pages = ch.get("pages", "-")
+                    dist = ch.get("distance")
+                    dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
+                    preview = (ch.get("text", "") or "").replace("\n", " ")
+                    st.markdown(
+                        f'<div class="chunk-box">'
+                        f'<b>[{rank}]</b> {src} · hal {pages} · dist {dist_str}<br>'
+                        f'{html.escape(preview[:500])}...</div>',
+                        unsafe_allow_html=True,
+                    )
+    st.divider()
+
+
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 
 with st.sidebar:
@@ -403,7 +529,7 @@ except Exception as e:
         st.code(traceback.format_exc(), language="python")
     st.stop()
 
-tab_chat, tab_eval = st.tabs(["💬 Chat", "📊 Evaluasi Batch"])
+tab_chat, tab_eval, tab_history = st.tabs(["💬 Chat", "📊 Evaluasi Batch", "🕒 Riwayat Chat"])
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Chat interaktif
@@ -433,6 +559,7 @@ with tab_chat:
         if compare_mode:
             # ── Mode bandingkan 3 kolom ───────────────────────────────────
             cols = st.columns(3)
+            turn_results = []
 
             try:
                 with st.spinner("🔍 Meng-embed query..."):
@@ -469,6 +596,7 @@ with tab_chat:
                         continue
 
                     st.caption(f"⏱ Selesai dalam {elapsed}s | {len(retrieved)} chunks")
+                    bleu = rouge = None
                     if gold:
                         bleu = compute_bleu(answer, gold)
                         rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
@@ -495,6 +623,21 @@ with tab_chat:
                                     f'{preview}...</div>',
                                     unsafe_allow_html=True,
                                 )
+
+                    turn_results.append({
+                        "method":    METHOD_LABELS[method],
+                        "answer":    answer,
+                        "bleu":      bleu,
+                        "rouge_l":   rouge,
+                        "elapsed_s": elapsed,
+                        "chunks":    _extract_chunk_records(retrieved),
+                    })
+
+            # Simpan turn ke disk (persisten, tahan restart)
+            if turn_results:
+                _save_chat_turn(_build_chat_record(
+                    query, "Bandingkan 3 Metode", top_k, gold, turn_results,
+                ))
         else:
             # ── Mode single method ────────────────────────────────────────
             try:
@@ -519,6 +662,7 @@ with tab_chat:
                 st.stop()
 
             st.caption(f"⏱ Selesai dalam {elapsed}s | Metode: {METHOD_LABELS[selected_method]} | {len(retrieved)} chunks")
+            bleu = rouge = None
             if gold:
                 bleu = compute_bleu(answer, gold)
                 rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
@@ -545,6 +689,19 @@ with tab_chat:
                             f'{preview}...</div>',
                             unsafe_allow_html=True,
                         )
+
+            # Simpan turn ke disk (persisten, tahan restart)
+            _save_chat_turn(_build_chat_record(
+                query, METHOD_LABELS[selected_method], top_k, gold,
+                [{
+                    "method":    METHOD_LABELS[selected_method],
+                    "answer":    answer,
+                    "bleu":      bleu,
+                    "rouge_l":   rouge,
+                    "elapsed_s": elapsed,
+                    "chunks":    _extract_chunk_records(retrieved),
+                }],
+            ))
 
     elif submitted:
         st.warning("Pertanyaan tidak boleh kosong.")
@@ -912,3 +1069,56 @@ with tab_eval:
                 _render_results(df_view)
             except Exception as exc:
                 st.error(f"Gagal membaca file: {exc}")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TAB 3 — Riwayat Chat (Persistent — tahan restart untuk dokumentasi sidang)
+# ══════════════════════════════════════════════════════════════════════════════
+with tab_history:
+    st.subheader("🕒 Riwayat Chat")
+    st.caption(
+        "Riwayat percakapan tersimpan permanen ke disk dan TIDAK hilang saat app "
+        "restart. Menyimpan pertanyaan, jawaban, skor BLEU/ROUGE-L, dan chunk yang "
+        "berhasil di-retrieve (adaptif terhadap Top-K saat query dijalankan)."
+    )
+
+    chat_history = _load_chat_history()
+
+    if not chat_history:
+        st.info("Belum ada riwayat chat. Ajukan pertanyaan di tab 💬 Chat terlebih dahulu.")
+    else:
+        col_info, col_clear = st.columns([3, 1])
+        with col_info:
+            st.markdown(f"**{len(chat_history)} percakapan tersimpan** (terbaru di atas)")
+        with col_clear:
+            with st.popover("🗑 Hapus Riwayat", use_container_width=True):
+                st.warning("Menghapus SEMUA riwayat chat. Tindakan ini tidak dapat dibatalkan.")
+                if st.button("Ya, hapus semua", type="primary", use_container_width=True):
+                    try:
+                        CHAT_HISTORY_FILE.unlink(missing_ok=True)
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Gagal menghapus: {e}")
+
+        # Filter pencarian sederhana
+        search = st.text_input("🔎 Cari pertanyaan", placeholder="kata kunci...")
+        if search:
+            s = search.strip().lower()
+            chat_history = [r for r in chat_history if s in str(r.get("query", "")).lower()]
+            st.caption(f"{len(chat_history)} hasil cocok")
+
+        # Ekspor seluruh riwayat (JSONL) untuk lampiran dokumentasi
+        if CHAT_HISTORY_FILE.exists():
+            st.download_button(
+                "⬇ Download Riwayat (JSONL)",
+                data=CHAT_HISTORY_FILE.read_bytes(),
+                file_name="chat_history.jsonl",
+                mime="application/jsonl",
+            )
+
+        st.divider()
+
+        for idx, record in enumerate(chat_history, 1):
+            label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
+            with st.expander(label, expanded=(idx == 1)):
+                _render_history_turn(record)

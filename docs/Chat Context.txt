@@ -1,116 +1,99 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-05-31 (WIB)
+# Generated: 2026-06-01 (WIB)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
-Mempersiapkan re-run evaluasi definitif di RTX 3090 24GB setelah ditemukan bug
-metrik generasi (BLEU/ROUGE) pada hasil sebelumnya. Semua perbaikan kode sudah
-dilakukan; langkah berikutnya adalah menjalankan ulang di hardware baru.
+Run definitif evaluasi generasi di RTX 3090 SUDAH selesai dan VALID. Fokus
+sekarang: analisis hasil + penulisan laporan skripsi. Sesi ini juga menambah
+fitur Riwayat Chat persisten di Streamlit untuk dokumentasi sidang.
 
 ---
 
-## Completed Tasks (sesi 2026-05-31)
+## Completed Tasks (sesi 2026-06-01)
 
-### 1. Diagnosis Bug Metrik Evaluasi Generasi
-- **Temuan:** Semua 20 file di `results/archive/former_final_generation/` tidak valid.
-- **Bug A — BLEU = 0.0 di SEMUA 1800 baris:**
-  - Penyebab: argumen `corpus_bleu` kebalik → `corpus_bleu([ref],[resp])` selalu 0.
-  - Berlaku di semua file (strict top1–10 + lenient top1–10).
-- **Bug B — ROUGE-L = 0.0 di 13/20 file:**
-  - Penyebab: file dibuat sebelum fix BUG 15 (2026-05-28); ragas crash → return 0.0.
-  - Berlaku di: strict top1–10 (semua) + lenient top1–3.
-  - ROUGE-L benar hanya di lenient top4–10 (7 file, dibuat setelah fix).
-- **Retrieval N/A:** by design, bukan bug. ID chunk 100% cocok dengan GT JSON.
-- **Truncation:** ~8 jawaban terpotong saat generasi (max_tokens=1024 terlalu kecil).
-  Storage `generated_answer` utuh (1800/1800 baris, 0 korup).
+### 1. Pull & verifikasi hasil run RTX 3090 (2026-05-31)
+- 20 file baru di results/final/generation/{strict|lenient}/ (top1-top10).
+- QC PASSED: BLEU non-zero, ROUGE-L 90/90 benar di semua file, 0 error, 0 OOM.
+- Truncation HILANG: max_tokens=16384 cukup; jawaban terpanjang ~8800 char selesai
+  wajar (Q006 MaxMin yang menjumlahkan semua provinsi), bukan runaway.
+- GPU terkonfirmasi RTX 3090 (VRAM 23.56GB, alloc ~15GB).
+- Perubahan kode dari Vast AI (sudah ter-pull): rag_chat.py simpan ke subfolder
+  strict/ & lenient/, riwayat eval pakai rglob.
 
-### 2. Fix compute_bleu (BUG 16)
-- **File:** `src/evaluation/metrics.py`
-- **Fix:** `corpus_bleu([response], [[reference]])` — urutan dan nesting benar.
-- **Verifikasi:** teks mirip → 0.70, identik → 1.0, disjoint → 0.0. 20/20 unit test pass.
-- **Catatan:** `rag_chat.py` dan `run_generation_eval.py` impor dari `metrics.py` —
-  satu fix memperbaiki semua, tidak ada duplikat.
+### 2. Hasil definitif (top_k=5)
+- GENERASI Strict : Element BLEU .126/ROUGE .713 · MaxMin .108/.650 · Recursive .141/.709
+- GENERASI Lenient: Element .118/.701 · MaxMin .105/.637 · Recursive .144/.684
+- RETRIEVAL Strict: Element P@5 .147 R@5 .583 MRR .517 · MaxMin .100/.472/.229 ·
+  Recursive .160/.567/.517
+- MRR MaxMin turun vs baseline lama (0.476) BUKAN bug — beda embedder. Pola:
+  Recall tinggi tapi MRR rendah = nemu chunk tapi ranking-nya rendah. Temuan valid.
+  JANGAN campur angka baseline lama dengan run RTX 3090 (beda setup).
 
-### 3. Set max_tokens → 16384
-- **File:** `src/streamlit/rag_chat.py` (DEFAULT_MAX_TOK) dan
-  `scripts/run_generation_eval.py` (DEFAULT_MAX_TOKENS).
-- **Alasan:** Rekomendasi resmi model card Qwen3-4B-Instruct-2507.
-  VRAM aman di RTX 3090 24GB (estimasi puncak ~20-21 GB).
-  max_tokens adalah batas atas, bukan alokasi muka.
-- **Sebelumnya:** 1024 (kompromi VRAM laptop, bukan angka resmi).
+### 3. Pembahasan acuan top-k & MRR (dari SKRIPSI.md)
+- SKRIPSI.md TIDAK menetapkan nilai k. Formula semua pakai @k generik; contoh @5
+  di bab 4 cuma ILUSTRASI. User bebas pilih k (5 atau 8) DENGAN justifikasi.
+- Rumus MRR (Pers 2.3/2.4) BENAR, kode BENAR — konsisten jika "hasil retrieval"
+  diartikan = top-k (memang satu-satunya output sistem RAG). Perlu 1 kalimat
+  penegasan di naskah bahwa rank dihitung dalam top-k.
+- TYPO Pers 2.4: "RR(q1)" dalam sigma → seharusnya "RR(qi)". Perbaiki di naskah.
 
-### 4. Pemindahan results/final/ → archive/
-- `results/final/generation/` dipindah ke `results/archive/former_final_generation/`
-  via `git mv` (histori terjaga, terdeteksi sebagai rename).
-- `results/final/` sekarang KOSONG — siap untuk run definitif di RTX 3090.
-- Folder kosong `results/No GPU Info/` ikut dihapus.
+### 4. Fitur Riwayat Chat persisten (rag_chat.py)
+- TUJUAN: dokumentasi sidang. Riwayat chat TIDAK hilang saat Streamlit restart
+  (sebelumnya pakai st.session_state yang hilang tiap restart).
+- Disimpan ke results/chat_history/chat_history.jsonl (JSONL, 1 baris per turn).
+- Yang disimpan: timestamp, pertanyaan, mode, top_k, gold answer, dan per metode:
+  jawaban + BLEU + ROUGE-L + elapsed + chunk retrieved (adaptif terhadap slider top-K).
+- Tab baru "🕒 Riwayat Chat": daftar (terbaru di atas, expandable), cari, download
+  JSONL, hapus semua. Layout mirip acuan: Question -> Answer -> Gold -> Retrieved Chunks.
+- Helper: _extract_chunk_records, _build_chat_record, _save_chat_turn,
+  _load_chat_history, _render_history_turn. Verifikasi: py_compile OK, logika
+  save/load di-test terpisah (urutan + adaptif top-k + null-safe), 20/20 test metrics pass.
 
-### 5. Hapus duplikat results/archive/generation_eval/streamlit/
-- 3 file di folder itu identik byte-for-byte (MD5 sama) dengan lenient top1–3
-  di `former_final_generation/lenient/`.
-- Dihapus via `git rm` — histori terjaga.
-
-### 6. Bersihkan requirements.txt
-- **Dihapus (tidak dipakai):** `ragas`, `rank-eval`, `rapidfuzz`, `python-dotenv`,
-  `loguru`, `torchvision`.
-- **Dikoreksi:** komentar sacrebleu/rouge-score (dependency LANGSUNG, bukan via ragas).
-- **Dikomentari sebagai opsional:** `pdfplumber`, `matplotlib`, `seaborn`.
-- **Ditambah:** catatan reprodusibilitas (saran `pip freeze > requirements.lock.txt`).
-- Dari ~40 → 32 paket aktif.
-
-### 7. Verifikasi MRR
-- Implementasi pure Python di `src/evaluation/metrics.py` dan
-  `scripts/run_retrieval_eval.py` sudah sesuai Persamaan 2.3 dan 2.4 di skripsi.
-- Tervalidasi unit test T16–T18.
-- **Catatan penting untuk laporan:** |Q| dalam agregasi = hanya query yang punya
-  GT chunk (bukan 30). Perlu disebutkan eksplisit di definisi rumus di skripsi.
+### 5. Cleanup
+- Hapus _gitdiag.sh (script diagnostik sementara dari Vast AI, path hardcoded /workspace).
 
 ---
 
 ## Current State
 
-### Hardware Target
-- **GPU:** RTX 3090 24GB (Vast AI) — belum aktif, akan dipakai untuk re-run.
-- **Embedder:** Qwen3-Embedding-4B HuggingFace safetensors (GPU via sentence-transformers).
-- **Generator:** Qwen3-4B-Instruct-2507 BF16 (GPU).
+### Hardware
+- GPU: RTX 3090 24GB (Vast AI) — AKTIF, run definitif sudah dijalankan.
+- Embedder: Qwen3-Embedding-4B HF safetensors (GPU). Generator: Qwen3-4B-Instruct-2507 BF16.
 
-### Kode
-- `src/evaluation/metrics.py` — compute_bleu sudah diperbaiki (BUG 16).
-- `src/streamlit/rag_chat.py` — DEFAULT_MAX_TOK=16384.
-- `scripts/run_generation_eval.py` — DEFAULT_MAX_TOKENS=16384.
-- `requirements.txt` — sudah dibersihkan dari dependency redundan.
+### Kode (semua sudah benar)
+- src/evaluation/metrics.py — compute_bleu fixed (BUG 16).
+- src/streamlit/rag_chat.py — max_tokens=16384, simpan subfolder strict/lenient,
+  + fitur Riwayat Chat persisten (BELUM di-commit di sesi ini).
+- scripts/run_generation_eval.py — DEFAULT_MAX_TOKENS=16384.
+- requirements.txt — bersih (32 paket).
 
 ### Results
-- `results/final/generation/` — **KOSONG**, siap untuk run definitif.
-- `results/archive/former_final_generation/` — hasil RTX 5060 Ti (tidak valid, referensi).
-- `results/archive/` — semua run lama terorganisir per GPU.
+- results/final/generation/{strict|lenient}/ — 20 file VALID (RTX 3090).
+- results/archive/former_final_generation/ — hasil RTX 5060 Ti lama (TIDAK VALID).
+- results/chat_history/ — riwayat chat persisten (BARU).
 
-### Git Status (uncommitted changes dari sesi ini)
-- R: results/final/generation/* → results/archive/former_final_generation/*
-- D: results/archive/generation_eval/streamlit/* (duplikat dihapus)
-- M: src/evaluation/metrics.py (fix BUG 16)
-- M: src/streamlit/rag_chat.py (max_tokens 16384)
-- M: scripts/run_generation_eval.py (max_tokens 16384)
-- M: requirements.txt (cleanup)
-- M: docs/PROJECT_CONTEXT.txt (update)
-- M: docs/Chat Context.txt (update)
+### Git Status
+- Branch: main. origin/main = a5b366e (run RTX 3090 + rag_chat subfolder).
+- Uncommitted di sesi ini: D _gitdiag.sh, M src/streamlit/rag_chat.py (fitur history),
+  M docs/PROJECT_CONTEXT.txt, M docs/Chat Context.txt.
+
+### Keputusan pending dari user
+- Apakah results/chat_history/ ikut di-track git atau di-ignore? (default: ikut track,
+  karena results/ memang di-track. Belum dikonfirmasi user.)
 
 ---
 
 ## Known Issues (Resolved)
-- ~~ragas dependency error~~ → Fixed BUG 15 (sacrebleu/rouge-score langsung).
-- ~~compute_bleu argumen kebalik~~ → Fixed BUG 16 (2026-05-31).
-- ~~ROUGE-L = 0 di file pra-fix~~ → Akan diperbaiki dengan re-run di RTX 3090.
-- ~~max_tokens=1024 terlalu kecil~~ → Diubah ke 16384.
-- ~~Duplikat file di archive~~ → Dihapus.
-- ~~requirements.txt redundan~~ → Dibersihkan.
+- ~~BLEU=0 semua~~ → Fixed BUG 16, run baru RTX 3090 BLEU benar.
+- ~~ROUGE-L=0 di file lama~~ → run baru RTX 3090 ROUGE benar 90/90.
+- ~~max_tokens=1024 truncation~~ → 16384, 0 truncation.
+- ~~Riwayat chat hilang saat restart~~ → fitur persisten JSONL.
 
 ## Next Steps
-1. **[PRIORITAS]** Sewa RTX 3090 24GB di Vast AI, setup environment (.venv).
-2. **[PRIORITAS]** Re-run batch eval generasi penuh (Streamlit atau script):
-   - Strict + Lenient, top-1 s/d top-10, semua 3 metode
-   - Output ke `results/final/generation/strict/` dan `results/final/generation/lenient/`
-3. Commit semua perubahan sesi ini ke GitHub main.
-4. `pip freeze > requirements.lock.txt` setelah environment RTX 3090 terpasang.
-5. Analisis mendalam perbandingan antar metode chunking.
+1. (Opsional) Tentukan apakah chat_history di-track git atau di-ignore.
+2. Commit + push perubahan sesi ini ke main.
+3. Tentukan & justifikasi nilai k pelaporan (5 atau 8) di skripsi.
+4. Perbaiki naskah: typo RR(q1)->RR(qi) + penegasan MRR top-k.
+5. Analisis mendalam perbandingan antar metode chunking (pakai results/final/).
 6. Penulisan laporan skripsi.
+7. pip freeze > requirements.lock.txt di environment RTX 3090.

@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-05-31 (03:50 WIB)
+Terakhir diperbarui: 2026-06-01 (WIB)
 ================================================================================
 
 
@@ -17,12 +17,12 @@ Environment / Hardware:
   - Lokal (laptop): Windows | GPU RTX 4050 6GB
     → Embedding: Qwen3-Embedding-4B-Q8_0.gguf via llama.cpp (CPU only, hemat VRAM)
     → Generator: Qwen3-4B-Instruct-2507-FP8 via HuggingFace transformers (GPU)
-  - Cloud (Vast AI): Linux | GPU RTX 3090 24GB VRAM (TARGET HARDWARE BERIKUTNYA)
+  - Cloud (Vast AI): Linux | GPU RTX 3090 24GB VRAM (AKTIF — run definitif sudah dijalankan)
     → Embedding: Qwen3-Embedding-4B (HuggingFace, safetensors) via sentence-transformers (GPU)
     → Generator: Qwen3-4B-Instruct-2507 BF16 (HuggingFace transformers, GPU)
     → Virtual Environment: .venv di folder rag-skripsi (requirements.txt terinstall)
-    → CATATAN: Hardware sebelumnya A100 SXM4 40GB sudah tidak aktif.
-               Run definitif berikutnya akan dilakukan di RTX 3090 24GB.
+    → CATATAN: Hardware sebelumnya A100 SXM4 40GB & RTX 5060 Ti sudah tidak aktif.
+               Run definitif evaluasi generasi SUDAH dijalankan di RTX 3090 (2026-05-31).
 
 Tujuan:
   - Bandingkan 3 metode chunking: element_based, maxmin_semantic, recursive
@@ -74,8 +74,11 @@ rag-skripsi/
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
 ├── results/
-│   ├── final/                          ← KOSONG — siap untuk run definitif di RTX 3090
-│   │                                     (dibuat otomatis oleh rag_chat.py / run_generation_eval.py)
+│   ├── final/                          ← HASIL DEFINITIVE (run RTX 3090, 2026-05-31, VALID)
+│   │   └── generation/
+│   │       ├── strict/                 eval_strict_*_top1–top10.csv (10 file)
+│   │       └── lenient/                eval_lenient_*_top1–top10.csv (10 file)
+│   ├── chat_history/                   chat_history.jsonl (riwayat chat persisten Streamlit)
 │   └── archive/                        ← Semua run lama (referensi, jangan hapus)
 │       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
 │       │   ├── strict/                 eval_strict_top1–top10.csv  ← BLEU=0 semua, ROUGE=0 semua
@@ -86,9 +89,9 @@ rag-skripsi/
 │       └── RTX 5060 Ti 16GB/           generation_eval, bf16, vast, streamlit
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
-│   CATATAN: former_final_generation/ = hasil RTX 5060 Ti yang TIDAK VALID untuk skripsi
-│            karena bug BLEU (argumen corpus_bleu kebalik) dan ROUGE strict (ragas crash).
-│            Disimpan sebagai referensi saja. Run ulang di RTX 3090 diperlukan.
+│   CATATAN: results/final/ = hasil RTX 3090 (2026-05-31) yang VALID untuk skripsi.
+│            former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
+│            (bug BLEU + ROUGE strict). Disimpan sebagai referensi saja.
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, Chat Context.txt, dokumentasi komponen
@@ -213,12 +216,16 @@ Streamlit Apps:
   src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
     DEFAULT_TOP_K=8, slider max=10
     DEFAULT_MAX_TOK=16384 (sesuai rekomendasi resmi)
-    Batch eval output: results/final/generation/ (dibuat otomatis)
+    Batch eval output: results/final/generation/{strict|lenient}/ (subfolder per mode)
     Relevance mode: radio button (All, Strict, Lenient) — user-selectable
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
     Embedder mode: 'huggingface' (HF safetensors) di Vast AI; 'gguf' di laptop
+    Riwayat Chat PERSISTEN (tab "🕒 Riwayat Chat"): simpan ke results/chat_history/
+      chat_history.jsonl — tahan restart. Simpan pertanyaan, jawaban (per metode),
+      gold answer, skor BLEU/ROUGE-L, dan chunk yang di-retrieve (adaptif top-K).
+      Untuk dokumentasi sidang. Ada fitur cari, download JSONL, hapus semua.
   Versi Streamlit: 1.57.0
 
 
@@ -254,19 +261,40 @@ Evaluasi Retrieval (top_k=5):
     → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok 100%, semua chunk ada di ChromaDB.
 
-Evaluasi Generasi — STATUS SAAT INI:
-  ⚠️  SEMUA HASIL DI archive/former_final_generation/ TIDAK VALID UNTUK SKRIPSI:
-      - BLEU = 0.0 di SEMUA 20 file (1800 baris) → bug argumen corpus_bleu kebalik
-      - ROUGE-L = 0.0 di 13/20 file (strict top1–10 + lenient top1–3) → ragas crash pra-fix
-      - ROUGE-L benar hanya di lenient top4–10 (7 file, dibuat setelah fix 2026-05-28)
-      - generated_answer tersimpan UTUH (1800/1800 baris, 0 korup) → valid untuk recompute
-      - ~8 jawaban terpotong saat generasi (Q006 MaxMin, Q027 Element) karena max_tokens=1024
+Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
+  Lokasi: results/final/generation/{strict|lenient}/ (20 file, top1–top10)
+  Status QC: BLEU non-zero semua, ROUGE-L 90/90 benar semua file, 0 error,
+             0 truncation (max_tokens=16384; jawaban terpanjang ~8800 char selesai wajar)
 
-  RENCANA: Re-run penuh di RTX 3090 dengan konfigurasi yang sudah diperbaiki:
-    - max_tokens=16384 (sudah diupdate di kode)
-    - compute_bleu sudah diperbaiki (argumen benar)
-    - Embedder HF safetensors (bukan GGUF)
-    - Hasil baru masuk ke results/final/generation/ (kosong, siap)
+  GENERASI (top_k=5):
+    STRICT:
+      Element-Based   BLEU=0.1257  ROUGE-L=0.7130
+      MaxMin Semantic BLEU=0.1080  ROUGE-L=0.6499
+      Recursive       BLEU=0.1411  ROUGE-L=0.7090
+    LENIENT:
+      Element-Based   BLEU=0.1178  ROUGE-L=0.7005
+      MaxMin Semantic BLEU=0.1052  ROUGE-L=0.6369
+      Recursive       BLEU=0.1440  ROUGE-L=0.6838
+
+  RETRIEVAL (top_k=5, exclude N/A) — dari run generasi yang sama:
+    STRICT:
+      Element-Based   P@5=0.147  R@5=0.583  MRR=0.517  (n=15)
+      MaxMin Semantic P@5=0.100  R@5=0.472  MRR=0.229  (n=18)
+      Recursive       P@5=0.160  R@5=0.567  MRR=0.517  (n=15)
+    LENIENT:
+      Element-Based   P@5=0.129  R@5=0.392  MRR=0.354  (n=28)
+      MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  (n=29)
+      Recursive       P@5=0.145  R@5=0.352  MRR=0.429  (n=29)
+
+  CATATAN MRR MaxMin turun (vs baseline lama 0.476):
+    BUKAN bug. Beda karena embedder berbeda (HF safetensors RTX 3090 vs run lama).
+    Pola: MaxMin sering Recall@5=1.0 tapi MRR rendah → BERHASIL menemukan chunk
+    relevan, tapi LEMAH menempatkannya di peringkat atas (chunk besar/terdilusi).
+    Ini temuan valid untuk analisis perbandingan, bukan kegagalan teknis.
+    JANGAN campur angka baseline lama dengan run RTX 3090 di satu tabel (beda setup).
+
+  HASIL TIDAK VALID (jangan dipakai): results/archive/former_final_generation/
+    BLEU=0 semua, ROUGE-L=0 di 13/20 file. Lihat BUG 16.
 
   Metrik:
     BLEU   : sacrebleu.corpus_bleu([response],[[reference]]) / 100
@@ -316,11 +344,29 @@ SELESAI ✓ (2026-05-31 — sesi ini)
   [x] Bersihkan requirements.txt: hapus ragas, rank-eval, rapidfuzz, python-dotenv,
       loguru, torchvision; koreksi komentar sacrebleu/rouge-score; tandai opsional
   [x] Verifikasi MRR pure Python sudah sesuai Persamaan 2.3 dan 2.4 di skripsi
+  [x] Re-run evaluasi generasi penuh di RTX 3090 24GB (max_tokens=16384, HF embedder)
+      → 20 file di results/final/generation/{strict|lenient}/ — VALID (QC passed)
+      → BLEU non-zero, ROUGE 90/90 benar, 0 error, 0 truncation
+  [x] Hapus _gitdiag.sh (script diagnostik sementara dari Vast AI)
+  [x] Fitur Riwayat Chat persisten di rag_chat.py (tab "🕒 Riwayat Chat")
+      → simpan ke results/chat_history/chat_history.jsonl, tahan restart
+      → pertanyaan + jawaban + skor + chunk retrieved (adaptif top-K), untuk dokumentasi sidang
+
+CATATAN PENTING (acuan top-k & MRR di SKRIPSI.md):
+  - SKRIPSI.md TIDAK menetapkan nilai k spesifik. Semua formula pakai notasi @k generik.
+    Contoh Precision@5/Recall@5 di bab 4 hanya ILUSTRASI, bukan ketentuan k=5.
+    User bebas pilih k (5 atau 8) DENGAN justifikasi di laporan.
+  - Rumus MRR (Pers. 2.3 & 2.4) BENAR; kode juga BENAR. Keduanya konsisten JIKA
+    "hasil retrieval" diartikan = top-k (memang satu-satunya output sistem RAG).
+    → Tambah 1 kalimat di naskah: rank dihitung dalam top-k chunk yang di-retrieve.
+  - TYPO di Pers. 2.4 naskah: "RR(q1)" di dalam sigma seharusnya "RR(qi)" (indeks i).
+    Perlu diperbaiki di naskah skripsi.
 
 PERLU DILAKUKAN ○
-  [ ] Re-run evaluasi generasi penuh di RTX 3090 24GB (max_tokens=16384, HF embedder)
-      → Hasil masuk ke results/final/generation/ (strict/ + lenient/, top1–top10)
-  [ ] Re-run evaluasi retrieval di RTX 3090 (opsional, hasil BF16 2026-05-21 masih valid)
+  [ ] Re-run evaluasi retrieval khusus di RTX 3090 (opsional — angka retrieval sudah
+      ada dari run generasi; atau pakai run_retrieval_eval.py untuk sumber konsisten)
+  [ ] Tentukan & justifikasi nilai k pelaporan di skripsi (5 atau 8)
+  [ ] Perbaiki typo MRR (RR(q1)→RR(qi)) + tambah penegasan top-k di naskah
   [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
   [ ] pip freeze > requirements.lock.txt setelah environment final terpasang di RTX 3090
@@ -433,9 +479,13 @@ Hal penting yang JANGAN salah:
     generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
   - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
     bleu, rouge_l, elapsed_s, error
-  - results/final/generation/ KOSONG — siap untuk run definitif di RTX 3090
-  - results/archive/former_final_generation/ = hasil RTX 5060 Ti yang TIDAK VALID
+  - results/final/generation/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
+    Subfolder: strict/ dan lenient/, masing-masing top1–top10
+  - results/archive/former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
     (BLEU semua 0, ROUGE strict semua 0) — simpan sebagai referensi saja
+  - Riwayat chat Streamlit persisten di results/chat_history/chat_history.jsonl
+  - SKRIPSI.md TIDAK menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
+  - Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
   - Retrieval N/A = by design (query tanpa GT chunk), BUKAN bug
   - ID chunk di ChromaDB 100% cocok dengan GT JSON — skor 0 retrieval = performa asli
   - ragas, rank-eval, rapidfuzz SUDAH DIHAPUS dari requirements.txt
