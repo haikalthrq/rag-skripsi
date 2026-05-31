@@ -749,11 +749,15 @@ with tab_eval:
                         "hardware_info"    : hw_info_str,
                     })
             
-            # Save file for this top-k
+            # Save file for this top-k.
+            # Konsisten dengan konvensi terdokumentasi + arsip:
+            #   results/final/generation/{strict|lenient}/eval_{mode}_..._top{k}.csv
             df_result = pd.DataFrame(rows)
             # WIB timestamp (UTC+7)
             ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
-            save_path = EVAL_RESULTS_DIR / f"eval_{relevance_mode}_{ts_wib}_{mode_tag}_top{current_k}.csv"
+            mode_dir = EVAL_RESULTS_DIR / relevance_mode
+            mode_dir.mkdir(parents=True, exist_ok=True)
+            save_path = mode_dir / f"eval_{relevance_mode}_{ts_wib}_{mode_tag}_top{current_k}.csv"
             df_result.to_csv(save_path, index=False)
             all_results.append((df_result, save_path))
         
@@ -889,7 +893,8 @@ with tab_eval:
 
     # ── Riwayat evaluasi dari disk ────────────────────────────────────────
     st.subheader("📂 Riwayat Evaluasi")
-    saved_files = sorted(EVAL_RESULTS_DIR.glob("eval_*.csv"), reverse=True)
+    # rglob agar mencakup subfolder strict/ dan lenient/ (dan file flat lama, jika ada)
+    saved_files = sorted(EVAL_RESULTS_DIR.rglob("eval_*.csv"), reverse=True)
 
     if not saved_files:
         st.info("Belum ada hasil evaluasi tersimpan. Jalankan evaluasi terlebih dahulu.")
@@ -898,7 +903,7 @@ with tab_eval:
         selected_file = st.selectbox(
             f"Pilih run ({len(saved_files)} tersedia)",
             options=saved_files,
-            format_func=lambda p: p.name,
+            format_func=lambda p: str(p.relative_to(EVAL_RESULTS_DIR)),
             key="eval_history_select",
         )
         if selected_file is not None:
