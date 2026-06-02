@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-01 (WIB)
+Terakhir diperbarui: 2026-06-02 (19:00 WIB)
 ================================================================================
 
 
@@ -78,7 +78,7 @@ rag-skripsi/
 │   │   └── generation/
 │   │       ├── strict/                 eval_strict_*_top1–top10.csv (10 file)
 │   │       └── lenient/                eval_lenient_*_top1–top10.csv (10 file)
-│   ├── chat_history/                   chat_history.jsonl (riwayat chat persisten Streamlit)
+│   ├── chat_history/                   chat_history.jsonl + .gitkeep (riwayat chat persisten Streamlit)
 │   └── archive/                        ← Semua run lama (referensi, jangan hapus)
 │       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
 │       │   ├── strict/                 eval_strict_top1–top10.csv  ← BLEU=0 semua, ROUGE=0 semua
@@ -89,6 +89,7 @@ rag-skripsi/
 │       └── RTX 5060 Ti 16GB/           generation_eval, bf16, vast, streamlit
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
+│            results/chat_history/ SUDAH di-track via .gitkeep (commit 4d128d2)
 │   CATATAN: results/final/ = hasil RTX 3090 (2026-05-31) yang VALID untuk skripsi.
 │            former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
 │            (bug BLEU + ROUGE strict). Disimpan sebagai referensi saja.
@@ -213,18 +214,27 @@ Metrik Evaluasi:
 
 Streamlit Apps:
   src/streamlit/app.py      — annotation tool v3 (anotasi sudah selesai)
-  src/streamlit/rag_chat.py — RAG demo (single/compare mode, inline BLEU/ROUGE)
+  src/streamlit/rag_chat.py — RAG demo (single/compare mode, evaluasi inline)
     DEFAULT_TOP_K=8, slider max=10
     DEFAULT_MAX_TOK=16384 (sesuai rekomendasi resmi)
     Batch eval output: results/final/generation/{strict|lenient}/ (subfolder per mode)
-    Relevance mode: radio button (All, Strict, Lenient) — user-selectable
+    Input chat: pilih pertanyaan via selectbox "Pertanyaan QA Gold" (TIDAK ketik bebas)
+      → query_id, question, gold_answer diambil langsung dari QA gold aktif
+      → cocok 100% dengan GT evaluasi, tanpa fuzzy matching
+    Inline metrics di tab Chat:
+      → Generasi: BLEU + ROUGE-L
+      → Retrieval: Precision@k + Recall@k + MRR bila QA dipilih
+    Mode Relevance Chat: radio button (Strict, Lenient)
+      → dipakai khusus untuk metrik retrieval di tab Chat
+    Relevance mode batch eval: tetap terpisah (All, Strict, Lenient)
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
     Embedder mode: 'huggingface' (HF safetensors) di Vast AI; 'gguf' di laptop
     Riwayat Chat PERSISTEN (tab "🕒 Riwayat Chat"): simpan ke results/chat_history/
       chat_history.jsonl — tahan restart. Simpan pertanyaan, jawaban (per metode),
-      gold answer, skor BLEU/ROUGE-L, dan chunk yang di-retrieve (adaptif top-K).
+      gold answer, skor BLEU/ROUGE-L, skor retrieval, dan chunk yang di-retrieve
+      (adaptif top-K).
       Untuk dokumentasi sidang. Ada fitur cari, download JSONL, hapus semua.
   Versi Streamlit: 1.57.0
 
@@ -330,7 +340,7 @@ SELESAI ✓ (sebelum 2026-05-30)
   [x] Install GitHub CLI (gh) dan authenticated
   [x] Restructure folder results/ → final/ + archive/
 
-SELESAI ✓ (2026-05-31 — sesi ini)
+SELESAI ✓ (2026-05-31 — sesi utama)
   [x] Investigasi & diagnosis bug metrik evaluasi generasi (BLEU + ROUGE)
       → BLEU: argumen corpus_bleu kebalik di semua 20 file (1800 baris)
       → ROUGE: ragas crash pra-fix → 0.0 di 13/20 file
@@ -351,6 +361,18 @@ SELESAI ✓ (2026-05-31 — sesi ini)
   [x] Fitur Riwayat Chat persisten di rag_chat.py (tab "🕒 Riwayat Chat")
       → simpan ke results/chat_history/chat_history.jsonl, tahan restart
       → pertanyaan + jawaban + skor + chunk retrieved (adaptif top-K), untuk dokumentasi sidang
+
+SELESAI ✓ (2026-06-02 — update UI chat)
+  [x] Tampilkan metrik retrieval inline di tab Chat
+      → Precision@k, Recall@k, MRR ditampilkan berdampingan dengan BLEU/ROUGE-L
+      → dihitung dari GT JSON strict/lenient sesuai pilihan user
+  [x] Tambah "Mode Relevance Chat" (Strict / Lenient) khusus untuk scoring retrieval chat
+  [x] Ganti input chat dari ketik bebas menjadi selectbox QA Gold
+      → pertanyaan demo sekarang selalu berasal dari dataset QA gold aktif
+      → query_id/gold_answer pasti tersedia; evaluasi chat jadi deterministik
+  [x] Simpan retrieval metrics juga ke riwayat chat persisten
+  [x] Jalankan rag_chat.py dengan Python global (bukan .venv)
+      → Streamlit 1.57.0, localhost:8501 terverifikasi start
 
 CATATAN PENTING (acuan top-k & MRR di SKRIPSI.md):
   - SKRIPSI.md TIDAK menetapkan nilai k spesifik. Semua formula pakai notasi @k generik.
@@ -475,6 +497,9 @@ Hal penting yang JANGAN salah:
   - Sheet names: qa_gold | candidates | labels
   - DEFAULT_TOP_K = 8 (bukan 5)
   - DEFAULT_MAX_TOK = 16384 (bukan 1024)
+  - Tab Chat sekarang memakai selectbox QA Gold, bukan text input bebas
+  - Metrik retrieval di tab Chat sekarang tampil inline jika QA dipilih
+  - "Mode Relevance Chat" hanya memengaruhi metrik retrieval chat, bukan generator
   - Output evaluasi generasi Streamlit: kolom query_id, method, question, gold_answer,
     generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
   - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
@@ -484,6 +509,7 @@ Hal penting yang JANGAN salah:
   - results/archive/former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
     (BLEU semua 0, ROUGE strict semua 0) — simpan sebagai referensi saja
   - Riwayat chat Streamlit persisten di results/chat_history/chat_history.jsonl
+    dan folder results/chat_history/ di-track git via .gitkeep
   - SKRIPSI.md TIDAK menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
   - Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
   - Retrieval N/A = by design (query tanpa GT chunk), BUKAN bug

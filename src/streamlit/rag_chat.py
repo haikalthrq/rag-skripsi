@@ -209,25 +209,54 @@ def _load_ground_truth(mode: str):
                 _GT_LENIENT = []
         return _GT_LENIENT
 
-def get_gold_answer(query: str):
-    """Find gold answer for a query from QA gold standard.
-
-    Menggunakan fuzzy match (SequenceMatcher) agar toleran terhadap perbedaan
-    kecil antara teks yang diketik user vs teks tersimpan di Excel.
-    """
-    from difflib import SequenceMatcher
-    df = _load_qa_gold()
-    if df.empty:
+def _compute_chat_retrieval_metrics(
+    q_id: str | None,
+    method: str,
+    retrieved: list,
+    top_k: int,
+    relevance_mode: str,
+) -> dict | None:
+    """Compute retrieval metrics for a chat query that matches QA gold."""
+    if not q_id:
         return None
-    query_norm = query.strip().lower()
-    best_ratio, best_answer = 0.0, None
-    for _, row in df.iterrows():
-        stored = str(row["question"]).strip().lower()
-        ratio = SequenceMatcher(None, query_norm, stored).ratio()
-        if ratio > best_ratio:
-            best_ratio, best_answer = ratio, row["gold_answer"]
-    # Threshold 0.75: cukup fleksibel tapi hindari false positive
-    return best_answer if best_ratio >= 0.75 else None
+    gt_items = _load_ground_truth(relevance_mode)
+    gt_item = next((item for item in gt_items if str(item.get("id")) == q_id), None)
+    if not gt_item:
+        return None
+    rel_all = gt_item.get("relevant_chunk_ids", {})
+    rel_ids = rel_all.get(method, []) if isinstance(rel_all, dict) else rel_all
+    if not rel_ids:
+        return None
+    retrieved_ids = [doc.get("id", "") for doc in retrieved]
+    return {
+        "relevance_mode": relevance_mode,
+        "top_k": top_k,
+        "n_relevant": len(rel_ids),
+        "precision_at_k": compute_precision_at_k(retrieved_ids, rel_ids, top_k),
+        "recall_at_k": compute_recall_at_k(retrieved_ids, rel_ids, top_k),
+        "mrr": compute_mrr(retrieved_ids, rel_ids),
+    }
+
+
+def _render_retrieval_metrics(metrics: dict | None) -> None:
+    """Render chat retrieval metrics beside generation metrics."""
+    if not metrics:
+        st.caption("Retrieval scoring tidak tersedia untuk mode/metode ini")
+        return
+    mode = str(metrics.get("relevance_mode", "")).capitalize()
+    top_k_val = metrics.get("top_k", "-")
+    p = metrics["precision_at_k"]
+    r = metrics["recall_at_k"]
+    m = metrics["mrr"]
+    n_rel = metrics.get("n_relevant", "-")
+    st.markdown(
+        f'<div style="margin-top:4px; font-size:0.8rem; color:#374151;">'
+        f'Retrieval ({mode}): P@{top_k_val} <b>{p:.4f}</b> '
+        f'&middot; R@{top_k_val} <b>{r:.4f}</b> '
+        f'&middot; MRR <b>{m:.4f}</b> '
+        f'&middot; relevant chunks: <b>{n_rel}</b></div>',
+        unsafe_allow_html=True,
+    )
 
 
 def get_hardware_info() -> dict:
@@ -456,6 +485,19 @@ def _render_history_turn(record: dict) -> None:
         if meta_bits:
             st.caption(" · ".join(meta_bits))
 
+        retrieval_metrics = res.get("retrieval")
+        if isinstance(retrieval_metrics, dict):
+            mode = str(retrieval_metrics.get("relevance_mode", "")).capitalize()
+            rk = retrieval_metrics.get("top_k", "-")
+            rp = retrieval_metrics.get("precision_at_k")
+            rr = retrieval_metrics.get("recall_at_k")
+            rm = retrieval_metrics.get("mrr")
+            if all(isinstance(v, (int, float)) for v in (rp, rr, rm)):
+                st.caption(
+                    f"Retrieval {mode}: P@{rk} **{rp:.4f}** · "
+                    f"R@{rk} **{rr:.4f}** · MRR **{rm:.4f}**"
+                )
+
         if chunks:
             with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
                 for ch in chunks:
@@ -492,6 +534,12 @@ with st.sidebar:
         selected_method = None
 
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=DEFAULT_TOP_K)
+    chat_relevance_mode = st.radio(
+        "Mode Relevance Chat",
+        ["Strict", "Lenient"],
+        horizontal=True,
+        help="Dipakai hanya untuk metrik retrieval saat pertanyaan cocok dengan QA gold.",
+    )
 
     with st.expander("🔧 Parameter Generator"):
         st.caption("🔒 **Parameter dikunci sesuai dokumentasi resmi Qwen3-4B-Instruct-2507**")
@@ -535,19 +583,42 @@ tab_chat, tab_eval, tab_history = st.tabs(["💬 Chat", "📊 Evaluasi Batch", "
 # TAB 1 — Chat interaktif
 # ══════════════════════════════════════════════════════════════════════════════
 with tab_chat:
-    with st.form("query_form", clear_on_submit=False):
-        query = st.text_area("Pertanyaan", placeholder="Contoh: Berapa nilai impor Indonesia pada Agustus 2025?",
-                             height=80)
-        submitted = st.form_submit_button("🚀 Kirim", use_container_width=True)
+    qa_df_chat = _load_qa_gold()
+    selected_qa_idx = None
+    query = ""
+    q_id = None
+    gold = None
 
-    if submitted and query.strip():
-        query = query.strip()
+    if qa_df_chat.empty:
+        st.warning("QA gold standard tidak ditemukan, chat belum bisa dijalankan.")
+        submitted = False
+    else:
+        qa_options = list(qa_df_chat.index)
+
+        def _format_qa_option(idx):
+            row = qa_df_chat.loc[idx]
+            question = str(row.get("question", "")).strip()
+            preview = question[:140] + ("..." if len(question) > 140 else "")
+            return f"{str(row.get('query_id', '')).strip()} - {preview}"
+
+        with st.form("query_form", clear_on_submit=False):
+            selected_qa_idx = st.selectbox(
+                "Pertanyaan QA Gold",
+                options=qa_options,
+                format_func=_format_qa_option,
+            )
+            submitted = st.form_submit_button("🚀 Kirim", use_container_width=True)
+
+    if submitted and selected_qa_idx is not None:
+        selected_qa = qa_df_chat.loc[selected_qa_idx]
+        q_id = str(selected_qa.get("query_id", "")).strip()
+        query = str(selected_qa.get("question", "")).strip()
+        gold = str(selected_qa.get("gold_answer", "")).strip()
         st.session_state.history.append(query)
 
         st.markdown(f'<div class="query-display">❓ {query}</div>', unsafe_allow_html=True)
 
         # ── Tampilkan gold answer di bawah pertanyaan (jika tersedia) ─────
-        gold = get_gold_answer(query)
         if gold:
             st.markdown(
                 f'<div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:8px 12px; '
@@ -608,6 +679,15 @@ with tab_chat:
                     else:
                         st.caption("💬 Scoring QA tidak tersedia untuk pertanyaan ini")
 
+                    retrieval_metrics = _compute_chat_retrieval_metrics(
+                        q_id=q_id,
+                        method=method,
+                        retrieved=retrieved,
+                        top_k=top_k,
+                        relevance_mode=chat_relevance_mode.lower(),
+                    )
+                    _render_retrieval_metrics(retrieval_metrics)
+
                     if show_chunks and retrieved:
                         with st.expander(f"📄 Chunks ({len(retrieved)})"):
                             for i, chunk in enumerate(retrieved, 1):
@@ -629,6 +709,7 @@ with tab_chat:
                         "answer":    answer,
                         "bleu":      bleu,
                         "rouge_l":   rouge,
+                        "retrieval":  retrieval_metrics,
                         "elapsed_s": elapsed,
                         "chunks":    _extract_chunk_records(retrieved),
                     })
@@ -674,6 +755,15 @@ with tab_chat:
             else:
                 st.caption("💬 Scoring QA tidak tersedia untuk pertanyaan ini")
 
+            retrieval_metrics = _compute_chat_retrieval_metrics(
+                q_id=q_id,
+                method=selected_method,
+                retrieved=retrieved,
+                top_k=top_k,
+                relevance_mode=chat_relevance_mode.lower(),
+            )
+            _render_retrieval_metrics(retrieval_metrics)
+
             if show_chunks and retrieved:
                 with st.expander(f"📄 Retrieved Chunks ({len(retrieved)})"):
                     for i, chunk in enumerate(retrieved, 1):
@@ -698,13 +788,14 @@ with tab_chat:
                     "answer":    answer,
                     "bleu":      bleu,
                     "rouge_l":   rouge,
+                    "retrieval":  retrieval_metrics,
                     "elapsed_s": elapsed,
                     "chunks":    _extract_chunk_records(retrieved),
                 }],
             ))
 
     elif submitted:
-        st.warning("Pertanyaan tidak boleh kosong.")
+        st.warning("Pertanyaan QA Gold belum dipilih.")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TAB 2 — Evaluasi Batch (Persistent + History)

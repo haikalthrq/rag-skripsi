@@ -1,15 +1,16 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-06-01 (WIB)
+# Generated: 2026-06-02 (WIB)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
 Run definitif evaluasi generasi di RTX 3090 SUDAH selesai dan VALID. Fokus
-sekarang: analisis hasil + penulisan laporan skripsi. Sesi ini juga menambah
-fitur Riwayat Chat persisten di Streamlit untuk dokumentasi sidang.
+sekarang: analisis hasil + penulisan laporan skripsi. Update terbaru di sesi
+2026-06-02 mematangkan `rag_chat.py` agar demo chat selalu QA-compatible dan
+menampilkan metrik retrieval inline.
 
 ---
 
-## Completed Tasks (sesi 2026-06-01)
+## Completed Tasks
 
 ### 1. Pull & verifikasi hasil run RTX 3090 (2026-05-31)
 - 20 file baru di results/final/generation/{strict|lenient}/ (top1-top10).
@@ -52,6 +53,25 @@ fitur Riwayat Chat persisten di Streamlit untuk dokumentasi sidang.
 ### 5. Cleanup
 - Hapus _gitdiag.sh (script diagnostik sementara dari Vast AI, path hardcoded /workspace).
 
+### 6. Update `rag_chat.py` (2026-06-02)
+- Chat sekarang TIDAK menerima ketik bebas. Input diganti jadi selectbox
+  `Pertanyaan QA Gold`, sehingga pertanyaan selalu berasal dari dataset QA aktif.
+- `query_id`, `question`, dan `gold_answer` diambil langsung dari Excel QA gold;
+  fuzzy matching dihapus dari alur utama chat.
+- Metrik retrieval sekarang ditampilkan inline di tab Chat seperti metrik generasi:
+  `Precision@k`, `Recall@k`, dan `MRR`.
+- Ada radio baru `Mode Relevance Chat` dengan opsi `Strict` / `Lenient`, khusus
+  untuk memilih GT retrieval yang dipakai saat scoring chat.
+- Riwayat chat persisten sekarang menyimpan retrieval metrics per metode, dan
+  tab Riwayat Chat ikut merender skor retrieval itu.
+- `rag_chat.py` sempat dijalankan dengan Python global (bukan `.venv`) dan
+  Streamlit start normal di `http://localhost:8501`.
+
+### 7. Status tracking `results/chat_history/`
+- Sudah resolved di Git lewat commit `4d128d2`
+  (`chore: track results/chat_history/ so chat history syncs across laptop and Vast AI`).
+- Folder `results/chat_history/` sekarang memang intended untuk ikut sinkron via git.
+
 ---
 
 ## Current State
@@ -63,23 +83,21 @@ fitur Riwayat Chat persisten di Streamlit untuk dokumentasi sidang.
 ### Kode (semua sudah benar)
 - src/evaluation/metrics.py — compute_bleu fixed (BUG 16).
 - src/streamlit/rag_chat.py — max_tokens=16384, simpan subfolder strict/lenient,
-  + fitur Riwayat Chat persisten (BELUM di-commit di sesi ini).
+  riwayat chat persisten, metrik retrieval inline di chat, dan input QA Gold-only.
 - scripts/run_generation_eval.py — DEFAULT_MAX_TOKENS=16384.
 - requirements.txt — bersih (32 paket).
 
 ### Results
 - results/final/generation/{strict|lenient}/ — 20 file VALID (RTX 3090).
 - results/archive/former_final_generation/ — hasil RTX 5060 Ti lama (TIDAK VALID).
-- results/chat_history/ — riwayat chat persisten (BARU).
+- results/chat_history/ — riwayat chat persisten, di-track git via `.gitkeep`.
 
 ### Git Status
-- Branch: main. origin/main = a5b366e (run RTX 3090 + rag_chat subfolder).
-- Uncommitted di sesi ini: D _gitdiag.sh, M src/streamlit/rag_chat.py (fitur history),
-  M docs/PROJECT_CONTEXT.txt, M docs/Chat Context.txt.
-
-### Keputusan pending dari user
-- Apakah results/chat_history/ ikut di-track git atau di-ignore? (default: ikut track,
-  karena results/ memang di-track. Belum dikonfirmasi user.)
+- Branch: main. `origin/main` / `HEAD` terbaru yang terlihat: `4d128d2`.
+- HEAD lokal/origin terbaru yang terlihat: `4d128d2` (track `results/chat_history/.gitkeep`).
+- Perubahan lokal aktif sebelum update dokumen ini: `M src/streamlit/rag_chat.py`.
+- Setelah dokumen ini diupdate, perubahan lokal yang wajar adalah `rag_chat.py`
+  + file docs konteks ini sendiri.
 
 ---
 
@@ -90,10 +108,9 @@ fitur Riwayat Chat persisten di Streamlit untuk dokumentasi sidang.
 - ~~Riwayat chat hilang saat restart~~ → fitur persisten JSONL.
 
 ## Next Steps
-1. (Opsional) Tentukan apakah chat_history di-track git atau di-ignore.
-2. Commit + push perubahan sesi ini ke main.
-3. Tentukan & justifikasi nilai k pelaporan (5 atau 8) di skripsi.
-4. Perbaiki naskah: typo RR(q1)->RR(qi) + penegasan MRR top-k.
-5. Analisis mendalam perbandingan antar metode chunking (pakai results/final/).
-6. Penulisan laporan skripsi.
-7. pip freeze > requirements.lock.txt di environment RTX 3090.
+1. Commit + push perubahan terbaru `rag_chat.py` + update docs ini ke `main`.
+2. Tentukan & justifikasi nilai k pelaporan (5 atau 8) di skripsi.
+3. Perbaiki naskah: typo `RR(q1)->RR(qi)` + penegasan bahwa rank MRR dihitung dalam top-k.
+4. Analisis mendalam perbandingan antar metode chunking (pakai `results/final/`).
+5. Penulisan laporan skripsi.
+6. `pip freeze > requirements.lock.txt` di environment RTX 3090 final.
