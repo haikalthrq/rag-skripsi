@@ -238,8 +238,57 @@ def _compute_chat_retrieval_metrics(
     }
 
 
+def _compute_both_retrieval_metrics(
+    q_id: str | None,
+    method: str,
+    retrieved: list,
+    top_k: int,
+) -> dict:
+    """Compute retrieval metrics for both strict and lenient modes at once.
+    
+    Returns:
+        dict with keys 'strict' and 'lenient', each holding a metrics dict or None.
+    """
+    return {
+        "strict":  _compute_chat_retrieval_metrics(q_id, method, retrieved, top_k, "strict"),
+        "lenient": _compute_chat_retrieval_metrics(q_id, method, retrieved, top_k, "lenient"),
+    }
+
+
+def _render_retrieval_metrics_both(metrics_both: dict) -> None:
+    """Render strict + lenient retrieval metrics side by side."""
+    strict  = metrics_both.get("strict")
+    lenient = metrics_both.get("lenient")
+
+    if not strict and not lenient:
+        st.caption("Retrieval scoring tidak tersedia untuk pertanyaan ini")
+        return
+
+    def _fmt(m: dict | None, label: str) -> str:
+        if not m:
+            return f'<span style="color:#94a3b8">{label}: —</span>'
+        k   = m.get("top_k", "-")
+        p   = m["precision_at_k"]
+        r   = m["recall_at_k"]
+        mrr = m["mrr"]
+        n   = m.get("n_relevant", "-")
+        return (
+            f'<b style="color:#6366f1">{label}</b> '
+            f'P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{mrr:.4f}</b> '
+            f'<span style="color:#94a3b8">(rel:{n})</span>'
+        )
+
+    st.markdown(
+        f'<div style="margin-top:6px; font-size:0.78rem; color:#374151; '
+        f'background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">'
+        f'{_fmt(strict, "Strict")}<br>{_fmt(lenient, "Lenient")}'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+
+
 def _render_retrieval_metrics(metrics: dict | None) -> None:
-    """Render chat retrieval metrics beside generation metrics."""
+    """Render chat retrieval metrics (single mode — legacy, masih dipakai di history)."""
     if not metrics:
         st.caption("Retrieval scoring tidak tersedia untuk mode/metode ini")
         return
@@ -324,10 +373,42 @@ st.markdown("""
     border-left: 4px solid #2563eb;
     border-radius: 6px;
     padding: 14px 16px;
-    margin-top: 8px;
-    font-size: 0.95rem;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 0.93rem;
     line-height: 1.65;
     white-space: pre-wrap;
+}
+.gold-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #15803d;
+}
+.question-box {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #1e3a8a;
+}
+.section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-top: 10px;
+    margin-bottom: 2px;
 }
 .chunk-box {
     background: #f8fafc;
@@ -342,7 +423,9 @@ st.markdown("""
     font-weight: 700;
     font-size: 1.05rem;
     color: #1e40af;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #dbeafe;
 }
 .query-display {
     background: #eff6ff;
@@ -353,10 +436,13 @@ st.markdown("""
     margin-bottom: 12px;
 }
 .hist-item {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: #64748b;
     padding: 2px 0;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -446,25 +532,26 @@ def render_generation_error(error: Exception) -> None:
 
 
 def _render_history_turn(record: dict) -> None:
-    """Render satu turn chat tersimpan (untuk dokumentasi sidang)."""
-    ts     = record.get("timestamp", "-")
-    query  = record.get("query", "")
-    mode   = record.get("mode", "-")
-    top_k  = record.get("top_k", "-")
-    gold   = record.get("gold_answer")
+    """Render satu turn chat tersimpan dengan format Question / Ground Truth / Generated Answer."""
+    ts      = record.get("timestamp", "-")
+    query   = record.get("query", "")
+    mode    = record.get("mode", "-")
+    top_k   = record.get("top_k", "-")
+    gold    = record.get("gold_answer")
     results = record.get("results", [])
 
-    st.markdown(f"#### ❓ {query}")
     st.caption(f"🕒 {ts} · Mode: {mode} · Top-K: {top_k}")
 
-    if gold:
-        st.markdown(
-            f'<div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:8px 12px; '
-            f'border-radius:4px; font-size:0.88rem; color:#15803d; margin-bottom:8px;">'
-            f'📖 <b>Jawaban Referensi:</b> {html.escape(str(gold))}</div>',
-            unsafe_allow_html=True,
-        )
+    # ── Question ─────────────────────────────────────────────────────────
+    st.markdown('<div class="section-label">❓ Question</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="question-box">{html.escape(query)}</div>', unsafe_allow_html=True)
 
+    # ── Ground Truth ─────────────────────────────────────────────────────
+    if gold:
+        st.markdown('<div class="section-label">📖 Ground Truth</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="gold-box">{html.escape(str(gold))}</div>', unsafe_allow_html=True)
+
+    # ── Results per method ────────────────────────────────────────────────
     for res in results:
         method_label = res.get("method", "-")
         answer       = res.get("answer", "") or "[kosong]"
@@ -474,39 +561,36 @@ def _render_history_turn(record: dict) -> None:
         chunks       = res.get("chunks", [])
 
         st.markdown(f'<div class="method-header">📦 {method_label}</div>', unsafe_allow_html=True)
+
+        # Generated Answer
+        st.markdown('<div class="section-label">🤖 Generated Answer</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="answer-box">{html.escape(str(answer))}</div>',
                     unsafe_allow_html=True)
 
+        # Timing + Generation metrics
         meta_bits = []
         if elapsed is not None:
             meta_bits.append(f"⏱ {elapsed}s")
         if isinstance(bleu, (int, float)) and isinstance(rouge, (int, float)):
-            meta_bits.append(f"BLEU **{bleu:.4f}** · ROUGE-L **{rouge:.4f}**")
+            meta_bits.append(f"📊 BLEU **{bleu:.4f}** · ROUGE-L **{rouge:.4f}**")
         if meta_bits:
             st.caption(" · ".join(meta_bits))
 
-        retrieval_metrics = res.get("retrieval")
-        if isinstance(retrieval_metrics, dict):
-            mode = str(retrieval_metrics.get("relevance_mode", "")).capitalize()
-            rk = retrieval_metrics.get("top_k", "-")
-            rp = retrieval_metrics.get("precision_at_k")
-            rr = retrieval_metrics.get("recall_at_k")
-            rm = retrieval_metrics.get("mrr")
-            if all(isinstance(v, (int, float)) for v in (rp, rr, rm)):
-                st.caption(
-                    f"Retrieval {mode}: P@{rk} **{rp:.4f}** · "
-                    f"R@{rk} **{rr:.4f}** · MRR **{rm:.4f}**"
-                )
+        # Retrieval metrics — support both old (single) and new (both) format
+        ret_strict  = res.get("retrieval_strict")  or res.get("retrieval")
+        ret_lenient = res.get("retrieval_lenient")
+        if ret_strict or ret_lenient:
+            _render_retrieval_metrics_both({"strict": ret_strict, "lenient": ret_lenient})
 
         if chunks:
             with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
                 for ch in chunks:
-                    rank = ch.get("rank", "?")
-                    src  = ch.get("source", "?")
+                    rank  = ch.get("rank", "?")
+                    src   = ch.get("source", "?")
                     pages = ch.get("pages", "-")
-                    dist = ch.get("distance")
+                    dist  = ch.get("distance")
                     dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
-                    preview = (ch.get("text", "") or "").replace("\n", " ")
+                    preview  = (ch.get("text", "") or "").replace("\n", " ")
                     st.markdown(
                         f'<div class="chunk-box">'
                         f'<b>[{rank}]</b> {src} · hal {pages} · dist {dist_str}<br>'
@@ -534,12 +618,6 @@ with st.sidebar:
         selected_method = None
 
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=DEFAULT_TOP_K)
-    chat_relevance_mode = st.radio(
-        "Mode Relevance Chat",
-        ["Strict", "Lenient"],
-        horizontal=True,
-        help="Dipakai hanya untuk metrik retrieval saat pertanyaan cocok dengan QA gold.",
-    )
 
     with st.expander("🔧 Parameter Generator"):
         st.caption("🔒 **Parameter dikunci sesuai dokumentasi resmi Qwen3-4B-Instruct-2507**")
@@ -556,12 +634,68 @@ with st.sidebar:
         show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
     st.divider()
-    st.caption("📋 **Riwayat Query (sesi ini)**")
+
+    # ── Riwayat query sesi ini (in-memory) ───────────────────────────────
     if "history" not in st.session_state:
         st.session_state.history = []
-    for h in reversed(st.session_state.history[-10:]):
-        st.markdown(f'<div class="hist-item">↳ {h[:60]}{"..." if len(h)>60 else ""}</div>',
-                    unsafe_allow_html=True)
+
+    st.caption("📋 **Riwayat Query (sesi ini)**")
+    if st.session_state.history:
+        for h in reversed(st.session_state.history[-8:]):
+            st.markdown(
+                f'<div class="hist-item">↳ {html.escape(h[:55])}{"…" if len(h)>55 else ""}</div>',
+                unsafe_allow_html=True,
+            )
+    else:
+        st.caption("_Belum ada query._")
+
+    st.divider()
+
+    # ── Riwayat chat persisten (dari disk) ───────────────────────────────
+    with st.expander("🕒 Riwayat Chat (Persisten)", expanded=False):
+        _sidebar_chat_history = _load_chat_history()
+        if not _sidebar_chat_history:
+            st.info("Belum ada riwayat. Ajukan pertanyaan di tab Chat.")
+        else:
+            st.caption(f"**{len(_sidebar_chat_history)} percakapan tersimpan**")
+
+            _sidebar_search = st.text_input(
+                "🔎 Cari", placeholder="kata kunci...", key="sidebar_search"
+            )
+            if _sidebar_search:
+                _s = _sidebar_search.strip().lower()
+                _sidebar_chat_history = [
+                    r for r in _sidebar_chat_history
+                    if _s in str(r.get("query", "")).lower()
+                ]
+                st.caption(f"{len(_sidebar_chat_history)} cocok")
+
+            if CHAT_HISTORY_FILE.exists():
+                st.download_button(
+                    "⬇ Download JSONL",
+                    data=CHAT_HISTORY_FILE.read_bytes(),
+                    file_name="chat_history.jsonl",
+                    mime="application/jsonl",
+                    use_container_width=True,
+                )
+
+            with st.popover("🗑 Hapus Semua", use_container_width=True):
+                st.warning("Menghapus SEMUA riwayat chat. Tidak dapat dibatalkan.")
+                if st.button("Ya, hapus semua", type="primary",
+                             use_container_width=True, key="sidebar_clear_hist"):
+                    try:
+                        CHAT_HISTORY_FILE.unlink(missing_ok=True)
+                        st.rerun()
+                    except Exception as _e:
+                        st.error(f"Gagal: {_e}")
+
+            st.divider()
+            for _idx, _rec in enumerate(_sidebar_chat_history[:20], 1):
+                _ts    = _rec.get("timestamp", "-")
+                _qtext = str(_rec.get("query", ""))
+                _label = f"#{_idx} · {_ts[-8:]} · {_qtext[:45]}{'…' if len(_qtext)>45 else ''}"
+                with st.expander(_label, expanded=False):
+                    _render_history_turn(_rec)
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -577,7 +711,7 @@ except Exception as e:
         st.code(traceback.format_exc(), language="python")
     st.stop()
 
-tab_chat, tab_eval, tab_history = st.tabs(["💬 Chat", "📊 Evaluasi Batch", "🕒 Riwayat Chat"])
+tab_chat, tab_eval = st.tabs(["💬 Chat", "📊 Evaluasi Batch"])
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Chat interaktif
@@ -616,16 +750,15 @@ with tab_chat:
         gold = str(selected_qa.get("gold_answer", "")).strip()
         st.session_state.history.append(query)
 
-        st.markdown(f'<div class="query-display">❓ {query}</div>', unsafe_allow_html=True)
+        # ── Header: Question + Ground Truth ──────────────────────────────
+        st.markdown('<div class="section-label">❓ Question</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="question-box">{html.escape(query)}</div>', unsafe_allow_html=True)
 
-        # ── Tampilkan gold answer di bawah pertanyaan (jika tersedia) ─────
         if gold:
-            st.markdown(
-                f'<div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:8px 12px; '
-                f'border-radius:4px; font-size:0.88rem; color:#15803d; margin-bottom:8px;">'
-                f'📖 <b>Jawaban Referensi:</b> {gold}</div>',
-                unsafe_allow_html=True,
-            )
+            st.markdown('<div class="section-label">📖 Ground Truth</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="gold-box">{html.escape(gold)}</div>', unsafe_allow_html=True)
+
+        st.markdown("---")
 
         if compare_mode:
             # ── Mode bandingkan 3 kolom ───────────────────────────────────
@@ -641,8 +774,10 @@ with tab_chat:
 
             for col, method in zip(cols, METHODS):
                 with col:
-                    st.markdown(f'<div class="method-header">📦 {METHOD_LABELS[method]}</div>',
-                                unsafe_allow_html=True)
+                    st.markdown(
+                        f'<div class="method-header">📦 {METHOD_LABELS[method]}</div>',
+                        unsafe_allow_html=True,
+                    )
                     status = st.empty()
                     try:
                         t0 = time.time()
@@ -657,6 +792,12 @@ with tab_chat:
                         retrieved = p.retrieve_by_vector(query_vec, k=top_k)
                         status.empty()
                         contexts = [p._format_context(doc) for doc in retrieved]
+
+                        # ── Generated Answer label + streaming ────────────
+                        st.markdown(
+                            '<div class="section-label">🤖 Generated Answer</div>',
+                            unsafe_allow_html=True,
+                        )
                         answer = stream_answer(pipeline.generator, query, contexts,
                                               timer_placeholder=status, t0=t0)
                         elapsed = round(time.time() - t0, 1)
@@ -666,28 +807,33 @@ with tab_chat:
                         render_generation_error(e)
                         continue
 
-                    st.caption(f"⏱ Selesai dalam {elapsed}s | {len(retrieved)} chunks")
+                    # ── Timing ────────────────────────────────────────────
+                    st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
+
+                    # ── Generation metrics: BLEU + ROUGE-L ────────────────
                     bleu = rouge = None
                     if gold:
-                        bleu = compute_bleu(answer, gold)
+                        bleu  = compute_bleu(answer, gold)
                         rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
                         st.markdown(
-                            f'<div style="margin-top:6px; font-size:0.8rem; color:#374151;">'
-                            f'✅ QA Match: BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b></div>',
+                            f'<div style="margin-top:6px; font-size:0.8rem; color:#374151; '
+                            f'background:#fefce8; border:1px solid #fde047; border-radius:4px; '
+                            f'padding:5px 10px;">'
+                            f'📊 BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b>'
+                            f'</div>',
                             unsafe_allow_html=True,
                         )
-                    else:
-                        st.caption("💬 Scoring QA tidak tersedia untuk pertanyaan ini")
 
-                    retrieval_metrics = _compute_chat_retrieval_metrics(
+                    # ── Retrieval metrics: strict + lenient sekaligus ─────
+                    retrieval_metrics_both = _compute_both_retrieval_metrics(
                         q_id=q_id,
                         method=method,
                         retrieved=retrieved,
                         top_k=top_k,
-                        relevance_mode=chat_relevance_mode.lower(),
                     )
-                    _render_retrieval_metrics(retrieval_metrics)
+                    _render_retrieval_metrics_both(retrieval_metrics_both)
 
+                    # ── Retrieved chunks ──────────────────────────────────
                     if show_chunks and retrieved:
                         with st.expander(f"📄 Chunks ({len(retrieved)})"):
                             for i, chunk in enumerate(retrieved, 1):
@@ -700,18 +846,19 @@ with tab_chat:
                                 st.markdown(
                                     f'<div class="chunk-box">'
                                     f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}<br>'
-                                    f'{preview}...</div>',
+                                    f'{html.escape(preview)}...</div>',
                                     unsafe_allow_html=True,
                                 )
 
                     turn_results.append({
-                        "method":    METHOD_LABELS[method],
-                        "answer":    answer,
-                        "bleu":      bleu,
-                        "rouge_l":   rouge,
-                        "retrieval":  retrieval_metrics,
-                        "elapsed_s": elapsed,
-                        "chunks":    _extract_chunk_records(retrieved),
+                        "method":           METHOD_LABELS[method],
+                        "answer":           answer,
+                        "bleu":             bleu,
+                        "rouge_l":          rouge,
+                        "retrieval_strict":  retrieval_metrics_both.get("strict"),
+                        "retrieval_lenient": retrieval_metrics_both.get("lenient"),
+                        "elapsed_s":        elapsed,
+                        "chunks":           _extract_chunk_records(retrieved),
                     })
 
             # Simpan turn ke disk (persisten, tahan restart)
@@ -721,6 +868,10 @@ with tab_chat:
                 ))
         else:
             # ── Mode single method ────────────────────────────────────────
+            st.markdown(
+                f'<div class="method-header">📦 {METHOD_LABELS[selected_method]}</div>',
+                unsafe_allow_html=True,
+            )
             try:
                 t0 = time.time()
                 with st.spinner("🔍 Retrieve chunks..."):
@@ -734,6 +885,12 @@ with tab_chat:
                     retrieved = p.retrieve(query, k=top_k)
                 timer_ph = st.empty()
                 contexts = [p._format_context(doc) for doc in retrieved]
+
+                # ── Generated Answer label + streaming ────────────────────
+                st.markdown(
+                    '<div class="section-label">🤖 Generated Answer</div>',
+                    unsafe_allow_html=True,
+                )
                 answer = stream_answer(pipeline.generator, query, contexts,
                                       timer_placeholder=timer_ph, t0=t0)
                 elapsed = round(time.time() - t0, 1)
@@ -742,27 +899,31 @@ with tab_chat:
                 render_generation_error(e)
                 st.stop()
 
-            st.caption(f"⏱ Selesai dalam {elapsed}s | Metode: {METHOD_LABELS[selected_method]} | {len(retrieved)} chunks")
+            # ── Timing ────────────────────────────────────────────────────
+            st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
+
+            # ── Generation metrics ────────────────────────────────────────
             bleu = rouge = None
             if gold:
-                bleu = compute_bleu(answer, gold)
+                bleu  = compute_bleu(answer, gold)
                 rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
                 st.markdown(
-                    f'<div style="margin-top:6px; font-size:0.8rem; color:#374151;">'
-                    f'✅ QA Match: BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b></div>',
+                    f'<div style="margin-top:6px; font-size:0.8rem; color:#374151; '
+                    f'background:#fefce8; border:1px solid #fde047; border-radius:4px; '
+                    f'padding:5px 10px;">'
+                    f'📊 BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b>'
+                    f'</div>',
                     unsafe_allow_html=True,
                 )
-            else:
-                st.caption("💬 Scoring QA tidak tersedia untuk pertanyaan ini")
 
-            retrieval_metrics = _compute_chat_retrieval_metrics(
+            # ── Retrieval metrics: strict + lenient sekaligus ─────────────
+            retrieval_metrics_both = _compute_both_retrieval_metrics(
                 q_id=q_id,
                 method=selected_method,
                 retrieved=retrieved,
                 top_k=top_k,
-                relevance_mode=chat_relevance_mode.lower(),
             )
-            _render_retrieval_metrics(retrieval_metrics)
+            _render_retrieval_metrics_both(retrieval_metrics_both)
 
             if show_chunks and retrieved:
                 with st.expander(f"📄 Retrieved Chunks ({len(retrieved)})"):
@@ -776,7 +937,7 @@ with tab_chat:
                         st.markdown(
                             f'<div class="chunk-box">'
                             f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}<br>'
-                            f'{preview}...</div>',
+                            f'{html.escape(preview)}...</div>',
                             unsafe_allow_html=True,
                         )
 
@@ -784,13 +945,14 @@ with tab_chat:
             _save_chat_turn(_build_chat_record(
                 query, METHOD_LABELS[selected_method], top_k, gold,
                 [{
-                    "method":    METHOD_LABELS[selected_method],
-                    "answer":    answer,
-                    "bleu":      bleu,
-                    "rouge_l":   rouge,
-                    "retrieval":  retrieval_metrics,
-                    "elapsed_s": elapsed,
-                    "chunks":    _extract_chunk_records(retrieved),
+                    "method":           METHOD_LABELS[selected_method],
+                    "answer":           answer,
+                    "bleu":             bleu,
+                    "rouge_l":          rouge,
+                    "retrieval_strict":  retrieval_metrics_both.get("strict"),
+                    "retrieval_lenient": retrieval_metrics_both.get("lenient"),
+                    "elapsed_s":        elapsed,
+                    "chunks":           _extract_chunk_records(retrieved),
                 }],
             ))
 
@@ -1162,54 +1324,3 @@ with tab_eval:
                 st.error(f"Gagal membaca file: {exc}")
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# TAB 3 — Riwayat Chat (Persistent — tahan restart untuk dokumentasi sidang)
-# ══════════════════════════════════════════════════════════════════════════════
-with tab_history:
-    st.subheader("🕒 Riwayat Chat")
-    st.caption(
-        "Riwayat percakapan tersimpan permanen ke disk dan TIDAK hilang saat app "
-        "restart. Menyimpan pertanyaan, jawaban, skor BLEU/ROUGE-L, dan chunk yang "
-        "berhasil di-retrieve (adaptif terhadap Top-K saat query dijalankan)."
-    )
-
-    chat_history = _load_chat_history()
-
-    if not chat_history:
-        st.info("Belum ada riwayat chat. Ajukan pertanyaan di tab 💬 Chat terlebih dahulu.")
-    else:
-        col_info, col_clear = st.columns([3, 1])
-        with col_info:
-            st.markdown(f"**{len(chat_history)} percakapan tersimpan** (terbaru di atas)")
-        with col_clear:
-            with st.popover("🗑 Hapus Riwayat", use_container_width=True):
-                st.warning("Menghapus SEMUA riwayat chat. Tindakan ini tidak dapat dibatalkan.")
-                if st.button("Ya, hapus semua", type="primary", use_container_width=True):
-                    try:
-                        CHAT_HISTORY_FILE.unlink(missing_ok=True)
-                        st.rerun()
-                    except Exception as e:
-                        st.error(f"Gagal menghapus: {e}")
-
-        # Filter pencarian sederhana
-        search = st.text_input("🔎 Cari pertanyaan", placeholder="kata kunci...")
-        if search:
-            s = search.strip().lower()
-            chat_history = [r for r in chat_history if s in str(r.get("query", "")).lower()]
-            st.caption(f"{len(chat_history)} hasil cocok")
-
-        # Ekspor seluruh riwayat (JSONL) untuk lampiran dokumentasi
-        if CHAT_HISTORY_FILE.exists():
-            st.download_button(
-                "⬇ Download Riwayat (JSONL)",
-                data=CHAT_HISTORY_FILE.read_bytes(),
-                file_name="chat_history.jsonl",
-                mime="application/jsonl",
-            )
-
-        st.divider()
-
-        for idx, record in enumerate(chat_history, 1):
-            label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
-            with st.expander(label, expanded=(idx == 1)):
-                _render_history_turn(record)
