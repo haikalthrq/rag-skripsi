@@ -25,18 +25,11 @@ Output:
   ]
 
 Penggunaan:
-  # Strict — hanya label 2
+  # Binary (threshold=1, label 1 = relevan, label 0 = tidak relevan)
   python scripts/convert_ground_truth_to_json.py \\
-      --qa_csv data/ground_truth/qa_gold_validated.csv \\
-      --labels_csv data/ground_truth/retrieval_labels_filled.csv \\
-      --output data/ground_truth/qa_pairs_strict.json \\
-      --relevance_threshold 2
-
-  # Lenient — label 1 dan 2
-  python scripts/convert_ground_truth_to_json.py \\
-      --qa_csv data/ground_truth/qa_gold_validated.csv \\
-      --labels_csv data/ground_truth/retrieval_labels_filled.csv \\
-      --output data/ground_truth/qa_pairs_lenient.json \\
+      --qa_csv data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx \\
+      --labels_csv data/ground_truth/retrieval_labels_final.csv \\
+      --output data/ground_truth/qa_pairs_binary.json \\
       --relevance_threshold 1
 """
 
@@ -267,8 +260,8 @@ def main() -> None:
         help="Path output JSON (contoh: data/ground_truth/qa_pairs_strict.json)",
     )
     parser.add_argument(
-        "--relevance_threshold", type=int, default=2, choices=[1, 2],
-        help="Minimum label untuk dianggap relevan (1=lenient, 2=strict). Default: 2",
+        "--relevance_threshold", type=int, default=1, choices=[0, 1],
+        help="Minimum label untuk dianggap relevan (1=relevan, 0=semua). Default: 1",
     )
     args = parser.parse_args()
 
@@ -282,7 +275,7 @@ def main() -> None:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"[INFO] Saved {len(output)} entries → {out_path}")
-    print(f"[INFO] Mode: {'strict (label=2)' if args.relevance_threshold == 2 else 'lenient (label>=1)'}")
+    print(f"[INFO] Mode: {'semua relevan (threshold=0)' if args.relevance_threshold == 0 else 'binary (label>=1=relevan)'}")
 
 
 if __name__ == "__main__":

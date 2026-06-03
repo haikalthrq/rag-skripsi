@@ -275,8 +275,7 @@ def save_data(df: pd.DataFrame) -> None:
         h_font = Font(bold=True, color="FFFFFF")
         h_fill = PatternFill("solid", fgColor="6366F1")
         fills  = {
-            "2": PatternFill("solid", fgColor="D1FAE5"),
-            "1": PatternFill("solid", fgColor="FEF3C7"),
+            "1": PatternFill("solid", fgColor="D1FAE5"),
             "0": PatternFill("solid", fgColor="FEE2E2"),
             "needs_review": PatternFill("solid", fgColor="EDE9FE"),
         }
@@ -463,8 +462,7 @@ def evidence_match_type(rationale: str) -> str:
 
 def label_badge_html(label: str) -> str:
     MAP = {
-        "2":            '<span class="lb lb-2">● 2 Relevan Utama</span>',
-        "1":            '<span class="lb lb-1">● 1 Pendukung</span>',
+        "1":            '<span class="lb lb-1">● 1 Relevan</span>',
         "0":            '<span class="lb lb-0">● 0 Tidak Relevan</span>',
         "needs_review": '<span class="lb lb-nr">● Needs Review</span>',
     }
@@ -496,7 +494,7 @@ def inject_keyboard_listener() -> None:
             window.parent.document.addEventListener('keydown', function(e) {
                 var el = window.parent.document.activeElement;
                 if (el && ['INPUT','TEXTAREA','SELECT'].includes(el.tagName)) return;
-                var map = {'0':'0','1':'1','2':'2','n':'n','N':'n'};
+                var map = {'0':'0','1':'1','n':'n','N':'n'};
                 if (map[e.key] === undefined) return;
                 e.preventDefault();
                 var url = new URL(window.parent.location.href);
@@ -521,7 +519,6 @@ def get_progress(df: pd.DataFrame) -> dict:
         "labeled":   labeled,
         "unlabeled": total - labeled,
         "pct":       int(labeled / max(total, 1) * 100),
-        "n2":        int((df["label_0_1_2"] == "2").sum()),
         "n1":        int((df["label_0_1_2"] == "1").sum()),
         "n0":        int((df["label_0_1_2"] == "0").sum()),
         "nnr":       int((df["label_0_1_2"] == "needs_review").sum()),
@@ -611,7 +608,6 @@ def render_sidebar(df: pd.DataFrame) -> dict:
 
         st.markdown(
             f'<div style="display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 2px">'
-            f'<span class="lb lb-2">2: {p["n2"]}</span>'
             f'<span class="lb lb-1">1: {p["n1"]}</span>'
             f'<span class="lb lb-0">0: {p["n0"]}</span>'
             f'<span class="lb lb-nr">NR: {p["nnr"]}</span>'
@@ -646,15 +642,13 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         st.markdown("**Aturan Anotasi**")
         st.markdown(
             """<div class="rulebox">
-            <b>Label 2 — Relevan Utama</b><br>
-            <small>• <b>Tabel</b>: chunk memuat row_label + col_label + gold_value secara jelas.<br>
-            • <b>Narasi</b>: chunk memuat klaim utama yang cukup menjawab question.<br>
-            • ⚠ Jangan beri 2 hanya karena ada keyword atau angka tanpa konteks.</small>
+            <b>Label 1 — Relevan</b><br>
+            <small>• <b>Tabel</b>: chunk memuat row_label + col_label + gold_value secara jelas, ATAU relevan sebagian.<br>
+            • <b>Narasi</b>: chunk memuat klaim yang relevan dengan question, baik sebagai bukti utama maupun konteks pendukung.<br>
+            • ⚠ Jangan beri 1 hanya karena ada keyword atau angka tanpa konteks.</small>
             <br><br>
-            <b>Label 1 — Pendukung</b><br>
-            <small>Chunk memuat informasi relevan sebagian, bukan bukti utama.</small><br><br>
             <b>Label 0 — Tidak Relevan</b><br>
-            <small>Chunk tidak memuat bukti atau konteks relevan.</small>
+            <small>Chunk tidak memuat bukti atau konteks relevan untuk menjawab question.</small>
             </div>""",
             unsafe_allow_html=True,
         )
@@ -665,8 +659,8 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         st.markdown("**Keyboard Shortcuts**")
         st.markdown(
             "<div style='font-size:12px;line-height:2.2'>"
-            "<kbd>2</kbd> Relevan Utama &nbsp; <kbd>1</kbd> Pendukung<br>"
-            "<kbd>0</kbd> Tidak Relevan &nbsp; <kbd>N</kbd> Next grup<br>"
+            "<kbd>1</kbd> Relevan &nbsp; <kbd>0</kbd> Tidak Relevan<br>"
+            "<kbd>N</kbd> Next grup<br>"
             "<span style='color:#94a3b8;font-size:11px'>⚠ Shortcut berlaku untuk kandidat"
             " <b>pertama yang belum dilabeli</b> dalam grup aktif.</span>"
             "</div>",
@@ -853,20 +847,6 @@ def render_chunk_card(row: pd.Series, active: bool) -> None:
     )
     st.markdown(card_html, unsafe_allow_html=True)
 
-    # Table-QA warning: needs all three flags for Label 2
-    if "table_row_column" in et:
-        _has_gv = _flag_bool(row, "has_gold_value")
-        _has_rl = _flag_bool(row, "has_row_label")
-        _has_cl = _flag_bool(row, "has_column_label")
-        if not (_has_gv and _has_rl and _has_cl):
-            _missing = [n for n, v in [("gold_value", _has_gv), ("row_label", _has_rl), ("col_label", _has_cl)] if not v]
-            st.markdown(
-                f'<div class="warn-box">&#9888; Tidak memenuhi syarat Label 2: '
-                f'row_label + column_label + gold_value belum lengkap. '
-                f'Hilang: <b>{", ".join(_missing)}</b></div>',
-                unsafe_allow_html=True,
-            )
-
     # Full chunk expander
     if full_text:
         with st.expander("Show full chunk", expanded=False):
@@ -893,28 +873,19 @@ def render_chunk_card(row: pd.Series, active: bool) -> None:
             st.caption("No evidence quote available")
 
     # Label buttons + rationale editor
-    b1, b2, b3, b4, spacer, rat_col = st.columns([1.3, 1.1, 1.3, 1.1, 0.2, 3])
+    b1, b2, b3, spacer, rat_col = st.columns([1.3, 1.3, 1.1, 0.2, 3])
     key_sfx = f"{qid}_{method}_{chunk_id}"
 
     with b1:
         if st.button(
-            "2 \u2014 Relevan Utama", key=f"b2_{key_sfx}",
-            type="primary" if label == "2" else "secondary",
-            use_container_width=True,
-        ):
-            apply_label(qid, method, chunk_id, "2")
-            st.rerun()
-
-    with b2:
-        if st.button(
-            "1 \u2014 Pendukung", key=f"b1_{key_sfx}",
+            "1 \u2014 Relevan", key=f"b1_{key_sfx}",
             type="primary" if label == "1" else "secondary",
             use_container_width=True,
         ):
             apply_label(qid, method, chunk_id, "1")
             st.rerun()
 
-    with b3:
+    with b2:
         if st.button(
             "0 \u2014 Tidak Relevan", key=f"b0_{key_sfx}",
             type="primary" if label == "0" else "secondary",
@@ -923,7 +894,7 @@ def render_chunk_card(row: pd.Series, active: bool) -> None:
             apply_label(qid, method, chunk_id, "0")
             st.rerun()
 
-    with b4:
+    with b3:
         if st.button(
             "Review", key=f"br_{key_sfx}",
             type="primary" if label == "needs_review" else "secondary",
@@ -1045,7 +1016,7 @@ def main() -> None:
             st.session_state.group_idx = (gidx + 1) % len(groups)
             st.session_state.scroll_top = True
             st.rerun()
-        elif kb_action in ("0", "1", "2") and len(group_df) > active_ci:
+        elif kb_action in ("0", "1") and len(group_df) > active_ci:
             r = group_df.iloc[active_ci]
             apply_label(qid, method, r["chunk_id"], kb_action)
             st.rerun()

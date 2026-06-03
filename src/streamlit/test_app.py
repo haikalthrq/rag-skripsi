@@ -106,7 +106,7 @@ def _make_df(n_rows: int = 9) -> pd.DataFrame:
             "doc_id":            "DOC01",
             "method":            method,
             "chunk_id":          str(100 + i),
-            "label_0_1_2":       "" if i < 4 else ("2" if i == 4 else "1"),
+            "label_0_1_2":       "" if i < 4 else ("1" if i == 4 else "0"),
             "rationale":         f'gold_value="147,78"; col_label="2023"; row_label="Riau"',
             "strength_score":    "8",
             "chunk_page_start":  "10",
@@ -233,7 +233,7 @@ def t2_filter_by_qid():
 def t2_filter_only_unlabeled():
     df = _make_df(9)  # 9 unique combos
     # Label all rows of Q003 (rows 6-8) so that group is fully labeled
-    df.loc[df["query_id"] == "Q003", "label_0_1_2"] = "2"
+    df.loc[df["query_id"] == "Q003", "label_0_1_2"] = "1"
     grps = app.get_groups(df, {"only_unlabeled": True})
     q003_grps = [g for g in grps if g[0] == "Q003"]
     test("only_unlabeled filter excludes fully-labeled Q003 groups",
@@ -276,17 +276,17 @@ def t3_zero_progress():
 
 def t3_full_progress():
     df = _make_df(4)
-    df["label_0_1_2"] = "2"
+    df["label_0_1_2"] = "1"
     p = app.get_progress(df)
     test("100% when all labeled", p["pct"] == 100 and p["unlabeled"] == 0,
          str(p))
 
 def t3_label_counts():
     df = _make_df(6)
-    df["label_0_1_2"] = ["2", "1", "0", "needs_review", "", "2"]
+    df["label_0_1_2"] = ["1", "1", "0", "needs_review", "", "1"]
     p = app.get_progress(df)
-    ok = p["n2"] == 2 and p["n1"] == 1 and p["n0"] == 1 and p["nnr"] == 1
-    test("n2/n1/n0/nnr counted correctly", ok, str(p))
+    ok = p["n1"] == 3 and p["n0"] == 1 and p["nnr"] == 1
+    test("n1/n0/nnr counted correctly", ok, str(p))
 
 def t3_total_matches_rows():
     df = _make_df(10)
@@ -500,12 +500,12 @@ def t7_apply_label_updates_correct_row():
 
     target_row = df.iloc[0]
     qid, method, cid = target_row["query_id"], target_row["method"], target_row["chunk_id"]
-    app.apply_label(qid, method, cid, "2")
+    app.apply_label(qid, method, cid, "1")
 
     updated = _st_stub.session_state["df"]
     mask = (updated["query_id"] == qid) & (updated["method"] == method) & (updated["chunk_id"] == cid)
     lbl = updated.loc[mask, "label_0_1_2"].iloc[0]
-    test("apply_label sets label_0_1_2 correctly", lbl == "2", f"got {lbl!r}")
+    test("apply_label sets label_0_1_2 correctly", lbl == "1", f"got {lbl!r}")
 
 def t7_apply_label_sets_annotator():
     df = _make_df(6)
@@ -534,7 +534,7 @@ def t7_apply_label_does_not_change_other_rows():
     app.apply_label(row["query_id"], row["method"], row["chunk_id"], "0")
     updated = _st_stub.session_state["df"]
     other_labels = updated.iloc[1:]["label_0_1_2"].tolist()
-    unchanged = all(l == "" for l in other_labels if l != "2" and l != "1")
+    unchanged = all(l == "" for l in other_labels if l != "1" and l != "0")
     test("apply_label only changes targeted row", unchanged,
          f"other labels: {other_labels}")
 
@@ -549,7 +549,7 @@ section("T8 — Save & Export")
 
 def t8_save_creates_csv():
     df = _make_df(4)
-    df["label_0_1_2"] = ["2", "1", "0", ""]
+    df["label_0_1_2"] = ["1", "1", "0", ""]
     with tempfile.TemporaryDirectory() as tmpdir:
         csv_path  = Path(tmpdir) / "labels.csv"
         xlsx_path = Path(tmpdir) / "labels.xlsx"
@@ -593,7 +593,7 @@ def t8_csv_has_correct_columns():
 
 def t8_status_col_correct():
     df = _make_df(4)
-    df["label_0_1_2"] = ["2", "", "", "1"]
+    df["label_0_1_2"] = ["1", "", "", "0"]
     with tempfile.TemporaryDirectory() as tmpdir:
         csv_path  = Path(tmpdir) / "labels.csv"
         xlsx_path = Path(tmpdir) / "labels.xlsx"
@@ -623,7 +623,7 @@ section("T9 — Resume (load from existing output)")
 def t9_resume_restores_labels():
     df_fresh = _make_df(4)
     df_labeled = df_fresh.copy()
-    df_labeled["label_0_1_2"] = ["2", "1", "", "0"]
+    df_labeled["label_0_1_2"] = ["1", "1", "", "0"]
     df_labeled["annotator"]   = ["ann", "ann", "", "ann"]
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -643,7 +643,7 @@ def t9_resume_restores_labels():
         app.OUTPUT_CSV, app.OUTPUT_XLSX = _orig_csv, _orig_xlsx
 
         labels = resumed["label_0_1_2"].tolist()
-        test("resume restores label '2' to first row",   labels[0] == "2", str(labels))
+        test("resume restores label '1' to first row",   labels[0] == "1", str(labels))
         test("resume restores label '1' to second row",  labels[1] == "1", str(labels))
         test("resume keeps empty label for third row",   labels[2] == "",  str(labels))
         test("resume restores label '0' to fourth row",  labels[3] == "0", str(labels))
@@ -777,11 +777,10 @@ def t11_group_summary_html_no_exact():
     test("group_summary_html shows no-exact warning", ok, out[:120])
 
 def t11_table_warning_in_card_source():
-    """render_chunk_card must contain table-QA warning logic."""
+    """render_chunk_card must contain evidence flags logic."""
     src = _inspect.getsource(app.render_chunk_card)
-    ok = ("table_row_column" in src and "warn-box" in src
-          and "belum lengkap" in src)
-    test("render_chunk_card has table-QA warning block", ok)
+    ok = "evidence_flags_html" in src and "flag-row" in app.CSS
+    test("render_chunk_card uses evidence_flags_html", ok)
 
 def t11_evidence_expander_in_card_source():
     """render_chunk_card must use 'Why this candidate?' expander."""
@@ -811,8 +810,7 @@ def t11_no_auto_label():
 def t11_button_text_explicit():
     """Label buttons must have explicit text (not just emoji)."""
     src = _inspect.getsource(app.render_chunk_card)
-    ok = ("Relevan Utama" in src and "Pendukung" in src
-          and "Tidak Relevan" in src and "Review" in src)
+    ok = ("Relevan" in src and "Tidak Relevan" in src and "Review" in src)
     test("label buttons have explicit text labels", ok)
 
 def t11_export_has_label_col():

@@ -1174,7 +1174,7 @@ def main() -> None:
     print("  1. Restart Streamlit agar file v3 terdeteksi sebagai kandidat aktif:")
     print("     streamlit run src/streamlit/app.py")
     print("  2. Tinjau suggested_label dan has_* flags sebagai panduan")
-    print("  3. Isi label_0_1_2 secara manual: 2=bukti utama, 1=parsial, 0=tidak relevan")
+    print("  3. Isi label_0_1_2 secara manual: 1=relevan, 0=tidak relevan")
 
 
 if __name__ == "__main__":
