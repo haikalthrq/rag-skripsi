@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-02 (19:00 WIB)
+Terakhir diperbarui: 2026-06-04 (WIB)
 ================================================================================
 
 
@@ -55,17 +55,14 @@ rag-skripsi/
 │   └── streamlit/      app.py (anotasi), rag_chat.py (demo RAG), test_app.py
 ├── scripts/
 │   ├── build_candidates_v3.py          generate kandidat anotasi
-│   ├── check_nan_percentage.py         cek persentase NaN di CSV results
-│   ├── cleanup_nan_results.py          hapus file result dengan NaN tinggi
-│   ├── compare_results.py              bandingkan old vs new results
 │   ├── convert_ground_truth_to_json.py labels → JSON evaluasi retrieval
 │   ├── download_embedding_model.py
 │   ├── download_generator_model.py
-│   ├── inspect_qa.py
 │   ├── load_embeddings_to_chroma.py    load embeddings JSON ke ChromaDB
-│   ├── rank_results.py                 ranking hasil evaluasi
 │   ├── run_generation_eval.py          BLEU + ROUGE-L
 │   └── run_retrieval_eval.py           P@k, R@k, MRR
+│   [DIHAPUS] check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
+│             inspect_qa.py, rank_results.py — tidak aktif, sudah dihapus dari repo
 ├── data/
 │   ├── raw/              PDF asli
 │   ├── cleaned/          teks hasil preprocessing
@@ -76,23 +73,23 @@ rag-skripsi/
 ├── results/
 │   ├── final/                          ← HASIL DEFINITIVE (run RTX 3090, 2026-05-31, VALID)
 │   │   └── generation/
-│   │       ├── strict/                 eval_strict_*_top1–top10.csv (10 file)
-│   │       └── lenient/                eval_lenient_*_top1–top10.csv (10 file)
-│   ├── chat_history/                   chat_history.jsonl + .gitkeep (riwayat chat persisten Streamlit)
+│   │       └── lenient/                eval_lenient_*_top1–top10.csv (10 file, BINARY label)
+│   ├── chat_history/                   chat_history.jsonl + .gitkeep (riwayat chat persisten)
 │   └── archive/                        ← Semua run lama (referensi, jangan hapus)
 │       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
-│       │   ├── strict/                 eval_strict_top1–top10.csv  ← BLEU=0 semua, ROUGE=0 semua
 │       │   └── lenient/                eval_lenient_top1–top10.csv ← BLEU=0 semua, ROUGE benar top4–10
+│       ├── RTX3090_strict_archived/    eval_strict_top1–top10.csv dari run RTX 3090
+│       │                               (diarsipkan karena skema binary tidak pakai strict lagi)
 │       ├── No GPU Info/                retrieval eval files (GGUF baseline)
 │       ├── RTX 3090 24GB/              generation_eval/ (run lama)
 │       ├── RTX 4050 6GB/               generation_eval/
 │       └── RTX 5060 Ti 16GB/           generation_eval, bf16, vast, streamlit
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
-│            results/chat_history/ SUDAH di-track via .gitkeep (commit 4d128d2)
-│   CATATAN: results/final/ = hasil RTX 3090 (2026-05-31) yang VALID untuk skripsi.
-│            former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
-│            (bug BLEU + ROUGE strict). Disimpan sebagai referensi saja.
+│            results/chat_history/ di-track via .gitkeep (commit 4d128d2)
+│   CATATAN: results/final/generation/lenient/ = SATU-SATUNYA hasil definitif valid.
+│            Skema BINARY (label 0/1): file lenient = hasil dengan threshold ≥ 1 = relevan.
+│            Subfolder strict/ sudah dihapus dari final (dipindah ke RTX3090_strict_archived).
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 └── docs/                 PROJECT_CONTEXT.txt, Chat Context.txt, dokumentasi komponen
@@ -136,24 +133,28 @@ Pipeline Ground Truth (2 tahap):
     Status: SELESAI — 416/416 baris dianotasi (label 0/1/2)
 
 Ground Truth JSON (output evaluasi retrieval):
-  data/ground_truth/qa_pairs_strict.json   — label == 2, 58 chunk relevan
-  data/ground_truth/qa_pairs_lenient.json  — label >= 1, 175 chunk relevan
+  data/ground_truth/qa_pairs_binary.json  — label >= 1, 175 chunk relevan (AKTIF)
+    Skema binary: label 1 & 2 digabung jadi "relevan" (1), label 0 = "tidak relevan" (0)
+    Ini yang dipakai oleh semua evaluasi dan kode (rag_chat.py, run_retrieval_eval.py)
+  data/ground_truth/qa_pairs_lenient.json — SAMA persis dengan binary, nama legacy
+  data/ground_truth/archive/qa_pairs_strict_archived.json — label==2, 58 chunk (TIDAK DIPAKAI)
   Format: [{id, question, reference_answer, relevant_chunk_ids: {method: [ids]}}]
 
-  Distribusi query dengan GT chunk per metode:
-    Strict  (label=2): element 15/30, maxmin 18/30, recursive 15/30
-    Lenient (label≥1): element 28/30, maxmin 29/30, recursive 29/30
+  Distribusi query dengan GT chunk per metode (binary, label≥1):
+    element_based   : 28/30 query punya GT chunk
+    maxmin_semantic : 29/30 query punya GT chunk
+    recursive       : 29/30 query punya GT chunk
   Query tanpa GT chunk → metrik retrieval = N/A (by design, bukan bug)
 
-Label anotasi:
-  2 — Relevan Utama: chunk cukup untuk menjawab question
-  1 — Pendukung: relevan sebagian / konteks tambahan
-  0 — Tidak Relevan
+Label anotasi (ASLI — 3 level):
+  2 — Relevan Utama: chunk cukup untuk menjawab question  ┐ digabung jadi 1 (relevan)
+  1 — Pendukung: relevan sebagian / konteks tambahan       ┘ dalam skema binary
+  0 — Tidak Relevan                                         → tetap 0
   suggested_label di kandidat adalah SARAN algoritma, BUKAN label final
 
-CATATAN MRR: |Q| dalam agregasi MRR = hanya query yang punya GT chunk (bukan 30).
-  Ini pilihan metodologis yang valid — query tanpa GT tidak bisa dinilai retrieval-nya.
-  Pastikan definisi |Q| di laporan skripsi konsisten dengan ini.
+  KEPUTUSAN SKEMA BINARY: label 2 dan 1 digabung menjadi 1 untuk menyederhanakan
+  evaluasi. Tidak perlu re-run — qa_pairs_binary.json identik dengan qa_pairs_lenient.json.
+  Skema strict (label==2 saja) sudah diarsipkan dan tidak dipakai lagi.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -217,25 +218,25 @@ Streamlit Apps:
   src/streamlit/rag_chat.py — RAG demo (single/compare mode, evaluasi inline)
     DEFAULT_TOP_K=8, slider max=10
     DEFAULT_MAX_TOK=16384 (sesuai rekomendasi resmi)
-    Batch eval output: results/final/generation/{strict|lenient}/ (subfolder per mode)
-    Input chat: pilih pertanyaan via selectbox "Pertanyaan QA Gold" (TIDAK ketik bebas)
+    Batch eval output: results/final/generation/ (flat, tanpa subfolder mode)
+    Input chat: selectbox "Pertanyaan QA Gold" (TIDAK bisa ketik bebas)
       → query_id, question, gold_answer diambil langsung dari QA gold aktif
-      → cocok 100% dengan GT evaluasi, tanpa fuzzy matching
+      → evaluasi deterministic, selalu cocok dengan GT
     Inline metrics di tab Chat:
       → Generasi: BLEU + ROUGE-L
-      → Retrieval: Precision@k + Recall@k + MRR bila QA dipilih
-    Mode Relevance Chat: radio button (Strict, Lenient)
-      → dipakai khusus untuk metrik retrieval di tab Chat
-    Relevance mode batch eval: tetap terpisah (All, Strict, Lenient)
+      → Retrieval: P@k + R@k + MRR (binary GT, query yang cocok dengan QA gold)
+    Ground truth evaluasi: qa_pairs_binary.json (label >= 1 = relevan)
+      → TIDAK ada lagi pilihan strict/lenient di UI; semua pakai binary
     Quick eval: Q005, Q010, Q011, Q013, Q020
     st.iframe(height=1) untuk JS injection (bukan components.html yang deprecated)
     Cache model: @st.cache_resource — tidak reload per query
     Embedder mode: 'huggingface' (HF safetensors) di Vast AI; 'gguf' di laptop
-    Riwayat Chat PERSISTEN (tab "🕒 Riwayat Chat"): simpan ke results/chat_history/
-      chat_history.jsonl — tahan restart. Simpan pertanyaan, jawaban (per metode),
-      gold answer, skor BLEU/ROUGE-L, skor retrieval, dan chunk yang di-retrieve
-      (adaptif top-K).
-      Untuk dokumentasi sidang. Ada fitur cari, download JSONL, hapus semua.
+    Riwayat Chat PERSISTEN (tab "🕒 Riwayat Chat"):
+      → simpan ke results/chat_history/chat_history.jsonl, tahan restart
+      → simpan pertanyaan + jawaban (per metode) + BLEU/ROUGE-L + retrieval metrics
+        + chunk retrieved (adaptif top-K)
+      → backward compat: record lama dengan retrieval_strict/lenient tetap bisa ditampilkan
+      → untuk dokumentasi sidang; ada cari, download JSONL, hapus semua
   Versi Streamlit: 1.57.0
 
 
@@ -272,39 +273,32 @@ Evaluasi Retrieval (top_k=5):
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok 100%, semua chunk ada di ChromaDB.
 
 Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
-  Lokasi: results/final/generation/{strict|lenient}/ (20 file, top1–top10)
+  Lokasi: results/final/generation/lenient/ (10 file, top1–top10)
+  Skema: BINARY (label >= 1 = relevan); file "lenient" adalah nama legacy untuk binary
   Status QC: BLEU non-zero semua, ROUGE-L 90/90 benar semua file, 0 error,
              0 truncation (max_tokens=16384; jawaban terpanjang ~8800 char selesai wajar)
 
-  GENERASI (top_k=5):
-    STRICT:
-      Element-Based   BLEU=0.1257  ROUGE-L=0.7130
-      MaxMin Semantic BLEU=0.1080  ROUGE-L=0.6499
-      Recursive       BLEU=0.1411  ROUGE-L=0.7090
-    LENIENT:
-      Element-Based   BLEU=0.1178  ROUGE-L=0.7005
-      MaxMin Semantic BLEU=0.1052  ROUGE-L=0.6369
-      Recursive       BLEU=0.1440  ROUGE-L=0.6838
+  GENERASI (top_k=5) — BINARY:
+    Element-Based   BLEU=0.1178  ROUGE-L=0.7005
+    MaxMin Semantic BLEU=0.1052  ROUGE-L=0.6369
+    Recursive       BLEU=0.1440  ROUGE-L=0.6838
 
-  RETRIEVAL (top_k=5, exclude N/A) — dari run generasi yang sama:
-    STRICT:
-      Element-Based   P@5=0.147  R@5=0.583  MRR=0.517  (n=15)
-      MaxMin Semantic P@5=0.100  R@5=0.472  MRR=0.229  (n=18)
-      Recursive       P@5=0.160  R@5=0.567  MRR=0.517  (n=15)
-    LENIENT:
-      Element-Based   P@5=0.129  R@5=0.392  MRR=0.354  (n=28)
-      MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  (n=29)
-      Recursive       P@5=0.145  R@5=0.352  MRR=0.429  (n=29)
+  RETRIEVAL (top_k=5, binary GT, exclude N/A):
+    Element-Based   P@5=0.129  R@5=0.392  MRR=0.354  (n=28)
+    MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  (n=29)
+    Recursive       P@5=0.145  R@5=0.352  MRR=0.429  (n=29)
 
   CATATAN MRR MaxMin turun (vs baseline lama 0.476):
     BUKAN bug. Beda karena embedder berbeda (HF safetensors RTX 3090 vs run lama).
     Pola: MaxMin sering Recall@5=1.0 tapi MRR rendah → BERHASIL menemukan chunk
     relevan, tapi LEMAH menempatkannya di peringkat atas (chunk besar/terdilusi).
-    Ini temuan valid untuk analisis perbandingan, bukan kegagalan teknis.
-    JANGAN campur angka baseline lama dengan run RTX 3090 di satu tabel (beda setup).
+    Ini temuan valid untuk analisis perbandingan.
+    JANGAN campur angka baseline lama dengan run RTX 3090 (beda setup).
 
-  HASIL TIDAK VALID (jangan dipakai): results/archive/former_final_generation/
-    BLEU=0 semua, ROUGE-L=0 di 13/20 file. Lihat BUG 16.
+  HASIL TIDAK VALID / DIARSIPKAN:
+    results/archive/former_final_generation/ — RTX 5060 Ti (BLEU=0, ROUGE rusak)
+    results/archive/RTX3090_strict_archived/ — strict RTX 3090 (valid tapi tidak dipakai,
+      karena penelitian beralih ke skema binary)
 
   Metrik:
     BLEU   : sacrebleu.corpus_bleu([response],[[reference]]) / 100
@@ -363,16 +357,24 @@ SELESAI ✓ (2026-05-31 — sesi utama)
       → pertanyaan + jawaban + skor + chunk retrieved (adaptif top-K), untuk dokumentasi sidang
 
 SELESAI ✓ (2026-06-02 — update UI chat)
-  [x] Tampilkan metrik retrieval inline di tab Chat
-      → Precision@k, Recall@k, MRR ditampilkan berdampingan dengan BLEU/ROUGE-L
-      → dihitung dari GT JSON strict/lenient sesuai pilihan user
-  [x] Tambah "Mode Relevance Chat" (Strict / Lenient) khusus untuk scoring retrieval chat
+  [x] Tampilkan metrik retrieval inline di tab Chat (P@k, R@k, MRR)
   [x] Ganti input chat dari ketik bebas menjadi selectbox QA Gold
-      → pertanyaan demo sekarang selalu berasal dari dataset QA gold aktif
-      → query_id/gold_answer pasti tersedia; evaluasi chat jadi deterministik
-  [x] Simpan retrieval metrics juga ke riwayat chat persisten
-  [x] Jalankan rag_chat.py dengan Python global (bukan .venv)
-      → Streamlit 1.57.0, localhost:8501 terverifikasi start
+  [x] Simpan retrieval metrics ke riwayat chat persisten
+
+SELESAI ✓ (2026-06-04 — refactor skema evaluasi)
+  [x] Adopsi skema label BINARY (0/1): label 1 & 2 digabung jadi 1 (relevan)
+      → dibuat qa_pairs_binary.json (identik konten dengan qa_pairs_lenient.json)
+      → tidak perlu re-run — data yang ada sudah representasi binary
+  [x] Hapus skema strict dari semua kode aktif (rag_chat.py, run_retrieval_eval.py)
+      → radio "Mode Relevance" dihapus dari UI batch eval
+      → _compute_both_retrieval_metrics + _render_retrieval_metrics_both dihapus
+      → single _compute_chat_retrieval_metrics + _render_retrieval_metrics
+  [x] Arsipkan 10 file strict RTX 3090 ke results/archive/RTX3090_strict_archived/
+      (valid tapi tidak dipakai lagi)
+  [x] Arsipkan qa_pairs_strict.json ke data/ground_truth/archive/
+  [x] Hapus 5 script yang tidak aktif:
+      check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
+      inspect_qa.py, rank_results.py
 
 CATATAN PENTING (acuan top-k & MRR di SKRIPSI.md):
   - SKRIPSI.md TIDAK menetapkan nilai k spesifik. Semua formula pakai notasi @k generik.
@@ -444,18 +446,14 @@ python -m pytest tests/test_evaluation.py -v
 python scripts/build_candidates_v3.py
 
 # Konversi labels → JSON evaluasi retrieval
+# Binary (threshold=1, label 1+2 = relevan) — file aktif
 python scripts/convert_ground_truth_to_json.py \
-    --output data/ground_truth/qa_pairs_strict.json --relevance_threshold 2
-python scripts/convert_ground_truth_to_json.py \
-    --output data/ground_truth/qa_pairs_lenient.json --relevance_threshold 1
+    --output data/ground_truth/qa_pairs_binary.json --relevance_threshold 1
 
-# Evaluasi retrieval
+# Evaluasi retrieval (binary)
 python scripts/run_retrieval_eval.py \
-    --gt data/ground_truth/qa_pairs_strict.json \
-    --output results/retrieval_eval_strict.csv --top_k 5
-python scripts/run_retrieval_eval.py \
-    --gt data/ground_truth/qa_pairs_lenient.json \
-    --output results/retrieval_eval_lenient.csv --top_k 5
+    --gt data/ground_truth/qa_pairs_binary.json \
+    --output results/retrieval_eval.csv --top_k 5
 
 # Evaluasi generasi (run definitif di RTX 3090)
 python scripts/run_generation_eval.py
@@ -504,19 +502,23 @@ Hal penting yang JANGAN salah:
     generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
   - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
     bleu, rouge_l, elapsed_s, error
-  - results/final/generation/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
-    Subfolder: strict/ dan lenient/, masing-masing top1–top10
+  - results/final/generation/lenient/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
+    File lenient adalah nama legacy untuk skema BINARY (label >= 1 = relevan)
+    Tidak ada lagi subfolder strict/ di final/ — sudah diarsipkan
+  - results/archive/RTX3090_strict_archived/ = strict RTX 3090 (valid tapi tidak dipakai)
   - results/archive/former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
-    (BLEU semua 0, ROUGE strict semua 0) — simpan sebagai referensi saja
+  - Ground truth aktif: qa_pairs_binary.json (bukan strict/lenient lagi)
+    Label binary: 1 & 2 digabung jadi relevan (1), 0 = tidak relevan
+  - TIDAK ada radio "Mode Relevance" di batch eval — semua pakai binary
+  - TIDAK ada radio "Mode Relevance Chat" di tab Chat — semua pakai binary
+  - Tab Chat: input via selectbox QA Gold, bukan ketik bebas
   - Riwayat chat Streamlit persisten di results/chat_history/chat_history.jsonl
-    dan folder results/chat_history/ di-track git via .gitkeep
-  - SKRIPSI.md TIDAK menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
-  - Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
-  - Retrieval N/A = by design (query tanpa GT chunk), BUKAN bug
-  - ID chunk di ChromaDB 100% cocok dengan GT JSON — skor 0 retrieval = performa asli
-  - ragas, rank-eval, rapidfuzz SUDAH DIHAPUS dari requirements.txt
-  - MRR pure Python sudah sesuai Persamaan 2.3 dan 2.4; |Q| = query yang punya GT chunk
-  - Jangan delete data/artifacts/eval_results.csv tanpa konfirmasi user
+  - Backward compat: record lama di JSONL mungkin punya retrieval_strict/lenient — OK
+  - Scripts yang ADA: build_candidates_v3.py, convert_ground_truth_to_json.py,
+    download_embedding_model.py, download_generator_model.py, load_embeddings_to_chroma.py,
+    run_generation_eval.py, run_retrieval_eval.py
+    DIHAPUS: check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
+             inspect_qa.py, rank_results.py
 
 ================================================================================
 END OF DOCUMENT

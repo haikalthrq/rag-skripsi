@@ -1,116 +1,102 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-06-02 (WIB)
+# Generated: 2026-06-04 (WIB)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
-Run definitif evaluasi generasi di RTX 3090 SUDAH selesai dan VALID. Fokus
-sekarang: analisis hasil + penulisan laporan skripsi. Update terbaru di sesi
-2026-06-02 mematangkan `rag_chat.py` agar demo chat selalu QA-compatible dan
-menampilkan metrik retrieval inline.
+Run definitif evaluasi generasi di RTX 3090 SUDAH selesai. Skema evaluasi
+disederhanakan ke BINARY (label 0/1). Fokus berikutnya: analisis hasil +
+penulisan laporan skripsi.
 
 ---
 
 ## Completed Tasks
 
-### 1. Pull & verifikasi hasil run RTX 3090 (2026-05-31)
-- 20 file baru di results/final/generation/{strict|lenient}/ (top1-top10).
-- QC PASSED: BLEU non-zero, ROUGE-L 90/90 benar di semua file, 0 error, 0 OOM.
-- Truncation HILANG: max_tokens=16384 cukup; jawaban terpanjang ~8800 char selesai
-  wajar (Q006 MaxMin yang menjumlahkan semua provinsi), bukan runaway.
-- GPU terkonfirmasi RTX 3090 (VRAM 23.56GB, alloc ~15GB).
-- Perubahan kode dari Vast AI (sudah ter-pull): rag_chat.py simpan ke subfolder
-  strict/ & lenient/, riwayat eval pakai rglob.
+### 1. Hasil run RTX 3090 (2026-05-31) — VALID
+- 10 file di results/final/generation/lenient/ (top1-top10), nama "lenient" = binary.
+- QC: BLEU non-zero, ROUGE-L 90/90 benar, 0 error, 0 truncation (max_tokens=16384).
+- Generasi top_k=5: Element .118/.701 · MaxMin .105/.637 · Recursive .144/.684
+- Retrieval top_k=5 (binary): Element P@5 .129 R@5 .392 MRR .354 · MaxMin .131/.447/.349
+  · Recursive .145/.352/.429
 
-### 2. Hasil definitif (top_k=5)
-- GENERASI Strict : Element BLEU .126/ROUGE .713 · MaxMin .108/.650 · Recursive .141/.709
-- GENERASI Lenient: Element .118/.701 · MaxMin .105/.637 · Recursive .144/.684
-- RETRIEVAL Strict: Element P@5 .147 R@5 .583 MRR .517 · MaxMin .100/.472/.229 ·
-  Recursive .160/.567/.517
-- MRR MaxMin turun vs baseline lama (0.476) BUKAN bug — beda embedder. Pola:
-  Recall tinggi tapi MRR rendah = nemu chunk tapi ranking-nya rendah. Temuan valid.
-  JANGAN campur angka baseline lama dengan run RTX 3090 (beda setup).
+### 2. Refactor skema label → BINARY (2026-06-04)
+- Label 2 (Relevan Utama) + Label 1 (Pendukung) DIGABUNG jadi 1 (relevan).
+- Label 0 tetap 0 (tidak relevan). Tidak ada re-run data — identik dengan lenient.
+- Dibuat: data/ground_truth/qa_pairs_binary.json (30 items, 175 chunk, sama persis
+  dengan qa_pairs_lenient.json).
+- Diarsipkan: qa_pairs_strict.json → data/ground_truth/archive/
+  10 file strict RTX 3090 → results/archive/RTX3090_strict_archived/
+- Semua kode aktif diperbarui ke binary:
+  · rag_chat.py: hapus _GT_STRICT/_GT_LENIENT → _GT_BINARY; hapus _compute_both,
+    _render_retrieval_metrics_both; hapus radio "Mode Relevance"; output flat
+    (tanpa subfolder strict/lenient); file selectbox di eval history pakai glob bukan rglob.
+  · run_retrieval_eval.py: default gt → qa_pairs_binary.json; output → retrieval_eval.csv
 
-### 3. Pembahasan acuan top-k & MRR (dari SKRIPSI.md)
-- SKRIPSI.md TIDAK menetapkan nilai k. Formula semua pakai @k generik; contoh @5
-  di bab 4 cuma ILUSTRASI. User bebas pilih k (5 atau 8) DENGAN justifikasi.
-- Rumus MRR (Pers 2.3/2.4) BENAR, kode BENAR — konsisten jika "hasil retrieval"
-  diartikan = top-k (memang satu-satunya output sistem RAG). Perlu 1 kalimat
-  penegasan di naskah bahwa rank dihitung dalam top-k.
-- TYPO Pers 2.4: "RR(q1)" dalam sigma → seharusnya "RR(qi)". Perbaiki di naskah.
+### 3. Update UI rag_chat.py (2026-06-02, sudah masuk sebelum sesi ini)
+- Input chat sekarang selectbox QA Gold (bukan ketik bebas).
+- Metrik retrieval inline: P@k, R@k, MRR ditampilkan bersama BLEU/ROUGE-L.
+- Riwayat chat persisten menyimpan retrieval metrics per metode.
+- Backward compat: record JSONL lama dengan retrieval_strict/lenient tetap tampil.
 
-### 4. Fitur Riwayat Chat persisten (rag_chat.py)
-- TUJUAN: dokumentasi sidang. Riwayat chat TIDAK hilang saat Streamlit restart
-  (sebelumnya pakai st.session_state yang hilang tiap restart).
-- Disimpan ke results/chat_history/chat_history.jsonl (JSONL, 1 baris per turn).
-- Yang disimpan: timestamp, pertanyaan, mode, top_k, gold answer, dan per metode:
-  jawaban + BLEU + ROUGE-L + elapsed + chunk retrieved (adaptif terhadap slider top-K).
-- Tab baru "🕒 Riwayat Chat": daftar (terbaru di atas, expandable), cari, download
-  JSONL, hapus semua. Layout mirip acuan: Question -> Answer -> Gold -> Retrieved Chunks.
-- Helper: _extract_chunk_records, _build_chat_record, _save_chat_turn,
-  _load_chat_history, _render_history_turn. Verifikasi: py_compile OK, logika
-  save/load di-test terpisah (urutan + adaptif top-k + null-safe), 20/20 test metrics pass.
+### 4. Cleanup scripts (commit ed852ff)
+- Dihapus dari repo: check_nan_percentage.py, cleanup_nan_results.py,
+  compare_results.py, inspect_qa.py, rank_results.py
+- Scripts aktif yang tersisa: build_candidates_v3.py, convert_ground_truth_to_json.py,
+  download_embedding_model.py, download_generator_model.py, load_embeddings_to_chroma.py,
+  run_generation_eval.py, run_retrieval_eval.py
 
-### 5. Cleanup
-- Hapus _gitdiag.sh (script diagnostik sementara dari Vast AI, path hardcoded /workspace).
-
-### 6. Update `rag_chat.py` (2026-06-02)
-- Chat sekarang TIDAK menerima ketik bebas. Input diganti jadi selectbox
-  `Pertanyaan QA Gold`, sehingga pertanyaan selalu berasal dari dataset QA aktif.
-- `query_id`, `question`, dan `gold_answer` diambil langsung dari Excel QA gold;
-  fuzzy matching dihapus dari alur utama chat.
-- Metrik retrieval sekarang ditampilkan inline di tab Chat seperti metrik generasi:
-  `Precision@k`, `Recall@k`, dan `MRR`.
-- Ada radio baru `Mode Relevance Chat` dengan opsi `Strict` / `Lenient`, khusus
-  untuk memilih GT retrieval yang dipakai saat scoring chat.
-- Riwayat chat persisten sekarang menyimpan retrieval metrics per metode, dan
-  tab Riwayat Chat ikut merender skor retrieval itu.
-- `rag_chat.py` sempat dijalankan dengan Python global (bukan `.venv`) dan
-  Streamlit start normal di `http://localhost:8501`.
-
-### 7. Status tracking `results/chat_history/`
-- Sudah resolved di Git lewat commit `4d128d2`
-  (`chore: track results/chat_history/ so chat history syncs across laptop and Vast AI`).
-- Folder `results/chat_history/` sekarang memang intended untuk ikut sinkron via git.
+### 5. Fitur Riwayat Chat persisten
+- Disimpan ke results/chat_history/chat_history.jsonl (JSONL).
+- Di-track git (commit 4d128d2) → sinkron antara laptop dan Vast AI.
+- Tab "🕒 Riwayat Chat": terbaru di atas, expandable, cari, download, hapus.
 
 ---
 
 ## Current State
 
 ### Hardware
-- GPU: RTX 3090 24GB (Vast AI) — AKTIF, run definitif sudah dijalankan.
-- Embedder: Qwen3-Embedding-4B HF safetensors (GPU). Generator: Qwen3-4B-Instruct-2507 BF16.
+- GPU: RTX 3090 24GB (Vast AI) — run definitif sudah dijalankan 2026-05-31.
 
-### Kode (semua sudah benar)
-- src/evaluation/metrics.py — compute_bleu fixed (BUG 16).
-- src/streamlit/rag_chat.py — max_tokens=16384, simpan subfolder strict/lenient,
-  riwayat chat persisten, metrik retrieval inline di chat, dan input QA Gold-only.
-- scripts/run_generation_eval.py — DEFAULT_MAX_TOKENS=16384.
-- requirements.txt — bersih (32 paket).
+### Ground Truth
+- AKTIF: data/ground_truth/qa_pairs_binary.json (label ≥ 1 = relevan, 175 chunk)
+- Legacy (masih ada tapi tidak dipakai): qa_pairs_lenient.json (identik dengan binary)
+- Diarsipkan: qa_pairs_strict.json → data/ground_truth/archive/
 
 ### Results
-- results/final/generation/{strict|lenient}/ — 20 file VALID (RTX 3090).
-- results/archive/former_final_generation/ — hasil RTX 5060 Ti lama (TIDAK VALID).
-- results/chat_history/ — riwayat chat persisten, di-track git via `.gitkeep`.
+- DEFINITIF: results/final/generation/lenient/ — 10 file RTX 3090 (binary label)
+- ARSIP:     results/archive/RTX3090_strict_archived/ — strict RTX 3090 (valid tapi
+             tidak dipakai karena beralih ke binary)
+- TIDAK VALID: results/archive/former_final_generation/ — RTX 5060 Ti (BLEU=0)
+- CHAT:     results/chat_history/ — di-track git
 
-### Git Status
-- Branch: main. `origin/main` / `HEAD` terbaru yang terlihat: `4d128d2`.
-- HEAD lokal/origin terbaru yang terlihat: `4d128d2` (track `results/chat_history/.gitkeep`).
-- Perubahan lokal aktif sebelum update dokumen ini: `M src/streamlit/rag_chat.py`.
-- Setelah dokumen ini diupdate, perubahan lokal yang wajar adalah `rag_chat.py`
-  + file docs konteks ini sendiri.
+### Kode
+- rag_chat.py: binary label, input QA selectbox, retrieval inline, riwayat persisten
+- run_retrieval_eval.py: default → qa_pairs_binary.json
+- metrics.py: compute_bleu fixed (BUG 16), semua metrik pure Python
+
+### Git
+- Branch: main, HEAD = commit 2bafa37
+  "refactor: drop strict, adopt binary (0/1) label scheme"
+- Working tree: clean (setelah commit ini)
 
 ---
 
 ## Known Issues (Resolved)
-- ~~BLEU=0 semua~~ → Fixed BUG 16, run baru RTX 3090 BLEU benar.
-- ~~ROUGE-L=0 di file lama~~ → run baru RTX 3090 ROUGE benar 90/90.
-- ~~max_tokens=1024 truncation~~ → 16384, 0 truncation.
-- ~~Riwayat chat hilang saat restart~~ → fitur persisten JSONL.
+- ~~BLEU=0~~ → Fixed BUG 16.
+- ~~ROUGE-L=0 file lama~~ → run RTX 3090 benar.
+- ~~max_tokens truncation~~ → 16384.
+- ~~Riwayat chat hilang~~ → persisten JSONL.
+- ~~Skema strict/lenient kompleks~~ → refactor ke binary 0/1.
+
+## Catatan Metodologis Penting
+- Skema binary: cukup tulis di laporan bahwa chunk dengan label 1 (pendukung) dan
+  label 2 (relevan utama) keduanya dianggap relevan. Tidak perlu re-anotasi.
+- SKRIPSI.md tidak menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
+- Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
+- |Q| dalam MRR = query yang punya GT chunk (bukan 30). Sebutkan di laporan.
 
 ## Next Steps
-1. Commit + push perubahan terbaru `rag_chat.py` + update docs ini ke `main`.
-2. Tentukan & justifikasi nilai k pelaporan (5 atau 8) di skripsi.
-3. Perbaiki naskah: typo `RR(q1)->RR(qi)` + penegasan bahwa rank MRR dihitung dalam top-k.
-4. Analisis mendalam perbandingan antar metode chunking (pakai `results/final/`).
-5. Penulisan laporan skripsi.
-6. `pip freeze > requirements.lock.txt` di environment RTX 3090 final.
+1. Analisis mendalam perbandingan antar metode chunking (pakai results/final/).
+2. Penulisan laporan skripsi.
+3. Tentukan & justifikasi nilai k pelaporan (5 atau 8).
+4. Perbaiki naskah: typo RR(q1)→RR(qi) + penegasan MRR dihitung dalam top-k.
+5. pip freeze > requirements.lock.txt di environment RTX 3090.
