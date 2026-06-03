@@ -86,7 +86,7 @@ QA_REQUIRED_COLS = {
 }
 
 LABELS_REQUIRED_COLS = {
-    "query_id", "doc_id", "method", "chunk_id", "label_0_1_2",
+    "query_id", "doc_id", "method", "chunk_id", "label",
 }
 
 
@@ -135,7 +135,7 @@ def load_labels(path: str, threshold: int) -> dict:
     """
     Baca retrieval_labels_filled.csv.
     Return: {query_id: {pipeline_method: [chroma_chunk_id, ...]}}
-    Hanya include chunk dengan label_0_1_2 >= threshold.
+    Hanya include chunk dengan label >= threshold.
     """
     result: dict = defaultdict(lambda: defaultdict(list))
     skipped_doc = set()
@@ -153,7 +153,7 @@ def load_labels(path: str, threshold: int) -> dict:
 
         for row in reader:
             total += 1
-            label_str = row.get("label_0_1_2", "").strip()
+            label_str = row.get("label", "").strip()
             try:
                 label = int(label_str)
             except ValueError:

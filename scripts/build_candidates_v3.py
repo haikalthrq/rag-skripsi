@@ -650,7 +650,7 @@ FIELDNAMES = [
     "has_gold_value", "has_row_label", "has_column_label",
     "has_table_id", "has_evidence_anchor", "has_evidence_text", "page_match",
     "evidence_quote", "reason",
-    "label_0_1_2", "annotator", "status",
+    "label", "annotator", "status",
     "chunk_text_excerpt",
     "chunk_text",
 ]
@@ -686,7 +686,7 @@ def build_all_candidates(pre_k: int = PRE_K_DEFAULT,
                     "page_match": False,
                     "evidence_quote": "",
                     "reason": "no evidence-aware candidate found after full scan",
-                    "label_0_1_2": "", "annotator": "",
+                    "label": "", "annotator": "",
                     "status": "needs_manual_validation",
                     "chunk_text_excerpt": "", "chunk_text": "",
                 })
@@ -714,7 +714,7 @@ def build_all_candidates(pre_k: int = PRE_K_DEFAULT,
                     "page_match":       c["page_match"],
                     "evidence_quote":   c["evidence_quote"],
                     "reason":           c["reason"],
-                    "label_0_1_2": "", "annotator": "",
+                    "label": "", "annotator": "",
                     "status": "needs_manual_validation",
                     "chunk_text_excerpt": excerpt,
                     "chunk_text": ctext,
@@ -850,17 +850,17 @@ def generate_validation_report(df: pd.DataFrame) -> str:
         w(f"    {r['query_id']} / {r['method']} / chunk {r['chunk_id']}  mt={r['match_type']}")
     w()
 
-    # label_0_1_2 must be blank
+    # label must be blank
     w(sep)
     w("INTEGRITAS LABEL")
     w(sep)
-    non_blank_labels = df[df["label_0_1_2"].astype(str).str.strip() != ""]
+    non_blank_labels = df[df["label"].astype(str).str.strip() != ""]
     if len(non_blank_labels) == 0:
-        w("  label_0_1_2 semua KOSONG ✓")
+        w("  label semua KOSONG ✓")
     else:
-        w(f"  [WARN] {len(non_blank_labels)} baris memiliki label_0_1_2 tidak kosong!")
+        w(f"  [WARN] {len(non_blank_labels)} baris memiliki label tidak kosong!")
         for _, r in non_blank_labels.iterrows():
-            w(f"    {r['query_id']} / {r['method']} / chunk {r['chunk_id']}  label={r['label_0_1_2']}")
+            w(f"    {r['query_id']} / {r['method']} / chunk {r['chunk_id']}  label={r['label']}")
     w()
 
     # status must be needs_manual_validation
@@ -1008,7 +1008,7 @@ def build_summary(df: pd.DataFrame, out_dir: Path,
     w(sep)
     w()
     w("  - suggested_label adalah REKOMENDASI AUDIT — bukan label final")
-    w("  - label_0_1_2 KOSONG — harus diisi manual oleh peneliti")
+    w("  - label KOSONG — harus diisi manual oleh peneliti")
     w("  - Evaluasi retrieval: Precision@k, Recall@k, MRR")
     w("  - word-boundary matching aktif — mencegah false positive label pendek")
     w("  - 'Riau' tidak akan match 'Kepulauan Riau' secara otomatis")
@@ -1086,7 +1086,7 @@ def save_outputs(df: pd.DataFrame, summary_text: str, out_dir: Path,
             "has_evidence_anchor": 16, "has_evidence_text": 15,
             "page_match": 11,
             "evidence_quote": 52, "reason": 44,
-            "label_0_1_2": 12, "annotator": 13, "status": 22,
+            "label": 12, "annotator": 13, "status": 22,
             "chunk_text_excerpt": 65, "chunk_text": 80,
         }
         for col_num, col_name in enumerate(df.columns, 1):
@@ -1174,7 +1174,7 @@ def main() -> None:
     print("  1. Restart Streamlit agar file v3 terdeteksi sebagai kandidat aktif:")
     print("     streamlit run src/streamlit/app.py")
     print("  2. Tinjau suggested_label dan has_* flags sebagai panduan")
-    print("  3. Isi label_0_1_2 secara manual: 1=relevan, 0=tidak relevan")
+    print("  3. Isi label secara manual: 1=relevan, 0=tidak relevan")
 
 
 if __name__ == "__main__":

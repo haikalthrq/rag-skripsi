@@ -1,7 +1,7 @@
 """
 Retrieval Ground Truth Labeling App
 ------------------------------------
-Streamlit app untuk anotasi manual kolom label_0_1_2 pada kandidat
+Streamlit app untuk anotasi manual kolom label pada kandidat
 retrieval ground truth.
 
 Input : data/ground_truth/retrieval_relevant_chunks_candidate_final_fixed.xlsx
@@ -195,7 +195,7 @@ def _load_fresh(_mtime_c: float, _mtime_q: float) -> pd.DataFrame:
     df_q = df_q[[c for c in qa_cols if c in df_q.columns]]
 
     df = df_c.merge(df_q, on="query_id", how="left")
-    df["label_0_1_2"] = df["label_0_1_2"].replace({"None": "", "nan": ""})
+    df["label"] = df["label"].replace({"None": "", "nan": ""})
     df["annotator"]   = df["annotator"].replace({"None": "", "nan": ""})
 
     # Auto-excerpt: if chunk_text_excerpt is missing/empty but chunk_text exists
@@ -229,7 +229,7 @@ def load_data() -> pd.DataFrame:
             df_saved = df_saved.fillna("")
             keys = ["query_id", "method", "chunk_id"]
             if all(k in df_saved.columns for k in keys):
-                _restore = [c for c in ["label_0_1_2", "annotator", "rationale"] if c in df_saved.columns]
+                _restore = [c for c in ["label", "annotator", "rationale"] if c in df_saved.columns]
                 saved_map = df_saved.set_index(keys)[_restore]
                 idx = df_fresh.set_index(keys)
                 for col in _restore:
@@ -258,12 +258,12 @@ def save_data(df: pd.DataFrame) -> None:
                 pass
         out_cols = [
             "query_id", "doc_id", "question_preview", "evidence_type", "method",
-            "chunk_id", "label_0_1_2", "strength_score", "rationale",
+            "chunk_id", "label", "strength_score", "rationale",
             "chunk_page_start", "chunk_page_end", "chunk_text_excerpt",
             "annotator", "status",
         ]
         df_out = df[[c for c in out_cols if c in df.columns]].copy()
-        df_out["status"] = df_out["label_0_1_2"].apply(
+        df_out["status"] = df_out["label"].apply(
             lambda x: "labeled" if x.strip() not in ("", "None") else "needs_manual_validation"
         )
         df_out.to_csv(str(OUTPUT_CSV), index=False, encoding="utf-8")
@@ -289,13 +289,13 @@ def save_data(df: pd.DataFrame) -> None:
 
         for _, row in df_out.iterrows():
             ws.append(list(row))
-            lbl = str(row.get("label_0_1_2", "")).strip()
+            lbl = str(row.get("label", "")).strip()
             fill = fills.get(lbl, empty_fill)
             for cell in ws[ws.max_row]:
                 cell.fill = fill
 
         col_w = {"rationale": 55, "chunk_text_excerpt": 65, "question_preview": 45,
-                  "chunk_id": 12, "method": 18, "status": 22, "label_0_1_2": 14}
+                  "chunk_id": 12, "method": 18, "status": 22, "label": 14}
         for i, name in enumerate(df_out.columns, 1):
             ws.column_dimensions[ws.cell(1, i).column_letter].width = col_w.get(name, 14)
 
@@ -476,7 +476,7 @@ def apply_label(qid: str, method: str, chunk_id: str, label: str) -> None:
         & (df["method"]   == method)
         & (df["chunk_id"] == chunk_id)
     )
-    df.loc[mask, "label_0_1_2"] = label
+    df.loc[mask, "label"] = label
     df.loc[mask, "annotator"]   = st.session_state.get("annotator_name", "")
     st.session_state.df = df
     save_data(df)
@@ -513,15 +513,15 @@ def inject_keyboard_listener() -> None:
 
 def get_progress(df: pd.DataFrame) -> dict:
     total   = len(df)
-    labeled = int((df["label_0_1_2"].str.strip() != "").sum())
+    labeled = int((df["label"].str.strip() != "").sum())
     return {
         "total":     total,
         "labeled":   labeled,
         "unlabeled": total - labeled,
         "pct":       int(labeled / max(total, 1) * 100),
-        "n1":        int((df["label_0_1_2"] == "1").sum()),
-        "n0":        int((df["label_0_1_2"] == "0").sum()),
-        "nnr":       int((df["label_0_1_2"] == "needs_review").sum()),
+        "n1":        int((df["label"] == "1").sum()),
+        "n0":        int((df["label"] == "0").sum()),
+        "nnr":       int((df["label"] == "needs_review").sum()),
     }
 
 
@@ -553,7 +553,7 @@ def get_groups(df: pd.DataFrame, filters: dict) -> list:
     if filters.get("method") and filters["method"] != "All":
         fdf = fdf[fdf["method"] == filters["method"]]
     if filters.get("only_unlabeled"):
-        fdf = fdf[fdf["label_0_1_2"].str.strip() == ""]
+        fdf = fdf[fdf["label"].str.strip() == ""]
 
     grps = list(fdf.groupby(["query_id", "method"], sort=False).groups.keys())
     grps.sort(key=lambda g: (g[0], METHOD_ORDER.get(g[1], 9)))
@@ -777,7 +777,7 @@ def sort_group_df(gdf: pd.DataFrame) -> pd.DataFrame:
 
 def render_chunk_card(row: pd.Series, active: bool) -> None:
     """Render a single chunk card with label buttons."""
-    label     = str(row.get("label_0_1_2", "") or "").strip()
+    label     = str(row.get("label", "") or "").strip()
     qid       = str(row.get("query_id", ""))
     method    = str(row.get("method", ""))
     chunk_id  = str(row.get("chunk_id", ""))
@@ -1004,7 +1004,7 @@ def main() -> None:
     group_df = sort_group_df(st.session_state.df[mask].copy())
 
     # Active chunk = first unlabeled
-    unlabeled = group_df[group_df["label_0_1_2"].str.strip() == ""].index.tolist()
+    unlabeled = group_df[group_df["label"].str.strip() == ""].index.tolist()
     active_ci = unlabeled[0] if unlabeled else 0
 
     # Process keyboard action

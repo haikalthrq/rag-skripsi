@@ -1,5 +1,5 @@
-"""
-Feature tests for app.py — run WITHOUT Streamlit runtime.
+﻿"""
+Feature tests for app.py â€” run WITHOUT Streamlit runtime.
 Each test prints PASS or FAIL with a brief reason.
 
 Usage:
@@ -33,7 +33,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-# ── Stub out Streamlit so we can import app functions without a running server ─
+# â”€â”€ Stub out Streamlit so we can import app functions without a running server â”€
 import types
 
 _st_stub = types.ModuleType("streamlit")
@@ -71,7 +71,7 @@ sys.modules["streamlit.components.v1"] = _comp_stub
 
 import app  # noqa: E402  (import after stub)
 
-# ── Test runner ────────────────────────────────────────────────────────────────
+# â”€â”€ Test runner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 _results: list[tuple[str, bool, str]] = []
 
@@ -82,17 +82,17 @@ def test(name: str, ok: bool, reason: str = "") -> None:
     tag = f"\033[32m{status}\033[0m" if ok else f"\033[31m{status}\033[0m"
     line = f"  [{tag}] {name}"
     if reason:
-        line += f"  — {reason}"
+        line += f"  â€” {reason}"
     print(line)
 
 
 def section(title: str) -> None:
-    print(f"\n{'─'*55}")
+    print(f"\n{'â”€'*55}")
     print(f"  {title}")
-    print(f"{'─'*55}")
+    print(f"{'â”€'*55}")
 
 
-# ── Sample data ────────────────────────────────────────────────────────────────
+# â”€â”€ Sample data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def _make_df(n_rows: int = 9) -> pd.DataFrame:
     """Create a minimal merged DataFrame with unique (query_id, method) combos."""
@@ -106,7 +106,7 @@ def _make_df(n_rows: int = 9) -> pd.DataFrame:
             "doc_id":            "DOC01",
             "method":            method,
             "chunk_id":          str(100 + i),
-            "label_0_1_2":       "" if i < 4 else ("1" if i == 4 else "0"),
+            "label":       "" if i < 4 else ("1" if i == 4 else "0"),
             "rationale":         f'gold_value="147,78"; col_label="2023"; row_label="Riau"',
             "strength_score":    "8",
             "chunk_page_start":  "10",
@@ -131,9 +131,9 @@ def _make_df(n_rows: int = 9) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T1 — Data Loading & Merge")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T1 â€” Data Loading & Merge")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t1_candidates_file_exists():
     test("candidates XLSX exists", app.CANDIDATES_XLSX.exists(),
@@ -146,7 +146,7 @@ def t1_qa_gold_file_exists():
 def t1_load_data_shape():
     df = app._load_fresh(0.0, 0.0)
     ok = df.shape[0] > 0 and df.shape[1] >= 20
-    test("_load_fresh() → rows>0, ≥20 cols", ok,
+    test("_load_fresh() â†’ rows>0, â‰¥20 cols", ok,
          f"got {df.shape}")
 
 def t1_merge_has_qa_cols():
@@ -158,8 +158,8 @@ def t1_merge_has_qa_cols():
 
 def t1_load_data_no_none_labels():
     df = app._load_fresh(0.0, 0.0)
-    bad = df["label_0_1_2"].isin(["None", "nan"]).sum()
-    test("label_0_1_2 has no 'None'/'nan' strings", bad == 0,
+    bad = df["label"].isin(["None", "nan"]).sum()
+    test("label has no 'None'/'nan' strings", bad == 0,
          f"{bad} bad values")
 
 def t1_candidate_priority_order():
@@ -189,7 +189,7 @@ def t1_auto_excerpt_fills_from_chunk_text():
     # Build a tiny fake df with chunk_text but empty chunk_text_excerpt
     fake = pd.DataFrame([{
         "query_id": "Q001", "method": "element_based", "chunk_id": "1",
-        "label_0_1_2": "", "annotator": "",
+        "label": "", "annotator": "",
         "chunk_text": "Hello world from chunk text that is longer than excerpt",
         "chunk_text_excerpt": "",
     }])
@@ -213,14 +213,14 @@ t1_v2_cols_in_loaded_df()
 t1_auto_excerpt_fills_from_chunk_text()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T2 — Groups (Navigation)")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T2 â€” Groups (Navigation)")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t2_total_groups():
     df = _make_df(9)
     grps = app.get_groups(df, {})
-    test("get_groups() no filter → all groups", len(grps) == 9,
+    test("get_groups() no filter â†’ all groups", len(grps) == 9,
          f"expected 9, got {len(grps)}")
 
 def t2_filter_by_qid():
@@ -233,7 +233,7 @@ def t2_filter_by_qid():
 def t2_filter_only_unlabeled():
     df = _make_df(9)  # 9 unique combos
     # Label all rows of Q003 (rows 6-8) so that group is fully labeled
-    df.loc[df["query_id"] == "Q003", "label_0_1_2"] = "1"
+    df.loc[df["query_id"] == "Q003", "label"] = "1"
     grps = app.get_groups(df, {"only_unlabeled": True})
     q003_grps = [g for g in grps if g[0] == "Q003"]
     test("only_unlabeled filter excludes fully-labeled Q003 groups",
@@ -263,27 +263,27 @@ t2_filter_only_unlabeled()
 t2_sorted_by_method_order()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T3 — Progress Counting")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T3 â€” Progress Counting")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t3_zero_progress():
     df = _make_df(6)
-    df["label_0_1_2"] = ""
+    df["label"] = ""
     p = app.get_progress(df)
     test("0% when all unlabeled", p["pct"] == 0 and p["labeled"] == 0,
          str(p))
 
 def t3_full_progress():
     df = _make_df(4)
-    df["label_0_1_2"] = "1"
+    df["label"] = "1"
     p = app.get_progress(df)
     test("100% when all labeled", p["pct"] == 100 and p["unlabeled"] == 0,
          str(p))
 
 def t3_label_counts():
     df = _make_df(6)
-    df["label_0_1_2"] = ["1", "1", "0", "needs_review", "", "1"]
+    df["label"] = ["1", "1", "0", "needs_review", "", "1"]
     p = app.get_progress(df)
     ok = p["n1"] == 3 and p["n0"] == 1 and p["nnr"] == 1
     test("n1/n0/nnr counted correctly", ok, str(p))
@@ -299,9 +299,9 @@ t3_label_counts()
 t3_total_matches_rows()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T4 — Highlight Excerpt")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T4 â€” Highlight Excerpt")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t4_gold_value_highlighted():
     row = pd.Series({"gold_value": "147,78", "row_label": "", "column_label": "",
@@ -357,9 +357,9 @@ t4_no_raw_html_in_text()
 t4_output_is_valid_span_html()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T5 — Evidence Match Type")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T5 â€” Evidence Match Type")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t5_gold_value():
     out = app.evidence_match_type('gold_value="147,78"; col_label="2023"')
@@ -376,7 +376,7 @@ def t5_narrative_signals():
 
 def t5_no_signal():
     out = app.evidence_match_type("")
-    test("empty rationale → no_signal", out == "no_signal", out)
+    test("empty rationale â†’ no_signal", out == "no_signal", out)
 
 def t5_table_signals():
     out = app.evidence_match_type('table_id="T1"; row_label="Riau"; col_label="2023"')
@@ -390,9 +390,9 @@ t5_no_signal()
 t5_table_signals()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T6 — Chunk Card HTML Structure")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T6 â€” Chunk Card HTML Structure")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t6_card_html_self_contained():
     """Verify render_chunk_card uses ONE st.markdown with a self-contained div."""
@@ -488,9 +488,9 @@ t6_no_blank_lines_in_card_html()
 t6_div_open_close_balanced()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T7 — apply_label (state update)")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T7 â€” apply_label (state update)")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t7_apply_label_updates_correct_row():
     df = _make_df(6)
@@ -504,8 +504,8 @@ def t7_apply_label_updates_correct_row():
 
     updated = _st_stub.session_state["df"]
     mask = (updated["query_id"] == qid) & (updated["method"] == method) & (updated["chunk_id"] == cid)
-    lbl = updated.loc[mask, "label_0_1_2"].iloc[0]
-    test("apply_label sets label_0_1_2 correctly", lbl == "1", f"got {lbl!r}")
+    lbl = updated.loc[mask, "label"].iloc[0]
+    test("apply_label sets label correctly", lbl == "1", f"got {lbl!r}")
 
 def t7_apply_label_sets_annotator():
     df = _make_df(6)
@@ -533,7 +533,7 @@ def t7_apply_label_does_not_change_other_rows():
     row = df.iloc[0]
     app.apply_label(row["query_id"], row["method"], row["chunk_id"], "0")
     updated = _st_stub.session_state["df"]
-    other_labels = updated.iloc[1:]["label_0_1_2"].tolist()
+    other_labels = updated.iloc[1:]["label"].tolist()
     unchanged = all(l == "" for l in other_labels if l != "1" and l != "0")
     test("apply_label only changes targeted row", unchanged,
          f"other labels: {other_labels}")
@@ -543,13 +543,13 @@ t7_apply_label_sets_annotator()
 t7_apply_label_does_not_change_other_rows()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T8 — Save & Export")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T8 â€” Save & Export")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t8_save_creates_csv():
     df = _make_df(4)
-    df["label_0_1_2"] = ["1", "1", "0", ""]
+    df["label"] = ["1", "1", "0", ""]
     with tempfile.TemporaryDirectory() as tmpdir:
         csv_path  = Path(tmpdir) / "labels.csv"
         xlsx_path = Path(tmpdir) / "labels.xlsx"
@@ -586,14 +586,14 @@ def t8_csv_has_correct_columns():
         app.save_data(df)
         app.OUTPUT_CSV, app.OUTPUT_XLSX = _orig_csv, _orig_xlsx
         saved = pd.read_csv(str(csv_path), dtype=str)
-        required = {"query_id", "method", "chunk_id", "label_0_1_2", "status"}
+        required = {"query_id", "method", "chunk_id", "label", "status"}
         missing  = required - set(saved.columns)
         test("saved CSV has required columns", len(missing) == 0,
              f"missing: {missing}")
 
 def t8_status_col_correct():
     df = _make_df(4)
-    df["label_0_1_2"] = ["1", "", "", "0"]
+    df["label"] = ["1", "", "", "0"]
     with tempfile.TemporaryDirectory() as tmpdir:
         csv_path  = Path(tmpdir) / "labels.csv"
         xlsx_path = Path(tmpdir) / "labels.xlsx"
@@ -616,14 +616,14 @@ t8_csv_has_correct_columns()
 t8_status_col_correct()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T9 — Resume (load from existing output)")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T9 â€” Resume (load from existing output)")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t9_resume_restores_labels():
     df_fresh = _make_df(4)
     df_labeled = df_fresh.copy()
-    df_labeled["label_0_1_2"] = ["1", "1", "", "0"]
+    df_labeled["label"] = ["1", "1", "", "0"]
     df_labeled["annotator"]   = ["ann", "ann", "", "ann"]
 
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -642,7 +642,7 @@ def t9_resume_restores_labels():
         app._load_fresh = _orig_load
         app.OUTPUT_CSV, app.OUTPUT_XLSX = _orig_csv, _orig_xlsx
 
-        labels = resumed["label_0_1_2"].tolist()
+        labels = resumed["label"].tolist()
         test("resume restores label '1' to first row",   labels[0] == "1", str(labels))
         test("resume restores label '1' to second row",  labels[1] == "1", str(labels))
         test("resume keeps empty label for third row",   labels[2] == "",  str(labels))
@@ -651,9 +651,9 @@ def t9_resume_restores_labels():
 t9_resume_restores_labels()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T10 — V2 Column Display in Chunk Card")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T10 â€” V2 Column Display in Chunk Card")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 import inspect as _inspect
 
@@ -688,9 +688,9 @@ def t10_v2_cols_in_make_df():
          len(grps) > 0 and p["total"] == 6, f"grps={len(grps)} total={p['total']}")
 
 def t10_top_k_limit_warn():
-    """Warn if any query×method group has more than 5 candidates."""
+    """Warn if any queryÃ—method group has more than 5 candidates."""
     df = _make_df(9)
-    # Each group currently has 1 chunk; add 5 more to Q001/element_based → 6 total
+    # Each group currently has 1 chunk; add 5 more to Q001/element_based â†’ 6 total
     extra_rows = []
     for i in range(5):
         extra_rows.append({
@@ -711,9 +711,9 @@ t10_v2_cols_in_make_df()
 t10_top_k_limit_warn()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-section("T11 — Evidence-Aware UI Functions")
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+section("T11 â€” Evidence-Aware UI Functions")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def t11_sidebar_badge_v3():
     """Sidebar badge must detect v3 from filename."""
@@ -814,10 +814,10 @@ def t11_button_text_explicit():
     test("label buttons have explicit text labels", ok)
 
 def t11_export_has_label_col():
-    """save_data must include label_0_1_2 and status in output."""
+    """save_data must include label and status in output."""
     src = _inspect.getsource(app.save_data)
-    ok = "label_0_1_2" in src and "status" in src
-    test("save_data includes label_0_1_2 and status", ok)
+    ok = '"label"' in src and "status" in src
+    test("save_data includes label and status", ok)
 
 t11_sidebar_badge_v3()
 t11_row_count_matches_file()
@@ -833,22 +833,23 @@ t11_button_text_explicit()
 t11_export_has_label_col()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 # Summary
-# ═══════════════════════════════════════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 total  = len(_results)
 passed = sum(1 for _, ok, _ in _results if ok)
 failed = total - passed
 
-print(f"\n{'═'*55}")
+print(f"\n{'â•'*55}")
 print(f"  TOTAL: {total}   PASS: {passed}   FAIL: {failed}")
-print(f"{'═'*55}")
+print(f"{'â•'*55}")
 
 if failed:
     print("\n  Failing tests:")
     for name, ok, reason in _results:
         if not ok:
-            print(f"    ✗ {name}  — {reason}")
+            print(f"    âœ— {name}  â€” {reason}")
 
 sys.exit(0 if failed == 0 else 1)
+
