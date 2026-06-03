@@ -1,6 +1,0 @@
-# NOTE: Use root requirements.txt for full dependencies.
-# This file is kept for reference but may be outdated.
-# Full install: pip install -r requirements.txt (from project root)
-streamlit>=1.32.0
-pandas>=2.0.0
-openpyxl>=3.1.2
