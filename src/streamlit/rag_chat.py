@@ -148,8 +148,7 @@ def _load_chat_history() -> list:
 # ── Load QA Gold Standard (for BLEU/ROUGE scoring) ───────────────────────────────
 
 _QA_GOLD_DF = None
-_GT_STRICT = None
-_GT_LENIENT = None
+_GT_BINARY  = None   # label >= 1 dianggap relevan (skema binary 0/1)
 
 def _load_qa_gold():
     """Load QA gold standard for reference answers."""
@@ -169,57 +168,43 @@ def _load_qa_gold():
     return _QA_GOLD_DF
 
 
-def _load_ground_truth(mode: str):
-    """Load ground truth JSON for retrieval evaluation.
-    
-    Args:
-        mode: 'strict' or 'lenient'
-    
+def _load_ground_truth():
+    """Load ground truth JSON binary (label >= 1 = relevan) untuk evaluasi retrieval.
+
+    Menggunakan skema label binary:
+      1 = relevan (mencakup label anotasi 1 dan 2 yang digabung)
+      0 = tidak relevan
+    File: data/ground_truth/qa_pairs_binary.json
+
     Returns:
         List of QA pairs with relevant_chunk_ids
     """
-    global _GT_STRICT, _GT_LENIENT
-    
-    if mode == "strict":
-        if _GT_STRICT is None:
-            try:
-                gt_path = ROOT / "data/ground_truth/qa_pairs_strict.json"
-                if gt_path.exists():
-                    with open(gt_path, encoding="utf-8") as f:
-                        _GT_STRICT = json.load(f)
-                    logger.info(f"Loaded strict ground truth: {len(_GT_STRICT)} QA pairs")
-                else:
-                    _GT_STRICT = []
-            except Exception as e:
-                logger.warning(f"Could not load strict ground truth: {e}")
-                _GT_STRICT = []
-        return _GT_STRICT
-    else:  # lenient
-        if _GT_LENIENT is None:
-            try:
-                gt_path = ROOT / "data/ground_truth/qa_pairs_lenient.json"
-                if gt_path.exists():
-                    with open(gt_path, encoding="utf-8") as f:
-                        _GT_LENIENT = json.load(f)
-                    logger.info(f"Loaded lenient ground truth: {len(_GT_LENIENT)} QA pairs")
-                else:
-                    _GT_LENIENT = []
-            except Exception as e:
-                logger.warning(f"Could not load lenient ground truth: {e}")
-                _GT_LENIENT = []
-        return _GT_LENIENT
+    global _GT_BINARY
+    if _GT_BINARY is None:
+        try:
+            gt_path = ROOT / "data/ground_truth/qa_pairs_binary.json"
+            if gt_path.exists():
+                with open(gt_path, encoding="utf-8") as f:
+                    _GT_BINARY = json.load(f)
+                logger.info(f"Loaded binary ground truth: {len(_GT_BINARY)} QA pairs")
+            else:
+                _GT_BINARY = []
+                logger.warning("qa_pairs_binary.json tidak ditemukan")
+        except Exception as e:
+            logger.warning(f"Could not load binary ground truth: {e}")
+            _GT_BINARY = []
+    return _GT_BINARY
 
 def _compute_chat_retrieval_metrics(
     q_id: str | None,
     method: str,
     retrieved: list,
     top_k: int,
-    relevance_mode: str,
 ) -> dict | None:
-    """Compute retrieval metrics for a chat query that matches QA gold."""
+    """Compute retrieval metrics (binary ground truth: label >= 1 = relevan)."""
     if not q_id:
         return None
-    gt_items = _load_ground_truth(relevance_mode)
+    gt_items = _load_ground_truth()
     gt_item = next((item for item in gt_items if str(item.get("id")) == q_id), None)
     if not gt_item:
         return None
@@ -229,75 +214,32 @@ def _compute_chat_retrieval_metrics(
         return None
     retrieved_ids = [doc.get("id", "") for doc in retrieved]
     return {
-        "relevance_mode": relevance_mode,
         "top_k": top_k,
         "n_relevant": len(rel_ids),
         "precision_at_k": compute_precision_at_k(retrieved_ids, rel_ids, top_k),
-        "recall_at_k": compute_recall_at_k(retrieved_ids, rel_ids, top_k),
-        "mrr": compute_mrr(retrieved_ids, rel_ids),
+        "recall_at_k":    compute_recall_at_k(retrieved_ids, rel_ids, top_k),
+        "mrr":            compute_mrr(retrieved_ids, rel_ids),
     }
-
-
-def _compute_both_retrieval_metrics(
-    q_id: str | None,
-    method: str,
-    retrieved: list,
-    top_k: int,
-) -> dict:
-    """Compute retrieval metrics for both strict and lenient modes at once.
-    
-    Returns:
-        dict with keys 'strict' and 'lenient', each holding a metrics dict or None.
-    """
-    return {
-        "strict":  _compute_chat_retrieval_metrics(q_id, method, retrieved, top_k, "strict"),
-        "lenient": _compute_chat_retrieval_metrics(q_id, method, retrieved, top_k, "lenient"),
-    }
-
-
-def _render_retrieval_metrics_both(metrics_both: dict) -> None:
-    """Render strict + lenient retrieval metrics side by side."""
-    strict  = metrics_both.get("strict")
-    lenient = metrics_both.get("lenient")
-
-    if not strict and not lenient:
-        st.caption("Retrieval scoring tidak tersedia untuk pertanyaan ini")
-        return
-
-    def _fmt(m: dict | None, label: str) -> str:
-        if not m:
-            return f'<span style="color:#94a3b8">{label}: —</span>'
-        k   = m.get("top_k", "-")
-        p   = m["precision_at_k"]
-        r   = m["recall_at_k"]
-        mrr = m["mrr"]
-        n   = m.get("n_relevant", "-")
-        return (
-            f'<b style="color:#6366f1">{label}</b> '
-            f'P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{mrr:.4f}</b> '
-            f'<span style="color:#94a3b8">(rel:{n})</span>'
-        )
-
-    st.markdown(
-        f'<div style="margin-top:6px; font-size:0.78rem; color:#374151; '
-        f'background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">'
-        f'{_fmt(strict, "Strict")}<br>{_fmt(lenient, "Lenient")}'
-        f'</div>',
-        unsafe_allow_html=True,
-    )
 
 
 def _render_retrieval_metrics(metrics: dict | None) -> None:
-    """Render chat retrieval metrics (single mode — legacy, masih dipakai di history)."""
+    """Render retrieval metrics (binary label)."""
     if not metrics:
-        st.caption("Retrieval scoring tidak tersedia untuk mode/metode ini")
+        st.caption("Retrieval scoring tidak tersedia untuk pertanyaan ini")
         return
-    mode = str(metrics.get("relevance_mode", "")).capitalize()
-    top_k_val = metrics.get("top_k", "-")
-    p = metrics["precision_at_k"]
-    r = metrics["recall_at_k"]
-    m = metrics["mrr"]
-    n_rel = metrics.get("n_relevant", "-")
+    k    = metrics.get("top_k", "-")
+    p    = metrics["precision_at_k"]
+    r    = metrics["recall_at_k"]
+    m    = metrics["mrr"]
+    n    = metrics.get("n_relevant", "-")
+    st.markdown(
+        f'<div style="margin-top:6px; font-size:0.78rem; color:#374151; '
+        f'background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">'
+        f'P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{m:.4f}</b> '
+        f'<span style="color:#94a3b8">(rel:{n})</span>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
     st.markdown(
         f'<div style="margin-top:4px; font-size:0.8rem; color:#374151;">'
         f'Retrieval ({mode}): P@{top_k_val} <b>{p:.4f}</b> '
@@ -576,11 +518,10 @@ def _render_history_turn(record: dict) -> None:
         if meta_bits:
             st.caption(" · ".join(meta_bits))
 
-        # Retrieval metrics — support both old (single) and new (both) format
-        ret_strict  = res.get("retrieval_strict")  or res.get("retrieval")
-        ret_lenient = res.get("retrieval_lenient")
-        if ret_strict or ret_lenient:
-            _render_retrieval_metrics_both({"strict": ret_strict, "lenient": ret_lenient})
+        # Retrieval metrics (binary label: 0/1)
+        ret = res.get("retrieval") or res.get("retrieval_strict") or res.get("retrieval_lenient")
+        if ret:
+            _render_retrieval_metrics(ret)
 
         if chunks:
             with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
@@ -824,14 +765,14 @@ with tab_chat:
                             unsafe_allow_html=True,
                         )
 
-                    # ── Retrieval metrics: strict + lenient sekaligus ─────
-                    retrieval_metrics_both = _compute_both_retrieval_metrics(
+                    # ── Retrieval metrics (binary label) ─────────────────
+                    retrieval_metrics = _compute_chat_retrieval_metrics(
                         q_id=q_id,
                         method=method,
                         retrieved=retrieved,
                         top_k=top_k,
                     )
-                    _render_retrieval_metrics_both(retrieval_metrics_both)
+                    _render_retrieval_metrics(retrieval_metrics)
 
                     # ── Retrieved chunks ──────────────────────────────────
                     if show_chunks and retrieved:
@@ -851,14 +792,13 @@ with tab_chat:
                                 )
 
                     turn_results.append({
-                        "method":           METHOD_LABELS[method],
-                        "answer":           answer,
-                        "bleu":             bleu,
-                        "rouge_l":          rouge,
-                        "retrieval_strict":  retrieval_metrics_both.get("strict"),
-                        "retrieval_lenient": retrieval_metrics_both.get("lenient"),
-                        "elapsed_s":        elapsed,
-                        "chunks":           _extract_chunk_records(retrieved),
+                        "method":    METHOD_LABELS[method],
+                        "answer":    answer,
+                        "bleu":      bleu,
+                        "rouge_l":   rouge,
+                        "retrieval": retrieval_metrics,
+                        "elapsed_s": elapsed,
+                        "chunks":    _extract_chunk_records(retrieved),
                     })
 
             # Simpan turn ke disk (persisten, tahan restart)
@@ -916,14 +856,14 @@ with tab_chat:
                     unsafe_allow_html=True,
                 )
 
-            # ── Retrieval metrics: strict + lenient sekaligus ─────────────
-            retrieval_metrics_both = _compute_both_retrieval_metrics(
+            # ── Retrieval metrics (binary label) ─────────────────────────
+            retrieval_metrics = _compute_chat_retrieval_metrics(
                 q_id=q_id,
                 method=selected_method,
                 retrieved=retrieved,
                 top_k=top_k,
             )
-            _render_retrieval_metrics_both(retrieval_metrics_both)
+            _render_retrieval_metrics(retrieval_metrics)
 
             if show_chunks and retrieved:
                 with st.expander(f"📄 Retrieved Chunks ({len(retrieved)})"):
@@ -945,14 +885,13 @@ with tab_chat:
             _save_chat_turn(_build_chat_record(
                 query, METHOD_LABELS[selected_method], top_k, gold,
                 [{
-                    "method":           METHOD_LABELS[selected_method],
-                    "answer":           answer,
-                    "bleu":             bleu,
-                    "rouge_l":          rouge,
-                    "retrieval_strict":  retrieval_metrics_both.get("strict"),
-                    "retrieval_lenient": retrieval_metrics_both.get("lenient"),
-                    "elapsed_s":        elapsed,
-                    "chunks":           _extract_chunk_records(retrieved),
+                    "method":    METHOD_LABELS[selected_method],
+                    "answer":    answer,
+                    "bleu":      bleu,
+                    "rouge_l":   rouge,
+                    "retrieval": retrieval_metrics,
+                    "elapsed_s": elapsed,
+                    "chunks":    _extract_chunk_records(retrieved),
                 }],
             ))
 
@@ -966,8 +905,8 @@ with tab_eval:
     st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR) + Generation (BLEU, ROUGE-L)")
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
-        "Menjalankan otomatis kedua mode relevance (Strict & Lenient). "
-        "Menghasilkan 20 file per run (2 mode relevance × 10 top-k)."
+        "Menggunakan ground truth binary (label 0/1). "
+        "Menghasilkan 10 file per run (top-k=1 s/d 10)."
     )
 
     # ── Konfigurasi run ───────────────────────────────────────────────────
@@ -979,12 +918,6 @@ with tab_eval:
             ["Full — 30 QA", "Quick — 5 QA"],
             horizontal=True,
             key="eval_mode",
-        )
-        relevance_mode = st.radio(
-            "Mode Relevance",
-            ["All", "Strict", "Lenient"],
-            horizontal=True,
-            key="relevance_mode",
         )
     
     with col_topk:
@@ -1008,23 +941,24 @@ with tab_eval:
         run_btn = False
 
     # ── Helper: jalankan satu run dan simpan ke disk ──────────────────────
-    def _run_eval_and_save(qa_subset: pd.DataFrame, mode_tag: str, relevance_mode: str, 
+    def _run_eval_and_save(qa_subset: pd.DataFrame, mode_tag: str,
                           top_k_range: tuple) -> list:
         """Evaluasi semua query × 3 metode × top-k range, simpan CSV ke disk.
-        
+
+        Menggunakan ground truth binary (qa_pairs_binary.json, label >= 1 = relevan).
+
         Args:
             qa_subset: DataFrame dengan QA pairs
             mode_tag: 'quick' atau 'full'
-            relevance_mode: 'strict' atau 'lenient'
             top_k_range: tuple (min_k, max_k) untuk top-k evaluation
-            
+
         Returns:
             List of (df, path) tuples untuk setiap top-k
         """
-        # Load ground truth
-        gt_data = _load_ground_truth(relevance_mode)
+        # Load ground truth binary
+        gt_data = _load_ground_truth()
         if not gt_data:
-            st.error(f"❌ Ground truth {relevance_mode} tidak ditemukan.")
+            st.error("❌ Ground truth binary (qa_pairs_binary.json) tidak ditemukan.")
             return []
         
         # Create lookup dict for ground truth
@@ -1159,15 +1093,12 @@ with tab_eval:
                         "hardware_info"    : hw_info_str,
                     })
             
-            # Save file for this top-k.
-            # Konsisten dengan konvensi terdokumentasi + arsip:
-            #   results/final/generation/{strict|lenient}/eval_{mode}_..._top{k}.csv
+            # Save file for this top-k — satu subfolder langsung di generation/
             df_result = pd.DataFrame(rows)
             # WIB timestamp (UTC+7)
             ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
-            mode_dir = EVAL_RESULTS_DIR / relevance_mode
-            mode_dir.mkdir(parents=True, exist_ok=True)
-            save_path = mode_dir / f"eval_{relevance_mode}_{ts_wib}_{mode_tag}_top{current_k}.csv"
+            EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+            save_path = EVAL_RESULTS_DIR / f"eval_{ts_wib}_{mode_tag}_top{current_k}.csv"
             df_result.to_csv(save_path, index=False)
             all_results.append((df_result, save_path))
         
@@ -1185,31 +1116,20 @@ with tab_eval:
             is_quick  = eval_mode.startswith("Quick")
             mode_tag  = "quick" if is_quick else "full"
             qa_subset = qa_df[qa_df["query_id"].isin(QUICK_EVAL_IDS)] if is_quick else qa_df
-            
-            # Run evaluation based on selected relevance mode
-            all_results = []
-            if relevance_mode == "All":
-                modes_to_run = ["strict", "lenient"]
-            elif relevance_mode == "Strict":
-                modes_to_run = ["strict"]
-            else:  # Lenient
-                modes_to_run = ["lenient"]
-            
-            for rel_mode_str in modes_to_run:
-                st.info(f"🔄 Menjalankan evaluasi mode: {rel_mode_str.upper()}...")
-                results = _run_eval_and_save(qa_subset, mode_tag, rel_mode_str, (top_k_min, top_k_max))
-                all_results.extend(results)
-            
+
+            st.info("🔄 Menjalankan evaluasi (binary ground truth)...")
+            all_results = _run_eval_and_save(qa_subset, mode_tag, (top_k_min, top_k_max))
+
             if all_results:
                 n_q = len(qa_subset)
                 n_files = len(all_results)
                 total_rows = sum(len(df) for df, _ in all_results)
-                
+
                 st.success(
                     f"✅ Selesai: {n_files} file ({total_rows} baris total, "
-                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k × {len(modes_to_run)} mode relevance)"
+                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k)"
                 )
-                
+
                 # Show list of generated files
                 st.markdown("**File yang di-generate:**")
                 for df, path in all_results:
@@ -1303,8 +1223,7 @@ with tab_eval:
 
     # ── Riwayat evaluasi dari disk ────────────────────────────────────────
     st.subheader("📂 Riwayat Evaluasi")
-    # rglob agar mencakup subfolder strict/ dan lenient/ (dan file flat lama, jika ada)
-    saved_files = sorted(EVAL_RESULTS_DIR.rglob("eval_*.csv"), reverse=True)
+    saved_files = sorted(EVAL_RESULTS_DIR.glob("eval_*.csv"), reverse=True)
 
     if not saved_files:
         st.info("Belum ada hasil evaluasi tersimpan. Jalankan evaluasi terlebih dahulu.")
@@ -1313,7 +1232,7 @@ with tab_eval:
         selected_file = st.selectbox(
             f"Pilih run ({len(saved_files)} tersedia)",
             options=saved_files,
-            format_func=lambda p: str(p.relative_to(EVAL_RESULTS_DIR)),
+            format_func=lambda p: p.name,
             key="eval_history_select",
         )
         if selected_file is not None:

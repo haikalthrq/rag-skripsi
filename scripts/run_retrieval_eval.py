@@ -51,8 +51,8 @@ COLLECTION_NAMES: Dict[str, str] = {
     "recursive":       "collection_recursive",
 }
 
-DEFAULT_GT          = "data/ground_truth/qa_pairs_strict.json"
-DEFAULT_OUTPUT      = "results/retrieval_eval_strict.csv"
+DEFAULT_GT          = "data/ground_truth/qa_pairs_binary.json"
+DEFAULT_OUTPUT      = "results/retrieval_eval.csv"
 DEFAULT_TOP_K       = 8
 DEFAULT_MODE        = "huggingface"
 DEFAULT_HF_MODEL    = "/workspace/models/Qwen3-Embedding-4B"
