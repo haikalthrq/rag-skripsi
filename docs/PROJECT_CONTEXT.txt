@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-04 (WIB)
+Terakhir diperbarui: 2026-06-05 (WIB)
 ================================================================================
 
 
@@ -69,15 +69,21 @@ rag-skripsi/
 │   ├── chunked/          {element_based,maxmin_semantic,recursive}/*.json
 │   ├── embeddings/       JSON embeddings (tracked by git, ~540MB)
 │   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
-│   └── ground_truth/     QA gold, kandidat, label, JSON GT (lihat Section 3)
+│   └── ground_truth/     QA gold, anotasi label, JSON GT (lihat Section 3)
+│       ├── archive/          file lama & dokumentasi proses (qa_pairs_strict, kandidat v3, dll)
+│       ├── qa_gold_standard_rag_bps_30qa_question_newest.xlsx  ← QA gold aktif
+│       ├── qa_pairs_binary.json                                ← GT evaluasi aktif
+│       ├── retrieval_labels_final.csv                         ← anotasi final (416 baris)
+│       └── retrieval_labels_final.xlsx                        ← anotasi final (idem, generated from CSV)
+│       [Di disk tapi NOT TRACKED git]: audit/, backup_question_revision/, qa_gold versi lama
 ├── results/
 │   ├── final/                          ← HASIL DEFINITIVE (run RTX 3090, 2026-05-31, VALID)
 │   │   └── generation/
-│   │       └── lenient/                eval_lenient_*_top1–top10.csv (10 file, BINARY label)
+│   │       └── eval_*_top{1..10}.csv   10 file flat (nama legacy "lenient" = binary)
 │   ├── chat_history/                   chat_history.jsonl + .gitkeep (riwayat chat persisten)
 │   └── archive/                        ← Semua run lama (referensi, jangan hapus)
 │       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
-│       │   └── lenient/                eval_lenient_top1–top10.csv ← BLEU=0 semua, ROUGE benar top4–10
+│       │   └── lenient/                eval_lenient_top1–top10.csv ← BLEU=0, ROUGE benar top4–10
 │       ├── RTX3090_strict_archived/    eval_strict_top1–top10.csv dari run RTX 3090
 │       │                               (diarsipkan karena skema binary tidak pakai strict lagi)
 │       ├── No GPU Info/                retrieval eval files (GGUF baseline)
@@ -86,9 +92,9 @@ rag-skripsi/
 │       └── RTX 5060 Ti 16GB/           generation_eval, bf16, vast, streamlit
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
-│            results/chat_history/ di-track via .gitkeep (commit 4d128d2)
-│   CATATAN: results/final/generation/lenient/ = SATU-SATUNYA hasil definitif valid.
-│            Skema BINARY (label 0/1): file lenient = hasil dengan threshold ≥ 1 = relevan.
+│            results/chat_history/ di-track via .gitkeep
+│   CATATAN: results/final/generation/ = flat folder, berisi 10 file eval definitif.
+│            Nama file "lenient" adalah legacy — isi = binary (label >= 1 = relevan).
 │            Subfolder strict/ sudah dihapus dari final (dipindah ke RTX3090_strict_archived).
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
@@ -130,14 +136,15 @@ Pipeline Ground Truth (2 tahap):
   TAHAP 2 — Anotasi Manual via src/streamlit/app.py
     Input : kandidat v3 xlsx
     Output: data/ground_truth/retrieval_labels_final.xlsx/.csv
-    Status: SELESAI — 416/416 baris dianotasi (label 0/1/2)
+    Status: SELESAI — 416/416 baris dianotasi (label binary 0/1)
+    Kolom label: "label" (bukan "label_0_1_2" — sudah di-rename)
 
 Ground Truth JSON (output evaluasi retrieval):
   data/ground_truth/qa_pairs_binary.json  — label >= 1, 175 chunk relevan (AKTIF)
     Skema binary: label 1 & 2 digabung jadi "relevan" (1), label 0 = "tidak relevan" (0)
     Ini yang dipakai oleh semua evaluasi dan kode (rag_chat.py, run_retrieval_eval.py)
-  data/ground_truth/qa_pairs_lenient.json — SAMA persis dengan binary, nama legacy
   data/ground_truth/archive/qa_pairs_strict_archived.json — label==2, 58 chunk (TIDAK DIPAKAI)
+  Tidak ada lagi qa_pairs_lenient.json maupun qa_pairs_strict.json di root — sudah diarsipkan
   Format: [{id, question, reference_answer, relevant_chunk_ids: {method: [ids]}}]
 
   Distribusi query dengan GT chunk per metode (binary, label≥1):
@@ -273,7 +280,8 @@ Evaluasi Retrieval (top_k=5):
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok 100%, semua chunk ada di ChromaDB.
 
 Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
-  Lokasi: results/final/generation/lenient/ (10 file, top1–top10)
+  Lokasi: results/final/generation/ (10 file flat, top1–top10)
+  Nama file: eval_*_top{k}.csv (prefix "lenient" di nama = legacy; isi = binary)
   Skema: BINARY (label >= 1 = relevan); file "lenient" adalah nama legacy untuk binary
   Status QC: BLEU non-zero semua, ROUGE-L 90/90 benar semua file, 0 error,
              0 truncation (max_tokens=16384; jawaban terpanjang ~8800 char selesai wajar)
@@ -376,7 +384,19 @@ SELESAI ✓ (2026-06-04 — refactor skema evaluasi)
       check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
       inspect_qa.py, rank_results.py
 
-CATATAN PENTING (acuan top-k & MRR di SKRIPSI.md):
+SELESAI ✓ (2026-06-05 — cleanup repo)
+  [x] Rename kolom label_0_1_2 → label di retrieval_labels_final.csv/xlsx + semua kode
+  [x] Rebuild retrieval_labels_final.xlsx dari CSV (binary label, kolom baru)
+  [x] Hapus src/streamlit/requirements.txt (redundan, subset root requirements.txt)
+  [x] Hapus data/chunked/(backup)element_based/ (10 file, backup chunking lama BUG 14)
+  [x] Hapus docs/Triton Windows Documentation.md (tidak relevan untuk setup Linux)
+  [x] Update notebooks/rag_inference.ipynb: GT → qa_pairs_binary.json, MAX_TOKENS → 16384,
+      results path → results/final/generation/
+  [x] Arsipkan ke data/ground_truth/archive/:
+      · retrieval_relevant_chunks_candidate_v3_evidence_aware.csv/.xlsx (output oracle pooling)
+      · summary_candidate_v3_evidence_aware.txt (log proses anotasi)
+  [x] Hapus do_git_push.py, do_push.sh (script one-off Vast AI, sudah stale)
+  [x] Flatten results/final/generation/ (hapus subfolder lenient/, file flat langsung)
   - SKRIPSI.md TIDAK menetapkan nilai k spesifik. Semua formula pakai notasi @k generik.
     Contoh Precision@5/Recall@5 di bab 4 hanya ILUSTRASI, bukan ketentuan k=5.
     User bebas pilih k (5 atau 8) DENGAN justifikasi di laporan.
@@ -502,13 +522,14 @@ Hal penting yang JANGAN salah:
     generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
   - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
     bleu, rouge_l, elapsed_s, error
-  - results/final/generation/lenient/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
-    File lenient adalah nama legacy untuk skema BINARY (label >= 1 = relevan)
-    Tidak ada lagi subfolder strict/ di final/ — sudah diarsipkan
+  - results/final/generation/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
+    10 file flat: eval_*_top{1..10}.csv (nama file legacy "lenient" = binary)
+    Tidak ada subfolder di bawah generation/ — semua file di level ini langsung
   - results/archive/RTX3090_strict_archived/ = strict RTX 3090 (valid tapi tidak dipakai)
   - results/archive/former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
   - Ground truth aktif: qa_pairs_binary.json (bukan strict/lenient lagi)
-    Label binary: 1 & 2 digabung jadi relevan (1), 0 = tidak relevan
+    Label binary: 1 (relevan, mencakup lama label 1+2), 0 = tidak relevan
+  - Kolom label di retrieval_labels_final.csv/.xlsx: "label" (BUKAN "label_0_1_2")
   - TIDAK ada radio "Mode Relevance" di batch eval — semua pakai binary
   - TIDAK ada radio "Mode Relevance Chat" di tab Chat — semua pakai binary
   - Tab Chat: input via selectbox QA Gold, bukan ketik bebas

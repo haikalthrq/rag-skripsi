@@ -1,10 +1,10 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-06-04 (WIB)
+# Generated: 2026-06-05 (WIB)
 # Purpose: Summary for AI agents continuing this conversation
 
 ## Objective
-Run definitif evaluasi generasi di RTX 3090 SUDAH selesai. Skema evaluasi
-disederhanakan ke BINARY (label 0/1). Fokus berikutnya: analisis hasil +
+Run definitif evaluasi generasi di RTX 3090 SUDAH selesai dan VALID. Repo sudah
+dibersihkan dari file redundan/obsolete. Fokus berikutnya: analisis hasil +
 penulisan laporan skripsi.
 
 ---
@@ -12,42 +12,37 @@ penulisan laporan skripsi.
 ## Completed Tasks
 
 ### 1. Hasil run RTX 3090 (2026-05-31) — VALID
-- 10 file di results/final/generation/lenient/ (top1-top10), nama "lenient" = binary.
+- 10 file flat di results/final/generation/ (nama "lenient" = legacy untuk binary).
 - QC: BLEU non-zero, ROUGE-L 90/90 benar, 0 error, 0 truncation (max_tokens=16384).
 - Generasi top_k=5: Element .118/.701 · MaxMin .105/.637 · Recursive .144/.684
-- Retrieval top_k=5 (binary): Element P@5 .129 R@5 .392 MRR .354 · MaxMin .131/.447/.349
-  · Recursive .145/.352/.429
+- Retrieval top_k=5 (binary): Element P@5 .129 R@5 .392 MRR .354 ·
+  MaxMin .131/.447/.349 · Recursive .145/.352/.429
 
 ### 2. Refactor skema label → BINARY (2026-06-04)
-- Label 2 (Relevan Utama) + Label 1 (Pendukung) DIGABUNG jadi 1 (relevan).
-- Label 0 tetap 0 (tidak relevan). Tidak ada re-run data — identik dengan lenient.
-- Dibuat: data/ground_truth/qa_pairs_binary.json (30 items, 175 chunk, sama persis
-  dengan qa_pairs_lenient.json).
-- Diarsipkan: qa_pairs_strict.json → data/ground_truth/archive/
-  10 file strict RTX 3090 → results/archive/RTX3090_strict_archived/
-- Semua kode aktif diperbarui ke binary:
-  · rag_chat.py: hapus _GT_STRICT/_GT_LENIENT → _GT_BINARY; hapus _compute_both,
-    _render_retrieval_metrics_both; hapus radio "Mode Relevance"; output flat
-    (tanpa subfolder strict/lenient); file selectbox di eval history pakai glob bukan rglob.
-  · run_retrieval_eval.py: default gt → qa_pairs_binary.json; output → retrieval_eval.csv
+- Label 2 + Label 1 → digabung jadi 1 (relevan). Label 0 tetap 0.
+- qa_pairs_binary.json dibuat (identik dengan lenient lama).
+- Semua kode diperbarui: rag_chat.py, run_retrieval_eval.py.
+- Kolom label di CSV/XLSX di-rename: label_0_1_2 → label.
+- retrieval_labels_final.xlsx di-rebuild dari CSV (binary, kolom "label").
 
-### 3. Update UI rag_chat.py (2026-06-02, sudah masuk sebelum sesi ini)
-- Input chat sekarang selectbox QA Gold (bukan ketik bebas).
-- Metrik retrieval inline: P@k, R@k, MRR ditampilkan bersama BLEU/ROUGE-L.
-- Riwayat chat persisten menyimpan retrieval metrics per metode.
-- Backward compat: record JSONL lama dengan retrieval_strict/lenient tetap tampil.
+### 3. Update UI rag_chat.py (2026-06-02)
+- Input chat: selectbox QA Gold (bukan ketik bebas).
+- Metrik retrieval inline: P@k, R@k, MRR + BLEU/ROUGE-L.
+- Riwayat chat persisten di results/chat_history/chat_history.jsonl.
 
-### 4. Cleanup scripts (commit ed852ff)
-- Dihapus dari repo: check_nan_percentage.py, cleanup_nan_results.py,
-  compare_results.py, inspect_qa.py, rank_results.py
-- Scripts aktif yang tersisa: build_candidates_v3.py, convert_ground_truth_to_json.py,
-  download_embedding_model.py, download_generator_model.py, load_embeddings_to_chroma.py,
-  run_generation_eval.py, run_retrieval_eval.py
-
-### 5. Fitur Riwayat Chat persisten
-- Disimpan ke results/chat_history/chat_history.jsonl (JSONL).
-- Di-track git (commit 4d128d2) → sinkron antara laptop dan Vast AI.
-- Tab "🕒 Riwayat Chat": terbaru di atas, expandable, cari, download, hapus.
+### 4. Cleanup repo (2026-06-05)
+- Dihapus: src/streamlit/requirements.txt (redundan), do_git_push.py, do_push.sh
+- Dihapus: data/chunked/(backup)element_based/ (10 file backup chunking lama)
+- Dihapus: docs/Triton Windows Documentation.md
+- Diarsipkan ke data/ground_truth/archive/:
+  · retrieval_relevant_chunks_candidate_v3_evidence_aware.csv/.xlsx
+  · summary_candidate_v3_evidence_aware.txt
+- Diarsipkan: results/archive/RTX3090_strict_archived/ (strict tidak dipakai lagi)
+- Notebook rag_inference.ipynb diupdate: GT → binary, MAX_TOKENS → 16384,
+  results path → results/final/generation/
+- results/final/generation/ di-flatten (hapus subfolder lenient/, file flat langsung)
+- 5 scripts dihapus: check_nan_percentage, cleanup_nan, compare_results,
+  inspect_qa, rank_results
 
 ---
 
@@ -56,40 +51,46 @@ penulisan laporan skripsi.
 ### Hardware
 - GPU: RTX 3090 24GB (Vast AI) — run definitif sudah dijalankan 2026-05-31.
 
-### Ground Truth
-- AKTIF: data/ground_truth/qa_pairs_binary.json (label ≥ 1 = relevan, 175 chunk)
-- Legacy (masih ada tapi tidak dipakai): qa_pairs_lenient.json (identik dengan binary)
-- Diarsipkan: qa_pairs_strict.json → data/ground_truth/archive/
+### Ground Truth (data/ground_truth/)
+- AKTIF (tracked git):
+  · qa_gold_standard_rag_bps_30qa_question_newest.xlsx — QA gold
+  · qa_pairs_binary.json — GT evaluasi (label >= 1 = relevan, 175 chunk)
+  · retrieval_labels_final.csv — anotasi final 416 baris, kolom: label
+  · retrieval_labels_final.xlsx — idem, generated dari CSV
+- ARSIP (tracked git di archive/):
+  · qa_pairs_strict_archived.json
+  · retrieval_relevant_chunks_candidate_v3_evidence_aware.csv/.xlsx
+  · summary_candidate_v3_evidence_aware.txt
+- Di disk TIDAK tracked (di-ignore git):
+  · audit/, backup_question_revision/, qa_gold versi lama (fixed, dll)
 
 ### Results
-- DEFINITIF: results/final/generation/lenient/ — 10 file RTX 3090 (binary label)
-- ARSIP:     results/archive/RTX3090_strict_archived/ — strict RTX 3090 (valid tapi
-             tidak dipakai karena beralih ke binary)
-- TIDAK VALID: results/archive/former_final_generation/ — RTX 5060 Ti (BLEU=0)
+- DEFINITIF: results/final/generation/ — 10 file flat (eval_*_top{1..10}.csv)
+- ARSIP:     results/archive/RTX3090_strict_archived/ (valid, tidak dipakai)
+- TIDAK VALID: results/archive/former_final_generation/ (RTX 5060 Ti, BLEU=0)
 - CHAT:     results/chat_history/ — di-track git
 
 ### Kode
-- rag_chat.py: binary label, input QA selectbox, retrieval inline, riwayat persisten
-- run_retrieval_eval.py: default → qa_pairs_binary.json
-- metrics.py: compute_bleu fixed (BUG 16), semua metrik pure Python
+- rag_chat.py: binary GT, input QA selectbox, retrieval inline, riwayat persisten,
+  output flat (tanpa subfolder), history glob bukan rglob
+- run_retrieval_eval.py: default → qa_pairs_binary.json, output → retrieval_eval.csv
+- metrics.py: compute_bleu fixed (BUG 16)
+- app.py: anotasi binary (0/1), kolom "label"
+- notebooks/rag_inference.ipynb: GT binary, MAX_TOKENS=16384, path results/final/
 
 ### Git
-- Branch: main, HEAD = commit 2bafa37
-  "refactor: drop strict, adopt binary (0/1) label scheme"
-- Working tree: clean (setelah commit ini)
+- Branch: main. Latest commits (terbaru di atas):
+  · 4c204db "move summary_candidate_v3 to archive"
+  · b5fb67f "move candidate files to archive"
+  · 0552e0e "rebuild retrieval_labels_final.xlsx from CSV"
+  · ea44f80 "remove redundant/obsolete files; update notebook"
+  · 0374083 "rename column label_0_1_2 -> label"
+  · d7ec7b1 "unify to binary label (0/1) across all code and data"
 
 ---
 
-## Known Issues (Resolved)
-- ~~BLEU=0~~ → Fixed BUG 16.
-- ~~ROUGE-L=0 file lama~~ → run RTX 3090 benar.
-- ~~max_tokens truncation~~ → 16384.
-- ~~Riwayat chat hilang~~ → persisten JSONL.
-- ~~Skema strict/lenient kompleks~~ → refactor ke binary 0/1.
-
 ## Catatan Metodologis Penting
-- Skema binary: cukup tulis di laporan bahwa chunk dengan label 1 (pendukung) dan
-  label 2 (relevan utama) keduanya dianggap relevan. Tidak perlu re-anotasi.
+- Skema binary: label 1 (pendukung) + label 2 (relevan utama) → sama-sama "relevan".
 - SKRIPSI.md tidak menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
 - Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
 - |Q| dalam MRR = query yang punya GT chunk (bukan 30). Sebutkan di laporan.
