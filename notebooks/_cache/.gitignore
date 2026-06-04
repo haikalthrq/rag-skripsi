@@ -1,0 +1,3 @@
+# Cache pickle dari notebook 00_load_data.ipynb
+# Di-generate lokal, tidak perlu di-track git
+*.pkl
