@@ -342,8 +342,6 @@ st.set_page_config(
 # ── CSS — minimal, dark-mode-safe ────────────────────────────────────────────
 st.markdown("""
 <style>
-/* Normalisasi font size agar konsisten di semua section */
-.stMarkdown p, .stMarkdown li { font-size: 0.95rem !important; }
 .chunk-meta {
     font-size: 0.82rem;
     font-weight: 600;
