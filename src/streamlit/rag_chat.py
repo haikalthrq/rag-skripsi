@@ -224,7 +224,7 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render Metrik Evaluasi — retrieval dulu, lalu generation, layout compact."""
+    """Render Metrik Evaluasi — satu baris: Precision/BLEU | Recall/ROUGE-L | MRR."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
     has_ret = metrics is not None
 
@@ -233,21 +233,32 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
 
     st.markdown("**Metrik Evaluasi**")
 
-    if has_ret:
-        k = metrics.get("top_k", "-")
-        p = metrics["precision_at_k"]
-        r = metrics["recall_at_k"]
-        m = metrics["mrr"]
-        n = metrics.get("n_relevant", "-")
-        c1, c2, c3 = st.columns(3)
-        c1.metric(f"Precision@{k}", f"{p:.4f}")
-        c2.metric(f"Recall@{k}", f"{r:.4f}")
-        c3.metric(f"MRR", f"{m:.4f}", help=f"n_relevant dalam GT: {n}")
+    k = metrics.get("top_k", "-") if has_ret else "-"
+    p = metrics["precision_at_k"] if has_ret else None
+    r = metrics["recall_at_k"]    if has_ret else None
+    m = metrics["mrr"]            if has_ret else None
+    n = metrics.get("n_relevant", "-") if has_ret else "-"
 
-    if has_gen:
-        c1, c2 = st.columns(2)
-        c1.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
-        c2.metric("ROUGE-L Recall", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
+    c1, c2, c3 = st.columns(3)
+
+    # Kolom 1: Precision@k + BLEU (sejajar)
+    with c1:
+        if has_ret:
+            st.metric(f"Precision@{k}", f"{p:.4f}")
+        if has_gen:
+            st.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
+
+    # Kolom 2: Recall@k + ROUGE-L (sejajar)
+    with c2:
+        if has_ret:
+            st.metric(f"Recall@{k}", f"{r:.4f}")
+        if has_gen:
+            st.metric("ROUGE-L", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
+
+    # Kolom 3: MRR (hanya retrieval)
+    with c3:
+        if has_ret:
+            st.metric("MRR", f"{m:.4f}", help=f"n_relevant dalam GT: {n}")
 
 
 def get_hardware_info() -> dict:
