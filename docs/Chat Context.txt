@@ -47,18 +47,17 @@ penulisan laporan skripsi.
 ### 5. Visualisasi evaluasi (2026-06-05) — DONE
 - Notebook: notebooks/eval_visualization.ipynb (tracked git)
 - Scope: top-5 hingga top-10 saja (per explicit request user)
-- Output: 6 chart PNG (300 DPI) + 5 tabel CSV → results/final/figures/
+- Output: 5 chart PNG (300 DPI) + 4 tabel CSV → results/final/figures/
 - Charts:
   1. Line Recall@k vs Top-k
   2. Line MRR vs Top-k
   3. Bar BLEU & ROUGE-L (Top-5)
   4. Grouped bar jumlah query berhasil (MRR>0) per top-k
-  5. Heatmap MRR@5 per query per metode (nilai numerik sudah di chart)
-  6. Radar chart semua metrik (Top-5)
-- Tabel: Setelah tiap chart (kecuali heatmap), styled dataframe + export CSV
+  5. Heatmap MRR@5 per query per metode (IMPROVED: border putih, font besar, 3 decimal)
+- Tabel: Setelah tiap chart, styled dataframe (highlight HANYA max value, subtle green #d4edda + bold) + export CSV
 - Struktur notebook: Cell setup → Cell agregasi ALL data → Chart+Tabel pairs
 - Dijalankan via jupyter nbconvert --execute, output tersimpan di notebook
-- Commit: 1a3ee15
+- Commit: 15d820c (radar chart dihapus per request user, table styling & heatmap diperbaiki)
 
 ---
 
