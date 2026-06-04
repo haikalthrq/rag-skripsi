@@ -1,4 +1,0 @@
-Metode,Precision@5,Recall@5,MRR,BLEU,ROUGE-L
-Element-Based,0.1286,0.3923,0.3542,0.1178,0.7005
-MaxMin Semantic,0.131,0.4466,0.3488,0.1052,0.6369
-Recursive,0.1448,0.3523,0.4293,0.144,0.6838

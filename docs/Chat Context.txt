@@ -1,120 +1,118 @@
 # Chat Context - RAG Skripsi Project
-# Generated: 2026-06-05 (WIB)
-# Purpose: Summary for AI agents continuing this conversation
+# Updated: 2026-06-05 04:01 WIB
+# Purpose: Fast handoff summary for the next AI session
 
 ## Objective
-Run definitif evaluasi generasi di RTX 3090 SUDAH selesai dan VALID. Repo sudah
-dibersihkan dari file redundan/obsolete. Fokus berikutnya: analisis hasil +
-penulisan laporan skripsi.
+Project sudah masuk fase akhir: pipeline RAG, ground truth, evaluasi, dan demo chat
+sudah berjalan. Fokus aktif sekarang adalah finalisasi visualisasi, analisis hasil,
+dan penulisan skripsi.
 
----
+## Current Active Assets
 
-## Completed Tasks
+- QA gold aktif:
+  - `data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx`
+- GT retrieval aktif:
+  - `data/ground_truth/qa_pairs_binary.json`
+- Annotation final:
+  - `data/ground_truth/retrieval_labels_final.csv`
+  - `data/ground_truth/retrieval_labels_final.xlsx`
+- Demo chat aktif:
+  - `src/streamlit/rag_chat.py`
+- Notebook visualisasi aktif:
+  - `notebooks/eval_visualization.ipynb`
+- Hasil final generasi:
+  - `results/final/generation/`
+- Hasil visualisasi:
+  - `results/final/figures/`
 
-### 1. Hasil run RTX 3090 (2026-05-31) — VALID
-- 10 file flat di results/final/generation/ (nama "lenient" = legacy untuk binary).
-- QC: BLEU non-zero, ROUGE-L 90/90 benar, 0 error, 0 truncation (max_tokens=16384).
-- Generasi top_k=5: Element .118/.701 · MaxMin .105/.637 · Recursive .144/.684
-- Retrieval top_k=5 (binary): Element P@5 .129 R@5 .392 MRR .354 ·
-  MaxMin .131/.447/.349 · Recursive .145/.352/.429
+## Important Decisions Locked In
 
-### 2. Refactor skema label → BINARY (2026-06-04)
-- Label 2 + Label 1 → digabung jadi 1 (relevan). Label 0 tetap 0.
-- qa_pairs_binary.json dibuat (identik dengan lenient lama).
-- Semua kode diperbarui: rag_chat.py, run_retrieval_eval.py.
-- Kolom label di CSV/XLSX di-rename: label_0_1_2 → label.
-- retrieval_labels_final.xlsx di-rebuild dari CSV (binary, kolom "label").
+- Evaluasi retrieval sekarang hanya pakai skema binary `0/1`.
+- Label lama `1` dan `2` digabung menjadi `1 = relevan`.
+- Input chat di `rag_chat.py` tidak lagi bebas; sekarang selectbox QA gold.
+- `DEFAULT_TOP_K = 8`.
+- `max_tokens = 16384`.
+- Metrik retrieval ditampilkan inline di chat:
+  - Precision@k
+  - Recall@k
+  - MRR
+- Metrik generasi ditampilkan inline:
+  - BLEU
+  - ROUGE-L Recall
+- Riwayat chat persisten di:
+  - `results/chat_history/chat_history.jsonl`
 
-### 3. Update UI rag_chat.py (2026-06-02)
-- Input chat: selectbox QA Gold (bukan ketik bebas).
-- Metrik retrieval inline: P@k, R@k, MRR + BLEU/ROUGE-L.
-- Riwayat chat persisten di results/chat_history/chat_history.jsonl.
+## Latest Completed Work
 
-### 4. Cleanup repo (2026-06-05)
-- Dihapus: src/streamlit/requirements.txt (redundan), do_git_push.py, do_push.sh
-- Dihapus: data/chunked/(backup)element_based/ (10 file backup chunking lama)
-- Dihapus: docs/Triton Windows Documentation.md
-- Diarsipkan ke data/ground_truth/archive/:
-  · retrieval_relevant_chunks_candidate_v3_evidence_aware.csv/.xlsx
-  · summary_candidate_v3_evidence_aware.txt
-- Diarsipkan: results/archive/RTX3090_strict_archived/ (strict tidak dipakai lagi)
-- Notebook rag_inference.ipynb diupdate: GT → binary, MAX_TOKENS → 16384,
-  results path → results/final/generation/
-- results/final/generation/ di-flatten (hapus subfolder lenient/, file flat langsung)
-- 5 scripts dihapus: check_nan_percentage, cleanup_nan, compare_results,
-  inspect_qa, rank_results
+### 1. Refactor GT dan evaluasi ke binary
+- `qa_pairs_binary.json` menjadi GT retrieval aktif.
+- Strict mode tidak lagi dipakai pada kode aktif.
+- Kolom anotasi aktif sekarang bernama `label`.
 
-### 5. Visualisasi evaluasi (2026-06-05) — DONE
-- Notebook: notebooks/eval_visualization.ipynb (tracked git)
-- Scope: top-5 hingga top-10 saja (per explicit request user)
-- Output: 5 chart PNG (300 DPI) + 4 tabel CSV → results/final/figures/
-- Charts:
-  1. Line Recall@k vs Top-k
-  2. Line MRR vs Top-k
-  3. Bar BLEU & ROUGE-L (Top-5)
-  4. Grouped bar jumlah query berhasil (MRR>0) per top-k
-  5. Heatmap MRR@5 per query per metode (IMPROVED: border putih, font besar, 3 decimal)
-- Tabel: Setelah tiap chart, styled dataframe (highlight HANYA max value, subtle green #d4edda + bold) + export CSV
-- Struktur notebook: Cell setup → Cell agregasi ALL data → Chart+Tabel pairs
-- Dijalankan via jupyter nbconvert --execute, output tersimpan di notebook
-- Commit: 15d820c (radar chart dihapus per request user, table styling & heatmap diperbaiki)
+### 2. Update `rag_chat.py`
+- Input query diubah dari free text menjadi selectbox QA gold.
+- Retrieval metrics ditampilkan inline bersama metrik generasi.
+- Riwayat chat dibuat persisten.
 
----
+### 3. Cleanup repo
+- Beberapa script usang dan file redundan sudah dihapus/diarsipkan.
+- Hasil generasi final sudah dirapikan ke folder flat:
+  - `results/final/generation/`
 
-## Current State
+### 4. Visualisasi evaluasi
+- Visualisasi sekarang dipusatkan di:
+  - `notebooks/eval_visualization.ipynb`
+- Output utama:
+  - `chart1_recall_trend.png`
+  - `chart2_mrr_trend.png`
+  - `chart3_generation_metrics.png`
+  - `chart4_hit_count.png`
+  - `chart5_heatmap_mrr.png`
+- Tabel sudah diubah agar center aligned dan hanya bold nilai maksimum.
+- Legend, header tabel, dan penempatan label chart sudah beberapa kali dituning.
+- Chart 1 Recall memakai aturan label terbaru:
+  - Top-k 5-7 semua label di atas garis.
+  - Top-k 8-10: MaxMin di atas, Element di bawah, Recursive di atas.
+  - Top-k 8 punya offset ekstra agar `0.510` dan `0.517` tidak overlap.
+- Chart 3 legend sudah dipindah ke luar area plot.
+- Table 3 header sudah sejajar dan tidak lagi menampilkan literal `\n`.
+- File output lama di `results/final/figures/` yang bernama `01_*` sampai `06_*`
+  dan `summary_metrics_*.csv` sudah dihapus karena tidak dipakai lagi.
 
-### Hardware
-- GPU: RTX 3090 24GB (Vast AI) — run definitif sudah dijalankan 2026-05-31.
+## Current Repo State
 
-### Ground Truth (data/ground_truth/)
-- AKTIF (tracked git):
-  · qa_gold_standard_rag_bps_30qa_question_newest.xlsx — QA gold
-  · qa_pairs_binary.json — GT evaluasi (label >= 1 = relevan, 175 chunk)
-  · retrieval_labels_final.csv — anotasi final 416 baris, kolom: label
-  · retrieval_labels_final.xlsx — idem, generated dari CSV
-- ARSIP (tracked git di archive/):
-  · qa_pairs_strict_archived.json
-  · retrieval_relevant_chunks_candidate_v3_evidence_aware.csv/.xlsx
-  · summary_candidate_v3_evidence_aware.txt
-- Di disk TIDAK tracked (di-ignore git):
-  · audit/, backup_question_revision/, qa_gold versi lama (fixed, dll)
+- Branch aktif: `main`
+- Remote tracking: `origin/main`
+- Perubahan yang masuk ke push terbaru:
+  - perubahan `notebooks/eval_visualization.ipynb`
+  - regenerasi figure/CSV aktif di `results/final/figures/`
+  - penghapusan notebook visualisasi lama `notebooks/00_*.ipynb` s.d. `07_*.ipynb`
+  - penghapusan figure/summary lama di `results/final/figures/`
+  - cache visualisasi `notebooks/_cache/data_eval.pkl`
 
-### Results
-- DEFINITIF: results/final/generation/ — 10 file flat (eval_*_top{1..10}.csv)
-- FIGURES:   results/final/figures/ — 6 chart PNG + 5 tabel CSV (visualisasi)
-- ARSIP:     results/archive/RTX3090_strict_archived/ (valid, tidak dipakai)
-- TIDAK VALID: results/archive/former_final_generation/ (RTX 5060 Ti, BLEU=0)
-- CHAT:     results/chat_history/ — di-track git
+## Important File State Notes
 
-### Kode
-- rag_chat.py: binary GT, input QA selectbox, retrieval inline, riwayat persisten,
-  output flat (tanpa subfolder), history glob bukan rglob
-- run_retrieval_eval.py: default → qa_pairs_binary.json, output → retrieval_eval.csv
-- metrics.py: compute_bleu fixed (BUG 16)
-- app.py: anotasi binary (0/1), kolom "label"
-- notebooks/rag_inference.ipynb: GT binary, MAX_TOKENS=16384, path results/final/
+- Notebook visualisasi lama yang terpisah per chart tidak lagi jadi basis kerja;
+  sekarang semua visualisasi aktif ada di `notebooks/eval_visualization.ipynb`.
+- `results/final/figures/` sekarang hanya menyimpan output visualisasi aktif:
+  `chart1` sampai `chart5` dan `table1` sampai `table4`.
+- Jika ada perbedaan antara konteks lama dan repo sekarang, prioritaskan file aktual
+  di working tree.
 
-### Git
-- Branch: main. Latest commits (terbaru di atas):
-  · 4c204db "move summary_candidate_v3 to archive"
-  · b5fb67f "move candidate files to archive"
-  · 0552e0e "rebuild retrieval_labels_final.xlsx from CSV"
-  · ea44f80 "remove redundant/obsolete files; update notebook"
-  · 0374083 "rename column label_0_1_2 -> label"
-  · d7ec7b1 "unify to binary label (0/1) across all code and data"
+## Valid Reference Metrics
 
----
+Top-k = 5:
+- Generation:
+  - Element: BLEU `0.1178`, ROUGE-L `0.7005`
+  - MaxMin: BLEU `0.1052`, ROUGE-L `0.6369`
+  - Recursive: BLEU `0.1440`, ROUGE-L `0.6838`
+- Retrieval:
+  - Element: P@5 `0.129`, R@5 `0.392`, MRR `0.354`
+  - MaxMin: P@5 `0.131`, R@5 `0.447`, MRR `0.349`
+  - Recursive: P@5 `0.145`, R@5 `0.352`, MRR `0.429`
 
-## Catatan Metodologis Penting
-- Skema binary: label 1 (pendukung) + label 2 (relevan utama) → sama-sama "relevan".
-- SKRIPSI.md tidak menetapkan nilai k; @5 di bab 4 hanya ilustrasi. Pilih k + justifikasi.
-- Typo Pers 2.4: RR(q1) → RR(qi). Rumus MRR & kode konsisten (rank dalam top-k).
-- |Q| dalam MRR = query yang punya GT chunk (bukan 30). Sebutkan di laporan.
+## Next Practical Focus
 
-## Next Steps
-1. ~~Analisis mendalam perbandingan antar metode chunking (pakai results/final/).~~ DONE
-2. ~~Visualisasi hasil evaluasi (top-5 s/d top-10).~~ DONE (2026-06-05)
-3. Penulisan laporan skripsi.
-4. Tentukan & justifikasi nilai k pelaporan (5 atau 8).
-5. Perbaiki naskah: typo RR(q1)→RR(qi) + penegasan MRR dihitung dalam top-k.
-6. pip freeze > requirements.lock.txt di environment RTX 3090.
+1. Lanjutkan analisis hasil untuk naskah skripsi.
+2. Finalisasi justifikasi nilai `k` yang dipakai di laporan.
+3. Rapikan environment/lockfile bila diperlukan.
