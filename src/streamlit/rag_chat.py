@@ -224,7 +224,7 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render Metrik Evaluasi — satu baris: Precision/BLEU | Recall/ROUGE-L | MRR."""
+    """Render Metrik Evaluasi — tabel markdown, font konsisten."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
     has_ret = metrics is not None
 
@@ -234,31 +234,21 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
     st.markdown("**Metrik Evaluasi**")
 
     k = metrics.get("top_k", "-") if has_ret else "-"
-    p = metrics["precision_at_k"] if has_ret else None
-    r = metrics["recall_at_k"]    if has_ret else None
-    m = metrics["mrr"]            if has_ret else None
-    n = metrics.get("n_relevant", "-") if has_ret else "-"
+    p = f"{metrics['precision_at_k']:.4f}" if has_ret else "—"
+    r = f"{metrics['recall_at_k']:.4f}"    if has_ret else "—"
+    m = f"{metrics['mrr']:.4f}"            if has_ret else "—"
+    n = metrics.get("n_relevant", "-")     if has_ret else "-"
+    b = f"{bleu:.4f}"  if isinstance(bleu,  float) else "—"
+    rl = f"{rouge:.4f}" if isinstance(rouge, float) else "—"
 
-    c1, c2, c3 = st.columns(3)
+    rows = []
+    if has_ret:
+        rows.append(f"| Precision@{k} | {p} | Recall@{k} | {r} | MRR | {m} |")
+    if has_gen:
+        rows.append(f"| BLEU | {b} | ROUGE-L | {rl} | | |")
 
-    # Kolom 1: Precision@k + BLEU (sejajar)
-    with c1:
-        if has_ret:
-            st.metric(f"Precision@{k}", f"{p:.4f}")
-        if has_gen:
-            st.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
-
-    # Kolom 2: Recall@k + ROUGE-L (sejajar)
-    with c2:
-        if has_ret:
-            st.metric(f"Recall@{k}", f"{r:.4f}")
-        if has_gen:
-            st.metric("ROUGE-L", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
-
-    # Kolom 3: MRR (hanya retrieval)
-    with c3:
-        if has_ret:
-            st.metric("MRR", f"{m:.4f}", help=f"n_relevant dalam GT: {n}")
+    table = "| Metrik | Nilai | Metrik | Nilai | Metrik | Nilai |\n|---|---|---|---|---|---|\n" + "\n".join(rows)
+    st.markdown(table)
 
 
 def get_hardware_info() -> dict:
@@ -582,7 +572,7 @@ with tab_chat:
         gold = str(selected_qa.get("gold_answer", "")).strip()
 
         # ── Header: User Question only ────────────────────────────────────
-        st.markdown("### User Question")
+        st.markdown("**User Question**")
         st.write(query)
 
         if compare_mode:
@@ -678,7 +668,7 @@ with tab_chat:
                 contexts = [p._format_context(doc) for doc in retrieved]
 
                 # ── Generated Answer ──────────────────────────────────────
-                st.markdown("### Generated Answer")
+                st.markdown("**Generated Answer**")
                 answer = stream_answer(pipeline.generator, query, contexts,
                                       timer_placeholder=timer_ph, t0=t0)
                 elapsed = round(time.time() - t0, 1)
@@ -689,7 +679,7 @@ with tab_chat:
 
             # ── Ground Truth Answer ───────────────────────────────────────
             if gold:
-                st.markdown("### Ground Truth Answer")
+                st.markdown("**Ground Truth Answer**")
                 st.markdown(gold)
 
             # ── Metrik ────────────────────────────────────────────────────
@@ -1119,6 +1109,7 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
+
 
 
 
