@@ -585,20 +585,10 @@ with st.sidebar:
 
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=DEFAULT_TOP_K)
 
-    with st.expander("🔧 Parameter Generator"):
-        st.caption("🔒 **Parameter dikunci sesuai dokumentasi resmi Qwen3-4B-Instruct-2507**")
-        st.caption(
-            f"Temperature: **{DEFAULT_TEMP}** · Top-P: **{DEFAULT_TOP_P}** "
-            f"· Top-K: **{DEFAULT_TOP_K_GEN}** · MinP: **0** "
-            f"· Max tokens: **{DEFAULT_MAX_TOK}**"
-        )
-
-    with st.expander("🤖 Model"):
-        st.caption("Model generator dikunci untuk menjaga konsistensi evaluasi.")
-        st.caption(f"Generator type: **{DEFAULT_GEN_TYPE}**")
-        st.caption(f"Generator path: `{DEFAULT_GEN_PATH}`")
-        st.caption(f"Embedder mode: **{_EMBEDDER_MODE}** · {_EMBEDDER_DEVICE_NOTE}")
-        st.caption(f"Embedder path: `{_EMBEDDER_PATH}`")
+    with st.expander("ℹ️ Info Model"):
+        st.caption(f"🔒 Parameter dikunci sesuai model card Qwen3-4B-Instruct-2507")
+        st.caption(f"T={DEFAULT_TEMP} · Top-P={DEFAULT_TOP_P} · Top-K={DEFAULT_TOP_K_GEN} · Max={DEFAULT_MAX_TOK}")
+        st.caption(f"Embedder: **{_EMBEDDER_MODE}** · Generator: **{DEFAULT_GEN_TYPE}**")
         show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
     st.divider()
