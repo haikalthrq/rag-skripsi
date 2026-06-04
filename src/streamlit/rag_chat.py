@@ -571,7 +571,7 @@ def _render_history_turn(record: dict) -> None:
 with st.sidebar:
     st.title("⚙️ Konfigurasi")
 
-    compare_mode = st.toggle("Bandingkan 3 Metode", value=True,
+    compare_mode = st.toggle("Bandingkan 3 Metode", value=False,
                              help="Tampilkan jawaban dari ketiga metode chunking sekaligus")
 
     if not compare_mode:
@@ -585,10 +585,6 @@ with st.sidebar:
 
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=DEFAULT_TOP_K)
 
-    with st.expander("ℹ️ Info Model"):
-        st.caption(f"🔒 Parameter dikunci sesuai model card Qwen3-4B-Instruct-2507")
-        st.caption(f"T={DEFAULT_TEMP} · Top-P={DEFAULT_TOP_P} · Top-K={DEFAULT_TOP_K_GEN} · Max={DEFAULT_MAX_TOK}")
-        st.caption(f"Embedder: **{_EMBEDDER_MODE}** · Generator: **{DEFAULT_GEN_TYPE}**")
         show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
 # ── Main ──────────────────────────────────────────────────────────────────────
