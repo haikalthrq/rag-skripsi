@@ -169,6 +169,10 @@ logs/
 # Figures dari Unstructured PDF extraction
 figures/
 
+# Exception: hasil visualisasi evaluasi (PNG + summary CSV) tetap di-track
+!results/final/figures/
+!results/final/figures/**
+
 # IDE cache & temp output
 # -----------------------
 .claude/
