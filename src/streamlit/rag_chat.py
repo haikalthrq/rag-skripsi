@@ -1,4 +1,4 @@
-"""
+﻿"""
 RAG Chat — Streamlit demo app untuk interaksi dengan RAG pipeline.
 
 Mendukung 2 mode:
@@ -429,7 +429,7 @@ def _render_history_turn(record: dict) -> None:
 
     if gold:
         st.markdown("**📖 Ground Truth Answer**")
-        st.info(gold, icon="📖")
+        st.write(gold)
 
     for res in results:
         method_label = res.get("method", "-")
@@ -541,7 +541,7 @@ with tab_chat:
         gold = str(selected_qa.get("gold_answer", "")).strip()
 
         # ── Header: User Question only ────────────────────────────────────
-        st.markdown("### ❓ User Question")
+        st.markdown("### User Question")
         st.write(query)
         st.divider()
 
@@ -590,7 +590,7 @@ with tab_chat:
                     # ── Ground Truth ──────────────────────────────────────
                     if gold:
                         st.markdown("**Ground Truth Answer**")
-                        st.info(gold, icon="📖")
+                        st.write(gold)
 
                     # ── Metrik ────────────────────────────────────────────
                     bleu = rouge = None
@@ -663,7 +663,7 @@ with tab_chat:
             # ── Ground Truth Answer ───────────────────────────────────────
             if gold:
                 st.markdown("### Ground Truth Answer")
-                st.info(gold, icon="📖")
+                st.write(gold)
 
             # ── Metrik ────────────────────────────────────────────────────
             bleu = rouge = None
@@ -1105,3 +1105,6 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
+
+
+
