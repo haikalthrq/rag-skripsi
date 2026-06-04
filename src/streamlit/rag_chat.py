@@ -224,31 +224,39 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render Metrik Evaluasi — satu baris dataframe, font konsisten, mudah dibaca."""
+    """Render Metrik Evaluasi — HTML table, center-aligned, font konsisten."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
     has_ret = metrics is not None
 
     if not has_gen and not has_ret:
         return
 
-    st.markdown("**Metrik Evaluasi**")
-
     row = {}
     if has_ret:
         k = metrics.get("top_k", "-")
-        row[f"Precision@{k}"] = round(metrics["precision_at_k"], 4)
-        row[f"Recall@{k}"]    = round(metrics["recall_at_k"], 4)
-        row["MRR"]             = round(metrics["mrr"], 4)
+        row[f"Precision@{k}"] = f"{metrics['precision_at_k']:.4f}"
+        row[f"Recall@{k}"]    = f"{metrics['recall_at_k']:.4f}"
+        row["MRR"]             = f"{metrics['mrr']:.4f}"
     if has_gen:
-        row["BLEU"]    = round(bleu,  4) if isinstance(bleu,  float) else None
-        row["ROUGE-L"] = round(rouge, 4) if isinstance(rouge, float) else None
+        row["BLEU"]    = f"{bleu:.4f}"  if isinstance(bleu,  float) else "—"
+        row["ROUGE-L"] = f"{rouge:.4f}" if isinstance(rouge, float) else "—"
 
-    st.dataframe(
-        [row],
-        use_container_width=True,
-        hide_index=True,
-        column_config={col: st.column_config.NumberColumn(col, format="%.4f") for col in row},
-    )
+    headers = "".join(f"<th>{k}</th>" for k in row)
+    values  = "".join(f"<td>{v}</td>" for v in row.values())
+
+    st.markdown("**Metrik Evaluasi**")
+    st.markdown(f"""
+<table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:center;">
+  <thead>
+    <tr style="border-bottom:1px solid #444;">
+      {headers}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>{values}</tr>
+  </tbody>
+</table>
+""", unsafe_allow_html=True)
 
 
 def get_hardware_info() -> dict:
@@ -342,11 +350,6 @@ st.markdown("""
     opacity: 0.75;
     margin-bottom: 2px;
     font-family: monospace;
-}
-/* Center teks di dalam dataframe */
-[data-testid="stDataFrame"] td,
-[data-testid="stDataFrame"] th {
-    text-align: center !important;
 }
 </style>
 """, unsafe_allow_html=True)
