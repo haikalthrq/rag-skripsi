@@ -224,7 +224,7 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render Metrik Evaluasi — header + tiap metrik di baris sendiri."""
+    """Render Metrik Evaluasi — retrieval dulu, lalu generation, layout compact."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
     has_ret = metrics is not None
 
@@ -233,26 +233,21 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
 
     st.markdown("**Metrik Evaluasi**")
 
-    if has_gen:
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
-        with col2:
-            st.metric("ROUGE-L Recall", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
-
     if has_ret:
         k = metrics.get("top_k", "-")
         p = metrics["precision_at_k"]
         r = metrics["recall_at_k"]
         m = metrics["mrr"]
         n = metrics.get("n_relevant", "-")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric(f"Precision@{k}", f"{p:.4f}")
-        with col2:
-            st.metric(f"Recall@{k}", f"{r:.4f}")
-        with col3:
-            st.metric("MRR", f"{m:.4f}", help=f"n_relevant={n}")
+        c1, c2, c3 = st.columns(3)
+        c1.metric(f"Precision@{k}", f"{p:.4f}")
+        c2.metric(f"Recall@{k}", f"{r:.4f}")
+        c3.metric(f"MRR", f"{m:.4f}", help=f"n_relevant dalam GT: {n}")
+
+    if has_gen:
+        c1, c2 = st.columns(2)
+        c1.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
+        c2.metric("ROUGE-L Recall", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
 
 
 def get_hardware_info() -> dict:
@@ -562,7 +557,6 @@ with tab_chat:
         # ── Header: User Question only ────────────────────────────────────
         st.markdown("### User Question")
         st.write(query)
-        st.divider()
 
         if compare_mode:
             # ── Mode bandingkan 3 kolom ───────────────────────────────────
@@ -1126,6 +1120,7 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
+
 
 
 
