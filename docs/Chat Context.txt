@@ -44,6 +44,22 @@ penulisan laporan skripsi.
 - 5 scripts dihapus: check_nan_percentage, cleanup_nan, compare_results,
   inspect_qa, rank_results
 
+### 5. Visualisasi evaluasi (2026-06-05) — DONE
+- Notebook: notebooks/eval_visualization.ipynb (tracked git)
+- Scope: top-5 hingga top-10 saja (per explicit request user)
+- Output: 6 chart PNG (300 DPI) + 5 tabel CSV → results/final/figures/
+- Charts:
+  1. Line Recall@k vs Top-k
+  2. Line MRR vs Top-k
+  3. Bar BLEU & ROUGE-L (Top-5)
+  4. Grouped bar jumlah query berhasil (MRR>0) per top-k
+  5. Heatmap MRR@5 per query per metode (nilai numerik sudah di chart)
+  6. Radar chart semua metrik (Top-5)
+- Tabel: Setelah tiap chart (kecuali heatmap), styled dataframe + export CSV
+- Struktur notebook: Cell setup → Cell agregasi ALL data → Chart+Tabel pairs
+- Dijalankan via jupyter nbconvert --execute, output tersimpan di notebook
+- Commit: 1a3ee15
+
 ---
 
 ## Current State
@@ -66,6 +82,7 @@ penulisan laporan skripsi.
 
 ### Results
 - DEFINITIF: results/final/generation/ — 10 file flat (eval_*_top{1..10}.csv)
+- FIGURES:   results/final/figures/ — 6 chart PNG + 5 tabel CSV (visualisasi)
 - ARSIP:     results/archive/RTX3090_strict_archived/ (valid, tidak dipakai)
 - TIDAK VALID: results/archive/former_final_generation/ (RTX 5060 Ti, BLEU=0)
 - CHAT:     results/chat_history/ — di-track git
@@ -96,8 +113,9 @@ penulisan laporan skripsi.
 - |Q| dalam MRR = query yang punya GT chunk (bukan 30). Sebutkan di laporan.
 
 ## Next Steps
-1. Analisis mendalam perbandingan antar metode chunking (pakai results/final/).
-2. Penulisan laporan skripsi.
-3. Tentukan & justifikasi nilai k pelaporan (5 atau 8).
-4. Perbaiki naskah: typo RR(q1)→RR(qi) + penegasan MRR dihitung dalam top-k.
-5. pip freeze > requirements.lock.txt di environment RTX 3090.
+1. ~~Analisis mendalam perbandingan antar metode chunking (pakai results/final/).~~ DONE
+2. ~~Visualisasi hasil evaluasi (top-5 s/d top-10).~~ DONE (2026-06-05)
+3. Penulisan laporan skripsi.
+4. Tentukan & justifikasi nilai k pelaporan (5 atau 8).
+5. Perbaiki naskah: typo RR(q1)→RR(qi) + penegasan MRR dihitung dalam top-k.
+6. pip freeze > requirements.lock.txt di environment RTX 3090.
