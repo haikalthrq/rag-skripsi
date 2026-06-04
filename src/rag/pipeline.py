@@ -333,11 +333,14 @@ def build_pipeline(
     # Load embedder
     logger.info("Memuat embedder...")
     if embedder_mode == "huggingface":
+        import torch as _torch
+        _device = "cuda" if _torch.cuda.is_available() else "cpu"
         embedder = initialize_hf_embedder(
             model_name=embedder_path,
-            device='cuda',
+            device=_device,
             normalize=True,
         )
+        logger.info(f"HF embedder device: {_device}")
     else:
         # Embedder GPU layers: default ke n_gpu_layers jika tidak di-set eksplisit
         emb_gpu = embedder_n_gpu_layers if embedder_n_gpu_layers is not None else n_gpu_layers

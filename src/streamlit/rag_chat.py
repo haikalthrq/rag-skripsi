@@ -270,11 +270,35 @@ def get_hardware_info() -> dict:
     
     return hw_info
 
-# ── Defaults ──────────────────────────────────────────────────────────────────
+# ── Defaults & auto-detect environment ───────────────────────────────────────
+# Deteksi otomatis: Vast AI (HF BF16) vs Laptop (GGUF FP8 + CPU embedder)
 
-_LOCAL_GEN        = ROOT / "models/Qwen3-4B-Instruct-2507"
-DEFAULT_GEN_TYPE  = "hf"
-DEFAULT_GEN_PATH  = str(_LOCAL_GEN) if _LOCAL_GEN.exists() else "Qwen/Qwen3-4B-Instruct-2507"
+_LOCAL_GEN_BF16   = ROOT / "models/Qwen3-4B-Instruct-2507"         # Vast AI BF16
+_LOCAL_GEN_FP8    = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"     # Laptop FP8
+_LOCAL_EMBED_HF   = ROOT / "models/Qwen3-Embedding-4B"             # Vast AI HF safetensors
+_LOCAL_EMBED_GGUF = ROOT / "models/Qwen3-Embedding-4B-Q8_0.gguf"   # Laptop GGUF
+
+# Tentukan mode embedder
+if _LOCAL_EMBED_HF.exists():
+    _EMBEDDER_MODE = "huggingface"
+    _EMBEDDER_PATH = str(_LOCAL_EMBED_HF)
+    _EMBEDDER_DEVICE_NOTE = "GPU (HF safetensors)"
+else:
+    _EMBEDDER_MODE = "gguf"
+    _EMBEDDER_PATH = str(_LOCAL_EMBED_GGUF)
+    _EMBEDDER_DEVICE_NOTE = "CPU (GGUF, hemat VRAM untuk generator)"
+
+# Tentukan generator
+if _LOCAL_GEN_BF16.exists():
+    DEFAULT_GEN_TYPE = "hf"
+    DEFAULT_GEN_PATH = str(_LOCAL_GEN_BF16)
+elif _LOCAL_GEN_FP8.exists():
+    DEFAULT_GEN_TYPE = "hf"
+    DEFAULT_GEN_PATH = str(_LOCAL_GEN_FP8)
+else:
+    DEFAULT_GEN_TYPE = "hf"
+    DEFAULT_GEN_PATH = "Qwen/Qwen3-4B-Instruct-2507"  # HF Hub fallback
+
 DEFAULT_TEMP      = 0.7
 DEFAULT_TOP_P     = 0.8
 DEFAULT_TOP_K_GEN = 20
@@ -395,17 +419,18 @@ st.markdown("""
 def load_pipeline() -> RAGPipeline:
     """
     Load embedder + generator + ChromaDB. Di-cache — tidak reload tiap query.
-    top_k tidak masuk cache key agar model tidak reload saat slider berubah.
 
-    Embedder dijalankan di CPU (n_gpu_layers=0) agar VRAM penuh untuk
-    generator HF FP8 (~5 GB pada RTX 4050 6 GB).
+    Auto-detect environment:
+      - Vast AI  : HF safetensors embedder (GPU) + BF16 generator
+      - Laptop   : GGUF embedder (CPU, hemat VRAM) + FP8 generator (GPU RTX 4050)
+    ChromaDB: data/chroma/ (lokal di kedua environment)
     """
     return build_pipeline(
         chunking_method="element_based",
-        embedder_path=str(ROOT / DEFAULT_EMBEDDER_PATH),
+        embedder_path=_EMBEDDER_PATH,
         generator_path=DEFAULT_GEN_PATH,
         generator_type=DEFAULT_GEN_TYPE,
-        embedder_mode="huggingface",
+        embedder_mode=_EMBEDDER_MODE,
         chroma_path=str(ROOT / DEFAULT_CHROMA_PATH),
         top_k=DEFAULT_TOP_K,
         temperature=DEFAULT_TEMP,
@@ -572,6 +597,8 @@ with st.sidebar:
         st.caption("Model generator dikunci untuk menjaga konsistensi evaluasi.")
         st.caption(f"Generator type: **{DEFAULT_GEN_TYPE}**")
         st.caption(f"Generator path: `{DEFAULT_GEN_PATH}`")
+        st.caption(f"Embedder mode: **{_EMBEDDER_MODE}** · {_EMBEDDER_DEVICE_NOTE}")
+        st.caption(f"Embedder path: `{_EMBEDDER_PATH}`")
         show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
     st.divider()
