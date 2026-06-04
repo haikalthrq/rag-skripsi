@@ -591,22 +591,6 @@ with st.sidebar:
         st.caption(f"Embedder: **{_EMBEDDER_MODE}** · Generator: **{DEFAULT_GEN_TYPE}**")
         show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
-    st.divider()
-
-    # ── Riwayat query sesi ini (in-memory) ───────────────────────────────
-    if "history" not in st.session_state:
-        st.session_state.history = []
-
-    st.caption("📋 **Riwayat Query (sesi ini)**")
-    if st.session_state.history:
-        for h in reversed(st.session_state.history[-8:]):
-            st.markdown(
-                f'<div class="hist-item">↳ {html.escape(h[:55])}{"…" if len(h)>55 else ""}</div>',
-                unsafe_allow_html=True,
-            )
-    else:
-        st.caption("_Belum ada query._")
-
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 st.title("🔍 Evaluasi RAG")
@@ -657,7 +641,6 @@ with tab_chat:
         q_id = str(selected_qa.get("query_id", "")).strip()
         query = str(selected_qa.get("question", "")).strip()
         gold = str(selected_qa.get("gold_answer", "")).strip()
-        st.session_state.history.append(query)
 
         # ── Header: User Question only ────────────────────────────────────
         st.markdown('<div class="question-h">❓ User Question</div>', unsafe_allow_html=True)
