@@ -95,6 +95,7 @@ def _extract_chunk_records(retrieved: list) -> list:
         dist = chunk.get("distance")
         chunks.append({
             "rank":     i,
+            "chunk_id": chunk.get("id", "-"),
             "source":   Path(meta.get("source_file", "?")).name,
             "pages":    meta.get("page_numbers", "-"),
             "distance": round(dist, 4) if isinstance(dist, (int, float)) else None,
@@ -223,21 +224,35 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render metrik generasi + retrieval (dark-mode safe, Streamlit native)."""
-    parts = []
-    if isinstance(bleu, float):
-        parts.append(f"BLEU **{bleu:.4f}**")
-    if isinstance(rouge, float):
-        parts.append(f"ROUGE-L **{rouge:.4f}**")
-    if metrics:
-        k   = metrics.get("top_k", "-")
-        p   = metrics["precision_at_k"]
-        r   = metrics["recall_at_k"]
-        m   = metrics["mrr"]
-        n   = metrics.get("n_relevant", "-")
-        parts.append(f"P@{k} **{p:.4f}** · R@{k} **{r:.4f}** · MRR **{m:.4f}** *(rel:{n})*")
-    if parts:
-        st.caption("  |  ".join(parts))
+    """Render Metrik Evaluasi — header + tiap metrik di baris sendiri."""
+    has_gen = isinstance(bleu, float) or isinstance(rouge, float)
+    has_ret = metrics is not None
+
+    if not has_gen and not has_ret:
+        return
+
+    st.markdown("**Metrik Evaluasi**")
+
+    if has_gen:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("BLEU", f"{bleu:.4f}" if isinstance(bleu, float) else "—")
+        with col2:
+            st.metric("ROUGE-L Recall", f"{rouge:.4f}" if isinstance(rouge, float) else "—")
+
+    if has_ret:
+        k = metrics.get("top_k", "-")
+        p = metrics["precision_at_k"]
+        r = metrics["recall_at_k"]
+        m = metrics["mrr"]
+        n = metrics.get("n_relevant", "-")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric(f"Precision@{k}", f"{p:.4f}")
+        with col2:
+            st.metric(f"Recall@{k}", f"{r:.4f}")
+        with col3:
+            st.metric("MRR", f"{m:.4f}", help=f"n_relevant={n}")
 
 
 def get_hardware_info() -> dict:
@@ -323,11 +338,14 @@ st.set_page_config(
 # ── CSS — minimal, dark-mode-safe ────────────────────────────────────────────
 st.markdown("""
 <style>
+/* Normalisasi font size agar konsisten di semua section */
+.stMarkdown p, .stMarkdown li { font-size: 0.95rem !important; }
 .chunk-meta {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    opacity: 0.7;
+    opacity: 0.75;
     margin-bottom: 2px;
+    font-family: monospace;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -429,7 +447,7 @@ def _render_history_turn(record: dict) -> None:
 
     if gold:
         st.markdown("**📖 Ground Truth Answer**")
-        st.write(gold)
+        st.markdown(gold)
 
     for res in results:
         method_label = res.get("method", "-")
@@ -453,15 +471,16 @@ def _render_history_turn(record: dict) -> None:
             st.caption(f"⏱ {elapsed}s")
 
         if chunks:
-            with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
+            with st.expander(f"Retrieved Chunks ({len(chunks)})"):
                 for ch in chunks:
                     rank     = ch.get("rank", "?")
+                    chunk_id = ch.get("chunk_id", ch.get("id", "-"))
                     src      = ch.get("source", "?")
                     pages    = ch.get("pages", "-")
                     dist     = ch.get("distance")
                     dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
                     st.markdown(
-                        f'<div class="chunk-meta">[{rank}] {src} · hal {pages} · dist {dist_str}</div>',
+                        f'<div class="chunk-meta">[{rank}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
                         unsafe_allow_html=True,
                     )
                     st.code(ch.get("text", ""), language=None)
@@ -590,7 +609,7 @@ with tab_chat:
                     # ── Ground Truth ──────────────────────────────────────
                     if gold:
                         st.markdown("**Ground Truth Answer**")
-                        st.write(gold)
+                        st.markdown(gold)
 
                     # ── Metrik ────────────────────────────────────────────
                     bleu = rouge = None
@@ -608,13 +627,14 @@ with tab_chat:
                         st.markdown("**Retrieved Chunks**")
                         for i, chunk in enumerate(retrieved, 1):
                             meta      = chunk.get("metadata", {})
+                            chunk_id  = chunk.get("id", "-")
                             src       = Path(meta.get("source_file", "?")).name
                             pages     = meta.get("page_numbers", "-")
                             dist      = chunk.get("distance")
                             dist_str  = f"{dist:.4f}" if dist is not None else "-"
                             full_text = chunk.get("document", "")
                             st.markdown(
-                                f'<div class="chunk-meta">[{i}] {src} · hal {pages} · dist {dist_str}</div>',
+                                f'<div class="chunk-meta">[{i}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
                                 unsafe_allow_html=True,
                             )
                             st.code(full_text, language=None)
@@ -663,7 +683,7 @@ with tab_chat:
             # ── Ground Truth Answer ───────────────────────────────────────
             if gold:
                 st.markdown("### Ground Truth Answer")
-                st.write(gold)
+                st.markdown(gold)
 
             # ── Metrik ────────────────────────────────────────────────────
             bleu = rouge = None
@@ -681,13 +701,14 @@ with tab_chat:
                 st.markdown("### Retrieved Chunks")
                 for i, chunk in enumerate(retrieved, 1):
                     meta      = chunk.get("metadata", {})
+                    chunk_id  = chunk.get("id", "-")
                     src       = Path(meta.get("source_file", "?")).name
                     pages     = meta.get("page_numbers", "-")
                     dist      = chunk.get("distance")
                     dist_str  = f"{dist:.4f}" if dist is not None else "-"
                     full_text = chunk.get("document", "")
                     st.markdown(
-                        f'<div class="chunk-meta">[{i}] {src} · hal {pages} · dist {dist_str}</div>',
+                        f'<div class="chunk-meta">[{i}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
                         unsafe_allow_html=True,
                     )
                     st.code(full_text, language=None)
@@ -1105,6 +1126,7 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
+
 
 
 
