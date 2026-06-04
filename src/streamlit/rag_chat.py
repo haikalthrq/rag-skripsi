@@ -222,23 +222,22 @@ def _compute_chat_retrieval_metrics(
     }
 
 
-def _render_retrieval_metrics(metrics: dict | None) -> None:
-    """Render retrieval metrics (binary label)."""
-    if not metrics:
-        return
-    k    = metrics.get("top_k", "-")
-    p    = metrics["precision_at_k"]
-    r    = metrics["recall_at_k"]
-    m    = metrics["mrr"]
-    n    = metrics.get("n_relevant", "-")
-    st.markdown(
-        f'<div style="margin-top:6px; font-size:0.78rem; color:#374151; '
-        f'background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">'
-        f'📐 P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{m:.4f}</b> '
-        f'<span style="color:#94a3b8">(rel:{n})</span>'
-        f'</div>',
-        unsafe_allow_html=True,
-    )
+def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
+    """Render metrik generasi + retrieval (dark-mode safe, Streamlit native)."""
+    parts = []
+    if isinstance(bleu, float):
+        parts.append(f"BLEU **{bleu:.4f}**")
+    if isinstance(rouge, float):
+        parts.append(f"ROUGE-L **{rouge:.4f}**")
+    if metrics:
+        k   = metrics.get("top_k", "-")
+        p   = metrics["precision_at_k"]
+        r   = metrics["recall_at_k"]
+        m   = metrics["mrr"]
+        n   = metrics.get("n_relevant", "-")
+        parts.append(f"P@{k} **{p:.4f}** · R@{k} **{r:.4f}** · MRR **{m:.4f}** *(rel:{n})*")
+    if parts:
+        st.caption("  |  ".join(parts))
 
 
 def get_hardware_info() -> dict:
@@ -321,93 +320,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── CSS ───────────────────────────────────────────────────────────────────────
-
+# ── CSS — minimal, dark-mode-safe ────────────────────────────────────────────
 st.markdown("""
 <style>
-.answer-box {
-    background: #f0f4f8;
-    border-left: 4px solid #2563eb;
-    border-radius: 6px;
-    padding: 14px 16px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    font-size: 0.93rem;
-    line-height: 1.65;
-    white-space: pre-wrap;
-}
-.gold-box {
-    background: #ffffff;
-    border-radius: 0;
-    padding: 6px 0 12px 0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #1e293b;
-}
-.section-h {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-top: 18px;
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #e2e8f0;
-}
-.question-h {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #e2e8f0;
-}
-.question-text {
-    font-size: 0.92rem;
-    color: #1e293b;
-    margin-bottom: 4px;
-    line-height: 1.6;
-}
-.chunk-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    padding: 8px 12px;
-    margin: 4px 0;
-    font-size: 0.82rem;
-    color: #475569;
-}
-.method-header {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: #1e40af;
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 2px solid #dbeafe;
-}
-.query-display {
-    background: #eff6ff;
-    border-radius: 8px;
-    padding: 10px 14px;
+.chunk-meta {
+    font-size: 0.8rem;
     font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 12px;
-}
-.hist-item {
-    font-size: 0.78rem;
-    color: #64748b;
-    padding: 2px 0;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.section-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #64748b;
-    margin-top: 10px;
+    opacity: 0.7;
     margin-bottom: 2px;
 }
 </style>
@@ -456,10 +375,7 @@ def run_method(base_pipeline: RAGPipeline, method: str,
 
 def render_answer_box(answer: str) -> None:
     """Render generated answer safely (non-streaming fallback)."""
-    st.markdown(
-        f'<div class="answer-box">{html.escape(answer)}</div>',
-        unsafe_allow_html=True,
-    )
+    st.write(answer)
 
 
 def stream_answer(generator, query: str, contexts: list,
@@ -499,7 +415,7 @@ def render_generation_error(error: Exception) -> None:
 
 
 def _render_history_turn(record: dict) -> None:
-    """Render satu turn chat tersimpan dengan format Question / Ground Truth / Generated Answer."""
+    """Render satu turn chat tersimpan — dark-mode safe, Streamlit native."""
     ts      = record.get("timestamp", "-")
     query   = record.get("query", "")
     mode    = record.get("mode", "-")
@@ -508,17 +424,13 @@ def _render_history_turn(record: dict) -> None:
     results = record.get("results", [])
 
     st.caption(f"🕒 {ts} · Mode: {mode} · Top-K: {top_k}")
+    st.markdown("**❓ User Question**")
+    st.write(query)
 
-    # ── Question ─────────────────────────────────────────────────────────
-    st.markdown('<div class="section-label">❓ Question</div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="question-box">{html.escape(query)}</div>', unsafe_allow_html=True)
-
-    # ── Ground Truth ─────────────────────────────────────────────────────
     if gold:
-        st.markdown('<div class="section-label">📖 Ground Truth</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="gold-box">{html.escape(str(gold))}</div>', unsafe_allow_html=True)
+        st.markdown("**📖 Ground Truth Answer**")
+        st.info(gold, icon="📖")
 
-    # ── Results per method ────────────────────────────────────────────────
     for res in results:
         method_label = res.get("method", "-")
         answer       = res.get("answer", "") or "[kosong]"
@@ -527,42 +439,32 @@ def _render_history_turn(record: dict) -> None:
         elapsed      = res.get("elapsed_s")
         chunks       = res.get("chunks", [])
 
-        st.markdown(f'<div class="method-header">📦 {method_label}</div>', unsafe_allow_html=True)
+        st.markdown(f"**{method_label}**")
+        st.markdown("**Generated Answer**")
+        st.write(answer)
 
-        # Generated Answer
-        st.markdown('<div class="section-label">🤖 Generated Answer</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="answer-box">{html.escape(str(answer))}</div>',
-                    unsafe_allow_html=True)
-
-        # Timing + Generation metrics
-        meta_bits = []
-        if elapsed is not None:
-            meta_bits.append(f"⏱ {elapsed}s")
-        if isinstance(bleu, (int, float)) and isinstance(rouge, (int, float)):
-            meta_bits.append(f"📊 BLEU **{bleu:.4f}** · ROUGE-L **{rouge:.4f}**")
-        if meta_bits:
-            st.caption(" · ".join(meta_bits))
-
-        # Retrieval metrics (binary label: 0/1)
         ret = res.get("retrieval") or res.get("retrieval_strict") or res.get("retrieval_lenient")
-        if ret:
-            _render_retrieval_metrics(ret)
+        _render_retrieval_metrics(
+            ret,
+            bleu if isinstance(bleu, float) else None,
+            rouge if isinstance(rouge, float) else None,
+        )
+        if elapsed is not None:
+            st.caption(f"⏱ {elapsed}s")
 
         if chunks:
             with st.expander(f"📄 Retrieved Chunks ({len(chunks)})"):
                 for ch in chunks:
-                    rank  = ch.get("rank", "?")
-                    src   = ch.get("source", "?")
-                    pages = ch.get("pages", "-")
-                    dist  = ch.get("distance")
+                    rank     = ch.get("rank", "?")
+                    src      = ch.get("source", "?")
+                    pages    = ch.get("pages", "-")
+                    dist     = ch.get("distance")
                     dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
-                    preview  = (ch.get("text", "") or "").replace("\n", " ")
                     st.markdown(
-                        f'<div class="chunk-box">'
-                        f'<b>[{rank}]</b> {src} · hal {pages} · dist {dist_str}<br>'
-                        f'{html.escape(preview[:500])}...</div>',
+                        f'<div class="chunk-meta">[{rank}] {src} · hal {pages} · dist {dist_str}</div>',
                         unsafe_allow_html=True,
                     )
+                    st.code(ch.get("text", ""), language=None)
     st.divider()
 
 
@@ -639,9 +541,9 @@ with tab_chat:
         gold = str(selected_qa.get("gold_answer", "")).strip()
 
         # ── Header: User Question only ────────────────────────────────────
-        st.markdown('<div class="question-h">❓ User Question</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="question-text">{html.escape(query)}</div>', unsafe_allow_html=True)
-        st.markdown("---")
+        st.markdown("### ❓ User Question")
+        st.write(query)
+        st.divider()
 
         if compare_mode:
             # ── Mode bandingkan 3 kolom ───────────────────────────────────
@@ -657,12 +559,8 @@ with tab_chat:
 
             for col, method in zip(cols, METHODS):
                 with col:
-                    st.markdown(
-                        f'<div style="font-weight:700;font-size:1rem;color:#1e40af;'
-                        f'margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid #dbeafe;">'
-                        f'{METHOD_LABELS[method]}</div>',
-                        unsafe_allow_html=True,
-                    )
+                    st.markdown(f"**{METHOD_LABELS[method]}**")
+                    st.divider()
                     status = st.empty()
                     try:
                         t0 = time.time()
@@ -679,7 +577,7 @@ with tab_chat:
                         contexts = [p._format_context(doc) for doc in retrieved]
 
                         # ── Generated Answer ──────────────────────────────
-                        st.markdown('<div class="section-h">Generated Answer</div>', unsafe_allow_html=True)
+                        st.markdown("**Generated Answer**")
                         answer = stream_answer(pipeline.generator, query, contexts,
                                               timer_placeholder=status, t0=t0)
                         elapsed = round(time.time() - t0, 1)
@@ -691,8 +589,8 @@ with tab_chat:
 
                     # ── Ground Truth ──────────────────────────────────────
                     if gold:
-                        st.markdown('<div class="section-h">Ground Truth Answer</div>', unsafe_allow_html=True)
-                        st.markdown(f'<div class="gold-box">{html.escape(gold)}</div>', unsafe_allow_html=True)
+                        st.markdown("**Ground Truth Answer**")
+                        st.info(gold, icon="📖")
 
                     # ── Metrik ────────────────────────────────────────────
                     bleu = rouge = None
@@ -702,21 +600,12 @@ with tab_chat:
                     if gold:
                         bleu  = compute_bleu(answer, gold)
                         rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
-                        st.markdown(
-                            f'<div style="margin-top:4px; font-size:0.78rem; color:#374151; '
-                            f'background:#fefce8; border:1px solid #fde047; border-radius:4px; '
-                            f'padding:4px 8px;">'
-                            f'BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b>'
-                            f'</div>',
-                            unsafe_allow_html=True,
-                        )
-                    _render_retrieval_metrics(retrieval_metrics)
-
+                    _render_retrieval_metrics(retrieval_metrics, bleu, rouge)
                     st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
 
                     # ── Retrieved Chunks ──────────────────────────────────
                     if show_chunks and retrieved:
-                        st.markdown('<div class="section-h">Retrieved Chunks</div>', unsafe_allow_html=True)
+                        st.markdown("**Retrieved Chunks**")
                         for i, chunk in enumerate(retrieved, 1):
                             meta      = chunk.get("metadata", {})
                             src       = Path(meta.get("source_file", "?")).name
@@ -725,7 +614,7 @@ with tab_chat:
                             dist_str  = f"{dist:.4f}" if dist is not None else "-"
                             full_text = chunk.get("document", "")
                             st.markdown(
-                                f'<div class="chunk-box"><b>[{i}]</b> {src} · hal {pages} · dist {dist_str}</div>',
+                                f'<div class="chunk-meta">[{i}] {src} · hal {pages} · dist {dist_str}</div>',
                                 unsafe_allow_html=True,
                             )
                             st.code(full_text, language=None)
@@ -762,7 +651,7 @@ with tab_chat:
                 contexts = [p._format_context(doc) for doc in retrieved]
 
                 # ── Generated Answer ──────────────────────────────────────
-                st.markdown('<div class="section-h">Generated Answer</div>', unsafe_allow_html=True)
+                st.markdown("### Generated Answer")
                 answer = stream_answer(pipeline.generator, query, contexts,
                                       timer_placeholder=timer_ph, t0=t0)
                 elapsed = round(time.time() - t0, 1)
@@ -773,8 +662,8 @@ with tab_chat:
 
             # ── Ground Truth Answer ───────────────────────────────────────
             if gold:
-                st.markdown('<div class="section-h">Ground Truth Answer</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="gold-box">{html.escape(gold)}</div>', unsafe_allow_html=True)
+                st.markdown("### Ground Truth Answer")
+                st.info(gold, icon="📖")
 
             # ── Metrik ────────────────────────────────────────────────────
             bleu = rouge = None
@@ -784,20 +673,12 @@ with tab_chat:
             if gold:
                 bleu  = compute_bleu(answer, gold)
                 rouge = compute_rouge(answer, gold, rouge_type="rougeL", mode="recall")
-                st.markdown(
-                    f'<div style="margin-top:4px; font-size:0.78rem; color:#374151; '
-                    f'background:#fefce8; border:1px solid #fde047; border-radius:4px; '
-                    f'padding:4px 8px;">'
-                    f'BLEU <b>{bleu:.4f}</b> · ROUGE-L <b>{rouge:.4f}</b>'
-                    f'</div>',
-                    unsafe_allow_html=True,
-                )
-            _render_retrieval_metrics(retrieval_metrics)
+            _render_retrieval_metrics(retrieval_metrics, bleu, rouge)
             st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
 
             # ── Retrieved Chunks ──────────────────────────────────────────
             if show_chunks and retrieved:
-                st.markdown('<div class="section-h">Retrieved Chunks</div>', unsafe_allow_html=True)
+                st.markdown("### Retrieved Chunks")
                 for i, chunk in enumerate(retrieved, 1):
                     meta      = chunk.get("metadata", {})
                     src       = Path(meta.get("source_file", "?")).name
@@ -806,7 +687,7 @@ with tab_chat:
                     dist_str  = f"{dist:.4f}" if dist is not None else "-"
                     full_text = chunk.get("document", "")
                     st.markdown(
-                        f'<div class="chunk-box"><b>[{i}]</b> {src} · hal {pages} · dist {dist_str}</div>',
+                        f'<div class="chunk-meta">[{i}] {src} · hal {pages} · dist {dist_str}</div>',
                         unsafe_allow_html=True,
                     )
                     st.code(full_text, language=None)
