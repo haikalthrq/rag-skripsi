@@ -585,7 +585,7 @@ with st.sidebar:
 
     top_k = st.slider("Top-K Retrieval", min_value=1, max_value=10, value=DEFAULT_TOP_K)
 
-        show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
+    show_chunks = st.checkbox("Tampilkan retrieved chunks", value=True)
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
