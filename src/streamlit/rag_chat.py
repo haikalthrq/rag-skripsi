@@ -225,7 +225,6 @@ def _compute_chat_retrieval_metrics(
 def _render_retrieval_metrics(metrics: dict | None) -> None:
     """Render retrieval metrics (binary label)."""
     if not metrics:
-        st.caption("Retrieval scoring tidak tersedia untuk pertanyaan ini")
         return
     k    = metrics.get("top_k", "-")
     p    = metrics["precision_at_k"]
@@ -235,17 +234,9 @@ def _render_retrieval_metrics(metrics: dict | None) -> None:
     st.markdown(
         f'<div style="margin-top:6px; font-size:0.78rem; color:#374151; '
         f'background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px;">'
-        f'P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{m:.4f}</b> '
+        f'📐 P@{k} <b>{p:.4f}</b> · R@{k} <b>{r:.4f}</b> · MRR <b>{m:.4f}</b> '
         f'<span style="color:#94a3b8">(rel:{n})</span>'
         f'</div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        f'<div style="margin-top:4px; font-size:0.8rem; color:#374151;">'
-        f'Retrieval ({mode}): P@{top_k_val} <b>{p:.4f}</b> '
-        f'&middot; R@{top_k_val} <b>{r:.4f}</b> '
-        f'&middot; MRR <b>{m:.4f}</b> '
-        f'&middot; relevant chunks: <b>{n_rel}</b></div>',
         unsafe_allow_html=True,
     )
 
@@ -300,7 +291,7 @@ METHOD_LABELS     = {
 # ── Page config ───────────────────────────────────────────────────────────────
 
 st.set_page_config(
-    page_title="RAG Chat — BPS",
+    page_title="Evaluasi RAG",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -590,58 +581,9 @@ with st.sidebar:
     else:
         st.caption("_Belum ada query._")
 
-    st.divider()
-
-    # ── Riwayat chat persisten (dari disk) ───────────────────────────────
-    with st.expander("🕒 Riwayat Chat (Persisten)", expanded=False):
-        _sidebar_chat_history = _load_chat_history()
-        if not _sidebar_chat_history:
-            st.info("Belum ada riwayat. Ajukan pertanyaan di tab Chat.")
-        else:
-            st.caption(f"**{len(_sidebar_chat_history)} percakapan tersimpan**")
-
-            _sidebar_search = st.text_input(
-                "🔎 Cari", placeholder="kata kunci...", key="sidebar_search"
-            )
-            if _sidebar_search:
-                _s = _sidebar_search.strip().lower()
-                _sidebar_chat_history = [
-                    r for r in _sidebar_chat_history
-                    if _s in str(r.get("query", "")).lower()
-                ]
-                st.caption(f"{len(_sidebar_chat_history)} cocok")
-
-            if CHAT_HISTORY_FILE.exists():
-                st.download_button(
-                    "⬇ Download JSONL",
-                    data=CHAT_HISTORY_FILE.read_bytes(),
-                    file_name="chat_history.jsonl",
-                    mime="application/jsonl",
-                    use_container_width=True,
-                )
-
-            with st.popover("🗑 Hapus Semua", use_container_width=True):
-                st.warning("Menghapus SEMUA riwayat chat. Tidak dapat dibatalkan.")
-                if st.button("Ya, hapus semua", type="primary",
-                             use_container_width=True, key="sidebar_clear_hist"):
-                    try:
-                        CHAT_HISTORY_FILE.unlink(missing_ok=True)
-                        st.rerun()
-                    except Exception as _e:
-                        st.error(f"Gagal: {_e}")
-
-            st.divider()
-            for _idx, _rec in enumerate(_sidebar_chat_history[:20], 1):
-                _ts    = _rec.get("timestamp", "-")
-                _qtext = str(_rec.get("query", ""))
-                _label = f"#{_idx} · {_ts[-8:]} · {_qtext[:45]}{'…' if len(_qtext)>45 else ''}"
-                with st.expander(_label, expanded=False):
-                    _render_history_turn(_rec)
-
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-st.title("🔍 RAG Chat — Sistem Informasi BPS")
-st.caption("Tanyakan apa saja tentang dokumen BPS. Model akan mencari chunk yang relevan dan menghasilkan jawaban.")
+st.title("🔍 Evaluasi RAG")
 
 # Load pipeline
 try:
@@ -652,7 +594,7 @@ except Exception as e:
         st.code(traceback.format_exc(), language="python")
     st.stop()
 
-tab_chat, tab_eval = st.tabs(["💬 Chat", "📊 Evaluasi Batch"])
+tab_chat, tab_eval, tab_history = st.tabs(["💬 Chat", "📊 Evaluasi Batch", "🕒 Riwayat Chat"])
 
 # ══════════════════════════════════════════════════════════════════════════════
 # TAB 1 — Chat interaktif
@@ -692,12 +634,20 @@ with tab_chat:
         st.session_state.history.append(query)
 
         # ── Header: Question + Ground Truth ──────────────────────────────
-        st.markdown('<div class="section-label">❓ Question</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="question-box">{html.escape(query)}</div>', unsafe_allow_html=True)
+        st.markdown(
+            f'<div style="background:#eff6ff;border-left:4px solid #3b82f6;border-radius:6px;'
+            f'padding:10px 14px;margin-bottom:8px;font-weight:600;font-size:0.95rem;color:#1e3a8a;">'
+            f'{html.escape(query)}</div>',
+            unsafe_allow_html=True,
+        )
 
         if gold:
-            st.markdown('<div class="section-label">📖 Ground Truth</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="gold-box">{html.escape(gold)}</div>', unsafe_allow_html=True)
+            st.markdown(
+                f'<div style="background:#f0fdf4;border-left:4px solid #16a34a;border-radius:6px;'
+                f'padding:8px 14px;margin-bottom:12px;font-size:0.88rem;color:#166534;">'
+                f'<b>Jawaban Referensi:</b> {html.escape(gold)}</div>',
+                unsafe_allow_html=True,
+            )
 
         st.markdown("---")
 
@@ -774,7 +724,7 @@ with tab_chat:
                     )
                     _render_retrieval_metrics(retrieval_metrics)
 
-                    # ── Retrieved chunks ──────────────────────────────────
+                    # ── Retrieved chunks (full text, no truncation) ───────
                     if show_chunks and retrieved:
                         with st.expander(f"📄 Chunks ({len(retrieved)})"):
                             for i, chunk in enumerate(retrieved, 1):
@@ -783,13 +733,13 @@ with tab_chat:
                                 pages    = meta.get("page_numbers", "-")
                                 dist     = chunk.get("distance")
                                 dist_str = f"{dist:.4f}" if dist is not None else "-"
-                                preview  = chunk["document"][:300].replace("\n", " ")
+                                full_text = chunk.get("document", "")
                                 st.markdown(
                                     f'<div class="chunk-box">'
-                                    f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}<br>'
-                                    f'{html.escape(preview)}...</div>',
+                                    f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}</div>',
                                     unsafe_allow_html=True,
                                 )
+                                st.code(full_text, language=None)
 
                     turn_results.append({
                         "method":    METHOD_LABELS[method],
@@ -873,13 +823,13 @@ with tab_chat:
                         pages    = meta.get("page_numbers", "-")
                         dist     = chunk.get("distance")
                         dist_str = f"{dist:.4f}" if dist is not None else "-"
-                        preview  = chunk["document"][:400].replace("\n", " ")
+                        full_text = chunk.get("document", "")
                         st.markdown(
                             f'<div class="chunk-box">'
-                            f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}<br>'
-                            f'{html.escape(preview)}...</div>',
+                            f'<b>[{i}]</b> {src} · hal {pages} · dist {dist_str}</div>',
                             unsafe_allow_html=True,
                         )
+                        st.code(full_text, language=None)
 
             # Simpan turn ke disk (persisten, tahan restart)
             _save_chat_turn(_build_chat_record(
@@ -1243,3 +1193,54 @@ with tab_eval:
                 st.error(f"Gagal membaca file: {exc}")
 
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TAB 3 — Riwayat Chat (Persistent)
+# ══════════════════════════════════════════════════════════════════════════════
+with tab_history:
+    st.subheader("🕒 Riwayat Chat")
+    st.caption(
+        "Riwayat percakapan tersimpan permanen ke disk — tidak hilang saat app restart. "
+        "Untuk dokumentasi sidang."
+    )
+
+    chat_history = _load_chat_history()
+
+    if not chat_history:
+        st.info("Belum ada riwayat chat. Ajukan pertanyaan di tab 💬 Chat terlebih dahulu.")
+    else:
+        col_info, col_clear = st.columns([3, 1])
+        with col_info:
+            st.markdown(f"**{len(chat_history)} percakapan tersimpan** (terbaru di atas)")
+        with col_clear:
+            with st.popover("🗑 Hapus Riwayat", use_container_width=True):
+                st.warning("Menghapus SEMUA riwayat chat. Tindakan ini tidak dapat dibatalkan.")
+                if st.button("Ya, hapus semua", type="primary", use_container_width=True):
+                    try:
+                        CHAT_HISTORY_FILE.unlink(missing_ok=True)
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Gagal menghapus: {e}")
+
+        # Pencarian
+        search = st.text_input("🔎 Cari pertanyaan", placeholder="kata kunci...")
+        if search:
+            s = search.strip().lower()
+            chat_history = [r for r in chat_history if s in str(r.get("query", "")).lower()]
+            st.caption(f"{len(chat_history)} hasil cocok")
+
+        # Download
+        if CHAT_HISTORY_FILE.exists():
+            st.download_button(
+                "⬇ Download Riwayat (JSONL)",
+                data=CHAT_HISTORY_FILE.read_bytes(),
+                file_name="chat_history.jsonl",
+                mime="application/jsonl",
+            )
+
+        st.divider()
+
+        for idx, record in enumerate(chat_history, 1):
+            label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
+            with st.expander(label, expanded=(idx == 1)):
+                _render_history_turn(record)
