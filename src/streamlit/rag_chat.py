@@ -223,6 +223,12 @@ def _compute_chat_retrieval_metrics(
     }
 
 
+def _section_header(text: str) -> None:
+    """Render section header konsisten (lebih besar dari isi, dark-mode safe)."""
+    st.markdown(f"<div class='rag-section'>{html.escape(text)}</div>",
+                unsafe_allow_html=True)
+
+
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
     """Render Metrik Evaluasi — HTML table, center-aligned, font konsisten."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
@@ -244,11 +250,11 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
     headers = "".join(f"<th>{k}</th>" for k in row)
     values  = "".join(f"<td>{v}</td>" for v in row.values())
 
-    st.markdown("**Metrik Evaluasi**")
+    _section_header("Metrik Evaluasi")
     st.markdown(f"""
-<table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:center;">
+<table class="rag-metrics" style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:center;">
   <thead>
-    <tr style="border-bottom:1px solid #444;">
+    <tr style="border-bottom:1px solid #888;">
       {headers}
     </tr>
   </thead>
@@ -349,6 +355,19 @@ st.markdown("""
     margin-bottom: 2px;
     font-family: monospace;
 }
+/* Section header — konsisten di semua section hasil generasi.
+   Lebih besar dari isi (1.25rem vs ~1rem) agar jelas terpisah, dark-mode safe. */
+.rag-section {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 1.1rem 0 0.35rem 0;
+    padding: 0;
+}
+/* Metrik Evaluasi table — padding sel agar rapi saat di-screenshot */
+.rag-metrics th, .rag-metrics td {
+    padding: 6px 10px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -438,7 +457,7 @@ def _render_chunks(retrieved: list, show: bool = True) -> None:
     """Tampilkan Retrieved Chunks — tiap chunk sebagai expander collapsed (ringkas untuk screenshot)."""
     if not show or not retrieved:
         return
-    st.markdown("**Retrieved Chunks**")
+    _section_header("Retrieved Chunks")
     for i, chunk in enumerate(retrieved, 1):
         meta      = chunk.get("metadata", {}) or {}
         chunk_id  = chunk.get("id", "-")
@@ -462,11 +481,11 @@ def _render_history_turn(record: dict) -> None:
     results = record.get("results", [])
 
     st.caption(f"🕒 {ts} · Mode: {mode} · Top-K: {top_k}")
-    st.markdown("**❓ User Question**")
+    _section_header("User Question")
     st.write(query)
 
     if gold:
-        st.markdown("**📖 Ground Truth Answer**")
+        _section_header("Ground Truth Answer")
         st.markdown(gold)
 
     for res in results:
@@ -478,7 +497,7 @@ def _render_history_turn(record: dict) -> None:
         chunks       = res.get("chunks", [])
 
         st.markdown(f"**{method_label}**")
-        st.markdown("**Generated Answer**")
+        _section_header("Generated Answer")
         st.write(answer)
 
         ret = res.get("retrieval") or res.get("retrieval_strict") or res.get("retrieval_lenient")
@@ -491,7 +510,7 @@ def _render_history_turn(record: dict) -> None:
             st.caption(f"⏱ {elapsed}s")
 
         if chunks:
-            st.markdown("**Retrieved Chunks**")
+            _section_header("Retrieved Chunks")
             for ch in chunks:
                 rank     = ch.get("rank", "?")
                 chunk_id = ch.get("chunk_id", ch.get("id", "-"))
@@ -578,7 +597,7 @@ with tab_chat:
         gold = str(selected_qa.get("gold_answer", "")).strip()
 
         # ── Header: User Question only ────────────────────────────────────
-        st.markdown("**User Question**")
+        _section_header("User Question")
         st.write(query)
 
         if compare_mode:
@@ -613,7 +632,7 @@ with tab_chat:
                         contexts = [p._format_context(doc) for doc in retrieved]
 
                         # ── Generated Answer ──────────────────────────────
-                        st.markdown("**Generated Answer**")
+                        _section_header("Generated Answer")
                         answer = stream_answer(pipeline.generator, query, contexts,
                                               timer_placeholder=status, t0=t0)
                         elapsed = round(time.time() - t0, 1)
@@ -625,7 +644,7 @@ with tab_chat:
 
                     # ── Ground Truth ──────────────────────────────────────
                     if gold:
-                        st.markdown("**Ground Truth Answer**")
+                        _section_header("Ground Truth Answer")
                         st.markdown(gold)
 
                     # ── Metrik ────────────────────────────────────────────
@@ -674,7 +693,7 @@ with tab_chat:
                 contexts = [p._format_context(doc) for doc in retrieved]
 
                 # ── Generated Answer ──────────────────────────────────────
-                st.markdown("**Generated Answer**")
+                _section_header("Generated Answer")
                 answer = stream_answer(pipeline.generator, query, contexts,
                                       timer_placeholder=timer_ph, t0=t0)
                 elapsed = round(time.time() - t0, 1)
@@ -685,7 +704,7 @@ with tab_chat:
 
             # ── Ground Truth Answer ───────────────────────────────────────
             if gold:
-                st.markdown("**Ground Truth Answer**")
+                _section_header("Ground Truth Answer")
                 st.markdown(gold)
 
             # ── Metrik ────────────────────────────────────────────────────
