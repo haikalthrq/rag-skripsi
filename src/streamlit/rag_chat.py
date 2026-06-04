@@ -438,6 +438,24 @@ def render_generation_error(error: Exception) -> None:
         st.code(traceback.format_exc(), language="python")
 
 
+def _render_chunks(retrieved: list, show: bool = True) -> None:
+    """Tampilkan Retrieved Chunks — tiap chunk sebagai expander collapsed (ringkas untuk screenshot)."""
+    if not show or not retrieved:
+        return
+    st.markdown("**Retrieved Chunks**")
+    for i, chunk in enumerate(retrieved, 1):
+        meta      = chunk.get("metadata", {}) or {}
+        chunk_id  = chunk.get("id", "-")
+        src       = Path(meta.get("source_file", "?")).name
+        pages     = meta.get("page_numbers", "-")
+        dist      = chunk.get("distance")
+        dist_str  = f"{dist:.4f}" if dist is not None else "-"
+        full_text = chunk.get("document", "")
+        label     = f"[{i}] {chunk_id}  ·  {src}  ·  hal {pages}  ·  dist {dist_str}"
+        with st.expander(label, expanded=False):
+            st.code(full_text, language=None)
+
+
 def _render_history_turn(record: dict) -> None:
     """Render satu turn chat tersimpan — dark-mode safe, Streamlit native."""
     ts      = record.get("timestamp", "-")
@@ -477,18 +495,16 @@ def _render_history_turn(record: dict) -> None:
             st.caption(f"⏱ {elapsed}s")
 
         if chunks:
-            with st.expander(f"Retrieved Chunks ({len(chunks)})"):
-                for ch in chunks:
-                    rank     = ch.get("rank", "?")
-                    chunk_id = ch.get("chunk_id", ch.get("id", "-"))
-                    src      = ch.get("source", "?")
-                    pages    = ch.get("pages", "-")
-                    dist     = ch.get("distance")
-                    dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
-                    st.markdown(
-                        f'<div class="chunk-meta">[{rank}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
-                        unsafe_allow_html=True,
-                    )
+            st.markdown("**Retrieved Chunks**")
+            for ch in chunks:
+                rank     = ch.get("rank", "?")
+                chunk_id = ch.get("chunk_id", ch.get("id", "-"))
+                src      = ch.get("source", "?")
+                pages    = ch.get("pages", "-")
+                dist     = ch.get("distance")
+                dist_str = f"{dist:.4f}" if isinstance(dist, (int, float)) else "-"
+                label    = f"[{rank}] {chunk_id}  ·  {src}  ·  hal {pages}  ·  dist {dist_str}"
+                with st.expander(label, expanded=False):
                     st.code(ch.get("text", ""), language=None)
     st.divider()
 
@@ -628,21 +644,7 @@ with tab_chat:
                     st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
 
                     # ── Retrieved Chunks ──────────────────────────────────
-                    if show_chunks and retrieved:
-                        st.markdown("**Retrieved Chunks**")
-                        for i, chunk in enumerate(retrieved, 1):
-                            meta      = chunk.get("metadata", {})
-                            chunk_id  = chunk.get("id", "-")
-                            src       = Path(meta.get("source_file", "?")).name
-                            pages     = meta.get("page_numbers", "-")
-                            dist      = chunk.get("distance")
-                            dist_str  = f"{dist:.4f}" if dist is not None else "-"
-                            full_text = chunk.get("document", "")
-                            st.markdown(
-                                f'<div class="chunk-meta">[{i}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
-                                unsafe_allow_html=True,
-                            )
-                            st.code(full_text, language=None)
+                    _render_chunks(retrieved, show=show_chunks)
 
                     turn_results.append({
                         "method":    METHOD_LABELS[method],
@@ -702,21 +704,7 @@ with tab_chat:
             st.caption(f"⏱ {elapsed}s · {len(retrieved)} chunks")
 
             # ── Retrieved Chunks ──────────────────────────────────────────
-            if show_chunks and retrieved:
-                st.markdown("### Retrieved Chunks")
-                for i, chunk in enumerate(retrieved, 1):
-                    meta      = chunk.get("metadata", {})
-                    chunk_id  = chunk.get("id", "-")
-                    src       = Path(meta.get("source_file", "?")).name
-                    pages     = meta.get("page_numbers", "-")
-                    dist      = chunk.get("distance")
-                    dist_str  = f"{dist:.4f}" if dist is not None else "-"
-                    full_text = chunk.get("document", "")
-                    st.markdown(
-                        f'<div class="chunk-meta">[{i}] ID: {chunk_id} · {src} · hal {pages} · dist {dist_str}</div>',
-                        unsafe_allow_html=True,
-                    )
-                    st.code(full_text, language=None)
+            _render_chunks(retrieved, show=show_chunks)
 
             # Simpan turn ke disk (persisten, tahan restart)
             _save_chat_turn(_build_chat_record(
