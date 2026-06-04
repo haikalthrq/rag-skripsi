@@ -224,7 +224,7 @@ def _compute_chat_retrieval_metrics(
 
 
 def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, rouge: float | None = None) -> None:
-    """Render Metrik Evaluasi — tabel markdown, font konsisten."""
+    """Render Metrik Evaluasi — satu baris dataframe, font konsisten, mudah dibaca."""
     has_gen = isinstance(bleu, float) or isinstance(rouge, float)
     has_ret = metrics is not None
 
@@ -233,22 +233,21 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
 
     st.markdown("**Metrik Evaluasi**")
 
-    k = metrics.get("top_k", "-") if has_ret else "-"
-    p = f"{metrics['precision_at_k']:.4f}" if has_ret else "—"
-    r = f"{metrics['recall_at_k']:.4f}"    if has_ret else "—"
-    m = f"{metrics['mrr']:.4f}"            if has_ret else "—"
-    n = metrics.get("n_relevant", "-")     if has_ret else "-"
-    b = f"{bleu:.4f}"  if isinstance(bleu,  float) else "—"
-    rl = f"{rouge:.4f}" if isinstance(rouge, float) else "—"
-
-    rows = []
+    row = {}
     if has_ret:
-        rows.append(f"| Precision@{k} | {p} | Recall@{k} | {r} | MRR | {m} |")
+        k = metrics.get("top_k", "-")
+        row[f"Precision@{k}"] = round(metrics["precision_at_k"], 4)
+        row[f"Recall@{k}"]    = round(metrics["recall_at_k"], 4)
+        row["MRR"]             = round(metrics["mrr"], 4)
     if has_gen:
-        rows.append(f"| BLEU | {b} | ROUGE-L | {rl} | | |")
+        row["BLEU"]    = round(bleu,  4) if isinstance(bleu,  float) else None
+        row["ROUGE-L"] = round(rouge, 4) if isinstance(rouge, float) else None
 
-    table = "| Metrik | Nilai | Metrik | Nilai | Metrik | Nilai |\n|---|---|---|---|---|---|\n" + "\n".join(rows)
-    st.markdown(table)
+    st.dataframe(
+        [row],
+        use_container_width=True,
+        hide_index=True,
+    )
 
 
 def get_hardware_info() -> dict:
