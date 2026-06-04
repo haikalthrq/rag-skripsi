@@ -247,6 +247,7 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
         [row],
         use_container_width=True,
         hide_index=True,
+        column_config={col: st.column_config.NumberColumn(col, format="%.4f") for col in row},
     )
 
 
@@ -341,6 +342,11 @@ st.markdown("""
     opacity: 0.75;
     margin-bottom: 2px;
     font-family: monospace;
+}
+/* Center teks di dalam dataframe */
+[data-testid="stDataFrame"] td,
+[data-testid="stDataFrame"] th {
+    text-align: center !important;
 }
 </style>
 """, unsafe_allow_html=True)
