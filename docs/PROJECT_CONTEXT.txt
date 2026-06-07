@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-05 14:37 WIB
+Terakhir diperbarui: 2026-06-08 01:47 WIB
 ================================================================================
 
 
@@ -81,12 +81,28 @@ rag-skripsi/
 │   │   ├── generation/
 │   │   │   └── eval_*_top{1..10}.csv   10 file flat (nama legacy "lenient" = binary)
 │   │   └── figures/
-│   │       ├── chart1_recall_trend.png
-│   │       ├── chart2_mrr_trend.png
-│   │       ├── chart3_generation_metrics.png
-│   │       ├── chart4_hit_count.png
-│   │       ├── chart5_heatmap_mrr.png
-│   │       └── table{1..4}_*.csv        tabel pendukung visualisasi
+│   │       ├── chart1_precision_trend.png
+│   │       ├── chart2_recall_trend.png
+│   │       ├── chart3_mrr_trend.png
+│   │       ├── chart4_bleu_topk.png
+│   │       ├── chart5_rouge_l_topk.png
+│   │       ├── chart6_ground_truth_evidence_types.png
+│   │       ├── chart7_ground_truth_label_distribution.png
+│   │       ├── table1_precision_trend.csv
+│   │       ├── table2_recall_trend.csv
+│   │       ├── table3_mrr_trend.csv
+│   │       ├── table4_bleu_topk.csv
+│   │       ├── table5_rouge_l_topk.csv
+│   │       ├── table6_ground_truth_evidence_types.csv
+│   │       ├── table7_ground_truth_label_distribution.csv
+│   │       ├── table_6_1_retrieval_summary.csv/.xlsx
+│   │       ├── table_6_2_generation_summary.csv/.xlsx
+│   │       ├── table_average_metrics_top5_top10.csv/.xlsx/.md
+│   │       └── audit_average_metrics_top5_top10.csv
+│   ├── visualizations/
+│   │   └── bab6/
+│   │       ├── gambar_6_x_ringkasan_retrieval_top5_top10.png
+│   │       └── tabel_6_1_ringkasan_retrieval_top5_top10.csv/.xlsx
 │   ├── chat_history/                   chat_history.jsonl + .gitkeep (riwayat chat persisten)
 │   └── archive/                        ← Semua run lama (referensi, jangan hapus)
 │       ├── former_final_generation/    run RTX 5060 Ti 16GB (BLEU rusak, ROUGE strict rusak)
@@ -309,6 +325,16 @@ Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
     MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  (n=29)
     Recursive       P@5=0.145  R@5=0.352  MRR=0.429  (n=29)
 
+  RERATA LINTAS TOP-K 5–10 (tabel sintesis Bab 6.5, 2026-06-07):
+    Element-Based   Precision=0.110  Recall=0.480  MRR=0.369  BLEU=0.114  ROUGE-L=0.696
+    MaxMin Semantic Precision=0.103  Recall=0.502  MRR=0.355  BLEU=0.114  ROUGE-L=0.653
+    Recursive       Precision=0.121  Recall=0.411  MRR=0.439  BLEU=0.138  ROUGE-L=0.682
+    Tertinggi per metrik:
+      Precision@k: Recursive; Recall@k: MaxMin Semantic; MRR: Recursive;
+      BLEU: Recursive; ROUGE-L: Element-Based.
+    CATATAN: Ringkasan ini deskriptif lintas Top-5 sampai Top-10, bukan skor gabungan.
+    Audit missing disimpan di audit_average_metrics_top5_top10.csv.
+
   CATATAN MRR MaxMin turun (vs baseline lama 0.476):
     BUKAN bug. Beda karena embedder berbeda (HF safetensors RTX 3090 vs run lama).
     Pola: MaxMin sering Recall@5=1.0 tapi MRR rendah → BERHASIL menemukan chunk
@@ -331,29 +357,51 @@ Keterbatasan per Metode Chunking:
   maxmin_semantic : cluster terlalu besar untuk appendix tabel → embedding dilusi
   recursive       : lemah untuk pertanyaan definitif yang butuh paragraf ringkas
 
-Visualisasi Evaluasi — AKTIF (2026-06-05):
+Visualisasi Evaluasi — AKTIF (2026-06-08):
   Notebook: notebooks/eval_visualization.ipynb
   Output  : results/final/figures/
-    - chart1_recall_trend.png
-    - chart2_mrr_trend.png
-    - chart3_generation_metrics.png
-    - chart4_hit_count.png
-    - chart5_heatmap_mrr.png
-    - table1_recall_trend.csv
-    - table2_mrr_trend.csv
-    - table3_generation_metrics.csv
-    - table4_hit_count.csv
+    - chart1_precision_trend.png
+    - chart2_recall_trend.png
+    - chart3_mrr_trend.png
+    - chart4_bleu_topk.png
+    - chart5_rouge_l_topk.png
+    - chart6_ground_truth_evidence_types.png
+    - chart7_ground_truth_label_distribution.png
+    - table1_precision_trend.csv
+    - table2_recall_trend.csv
+    - table3_mrr_trend.csv
+    - table4_bleu_topk.csv
+    - table5_rouge_l_topk.csv
+    - table6_ground_truth_evidence_types.csv
+    - table7_ground_truth_label_distribution.csv
+    - table_6_1_retrieval_summary.csv/.xlsx
+    - table_6_2_generation_summary.csv/.xlsx
+    - table_average_metrics_top5_top10.csv/.xlsx/.md
+    - audit_average_metrics_top5_top10.csv
 
   Status visual terbaru:
     - Semua visualisasi aktif dikonsolidasikan ke eval_visualization.ipynb.
-    - Tabel center align, tanpa background color; nilai maksimum hanya bold.
+    - Urutan chart aktif setelah penghapusan chart posisi chunk relevan dan chart berhasil/gagal:
+      Chart 1 Precision, Chart 2 Recall, Chart 3 MRR, Chart 4 BLEU,
+      Chart 5 ROUGE-L, Chart 6 distribusi tipe evidence QA gold,
+      Chart 7 distribusi label relevansi retrieval.
+    - Tabel center align; nilai maksimum hanya bold pada tabel metrik.
     - Header tabel dibuat human-readable.
-    - Chart 3 legend dipindah ke luar plot agar tidak menutup bar.
-    - Table 3 header sudah sejajar dan literal "\n" sudah dihapus dari output.
-    - Chart 1 Recall label angka sudah dituning manual:
-      Top-k 5-7 label di atas garis; Top-k 8-10 MaxMin di atas,
-      Element di bawah, Recursive di atas; Top-k 8 punya offset ekstra.
-    - Heatmap MRR hanya menampilkan heatmap, tanpa catatan teks tambahan.
+    - Label angka pada chart Precision, Recall, MRR, BLEU, dan ROUGE-L sudah
+      dituning manual agar tidak overlap dengan garis/trend.
+    - Tabel 6.1 dibuat untuk ringkasan retrieval Top-5 sampai Top-10:
+      Metode Chunking, Top-k, Precision@k, Recall@k, MRR.
+      Urutan: per metode, lalu Top-k 5–10; nilai 3 desimal; export CSV/XLSX.
+    - Tabel 6.2 dibuat untuk ringkasan generation Top-5 sampai Top-10:
+      Metode Chunking, Top-k, BLEU, ROUGE-L.
+      Urutan: per metode, lalu Top-k 5–10; nilai 3 desimal; export CSV/XLSX.
+    - Tabel sintesis lintas Top-k 5–10 untuk subbab 6.5 dibuat:
+      table_average_metrics_top5_top10.csv/.xlsx/.md.
+      Kolom: Rerata Precision@k, Recall@k, MRR, BLEU, ROUGE-L.
+      Audit missing per method/top-k: audit_average_metrics_top5_top10.csv.
+    - results/visualizations/bab6/ berisi artefak tambahan untuk Bab 6:
+      gambar_6_x_ringkasan_retrieval_top5_top10.png dan
+      tabel_6_1_ringkasan_retrieval_top5_top10.csv/.xlsx.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -448,6 +496,24 @@ SELESAI ✓ (2026-06-05 — cleanup repo)
     → Tambah 1 kalimat di naskah: rank dihitung dalam top-k chunk yang di-retrieve.
   - TYPO di Pers. 2.4 naskah: "RR(q1)" di dalam sigma seharusnya "RR(qi)" (indeks i).
     Perlu diperbaiki di naskah skripsi.
+
+SELESAI ✓ (2026-06-07 s.d. 2026-06-08 — visualisasi & tabel Bab 6)
+  [x] Tambah visualisasi Precision@k sebagai Chart 1; Recall dan MRR bergeser menjadi
+      Chart 2 dan Chart 3.
+  [x] Pisahkan visualisasi generation: Chart 4 BLEU dan Chart 5 ROUGE-L.
+  [x] Tambah visualisasi ground truth:
+      Chart 6 distribusi tipe evidence QA gold dan Chart 7 distribusi label relevansi retrieval.
+  [x] Hapus dari urutan aktif: visualisasi posisi chunk relevan pertama MRR dan
+      visualisasi jumlah query berhasil/gagal retrieval.
+  [x] Rapikan urutan numbering chart/tabel di eval_visualization.ipynb setelah penghapusan
+      chart lama: urutan aktif sekarang Chart 1–7.
+  [x] Tambah Tabel 6.1 ringkasan retrieval Top-5 sampai Top-10:
+      Metode Chunking, Top-k, Precision@k, Recall@k, MRR.
+  [x] Tambah Tabel 6.2 ringkasan generation Top-5 sampai Top-10:
+      Metode Chunking, Top-k, BLEU, ROUGE-L.
+  [x] Buat tabel sintesis rerata lintas Top-k 5–10 untuk subbab 6.5:
+      table_average_metrics_top5_top10.csv/.xlsx/.md + audit_average_metrics_top5_top10.csv.
+  [x] Buat artefak tambahan Bab 6 di results/visualizations/bab6/.
 
 PERLU DILAKUKAN ○
   [ ] Re-run evaluasi retrieval khusus di RTX 3090 (opsional — angka retrieval sudah
@@ -576,9 +642,18 @@ Hal penting yang JANGAN salah:
   - TIDAK ada radio "Mode Relevance Chat" di tab Chat — semua pakai binary
   - Tab Chat: input via selectbox QA Gold, bukan ketik bebas
   - Notebook visualisasi aktif: notebooks/eval_visualization.ipynb
-  - Output visualisasi aktif: results/final/figures/chart1–chart5 + table1–table4
+  - Output visualisasi aktif: results/final/figures/chart1–chart7.
+    Urutan: Precision, Recall, MRR, BLEU, ROUGE-L, evidence type QA gold,
+    label relevansi retrieval.
+  - Tabel Bab 6 aktif:
+    table_6_1_retrieval_summary.csv/.xlsx,
+    table_6_2_generation_summary.csv/.xlsx,
+    table_average_metrics_top5_top10.csv/.xlsx/.md,
+    audit_average_metrics_top5_top10.csv.
+  - results/visualizations/bab6/ berisi artefak tambahan untuk Bab 6.
   - Notebook lama notebooks/00_*.ipynb sampai 07_*.ipynb sudah dihapus
-  - Figure lama results/final/figures/01_*.png sampai 06_*.png sudah dihapus
+  - Figure lama results/final/figures/01_*.png sampai 06_*.png dan chart lama
+    mrr_first_relevant_position / hit_count / fail_count sudah dihapus dari urutan aktif
   - Riwayat chat Streamlit persisten di results/chat_history/chat_history.jsonl
   - Backward compat: record lama di JSONL mungkin punya retrieval_strict/lenient — OK
   - Scripts yang ADA: build_candidates_v3.py, convert_ground_truth_to_json.py,

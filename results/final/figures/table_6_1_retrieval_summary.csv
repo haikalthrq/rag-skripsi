@@ -1,0 +1,19 @@
+Metode Chunking,Top-k,Precision@k,Recall@k,MRR
+Element-Based Chunking,5,0.129,0.392,0.354
+Max-Min Semantic Chunking,5,0.131,0.447,0.349
+Recursive Chunking,5,0.145,0.352,0.429
+Element-Based Chunking,6,0.125,0.452,0.366
+Max-Min Semantic Chunking,6,0.121,0.493,0.355
+Recursive Chunking,6,0.144,0.414,0.441
+Element-Based Chunking,7,0.112,0.470,0.366
+Max-Min Semantic Chunking,7,0.103,0.493,0.355
+Recursive Chunking,7,0.128,0.421,0.441
+Element-Based Chunking,8,0.107,0.517,0.375
+Max-Min Semantic Chunking,8,0.095,0.510,0.355
+Recursive Chunking,8,0.112,0.421,0.441
+Element-Based Chunking,9,0.095,0.517,0.375
+Max-Min Semantic Chunking,9,0.088,0.527,0.358
+Recursive Chunking,9,0.100,0.421,0.441
+Element-Based Chunking,10,0.089,0.529,0.379
+Max-Min Semantic Chunking,10,0.083,0.544,0.362
+Recursive Chunking,10,0.097,0.438,0.441
