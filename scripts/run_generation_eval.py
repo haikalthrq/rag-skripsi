@@ -1,619 +1,592 @@
 """
-Generation-only evaluation: BLEU + ROUGE-L Recall per chunking method.
+Batch RAG evaluation aligned with src/streamlit/rag_chat.py.
 
-Tidak butuh retrieval ground truth (anotasi manual) — cukup QA gold xlsx.
+The script mirrors the Streamlit "Evaluasi Batch" behavior:
+  - QA source: qa_gold_standard_rag_bps_30qa_question_newest.xlsx
+  - retrieval GT: qa_pairs_binary.json
+  - methods: element_based, maxmin_semantic, recursive
+  - metrics: Precision@k, Recall@k, MRR, BLEU, ROUGE-L recall
+  - output schema: same columns as rag_chat.py batch CSV
+  - output files: one CSV per top-k, eval_<timestamp>_<mode>_top{k}.csv
 
-Alur:
-  Load QA gold (xlsx)
-    → load embedder + ChromaDB (sekali)
-    → load generator (sekali)
-    → untuk setiap chunking method:
-        → retrieve top-k chunks per query
-        → generate jawaban
-        → hitung BLEU + ROUGE-L Recall
-    → print tabel perbandingan + simpan hasil
-
-Output di results/generation_eval/:
-  per_query_<timestamp>.csv   — semua 90 baris (30 QA × 3 method)
-  summary_<timestamp>.csv     — tabel ringkasan per method
-  report_<timestamp>.txt      — laporan question-first siap kutip untuk skripsi
-  run_<timestamp>.log         — log lengkap eksekusi
-
-Usage:
-  # HuggingFace — Instruct (non-thinking, direkomendasikan):
-  python scripts/run_generation_eval.py \\
-      --generator_type hf \\
-      --generator_path Qwen/Qwen3-4B-Instruct-2507-FP8
-
-  # HuggingFace — Thinking:
-  python scripts/run_generation_eval.py \\
-      --generator_type hf \\
-      --generator_path Qwen/Qwen3-4B-Thinking-2507-FP8 \\
-      --temperature 0.6 --top_p 0.95
-
-  # GGUF lokal:
-  python scripts/run_generation_eval.py \\
-      --generator_type gguf \\
-      --generator_path models/Qwen3-4B-Instruct-Q8_0.gguf
-
-  # Hanya 1 method, resume dari run sebelumnya:
-  python scripts/run_generation_eval.py \\
-      --generator_type hf \\
-      --generator_path Qwen/Qwen3-4B-Instruct-2507-FP8 \\
-      --methods element_based \\
-      --resume
+Default run evaluates full 30 QA for Top-1 through Top-10.
 """
 
-import os
-# Fix: kernels package memerlukan trust_remote_code untuk load FP8 CUDA kernel
-# dari kernels-community/finegrained-fp8. Tanpa ini, setiap generate() gagal.
-os.environ.setdefault("TRUST_REMOTE_CODE", "1")
-# Fix: CUDA memory fragmentation menyebabkan OOM di method ke-3 (recursive).
-# expandable_segments memungkinkan PyTorch memakai memory yang tidak kontinu.
-os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "garbage_collection_threshold:0.8,max_split_size_mb:128")
+from __future__ import annotations
 
 import argparse
 import csv
+import json
 import logging
+import os
+import platform
 import sys
 import time
-from datetime import datetime
+import zipfile
+from datetime import datetime, timedelta
+from xml.etree import ElementTree
 from pathlib import Path
+from typing import Any
 
-import pandas as pd
+os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
+os.environ.setdefault("TRUST_REMOTE_CODE", "1")
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "garbage_collection_threshold:0.8,max_split_size_mb:128")
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from src.evaluation.evaluator import build_evaluator, COLLECTION_NAMES
-from src.evaluation.metrics import compute_bleu, compute_rouge
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
+try:
+    import psutil
+except ImportError:  # pragma: no cover - psutil is in requirements, this is defensive.
+    psutil = None
+
+try:
+    import torch
+except ImportError:  # pragma: no cover - torch is in requirements, this is defensive.
+    torch = None
+
+from src.evaluation.metrics import (
+    compute_bleu,
+    compute_mrr,
+    compute_precision_at_k,
+    compute_recall_at_k,
+    compute_rouge,
+)
 logger = logging.getLogger(__name__)
+
+QA_GOLD_XLSX = ROOT / "data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx"
+GT_BINARY_JSON = ROOT / "data/ground_truth/qa_pairs_binary.json"
+RESULTS_DIR = ROOT / "results/final/generation"
+CHROMA_PATH = ROOT / "data/chroma"
+DEFAULT_CHROMA_PATH = "data/chroma"
+
+COLLECTION_NAMES = {
+    "element_based": "collection_element_based",
+    "maxmin_semantic": "collection_maxmin_semantic",
+    "recursive": "collection_recursive",
+}
+
+LOCAL_GEN_BF16 = ROOT / "models/Qwen3-4B-Instruct-2507"
+LOCAL_GEN_FP8 = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
+LOCAL_EMBED_HF = ROOT / "models/Qwen3-Embedding-4B"
+LOCAL_EMBED_GGUF = ROOT / "models/Qwen3-Embedding-4B-Q8_0.gguf"
+
+DEFAULT_GENERATOR_TYPE = "hf"
+DEFAULT_GENERATOR_PATH = (
+    str(LOCAL_GEN_BF16)
+    if LOCAL_GEN_BF16.exists()
+    else str(LOCAL_GEN_FP8)
+    if LOCAL_GEN_FP8.exists()
+    else "Qwen/Qwen3-4B-Instruct-2507"
+)
+DEFAULT_EMBEDDER_MODE = "huggingface" if LOCAL_EMBED_HF.exists() else "gguf"
+DEFAULT_EMBEDDER_PATH = str(LOCAL_EMBED_HF if LOCAL_EMBED_HF.exists() else LOCAL_EMBED_GGUF)
+DEFAULT_HF_MODEL = str(LOCAL_EMBED_HF if LOCAL_EMBED_HF.exists() else ROOT / "models/Qwen3-Embedding-4B")
+
+DEFAULT_TEMPERATURE = 0.7
+DEFAULT_TOP_P = 0.8
+DEFAULT_TOP_K_GEN = 20
+DEFAULT_MAX_TOKENS = 16384
+DEFAULT_TOP_K_MIN = 1
+DEFAULT_TOP_K_MAX = 10
+
+QUICK_EVAL_IDS = ["Q005", "Q010", "Q011", "Q013", "Q020"]
+
+METHODS = list(COLLECTION_NAMES.keys())
+METHOD_LABELS = {
+    "element_based": "Element-Based",
+    "maxmin_semantic": "MaxMin Semantic",
+    "recursive": "Recursive",
+}
+
+OUTPUT_COLUMNS = [
+    "query_id",
+    "method",
+    "question",
+    "gold_answer",
+    "generated_answer",
+    "precision_at_k",
+    "recall_at_k",
+    "mrr",
+    "bleu",
+    "rouge_l_recall",
+    "error",
+    "hardware_info",
+]
+
+
+def _patch_hf_user_agent() -> None:
+    """Keep parity with rag_chat.py for HF Hub user-agent edge cases."""
+    try:
+        import huggingface_hub.utils._headers as headers
+
+        original = headers._deduplicate_user_agent
+
+        def fixed(user_agent: str) -> str:
+            return original(user_agent).rstrip("; ").rstrip(";")
+
+        headers._deduplicate_user_agent = fixed
+    except Exception:
+        pass
+
+
+_patch_hf_user_agent()
 
 
 def _setup_logging(log_path: Path) -> None:
-    """Setup dual logging: console (INFO) + file (DEBUG)."""
-    fmt = logging.Formatter("%(asctime)s  %(levelname)-8s  %(message)s")
+    log_path.parent.mkdir(parents=True, exist_ok=True)
     root = logging.getLogger()
+    root.handlers.clear()
     root.setLevel(logging.DEBUG)
-    ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(fmt)
-    fh = logging.FileHandler(str(log_path), encoding="utf-8")
-    fh.setLevel(logging.DEBUG)
-    fh.setFormatter(fmt)
-    root.addHandler(ch)
-    root.addHandler(fh)
-
-# ── Paths default ──────────────────────────────────────────────────────────────
-
-QA_GOLD_XLSX  = ROOT / "data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx"
-RESULTS_DIR   = ROOT / "results/final/generation"
-EMBEDDER_PATH = ROOT / "models/Qwen3-Embedding-4B"
-CHROMA_PATH   = ROOT / "data/chroma"
-
-# ── Default: Qwen3-4B-Instruct-2507-FP8 (sesuai dokumentasi model) ──────────────────
-# Prioritas: local models/ folder → HF Hub (butuh internet)
-# Download lokal: from huggingface_hub import snapshot_download
-#   snapshot_download("Qwen/Qwen3-4B-Instruct-2507-FP8",
-#                     local_dir="models/Qwen3-4B-Instruct-2507-FP8")
-DEFAULT_GENERATOR_TYPE = "hf"
-_LOCAL_GENERATOR        = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
-DEFAULT_GENERATOR_PATH  = str(_LOCAL_GENERATOR) if _LOCAL_GENERATOR.exists() else "Qwen/Qwen3-4B-Instruct-2507-FP8"
-DEFAULT_TEMPERATURE    = 0.7    # Instruct: 0.7 (Thinking: 0.6)
-DEFAULT_TOP_P          = 0.8    # Instruct: 0.8 (Thinking: 0.95)
-DEFAULT_TOP_K_GEN      = 20
-DEFAULT_MAX_TOKENS     = 16384  # Sesuai rekomendasi output length resmi model card Qwen3-4B-Instruct-2507
-DEFAULT_TOP_K          = 8
+    fmt = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    console = logging.StreamHandler(sys.stdout)
+    console.setLevel(logging.INFO)
+    console.setFormatter(fmt)
+    file_handler = logging.FileHandler(str(log_path), encoding="utf-8")
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(fmt)
+    root.addHandler(console)
+    root.addHandler(file_handler)
 
 
-# ── QA Gold loader ─────────────────────────────────────────────────────────────
+def get_hardware_info() -> dict[str, Any]:
+    info: dict[str, Any] = {
+        "cpu": platform.processor(),
+    }
+    if psutil is not None:
+        info.update({
+            "cpu_count": psutil.cpu_count(),
+            "cpu_count_logical": psutil.cpu_count(logical=True),
+            "ram_total_gb": round(psutil.virtual_memory().total / (1024**3), 2),
+            "ram_available_gb": round(psutil.virtual_memory().available / (1024**3), 2),
+        })
+    if torch is not None and torch.cuda.is_available():
+        props = torch.cuda.get_device_properties(0)
+        reserved = torch.cuda.memory_reserved(0)
+        info.update({
+            "gpu_available": True,
+            "gpu_count": torch.cuda.device_count(),
+            "gpu_name": torch.cuda.get_device_name(0),
+            "gpu_vram_total_gb": round(props.total_memory / (1024**3), 2),
+            "gpu_vram_allocated_gb": round(torch.cuda.memory_allocated(0) / (1024**3), 2),
+            "gpu_vram_reserved_gb": round(reserved / (1024**3), 2),
+            "gpu_vram_free_gb": round((props.total_memory - reserved) / (1024**3), 2),
+        })
+    else:
+        info["gpu_available"] = False
+    return info
 
-def load_qa_gold(path: Path) -> list:
-    """Load QA gold dari xlsx → list of {id, question, reference_answer}."""
-    df = pd.read_excel(str(path), sheet_name="qa_gold", dtype=str).fillna("")
-    rows = [
-        {
-            "id":               str(r["query_id"]).strip(),
-            "question":         str(r["question"]).strip(),
-            "reference_answer": str(r["gold_answer"]).strip(),
-            "relevant_chunk_ids": {},   # kosong — skip retrieval metrics
-        }
-        for _, r in df.iterrows()
-        if str(r.get("query_id", "")).strip()
-    ]
-    logger.info(f"[OK] Loaded {len(rows)} QA items dari {path.name}")
+
+def load_qa_gold(path: Path) -> list[dict[str, Any]]:
+    """Load QA gold and keep the legacy fields expected by tests."""
+    try:
+        import pandas as pd
+
+        df = pd.read_excel(str(path), sheet_name="qa_gold", dtype=str).fillna("")
+        records = df.to_dict("records")
+    except ImportError:
+        records = _load_qa_gold_xlsx_stdlib(path)
+
+    rows = []
+    for row in records:
+        query_id = str(row.get("query_id", "")).strip()
+        if not query_id:
+            continue
+        rows.append({
+            "id": query_id,
+            "query_id": query_id,
+            "question": str(row.get("question", "")).strip(),
+            "reference_answer": str(row.get("gold_answer", "")).strip(),
+            "gold_answer": str(row.get("gold_answer", "")).strip(),
+            "relevant_chunk_ids": {},
+        })
+    logger.info("Loaded %s QA items from %s", len(rows), path.name)
     return rows
 
 
-# ── Output helpers ─────────────────────────────────────────────────────────────
-
-_PER_QUERY_COLS = [
-    "method", "q_id", "question", "reference",
-    "answer", "bleu", "rouge_l", "elapsed_s", "error",
-]
-
-def _build_config(args, methods: list, ts: str) -> dict:
-    """Bangun dict konfigurasi run untuk header report."""
-    return {
-        "timestamp":       ts,
-        "generator_type":  args.generator_type,
-        "generator_path":  args.generator_path,
-        "embedder_mode":   args.embedder_mode,
-        "hf_model":        args.hf_model,
-        "embedder_path":   args.embedder_path,
-        "chroma_path":     args.chroma_path,
-        "qa_xlsx":         args.qa_xlsx,
-        "methods":         methods,
-        "top_k":           args.top_k,
-        "max_tokens":      args.max_tokens,
-        "temperature":     args.temperature,
-        "top_p":           args.top_p,
-        "top_k_gen":       args.top_k_gen,
-        "n_gpu_layers":    args.n_gpu_layers,
-        "return_thinking": args.return_thinking,
-        "resume":          args.resume,
+def _load_qa_gold_xlsx_stdlib(path: Path) -> list[dict[str, str]]:
+    """Read the qa_gold sheet without pandas/openpyxl for lightweight tests."""
+    ns = {
+        "main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "rel": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+        "pkg": "http://schemas.openxmlformats.org/package/2006/relationships",
     }
+    with zipfile.ZipFile(path) as zf:
+        shared_strings: list[str] = []
+        if "xl/sharedStrings.xml" in zf.namelist():
+            root = ElementTree.fromstring(zf.read("xl/sharedStrings.xml"))
+            for item in root.findall("main:si", ns):
+                texts = [node.text or "" for node in item.findall(".//main:t", ns)]
+                shared_strings.append("".join(texts))
 
+        workbook = ElementTree.fromstring(zf.read("xl/workbook.xml"))
+        rels = ElementTree.fromstring(zf.read("xl/_rels/workbook.xml.rels"))
+        rel_targets = {
+            rel.attrib["Id"]: rel.attrib["Target"]
+            for rel in rels.findall("pkg:Relationship", ns)
+        }
+        sheet_target = None
+        for sheet in workbook.findall("main:sheets/main:sheet", ns):
+            if sheet.attrib.get("name") == "qa_gold":
+                rel_id = sheet.attrib.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id")
+                sheet_target = rel_targets.get(rel_id)
+                break
+        if not sheet_target:
+            raise ValueError("Sheet qa_gold not found")
+        sheet_path = sheet_target.lstrip("/")
+        if not sheet_path.startswith("xl/"):
+            sheet_path = "xl/" + sheet_path
+        sheet_xml = ElementTree.fromstring(zf.read(sheet_path))
 
-def _format_question_block(q_id: str, question: str, reference: str,
-                           method_rows: dict) -> list:
-    """
-    Format satu blok query dengan 3 method berdampingan.
-    Digunakan bersama oleh generate_report() dan print_question_comparison().
-    """
-    sep80  = "=" * 80
-    sep80d = "-" * 80
-    block  = [
-        sep80,
-        f"{q_id} | {question}",
-        sep80d,
-        f"Referensi : {reference}",
-        "",
-    ]
-    for method in COLLECTION_NAMES:
-        if method not in method_rows:
-            block += [f"[{method}]  — tidak ada data —", ""]
-            continue
-        r      = method_rows[method]
-        bleu   = f"{float(r['bleu']):.4f}"   if r.get("bleu")   not in (None, "", "—") else "—"
-        rouge  = f"{float(r['rouge_l']):.4f}" if r.get("rouge_l") not in (None, "", "—") else "—"
-        answer = r.get("answer") or "[kosong]"
-        if r.get("error"):
-            answer = f"[ERROR] {r['error']}"
-        block += [
-            f"[{method}]  BLEU={bleu}  ROUGE-L={rouge}",
-            "Jawaban:",
-            answer,
-            "",
-        ]
-    return block
+    def cell_value(cell) -> str:
+        if cell.attrib.get("t") == "inlineStr":
+            texts = [node.text or "" for node in cell.findall(".//main:t", ns)]
+            return "".join(texts)
+        value = cell.find("main:v", ns)
+        if value is None or value.text is None:
+            return ""
+        text = value.text
+        if cell.attrib.get("t") == "s":
+            return shared_strings[int(text)]
+        return text
 
+    def column_index(cell_ref: str) -> int:
+        letters = "".join(ch for ch in cell_ref if ch.isalpha())
+        idx = 0
+        for ch in letters:
+            idx = idx * 26 + (ord(ch.upper()) - ord("A") + 1)
+        return max(idx - 1, 0)
 
-def generate_report(
-    per_query: list,
-    summary: list,
-    config: dict,
-    path: Path,
-) -> None:
-    """
-    Generate laporan evaluasi terformat (.txt) untuk dokumentasi skripsi.
-    Format question-first: tiap query menampilkan jawaban + skor 3 method sekaligus.
-    Konfigurasi run disertakan di header (tidak ada config.json terpisah).
-    """
-    sep80  = "=" * 80
-    sep80d = "-" * 80
-
-    lines = [
-        sep80,
-        "  LAPORAN EVALUASI GENERASI RAG",
-        "  Perbandingan Metode Chunking: element_based | maxmin_semantic | recursive",
-        sep80,
-        "",
-        "KONFIGURASI RUN",
-        sep80d,
-        f"  Tanggal/Waktu    : {config.get('timestamp', '-')}",
-        f"  Model Generator  : {config.get('generator_path', '-')}",
-        f"  Tipe Generator   : {config.get('generator_type', '-')}",
-        f"  Embedding Model  : {Path(config.get('embedder_path', '-')).name}",
-        f"  ChromaDB Path    : {config.get('chroma_path', '-')}",
-        f"  QA Gold File     : {Path(config.get('qa_xlsx', '-')).name}",
-        f"  Top-K Retrieval  : {config.get('top_k', '-')}",
-        f"  Max Tokens Out   : {config.get('max_tokens', '-')}",
-        f"  Temperature      : {config.get('temperature', '-')}",
-        f"  Top-P            : {config.get('top_p', '-')}",
-        f"  Top-K Sampling   : {config.get('top_k_gen', '-')}",
-        "",
+    table: list[list[str]] = []
+    for row in sheet_xml.findall("main:sheetData/main:row", ns):
+        values: list[str] = []
+        for cell in row.findall("main:c", ns):
+            col_idx = column_index(cell.attrib.get("r", "A1"))
+            while len(values) <= col_idx:
+                values.append("")
+            values[col_idx] = cell_value(cell)
+        table.append(values)
+    if not table:
+        return []
+    headers = [str(value).strip() for value in table[0]]
+    return [
+        {headers[i]: row[i] if i < len(row) else "" for i in range(len(headers))}
+        for row in table[1:]
     ]
 
-    # ── Tabel ringkasan ──────────────────────────────────────────────────────
-    lines += [
-        "RINGKASAN METRIK — PERBANDINGAN CHUNKING METHOD",
-        sep80d,
-    ]
-    col_w  = 16
-    name_w = 22
-    cols   = ["mean_bleu", "mean_rouge_l", "n_success", "n_queries"]
-    header = f"  {'Method':<{name_w}}" + "".join(f"{c:>{col_w}}" for c in cols)
-    lines.append(header)
-    lines.append("  " + "-" * (name_w + col_w * len(cols)))
-    for s in summary:
-        row = f"  {s['method']:<{name_w}}"
-        for c in cols:
-            val = s.get(c)
-            if isinstance(val, float):
-                row += f"{val:>{col_w}.4f}"
-            elif isinstance(val, int):
-                row += f"{val:>{col_w}}"
-            else:
-                row += f"{'—':>{col_w}}"
-        lines.append(row)
-    lines += ["", sep80d, ""]
 
-    # ── Detail per query (question-first) ────────────────────────────────────
-    lines += [
-        "DETAIL PER QUERY — FORMAT: PERTANYAAN => 3 METODE",
-        sep80,
-        "",
-    ]
-
-    from collections import defaultdict
-    by_qid: dict = defaultdict(dict)
-    for row in per_query:
-        by_qid[row["q_id"]][row["method"]] = row
-
-    for q_id in sorted(by_qid.keys()):
-        method_rows = by_qid[q_id]
-        sample      = next(iter(method_rows.values()))
-        lines.extend(_format_question_block(
-            q_id, sample.get("question", ""),
-            sample.get("reference", ""), method_rows,
-        ))
-
-    lines += [sep80, "  END OF REPORT", sep80]
-
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
+def load_ground_truth(path: Path) -> dict[str, dict[str, Any]]:
+    with path.open(encoding="utf-8") as f:
+        data = json.load(f)
+    return {str(item.get("id")): item for item in data}
 
 
-def save_per_query_csv(rows: list, path: Path) -> None:
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=_PER_QUERY_COLS, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def save_summary_csv(summary: list, path: Path) -> None:
-    cols = ["method", "n_queries", "n_success", "mean_bleu", "mean_rouge_l"]
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(summary)
-
-
-def print_question_comparison(per_query: list) -> None:
-    """Print perbandingan hasil per query (question-first) ke terminal setelah semua selesai."""
-    from collections import defaultdict
-    by_qid: dict = defaultdict(dict)
-    for row in per_query:
-        by_qid[row["q_id"]][row["method"]] = row
-
-    sep = "=" * 80
-    print(f"\n{sep}")
-    print("  HASIL PER QUERY — PERBANDINGAN 3 METODE")
-    print(f"{sep}\n")
-
-    for q_id in sorted(by_qid.keys()):
-        method_rows = by_qid[q_id]
-        sample      = next(iter(method_rows.values()))
-        for line in _format_question_block(
-            q_id, sample.get("question", ""),
-            sample.get("reference", ""), method_rows,
-        ):
-            print(line)
-
-
-# ── Summary builder ────────────────────────────────────────────────────────────
-
-def build_summary(per_query: list) -> list:
-    from collections import defaultdict
-    buckets = defaultdict(list)
-    for row in per_query:
-        buckets[row["method"]].append(row)
-
+def build_summary(per_query: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Aggregate rows; keeps mean_bleu/mean_rouge_l compatibility for tests."""
     summary = []
-    for method in COLLECTION_NAMES:                             # tetap urutan konsisten
-        rows = buckets.get(method, [])
+    for method in METHODS:
+        labels = {method, METHOD_LABELS[method]}
+        rows = [row for row in per_query if row.get("method") in labels]
         if not rows:
             continue
-        bleu_vals  = [float(r["bleu"])    for r in rows if r.get("bleu")    not in (None, "", "—")]
-        rouge_vals = [float(r["rouge_l"]) for r in rows if r.get("rouge_l") not in (None, "", "—")]
-        n_success  = sum(1 for r in rows if r.get("answer"))
+        bleu_vals = [
+            float(row["bleu"])
+            for row in rows
+            if isinstance(row.get("bleu"), (int, float)) or str(row.get("bleu", "")).replace(".", "", 1).isdigit()
+        ]
+        rouge_vals = []
+        for row in rows:
+            value = row.get("rouge_l_recall", row.get("rouge_l"))
+            if isinstance(value, (int, float)) or str(value).replace(".", "", 1).isdigit():
+                rouge_vals.append(float(value))
+        precision_vals = [float(row["precision_at_k"]) for row in rows if isinstance(row.get("precision_at_k"), (int, float))]
+        recall_vals = [float(row["recall_at_k"]) for row in rows if isinstance(row.get("recall_at_k"), (int, float))]
+        mrr_vals = [float(row["mrr"]) for row in rows if isinstance(row.get("mrr"), (int, float))]
         summary.append({
-            "method":       method,
-            "n_queries":    len(rows),
-            "n_success":    n_success,
-            "mean_bleu":    round(sum(bleu_vals)  / len(bleu_vals),  6) if bleu_vals  else None,
+            "method": method,
+            "method_label": METHOD_LABELS[method],
+            "n_queries": len(rows),
+            "n_success": sum(1 for row in rows if row.get("generated_answer") or row.get("answer")),
+            "n_retrieval_evaluated": len(precision_vals),
+            "mean_precision_at_k": round(sum(precision_vals) / len(precision_vals), 6) if precision_vals else None,
+            "mean_recall_at_k": round(sum(recall_vals) / len(recall_vals), 6) if recall_vals else None,
+            "mean_mrr": round(sum(mrr_vals) / len(mrr_vals), 6) if mrr_vals else None,
+            "mean_bleu": round(sum(bleu_vals) / len(bleu_vals), 6) if bleu_vals else None,
             "mean_rouge_l": round(sum(rouge_vals) / len(rouge_vals), 6) if rouge_vals else None,
         })
     return summary
 
 
-def print_summary(summary: list) -> None:
-    col_w  = 16
-    name_w = 22
-    cols   = ["mean_bleu", "mean_rouge_l", "n_success", "n_queries"]
-    total_w = name_w + col_w * len(cols)
-
-    print("\n" + "=" * total_w)
-    print("  HASIL EVALUASI GENERASI — BLEU + ROUGE-L Recall")
-    print("=" * total_w)
-    print(f"{'Method':<{name_w}}" + "".join(f"{c:>{col_w}}" for c in cols))
-    print("-" * total_w)
-    for s in summary:
-        row = f"{s['method']:<{name_w}}"
-        for c in cols:
-            val = s.get(c)
-            if isinstance(val, float):
-                row += f"{val:>{col_w}.4f}"
-            elif isinstance(val, int):
-                row += f"{val:>{col_w}}"
-            else:
-                row += f"{'—':>{col_w}}"
-        print(row)
-    print("=" * total_w + "\n")
+def save_rows(rows: list[dict[str, Any]], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
 
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+def load_existing_done(path: Path) -> tuple[list[dict[str, Any]], set[tuple[str, str]]]:
+    if not path.exists():
+        return [], set()
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = [
+            {key: (value if value is not None else "") for key, value in row.items()}
+            for row in csv.DictReader(f)
+        ]
+    done = {
+        (str(row["query_id"]), str(row["method"]))
+        for row in rows
+        if row.get("generated_answer") and not row.get("error")
+    }
+    return rows, done
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generation-only evaluation: BLEU + ROUGE-L Recall",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__,
+
+def upsert_row(rows: list[dict[str, Any]], row: dict[str, Any]) -> None:
+    key = (row["query_id"], row["method"])
+    for idx, existing in enumerate(rows):
+        if (existing.get("query_id"), existing.get("method")) == key:
+            rows[idx] = row
+            return
+    rows.append(row)
+
+
+def precompute_query_embeddings(pipeline: Any, qa_items: list[dict[str, Any]]) -> dict[str, tuple[Any, bool]]:
+    query_embeddings: dict[str, tuple[Any, bool]] = {}
+    for i, item in enumerate(qa_items, 1):
+        q_id = item["query_id"]
+        logger.info("Pre-computing embedding %s/%s: %s", i, len(qa_items), q_id)
+        try:
+            query_embeddings[q_id] = (pipeline.embedder.embed(item["question"])[0], True)
+        except Exception as exc:
+            logger.error("Embedding failed for %s: %s", q_id, exc)
+            query_embeddings[q_id] = (None, False)
+    return query_embeddings
+
+
+def build_pipeline_from_args(args: argparse.Namespace) -> Any:
+    from src.rag.pipeline import build_pipeline
+
+    embedder_path = args.hf_model if args.embedder_mode == "huggingface" else args.embedder_path
+    return build_pipeline(
+        chunking_method="element_based",
+        embedder_path=embedder_path,
+        generator_path=args.generator_path,
+        generator_type=args.generator_type,
+        embedder_mode=args.embedder_mode,
+        chroma_path=args.chroma_path,
+        top_k=args.top_k_max,
+        n_gpu_layers=args.n_gpu_layers,
+        max_tokens=args.max_tokens,
+        temperature=args.temperature,
+        top_p=args.top_p,
+        top_k_gen=args.top_k_gen,
+        return_thinking=args.return_thinking,
     )
 
-    # Generator — default sudah diset ke Instruct model
-    parser.add_argument("--generator_type", default=DEFAULT_GENERATOR_TYPE,
-                        choices=["gguf", "hf"],
-                        help=f"Backend generator (default: {DEFAULT_GENERATOR_TYPE})")
-    parser.add_argument("--generator_path", default=DEFAULT_GENERATOR_PATH,
-                        help=f"HF model name atau path .gguf (default: {DEFAULT_GENERATOR_PATH})")
 
-    # QA gold + paths
-    parser.add_argument("--qa_xlsx", default=str(QA_GOLD_XLSX),
-                        help=f"Path ke QA gold xlsx (default: {QA_GOLD_XLSX.name})")
-    parser.add_argument("--embedder_mode", default="huggingface",
-                        choices=["gguf", "huggingface"],
-                        help="Mode embedder (default: huggingface)")
-    parser.add_argument("--hf_model", default="/workspace/models/Qwen3-Embedding-4B",
-                        help="Path ke HF embedding model")
-    parser.add_argument("--embedder_path", default=str(EMBEDDER_PATH),
-                        help="Path ke GGUF embedding model")
-    parser.add_argument("--chroma_path", default=str(CHROMA_PATH),
-                        help="Path ke ChromaDB storage")
+def evaluate_top_k(
+    pipeline: Any,
+    qa_items: list[dict[str, Any]],
+    gt_lookup: dict[str, dict[str, Any]],
+    query_embeddings: dict[str, tuple[Any, bool]],
+    methods: list[str],
+    current_k: int,
+    existing_rows: list[dict[str, Any]],
+    done: set[tuple[str, str]],
+    output_path: Path,
+    hardware_info: str,
+) -> list[dict[str, Any]]:
+    rows = existing_rows
 
-    # Eval config
-    parser.add_argument("--methods", nargs="+", default=None,
-                        choices=list(COLLECTION_NAMES.keys()),
-                        help="Methods (default: semua 3)")
-    parser.add_argument("--top_k", type=int, default=DEFAULT_TOP_K,
-                        help=f"Jumlah chunk per query (default: {DEFAULT_TOP_K})")
+    for item in qa_items:
+        q_id = item["query_id"]
+        question = item["question"]
+        gold_answer = item["gold_answer"]
+        gt_item = gt_lookup.get(q_id)
+        q_vec, embed_ok = query_embeddings.get(q_id, (None, False))
 
-    # Generator sampling — default sesuai Instruct model docs
-    parser.add_argument("--max_tokens", type=int, default=DEFAULT_MAX_TOKENS,
-                        help=f"Max output tokens (default: {DEFAULT_MAX_TOKENS})")
-    parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE,
-                        help=f"Sampling temperature (default: {DEFAULT_TEMPERATURE})")
-    parser.add_argument("--top_p", type=float, default=DEFAULT_TOP_P,
-                        help=f"Nucleus sampling (default: {DEFAULT_TOP_P})")
-    parser.add_argument("--top_k_gen", type=int, default=DEFAULT_TOP_K_GEN,
-                        help=f"Top-K sampling (default: {DEFAULT_TOP_K_GEN})")
-    parser.add_argument("--n_gpu_layers", type=int, default=-1,
-                        help="GPU layers GGUF (-1 = semua, 0 = CPU only)")
-    parser.add_argument("--return_thinking", action="store_true",
-                        help="Simpan thinking content (HF Thinking model only)")
+        for method in methods:
+            method_label = METHOD_LABELS[method]
+            if (q_id, method_label) in done:
+                continue
 
-    # Output
-    parser.add_argument("--output_dir", default=str(RESULTS_DIR),
-                        help="Folder output (default: results/generation_eval/)")
-    parser.add_argument("--resume", action="store_true",
-                        help="Lanjutkan dari per_query CSV terakhir (skip yang sudah selesai)")
+            row: dict[str, Any] = {
+                "query_id": q_id,
+                "method": method_label,
+                "question": question,
+                "gold_answer": gold_answer,
+                "generated_answer": None,
+                "precision_at_k": None,
+                "recall_at_k": None,
+                "mrr": None,
+                "bleu": None,
+                "rouge_l_recall": None,
+                "error": "",
+                "hardware_info": hardware_info,
+            }
 
-    args = parser.parse_args()
+            logger.info("[%s] %s top-%s", q_id, method_label, current_k)
+            try:
+                from src.rag.pipeline import RAGPipeline
+
+                p = RAGPipeline(
+                    embedder=pipeline.embedder,
+                    generator=pipeline.generator,
+                    chroma_client=pipeline.chroma_client,
+                    chunking_method=method,
+                    top_k=current_k,
+                )
+
+                retrieved = p.retrieve_by_vector(q_vec, k=current_k) if embed_ok else p.retrieve(question, k=current_k)
+                retrieved_ids = [doc.get("id", "") for doc in retrieved]
+
+                rel_ids: list[str] = []
+                if gt_item:
+                    rel_all = gt_item.get("relevant_chunk_ids", {})
+                    rel_ids = rel_all.get(method, []) if isinstance(rel_all, dict) else rel_all
+                if rel_ids:
+                    row["precision_at_k"] = round(compute_precision_at_k(retrieved_ids, rel_ids, current_k), 4)
+                    row["recall_at_k"] = round(compute_recall_at_k(retrieved_ids, rel_ids, current_k), 4)
+                    row["mrr"] = round(compute_mrr(retrieved_ids, rel_ids), 4)
+                else:
+                    row["precision_at_k"] = "N/A"
+                    row["recall_at_k"] = "N/A"
+                    row["mrr"] = "N/A"
+
+                contexts = [p._format_context(doc) for doc in retrieved]
+                raw = pipeline.generator.generate(question, contexts)
+                answer = raw[0] if isinstance(raw, tuple) else raw
+                row["generated_answer"] = answer
+                row["bleu"] = round(compute_bleu(answer, gold_answer), 4)
+                row["rouge_l_recall"] = round(compute_rouge(answer, gold_answer, rouge_type="rougeL", mode="recall"), 4)
+
+                if torch is not None and torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
+            except Exception as exc:
+                row["generated_answer"] = f"[ERROR] {exc}"
+                row["error"] = str(exc)
+                if torch is not None and torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
+            upsert_row(rows, row)
+            save_rows(rows, output_path)
+
+    return rows
+
+
+def print_summary(summary: list[dict[str, Any]]) -> None:
+    print("\nBatch evaluation summary")
+    print("-" * 112)
+    print(f"{'Method':<22} {'N':>4} {'Eval':>5} {'P@k':>9} {'R@k':>9} {'MRR':>9} {'BLEU':>9} {'ROUGE-L':>9}")
+    print("-" * 112)
+    for row in summary:
+        def fmt(value: Any) -> str:
+            return "-" if value is None else f"{float(value):.4f}"
+        print(
+            f"{row['method_label']:<22} {row['n_queries']:>4} {row['n_retrieval_evaluated']:>5} "
+            f"{fmt(row['mean_precision_at_k']):>9} {fmt(row['mean_recall_at_k']):>9} "
+            f"{fmt(row['mean_mrr']):>9} {fmt(row['mean_bleu']):>9} {fmt(row['mean_rouge_l']):>9}"
+        )
+    print("-" * 112)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Batch RAG evaluation aligned with rag_chat.py")
+    parser.add_argument("--qa_xlsx", default=str(QA_GOLD_XLSX))
+    parser.add_argument("--gt", default=str(GT_BINARY_JSON), help="Binary retrieval ground truth JSON")
+    parser.add_argument("--output_dir", default=str(RESULTS_DIR))
+    parser.add_argument("--mode_tag", choices=["full", "quick"], default="full")
+    parser.add_argument("--methods", nargs="+", choices=METHODS, default=None)
+    parser.add_argument("--top_k_min", type=int, default=DEFAULT_TOP_K_MIN)
+    parser.add_argument("--top_k_max", type=int, default=DEFAULT_TOP_K_MAX)
+    parser.add_argument("--top_k", type=int, default=None, help="Shortcut: evaluate one top-k only")
+
+    parser.add_argument("--generator_type", choices=["gguf", "hf"], default=DEFAULT_GENERATOR_TYPE)
+    parser.add_argument("--generator_path", default=DEFAULT_GENERATOR_PATH)
+    parser.add_argument("--embedder_mode", choices=["gguf", "huggingface"], default=DEFAULT_EMBEDDER_MODE)
+    parser.add_argument("--hf_model", default=DEFAULT_HF_MODEL)
+    parser.add_argument("--embedder_path", default=DEFAULT_EMBEDDER_PATH)
+    parser.add_argument("--chroma_path", default=str(CHROMA_PATH if CHROMA_PATH.exists() else ROOT / DEFAULT_CHROMA_PATH))
+
+    parser.add_argument("--max_tokens", type=int, default=DEFAULT_MAX_TOKENS)
+    parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE)
+    parser.add_argument("--top_p", type=float, default=DEFAULT_TOP_P)
+    parser.add_argument("--top_k_gen", type=int, default=DEFAULT_TOP_K_GEN)
+    parser.add_argument("--n_gpu_layers", type=int, default=-1)
+    parser.add_argument("--return_thinking", action="store_true")
+    parser.add_argument("--resume", action="store_true")
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    if args.top_k is not None:
+        args.top_k_min = args.top_k
+        args.top_k_max = args.top_k
+    if not 1 <= args.top_k_min <= args.top_k_max <= 10:
+        raise ValueError("Top-k range must satisfy 1 <= min <= max <= 10")
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
+    _setup_logging(out_dir / f"run_{ts_wib}_{args.mode_tag}_top{args.top_k_min}-{args.top_k_max}.log")
 
-    per_query_path = out_dir / f"per_query_{ts}.csv"
-    summary_path   = out_dir / f"summary_{ts}.csv"
-    report_path    = out_dir / f"report_{ts}.txt"
-    log_path       = out_dir / f"run_{ts}.log"
-
-    _setup_logging(log_path)
-
-    # ── Load QA gold ──────────────────────────────────────────────────────────
     qa_items = load_qa_gold(Path(args.qa_xlsx))
+    if args.mode_tag == "quick":
+        qa_items = [item for item in qa_items if item["query_id"] in QUICK_EVAL_IDS]
+    if not qa_items:
+        raise RuntimeError("No QA items selected")
 
-    methods = args.methods or list(COLLECTION_NAMES.keys())
-    config  = _build_config(args, methods, ts)
+    gt_lookup = load_ground_truth(Path(args.gt))
+    methods = args.methods or METHODS
+    hardware_info = json.dumps(get_hardware_info(), ensure_ascii=False)
 
-    # ── Resume: load existing results ─────────────────────────────────────────
-    done: set  = set()
-    all_rows: list = []
-    if args.resume:
-        existing = sorted(out_dir.glob("per_query_*.csv"), reverse=True)
-        if existing:
-            old_df   = pd.read_csv(str(existing[0]), dtype=str).fillna("")
-            loaded   = old_df.to_dict("records")
-            # Hanya anggap "done" jika ada jawaban dan tidak ada error
-            done     = {(r["method"], r["q_id"]) for r in loaded
-                        if r.get("answer") and not r.get("error")}
-            # Simpan SEMUA rows (termasuk error) agar n_queries tetap 30
-            all_rows = loaded
-            per_query_path = existing[0]
-            n_retry  = sum(1 for r in loaded if r.get("error") or not r.get("answer"))
-            logger.info(f"[RESUME] {len(loaded)} rows dari {existing[0].name}")
-            if n_retry:
-                logger.info(f"[RESUME] {n_retry} rows error akan di-retry")
-        else:
-            logger.info("[RESUME] Tidak ada file sebelumnya — mulai dari awal")
+    logger.info("Loading pipeline")
+    pipeline = build_pipeline_from_args(args)
+    query_embeddings = precompute_query_embeddings(pipeline, qa_items)
 
-    # ── Load embedder + ChromaDB (sekali) ─────────────────────────────────────
-    logger.info("\n[INIT] Memuat embedder + ChromaDB...")
-    try:
-        evaluator = build_evaluator(
-            embedder_path=args.embedder_path,
-            chroma_path=args.chroma_path,
-            n_gpu_layers=args.n_gpu_layers,
-            embedder_mode=args.embedder_mode,
-            hf_model_name=args.hf_model,
+    all_rows_for_summary: list[dict[str, Any]] = []
+    for current_k in range(args.top_k_min, args.top_k_max + 1):
+        output_path = out_dir / f"eval_{ts_wib}_{args.mode_tag}_top{current_k}.csv"
+        existing_rows: list[dict[str, Any]] = []
+        done: set[tuple[str, str]] = set()
+        if args.resume:
+            existing = sorted(out_dir.glob(f"eval_*_{args.mode_tag}_top{current_k}.csv"), reverse=True)
+            if existing:
+                output_path = existing[0]
+                existing_rows, done = load_existing_done(output_path)
+                logger.info("Resume top-%s from %s (%s done)", current_k, output_path.name, len(done))
+
+        rows = evaluate_top_k(
+            pipeline=pipeline,
+            qa_items=qa_items,
+            gt_lookup=gt_lookup,
+            query_embeddings=query_embeddings,
+            methods=methods,
+            current_k=current_k,
+            existing_rows=existing_rows,
+            done=done,
+            output_path=output_path,
+            hardware_info=hardware_info,
         )
-    except RuntimeError as e:
-        logger.error(f"[FATAL] Gagal memuat evaluator: {e}")
-        sys.exit(1)
+        all_rows_for_summary.extend(rows)
+        logger.info("Saved top-%s CSV: %s", current_k, output_path)
 
-    # ── Load generator (sekali, shared semua methods) ─────────────────────────
-    logger.info(f"[INIT] Memuat generator ({args.generator_type}): {args.generator_path}")
-    generator = None
-    try:
-        if args.generator_type == "hf":
-            from src.rag.generator import initialize_hf_generator
-            generator = initialize_hf_generator(
-                model_name      = args.generator_path,
-                max_new_tokens  = args.max_tokens,
-                temperature     = args.temperature,
-                top_p           = args.top_p,
-                top_k           = args.top_k_gen,
-                return_thinking = args.return_thinking,
-            )
-        else:
-            from src.rag.generator import initialize_gguf_generator
-            generator = initialize_gguf_generator(
-                model_path   = args.generator_path,
-                max_tokens   = args.max_tokens,
-                temperature  = args.temperature,
-                top_p        = args.top_p,
-                n_gpu_layers = args.n_gpu_layers,
-            )
-    except Exception as e:
-        logger.error(f"[FATAL] Gagal memuat generator: {e}")
-        sys.exit(1)
-
-    if generator is None:
-        logger.error("[FATAL] Generator None — periksa path/model name")
-        sys.exit(1)
-
-    # ── Evaluasi per method ───────────────────────────────────────────────────
-    logger.info(f"\n[START] {len(methods)} methods × {len(qa_items)} queries")
-    logger.info(f"        top_k={args.top_k}  max_tokens={args.max_tokens}")
-    logger.info(f"        temperature={args.temperature}  top_p={args.top_p}\n")
-
-    for method in methods:
-        skip_count = sum(1 for r in all_rows if r.get("method") == method)
-        todo_items = [
-            item for item in qa_items
-            if (method, item["id"]) not in done
-        ]
-        if not todo_items:
-            logger.info(f"[SKIP] {method} — semua query sudah selesai")
-            continue
-
-        logger.info(f"{'='*64}")
-        logger.info(f"  Method: {method}  ({skip_count} done, {len(todo_items)} remaining)")
-        logger.info(f"{'='*64}")
-
-        from src.chroma.client import get_or_create_collection
-        collection_name = COLLECTION_NAMES[method]
-        collection = get_or_create_collection(evaluator.chroma_client, collection_name)
-        if collection is None:
-            logger.error(f"[ERROR] Collection '{collection_name}' tidak ditemukan — skip")
-            continue
-        logger.info(f"  Collection: {collection_name} ({collection.count()} docs)")
-
-        for i, item in enumerate(todo_items, 1):
-            q_id      = item["id"]
-            question  = item["question"]
-            reference = item["reference_answer"]
-
-            logger.info(f"  [{i:02d}/{len(todo_items)}] {q_id}: {question[:65]}...")
-
-            row = {
-                "method":    method,
-                "q_id":      q_id,
-                "question":  question,
-                "reference": reference,
-                "answer":    None,
-                "bleu":      None,
-                "rouge_l":   None,
-                "elapsed_s": None,
-                "error":     None,
-            }
-
-            try:
-                t0 = time.time()
-
-                # Retrieve
-                retrieved = evaluator._retrieve(collection, question, top_k=args.top_k)
-                contexts  = [r["document"] for r in retrieved]
-
-                # Generate
-                raw    = generator.generate(question, contexts)
-                answer = raw[0] if isinstance(raw, tuple) else raw
-                row["elapsed_s"] = round(time.time() - t0, 2)
-
-                # Bebaskan GPU memory setelah generate agar tidak OOM pada query berikutnya
-                try:
-                    import torch
-                    if torch.cuda.is_available():
-                        torch.cuda.empty_cache()
-                except Exception:
-                    pass
-                row["answer"]    = answer
-
-                # Metrics
-                if answer:
-                    row["bleu"]    = round(compute_bleu(answer, reference),                          6)
-                    row["rouge_l"] = round(compute_rouge(answer, reference, "rougeL", "recall"),     6)
-                    logger.info(
-                        f"           BLEU={row['bleu']:.4f}  "
-                        f"ROUGE-L={row['rouge_l']:.4f}  "
-                        f"({row['elapsed_s']}s)"
-                    )
-                else:
-                    logger.warning("           [WARN] answer kosong")
-
-            except Exception as e:
-                logger.error(f"           [ERROR] {e}")
-                row["error"] = str(e)
-
-            # Upsert: replace existing row jika ini retry, append jika baru
-            idx = next((i for i, r in enumerate(all_rows)
-                        if r.get("method") == method and r.get("q_id") == q_id), None)
-            if idx is not None:
-                all_rows[idx] = row
-            else:
-                all_rows.append(row)
-            done.add((method, q_id))
-
-            # Auto-save setelah setiap query (aman untuk resume)
-            save_per_query_csv(all_rows, per_query_path)
-
-    # ── Summary + simpan ─────────────────────────────────────────────────────
-    summary = build_summary(all_rows)
+    summary = build_summary(all_rows_for_summary)
+    summary_path = out_dir / f"summary_{ts_wib}_{args.mode_tag}_top{args.top_k_min}-{args.top_k_max}.csv"
+    with summary_path.open("w", newline="", encoding="utf-8") as f:
+        fieldnames = list(summary[0].keys()) if summary else []
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(summary)
     print_summary(summary)
-    print_question_comparison(all_rows)
-
-    save_per_query_csv(all_rows, per_query_path)
-    save_summary_csv(summary, summary_path)
-    generate_report(all_rows, summary, config, report_path)
-
-    logger.info(f"[OK] per_query → {per_query_path}")
-    logger.info(f"[OK] summary   → {summary_path}")
-    logger.info(f"[OK] report    → {report_path}")
-    logger.info(f"[OK] log file  → {log_path}")
+    logger.info("Saved summary: %s", summary_path)
 
 
 if __name__ == "__main__":

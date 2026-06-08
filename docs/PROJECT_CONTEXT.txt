@@ -628,8 +628,9 @@ Hal penting yang JANGAN salah:
   - Metrik retrieval di tab Chat sekarang tampil inline jika QA dipilih
   - Output evaluasi generasi Streamlit: kolom query_id, method, question, gold_answer,
     generated_answer, precision_at_k, recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
-  - Output evaluasi generasi script: kolom method, q_id, question, reference, answer,
-    bleu, rouge_l, elapsed_s, error
+  - Output evaluasi generasi script sekarang konsisten dengan batch eval rag_chat.py:
+    query_id, method, question, gold_answer, generated_answer, precision_at_k,
+    recall_at_k, mrr, bleu, rouge_l_recall, error, hardware_info
   - results/final/generation/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
     10 file flat: eval_*_top{1..10}.csv (nama file legacy "lenient" = binary)
     Tidak ada subfolder di bawah generation/ — semua file di level ini langsung

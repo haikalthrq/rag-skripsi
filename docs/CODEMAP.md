@@ -612,6 +612,7 @@ Output:
 Tujuan:
 
 - Evaluasi retrieval tanpa generation.
+- Mengikuti skema binary dan metric helper yang sama dengan `rag_chat.py`.
 
 Metrik:
 
@@ -640,6 +641,10 @@ Output final:
 
 Catatan:
 
+- Script sekarang menulis schema CSV yang sama dengan batch eval `rag_chat.py`:
+  `query_id`, `method`, `question`, `gold_answer`, `generated_answer`,
+  `precision_at_k`, `recall_at_k`, `mrr`, `bleu`, `rouge_l_recall`,
+  `error`, `hardware_info`.
 - Output final saat ini sudah valid dan tidak perlu direrun kecuali ada perubahan metodologis.
 
 ### `scripts/download_embedding_model.py`

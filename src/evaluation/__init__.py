@@ -6,11 +6,18 @@ Components:
 - evaluator.py : Orkestrasi evaluasi + perbandingan 3 chunking methods
 """
 
-from .evaluator import RAGEvaluator, build_evaluator, load_ground_truth, COLLECTION_NAMES
-
 __all__ = [
     "RAGEvaluator",
     "build_evaluator",
     "load_ground_truth",
     "COLLECTION_NAMES",
 ]
+
+
+def __getattr__(name):
+    """Lazy-load evaluator so importing metrics does not require ChromaDB/numpy."""
+    if name in __all__:
+        from . import evaluator
+
+        return getattr(evaluator, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

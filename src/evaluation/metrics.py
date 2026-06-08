@@ -114,6 +114,24 @@ def compute_bleu(response: str, reference: str) -> float:
         # Urutan/nesting argumen WAJIB seperti ini; jika tertukar, skor selalu 0.0.
         result = corpus_bleu([response], [[reference]])
         return result.score / 100.0  # sacrebleu returns 0-100, convert to 0-1
+    except ImportError:
+        response_tokens = response.split()
+        reference_tokens = reference.split()
+        if not response_tokens or not reference_tokens:
+            return 0.0
+        if response == reference:
+            return 1.0
+        ref_counts = {}
+        for token in reference_tokens:
+            ref_counts[token] = ref_counts.get(token, 0) + 1
+        hits = 0
+        for token in response_tokens:
+            if ref_counts.get(token, 0) > 0:
+                hits += 1
+                ref_counts[token] -= 1
+        precision = hits / len(response_tokens)
+        brevity = min(1.0, len(response_tokens) / len(reference_tokens))
+        return precision * brevity
     except Exception as e:
         logger.error(f"compute_bleu error: {e}")
         return 0.0
@@ -156,6 +174,27 @@ def compute_rouge(
         else:
             logger.warning(f"Unknown mode: {mode}, defaulting to recall")
             return rouge_score.recall
+    except ImportError:
+        response_tokens = response.split()
+        reference_tokens = reference.split()
+        if not response_tokens or not reference_tokens:
+            return 0.0
+        m, n = len(response_tokens), len(reference_tokens)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if response_tokens[i - 1] == reference_tokens[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                else:
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+        lcs = dp[m][n]
+        precision = lcs / m
+        recall = lcs / n
+        if mode == "precision":
+            return precision
+        if mode == "fmeasure":
+            return 0.0 if precision + recall == 0 else 2 * precision * recall / (precision + recall)
+        return recall
     except Exception as e:
         logger.error(f"compute_rouge ({rouge_type}, {mode}) error: {e}")
         return 0.0
