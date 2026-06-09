@@ -177,3 +177,5 @@ figures/
 # -----------------------
 .claude/
 out.txt
+
+graphify-out/
