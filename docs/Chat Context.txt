@@ -1,118 +1,690 @@
-# Chat Context - RAG Skripsi Project
-# Updated: 2026-06-05 04:01 WIB
-# Purpose: Fast handoff summary for the next AI session
+CHAT CONTEXT RAG-SKRIPSI
+Terakhir diperbarui: 12 Juni 2026 07:57 WIB
 
-## Objective
-Project sudah masuk fase akhir: pipeline RAG, ground truth, evaluasi, dan demo chat
-sudah berjalan. Fokus aktif sekarang adalah finalisasi visualisasi, analisis hasil,
-dan penulisan skripsi.
+Ringkasan ini menggantikan seluruh isi lama file Chat Context.txt. Isinya merangkum percakapan dan pekerjaan yang sudah dilakukan pada project rag-skripsi sepanjang sesi ini.
 
-## Current Active Assets
+1. Pemahaman Awal Project
 
-- QA gold aktif:
-  - `data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx`
-- GT retrieval aktif:
-  - `data/ground_truth/qa_pairs_binary.json`
-- Annotation final:
-  - `data/ground_truth/retrieval_labels_final.csv`
-  - `data/ground_truth/retrieval_labels_final.xlsx`
-- Demo chat aktif:
-  - `src/streamlit/rag_chat.py`
-- Notebook visualisasi aktif:
-  - `notebooks/eval_visualization.ipynb`
-- Hasil final generasi:
-  - `results/final/generation/`
-- Hasil visualisasi:
-  - `results/final/figures/`
+User meminta saya mempelajari dokumen utama project:
+- docs/SKRIPSI.md
+- docs/PROJECT_CONTEXT.txt
+- docs/Chat Context.txt
+- seluruh repository rag-skripsi
 
-## Important Decisions Locked In
+Tujuannya agar saya memahami konteks skripsi, pipeline RAG, dataset, evaluasi, dan struktur project sebelum melakukan perubahan.
 
-- Evaluasi retrieval sekarang hanya pakai skema binary `0/1`.
-- Label lama `1` dan `2` digabung menjadi `1 = relevan`.
-- Input chat di `rag_chat.py` tidak lagi bebas; sekarang selectbox QA gold.
-- `DEFAULT_TOP_K = 8`.
-- `max_tokens = 16384`.
-- Metrik retrieval ditampilkan inline di chat:
-  - Precision@k
-  - Recall@k
-  - MRR
-- Metrik generasi ditampilkan inline:
-  - BLEU
-  - ROUGE-L Recall
-- Riwayat chat persisten di:
-  - `results/chat_history/chat_history.jsonl`
+Project rag-skripsi adalah sistem Retrieval-Augmented Generation untuk tanya jawab berbasis dokumen PDF. Fokus penelitian adalah membandingkan tiga metode chunking:
+- Element-Based Chunking
+- Max-Min Semantic Chunking
+- Recursive Chunking
 
-## Latest Completed Work
+Pipeline utama mencakup:
+- preprocessing PDF
+- chunking dokumen
+- embedding chunk
+- penyimpanan dan retrieval melalui vector database
+- generation jawaban
+- evaluasi retrieval dan generation
+- visualisasi hasil evaluasi untuk Bab 6 skripsi
 
-### 1. Refactor GT dan evaluasi ke binary
-- `qa_pairs_binary.json` menjadi GT retrieval aktif.
-- Strict mode tidak lagi dipakai pada kode aktif.
-- Kolom anotasi aktif sekarang bernama `label`.
+2. Analisis Perubahan Terakhir dan Rag Chat
 
-### 2. Update `rag_chat.py`
-- Input query diubah dari free text menjadi selectbox QA gold.
-- Retrieval metrics ditampilkan inline bersama metrik generasi.
-- Riwayat chat dibuat persisten.
+User menanyakan perubahan terakhir yang dibuat di repository. Saya memeriksa status git dan riwayat perubahan untuk menjelaskan file yang terakhir berubah.
 
-### 3. Cleanup repo
-- Beberapa script usang dan file redundan sudah dihapus/diarsipkan.
-- Hasil generasi final sudah dirapikan ke folder flat:
-  - `results/final/generation/`
+User juga menanyakan format output inference dan chat pada src/streamlit/rag_chat.py. Saya menjelaskan bahwa rag_chat.py menghasilkan output chat atau batch evaluation yang mencakup:
+- query
+- generated answer
+- retrieved chunks
+- metadata chunk
+- metrics generation
+- metrics retrieval jika ground truth tersedia
 
-### 4. Visualisasi evaluasi
-- Visualisasi sekarang dipusatkan di:
-  - `notebooks/eval_visualization.ipynb`
-- Output utama:
-  - `chart1_recall_trend.png`
-  - `chart2_mrr_trend.png`
-  - `chart3_generation_metrics.png`
-  - `chart4_hit_count.png`
-  - `chart5_heatmap_mrr.png`
-- Tabel sudah diubah agar center aligned dan hanya bold nilai maksimum.
-- Legend, header tabel, dan penempatan label chart sudah beberapa kali dituning.
-- Chart 1 Recall memakai aturan label terbaru:
-  - Top-k 5-7 semua label di atas garis.
-  - Top-k 8-10: MaxMin di atas, Element di bawah, Recursive di atas.
-  - Top-k 8 punya offset ekstra agar `0.510` dan `0.517` tidak overlap.
-- Chart 3 legend sudah dipindah ke luar area plot.
-- Table 3 header sudah sejajar dan tidak lagi menampilkan literal `\n`.
-- File output lama di `results/final/figures/` yang bernama `01_*` sampai `06_*`
-  dan `summary_metrics_*.csv` sudah dihapus karena tidak dipakai lagi.
+Awalnya retrieval metric belum tampil sejelas generation metric. User bertanya apakah skor retrieval tidak perlu ditampilkan. Saya menjelaskan bahwa retrieval metric tetap penting karena penelitian membandingkan metode chunking, sehingga retrieval metric perlu tampil berdampingan dengan generation metric.
 
-## Current Repo State
+Kemudian user meminta implementasi agar metrik retrieval juga ditampilkan seperti metrik generation. Saya memperbarui rag_chat.py agar hasil evaluasi menyertakan metrik retrieval tanpa merusak fitur yang sudah ada.
 
-- Branch aktif: `main`
-- Remote tracking: `origin/main`
-- Perubahan yang masuk ke push terbaru:
-  - perubahan `notebooks/eval_visualization.ipynb`
-  - regenerasi figure/CSV aktif di `results/final/figures/`
-  - penghapusan notebook visualisasi lama `notebooks/00_*.ipynb` s.d. `07_*.ipynb`
-  - penghapusan figure/summary lama di `results/final/figures/`
-  - cache visualisasi `notebooks/_cache/data_eval.pkl`
+3. Query Pilihan di RAG Chat
 
-## Important File State Notes
+User bertanya apakah query sebaiknya dipilih dari daftar QA, bukan diketik bebas, agar 100 persen sesuai dengan QA yang sudah dibuat.
 
-- Notebook visualisasi lama yang terpisah per chart tidak lagi jadi basis kerja;
-  sekarang semua visualisasi aktif ada di `notebooks/eval_visualization.ipynb`.
-- `results/final/figures/` sekarang hanya menyimpan output visualisasi aktif:
-  `chart1` sampai `chart5` dan `table1` sampai `table4`.
-- Jika ada perbedaan antara konteks lama dan repo sekarang, prioritaskan file aktual
-  di working tree.
+Saya menjelaskan bahwa untuk evaluasi skripsi, pilihan query lebih aman karena:
+- query sesuai dengan ground truth QA
+- retrieval dan generation dapat dibandingkan secara konsisten
+- mengurangi risiko mismatch antara input user dan dataset evaluasi
 
-## Valid Reference Metrics
+User kemudian meminta implementasi query secara pilihan. Saya memperbarui src/streamlit/rag_chat.py agar query diambil dari daftar QA, bukan input bebas, tanpa merusak fitur yang sudah ada.
 
-Top-k = 5:
-- Generation:
-  - Element: BLEU `0.1178`, ROUGE-L `0.7005`
-  - MaxMin: BLEU `0.1052`, ROUGE-L `0.6369`
-  - Recursive: BLEU `0.1440`, ROUGE-L `0.6838`
-- Retrieval:
-  - Element: P@5 `0.129`, R@5 `0.392`, MRR `0.354`
-  - MaxMin: P@5 `0.131`, R@5 `0.447`, MRR `0.349`
-  - Recursive: P@5 `0.145`, R@5 `0.352`, MRR `0.429`
+User juga meminta menjalankan rag chat dengan env global, bukan venv. Saya menjalankan Streamlit sesuai permintaan.
 
-## Next Practical Focus
+4. Update Dokumentasi Project Context dan Chat Context
 
-1. Lanjutkan analisis hasil untuk naskah skripsi.
-2. Finalisasi justifikasi nilai `k` yang dipakai di laporan.
-3. Rapikan environment/lockfile bila diperlukan.
+User beberapa kali meminta update docs/PROJECT_CONTEXT.txt dan docs/Chat Context.txt sesuai keadaan project saat itu, menggunakan waktu WIB.
+
+Pada satu titik, PROJECT_CONTEXT.txt yang lama dan benar berisi sekitar 500+ baris sempat tertimpa versi lain yang 900 baris. User meminta mengembalikan versi commit 4d0e50d pada 5 Juni 2026. Saya mengembalikan PROJECT_CONTEXT.txt ke versi 500+ baris dari commit tersebut, lalu memperbaruinya secara relevan tanpa recreate.
+
+5. Push ke GitHub Main
+
+User beberapa kali meminta push semua perubahan ke GitHub main.
+
+Push penting yang tercatat:
+- perubahan awal rag_chat.py dan dokumentasi
+- perubahan notebook eval_visualization.ipynb
+- perubahan output visualisasi dan tabel
+- perubahan terkait F1@k
+- perubahan Top-1 sampai Top-10
+- perubahan terbaru sebelum update Chat Context ini
+
+Push terakhir sebelum file ini dibuat:
+- Commit: 108341e
+- Message: Update evaluation outputs and notebook visualizations
+- Branch: main
+- Remote: origin/main
+
+6. Analisis Kaggle Notebook
+
+User bertanya apakah src/streamlit/rag_chat.py dapat dijalankan di Kaggle Notebook.
+
+Saya menjelaskan bahwa secara teknis sebagian logic dapat dijalankan, tetapi Streamlit app tidak ideal untuk Kaggle Notebook karena:
+- Kaggle lebih cocok untuk script/notebook batch
+- UI Streamlit membutuhkan server web
+- path, dependency, model credential, dan akses file perlu disesuaikan
+
+Untuk Kaggle, disarankan menjalankan bagian pipeline atau evaluasi dalam bentuk notebook/script, bukan menjalankan aplikasi Streamlit secara penuh.
+
+7. Analisis File Tidak Terpakai
+
+User meminta analisis root folder rag-skripsi dan folder scripts untuk mencari file yang kemungkinan tidak terpakai lagi.
+
+Saya menganalisis struktur root dan scripts, lalu memberi tahu file yang kemungkinan legacy atau tidak dipakai langsung dalam pipeline final. Saya tidak menghapus file tanpa instruksi eksplisit.
+
+8. Notebook eval_visualization.ipynb
+
+Sebagian besar percakapan berfokus pada notebooks/eval_visualization.ipynb.
+
+Notebook ini digunakan untuk visualisasi hasil evaluasi final dan ekspor tabel/figure untuk Bab 6 skripsi.
+
+8.1 Perbaikan Label Angka dan Styling Tabel
+
+User menunjukkan banyak screenshot chart yang label angkanya bertabrakan dengan garis atau marker.
+
+Saya melakukan banyak revisi bertahap pada posisi label chart, terutama:
+- Chart Precision@k
+- Chart Recall@k
+- Chart MRR
+- Chart BLEU
+- Chart ROUGE-L
+- Chart F1@k
+
+Perubahan styling tabel:
+- tabel tidak lagi memakai highlight hijau berlebihan
+- nilai maksimum hanya dibuat bold
+- semua tabel dibuat center align
+- header tabel dibuat lebih rapi dan human-readable
+- nama kolom tidak memakai underscore untuk tampilan akhir
+- teks seperti "(Heatmap sudah menampilkan semua nilai numerik - tabel terpisah tidak diperlukan)" dihapus sesuai permintaan
+
+8.2 Chart Recall@k dan MRR
+
+User beberapa kali meminta penempatan label angka Recall@k agar:
+- angka default berada di atas garis
+- angka Top-k tertentu dipindahkan ke bawah
+- angka chart hijau Recursive ditempatkan di atas semua titik
+- angka Element-Based dan Max-Min pada Top-k tertentu tidak saling overlap
+
+MRR juga sempat bermasalah karena sumbu Y dan label terlalu rapat. User meminta:
+- chart MRR tidak mulai terlalu sempit
+- batas bawah akhirnya dibuat 0.33
+- tick dan tampilan disesuaikan agar tidak hancur
+
+8.3 Chart BLEU dan ROUGE-L
+
+Awalnya Chart 3 hanya Top-5, lalu user meminta BLEU dan ROUGE-L divisualisasikan per Top-k dari Top-5 sampai Top-10.
+
+Kemudian BLEU dan ROUGE-L dipisahkan:
+- Chart BLEU sendiri
+- Chart ROUGE-L sendiri
+- chart dan tabel setelahnya digeser nomornya
+
+User juga meminta seluruh istilah "ROUGE-L Recall" dihilangkan menjadi "ROUGE-L" saja. Saya memperbarui istilah di notebook dan output terkait.
+
+8.4 Ground Truth Visualization
+
+User meminta visualisasi data ground truth dari folder data/ground_truth ditambahkan ke eval_visualization.ipynb tanpa mengubah visualisasi yang sudah ada.
+
+Saya menambahkan visualisasi:
+- distribusi evidence type pada QA gold
+- distribusi label relevansi ground truth retrieval
+
+Kemudian user meminta:
+- header tabel 5 dan 6 dirapikan
+- ruang tabel kosong dihapus
+- angka pada chart ground truth dibuat bilangan bulat
+- batas atas chart tertentu diubah, misalnya chart 9 menjadi 22 dengan kelipatan 2, chart 10 batas atas 260
+
+8.5 Tabel 6.1 Retrieval Summary
+
+User meminta menambahkan Tabel 6.1 untuk Bab 6:
+"Tabel 6.1 Ringkasan Hasil Evaluasi Retrieval pada Top-5 sampai Top-10"
+
+Struktur awal:
+- Top-k
+- Metode Chunking
+- Precision@k
+- Recall@k
+- MRR
+
+Syarat awal:
+- 18 baris, 6 Top-k x 3 metode
+- data final binary
+- tidak memakai hasil strict lama atau archive
+- export CSV dan XLSX
+
+Saya menambahkan cell markdown dan code cell baru di eval_visualization.ipynb. Dataframe diberi nama table_6_1_retrieval_summary.
+
+User kemudian meminta:
+- kolom index paling kiri dihapus dari display
+- XLSX diexport seperti CSV
+- urutan kolom diubah menjadi Metode Chunking, Top-k, Precision@k, Recall@k, MRR
+- urutan per metode, lalu Top-k 5 sampai 10
+- CSV tidak merge cell
+- Excel boleh merge cell jika diperlukan
+
+Ketika scope berubah menjadi Top-1 sampai Top-10, Tabel 6.1 ikut diperbarui menjadi 30 baris.
+
+Setelah F1@k ditambahkan, Tabel 6.1 juga memuat F1@k sebagai bagian metrik retrieval.
+
+8.6 Tabel 6.2 Generation Summary
+
+User meminta Tabel 6.2:
+"Tabel 6.2 Ringkasan Rerata Hasil Evaluasi Generation pada Top-5 sampai Top-10"
+
+Struktur mengikuti Tabel 6.1, tetapi metrik generation:
+- BLEU
+- ROUGE-L
+
+Saya menambahkan cell baru tepat di bawah Tabel 6.1. Kemudian user meminta angka Tabel 6.2 menjadi 3 desimal agar konsisten dengan tabel lain.
+
+Saat cakupan berubah ke Top-1 sampai Top-10, Tabel 6.2 juga diperbarui menjadi 30 baris.
+
+8.7 Tabel Sintesis Rerata Lintas Top-k
+
+User meminta tabel sintesis rerata lintas Top-k untuk Bab 6 Subbab 6.5.
+
+Tabel ini menggunakan file evaluasi final di results/final/generation dan menghitung rerata lintas Top-k 5 sampai 10 untuk setiap metode.
+
+Kolom akhir:
+- Metode Chunking
+- Rerata Precision@k
+- Rerata Recall@k
+- Rerata MRR
+- Rerata BLEU
+- Rerata ROUGE-L
+
+Output yang diminta:
+- table_average_metrics_top5_top10.csv
+- table_average_metrics_top5_top10.xlsx
+- table_average_metrics_top5_top10.md
+- audit_average_metrics_top5_top10.csv
+
+File-file ini kemudian tidak lagi berada di hasil final terbaru setelah struktur visualisasi berubah dan beberapa output lama dihapus/tergantikan.
+
+8.8 Audit Query Berhasil, Gagal, dan Tidak Dievaluasi
+
+User meminta audit visualisasi "Jumlah Query Berhasil dan Gagal pada Retrieval".
+
+Definisi:
+- berhasil = MRR > 0
+- gagal = MRR = 0
+- tidak dievaluasi = missing/NaN/N/A atau tidak punya ground truth relevan
+
+Saya membuat audit untuk memastikan setiap kombinasi method dan Top-k totalnya 30 query.
+
+Kolom audit:
+- method
+- top_k
+- total_qa
+- evaluated_query
+- success_query
+- failed_query
+- missing_query
+- success_plus_failed_plus_missing
+
+Saya juga membuat visualisasi stacked bar chart:
+- Berhasil
+- Gagal
+- Tidak dievaluasi
+
+User kemudian meminta warna metode konsisten dan legend seperti chart lain.
+
+8.9 Audit Query Tidak Dievaluasi
+
+User meminta audit query yang tidak dievaluasi pada retrieval:
+- identifikasi query_id dan method yang tidak memiliki chunk relevan label=1
+- ambil metadata QA ground truth
+- cari evidence di seluruh chunk metode terkait
+- klasifikasikan status:
+  - valid_no_relevant_chunk
+  - candidate_pooling_miss
+  - labeling_error
+  - qa_ground_truth_issue
+  - id_mapping_error
+- output CSV rekomendasi tanpa mengubah data otomatis
+
+Audit ini ditujukan untuk mengetahui apakah missing evaluation terjadi karena tidak ada chunk relevan, kandidat tidak masuk, label manual salah, mismatch ID, atau masalah QA ground truth.
+
+8.10 F1@k
+
+User meminta penambahan metrik F1@k.
+
+Scope:
+- tidak menjalankan ulang preprocessing, chunking, embedding, retrieval, generation, atau model
+- tidak mengubah dataset atau ground truth
+- tidak mengubah nilai metrik lama
+- hanya menambahkan f1_at_k
+
+Perubahan:
+- src/evaluation/metrics.py ditambah compute_f1_at_k(precision, recall)
+- src/streamlit/rag_chat.py mengimpor dan menghitung f1_at_k
+- semua CSV final generation di results/final/generation/*.csv ditambah kolom f1_at_k
+- posisi kolom f1_at_k diletakkan setelah mrr dan sebelum bleu
+- eval_visualization.ipynb ditambah Chart 4 F1@k
+- chart setelah Chart 4 digeser nomornya
+
+Aturan F1@k:
+- dihitung per query dari precision_at_k dan recall_at_k
+- jika precision + recall = 0 maka f1_at_k = 0.0
+- jika input tidak numerik/N/A/NaN maka f1_at_k = "N/A"
+
+Backup dibuat sebelum edit sesuai instruksi user.
+
+8.11 Perluasan Top-k dari Top-5..Top-10 ke Top-1..Top-10
+
+User meminta audit dahulu sebelum implementasi.
+
+Audit menemukan:
+- CSV Top-1 sampai Top-10 tersedia di results/final/generation
+- semua CSV memiliki kolom precision_at_k, recall_at_k, mrr, f1_at_k, bleu, rouge_l_recall
+- rag_chat.py mendukung Top-k minimum 1 dan maksimum 10
+- notebook masih membatasi sebagian teks dan validasi ke Top-5 sampai Top-10
+
+User kemudian meminta revisi terbatas hanya pada eval_visualization.ipynb.
+
+Perubahan:
+- TOPK_MIN = 1
+- TOPK_MAX = 10
+- loader tetap menggunakan range(TOPK_MIN, TOPK_MAX + 1)
+- semua teks Top-5 sampai Top-10 diubah menjadi Top-1 sampai Top-10
+- hardcoded range(5, 11) diganti dinamis
+- Tabel 6.1 dan 6.2 divalidasi 30 baris
+- Chart 1 sampai 6 menggunakan Top-1 sampai Top-10
+- Chart 7 dan Chart 8 tetap sebagai visualisasi ground truth
+
+8.12 Styling Final Chart 1 sampai Chart 6
+
+User meminta Chart 1, Chart 2, dan Chart 3 tidak terlalu padat:
+- figure diperbesar
+- legend di kanan luar plot
+- savefig memakai bbox_inches="tight" dan pad_inches=0.3
+- label diberi offset
+- grid dibuat lebih ringan
+
+Kemudian user meminta styling Chart 1 dan Chart 2:
+- judul bahasa Indonesia
+- legend: Element-Based, Max-Min Semantic, Recursive
+- grid major-only dan lebih ringan
+- marker berbeda tetapi line tetap solid
+- output "Chart 1 saved" dan "Chart 2 saved" tetap dikembalikan
+
+Chart 1 Precision@k:
+- banyak offset manual per metode dan Top-k disesuaikan
+- beberapa label dipindah ke bawah/atas sesuai screenshot user
+- tick y-axis dibuat rapi
+
+Chart 2 Recall@k:
+- banyak offset manual per metode dan Top-k disesuaikan
+- label Max-Min Top-1, Element Top-2, Recursive Top-3 sampai Top-10, Element Top-3 sampai Top-10, dan Max-Min Top-8 disesuaikan bertahap
+
+Chart 4 F1@k:
+- user meminta analisis posisi tiap angka seperti Chart 1 dan 2
+- saya menambahkan method_display_labels, method_line_styles, f1_label_offsets
+- judul menjadi "Tren Rerata F1@k pada Top-1 sampai Top-10"
+- legend menjadi "Metode"
+- label titik rapat dipisahkan manual
+- user meminta beberapa offset tambahan:
+  - Max-Min Top-5 lebih dekat
+  - Element-Based Top-9 dan Top-10 lebih dekat
+  - Recursive Top-9 lebih dekat
+  - Element Top-9 dikembalikan
+  - Max-Min Top-2 dipindah ke atas
+
+Chart 5 BLEU:
+- user meminta analisis posisi label seperti sebelumnya
+- saya menambahkan method_display_labels, method_line_styles, bleu_label_offsets
+- judul menjadi "Tren Rerata BLEU pada Top-1 sampai Top-10"
+- legend konsisten
+- marker berbeda, line solid
+- grid ringan
+- label Top-2, Top-4, Top-8, Top-9 dan lainnya diberi offset manual
+
+Chart 6 ROUGE-L:
+- user menyebut "chart 5", tetapi screenshot menunjukkan Chart 6 ROUGE-L
+- saya memperbaiki Chart 6
+- judul menjadi "Tren Rerata ROUGE-L pada Top-1 sampai Top-10"
+- legend konsisten
+- marker berbeda, line solid
+- grid ringan
+- rouge_label_offsets ditambahkan
+- user meminta offset tambahan:
+  - 0.666 Recursive Top-9 dipindah ke atas
+  - 0.683 Element-Based Top-10 dipindah ke bawah
+  - Max-Min Top-7 dipindah ke bawah
+  - Max-Min Top-9 dipindah ke bawah
+
+9. build_candidates_v3.py
+
+User bertanya apakah scripts/build_candidates_v3.py sudah sesuai dengan keadaan project saat ini.
+
+Saya menganalisis file tersebut terhadap konteks project dan menjelaskan status kesesuaiannya. File ini berkaitan dengan pembuatan kandidat ground truth retrieval dan masih menjadi bagian penting untuk dataset evaluasi/anotasi.
+
+10. run_retrieval_eval.py dan run_generation_eval.py
+
+User bertanya apakah scripts/run_retrieval_eval.py dan scripts/run_generation_eval.py sudah paling update seperti evaluasi di src/streamlit/rag_chat.py.
+
+Saya membandingkan cara kerja script evaluasi dengan rag_chat.py. Karena evaluasi final skripsi dijalankan melalui rag_chat.py, user meminta update dan rapihkan agar konsisten.
+
+Saya memperbarui script agar lebih konsisten dengan alur evaluasi final, tetapi kemudian user bertanya mengapa ada perubahan di src/evaluation/. Saya menjelaskan bahwa perubahan tersebut terkait penambahan/penyelarasan metrik dan fungsi evaluasi, terutama setelah F1@k ditambahkan.
+
+11. CODEMAP.md
+
+User bertanya apakah saya bisa membuat codemap untuk seluruh workspace rag-skripsi. Saya jawab mampu.
+
+User kemudian meminta membuat docs/CODEMAP.md.
+
+Saya membuat CODEMAP.md yang merangkum:
+- struktur project
+- folder penting
+- pipeline data
+- script utama
+- modul src
+- notebook evaluasi
+- data ground truth
+- output final
+- hubungan antar komponen
+
+Kemudian user meminta push perubahan ke GitHub main.
+
+12. Bab 5 Implementasi
+
+User memberikan serangkaian instruksi panjang untuk merevisi BAB_5_IMPLEMENTASI.md.
+
+Aturan konsisten:
+- hanya boleh mengubah BAB_5_IMPLEMENTASI.md
+- jangan mengubah source code, dataset, hasil evaluasi, konfigurasi, atau file lain
+- jangan menjalankan ulang evaluasi
+- Bab 5.8 tetap berbasis src/streamlit/rag_chat.py dan src/evaluation/metrics.py
+- scripts/run_generation_eval.py dan scripts/run_retrieval_eval.py tidak dijadikan sumber utama Bab 5.8
+
+12.1 Format Tabel Kode dan Penjelasan
+
+User meminta format tabel kode sumber mengikuti contoh skripsi Eleazar.
+
+Masalah awal:
+- tabel penjelasan memakai nomor baris asli file repository
+- seharusnya "Baris Kode" mengacu ke nomor baris lokal dari potongan kode di tabel sebelumnya
+
+Saya merevisi agar:
+- setiap potongan kode memakai nomor baris lokal mulai dari 1
+- tabel penjelasan mengacu ke Baris 1-4, Baris 6-11, dan seterusnya
+- nomor baris file asli dihapus
+- Tabel 5.1 menjadi struktur implementasi sistem, bukan pseudo-code folder
+
+12.2 Verifikasi PERLU VERIFIKASI
+
+User meminta menghapus semua tanda [PERLU VERIFIKASI] dengan membaca source code asli.
+
+Bagian yang diverifikasi:
+- run_preprocessing() di src/preprocessing/pipeline.py
+- embed_sentences() di src/chunking/maxmin_chunker.py
+
+Saya membaca file sumber, memperbaiki kalimat agar faktual, dan menghapus label [PERLU VERIFIKASI].
+
+12.3 Referensi Tabel di Paragraf
+
+User meminta setiap tabel memiliki pereferensian dalam paragraf, misalnya:
+"Implementasinya dapat dilihat pada Tabel 5.1 berikut."
+
+Saya menambahkan referensi tabel pada narasi tanpa mengubah substansi teknis.
+
+12.4 Format Algoritma
+
+User meminta tabel kode sumber diubah menjadi "Algoritma 1", "Algoritma 2", dan seterusnya. Kata yang dipakai harus "Algoritma", bukan "Algoritme".
+
+Beberapa iterasi format terjadi:
+- awalnya satu row per baris kode
+- lalu diminta satu row kode utuh
+- lalu nomor baris dipindah ke kolom Baris
+- lalu newline kode diperbaiki
+- lalu style HTML diperbaiki agar sejajar
+- lalu white-space pre dan overflow-x:auto diterapkan agar baris tidak menempel/wrap
+
+Format akhir yang dituju:
+- tabel HTML
+- header judul "Algoritma n: ..."
+- kolom Baris dan Kode
+- kolom Baris memakai pre dengan nomor baris
+- kolom Kode memakai pre/code tanpa nomor baris
+- path file sumber tetap ada di baris pertama kode
+- setiap tabel algoritma hanya satu row isi
+- penjelasan kode berada tepat setelah algoritma
+- tabel penjelasan memakai rentang baris lokal
+
+12.5 Struktur Subbab Bab 5
+
+User menegaskan bahwa subbab tidak boleh dipecah hanya karena memiliki lebih dari satu algoritma.
+
+Prinsip akhir:
+- satu file sumber dalam satu subbab = satu tabel kode sumber + satu tabel penjelasan
+- jika satu subbab memakai beberapa file, boleh dipisah berdasarkan file/komponen
+- jangan membuat satu tabel kode untuk setiap fungsi kecil dari file yang sama
+
+Struktur yang ditekankan:
+- 5.2 boleh dipecah karena memakai pdf_extractor.py, text_cleaner.py, pipeline.py
+- 5.3.1 tetap gabung untuk element_based.py
+- 5.3.2 tetap gabung untuk maxmin_chunker.py
+- 5.3.3 tetap gabung untuk recursive_split.py
+- 5.4 boleh berbasis file embedder.py dan embedding chunk
+- 5.5 boleh berbasis chroma client/loader/query
+- 5.6 boleh berbasis rag pipeline/generator
+- 5.7 boleh berbasis build_candidates_v3.py, streamlit app, convert script
+- 5.8 berbasis rag_chat.py dan metrics.py
+
+12.6 Revisi Algoritma Tertentu
+
+User bertanya apakah algoritma 5, 6, 7 sudah lengkap dan representatif. Saya menganalisis dan memperbaikinya.
+
+User bertanya apakah algoritma 8 dan 9 representatif. Saya memberi analisis.
+
+User meminta enrichment embedding tidak ditampilkan sebagai algoritma tersendiri.
+
+Perubahan 5.4:
+- subbab 5.4.2 Implementasi Enrichment Embedding dihapus
+- source code enrichment sebagai algoritma tersendiri dihapus
+- informasi enrichment dipindahkan ke narasi 5.4/5.4.2
+- 5.4.3 Implementasi Embedding Chunk menjadi 5.4.2 Implementasi Embedding Chunk
+- algoritma dan tabel setelahnya direnumber
+- enrichment dijelaskan sebagai bagian pendukung embedding chunk, bukan metode chunking
+
+User bertanya apakah algoritma 16 dan 18 sudah representatif. Jika belum, saya langsung memperbaiki masing-masing algoritma dan tabel penjelasannya.
+
+13. Graphify
+
+User pernah memanggil skill graphify. Project memiliki graphify-out dengan knowledge graph dan instruksi AGENTS.md:
+- untuk codebase question gunakan graphify query jika graph.json tersedia
+- gunakan graphify path untuk relasi
+- gunakan graphify explain untuk konsep
+- setelah memodifikasi code, graphify update . seharusnya dijalankan untuk menjaga graph
+
+Namun pada banyak perubahan notebook/dokumen, scope user sering membatasi file yang boleh diubah. Karena itu graphify update tidak selalu dijalankan agar tidak menyentuh file lain di luar scope.
+
+14. File dan Folder Penting Saat Ini
+
+File source utama:
+- src/streamlit/rag_chat.py
+- src/evaluation/metrics.py
+- src/preprocessing/pipeline.py
+- src/preprocessing/pdf_extractor.py
+- src/preprocessing/text_cleaner.py
+- src/chunking/element_based.py
+- src/chunking/maxmin_chunker.py
+- src/chunking/recursive_split.py
+- src/embedding/embedder.py
+- src/rag/pipeline.py
+- src/rag/generator.py
+- scripts/build_candidates_v3.py
+
+Notebook utama:
+- notebooks/eval_visualization.ipynb
+
+Output final utama:
+- results/final/generation/eval_20260531_181551_full_top1.csv
+- results/final/generation/eval_20260531_182241_full_top2.csv
+- results/final/generation/eval_20260531_183044_full_top3.csv
+- results/final/generation/eval_20260531_183822_full_top4.csv
+- results/final/generation/eval_20260531_184708_full_top5.csv
+- results/final/generation/eval_20260531_185558_full_top6.csv
+- results/final/generation/eval_20260531_190431_full_top7.csv
+- results/final/generation/eval_20260531_191252_full_top8.csv
+- results/final/generation/eval_20260531_192113_full_top9.csv
+- results/final/generation/eval_20260531_192940_full_top10.csv
+
+Output figure terbaru:
+- results/final/figures/chart1_precision_trend.png
+- results/final/figures/chart2_recall_trend.png
+- results/final/figures/chart3_mrr_trend.png
+- results/final/figures/chart4_f1_trend.png
+- results/final/figures/chart5_bleu_topk.png
+- results/final/figures/chart6_rouge_l_topk.png
+- results/final/figures/chart7_ground_truth_evidence_types.png
+- results/final/figures/chart8_ground_truth_label_distribution.png
+
+Output tabel figure terbaru:
+- results/final/figures/table1_precision_trend.csv
+- results/final/figures/table2_recall_trend.csv
+- results/final/figures/table3_mrr_trend.csv
+- results/final/figures/table4_f1_trend.csv
+- results/final/figures/table5_bleu_topk.csv
+- results/final/figures/table6_rouge_l_topk.csv
+- results/final/figures/table7_ground_truth_evidence_types.csv
+- results/final/figures/table8_ground_truth_label_distribution.csv
+- results/final/figures/table_6_1_retrieval_summary.csv
+- results/final/figures/table_6_1_retrieval_summary.xlsx
+- results/final/figures/table_6_2_generation_summary.csv
+- results/final/figures/table_6_2_generation_summary.xlsx
+
+15. Kondisi Teknis Terakhir yang Diketahui
+
+Repository sudah dipush ke origin/main sebelum file ini dibuat.
+
+Status terakhir sebelum update file ini:
+- branch main sejajar dengan origin/main
+- working tree bersih
+
+Perubahan terakhir yang belum dipush setelah file ini dibuat:
+- docs/Chat Context.txt, karena file ini baru diganti dengan rangkuman seluruh percakapan
+
+16. Prinsip yang Sering Diminta User
+
+User sering memberi batasan eksplisit:
+- jangan ubah file lain selain yang disebut
+- jangan menjalankan ulang evaluation/model/retrieval/generation
+- jangan mengubah data, metric, rumus, agregasi, atau output lama tanpa instruksi
+- jangan recreate dokumen jika diminta update saja
+- jangan menyentuh kode lain di luar masalah yang disebut
+- pertahankan fitur lama
+- pastikan tidak merusak alur yang sudah ada
+- gunakan waktu WIB untuk update konteks
+- push semua perubahan ke GitHub main jika diminta
+
+17. Status Narasi Skripsi dan Evaluasi
+
+Bab 5:
+- menjelaskan implementasi sistem
+- format algoritma sudah diarahkan mengikuti contoh skripsi Eleazar
+- Bab 5.8 tetap berbasis rag_chat.py dan metrics.py
+- run_generation_eval.py dan run_retrieval_eval.py tidak dijadikan sumber utama evaluasi final skripsi
+
+Bab 6:
+- notebook eval_visualization.ipynb menjadi basis visualisasi dan tabel
+- cakupan final sekarang Top-1 sampai Top-10
+- metrik retrieval: Precision@k, Recall@k, MRR, F1@k
+- metrik generation: BLEU, ROUGE-L
+- ground truth divisualisasikan pada chart terpisah
+- Tabel 6.1 dan 6.2 menjadi ringkasan Bab 6
+
+18. Catatan Penting untuk Lanjutan
+
+Jika user meminta revisi visualisasi lagi:
+- fokus kemungkinan besar pada notebooks/eval_visualization.ipynb
+- jangan ubah CSV/source kecuali diminta
+- offset label chart disimpan sebagai dictionary per method dan Top-k
+- Chart 1-6 sudah memakai styling konsisten:
+  - judul bahasa Indonesia
+  - legend "Metode"
+  - label metode: Element-Based, Max-Min Semantic, Recursive
+  - line solid
+  - marker berbeda
+  - grid ringan
+  - savefig dengan bbox_inches='tight' dan pad_inches=0.3
+  - print "Chart n saved" tetap dipertahankan
+
+Jika user meminta push:
+- cek git status
+- commit semua perubahan yang ada
+- push ke origin main
+
+Jika user meminta audit hitungan:
+- jangan klaim 100 persen tanpa audit
+- baca CSV final
+- hitung ulang dari data sumber final
+- bandingkan dengan tabel/notebook
+- laporkan jika ada mismatch atau missing
+
+Jika user meminta Bab 5:
+- hanya ubah BAB_5_IMPLEMENTASI.md jika scope begitu
+- jangan ubah source/dataset/evaluasi
+- gunakan kode yang benar-benar ada di source
+- jangan jadikan scripts/run_generation_eval.py atau scripts/run_retrieval_eval.py sebagai sumber utama Bab 5.8
+
+19. Ringkasan Pekerjaan Besar yang Sudah Dilakukan
+
+- Memahami repo dan dokumen skripsi.
+- Menjelaskan perubahan terakhir di git.
+- Menjelaskan output inference/chat rag_chat.py.
+- Menambahkan tampilan metrik retrieval di rag_chat.py.
+- Mengubah query rag_chat.py menjadi pilihan dari QA.
+- Menjalankan rag_chat.py dengan environment global.
+- Mengupdate PROJECT_CONTEXT.txt dan Chat Context beberapa kali.
+- Mengembalikan PROJECT_CONTEXT.txt versi benar dari commit 4d0e50d.
+- Menganalisis file root/scripts yang kemungkinan tidak terpakai.
+- Menambahkan dan merapikan banyak chart/tabel di eval_visualization.ipynb.
+- Menambahkan visualisasi ground truth.
+- Menambahkan Tabel 6.1 retrieval summary.
+- Menambahkan Tabel 6.2 generation summary.
+- Membuat tabel sintesis rerata lintas Top-k.
+- Melakukan audit query berhasil/gagal/tidak dievaluasi.
+- Menambahkan metrik F1@k.
+- Memperluas evaluasi dari Top-5..Top-10 menjadi Top-1..Top-10.
+- Merapikan Chart 1 sampai Chart 6.
+- Membuat CODEMAP.md.
+- Merevisi BAB_5_IMPLEMENTASI.md secara besar tetapi terbatas sesuai scope.
+- Melakukan beberapa push ke GitHub main.
+
+20. Posisi Terakhir Percakapan
+
+Permintaan terbaru user sebelum file ini dibuat:
+"tolong rangkum SEMUA percakapan kita ke file docs/Chat Context.txt. Hapus semua yang ada didalam sana lalu ganti dengan seluruh rangkuman percakapan kita."
+
+Tindakan:
+- isi lama docs/Chat Context.txt dihapus
+- file diganti dengan rangkuman percakapan lengkap ini
+- belum ada push setelah perubahan file ini, kecuali user meminta push berikutnya
