@@ -75,6 +75,7 @@ from src.evaluation.metrics import (
     compute_precision_at_k,
     compute_recall_at_k,
     compute_mrr,
+    compute_f1_at_k,
 )
 
 # ── Chat history persistence (untuk dokumentasi sidang) ──────────────────────
@@ -214,12 +215,15 @@ def _compute_chat_retrieval_metrics(
     if not rel_ids:
         return None
     retrieved_ids = [doc.get("id", "") for doc in retrieved]
+    precision_at_k = compute_precision_at_k(retrieved_ids, rel_ids, top_k)
+    recall_at_k = compute_recall_at_k(retrieved_ids, rel_ids, top_k)
     return {
         "top_k": top_k,
         "n_relevant": len(rel_ids),
-        "precision_at_k": compute_precision_at_k(retrieved_ids, rel_ids, top_k),
-        "recall_at_k":    compute_recall_at_k(retrieved_ids, rel_ids, top_k),
+        "precision_at_k": precision_at_k,
+        "recall_at_k":    recall_at_k,
         "mrr":            compute_mrr(retrieved_ids, rel_ids),
+        "f1_at_k":        compute_f1_at_k(precision_at_k, recall_at_k),
     }
 
 
@@ -243,6 +247,7 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
         row[f"Precision@{k}"] = f"{metrics['precision_at_k']:.4f}"
         row[f"Recall@{k}"]    = f"{metrics['recall_at_k']:.4f}"
         row["MRR"]             = f"{metrics['mrr']:.4f}"
+        row[f"F1@{k}"]         = f"{metrics['f1_at_k']:.4f}"
     if has_gen:
         row["BLEU"]    = f"{bleu:.4f}"  if isinstance(bleu,  float) else "—"
         row["ROUGE-L"] = f"{rouge:.4f}" if isinstance(rouge, float) else "—"
@@ -860,7 +865,7 @@ with tab_eval:
                         rel_ids = []
                     
                     # Initialize metrics
-                    precision_val = recall_val = mrr_val = None
+                    precision_val = recall_val = mrr_val = f1_val = None
                     gen_answer = bleu_val = rouge_val = None
                     error_msg = ""
                     is_oom = False
@@ -888,9 +893,10 @@ with tab_eval:
                             precision_val = compute_precision_at_k(retrieved_ids, rel_ids, current_k)
                             recall_val = compute_recall_at_k(retrieved_ids, rel_ids, current_k)
                             mrr_val = compute_mrr(retrieved_ids, rel_ids)
+                            f1_val = compute_f1_at_k(precision_val, recall_val)
                         else:
                             # No relevant chunks for this query
-                            precision_val = recall_val = mrr_val = "N/A"
+                            precision_val = recall_val = mrr_val = f1_val = "N/A"
                         
                         # Generate answer
                         contexts = [p._format_context(doc) for doc in retrieved]
@@ -903,7 +909,7 @@ with tab_eval:
                         # OOM handling
                         is_oom = True
                         gen_answer = "[OOM - Out of Memory]"
-                        precision_val = recall_val = mrr_val = "OOM"
+                        precision_val = recall_val = mrr_val = f1_val = "OOM"
                         bleu_val = rouge_val = "OOM"
                         error_msg = f"OOM at top-{current_k}: {str(oom_exc)}"
                         logger.error(f"OOM error for {q_id} {method} top-{current_k}: {oom_exc}")
@@ -914,7 +920,7 @@ with tab_eval:
                     
                     except Exception as exc:
                         gen_answer = f"[ERROR] {exc}"
-                        precision_val = recall_val = mrr_val = None
+                        precision_val = recall_val = mrr_val = f1_val = None
                         bleu_val = rouge_val = None
                         error_msg = str(exc)
                     
@@ -927,6 +933,7 @@ with tab_eval:
                         "precision_at_k"   : round(precision_val, 4) if isinstance(precision_val, (int, float)) else precision_val,
                         "recall_at_k"      : round(recall_val, 4) if isinstance(recall_val, (int, float)) else recall_val,
                         "mrr"              : round(mrr_val, 4) if isinstance(mrr_val, (int, float)) else mrr_val,
+                        "f1_at_k"          : round(f1_val, 4) if isinstance(f1_val, (int, float)) else f1_val,
                         "bleu"             : round(bleu_val, 4) if isinstance(bleu_val, (int, float)) else bleu_val,
                         "rouge_l_recall"   : round(rouge_val, 4) if isinstance(rouge_val, (int, float)) else rouge_val,
                         "error"            : error_msg,
@@ -996,7 +1003,7 @@ with tab_eval:
         
         if not valid_metrics.empty:
             # Convert to numeric for aggregation
-            numeric_cols = ["precision_at_k", "recall_at_k", "mrr", "bleu", "rouge_l_recall"]
+            numeric_cols = ["precision_at_k", "recall_at_k", "mrr", "f1_at_k", "bleu", "rouge_l_recall"]
             for col in numeric_cols:
                 valid_metrics[col] = pd.to_numeric(valid_metrics[col], errors="coerce")
             
@@ -1006,6 +1013,7 @@ with tab_eval:
                      mean_precision=("precision_at_k", "mean"),
                      mean_recall=("recall_at_k", "mean"),
                      mean_mrr=("mrr", "mean"),
+                     mean_f1=("f1_at_k", "mean"),
                      mean_bleu=("bleu", "mean"),
                      mean_rouge_l=("rouge_l_recall", "mean"))
                 .round(4)
@@ -1019,7 +1027,7 @@ with tab_eval:
         st.markdown("**Detail Per Query**")
         display_cols = ["query_id", "method", "question", "gold_answer",
                         "generated_answer", "precision_at_k", "recall_at_k",
-                        "mrr", "bleu", "rouge_l_recall", "error"]
+                        "mrr", "f1_at_k", "bleu", "rouge_l_recall", "error"]
         st.dataframe(
             df_res[display_cols],
             use_container_width=True,
@@ -1031,6 +1039,7 @@ with tab_eval:
                 "precision_at_k"   : st.column_config.TextColumn(width="small"),
                 "recall_at_k"      : st.column_config.TextColumn(width="small"),
                 "mrr"              : st.column_config.TextColumn(width="small"),
+                "f1_at_k"          : st.column_config.TextColumn(width="small"),
                 "bleu"             : st.column_config.NumberColumn(format="%.4f"),
                 "rouge_l_recall"   : st.column_config.NumberColumn(format="%.4f"),
             },

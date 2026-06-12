@@ -1,19 +1,31 @@
-Metode Chunking,Top-k,Precision@k,Recall@k,MRR
-Element-Based Chunking,5,0.129,0.392,0.354
-Max-Min Semantic Chunking,5,0.131,0.447,0.349
-Recursive Chunking,5,0.145,0.352,0.429
-Element-Based Chunking,6,0.125,0.452,0.366
-Max-Min Semantic Chunking,6,0.121,0.493,0.355
-Recursive Chunking,6,0.144,0.414,0.441
-Element-Based Chunking,7,0.112,0.470,0.366
-Max-Min Semantic Chunking,7,0.103,0.493,0.355
-Recursive Chunking,7,0.128,0.421,0.441
-Element-Based Chunking,8,0.107,0.517,0.375
-Max-Min Semantic Chunking,8,0.095,0.510,0.355
-Recursive Chunking,8,0.112,0.421,0.441
-Element-Based Chunking,9,0.095,0.517,0.375
-Max-Min Semantic Chunking,9,0.088,0.527,0.358
-Recursive Chunking,9,0.100,0.421,0.441
-Element-Based Chunking,10,0.089,0.529,0.379
-Max-Min Semantic Chunking,10,0.083,0.544,0.362
-Recursive Chunking,10,0.097,0.438,0.441
+Metode Chunking,Top-k,Precision@k,Recall@k,MRR,F1@k
+Element-Based Chunking,1,0.286,0.199,0.286,0.223
+Element-Based Chunking,2,0.179,0.244,0.304,0.193
+Element-Based Chunking,3,0.143,0.298,0.327,0.182
+Element-Based Chunking,4,0.152,0.374,0.354,0.200
+Element-Based Chunking,5,0.129,0.392,0.354,0.181
+Element-Based Chunking,6,0.125,0.452,0.366,0.185
+Element-Based Chunking,7,0.112,0.470,0.366,0.172
+Element-Based Chunking,8,0.107,0.517,0.375,0.169
+Element-Based Chunking,9,0.095,0.517,0.375,0.154
+Element-Based Chunking,10,0.089,0.529,0.379,0.146
+Max-Min Semantic Chunking,1,0.207,0.126,0.207,0.149
+Max-Min Semantic Chunking,2,0.207,0.267,0.293,0.220
+Max-Min Semantic Chunking,3,0.161,0.319,0.316,0.203
+Max-Min Semantic Chunking,4,0.147,0.395,0.342,0.202
+Max-Min Semantic Chunking,5,0.131,0.447,0.349,0.193
+Max-Min Semantic Chunking,6,0.121,0.493,0.355,0.185
+Max-Min Semantic Chunking,7,0.103,0.493,0.355,0.164
+Max-Min Semantic Chunking,8,0.095,0.510,0.355,0.154
+Max-Min Semantic Chunking,9,0.088,0.527,0.358,0.146
+Max-Min Semantic Chunking,10,0.083,0.544,0.362,0.139
+Recursive Chunking,1,0.345,0.149,0.345,0.198
+Recursive Chunking,2,0.276,0.260,0.397,0.247
+Recursive Chunking,3,0.184,0.260,0.397,0.200
+Recursive Chunking,4,0.164,0.329,0.422,0.204
+Recursive Chunking,5,0.145,0.352,0.429,0.193
+Recursive Chunking,6,0.144,0.414,0.441,0.201
+Recursive Chunking,7,0.128,0.421,0.441,0.185
+Recursive Chunking,8,0.112,0.421,0.441,0.168
+Recursive Chunking,9,0.100,0.421,0.441,0.153
+Recursive Chunking,10,0.097,0.438,0.441,0.151

@@ -12,6 +12,7 @@ Dependencies:
 """
 
 import logging
+import math
 from typing import List
 
 logger = logging.getLogger(__name__)
@@ -90,6 +91,40 @@ def compute_mrr(
         if r_id in relevant_set:
             return 1.0 / rank
     return 0.0
+
+
+def compute_f1_at_k(precision, recall):
+    """
+    F1@k dari nilai Precision@k dan Recall@k.
+
+    Args:
+        precision: Nilai Precision@k numerik, atau nilai non-numerik seperti "N/A".
+        recall   : Nilai Recall@k numerik, atau nilai non-numerik seperti "N/A".
+
+    Returns:
+        Float F1@k jika input valid, 0.0 jika precision + recall = 0,
+        atau "N/A" jika input tidak valid.
+    """
+    try:
+        if precision is None or recall is None:
+            return "N/A"
+        if isinstance(precision, str) and precision.strip() == "":
+            return "N/A"
+        if isinstance(recall, str) and recall.strip() == "":
+            return "N/A"
+
+        precision_val = float(precision)
+        recall_val = float(recall)
+
+        if math.isnan(precision_val) or math.isnan(recall_val):
+            return "N/A"
+
+        denominator = precision_val + recall_val
+        if denominator == 0:
+            return 0.0
+        return 2 * precision_val * recall_val / denominator
+    except (TypeError, ValueError):
+        return "N/A"
 
 
 # ─── BLEU ─────────────────────────────────────────────────────────────────────
