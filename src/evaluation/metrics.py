@@ -40,7 +40,7 @@ def compute_precision_at_k(
         return 0.0
     top_k = retrieved_ids[:k]
     relevant_set = set(relevant_ids)
-    hits = sum(1 for r_id in top_k if r_id in relevant_set)
+    hits = len(set(top_k) & relevant_set)
     return hits / k
 
 
@@ -62,11 +62,11 @@ def compute_recall_at_k(
     Returns:
         Recall@k (0.0 – 1.0), atau 0.0 jika relevant_ids kosong
     """
-    if not relevant_ids:
+    if k <= 0 or not relevant_ids:
         return 0.0
     top_k = retrieved_ids[:k]
     relevant_set = set(relevant_ids)
-    hits = sum(1 for r_id in top_k if r_id in relevant_set)
+    hits = len(set(top_k) & relevant_set)
     return hits / len(relevant_ids)
 
 
@@ -233,5 +233,4 @@ def compute_rouge(
     except Exception as e:
         logger.error(f"compute_rouge ({rouge_type}, {mode}) error: {e}")
         return 0.0
-
 

@@ -20,8 +20,11 @@ Coverage:
   T16 — compute_mrr: relevan di posisi 1 → 1.0
   T17 — compute_mrr: relevan di posisi 2 → 0.5
   T18 — compute_mrr: tidak ada yang relevan → 0.0
-  T19 — build_summary: agregasi mean BLEU + ROUGE-L per method
-  T20 — load_qa_gold: baca xlsx dan validasi field wajib
+  T19 — retrieval metrics: duplikat retrieved ID tidak menaikkan skor
+  T20 — retrieval metrics: k <= 0 aman dan menghasilkan 0.0
+  T21 — compute_f1_at_k: harmonic mean Precision@k dan Recall@k
+  T22 — build_summary: agregasi mean BLEU + ROUGE-L per method
+  T23 — load_qa_gold: baca xlsx dan validasi field wajib
 
 Jalankan:
   python -m pytest tests/test_evaluation.py -v
@@ -41,6 +44,7 @@ from src.evaluation.metrics import (
     compute_precision_at_k,
     compute_recall_at_k,
     compute_mrr,
+    compute_f1_at_k,
 )
 
 
@@ -173,6 +177,16 @@ class TestComputePrecisionAtK(unittest.TestCase):
         score = compute_precision_at_k(["c1", "c2", "c3", "c4"], ["c1", "c3"], k=4)
         self.assertAlmostEqual(score, 0.5, places=5, msg=f"T12 FAILED: got {score}")
 
+    def test_T19_duplicate_retrieved_ids_count_once(self):
+        """T19: Duplikat retrieved ID tidak boleh menaikkan Precision@k."""
+        score = compute_precision_at_k(["c1", "c1", "c2"], ["c1"], k=3)
+        self.assertAlmostEqual(score, 1 / 3, places=5, msg=f"T19 FAILED: got {score}")
+
+    def test_T20_non_positive_k(self):
+        """T20: Precision@k = 0.0 untuk k <= 0."""
+        self.assertEqual(compute_precision_at_k(["c1"], ["c1"], k=0), 0.0)
+        self.assertEqual(compute_precision_at_k(["c1"], ["c1"], k=-1), 0.0)
+
 
 # ── T13–T15: compute_recall_at_k ─────────────────────────────────────────────
 
@@ -192,6 +206,16 @@ class TestComputeRecallAtK(unittest.TestCase):
         """T15: Recall = 0.0 jika relevant_ids kosong."""
         score = compute_recall_at_k(["c1", "c2"], [], k=5)
         self.assertAlmostEqual(score, 0.0, places=5, msg=f"T15 FAILED: got {score}")
+
+    def test_T19_duplicate_retrieved_ids_count_once(self):
+        """T19: Duplikat retrieved ID tidak boleh membuat Recall@k > 1.0."""
+        score = compute_recall_at_k(["c1", "c1", "c1"], ["c1"], k=3)
+        self.assertAlmostEqual(score, 1.0, places=5, msg=f"T19 FAILED: got {score}")
+
+    def test_T20_non_positive_k(self):
+        """T20: Recall@k = 0.0 untuk k <= 0."""
+        self.assertEqual(compute_recall_at_k(["c1"], ["c1"], k=0), 0.0)
+        self.assertEqual(compute_recall_at_k(["c1"], ["c1"], k=-1), 0.0)
 
 
 # ── T16–T18: compute_mrr ──────────────────────────────────────────────────────
@@ -214,12 +238,25 @@ class TestComputeMRR(unittest.TestCase):
         self.assertAlmostEqual(score, 0.0, places=5, msg=f"T18 FAILED: got {score}")
 
 
-# ── T19: build_summary ────────────────────────────────────────────────────────
+class TestComputeF1AtK(unittest.TestCase):
+
+    def test_T21_harmonic_mean(self):
+        """T21: F1@k = harmonic mean dari Precision@k dan Recall@k."""
+        score = compute_f1_at_k(0.5, 1.0)
+        self.assertAlmostEqual(score, 2 / 3, places=5, msg=f"T21 FAILED: got {score}")
+
+    def test_T21_zero_denominator(self):
+        """T21: F1@k = 0.0 ketika precision dan recall sama-sama 0."""
+        score = compute_f1_at_k(0.0, 0.0)
+        self.assertEqual(score, 0.0)
+
+
+# ── T22: build_summary ────────────────────────────────────────────────────────
 
 class TestBuildSummary(unittest.TestCase):
 
-    def test_T19_aggregation(self):
-        """T19: build_summary menghitung mean BLEU + ROUGE-L per method dengan benar."""
+    def test_T22_aggregation(self):
+        """T22: build_summary menghitung mean BLEU + ROUGE-L per method dengan benar."""
         sys.path.insert(0, str(ROOT / "scripts"))
         from run_generation_eval import build_summary
 
@@ -239,28 +276,28 @@ class TestBuildSummary(unittest.TestCase):
         self.assertEqual(summary["recursive"]["n_success"],     2)
 
 
-# ── T20: load_qa_gold ─────────────────────────────────────────────────────────
+# ── T23: load_qa_gold ─────────────────────────────────────────────────────────
 
 class TestLoadQaGold(unittest.TestCase):
 
-    def test_T20_load_qa_gold(self):
-        """T20: load_qa_gold membaca xlsx dan menghasilkan 30 item dengan field wajib."""
+    def test_T23_load_qa_gold(self):
+        """T23: load_qa_gold membaca xlsx dan menghasilkan 30 item dengan field wajib."""
         sys.path.insert(0, str(ROOT / "scripts"))
         from run_generation_eval import load_qa_gold, QA_GOLD_XLSX
 
         items = load_qa_gold(QA_GOLD_XLSX)
 
         self.assertEqual(len(items), 30,
-                         msg=f"T20 FAILED: expected 30 QA items, got {len(items)}")
+                         msg=f"T23 FAILED: expected 30 QA items, got {len(items)}")
 
         required_fields = {"id", "question", "reference_answer", "relevant_chunk_ids"}
         for item in items:
             missing = required_fields - item.keys()
             self.assertFalse(missing,
-                             msg=f"T20 FAILED: item {item.get('id')} missing fields: {missing}")
-            self.assertTrue(item["id"],               msg="T20 FAILED: id kosong")
-            self.assertTrue(item["question"],         msg="T20 FAILED: question kosong")
-            self.assertTrue(item["reference_answer"], msg="T20 FAILED: reference_answer kosong")
+                             msg=f"T23 FAILED: item {item.get('id')} missing fields: {missing}")
+            self.assertTrue(item["id"],               msg="T23 FAILED: id kosong")
+            self.assertTrue(item["question"],         msg="T23 FAILED: question kosong")
+            self.assertTrue(item["reference_answer"], msg="T23 FAILED: reference_answer kosong")
 
 
 # ── Runner ────────────────────────────────────────────────────────────────────

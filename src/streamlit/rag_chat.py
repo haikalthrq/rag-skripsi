@@ -244,10 +244,18 @@ def _render_retrieval_metrics(metrics: dict | None, bleu: float | None = None, r
     row = {}
     if has_ret:
         k = metrics.get("top_k", "-")
-        row[f"Precision@{k}"] = f"{metrics['precision_at_k']:.4f}"
-        row[f"Recall@{k}"]    = f"{metrics['recall_at_k']:.4f}"
-        row["MRR"]             = f"{metrics['mrr']:.4f}"
-        row[f"F1@{k}"]         = f"{metrics['f1_at_k']:.4f}"
+        precision = metrics.get("precision_at_k")
+        recall = metrics.get("recall_at_k")
+        mrr = metrics.get("mrr")
+        f1 = metrics.get("f1_at_k")
+
+        if f1 is None and isinstance(precision, (int, float)) and isinstance(recall, (int, float)):
+            f1 = compute_f1_at_k(precision, recall)
+
+        row[f"Precision@{k}"] = f"{precision:.4f}" if isinstance(precision, (int, float)) else "—"
+        row[f"Recall@{k}"]    = f"{recall:.4f}"    if isinstance(recall, (int, float))    else "—"
+        row["MRR"]             = f"{mrr:.4f}"       if isinstance(mrr, (int, float))       else "—"
+        row[f"F1@{k}"]         = f"{f1:.4f}"        if isinstance(f1, (int, float))        else "—"
     if has_gen:
         row["BLEU"]    = f"{bleu:.4f}"  if isinstance(bleu,  float) else "—"
         row["ROUGE-L"] = f"{rouge:.4f}" if isinstance(rouge, float) else "—"
@@ -593,7 +601,7 @@ with tab_chat:
                 options=qa_options,
                 format_func=_format_qa_option,
             )
-            submitted = st.form_submit_button("🚀 Kirim", use_container_width=True)
+            submitted = st.form_submit_button("🚀 Kirim", width="stretch")
 
     if submitted and selected_qa_idx is not None:
         selected_qa = qa_df_chat.loc[selected_qa_idx]
@@ -771,7 +779,7 @@ with tab_eval:
     
     with col_btn:
         st.write("")
-        run_btn = st.button("▶ Jalankan Evaluasi", use_container_width=True, type="primary")
+        run_btn = st.button("▶ Jalankan Evaluasi", width="stretch", type="primary")
 
     if eval_mode.startswith("Quick"):
         st.caption(
@@ -1061,7 +1069,7 @@ with tab_eval:
                      mean_rouge_l=("rouge_l_recall", "mean"))
                 .round(4)
             )
-            st.dataframe(summary, use_container_width=True)
+            st.dataframe(summary, width="stretch")
         else:
             st.warning("Tidak ada data valid untuk ringkasan.")
             summary = pd.DataFrame()
@@ -1073,7 +1081,7 @@ with tab_eval:
                         "mrr", "f1_at_k", "bleu", "rouge_l_recall", "error"]
         st.dataframe(
             df_res[display_cols],
-            use_container_width=True,
+            width="stretch",
             height=400,
             column_config={
                 "question"         : st.column_config.TextColumn(width="medium"),
@@ -1097,7 +1105,7 @@ with tab_eval:
                 data=df_res.to_csv(index=False).encode("utf-8"),
                 file_name="eval_results.csv",
                 mime="text/csv",
-                use_container_width=True,
+                width="stretch",
             )
         with col_dl2:
             xlsx_buf = io.BytesIO()
@@ -1110,7 +1118,7 @@ with tab_eval:
                 data=xlsx_buf.getvalue(),
                 file_name="eval_results.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True,
+                width="stretch",
             )
 
     # ── Riwayat evaluasi dari disk ────────────────────────────────────────
@@ -1155,9 +1163,9 @@ with tab_history:
         with col_info:
             st.markdown(f"**{len(chat_history)} percakapan tersimpan** (terbaru di atas)")
         with col_clear:
-            with st.popover("🗑 Hapus Riwayat", use_container_width=True):
+            with st.popover("🗑 Hapus Riwayat", width="stretch"):
                 st.warning("Menghapus SEMUA riwayat chat. Tindakan ini tidak dapat dibatalkan.")
-                if st.button("Ya, hapus semua", type="primary", use_container_width=True):
+                if st.button("Ya, hapus semua", type="primary", width="stretch"):
                     try:
                         CHAT_HISTORY_FILE.unlink(missing_ok=True)
                         st.rerun()
@@ -1186,7 +1194,6 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
-
 
 
 

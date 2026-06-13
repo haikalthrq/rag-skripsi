@@ -10,7 +10,7 @@ Alur:
     → output tabel perbandingan
 
 Metrik yang dihitung:
-  Retrieval  : Precision@k, Recall@k, MRR (pure Python, berbasis chunk ID)
+  Retrieval  : Precision@k, Recall@k, MRR, F1@k (pure Python, berbasis chunk ID)
   Generation : BLEU, ROUGE-L Recall
 """
 
@@ -25,6 +25,7 @@ from .metrics import (
     compute_precision_at_k,
     compute_recall_at_k,
     compute_mrr,
+    compute_f1_at_k,
 )
 from ..chroma.client import initialize_chroma_client, get_or_create_collection
 from ..chroma.query import similarity_search
@@ -212,10 +213,15 @@ class RAGEvaluator:
                 q_result["precision_at_k"] = compute_precision_at_k(retrieved_ids, rel_ids, top_k)
                 q_result["recall_at_k"]    = compute_recall_at_k(retrieved_ids, rel_ids, top_k)
                 q_result["mrr"]            = compute_mrr(retrieved_ids, rel_ids)
+                q_result["f1_at_k"]        = compute_f1_at_k(
+                    q_result["precision_at_k"],
+                    q_result["recall_at_k"],
+                )
                 logger.info(
                     f"    P@{top_k}={q_result['precision_at_k']:.4f} | "
                     f"R@{top_k}={q_result['recall_at_k']:.4f} | "
-                    f"MRR={q_result['mrr']:.4f}"
+                    f"MRR={q_result['mrr']:.4f} | "
+                    f"F1@{top_k}={q_result['f1_at_k']:.4f}"
                 )
             else:
                 logger.warning(
@@ -225,7 +231,7 @@ class RAGEvaluator:
             result.per_query.append(q_result)
 
         # ── Aggregate (mean) ─────────────────────────────────────────────────
-        for key in ["precision_at_k", "recall_at_k", "mrr", "bleu", "rouge_l"]:
+        for key in ["precision_at_k", "recall_at_k", "mrr", "f1_at_k", "bleu", "rouge_l"]:
             values = [q[key] for q in result.per_query if key in q]
             if values:
                 result.metrics[key] = round(sum(values) / len(values), 6)

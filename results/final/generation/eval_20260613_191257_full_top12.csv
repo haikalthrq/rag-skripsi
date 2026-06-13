@@ -1,0 +1,545 @@
+query_id,method,question,gold_answer,generated_answer,precision_at_k,recall_at_k,mrr,f1_at_k,bleu,rouge_l_recall,error,hardware_info
+Q001,Element-Based,Berapa nilai Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak menyertakan data spesifik mengenai ""Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023"". Meskipun ada informasi tentang jumlah hari-orang pekerja harian konstruksi menurut provinsi (lihat gambar 3.8 dan 3.9), tidak ada data yang menyebutkan nilai ""indeks"" atau angka spesifik untuk provinsi Riau pada tahun 2023. Oleh karena itu, tidak dapat ditentukan nilai tersebut berdasarkan informasi yang tersedia.",0.0,0.0,0.0,0.0,0.1107,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q001,MaxMin Semantic,Berapa nilai Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan hanya menyebutkan tabel-tabel terkait dengan data pekerja tetap dan pekerja harian konstruksi menurut provinsi, namun tidak menyertakan nilai spesifik untuk ""Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023"". Data seperti itu tidak tercantum dalam daftar tabel atau deskripsi yang tersedia.",0.0,0.0,0.0,0.0,0.1532,0.619,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q001,Recursive,Berapa nilai Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023?,"Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Riau pada 2023 adalah 147,78 dengan tahun dasar 2016=100.","Berdasarkan tabel **2.13: Struktur Hari-Orang Pekerja Harian Konstruksi Menurut Provinsi (persen), 2018–2023**, nilai **Benchmark Indeks Hari-Orang Pekerja Tidak Tetap/Harian Konstruksi di Provinsi Riau pada tahun 2023** adalah:
+
+**4,09**
+
+Penjelasan:  
+- Di kolom (7) yang menunjukkan tahun 2023, dan baris ""Kepulauan Riau"", nilai yang tercantum adalah **4,09**.
+
+Jawaban: **4,09**",0.0,0.0,0.0,0.0,0.1165,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q003,Element-Based,Berapa nilai Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.","Tidak memiliki informasi yang memadai.  
+
+Dalam konteks yang diberikan, tidak ada data tentang nilai benchmark indeks upah pekerja tidak tetap/harian konstruksi di Jawa Barat pada tahun 2023. Tabel yang tersedia hanya mencakup provinsi-provinsi seperti Aceh, Sumatera Utara, Sumatera Barat, Riau, Jambi, Sumatera Selatan, Bengkulu, Lampung, dan Kep. Bangka Belitung, namun tidak menyebutkan Jawa Barat. Selain itu, tidak ada informasi khusus mengenai ""indeks upah"" atau ""benchmark indeks upah"" yang diperuntukkan untuk Jawa Barat.  
+
+Jawaban: **Tidak diketahui**.",0.0,0.0,0.0,0.0,0.0267,0.619,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q003,MaxMin Semantic,Berapa nilai Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.","Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Konteks yang diberikan tidak menyebutkan nilai **Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023** secara eksplisit. Meskipun terdapat informasi tentang **Upah Pekerja Harian Konstruksi Menurut Provinsi (juta rupiah), 2018–2023** (Tabel 2.14), nilai tersebut adalah upah, bukan **benchmark indeks upah**, dan tidak disebutkan secara spesifik untuk Jawa Barat pada tahun 2023.
+
+Jadi, **tidak dapat ditentukan** dari informasi yang tersedia.",0.0,0.0,0.0,0.0,0.1206,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q003,Recursive,Berapa nilai Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023?,"Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada 2023 adalah 183,90 dengan tahun dasar 2016=100.",Nilai Benchmark Indeks Upah Pekerja Tidak Tetap/Harian Konstruksi di Jawa Barat pada tahun 2023 adalah **106.129 rupiah**.,0.0,0.0,0.0,0.0,0.5556,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q005,Element-Based,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi merujuk pada total nilai pekerjaan yang telah diselesaikan oleh kontraktor dalam suatu periode waktu tertentu, berdasarkan nilai kontrak antara pemilik dan kontraktor. Nilai ini dihitung dengan rumus:  
+
+**Nilai Konstruksi yang Diselesaikan = Nilai Kontrak Proyek – Nilai Pekerjaan yang Disubkontrakkan × Persentase Realisasi Fisik Pekerjaan yang Diselesaikan.**  
+
+Dalam konteks benchmarking, nilai ini digunakan sebagai dasar perhitungan variabel lainnya, seperti indeks nilai balas jasa, upah, dan jumlah pekerja, serta menjadi dasar untuk menetapkan benchmark tahunan yang kemudian digunakan untuk menggerakkan data tahun-tahun sebelum dan sesudahnya.",0.0,0.0,0.0,0.0,0.1152,0.6333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q005,MaxMin Semantic,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi merujuk pada nilai pekerjaan yang telah diselesaikan oleh kontraktor berdasarkan realisasi proyek dalam jangka waktu tertentu, yang dihitung dari nilai kontrak antara pemilik proyek dan kontraktor. Nilai ini diperoleh dengan rumus:  
+**NK = (NP – NS) × %NR**,  
+di mana:  
+- **NK** = Nilai konstruksi yang diselesaikan,  
+- **NP** = Nilai kontrak proyek,  
+- **NS** = Nilai pekerjaan yang disubkontrakkan,  
+- **%NR** = Persentase realisasi fisik pekerjaan yang diselesaikan (dihitung dari perbedaan persentase pekerjaan yang diselesaikan di akhir dan awal periode survei).  
+
+Dalam konteks benchmark, nilai ini digunakan sebagai dasar (benchmark) untuk menghitung variabel lainnya, seperti pengeluaran bahan/material, dengan mengatur pertumbuhan tahunan dari tahun dasar 2016 dan dijadikan indeks dengan nilai 100 pada awal periode.",0.0,0.0,0.0,0.0,0.0828,0.7,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q005,Recursive,Apa yang dimaksud dengan Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi?,"Nilai konstruksi yang diselesaikan adalah nilai pekerjaan yang telah diselesaikan oleh pihak pemborong menurut realisasi proyek yang telah diselesaikan dalam jangka waktu tertentu, berdasarkan nilai kontrak antara pemilik dengan kontraktor.","Nilai Konstruksi yang Diselesaikan dalam penghitungan Benchmark Indeks Konstruksi merujuk pada nilai dari pekerjaan konstruksi yang telah selesai dilaksanakan pada suatu periode tertentu, biasanya diukur dalam satuan uang. Nilai ini digunakan sebagai salah satu variabel utama dalam perhitungan indeks benchmark, terutama sebagai pegangan utama (major trend) dalam menentukan pertumbuhan atau pergerakan indeks konstruksi. Dalam konteks pengolahan data, nilai ini digunakan untuk menghitung persentase realisasi fisik pekerjaan (persentase progres fisik) dan menjadi dasar dalam menentukan indeks tahun dasar 2016 serta dalam proses selarasan pertumbuhan antar variabel lainnya seperti jumlah pekerja, upah, dan hari-orang.",0.0,0.0,0.0,0.0,0.0145,0.3333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q006,Element-Based,Berapa jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,"Tidak ada informasi yang cukup dalam konteks yang diberikan untuk menentukan jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023. Meskipun disebutkan bahwa ada tabel tentang ""Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi, 2018-2023"" dan gambar tentang ""Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi (orang), 2023"", tidak ada angka spesifik yang disebutkan secara langsung untuk jumlah total pekerja tetap nasional pada tahun 2023.
+
+Jawaban: **Tidak diketahui**.",0.0833,1.0,0.3333,0.1538,0.0142,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q006,MaxMin Semantic,Berapa jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,"Untuk mencari jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023, kita perlu menjumlahkan jumlah pekerja tetap di setiap provinsi pada tahun 2023 dari tabel ""Banyaknya Pekerja Tetap Konstruksi Menurut Provinsi, 2018–2023"".
+
+Berikut adalah data tahun 2023 dari setiap provinsi:
+
+- Aceh: 9.822  
+- Sumatera Utara: 41.003  
+- Sumatera Barat: 10.110  
+- Riau: 26.853  
+- Jambi: 8.355  
+- Sumatera Selatan: 19.602  
+- Bengkulu: 6.593  
+- Lampung: 13.181  
+- Kep. Bangka Belitung: 6.327  
+- Kepulauan Riau: 19.343  
+- D.K.I. Jakarta: 436.989  
+- Jawa Barat: 105.588  
+- Jawa Tengah: 44.821  
+- D.I. Yogyakarta: 7.214  
+- Jawa Timur: 145.038  
+- Banten: 60.877  
+- Bali: 13.187  
+- Nusa Tenggara Barat: 6.953  
+- Nusa Tenggara Timur: 12.683  
+- Kalimantan Barat: 15.179  
+- Kalimantan Tengah: 11.709  
+- Kalimantan Selatan: 7.952  
+- Kalimantan Timur: 30.289 (data terputus, namun dari konteks tampak bahwa angka terakhir adalah 3... — namun tidak lengkap)
+
+Namun, dalam konteks yang diberikan, **data Kalimantan Timur di tahun 2023 hanya sebagian (3…)**, sehingga **tidak lengkap** untuk dijumlahkan.
+
+Namun, jika kita asumsikan bahwa data tersebut **sudah lengkap dan hanya terputus di akhir**, dan kita hanya menghitung yang jelas tercantum, maka kita jumlahkan semua provinsi yang memiliki angka 2023 yang lengkap.
+
+Namun, karena **jumlah total pekerja tetap nasional** biasanya sudah tersedia secara keseluruhan (dalam tabel atau ringkasan), dan **tidak ada penjumlahan eksplisit dalam teks**, kita perlu memperkirakan apakah jumlah total bisa dihitung dari data yang tersedia.
+
+Namun, perhatikan bahwa **data di akhir tabel untuk Kalimantan Timur terputus** (3…), sehingga **tidak bisa dihitung secara akurat**.
+
+Namun, jika kita jumlahkan semua nilai 2023 yang tersedia, kita dapat mencoba menghitungnya:
+
+Hitung total:
+
+1. Aceh: 9.822  
+2. Sumatera Utara: 41.003  
+3. Sumatera Barat: 10.110  
+4. Riau: 26.853  
+5. Jambi: 8.355  
+6. Sumatera Selatan: 19.602  
+7. Bengkulu: 6.593  
+8. Lampung: 13.181  
+9. Kep. Bangka Belitung: 6.327  
+10. Kepulauan Riau: 19.343  
+11. D.K.I. Jakarta: 436.989  
+12. Jawa Barat: 105.588  
+13. Jawa Tengah: 44.821  
+14. D.I. Yogyakarta: 7.214  
+15. Jawa Timur: 145.038  
+16. Banten: 60.877  
+17. Bali: 13.187  
+18. Nusa Tenggara Barat: 6.953  
+19. Nusa Tenggara Timur: 12.683  
+20. Kalimantan Barat: 15.179  
+21. Kalimantan Tengah: 11.709  
+22. Kalimantan Selatan: 7.952  
+23. Kalimantan Timur: 30.289 (asumsi angka terakhir adalah 30.289)
+
+**Jumlahkan semua nilai:**
+
+Kita hitung secara bertahap:
+
+- Aceh + Sumut = 9.822 + 41.003 = 50.825  
+- + Sumbar = 50.825 + 10.110 = 60.935  
+- + Riau = 60.935 + 26.853 = 87.788  
+- + Jambi = 87.788 + 8.355 = 96.143  
+- + Sumsel = 96.143 + 19.602 = 115.745  
+- + Bengkulu = 115.745 + 6.593 = 122.338  
+- + Lampung = 122.338 + 13.181 = 135.519  
+- + Bangka Belitung = 135.519 + 6.327 = 141.846  
+- + Kepulauan Riau = 141.846 + 19.343 = 161.189  
+- + Jakarta = 161.189 + 436.989 = 598.178  
+- + Jawa Barat = 598.178 + 105.588 = 703.766  
+- + Jawa Tengah = 703.766 + 44.821 = 748.587  
+- + Yogyakarta = 748.587 + 7.214 = 755.801  
+- + Jawa Timur = 755.801 + 145.038 = 900.839  
+- + Banten = 900.839 + 60.877 = 961.716  
+- + Bali = 961.716 + 13.187 = 974.903  
+- + Nusa Tenggara Barat = 974.903 + 6.953 = 981.856  
+- + Nusa Tenggara Timur = 981.856 + 12.683 = 994.539  
+- + Kalbar = 994.539 + 15.179 = 1.009.718  
+- + Kalteng = 1.009.718 + 11.709 = 1.021.427  
+- + Kalsel = 1.021.427 + 7.952 = 1.029.379  
+- + Kaltim = 1.029.379 + 30.289 = **1.059.668**
+
+Jadi, **jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023 adalah sekitar 1.059.668**.
+
+Namun, karena data Kalimantan Timur hanya tercantum sebagai ""3…"" dan tidak lengkap, **jumlah ini bersifat perkiraan**.
+
+Namun, **dalam konteks yang diberikan, tidak ada angka total nasional yang disebutkan secara eksplisit**, dan hanya data per provinsi yang tersedia.
+
+**Kesimpulan:**
+
+Karena tidak ada nilai total nasional yang diberikan secara langsung, dan hanya data per provinsi yang tersedia, maka **jumlah pekerja tetap secara nasional pada tahun 2023 tidak dapat dihitung secara akurat tanpa asumsi**.
+
+Namun, **dengan asumsi bahwa data Kalimantan Timur lengkap (30.289)**, maka totalnya adalah:
+
+**Jawaban: 1.059.668**
+
+Namun, karena dalam konteks tidak ada pernyataan bahwa angka tersebut lengkap, dan data terputus, maka **kita tidak memiliki informasi yang cukup untuk menyimpulkan jumlah total nasional secara akurat**.
+
+Tetapi, karena pertanyaannya meminta **jumlah pekerja tetap secara nasional pada tahun 2023**, dan data per provinsi tersedia, maka **kita bisa menghitungnya dengan asumsi data lengkap**.
+
+Jadi, jawaban akhirnya adalah:
+
+**1.059.668**
+
+Namun, perhatikan bahwa dalam konteks, tidak disebutkan bahwa angka Kalimantan Timur adalah 30.289 — hanya tercantum ""3…"" — sehingga **tidak dapat dipastikan**.
+
+Oleh karena itu, **karena data tidak lengkap**, maka:
+
+👉 **Tidak ada informasi yang cukup untuk memberikan jawaban yang akurat.**
+
+Namun, jika harus menjawab berdasarkan data yang tersedia dan asumsi, maka:
+
+**Jawaban: 1.059.668**
+
+Tetapi, karena **data Kalimantan Timur tidak lengkap**, maka **jawaban yang paling tepat adalah:**
+
+👉 **Tidak dapat ditentukan karena data tidak lengkap.**
+
+Namun, dalam banyak konteks seperti ini, jika data per provinsi tersedia, maka jumlah total dihitung.
+
+**Final Answer:**
+
+**1.059.668** (dengan asumsi data Kalimantan Timur adalah 30.289)
+
+Namun, karena dalam teks hanya tercantum ""3…"", maka **tidak dapat dipastikan**.
+
+**Kesimpulan akhir:**
+
+Jawaban yang paling tepat berdasarkan konteks adalah:
+
+👉 **Tidak ada informasi yang memadai untuk menentukan jumlah pekerja tetap secara nasional pada tahun 2023.**
+
+Namun, karena pertanyaannya meminta jawaban, dan data hampir lengkap, maka:
+
+**Jawaban: 1.059.668**
+
+✅ **Final Answer: 1.059.668**",0.1667,0.6667,1.0,0.2667,0.0011,0.8333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q006,Recursive,Berapa jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023?,Jumlah pekerja tetap konstruksi nasional pada 2023 adalah 1.174.009 orang.,"Jumlah pekerja tetap di sektor konstruksi secara nasional pada tahun 2023 adalah **1.100.000**.
+
+**Penjelasan:**  
+Dalam konteks, tabel ""Banyaknya Pekerja Tetap/Number of Permanent Worker"" menunjukkan data per provinsi dan tahun. Di baris terakhir (untuk Indonesia), nilai pada tahun 2023 adalah **1.100.000**, yang merupakan jumlah total pekerja tetap di sektor konstruksi secara nasional pada tahun tersebut.",0.0833,0.3333,0.2,0.1333,0.0266,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q009,Element-Based,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Tidak ada informasi yang cukup dalam konteks untuk menentukan persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023. Tabel yang disebutkan hanya menyebutkan data secara umum menurut provinsi, namun tidak memberikan nilai spesifik untuk Jambi pada tahun 2023.
+
+Jawaban: **Tidak diketahui**.",0.0,0.0,0.0,0.0,0.2279,0.8,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q009,MaxMin Semantic,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Tidak ada informasi dalam konteks yang menyebutkan persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023. Tabel yang disebutkan hanya mencakup data menurut provinsi secara umum, namun tidak memberikan angka spesifik untuk Jambi pada tahun 2023.
+
+Jawaban: **Tidak ada informasi yang memadai.**",0.0833,1.0,0.5,0.1538,0.2239,0.8,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q009,Recursive,Berapa persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023?,"Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada 2023 adalah 18,55 persen.","Persentase balas jasa dan upah pekerja konstruksi terhadap nilai konstruksi yang diselesaikan di Jambi pada tahun 2023 adalah **18,55%**.",0.0833,0.5,1.0,0.1429,0.6186,0.95,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q010,Element-Based,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi merujuk pada seluruh biaya atau pengeluaran yang berkaitan langsung dengan aktivitas konstruksi, khususnya terkait dengan bahan baku dan bahan penolong. Biaya ini ditentukan berdasarkan pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dan dinilai menurut harga pasar atau biaya yang dikeluarkan untuk memperolehnya.",0.0833,1.0,1.0,0.1538,0.2914,0.7083,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q010,MaxMin Semantic,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi dimaksudkan sebagai seluruh biaya atau pengeluaran yang berkaitan langsung dengan aktivitas konstruksi, khususnya terkait dengan bahan baku dan bahan penolong. Biaya ini dihitung berdasarkan harga pasar atau biaya untuk mendapatkan bahan tersebut, baik yang dibeli dari luar maupun yang diproduksi sendiri. Pengeluaran ini kemudian dijadikan dasar perhitungan dalam benchmark, dengan melakukan penyesuaian terhadap nilai outlier untuk memastikan akurasi data.",0.0833,0.5,0.3333,0.1429,0.161,0.5625,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q010,Recursive,Apa yang dimaksud dengan Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi?,Pengeluaran bahan/material yang digunakan adalah seluruh biaya/pengeluaran yang berkaitan langsung dengan usaha konstruksi berupa bahan baku dan penolong. Pengeluaran ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri. Biaya bahan dan penolong yang diproduksi sendiri dinilai atas dasar harga pasar atau pengeluaran untuk memperolehnya.,"Pengeluaran Bahan/Material yang Digunakan dalam penghitungan statistik konstruksi dimaksudkan sebagai **seluruh biaya atau pengeluaran yang berkaitan langsung dengan usaha konstruksi**, terutama berupa bahan baku dan bahan penolong. Biaya ini ditentukan berdasarkan konsep pemakaian bahan yang dibeli maupun yang diproduksi sendiri, dan dinilai atas dasar **harga pasar atau pengeluaran untuk memperolehnya**. Pengeluaran ini mencakup semua biaya yang terkait dengan penggunaan bahan dan penolong dalam proses konstruksi.",0.0833,1.0,0.5,0.1538,0.3437,0.8333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q011,Element-Based,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Tidak ada informasi dalam konteks yang menyebutkan nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun. Data yang disebutkan hanya mencakup keseluruhan pekerja muda dan perbandingan antara overeducated, undereducated, dan pekerja yang sesuai dengan kualifikasi pendidikannya, tanpa membedakan berdasarkan durasi kerja.
+
+**Jawaban: Tidak ada informasi yang memadai.**",N/A,N/A,N/A,N/A,0.0137,0.6923,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q011,MaxMin Semantic,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Tidak ada informasi dalam konteks yang menyebutkan nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun. Semua teks membahas mismatch pendidikan-pekerjaan secara umum, termasuk dampaknya terhadap upah, durasi transisi kerja, dan kesejahteraan individu, tetapi tidak menyertakan data atau nilai spesifik berdasarkan rentang lama bekerja (0 hingga 14 tahun).
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0,0.0,0.0,0.0,0.013,0.6923,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q011,Recursive,Berapa nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun?,"Nilai kecenderungan mismatch untuk variabel Lama Bekerja (0–14 Tahun) adalah 1,1531.","Nilai kecenderungan mismatch pendidikan untuk kelompok pemuda dengan lama bekerja 0 hingga 14 tahun adalah **1,1531**.",0.0833,0.5,1.0,0.1429,0.0836,0.9231,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q013,Element-Based,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja adalah **1,0737**.
+
+Penjelasan:  
+Berdasarkan konteks 2, disebutkan bahwa pemuda yang overeducated memiliki **peluang 7,37 persen lebih cepat** untuk kembali bekerja dibandingkan dengan yang matched. Dalam istilah hazard ratio (HR), ini berarti HR = 1 + 0,0737 = **1,0737**. Nilai ini menunjukkan bahwa overeducated memiliki risiko lebih tinggi (lebih cepat) terjadinya peristiwa (mendapatkan pekerjaan baru) dibandingkan kelompok matched.",0.0833,1.0,0.1667,0.1538,0.0098,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q013,MaxMin Semantic,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Berdasarkan tabel di **Konteks 1**, pada baris ""_Overeducated_ (Referensi = Matched)_"", nilai **Hazard Ratio (HR)** yang disebutkan adalah **1,0737**.
+
+Artinya, pemuda overeducated memiliki **hazard ratio 1,0737** dibandingkan dengan pemuda yang memiliki pendidikan yang sesuai dengan pekerjaan (matched), yang berarti mereka **lebih cepat** masuk ke pasar kerja secara relatif (karena HR > 1, meskipun nilai kecil).
+
+Namun, perlu diperhatikan bahwa dalam konteks **Konteks 2** dan **Konteks 6**, disebutkan bahwa pemuda overeducated **cenderung bertahan di sektor yang sama**, sehingga transisinya lebih cepat — ini mendukung bahwa mereka **lebih cepat mendapatkan pekerjaan**.
+
+Jadi, meskipun nilai hazard ratio sedikit lebih dari 1, ini menunjukkan **kecepatan lebih tinggi dalam mencari kerja** dibandingkan yang matched.
+
+### Jawaban:
+**1,0737**",0.0833,1.0,1.0,0.1538,0.003,0.625,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q013,Recursive,Berapa hazard ratio pemuda overeducated dibandingkan pemuda dengan pendidikan yang matched dalam durasi mencari kerja?,"Hazard ratio untuk status Overeducated adalah 1,0737.","Tidak ada informasi dalam konteks yang menyebutkan nilai **hazard ratio (HR)** secara eksplisit untuk pemuda overeducated dibandingkan dengan pemuda yang memiliki pendidikan yang matched dalam durasi mencari kerja.
+
+Meskipun konteks menyebutkan bahwa **analisis hazard ratio (HR)** digunakan untuk membandingkan kecepatan terjadinya peristiwa (seperti mencapai garis finish dalam pencarian kerja), dan bahwa **pemuda undereducated memiliki peluang 10,26 persen lebih lambat**, tidak disebutkan angka HR untuk kelompok overeducated.
+
+Oleh karena itu, **tidak ada data yang memadai** untuk menjawab pertanyaan tentang hazard ratio pemuda overeducated dibandingkan dengan yang matched.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0833,0.5,0.25,0.1429,0.0037,0.5,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q015,Element-Based,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia adalah **36,36 persen**.
+
+Ini disebutkan dalam konteks 2, bagian IKHTISAR, yang menyatakan bahwa ""lebih dari sepertiga (36,36 persen) angkatan kerja muda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya."" Vertical mismatch mencakup kasus overeducated dan undereducated, sehingga totalnya mencapai 36,36%.",0.0833,1.0,0.5,0.1538,0.1912,0.6522,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q015,MaxMin Semantic,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?
+
+Jawaban: **36,36 persen**.
+
+Penjelasan: Dalam konteks 3 dan konteks 4 disebutkan bahwa lebih dari sepertiga (36,36 persen) angkatan kerja muda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya, yang dikenal sebagai fenomena vertical mismatch.",0.0833,1.0,0.3333,0.1538,0.1987,0.6522,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q015,Recursive,Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?,"Lebih dari sepertiga angkatan kerja muda, yaitu 36,36 persen, mengalami vertical mismatch karena bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya.","Berapa persentase angkatan kerja muda yang mengalami vertical mismatch di Indonesia?
+
+Jawaban: **36,36 persen**  
+
+Penjelasan: Berdasarkan konteks 2, dikatakan bahwa ""lebih dari sepertiga (36,36 persen) angkatan kerja muda bekerja pada posisi yang tidak sesuai dengan tingkat pendidikannya"", yang merupakan definisi dari fenomena vertical mismatch.",0.0833,1.0,0.5,0.1538,0.201,0.6522,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q016,Element-Based,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 01 pada Agustus 2025?,"Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 01 pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang tersedia.**",0.0833,1.0,0.125,0.1538,0.11,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q016,MaxMin Semantic,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 01 pada Agustus 2025?,"Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 01 pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang tersedia.**",0.0833,1.0,0.25,0.1538,0.11,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q016,Recursive,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 01 pada Agustus 2025?,"Indeks Unit Value Impor HS 01 pada Agustus 2025 adalah 95,61.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 01 pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang tersedia.**",0.0833,0.5,0.25,0.1429,0.11,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q017,Element-Based,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 27 pada Agustus 2025?,"Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 27 pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang tersedia.**",0.0,0.0,0.0,0.0,0.11,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q017,MaxMin Semantic,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 27 pada Agustus 2025?,"Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 27 pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang tersedia.**",0.0833,1.0,0.25,0.1538,0.11,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q017,Recursive,Berapa Indeks Unit Value Impor untuk kelompok komoditas HS 27 pada Agustus 2025?,"Indeks Unit Value Impor HS 27 pada Agustus 2025 adalah 82,14.","Tidak ada informasi dalam konteks yang menyebutkan nilai indeks unit value impor untuk kelompok komoditas HS 27 pada Agustus 2025.
+
+**Jawaban: Tidak diketahui.**",0.0,0.0,0.0,0.0,0.1216,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q020,Element-Based,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025 adalah **2.800 komoditas**.
+
+Ini tercantum dalam konteks 1, yang menyatakan bahwa jumlah komoditas HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian 25 komoditas dari kelompok migas dan 2.775 dari kelompok nonmigas.",0.1667,1.0,1.0,0.2857,0.2061,0.875,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q020,MaxMin Semantic,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Tidak ada informasi dalam konteks yang menyebutkan jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang memadai.**",0.0833,0.5,0.1111,0.1429,0.2087,0.4167,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q020,Recursive,Berapa jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025?,"Jumlah komoditas HS 8-digit yang terpilih sebagai sampel impor adalah 2.800 komoditas, terdiri dari 25 komoditas migas dan 2.775 komoditas nonmigas.","Jumlah komoditas HS 8-digit yang terpilih sebagai sampel dalam penghitungan Indeks Unit Value Impor Agustus 2025 adalah **2.800 komoditas**.
+
+Ini disebutkan dalam konteks 1: *""Jumlah komoditas menurut HS 8-digit yang terpilih sebagai sampel sebanyak 2.800 komoditas, dengan rincian sebanyak 25 komoditas merupakan anggota dari kelompok migas dan 2.775 dari kelompok nonmigas.""*",0.0833,0.5,1.0,0.1429,0.1903,0.875,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q021,Element-Based,Berapa proporsi Transfer Masuk untuk COPNI 8 dalam struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?,"Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak ada informasi yang cukup dalam konteks untuk menentukan **proporsi transfer masuk untuk COPNI 8** dalam struktur sumber neraca penerimaan dan pengeluaran LNPRT tahun 2024.
+
+Meskipun disebutkan dalam konteks bahwa ada gambar ""Persentase Transfer Masuk LNPRT Menurut Sumbernya, 2024"" (Gambar 3.4), tidak ada data numerik atau perbandingan berdasarkan COPNI 8 yang disebutkan secara eksplisit. Tidak ada nilai proporsi yang diberikan untuk COPNI 8.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan proporsi transfer masuk untuk COPNI 8.**",0.0,0.0,0.0,0.0,0.0191,0.5833,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q021,MaxMin Semantic,Berapa proporsi Transfer Masuk untuk COPNI 8 dalam struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?,"Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak ada informasi dalam konteks yang menyebutkan proporsi **Transfer Masuk** untuk **COPNI 8** dalam struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024.
+
+Konteks hanya menyediakan data untuk COPNI 1 hingga 5, dan tidak menyebutkan COPNI 8. Selain itu, data transfer masuk yang disebutkan dalam tabel mencakup total transfer (misalnya 94,45% hingga 99,78%), tetapi tidak dibagi secara khusus per COPNI.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan proporsi Transfer Masuk untuk COPNI 8.**",0.0,0.0,0.0,0.0,0.0373,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q021,Recursive,Berapa proporsi Transfer Masuk untuk COPNI 8 dalam struktur sumber Neraca Penerimaan dan Pengeluaran LNPRT tahun 2024?,"Proporsi Transfer Masuk untuk COPNI 8 pada 2024 adalah 94,35 persen.","Tidak ada informasi dalam konteks yang menyebutkan proporsi transfer masuk untuk COPNI 8 dalam struktur sumber neraca penerimaan dan pengeluaran LNPRT tahun 2024. Konteks hanya menyebutkan bahwa **transfer menjadi sumber penerimaan terbesar bagi LNPRT secara umum**, dengan **95,58 persen dari total penerimaan LNPRT berasal dari transfer pada tahun 2024**, namun tidak menyebutkan data khusus untuk **COPNI 8**.
+
+Maka, **tidak ada informasi yang memadai** untuk menjawab pertanyaan tersebut.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0,0.0,0.0,0.0,0.0163,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q023,Element-Based,Berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?,"Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.","Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah **94%**.
+
+(Dari tabel, untuk kode 15 (Jambi), nilai ""Dokumen"" adalah 94, yang merupakan capaian pemasukan dokumen.)",0.1667,0.6667,1.0,0.2667,0.2131,0.7692,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q023,MaxMin Semantic,Berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?,"Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.",Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah **80%**.,0.0833,0.5,1.0,0.1429,0.5582,0.7692,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q023,Recursive,Berapa persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi?,"Persentase capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi adalah 117,50 persen.","Berdasarkan konteks yang diberikan, dalam tabel ""Capaian Pemasukan Dokumen SKLNPT 2024"", tidak ada data yang disebutkan secara eksplisit untuk **Provinsi Jambi** dalam kolom yang berisi capaian pemasukan dokumen SKLNPT 2024.
+
+Namun, di **Konteks 2**, terdapat data statistik pendidikan untuk Provinsi Jambi, seperti angka-angka seperti 99,91, 99,78, 100,00, dll. Namun, **angka-angka tersebut tidak berkaitan dengan capaian pemasukan dokumen SKLNPT 2024**, melainkan berkaitan dengan statistik pendidikan.
+
+Karena **tidak ada informasi yang menyebutkan capaian pemasukan dokumen SKLNPT 2024 untuk Provinsi Jambi** dalam konteks yang diberikan, maka:
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.25,0.75,1.0,0.375,0.0521,0.6154,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q025,Element-Based,Berapa jumlah kelompok tujuan kegiatan utama yang digunakan untuk mengklasifikasikan LNPRT dalam sistem COPNI?,"COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Jumlah kelompok tujuan kegiatan utama yang digunakan untuk mengklasifikasikan LNPRT dalam sistem COPNI adalah **sembilan**.
+
+Penjelasan: Dalam konteks 1, disebutkan bahwa COPNI membagi LNPRT menjadi sembilan kategori, yaitu: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.",0.0833,1.0,1.0,0.1538,0.525,0.7941,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q025,MaxMin Semantic,Berapa jumlah kelompok tujuan kegiatan utama yang digunakan untuk mengklasifikasikan LNPRT dalam sistem COPNI?,"COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Sistem COPNI mengklasifikasikan LNPRT (Lembaga Non-Profits yang Melayani Rumah Tangga) berdasarkan **sembilan kelompok tujuan kegiatan utama**.
+
+Jawaban: **9**",0.0833,1.0,1.0,0.1538,0.0543,0.2059,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q025,Recursive,Berapa jumlah kelompok tujuan kegiatan utama yang digunakan untuk mengklasifikasikan LNPRT dalam sistem COPNI?,"COPNI mengklasifikasikan LNPRT berdasarkan tujuan kegiatan utama lembaga ke dalam sembilan kelompok: perumahan; kesehatan; rekreasi dan kebudayaan; pendidikan; perlindungan/jaminan sosial; keagamaan; partai politik, organisasi buruh, dan organisasi profesi; lingkungan hidup; serta jasa lainnya.","Sistem COPNI (Classification of Purposes of Nonprofit Institutions Serving Households) mengklasifikasikan Lembaga Nonprofit yang Melayani Rumah Tangga (LNPRT) menjadi **sembilan kelompok tujuan kegiatan utama**.
+
+Jawaban: **9**",0.0833,1.0,1.0,0.1538,0.0429,0.1765,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q026,Element-Based,Berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?,Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak ada informasi yang cukup dalam konteks untuk menentukan nilai **Pajak Pendapatan pemerintah daerah** secara spesifik pada tahun 2024.
+
+Konteks menyebutkan bahwa **pajak pendapatan, kekayaan, dan pajak lainnya** pada tahun 2024 mencapai **Rp1.121 triliun**, namun ini adalah **pajak pendapatan, kekayaan, dan pajak lainnya pada pemerintahan umum**, bukan secara khusus untuk **pemerintah daerah**.
+
+Selain itu, tidak ada data yang secara eksplisit menyebutkan pembagian antara pajak pendapatan pemerintah pusat dan daerah, atau nilai pajak pendapatan khusus untuk pemerintah daerah.
+
+**Kesimpulan:**  
+Tidak dapat ditentukan nilai pajak pendapatan pemerintah daerah pada tahun 2024 berdasarkan informasi yang tersedia.",0.25,1.0,0.1667,0.4,0.0244,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q026,MaxMin Semantic,Berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?,Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak ada informasi dalam konteks yang menyebutkan nilai **Pajak Pendapatan pemerintah daerah** pada tahun 2024. Konteks hanya membahas **pajak pendapatan, kekayaan, dan pajak lainnya** pada **pemerintahan umum**, bukan pemerintah daerah. Selain itu, nilai yang disebutkan dalam konteks adalah untuk **pemerintahan umum** (misalnya Rp1.121 triliun pada tahun 2024), bukan untuk daerah.
+
+**Jawaban: Tidak ada informasi yang memadai untuk mengetahui nilai pajak pendapatan pemerintah daerah pada tahun 2024.**",0.0,0.0,0.0,0.0,0.0324,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q026,Recursive,Berapa nilai Pajak Pendapatan pemerintah daerah pada tahun 2024?,Nilai Pajak Pendapatan pemerintah daerah pada 2024 adalah 58.974 miliar rupiah.,"Tidak ada informasi dalam konteks yang menyebutkan nilai **Pajak Pendapatan pemerintah daerah pada tahun 2024** secara eksplisit. Konteks hanya menyebutkan bahwa **penerimaan pajak pendapatan, kekayaan, dan pajak lainnya pada tahun 2024 mencapai Rp1.121 triliun**, namun tidak dibagi antara pemerintah pusat dan daerah, dan tidak disebutkan secara terpisah untuk pemerintah daerah.
+
+Karena tidak ada data yang cukup untuk menentukan nilai pajak pendapatan pemerintah daerah secara khusus pada tahun 2024, maka:
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.25,0.75,0.1667,0.375,0.0377,0.5833,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q027,Element-Based,Berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?,Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Berdasarkan konteks yang diberikan, nilai **Pembentukan Modal Tetap Bruto (PMTB) Pemerintahan Pusat** pada tahun **2024** dapat dihitung dari data dalam tabel terstruktur.
+
+Dalam tabel:
+
+- **PMTB Pemerintahan Umum (GFCF of General Govt)** pada tahun **2024** adalah **8,76** (dalam satuan persen).
+- Dalam teks, disebutkan bahwa **proporsi PMTB pemerintah pusat tahun 2024 sebesar 59,68 persen** dibandingkan dengan pemerintah daerah (40,32 persen).
+
+Namun, nilai **PMTB Pemerintahan Pusat** secara absolut (dalam triliun rupiah) tidak langsung tersedia dalam tabel. Tabel hanya menyediakan **PMTB Pemerintahan Umum** (yang mencakup pusat dan daerah) dalam bentuk persen, bukan nilai absolut.
+
+Namun, di bagian **""PMTB Nasional (Triliun Rp)""**, disebutkan:
+
+- PMTB Nasional pada tahun **2024** adalah **6.453 triliun Rp**.
+
+Karena proporsi PMTB pemerintah pusat pada tahun 2024 adalah **59,68%**, maka:
+
+\[
+\text{PMTB Pemerintahan Pusat (2024)} = 59,68\% \times 6.453 = 0,5968 \times 6.453 \approx 3.853,5 \text{ triliun Rp}
+\]
+
+### Jawaban:
+**3.853,5 triliun Rp**",0.0,0.0,0.0,0.0,0.0131,0.7857,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q027,MaxMin Semantic,Berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?,Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Berdasarkan konteks yang diberikan, nilai **Pembentukan Modal Tetap Bruto (PMTB) pemerintah pusat pada tahun 2024** tidak secara eksplisit disebutkan dalam teks.
+
+Namun, dalam **Konteks 1**, disebutkan bahwa:
+
+> ""Realisasi belanja modal pemerintah pusat sebagai indikator penyusunan PMTB pemerintah pusat tahun 2024 **79** masih dipengaruhi oleh pengembangan infrastruktur dan pengadaan alutsista.""
+
+Nilai **79** di sini kemungkinan besar merujuk pada **realisasi belanja modal**, bukan nilai PMTB secara langsung. Tidak ada angka PMTB yang diberikan secara eksplisit untuk pemerintah pusat pada tahun 2024.
+
+Selain itu, dalam **Konteks 4**, nilai PMTB disebutkan untuk **pemerintah daerah**, bukan pusat, yaitu:
+
+> ""PMTB pada tahun 2022 adalah sebesar 922,46 triliun rupiah, menurun sebesar 4,61 persen pada tahun 2023, dan meningkat sebesar 6,26 persen pada tahun 2024 menjadi 934,99 triliun rupiah.""
+
+Namun ini adalah data untuk **pemerintah daerah**, bukan pusat.
+
+### Kesimpulan:
+Tidak ada informasi yang cukup dalam konteks untuk menentukan nilai **Pembentukan Modal Tetap Bruto (PMTB) pemerintah pusat tahun 2024** secara eksak.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan nilai PMTB pemerintah pusat tahun 2024.**",0.0,0.0,0.0,0.0,0.0124,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q027,Recursive,Berapa nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024?,Nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada 2024 adalah 337.257 miliar rupiah.,"Tidak ada informasi dalam konteks yang menyebutkan nilai **Pembentukan Modal Tetap Bruto (GFCF)** pemerintahan pusat pada tahun 2024 secara eksplisit.
+
+Meskipun konteks menyebutkan bahwa **realisasi belanja modal pemerintah pusat** pada tahun 2024 masih dipengaruhi oleh pembangunan infrastruktur dan pengadaan alutsista, serta disebutkan nilai **79** dalam konteks, namun tidak jelas apakah nilai 79 tersebut merupakan nilai pembentukan modal tetap bruto atau hanya realisasi belanja modal.
+
+Selain itu, dalam tabel konteks 1 terdapat angka-angka seperti 922,46 dan 934,99, tetapi tidak disebutkan secara eksplisit bahwa itu adalah nilai untuk pemerintahan pusat pada tahun 2024.
+
+**Kesimpulan:** Tidak ada data yang cukup untuk menentukan nilai Pembentukan Modal Tetap Bruto Pemerintahan Pusat pada tahun 2024.
+
+👉 **Jawaban: Tidak ada informasi yang memadai.**",0.0,0.0,0.0,0.0,0.0399,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q029,Element-Based,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **item penyeimbang** yang dihitung sebagai **selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah**. Artinya, tabungan mewakili bagian dari pendapatan disposabel yang tidak digunakan untuk konsumsi akhir, dan merupakan perbedaan atau kelebihan pendapatan setelah dikurangi dengan pengeluaran konsumsi.",0.0833,1.0,0.25,0.1538,0.1533,0.7619,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q029,MaxMin Semantic,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **faktor penyeimbang** yang merupakan selisih antara **pendapatan disposabel** dan **pengeluaran konsumsi akhir pemerintah**. Secara sederhana, tabungan menunjukkan jumlah pendapatan yang tidak digunakan untuk konsumsi, melainkan disimpan atau dianggarkan untuk digunakan di masa depan.",0.1667,1.0,1.0,0.2857,0.0719,0.7619,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q029,Recursive,Apa yang dimaksud dengan tabungan dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum?,"Tabungan merupakan faktor penyeimbang dalam neraca penggunaan pendapatan disposabel pemerintahan umum, yaitu selisih antara pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah.","Dalam Neraca Penggunaan Pendapatan Disposabel pemerintahan umum, **tabungan** dimaksudkan sebagai **pengurangan dari pendapatan disposabel dan pengeluaran konsumsi akhir pemerintah**. Ia berfungsi sebagai item penyeimbang neraca, yang menunjukkan seberapa besar pendapatan disposabel yang tidak digunakan untuk konsumsi akhir, melainkan disimpan. Tabungan mencerminkan bagian dari pendapatan yang tidak dikonsumsi langsung, tetapi diharapkan digunakan untuk keperluan masa depan atau diperoleh dari penyesuaian pada hak pensiun atau aset lainnya.",0.0833,1.0,0.1667,0.1538,0.0977,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q031,Element-Based,Berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?,"Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah **7,98 persen**.
+
+**Penjelasan:**  
+Dalam tabel terstruktur dari Konteks 3, di baris ""Transfer berjalan"" dan kolom ""2024"", nilai yang tercatat adalah **7,98**. Selain itu, total semua komponen dalam kolom 2024 adalah 100,00, yang menunjukkan bahwa nilai ini merupakan proporsi dalam persen. Maka, proporsi Transfer Berjalan pada tahun 2024 adalah **7,98%**.",0.1667,1.0,0.3333,0.2857,0.1511,0.8889,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q031,MaxMin Semantic,Berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?,"Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Proporsi transfer berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah **53,31 persen**.
+
+Ini didasarkan pada konteks 3, yang menyebutkan bahwa rumah tangga lebih dominan melakukan pembayaran transfer berupa ""transfer lainnya yang belum diklasifikasikan"" dengan proporsi sebesar:
+
+- 52,97 persen pada tahun 2022  
+- 51,95 persen pada tahun 2023  
+- **53,31 persen pada tahun 2024**
+
+Karena pertanyaannya menanyakan proporsi transfer berjalan dalam struktur **penggunaan** pada tahun 2024, maka jawabannya adalah **53,31 persen**.",0.0,0.0,0.0,0.0,0.1132,0.8889,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q031,Recursive,Berapa proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024?,"Proporsi Transfer Berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024 adalah 8,04 persen.","Tidak ada informasi dalam konteks yang menyebutkan **proporsi transfer berjalan dalam struktur penggunaan** Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024.
+
+Konteks hanya menyebutkan proporsi **jenis transfer berjalan** (seperti transfer lainnya yang belum diklasifikasikan, klaim asuransi non-jiwa), bukan proporsi secara keseluruhan dari **struktur penggunaan** pendapatan disposabel.
+
+Jadi, berdasarkan informasi yang tersedia, **tidak dapat ditentukan** proporsi transfer berjalan dalam struktur penggunaan Neraca Distribusi Pendapatan Sekunder Rumah Tangga tahun 2024.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0,0.0,0.0,0.0,0.0932,0.7778,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q032,Element-Based,Berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024?,"Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024 adalah **82,99 persen**.",0.0833,1.0,1.0,0.1538,0.2471,0.8333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q032,MaxMin Semantic,Berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024?,"Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Untuk menentukan **proporsi Pengeluaran Konsumsi Akhir Rumah Tangga** dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024, kita perlu membandingkan nilai **Pengeluaran Konsumsi Akhir** dengan **Total Pengeluaran Rumah Tangga** (yang mencakup semua item seperti konsumsi akhir, pendapatan kepemilikan yang dibayar, transfer yang dibayar, dan tabungan bruto).
+
+Dari **Tabel Struktur Pengeluaran Rumah Tangga (2022–2024)**:
+
+- **Pengeluaran Konsumsi Akhir (2024)** = 11.964,95 triliun rupiah  
+- **Total Pengeluaran Rumah Tangga (2024)** = 14.417,71 triliun rupiah  
+
+Maka, proporsi Pengeluaran Konsumsi Akhir adalah:
+
+\[
+\frac{11.964,95}{14.417,71} \times 100\% \approx 82,99\%
+\]
+
+**Jawaban: 82,99%** ✅
+
+> Catatan: Nilai ini sesuai dengan pernyataan dalam Konteks 1 bahwa pada tahun 2024, proporsi pengeluaran konsumsi akhir menurun menjadi 82,99%. Ini memastikan konsistensi antara data tabel dan teks.
+
+**Jawaban akhir: 82,99%**",0.0,0.0,0.0,0.0,0.0201,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q032,Recursive,Berapa proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024?,"Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga pada 2024 adalah 92,38 persen.","Proporsi Pengeluaran Konsumsi Akhir Rumah Tangga dalam struktur penggunaan pendapatan rumah tangga pada tahun 2024 adalah **92,38 persen**.
+
+**Penjelasan:**  
+Dari konteks 2 dan konteks 4, terdapat tabel yang menunjukkan struktur pengeluaran pendapatan disposabel rumah tangga (dalam persen). Pada kolom yang mencantumkan ""Pengeluaran konsumsi akhir"", nilai pada tahun 2024 adalah **92,38 persen**. Nilai ini sesuai dengan data dalam tabel yang menyatakan bahwa total pengeluaran konsumsi akhir pada tahun 2024 berada di bawah total pengeluaran (100 persen), dengan proporsi 92,38%.",0.0833,0.5,0.5,0.1429,0.0544,1.0,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q034,Element-Based,Ke dalam kelompok aktivitas ekonomi apa saja kegiatan rumah tangga diklasifikasikan dalam neraca ekonomi?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Kegiatan rumah tangga diklasifikasikan ke dalam tiga kelompok aktivitas ekonomi dalam neraca ekonomi, yaitu:
+
+1. **Aktivitas produksi**  
+2. **Aktivitas konsumsi**  
+3. **Aktivitas investasi**
+
+Ini didasarkan pada penjelasan bahwa transaksi rumah tangga dapat dikelompokkan ke dalam tiga kelompok aktivitas ekonomi: jika terkait dengan produksi, maka dicatat dalam Neraca Produksi Rumah Tangga; jika terkait dengan pendapatan kepemilikan, transfer, konsumsi, dan akumulasi modal, maka dicatat pada neraca yang sesuai.",0.0833,1.0,1.0,0.1538,0.0257,0.5714,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q034,MaxMin Semantic,Ke dalam kelompok aktivitas ekonomi apa saja kegiatan rumah tangga diklasifikasikan dalam neraca ekonomi?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Kegiatan rumah tangga dalam neraca ekonomi diklasifikasikan ke dalam tiga kelompok aktivitas ekonomi utama, yaitu:
+
+1. **Aktivitas produksi**  
+2. **Aktivitas konsumsi**  
+3. **Aktivitas akumulasi modal dan keuangan**
+
+Ini tercantum dalam konteks 3 dan 5, yang menjelaskan bahwa aktivitas ekonomi rumah tangga mencakup produksi, konsumsi, serta akumulasi modal dan keuangan. Selain itu, konteks 2 menyebutkan bahwa aktivitas ekonomi rumah tangga mencakup produksi, konsumsi, dan investasi, yang konsisten dengan klasifikasi tersebut.",0.0833,1.0,0.5,0.1538,0.032,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q034,Recursive,Ke dalam kelompok aktivitas ekonomi apa saja kegiatan rumah tangga diklasifikasikan dalam neraca ekonomi?,"Aktivitas ekonomi rumah tangga yang dimaksud mencakup aktivitas produksi, aktivitas konsumsi, dan aktivitas investasi.","Kegiatan rumah tangga dalam neraca ekonomi diklasifikasikan ke dalam tiga kelompok aktivitas ekonomi utama, yaitu:
+
+1. **Aktivitas produksi**  
+2. **Aktivitas konsumsi**  
+3. **Aktivitas investasi (atau aktivitas akumulasi modal dan keuangan)**
+
+Ini didukung oleh konteks bahwa aktivitas ekonomi rumah tangga mencakup aktivitas produksi, konsumsi, dan aktivitas investasi, serta bahwa transaksi terkait dengan ketiga aktivitas tersebut dicatat pada neraca yang sesuai (seperti Neraca Produksi Rumah Tangga, Neraca Konsumsi, dan Neraca Investasi).",0.4167,1.0,1.0,0.5882,0.0755,0.7857,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q036,Element-Based,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025?,"Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025 adalah **96,96**.",0.0833,0.3333,0.0833,0.1333,0.0923,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q036,MaxMin Semantic,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025?,"Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Tidak ada informasi dalam konteks yang menyebutkan estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di **Provinsi Aceh** pada tahun 2025.
+
+Konteks hanya menyebutkan bahwa:
+- Capaian APS pada kelompok umur 7–12 tahun mendekati 100%,
+- ATS (Angka Tidak Sekolah) untuk kelompok usia 13–15 tahun mengalami penurunan,
+- Tidak ada data spesifik per provinsi (seperti Aceh) atau per kelompok usia 13–15 tahun.
+
+Maka, **tidak dapat diberikan estimasi APS untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025** berdasarkan informasi yang tersedia.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.1667,1.0,0.1,0.2857,0.0163,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q036,Recursive,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025?,"Estimasi total APS 13–15 tahun untuk Provinsi Aceh pada 2025 adalah 97,65 persen.","Estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 13–15 tahun di Provinsi Aceh pada tahun 2025 adalah **77,88%**.",0.0,0.0,0.0,0.0,0.0885,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q037,Element-Based,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025?,"Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025 adalah **80,64**.",0.0833,0.3333,0.125,0.1333,0.1352,0.6875,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q037,MaxMin Semantic,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025?,"Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Tidak ada informasi dalam konteks yang menyebutkan estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025.
+
+Jawaban: **Tidak ada informasi yang memadai.**",0.0833,1.0,0.2,0.1538,0.0798,0.625,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q037,Recursive,Berapa estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025?,"Estimasi total APS 16–18 tahun untuk Provinsi Sumatera Barat pada 2025 adalah 85,04 persen.","Estimasi Angka Partisipasi Sekolah (APS) untuk kelompok usia 16–18 tahun di Provinsi Sumatera Barat pada tahun 2025 adalah **34,85**.",0.0,0.0,0.0,0.0,0.1352,0.75,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q040,Element-Based,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025 disajikan dalam tabel berdasarkan provinsi. Namun, karena pertanyaan tidak menentukan provinsi tertentu, maka data yang dimaksud adalah nilai-nilai yang tercatat dalam tabel untuk setiap provinsi.
+
+Berikut adalah tingkat penyelesaian pendidikan menurut jenjang:
+
+- **SD (Umur 13–15 tahun):** Rata-rata antara 90,83 hingga 99,02%
+- **SMP (Umur 16–18 tahun):** Rata-rata antara 82,14 hingga 97,47%
+- **SMA/SMK (Umur 19–21 tahun):** Rata-rata antara 55,50 hingga 91,20%
+
+Namun, jika yang dimaksud adalah nilai **per provinsi**, maka jawabannya adalah data yang tercantum dalam tabel (setiap provinsi memiliki angka berbeda untuk tiap jenjang).
+
+Jadi, **tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025** adalah:
+
+- **SD:** 90,83% – 99,02%
+- **SMP:** 82,14% – 97,47%
+- **SMA/SMK:** 55,50% – 91,20%
+
+✅ **Jawaban:** Tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025 bervariasi per provinsi, berkisar antara 55,50% hingga 99,02% untuk SD, 82,14% hingga 97,47% untuk SMP, dan 55,50% hingga 91,20% untuk SMA/SMK.",0.0833,1.0,0.0909,0.1538,0.0244,0.6538,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q040,MaxMin Semantic,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Tingkat penyelesaian pendidikan pada tahun 2025 adalah sebagai berikut:
+
+- **SD sederajat**: 97,65 persen  
+- **SMP sederajat**: 91,45 persen  
+- **SMA/SMK sederajat**: 73,90 persen  
+
+*Sumber: Konteks 2 dan Konteks 3 dari dokumen statistik pendidikan 2025.*",0.0833,1.0,0.5,0.1538,0.1222,0.6538,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q040,Recursive,"Berapa tingkat penyelesaian pendidikan SD, SMP, dan SMA/SMK sederajat pada tahun 2025?","Tingkat penyelesaian pendidikan pada 2025 adalah 97,65 persen untuk SD sederajat, 91,45 persen untuk SMP sederajat, dan 73,90 persen untuk SMA/SMK sederajat.","Berdasarkan konteks yang diberikan, tingkat penyelesaian pendidikan pada tahun 2025 adalah sebagai berikut:
+
+- **SD sederajat**: 97,65 persen  
+- **SMP sederajat**: 91,45 persen  
+- **SMA/SMK sederajat**: 73,90 persen  
+
+Jawaban:  
+Tingkat penyelesaian pendidikan SD sederajat pada tahun 2025 adalah **97,65 persen**, SMP sederajat adalah **91,45 persen**, dan SMA/SMK sederajat adalah **73,90 persen**.",N/A,N/A,N/A,N/A,0.0687,0.7692,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q041,Element-Based,Berapa total berat bersih impor Indonesia pada Agustus 2025?,Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,"Tidak ada informasi dalam konteks yang menyebutkan total berat bersih impor Indonesia pada Agustus 2025. Tabel yang disebutkan hanya mencantumkan data untuk satu negara (San Marino) dan tidak memberikan total berat bersih untuk semua impor.
+
+**Jawaban: Tidak ada informasi yang memadai untuk menentukan total berat bersih impor Indonesia pada Agustus 2025.**",0.0833,0.2,0.25,0.1176,0.0936,0.5714,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q041,MaxMin Semantic,Berapa total berat bersih impor Indonesia pada Agustus 2025?,Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,"Tidak ada informasi tentang ""total berat bersih impor"" dalam konteks yang diberikan. Konteks hanya menyediakan data nilai impor (dalam juta US$) dan peranannya terhadap total impor, bukan berat bersih.
+
+Maka, **tidak ada informasi yang memadai** untuk menjawab pertanyaan tentang total berat bersih impor Indonesia pada Agustus 2025.
+
+**Jawaban: Tidak ada informasi yang memadai.**",0.0833,0.25,0.5,0.125,0.0779,0.5714,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q041,Recursive,Berapa total berat bersih impor Indonesia pada Agustus 2025?,Total berat bersih impor Indonesia pada Agustus 2025 adalah 19.944.279.991 kg.,Total berat bersih impor Indonesia pada Agustus 2025 adalah **19.944.279.991 kg**.,0.1667,0.4,1.0,0.2353,0.5677,1.0,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q042,Element-Based,"Berapa nilai CIF impor untuk komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) pada Agustus 2025?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Tidak memiliki informasi yang memadai untuk menjawab pertanyaan tersebut. Komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) tidak tercantum dalam tabel yang diberikan. Tabel hanya mencakup golongan barang dengan kode HS seperti 57 hingga 80, tetapi tidak mencantumkan kode HS 94032090 atau nilai CIF untuk komoditas tersebut pada Agustus 2025.",0.0833,0.2,0.25,0.1176,0.019,0.3333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q042,MaxMin Semantic,"Berapa nilai CIF impor untuk komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) pada Agustus 2025?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Tidak ada informasi dalam konteks yang menyebutkan nilai CIF impor untuk komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) pada Agustus 2025.
+
+Jawaban: **Tidak ada informasi yang memadai.**",0.0833,0.2,0.25,0.1176,0.0277,0.4167,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q042,Recursive,"Berapa nilai CIF impor untuk komoditas HS 94032090 (Metal furniture other than fume cupboards, not used in offices) pada Agustus 2025?",Nilai CIF Agustus 2025 untuk HS 94032090 adalah US$22.573.548.,"Tidak memiliki informasi yang memadai.  
+
+Dalam konteks yang diberikan, tidak ada data yang menyebutkan komoditas dengan kode HS **94032090** (Metal furniture other than fume cupboards, not used in offices). Tabel yang tersedia hanya mencakup kode HS seperti 94011000 hingga 94016990, tetapi tidak mencakup kode HS 94032090.  
+
+Oleh karena itu, **tidak dapat ditentukan nilai CIF impor untuk komoditas HS 94032090 pada Agustus 2025** berdasarkan informasi yang tersedia.",0.0833,0.2,0.0909,0.1176,0.0139,0.4167,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q044,Element-Based,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Total nilai impor Indonesia pada Agustus 2025 adalah **US$19.475,2 juta**.
+
+Rinciannya:
+- **Migas**: senilai **US$2.732,5 juta** (14,03 persen dari total)
+- **Nonmigas**: senilai **US$16.742,7 juta** (85,97 persen dari total)",0.1667,1.0,1.0,0.2857,0.2005,0.8571,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q044,MaxMin Semantic,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Dari konteks yang diberikan, **tidak ada data yang secara eksplisit menyebutkan total nilai impor Indonesia pada Agustus 2025** atau rinciannya menurut migas dan nonmigas.
+
+Meskipun tabel **Tabel 1.1** menyediakan data nilai impor untuk bulan-bulan 2024 (seperti Agustus, September, dst.), data tersebut hanya mencakup **Agustus 2024**, bukan Agustus 2025. Selain itu, tabel **Tabel 1.3** hanya menyediakan data **Januari–Agustus 2025**, bukan per bulan secara terpisah.
+
+Keterangan dalam konteks menyebutkan bahwa:
+- Nilai impor Indonesia **Januari–Agustus 2025** adalah **155.985,8 juta US$**.
+- Rinciannya: **Migas = 21.108,7 juta US$**, **Nonmigas = 134.877,1 juta US$**.
+
+Namun, **nilai ini adalah total per periode (Januari–Agustus)**, bukan per bulan (Agustus 2025).
+
+Karena **tidak ada data yang tersedia untuk total nilai impor bulanan Agustus 2025** secara terpisah antara migas dan nonmigas, maka:
+
+👉 **Jawaban: Tidak ada informasi yang memadai untuk menentukan total nilai impor Indonesia pada Agustus 2025 dan rinciannya menurut migas dan nonmigas.**",0.1667,1.0,0.5,0.2857,0.0305,0.4643,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q044,Recursive,Berapa total nilai impor Indonesia pada Agustus 2025 dan bagaimana rinciannya menurut migas dan nonmigas?,"Total nilai impor Indonesia pada Agustus 2025 mencapai US$19.475,2 juta, terdiri atas migas US$2.732,5 juta dan nonmigas US$16.742,7 juta.","Total nilai impor Indonesia pada Agustus 2025 adalah **US$ 19.475,2 juta**.
+
+Rinciannya menurut golongan:
+- **Migas**: **US$ 16.742,7 juta**
+- **Nonmigas**: **US$ 2.732,5 juta**
+
+*(Catatan: Nilai ini diperoleh dari tabel ""Tabel 1.4 Impor Menurut Golongan Penggunaan Barang, Agustus 2024–Agustus 2025"" di baris Agustus 2025, kolom nilai CIF (juta US$) untuk migas dan nonmigas.)*",0.0833,1.0,0.25,0.1538,0.1433,0.7143,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q046,Element-Based,Berapa nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024?,"Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024 adalah **US$209.268,6 juta**.",0.3333,1.0,1.0,0.5,0.306,0.9333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q046,MaxMin Semantic,Berapa nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024?,"Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024 adalah **US$209.268,6 juta**.",0.25,1.0,1.0,0.4,0.306,0.9333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q046,Recursive,Berapa nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024?,"Nilai impor Indonesia melalui moda transportasi laut pada 2024 adalah US$209.268,6 juta.","Nilai impor Indonesia yang menggunakan moda transportasi laut pada tahun 2024 adalah **US$209.268,6 juta**.",0.25,1.0,1.0,0.4,0.306,0.9333,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q048,Element-Based,Berapa nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024?,Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,"Nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024 adalah **US$6.812,8 juta**.",0.0833,0.3333,0.1,0.1333,0.1938,0.6667,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q048,MaxMin Semantic,Berapa nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024?,Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,"Nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024 adalah **6.812,8 juta US$**.",N/A,N/A,N/A,N/A,0.1938,0.6111,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q048,Recursive,Berapa nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024?,Nilai impor menggunakan moda transportasi laut untuk HS 10 Serealia pada 2024 adalah US$6.812.761.125.,Nilai impor komoditas HS 10 Serealia yang menggunakan moda transportasi laut pada tahun 2024 adalah **6.812.761.125 US$**.,0.1667,0.6667,1.0,0.2667,0.2062,0.7222,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q049,Element-Based,Mengapa moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.","Moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia karena:
+
+1. **Kondisi geografis Indonesia sebagai negara kepulauan** yang saling terhubung melalui laut, sehingga laut menjadi jalur utama untuk menghubungkan antarpulau dan antarnegara.  
+2. **Biaya angkut yang lebih ekonomis** dibandingkan moda transportasi lainnya, membuatnya lebih efisien untuk mengangkut barang dalam jumlah besar.  
+3. **Kapasitas pengangkutan yang besar**, sehingga dapat mengangkut barang dalam volume tinggi dibandingkan moda udara atau darat.  
+
+Faktor-faktor ini menjadikan moda laut sangat dominan dalam aktivitas ekspor dan impor, terutama untuk barang dalam jumlah besar.",N/A,N/A,N/A,N/A,0.1055,0.6774,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q049,MaxMin Semantic,Mengapa moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.","Moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia karena:
+
+1. **Kondisi geografis Indonesia** sebagai negara kepulauan yang saling terhubung melalui laut, mempermudah pengiriman barang antarpulau maupun antarnegara.  
+2. **Biaya angkut yang relatif lebih murah** dibandingkan moda transportasi lainnya.  
+3. **Kapasitas angkut yang besar**, sehingga dapat mengangkut barang dalam jumlah besar jika dibandingkan dengan moda lain seperti udara, darat, atau pipa/kabel.
+
+Ketiga faktor ini menjadikan moda laut sangat efisien dan ekonomis untuk mengangkut barang dalam skala besar, baik untuk ekspor maupun impor.",0.0833,1.0,0.1667,0.1538,0.1024,0.6129,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"
+Q049,Recursive,Mengapa moda laut masih menjadi pilihan utama untuk kegiatan ekspor dan impor dalam jumlah besar di Indonesia?,"Moda laut masih menjadi pilihan utama untuk ekspor dan impor dalam jumlah besar karena ongkos angkutnya lebih ekonomis, sedangkan moda udara digunakan untuk barang bernilai tinggi atau yang memerlukan pengiriman cepat.",Karena ongkos angkutnya yang lebih ekonomis.,0.0833,0.5,1.0,0.1429,0.005,0.1613,,"{""cpu"": ""x86_64"", ""cpu_count"": 128, ""cpu_count_logical"": 128, ""ram_total_gb"": 251.72, ""ram_available_gb"": 185.79, ""gpu_available"": true, ""gpu_count"": 1, ""gpu_name"": ""NVIDIA GeForce RTX 3090"", ""gpu_vram_total_gb"": 23.56, ""gpu_vram_allocated_gb"": 15.04, ""gpu_vram_reserved_gb"": 15.06, ""gpu_vram_free_gb"": 8.499999999999998}"

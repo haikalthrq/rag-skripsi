@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "C:\\Users\\Haikal Thoriq Athaya\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\graphify.EXE hook-check"
+            "command": "/venv/main/bin/graphify hook-check"
           }
         ]
       }
