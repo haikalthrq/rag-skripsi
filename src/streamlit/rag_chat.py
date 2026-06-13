@@ -747,11 +747,11 @@ with tab_chat:
 # TAB 2 — Evaluasi Batch (Persistent + History)
 # ══════════════════════════════════════════════════════════════════════════════
 with tab_eval:
-    st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR) + Generation (BLEU, ROUGE-L)")
+    st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR, F1@k) + Generation (BLEU, ROUGE-L)")
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
         "Menggunakan ground truth binary (label 0/1). "
-        "Menghasilkan 10 file per run (top-k=1 s/d 10)."
+        "Mendukung rentang top-k=1 s/d 20 dan otomatis skip top-k yang sudah punya CSV valid."
     )
 
     # ── Konfigurasi run ───────────────────────────────────────────────────
@@ -766,8 +766,8 @@ with tab_eval:
         )
     
     with col_topk:
-        top_k_min = st.number_input("Min Top-K", min_value=1, max_value=10, value=1, key="top_k_min")
-        top_k_max = st.number_input("Max Top-K", min_value=1, max_value=10, value=10, key="top_k_max")
+        top_k_min = st.number_input("Min Top-K", min_value=1, max_value=20, value=1, key="top_k_min")
+        top_k_max = st.number_input("Max Top-K", min_value=1, max_value=20, value=10, key="top_k_max")
     
     with col_btn:
         st.write("")
@@ -785,6 +785,21 @@ with tab_eval:
         st.error("❌ Min Top-K tidak boleh lebih besar dari Max Top-K")
         run_btn = False
 
+    def _get_existing_eval_file(mode_tag: str, top_k_value: int) -> tuple[pd.DataFrame, Path] | None:
+        """Return CSV evaluasi yang sudah ada untuk mode/top-k jika valid."""
+        matches = sorted(
+            EVAL_RESULTS_DIR.glob(f"eval_*_{mode_tag}_top{top_k_value}.csv"),
+            reverse=True,
+        )
+        for path in matches:
+            try:
+                df_existing = pd.read_csv(path)
+                if not df_existing.empty:
+                    return df_existing, path
+            except Exception as exc:
+                logger.warning(f"Existing eval file ignored because it cannot be read: {path} ({exc})")
+        return None
+
     # ── Helper: jalankan satu run dan simpan ke disk ──────────────────────
     def _run_eval_and_save(qa_subset: pd.DataFrame, mode_tag: str,
                           top_k_range: tuple) -> list:
@@ -798,7 +813,8 @@ with tab_eval:
             top_k_range: tuple (min_k, max_k) untuk top-k evaluation
 
         Returns:
-            List of (df, path) tuples untuk setiap top-k
+            List of (df, path, status) tuples untuk setiap top-k.
+            status = "created" untuk file baru, "skipped" untuk CSV valid yang sudah ada.
         """
         # Load ground truth binary
         gt_data = _load_ground_truth()
@@ -814,10 +830,34 @@ with tab_eval:
         hw_info_str = json.dumps(hw_info, ensure_ascii=False)
         
         min_k, max_k = top_k_range
-        total_files = max_k - min_k + 1
-        total_steps = len(qa_subset) * len(METHODS) * total_files
-        
+        requested_k_values = list(range(min_k, max_k + 1))
+        EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
         all_results = []
+        pending_k_values = []
+        skipped_paths = []
+
+        for current_k in requested_k_values:
+            existing = _get_existing_eval_file(mode_tag, current_k)
+            if existing is None:
+                pending_k_values.append(current_k)
+            else:
+                df_existing, existing_path = existing
+                all_results.append((df_existing, existing_path, "skipped"))
+                skipped_paths.append(existing_path)
+
+        if skipped_paths:
+            st.info(
+                "Skip top-k yang sudah punya CSV valid: "
+                + ", ".join(f"top-{path.stem.rsplit('top', 1)[-1]}" for path in skipped_paths)
+            )
+
+        if not pending_k_values:
+            st.success("Semua top-k pada rentang ini sudah punya file CSV valid. Tidak ada evaluasi baru yang dijalankan.")
+            return all_results
+
+        total_files = len(pending_k_values)
+        total_steps = len(qa_subset) * len(METHODS) * total_files
         prog = st.progress(0, text="Memulai evaluasi...")
         status_txt = st.empty()
         step = 0
@@ -837,7 +877,7 @@ with tab_eval:
         embed_status.empty()
         
         # Loop through each top-k
-        for current_k in range(min_k, max_k + 1):
+        for current_k in pending_k_values:
             rows = []
             
             for _, qa_row in qa_subset.iterrows():
@@ -944,10 +984,9 @@ with tab_eval:
             df_result = pd.DataFrame(rows)
             # WIB timestamp (UTC+7)
             ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
-            EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
             save_path = EVAL_RESULTS_DIR / f"eval_{ts_wib}_{mode_tag}_top{current_k}.csv"
             df_result.to_csv(save_path, index=False)
-            all_results.append((df_result, save_path))
+            all_results.append((df_result, save_path, "created"))
         
         prog.empty()
         status_txt.empty()
@@ -970,19 +1009,23 @@ with tab_eval:
             if all_results:
                 n_q = len(qa_subset)
                 n_files = len(all_results)
-                total_rows = sum(len(df) for df, _ in all_results)
+                created_results = [(df, path) for df, path, status in all_results if status == "created"]
+                skipped_results = [(df, path) for df, path, status in all_results if status == "skipped"]
+                total_rows = sum(len(df) for df, _, _ in all_results)
 
                 st.success(
-                    f"✅ Selesai: {n_files} file ({total_rows} baris total, "
-                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k)"
+                    f"✅ Selesai: {len(created_results)} file baru, {len(skipped_results)} file di-skip "
+                    f"({n_files} file, {total_rows} baris total, "
+                    f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k diminta)"
                 )
 
                 # Show list of generated files
-                st.markdown("**File yang di-generate:**")
-                for df, path in all_results:
+                st.markdown("**File hasil evaluasi:**")
+                for df, path, status in all_results:
                     oom_count = len(df[df["precision_at_k"] == "OOM"])
                     oom_note = f" ({oom_count} OOM)" if oom_count > 0 else ""
-                    st.markdown(f"- `{path.name}`{oom_note}")
+                    status_label = "baru" if status == "created" else "skip"
+                    st.markdown(f"- `{path.name}` — {status_label}{oom_note}")
             else:
                 st.error("❌ Evaluasi gagal. Cek log untuk detail.")
 
