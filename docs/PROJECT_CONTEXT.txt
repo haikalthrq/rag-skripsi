@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-12 08:28 WIB
+Terakhir diperbarui: 2026-06-15 WIB
 ================================================================================
 
 
@@ -77,10 +77,18 @@ rag-skripsi/
 │       └── retrieval_labels_final.xlsx                        ← anotasi final (idem, generated from CSV)
 │       [Di disk tapi NOT TRACKED git]: audit/, backup_question_revision/, qa_gold versi lama
 ├── results/
-│   ├── final/                          ← HASIL DEFINITIVE (run RTX 3090, 2026-05-31, VALID)
+│   ├── final/                          ← HASIL DEFINITIVE (RTX 3090 2026-05-31 + Top-11..20 2026-06-13, VALID)
 │   │   ├── generation/
-│   │   │   └── eval_*_top{1..10}.csv   10 file flat (nama legacy "lenient" = binary)
-│   │   └── figures/
+│   │   │   └── eval_*_top{1..20}.csv   20 file flat (Top-1..Top-20, binary)
+│   │   ├── analysis/
+│   │   │   ├── top1_20_metrics_by_k.csv
+│   │   │   ├── top1_20_metric_summary_by_method.csv
+│   │   │   ├── top1_20_metric_winners.csv
+│   │   │   ├── top1_20_query_examples.csv
+│   │   │   ├── top1_20_audit_notes.md
+│   │   │   ├── bab6_tables_top1_20.md
+│   │   │   └── bab6_data_notes_top1_20.md
+│   │   ├── figures/
 │   │       ├── chart1_precision_trend.png
 │   │       ├── chart2_recall_trend.png
 │   │       ├── chart3_mrr_trend.png
@@ -99,6 +107,12 @@ rag-skripsi/
 │   │       ├── table8_ground_truth_label_distribution.csv
 │   │       ├── table_6_1_retrieval_summary.csv/.xlsx
 │   │       └── table_6_2_generation_summary.csv/.xlsx
+│   │   └── figures20/
+│   │       ├── chart1_precision_trend.png ... chart8_ground_truth_label_distribution.png
+│   │       ├── precision_at_k_top1_20.png, recall_at_k_top1_20.png, mrr_top1_20.png
+│   │       ├── f1_at_k_top1_20.png, bleu_top1_20.png, rouge_l_top1_20.png
+│   │       ├── table1_precision_trend.csv ... table8_ground_truth_label_distribution.csv
+│   │       └── table_6_1_retrieval_summary.csv/.xlsx, table_6_2_generation_summary.csv/.xlsx
 │   ├── visualizations/
 │   │   └── bab6/
 │   │       ├── gambar_6_x_ringkasan_retrieval_top5_top10.png
@@ -116,14 +130,16 @@ rag-skripsi/
 │
 │   CATATAN: File .log dihapus (tidak di-track git). results/ di-track oleh git.
 │            results/chat_history/ di-track via .gitkeep
-│   CATATAN: results/final/generation/ = flat folder, berisi 10 file eval definitif.
+│   CATATAN: results/final/generation/ = flat folder, berisi 20 file eval definitif.
 │            Nama file "lenient" adalah legacy — isi = binary (label >= 1 = relevan).
 │            Subfolder strict/ sudah dihapus dari final (dipindah ke RTX3090_strict_archived).
 ├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 ├── notebooks/
 │   ├── rag_inference.ipynb
-│   ├── eval_visualization.ipynb        notebook visualisasi aktif
+│   ├── eval_visualization.ipynb        notebook visualisasi aktif Top-1..Top-10
+│   ├── eval_visualization_top1-20.ipynb notebook visualisasi Top-1..Top-20
+│   ├── eval_analysis_top1_20.ipynb     notebook audit analisis Top-1..Top-20
 │   └── _cache/data_eval.pkl            cache data evaluasi visualisasi
 └── docs/                 PROJECT_CONTEXT.txt, Chat Context.txt, dokumentasi komponen
 
@@ -310,13 +326,15 @@ Evaluasi Retrieval (top_k=5):
     → chunk data-only tidak punya konteks semantik → kalah dari chunk lain yang lebih kaya
     → Keterbatasan chunking, BUKAN bug. ID chunk cocok 100%, semua chunk ada di ChromaDB.
 
-Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
-  Lokasi: results/final/generation/ (10 file flat, top1–top10)
+Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31 + batch lanjut 2026-06-13, VALID):
+  Lokasi: results/final/generation/ (20 file flat, top1–top20)
   Nama file: eval_*_top{k}.csv (prefix "lenient" di nama = legacy; isi = binary)
   Skema: BINARY (label >= 1 = relevan); file "lenient" adalah nama legacy untuk binary
-  Cakupan visualisasi dan tabel Bab 6 terbaru: Top-1 sampai Top-10
-  Status QC: BLEU non-zero semua, ROUGE-L 90/90 benar semua file, 0 error,
-             0 truncation (max_tokens=16384; jawaban terpanjang ~8800 char selesai wajar)
+  Cakupan evaluasi final: Top-1 sampai Top-20
+  Status QC Top-1..Top-10: BLEU non-zero semua, ROUGE-L 90/90 benar semua file,
+             0 error, 0 truncation (max_tokens=16384; jawaban terpanjang ~8800 char selesai wajar)
+  Status audit Top-1..Top-20: semua CSV lengkap, 30 QA per kombinasi method-top-k,
+             BLEU/ROUGE-L Top-11..Top-20 tersedia dari CSV final, bukan interpolasi.
   Kolom metrik final generation CSV:
     precision_at_k, recall_at_k, mrr, f1_at_k, bleu, rouge_l_recall
     Catatan: rouge_l_recall tetap nama kolom legacy di CSV, tetapi istilah laporan/visual
@@ -331,6 +349,17 @@ Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31, VALID):
     Element-Based   P@5=0.129  R@5=0.392  MRR=0.354  F1@5=0.223  (n=28)
     MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  F1@5=0.149  (n=29)
     Recursive       P@5=0.145  R@5=0.352  MRR=0.429  F1@5=0.198  (n=29)
+
+  RERATA LINTAS TOP-K 1–20 (artefak analisis Bab 6, 2026-06-15):
+    Sumber: results/final/analysis/top1_20_metric_summary_by_method.csv
+    Element-Based   Precision=0.1079  Recall=0.5112  MRR=0.3665  F1=0.1617  BLEU=0.1177  ROUGE-L=0.6948
+    MaxMin Semantic Precision=0.1002  Recall=0.5303  MRR=0.3474  F1=0.1519  BLEU=0.1149  ROUGE-L=0.6522
+    Recursive       Precision=0.1239  Recall=0.4273  MRR=0.4327  F1=0.1688  BLEU=0.1403  ROUGE-L=0.6851
+    Tertinggi per metrik:
+      Precision@k: Recursive; Recall@k: MaxMin Semantic; MRR: Recursive;
+      F1@k: Recursive; BLEU: Recursive; ROUGE-L: Element-Based.
+    Catatan: F1@k pada artefak analisis dihitung ulang dari Precision@k dan Recall@k,
+    bukan memakai kolom lama. Beberapa nilai retrieval N/A dilaporkan di audit notes.
 
   RERATA LINTAS TOP-K 5–10 (tabel sintesis Bab 6.5, 2026-06-07):
     Element-Based   Precision=0.110  Recall=0.480  MRR=0.369  BLEU=0.114  ROUGE-L=0.696
@@ -407,6 +436,22 @@ Visualisasi Evaluasi — AKTIF (2026-06-12):
       export CSV/XLSX.
     - Artefak sintesis lintas Top-k 5–10 lama sudah tidak menjadi output aktif
       di results/final/figures/ setelah perluasan visualisasi Top-1 sampai Top-10.
+
+Visualisasi dan Analisis Top-1 sampai Top-20 — TAMBAHAN (2026-06-15):
+  Notebook:
+    - notebooks/eval_visualization_top1-20.ipynb  ← versi visualisasi lengkap Top-1..Top-20
+    - notebooks/eval_analysis_top1_20.ipynb       ← notebook audit analisis dari artefak CSV
+  Output:
+    - results/final/figures20/                    ← chart/tabel Top-1..Top-20
+    - results/final/analysis/                     ← CSV/MD audit dan narasi Bab 6
+  File analisis utama:
+    - top1_20_metrics_by_k.csv                    60 baris (20 top-k × 3 metode)
+    - top1_20_metric_summary_by_method.csv        rerata per metode
+    - top1_20_metric_winners.csv                  metode tertinggi per metrik
+    - top1_20_query_examples.csv                  contoh query audit bila tersedia jelas
+    - top1_20_audit_notes.md                      audit kelengkapan file, QA, GT, dan N/A
+    - bab6_tables_top1_20.md                      tabel siap tempel Bab 6
+    - bab6_data_notes_top1_20.md                  catatan narasi berbasis data
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -544,6 +589,33 @@ SELESAI ✓ (2026-06-09 s.d. 2026-06-12 — F1@k, Top-1..Top-10, Bab 5, dan doku
       tetap berbasis rag_chat.py + metrics.py.
   [x] Update docs/Chat Context.txt menjadi rangkuman percakapan penuh.
 
+SELESAI ✓ (2026-06-13 s.d. 2026-06-15 — Batch Top-11..Top-20 dan artefak Bab 6)
+  [x] Tambah mode batch eval Top-11 sampai Top-20 di src/streamlit/rag_chat.py:
+      → cara kerja sama dengan batch eval sebelumnya, hanya opsi top-k diperluas.
+      → ada skip otomatis jika file output CSV untuk top-k tersebut sudah ada.
+      → pengecekan file existing cepat karena hanya cek keberadaan path output.
+  [x] Hasil final generation sekarang mencakup Top-1 sampai Top-20:
+      → results/final/generation/eval_*_top{1..20}.csv
+      → Top-11..Top-20 berasal dari CSV final, bukan interpolasi.
+  [x] Buat notebook visualisasi Top-1..Top-20:
+      → notebooks/eval_visualization_top1-20.ipynb
+      → output chart/tabel ke results/final/figures20/.
+  [x] Buat notebook audit analisis Top-1..Top-20:
+      → notebooks/eval_analysis_top1_20.ipynb
+      → membaca results/final/analysis/top1_20_metrics_by_k.csv
+      → menampilkan label angka di tiap Top-k 1..20.
+  [x] Buat artefak analisis Bab 6:
+      → results/final/analysis/top1_20_metrics_by_k.csv
+      → results/final/analysis/top1_20_metric_summary_by_method.csv
+      → results/final/analysis/top1_20_metric_winners.csv
+      → results/final/analysis/top1_20_query_examples.csv
+      → results/final/analysis/top1_20_audit_notes.md
+      → results/final/analysis/bab6_tables_top1_20.md
+      → results/final/analysis/bab6_data_notes_top1_20.md
+  [x] Update graphify (2026-06-15):
+      → graphify-out/graph.json, graph.html, dan GRAPH_REPORT.md diperbarui
+      → hasil update AST: 1136 nodes, 1673 edges, 123 communities.
+
 PERLU DILAKUKAN ○
   [ ] Re-run evaluasi retrieval khusus di RTX 3090 (opsional — angka retrieval sudah
       ada dari run generasi; atau pakai run_retrieval_eval.py untuk sumber konsisten)
@@ -661,8 +733,10 @@ Hal penting yang JANGAN salah:
   - Output evaluasi generasi script sekarang konsisten dengan batch eval rag_chat.py:
     query_id, method, question, gold_answer, generated_answer, precision_at_k,
     recall_at_k, mrr, f1_at_k, bleu, rouge_l_recall, error, hardware_info
-  - results/final/generation/ = HASIL DEFINITIF VALID (run RTX 3090 2026-05-31)
-    10 file flat: eval_*_top{1..10}.csv (nama file legacy "lenient" = binary)
+  - results/final/generation/ = HASIL DEFINITIF VALID
+    20 file flat: eval_*_top{1..20}.csv (Top-1..Top-20, binary)
+    Top-1..Top-10 dari run RTX 3090 2026-05-31; Top-11..Top-20 dari batch lanjut
+    2026-06-13 melalui rag_chat.py.
     Tidak ada subfolder di bawah generation/ — semua file di level ini langsung
   - results/archive/RTX3090_strict_archived/ = strict RTX 3090 (valid tapi tidak dipakai)
   - results/archive/former_final_generation/ = hasil RTX 5060 Ti LAMA yang TIDAK VALID
@@ -672,14 +746,27 @@ Hal penting yang JANGAN salah:
   - TIDAK ada radio "Mode Relevance" di batch eval — semua pakai binary
   - TIDAK ada radio "Mode Relevance Chat" di tab Chat — semua pakai binary
   - Tab Chat: input via selectbox QA Gold, bukan ketik bebas
-  - Notebook visualisasi aktif: notebooks/eval_visualization.ipynb
-  - Output visualisasi aktif: results/final/figures/chart1–chart8.
+  - Notebook visualisasi aktif Top-1..Top-10: notebooks/eval_visualization.ipynb
+  - Notebook visualisasi tambahan Top-1..Top-20: notebooks/eval_visualization_top1-20.ipynb
+  - Notebook audit analisis Top-1..Top-20: notebooks/eval_analysis_top1_20.ipynb
+  - Output visualisasi aktif Top-1..Top-10: results/final/figures/chart1–chart8.
     Urutan: Precision, Recall, MRR, F1@k, BLEU, ROUGE-L, evidence type QA gold,
     label relevansi retrieval.
+  - Output visualisasi/analisis Top-1..Top-20:
+    results/final/figures20/ dan results/final/analysis/
   - Tabel Bab 6 aktif:
     table_6_1_retrieval_summary.csv/.xlsx,
     table_6_2_generation_summary.csv/.xlsx.
-    Tabel 6.1/6.2 memakai cakupan Top-1 sampai Top-10 (30 baris).
+    Versi results/final/figures/ memakai cakupan Top-1 sampai Top-10 (30 baris).
+    Versi results/final/figures20/ memakai cakupan Top-1 sampai Top-20 (60 baris).
+  - Artefak analisis Bab 6 Top-1..Top-20:
+    top1_20_metrics_by_k.csv, top1_20_metric_summary_by_method.csv,
+    top1_20_metric_winners.csv, top1_20_query_examples.csv,
+    top1_20_audit_notes.md, bab6_tables_top1_20.md, bab6_data_notes_top1_20.md.
+  - Batch eval rag_chat.py punya opsi Top-11..Top-20 dan skip otomatis jika CSV output
+    untuk Top-k tertentu sudah ada di results/final/generation/.
+  - graphify-out/ aktif dan sudah di-update 2026-06-15 (1136 nodes, 1673 edges,
+    123 communities). Untuk pertanyaan arsitektur/kode, pakai graphify query dulu.
   - Notebook lama notebooks/00_*.ipynb sampai 07_*.ipynb sudah dihapus
   - Figure lama results/final/figures/01_*.png sampai 06_*.png dan chart lama
     mrr_first_relevant_position / hit_count / fail_count sudah dihapus dari urutan aktif
