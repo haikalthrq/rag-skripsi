@@ -1,0 +1,61 @@
+﻿top_k,method,method_key,qa_rows,precision_at_k,recall_at_k,mrr,f1_at_k,bleu,rouge_l,n_precision,n_recall,n_mrr,n_bleu,n_rouge_l,missing_precision,missing_recall,missing_mrr,missing_bleu,missing_rouge_l,source_file
+1,Element-Based,element_based,30,0.2857,0.1994,0.2857,0.2349,0.1542,0.6270,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_181551_full_top1.csv
+1,MaxMin Semantic,maxmin_semantic,30,0.2069,0.1264,0.2069,0.1570,0.1252,0.6013,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_181551_full_top1.csv
+1,Recursive,recursive,30,0.3448,0.1488,0.3448,0.2079,0.1426,0.6406,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_181551_full_top1.csv
+2,Element-Based,element_based,30,0.1786,0.2440,0.3036,0.2062,0.1299,0.6918,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_182241_full_top2.csv
+2,MaxMin Semantic,maxmin_semantic,30,0.2069,0.2672,0.2931,0.2332,0.1224,0.6237,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_182241_full_top2.csv
+2,Recursive,recursive,30,0.2759,0.2603,0.3966,0.2679,0.1420,0.6735,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_182241_full_top2.csv
+3,Element-Based,element_based,30,0.1428,0.2976,0.3274,0.1930,0.1105,0.6754,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_183044_full_top3.csv
+3,MaxMin Semantic,maxmin_semantic,30,0.1609,0.3190,0.3161,0.2139,0.1198,0.6577,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_183044_full_top3.csv
+3,Recursive,recursive,30,0.1839,0.2603,0.3966,0.2155,0.1448,0.7018,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_183044_full_top3.csv
+4,Element-Based,element_based,30,0.1518,0.3744,0.3542,0.2160,0.1128,0.6644,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_183822_full_top4.csv
+4,MaxMin Semantic,maxmin_semantic,30,0.1466,0.3948,0.3420,0.2138,0.1176,0.6614,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_183822_full_top4.csv
+4,Recursive,recursive,30,0.1638,0.3293,0.4224,0.2188,0.1455,0.6781,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_183822_full_top4.csv
+5,Element-Based,element_based,30,0.1286,0.3923,0.3542,0.1937,0.1178,0.7005,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_184708_full_top5.csv
+5,MaxMin Semantic,maxmin_semantic,30,0.1310,0.4466,0.3488,0.2026,0.1052,0.6369,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_184708_full_top5.csv
+5,Recursive,recursive,30,0.1448,0.3523,0.4293,0.2053,0.1440,0.6838,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_184708_full_top5.csv
+6,Element-Based,element_based,30,0.1250,0.4518,0.3661,0.1958,0.1019,0.6927,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_185558_full_top6.csv
+6,MaxMin Semantic,maxmin_semantic,30,0.1207,0.4925,0.3546,0.1939,0.1129,0.6465,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_185558_full_top6.csv
+6,Recursive,recursive,30,0.1437,0.4138,0.4408,0.2133,0.1385,0.6823,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_185558_full_top6.csv
+7,Element-Based,element_based,30,0.1123,0.4696,0.3661,0.1812,0.1236,0.7053,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_190431_full_top7.csv
+7,MaxMin Semantic,maxmin_semantic,30,0.1035,0.4925,0.3546,0.1710,0.1148,0.6491,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_190431_full_top7.csv
+7,Recursive,recursive,30,0.1281,0.4207,0.4408,0.1964,0.1330,0.6733,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_190431_full_top7.csv
+8,Element-Based,element_based,30,0.1071,0.5173,0.3750,0.1775,0.1162,0.6994,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_191252_full_top8.csv
+8,MaxMin Semantic,maxmin_semantic,30,0.0948,0.5098,0.3546,0.1599,0.1231,0.6573,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_191252_full_top8.csv
+8,Recursive,recursive,30,0.1121,0.4207,0.4408,0.1770,0.1323,0.6856,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_191252_full_top8.csv
+9,Element-Based,element_based,30,0.0952,0.5173,0.3750,0.1608,0.1137,0.6926,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_192113_full_top9.csv
+9,MaxMin Semantic,maxmin_semantic,30,0.0881,0.5270,0.3584,0.1510,0.1116,0.6659,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_192113_full_top9.csv
+9,Recursive,recursive,30,0.0996,0.4207,0.4408,0.1611,0.1485,0.6745,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_192113_full_top9.csv
+10,Element-Based,element_based,30,0.0893,0.5292,0.3786,0.1528,0.1079,0.6828,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260531_192940_full_top10.csv
+10,MaxMin Semantic,maxmin_semantic,30,0.0828,0.5443,0.3619,0.1437,0.1150,0.6638,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_192940_full_top10.csv
+10,Recursive,recursive,30,0.0966,0.4379,0.4408,0.1582,0.1334,0.6938,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260531_192940_full_top10.csv
+11,Element-Based,element_based,30,0.0877,0.5768,0.3818,0.1522,0.1150,0.7059,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_190326_full_top11.csv
+11,MaxMin Semantic,maxmin_semantic,30,0.0784,0.5615,0.3619,0.1375,0.1142,0.6583,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_190326_full_top11.csv
+11,Recursive,recursive,30,0.0972,0.4621,0.4439,0.1606,0.1363,0.6854,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_190326_full_top11.csv
+12,Element-Based,element_based,30,0.0893,0.6095,0.3848,0.1557,0.1323,0.7088,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_191257_full_top12.csv
+12,MaxMin Semantic,maxmin_semantic,30,0.0747,0.5730,0.3619,0.1322,0.1091,0.6603,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_191257_full_top12.csv
+12,Recursive,recursive,30,0.0919,0.4690,0.4439,0.1537,0.1477,0.6939,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_191257_full_top12.csv
+13,Element-Based,element_based,30,0.0824,0.6095,0.3848,0.1452,0.1168,0.7056,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_192119_full_top13.csv
+13,MaxMin Semantic,maxmin_semantic,30,0.0743,0.6247,0.3645,0.1327,0.1118,0.6574,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_192119_full_top13.csv
+13,Recursive,recursive,30,0.0849,0.4690,0.4439,0.1437,0.1422,0.6886,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_192119_full_top13.csv
+14,Element-Based,element_based,30,0.0816,0.6286,0.3848,0.1445,0.1177,0.7045,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_192951_full_top14.csv
+14,MaxMin Semantic,maxmin_semantic,30,0.0714,0.6592,0.3670,0.1289,0.1116,0.6531,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_192951_full_top14.csv
+14,Recursive,recursive,30,0.0788,0.4690,0.4439,0.1349,0.1488,0.6849,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_192951_full_top14.csv
+15,Element-Based,element_based,30,0.0762,0.6286,0.3848,0.1359,0.1191,0.7009,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_193807_full_top15.csv
+15,MaxMin Semantic,maxmin_semantic,30,0.0667,0.6592,0.3670,0.1211,0.1159,0.6625,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_193807_full_top15.csv
+15,Recursive,recursive,30,0.0759,0.4862,0.4439,0.1313,0.1365,0.6938,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_193807_full_top15.csv
+16,Element-Based,element_based,30,0.0714,0.6286,0.3848,0.1283,0.1167,0.6965,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_194703_full_top16.csv
+16,MaxMin Semantic,maxmin_semantic,30,0.0625,0.6592,0.3670,0.1142,0.1234,0.6571,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_194703_full_top16.csv
+16,Recursive,recursive,30,0.0733,0.4977,0.4439,0.1277,0.1393,0.6940,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_194703_full_top16.csv
+17,Element-Based,element_based,30,0.0672,0.6286,0.3848,0.1214,0.1048,0.7096,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_195718_full_top17.csv
+17,MaxMin Semantic,maxmin_semantic,30,0.0608,0.6707,0.3670,0.1116,0.1110,0.6545,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_195718_full_top17.csv
+17,Recursive,recursive,30,0.0690,0.4977,0.4439,0.1211,0.1384,0.6841,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_195718_full_top17.csv
+18,Element-Based,element_based,30,0.0655,0.6405,0.3848,0.1188,0.1166,0.7030,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_200557_full_top18.csv
+18,MaxMin Semantic,maxmin_semantic,30,0.0594,0.6879,0.3670,0.1094,0.1048,0.6554,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_200557_full_top18.csv
+18,Recursive,recursive,30,0.0728,0.5609,0.4497,0.1289,0.1362,0.6824,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_200557_full_top18.csv
+19,Element-Based,element_based,30,0.0620,0.6405,0.3848,0.1131,0.1122,0.7232,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_201434_full_top19.csv
+19,MaxMin Semantic,maxmin_semantic,30,0.0581,0.6948,0.3670,0.1072,0.1139,0.6539,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_201434_full_top19.csv
+19,Recursive,recursive,30,0.0726,0.5851,0.4515,0.1292,0.1454,0.7184,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_201434_full_top19.csv
+20,Element-Based,element_based,30,0.0589,0.6405,0.3848,0.1079,0.1148,0.7063,28,28,28,30,30,2,2,2,0,0,results/final/generation/eval_20260613_202326_full_top20.csv
+20,MaxMin Semantic,maxmin_semantic,30,0.0552,0.6948,0.3670,0.1022,0.1151,0.6673,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_202326_full_top20.csv
+20,Recursive,recursive,30,0.0690,0.5851,0.4515,0.1234,0.1309,0.6893,29,29,29,30,30,1,1,1,0,0,results/final/generation/eval_20260613_202326_full_top20.csv

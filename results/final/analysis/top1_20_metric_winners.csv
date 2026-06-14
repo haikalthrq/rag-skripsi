@@ -1,0 +1,7 @@
+﻿metric,winner_by_top1_20_mean,winner_mean_value,top_k_win_count_element_based,top_k_win_count_maxmin_semantic,top_k_win_count_recursive,tie_top_k_count,basis
+precision_at_k,Recursive,0.1239,2,0,18,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods
+recall_at_k,MaxMin Semantic,0.5303,4,16,0,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods
+mrr,Recursive,0.4327,0,0,20,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods
+f1_at_k,Recursive,0.1688,8,0,12,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods
+bleu,Recursive,0.1403,1,0,19,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods
+rouge_l,Element-Based,0.6948,16,0,4,0,highest mean across aggregated Top-1..Top-20 values; ties counted in all tied methods

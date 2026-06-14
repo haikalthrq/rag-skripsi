@@ -1,0 +1,233 @@
+# Audit Evaluasi Top-1 sampai Top-20
+
+## Sumber Data
+
+- CSV final generation: `results/final/generation/*.csv`
+- Ground truth QA aktif: `data/ground_truth/qa_pairs_binary.json`
+- Label retrieval aktif: `data/ground_truth/retrieval_labels_final.csv`
+- Jumlah QA pada `qa_pairs_binary.json`: 30
+- Jumlah baris anotasi retrieval pada `retrieval_labels_final.csv`: 416
+- Jumlah label relevan (`label=1`) pada `retrieval_labels_final.csv`: 175
+
+## Kelengkapan File CSV
+
+- Top-1 sampai Top-20 lengkap: ya
+- Semua kombinasi method dan top-k memiliki 30 row QA: ya
+- Semua CSV memiliki kolom metrik wajib: ya
+- BLEU dan ROUGE-L Top-11 sampai Top-20 tersedia dari CSV final, bukan interpolasi: ya
+
+Daftar CSV yang dipakai:
+
+- Top-1: `results/final/generation/eval_20260531_181551_full_top1.csv`
+- Top-2: `results/final/generation/eval_20260531_182241_full_top2.csv`
+- Top-3: `results/final/generation/eval_20260531_183044_full_top3.csv`
+- Top-4: `results/final/generation/eval_20260531_183822_full_top4.csv`
+- Top-5: `results/final/generation/eval_20260531_184708_full_top5.csv`
+- Top-6: `results/final/generation/eval_20260531_185558_full_top6.csv`
+- Top-7: `results/final/generation/eval_20260531_190431_full_top7.csv`
+- Top-8: `results/final/generation/eval_20260531_191252_full_top8.csv`
+- Top-9: `results/final/generation/eval_20260531_192113_full_top9.csv`
+- Top-10: `results/final/generation/eval_20260531_192940_full_top10.csv`
+- Top-11: `results/final/generation/eval_20260613_190326_full_top11.csv`
+- Top-12: `results/final/generation/eval_20260613_191257_full_top12.csv`
+- Top-13: `results/final/generation/eval_20260613_192119_full_top13.csv`
+- Top-14: `results/final/generation/eval_20260613_192951_full_top14.csv`
+- Top-15: `results/final/generation/eval_20260613_193807_full_top15.csv`
+- Top-16: `results/final/generation/eval_20260613_194703_full_top16.csv`
+- Top-17: `results/final/generation/eval_20260613_195718_full_top17.csv`
+- Top-18: `results/final/generation/eval_20260613_200557_full_top18.csv`
+- Top-19: `results/final/generation/eval_20260613_201434_full_top19.csv`
+- Top-20: `results/final/generation/eval_20260613_202326_full_top20.csv`
+
+## Audit Kolom dan Missing Value
+
+Kolom kurang: Tidak ada.
+
+Missing metrik utama:
+
+- Top-1 Element-Based precision_at_k: 2 missing
+- Top-1 Element-Based recall_at_k: 2 missing
+- Top-1 Element-Based mrr: 2 missing
+- Top-1 MaxMin Semantic precision_at_k: 1 missing
+- Top-1 MaxMin Semantic recall_at_k: 1 missing
+- Top-1 MaxMin Semantic mrr: 1 missing
+- Top-1 Recursive precision_at_k: 1 missing
+- Top-1 Recursive recall_at_k: 1 missing
+- Top-1 Recursive mrr: 1 missing
+- Top-2 Element-Based precision_at_k: 2 missing
+- Top-2 Element-Based recall_at_k: 2 missing
+- Top-2 Element-Based mrr: 2 missing
+- Top-2 MaxMin Semantic precision_at_k: 1 missing
+- Top-2 MaxMin Semantic recall_at_k: 1 missing
+- Top-2 MaxMin Semantic mrr: 1 missing
+- Top-2 Recursive precision_at_k: 1 missing
+- Top-2 Recursive recall_at_k: 1 missing
+- Top-2 Recursive mrr: 1 missing
+- Top-3 Element-Based precision_at_k: 2 missing
+- Top-3 Element-Based recall_at_k: 2 missing
+- Top-3 Element-Based mrr: 2 missing
+- Top-3 MaxMin Semantic precision_at_k: 1 missing
+- Top-3 MaxMin Semantic recall_at_k: 1 missing
+- Top-3 MaxMin Semantic mrr: 1 missing
+- Top-3 Recursive precision_at_k: 1 missing
+- Top-3 Recursive recall_at_k: 1 missing
+- Top-3 Recursive mrr: 1 missing
+- Top-4 Element-Based precision_at_k: 2 missing
+- Top-4 Element-Based recall_at_k: 2 missing
+- Top-4 Element-Based mrr: 2 missing
+- Top-4 MaxMin Semantic precision_at_k: 1 missing
+- Top-4 MaxMin Semantic recall_at_k: 1 missing
+- Top-4 MaxMin Semantic mrr: 1 missing
+- Top-4 Recursive precision_at_k: 1 missing
+- Top-4 Recursive recall_at_k: 1 missing
+- Top-4 Recursive mrr: 1 missing
+- Top-5 Element-Based precision_at_k: 2 missing
+- Top-5 Element-Based recall_at_k: 2 missing
+- Top-5 Element-Based mrr: 2 missing
+- Top-5 MaxMin Semantic precision_at_k: 1 missing
+- Top-5 MaxMin Semantic recall_at_k: 1 missing
+- Top-5 MaxMin Semantic mrr: 1 missing
+- Top-5 Recursive precision_at_k: 1 missing
+- Top-5 Recursive recall_at_k: 1 missing
+- Top-5 Recursive mrr: 1 missing
+- Top-6 Element-Based precision_at_k: 2 missing
+- Top-6 Element-Based recall_at_k: 2 missing
+- Top-6 Element-Based mrr: 2 missing
+- Top-6 MaxMin Semantic precision_at_k: 1 missing
+- Top-6 MaxMin Semantic recall_at_k: 1 missing
+- Top-6 MaxMin Semantic mrr: 1 missing
+- Top-6 Recursive precision_at_k: 1 missing
+- Top-6 Recursive recall_at_k: 1 missing
+- Top-6 Recursive mrr: 1 missing
+- Top-7 Element-Based precision_at_k: 2 missing
+- Top-7 Element-Based recall_at_k: 2 missing
+- Top-7 Element-Based mrr: 2 missing
+- Top-7 MaxMin Semantic precision_at_k: 1 missing
+- Top-7 MaxMin Semantic recall_at_k: 1 missing
+- Top-7 MaxMin Semantic mrr: 1 missing
+- Top-7 Recursive precision_at_k: 1 missing
+- Top-7 Recursive recall_at_k: 1 missing
+- Top-7 Recursive mrr: 1 missing
+- Top-8 Element-Based precision_at_k: 2 missing
+- Top-8 Element-Based recall_at_k: 2 missing
+- Top-8 Element-Based mrr: 2 missing
+- Top-8 MaxMin Semantic precision_at_k: 1 missing
+- Top-8 MaxMin Semantic recall_at_k: 1 missing
+- Top-8 MaxMin Semantic mrr: 1 missing
+- Top-8 Recursive precision_at_k: 1 missing
+- Top-8 Recursive recall_at_k: 1 missing
+- Top-8 Recursive mrr: 1 missing
+- Top-9 Element-Based precision_at_k: 2 missing
+- Top-9 Element-Based recall_at_k: 2 missing
+- Top-9 Element-Based mrr: 2 missing
+- Top-9 MaxMin Semantic precision_at_k: 1 missing
+- Top-9 MaxMin Semantic recall_at_k: 1 missing
+- Top-9 MaxMin Semantic mrr: 1 missing
+- Top-9 Recursive precision_at_k: 1 missing
+- Top-9 Recursive recall_at_k: 1 missing
+- Top-9 Recursive mrr: 1 missing
+- Top-10 Element-Based precision_at_k: 2 missing
+- Top-10 Element-Based recall_at_k: 2 missing
+- Top-10 Element-Based mrr: 2 missing
+- Top-10 MaxMin Semantic precision_at_k: 1 missing
+- Top-10 MaxMin Semantic recall_at_k: 1 missing
+- Top-10 MaxMin Semantic mrr: 1 missing
+- Top-10 Recursive precision_at_k: 1 missing
+- Top-10 Recursive recall_at_k: 1 missing
+- Top-10 Recursive mrr: 1 missing
+- Top-11 Element-Based precision_at_k: 2 missing
+- Top-11 Element-Based recall_at_k: 2 missing
+- Top-11 Element-Based mrr: 2 missing
+- Top-11 MaxMin Semantic precision_at_k: 1 missing
+- Top-11 MaxMin Semantic recall_at_k: 1 missing
+- Top-11 MaxMin Semantic mrr: 1 missing
+- Top-11 Recursive precision_at_k: 1 missing
+- Top-11 Recursive recall_at_k: 1 missing
+- Top-11 Recursive mrr: 1 missing
+- Top-12 Element-Based precision_at_k: 2 missing
+- Top-12 Element-Based recall_at_k: 2 missing
+- Top-12 Element-Based mrr: 2 missing
+- Top-12 MaxMin Semantic precision_at_k: 1 missing
+- Top-12 MaxMin Semantic recall_at_k: 1 missing
+- Top-12 MaxMin Semantic mrr: 1 missing
+- Top-12 Recursive precision_at_k: 1 missing
+- Top-12 Recursive recall_at_k: 1 missing
+- Top-12 Recursive mrr: 1 missing
+- Top-13 Element-Based precision_at_k: 2 missing
+- Top-13 Element-Based recall_at_k: 2 missing
+- Top-13 Element-Based mrr: 2 missing
+- Top-13 MaxMin Semantic precision_at_k: 1 missing
+- Top-13 MaxMin Semantic recall_at_k: 1 missing
+- Top-13 MaxMin Semantic mrr: 1 missing
+- Top-13 Recursive precision_at_k: 1 missing
+- Top-13 Recursive recall_at_k: 1 missing
+- Top-13 Recursive mrr: 1 missing
+- Top-14 Element-Based precision_at_k: 2 missing
+- Top-14 Element-Based recall_at_k: 2 missing
+- Top-14 Element-Based mrr: 2 missing
+- Top-14 MaxMin Semantic precision_at_k: 1 missing
+- Top-14 MaxMin Semantic recall_at_k: 1 missing
+- Top-14 MaxMin Semantic mrr: 1 missing
+- Top-14 Recursive precision_at_k: 1 missing
+- Top-14 Recursive recall_at_k: 1 missing
+- Top-14 Recursive mrr: 1 missing
+- Top-15 Element-Based precision_at_k: 2 missing
+- Top-15 Element-Based recall_at_k: 2 missing
+- Top-15 Element-Based mrr: 2 missing
+- Top-15 MaxMin Semantic precision_at_k: 1 missing
+- Top-15 MaxMin Semantic recall_at_k: 1 missing
+- Top-15 MaxMin Semantic mrr: 1 missing
+- Top-15 Recursive precision_at_k: 1 missing
+- Top-15 Recursive recall_at_k: 1 missing
+- Top-15 Recursive mrr: 1 missing
+- Top-16 Element-Based precision_at_k: 2 missing
+- Top-16 Element-Based recall_at_k: 2 missing
+- Top-16 Element-Based mrr: 2 missing
+- Top-16 MaxMin Semantic precision_at_k: 1 missing
+- Top-16 MaxMin Semantic recall_at_k: 1 missing
+- Top-16 MaxMin Semantic mrr: 1 missing
+- Top-16 Recursive precision_at_k: 1 missing
+- Top-16 Recursive recall_at_k: 1 missing
+- Top-16 Recursive mrr: 1 missing
+- Top-17 Element-Based precision_at_k: 2 missing
+- Top-17 Element-Based recall_at_k: 2 missing
+- Top-17 Element-Based mrr: 2 missing
+- Top-17 MaxMin Semantic precision_at_k: 1 missing
+- Top-17 MaxMin Semantic recall_at_k: 1 missing
+- Top-17 MaxMin Semantic mrr: 1 missing
+- Top-17 Recursive precision_at_k: 1 missing
+- Top-17 Recursive recall_at_k: 1 missing
+- Top-17 Recursive mrr: 1 missing
+- Top-18 Element-Based precision_at_k: 2 missing
+- Top-18 Element-Based recall_at_k: 2 missing
+- Top-18 Element-Based mrr: 2 missing
+- Top-18 MaxMin Semantic precision_at_k: 1 missing
+- Top-18 MaxMin Semantic recall_at_k: 1 missing
+- Top-18 MaxMin Semantic mrr: 1 missing
+- Top-18 Recursive precision_at_k: 1 missing
+- Top-18 Recursive recall_at_k: 1 missing
+- Top-18 Recursive mrr: 1 missing
+- Top-19 Element-Based precision_at_k: 2 missing
+- Top-19 Element-Based recall_at_k: 2 missing
+- Top-19 Element-Based mrr: 2 missing
+- Top-19 MaxMin Semantic precision_at_k: 1 missing
+- Top-19 MaxMin Semantic recall_at_k: 1 missing
+- Top-19 MaxMin Semantic mrr: 1 missing
+- Top-19 Recursive precision_at_k: 1 missing
+- Top-19 Recursive recall_at_k: 1 missing
+- Top-19 Recursive mrr: 1 missing
+- Top-20 Element-Based precision_at_k: 2 missing
+- Top-20 Element-Based recall_at_k: 2 missing
+- Top-20 Element-Based mrr: 2 missing
+- Top-20 MaxMin Semantic precision_at_k: 1 missing
+- Top-20 MaxMin Semantic recall_at_k: 1 missing
+- Top-20 MaxMin Semantic mrr: 1 missing
+- Top-20 Recursive precision_at_k: 1 missing
+- Top-20 Recursive recall_at_k: 1 missing
+- Top-20 Recursive mrr: 1 missing
+
+## Catatan Perhitungan
+
+- Precision@k, Recall@k, MRR, BLEU, dan ROUGE-L dihitung sebagai rerata nilai per-query pada CSV final untuk setiap kombinasi method dan top-k.
+- F1@k dihitung ulang dari Precision@k dan Recall@k agregat dengan rumus `2PR/(P+R)`. Jika `P+R=0`, F1@k ditetapkan `0`. Kolom `f1_at_k` lama pada CSV tidak dipakai sebagai sumber nilai final tabel ini.
+- Proses ini tidak menjalankan retrieval, generation, embedding, preprocessing, chunking, atau model.

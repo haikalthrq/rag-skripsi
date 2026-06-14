@@ -1,0 +1,61 @@
+Metode Chunking,Top-k,BLEU,ROUGE-L
+Element-Based Chunking,1,0.154,0.627
+Element-Based Chunking,2,0.130,0.692
+Element-Based Chunking,3,0.110,0.675
+Element-Based Chunking,4,0.113,0.664
+Element-Based Chunking,5,0.118,0.700
+Element-Based Chunking,6,0.102,0.693
+Element-Based Chunking,7,0.124,0.705
+Element-Based Chunking,8,0.116,0.699
+Element-Based Chunking,9,0.114,0.693
+Element-Based Chunking,10,0.108,0.683
+Element-Based Chunking,11,0.115,0.706
+Element-Based Chunking,12,0.132,0.709
+Element-Based Chunking,13,0.117,0.706
+Element-Based Chunking,14,0.118,0.705
+Element-Based Chunking,15,0.119,0.701
+Element-Based Chunking,16,0.117,0.696
+Element-Based Chunking,17,0.105,0.710
+Element-Based Chunking,18,0.117,0.703
+Element-Based Chunking,19,0.112,0.723
+Element-Based Chunking,20,0.115,0.706
+Max-Min Semantic Chunking,1,0.125,0.601
+Max-Min Semantic Chunking,2,0.122,0.624
+Max-Min Semantic Chunking,3,0.120,0.658
+Max-Min Semantic Chunking,4,0.118,0.661
+Max-Min Semantic Chunking,5,0.105,0.637
+Max-Min Semantic Chunking,6,0.113,0.646
+Max-Min Semantic Chunking,7,0.115,0.649
+Max-Min Semantic Chunking,8,0.123,0.657
+Max-Min Semantic Chunking,9,0.112,0.666
+Max-Min Semantic Chunking,10,0.115,0.664
+Max-Min Semantic Chunking,11,0.114,0.658
+Max-Min Semantic Chunking,12,0.109,0.660
+Max-Min Semantic Chunking,13,0.112,0.657
+Max-Min Semantic Chunking,14,0.112,0.653
+Max-Min Semantic Chunking,15,0.116,0.662
+Max-Min Semantic Chunking,16,0.123,0.657
+Max-Min Semantic Chunking,17,0.111,0.654
+Max-Min Semantic Chunking,18,0.105,0.655
+Max-Min Semantic Chunking,19,0.114,0.654
+Max-Min Semantic Chunking,20,0.115,0.667
+Recursive Chunking,1,0.143,0.641
+Recursive Chunking,2,0.142,0.673
+Recursive Chunking,3,0.145,0.702
+Recursive Chunking,4,0.145,0.678
+Recursive Chunking,5,0.144,0.684
+Recursive Chunking,6,0.139,0.682
+Recursive Chunking,7,0.133,0.673
+Recursive Chunking,8,0.132,0.686
+Recursive Chunking,9,0.148,0.675
+Recursive Chunking,10,0.133,0.694
+Recursive Chunking,11,0.136,0.685
+Recursive Chunking,12,0.148,0.694
+Recursive Chunking,13,0.142,0.689
+Recursive Chunking,14,0.149,0.685
+Recursive Chunking,15,0.137,0.694
+Recursive Chunking,16,0.139,0.694
+Recursive Chunking,17,0.138,0.684
+Recursive Chunking,18,0.136,0.682
+Recursive Chunking,19,0.145,0.718
+Recursive Chunking,20,0.131,0.689

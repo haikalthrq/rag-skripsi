@@ -1,0 +1,4 @@
+﻿method,method_key,top_k_count,mean_precision_at_k,mean_recall_at_k,mean_mrr,mean_f1_at_k,mean_bleu,mean_rouge_l
+Element-Based,element_based,20,0.1079,0.5112,0.3665,0.1617,0.1177,0.6948
+MaxMin Semantic,maxmin_semantic,20,0.1002,0.5303,0.3474,0.1519,0.1149,0.6522
+Recursive,recursive,20,0.1239,0.4273,0.4327,0.1688,0.1403,0.6851
