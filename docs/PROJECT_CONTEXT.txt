@@ -87,7 +87,10 @@ rag-skripsi/
 │   │   │   ├── top1_20_query_examples.csv
 │   │   │   ├── top1_20_audit_notes.md
 │   │   │   ├── bab6_tables_top1_20.md
-│   │   │   └── bab6_data_notes_top1_20.md
+│   │   │   ├── bab6_data_notes_top1_20.md
+│   │   │   └── figures/
+│   │   │       ├── precision_at_k_top1_20.png, recall_at_k_top1_20.png, mrr_top1_20.png
+│   │   │       └── f1_at_k_top1_20.png, bleu_top1_20.png, rouge_l_top1_20.png
 │   │   ├── figures/
 │   │       ├── chart1_precision_trend.png
 │   │       ├── chart2_recall_trend.png
@@ -109,8 +112,6 @@ rag-skripsi/
 │   │       └── table_6_2_generation_summary.csv/.xlsx
 │   │   └── figures20/
 │   │       ├── chart1_precision_trend.png ... chart8_ground_truth_label_distribution.png
-│   │       ├── precision_at_k_top1_20.png, recall_at_k_top1_20.png, mrr_top1_20.png
-│   │       ├── f1_at_k_top1_20.png, bleu_top1_20.png, rouge_l_top1_20.png
 │   │       ├── table1_precision_trend.csv ... table8_ground_truth_label_distribution.csv
 │   │       └── table_6_1_retrieval_summary.csv/.xlsx, table_6_2_generation_summary.csv/.xlsx
 │   ├── visualizations/
@@ -442,8 +443,9 @@ Visualisasi dan Analisis Top-1 sampai Top-20 — TAMBAHAN (2026-06-15):
     - notebooks/eval_visualization_top1-20.ipynb  ← versi visualisasi lengkap Top-1..Top-20
     - notebooks/eval_analysis_top1_20.ipynb       ← notebook audit analisis dari artefak CSV
   Output:
-    - results/final/figures20/                    ← chart/tabel Top-1..Top-20
+    - results/final/figures20/                    ← chart/tabel visualisasi utama Top-1..Top-20
     - results/final/analysis/                     ← CSV/MD audit dan narasi Bab 6
+    - results/final/analysis/figures/             ← grafik analisis Top-1..Top-20 dari eval_analysis
   File analisis utama:
     - top1_20_metrics_by_k.csv                    60 baris (20 top-k × 3 metode)
     - top1_20_metric_summary_by_method.csv        rerata per metode
@@ -452,6 +454,10 @@ Visualisasi dan Analisis Top-1 sampai Top-20 — TAMBAHAN (2026-06-15):
     - top1_20_audit_notes.md                      audit kelengkapan file, QA, GT, dan N/A
     - bab6_tables_top1_20.md                      tabel siap tempel Bab 6
     - bab6_data_notes_top1_20.md                  catatan narasi berbasis data
+  Catatan visual:
+    - eval_visualization_top1-20.ipynb dan eval_analysis_top1_20.ipynb sama-sama
+      memakai label angka untuk setiap Top-k 1..20, figure lebar, grid ringan,
+      marker/line solid, serta offset manual per metrik agar label tidak menumpuk.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -600,10 +606,13 @@ SELESAI ✓ (2026-06-13 s.d. 2026-06-15 — Batch Top-11..Top-20 dan artefak Bab
   [x] Buat notebook visualisasi Top-1..Top-20:
       → notebooks/eval_visualization_top1-20.ipynb
       → output chart/tabel ke results/final/figures20/.
+      → label angka setiap Top-k 1..20 ditata dengan offset manual per metrik.
   [x] Buat notebook audit analisis Top-1..Top-20:
       → notebooks/eval_analysis_top1_20.ipynb
       → membaca results/final/analysis/top1_20_metrics_by_k.csv
-      → menampilkan label angka di tiap Top-k 1..20.
+      → output grafik ke results/final/analysis/figures/.
+      → menampilkan label angka di tiap Top-k 1..20 dengan pola tampilan yang
+        diselaraskan dengan eval_visualization_top1-20.ipynb.
   [x] Buat artefak analisis Bab 6:
       → results/final/analysis/top1_20_metrics_by_k.csv
       → results/final/analysis/top1_20_metric_summary_by_method.csv
@@ -753,7 +762,8 @@ Hal penting yang JANGAN salah:
     Urutan: Precision, Recall, MRR, F1@k, BLEU, ROUGE-L, evidence type QA gold,
     label relevansi retrieval.
   - Output visualisasi/analisis Top-1..Top-20:
-    results/final/figures20/ dan results/final/analysis/
+    results/final/figures20/ untuk visualisasi utama, results/final/analysis/
+    untuk CSV/MD audit, dan results/final/analysis/figures/ untuk grafik analisis.
   - Tabel Bab 6 aktif:
     table_6_1_retrieval_summary.csv/.xlsx,
     table_6_2_generation_summary.csv/.xlsx.
