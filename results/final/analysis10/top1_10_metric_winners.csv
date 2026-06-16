@@ -1,0 +1,7 @@
+metric,metric_label,winning_method_by_average,highest_average,topk_win_count_element_based,topk_win_count_max_min_semantic,topk_win_count_recursive,topk_winner_counts
+precision_at_k,Precision@k,Recursive,0.169323,0,0,10,Element-Based: 0; Max-Min Semantic: 0; Recursive: 10
+recall_at_k,Recall@k,Max-Min Semantic,0.412011,2,8,0,Element-Based: 2; Max-Min Semantic: 8; Recursive: 0
+mrr,MRR,Recursive,0.419369,0,0,10,Element-Based: 0; Max-Min Semantic: 0; Recursive: 10
+f1_at_k,F1@k,Recursive,0.202140,2,0,8,Element-Based: 2; Max-Min Semantic: 0; Recursive: 8
+bleu,BLEU,Recursive,0.140455,1,0,9,Element-Based: 1; Max-Min Semantic: 0; Recursive: 9
+rouge_l,ROUGE-L,Element-Based,0.683187,6,0,4,Element-Based: 6; Max-Min Semantic: 0; Recursive: 4

@@ -2,7 +2,7 @@
 PROJECT CONTEXT — RAG Skripsi (rag-skripsi)
 Dokumen ini dibuat untuk memulihkan konteks percakapan dengan AI assistant.
 Baca seluruh dokumen ini sebelum membantu user.
-Terakhir diperbarui: 2026-06-15 WIB
+Terakhir diperbarui: 2026-06-16 WIB
 ================================================================================
 
 
@@ -80,6 +80,17 @@ rag-skripsi/
 │   ├── final/                          ← HASIL DEFINITIVE (RTX 3090 2026-05-31 + Top-11..20 2026-06-13, VALID)
 │   │   ├── generation/
 │   │   │   └── eval_*_top{1..20}.csv   20 file flat (Top-1..Top-20, binary)
+│   │   ├── analysis10/                  ← ANALISIS UTAMA BAB 6 (Top-1..Top-10)
+│   │   │   ├── top1_10_metrics_by_k.csv
+│   │   │   ├── top1_10_metric_summary_by_method.csv
+│   │   │   ├── top1_10_metric_winners.csv
+│   │   │   ├── top1_10_overall_average.csv
+│   │   │   ├── top1_10_audit_notes.md
+│   │   │   ├── bab6_tables_top1_10.md
+│   │   │   ├── bab6_data_notes_top1_10.md
+│   │   │   └── figures/
+│   │   │       ├── precision_at_k_top1_10.png, recall_at_k_top1_10.png, mrr_top1_10.png
+│   │   │       └── f1_at_k_top1_10.png, bleu_top1_10.png, rouge_l_top1_10.png
 │   │   ├── analysis/
 │   │   │   ├── top1_20_metrics_by_k.csv
 │   │   │   ├── top1_20_metric_summary_by_method.csv
@@ -140,6 +151,7 @@ rag-skripsi/
 │   ├── rag_inference.ipynb
 │   ├── eval_visualization.ipynb        notebook visualisasi aktif Top-1..Top-10
 │   ├── eval_visualization_top1-20.ipynb notebook visualisasi Top-1..Top-20
+│   ├── eval_analysis_top1_10.ipynb     notebook analisis utama Bab 6 Top-1..Top-10
 │   ├── eval_analysis_top1_20.ipynb     notebook audit analisis Top-1..Top-20
 │   └── _cache/data_eval.pkl            cache data evaluasi visualisasi
 └── docs/                 PROJECT_CONTEXT.txt, Chat Context.txt, dokumentasi komponen
@@ -351,6 +363,27 @@ Evaluasi Generasi — HASIL DEFINITIF (RTX 3090, 2026-05-31 + batch lanjut 2026-
     MaxMin Semantic P@5=0.131  R@5=0.447  MRR=0.349  F1@5=0.149  (n=29)
     Recursive       P@5=0.145  R@5=0.352  MRR=0.429  F1@5=0.198  (n=29)
 
+  RERATA LINTAS TOP-K 1–10 (ANALISIS UTAMA BAB 6, 2026-06-16):
+    Sumber: results/final/analysis10/top1_10_metric_summary_by_method.csv
+    Element-Based   Precision=0.141642  Recall=0.399285  MRR=0.348571  F1=0.191202  BLEU=0.118854  ROUGE-L=0.683187
+    MaxMin Semantic Precision=0.134217  Recall=0.412011  MRR=0.329098  F1=0.183994  BLEU=0.116745  ROUGE-L=0.646362
+    Recursive       Precision=0.169323  Recall=0.346494  MRR=0.419369  F1=0.202140  BLEU=0.140455  ROUGE-L=0.678738
+    Overall average deskriptif:
+      Element-Based=0.313790; MaxMin Semantic=0.303738; Recursive=0.326087.
+    Tertinggi per metrik:
+      Precision@k: Recursive; Recall@k: MaxMin Semantic; MRR: Recursive;
+      F1@k: Recursive; BLEU: Recursive; ROUGE-L: Element-Based.
+    Audit:
+      30 baris agregat (10 top-k × 3 metode), Top-1..Top-10 lengkap,
+      tiga metode lengkap, tiap kombinasi method-top-k berisi 30 QA.
+      Missing retrieval metrics dilaporkan: precision/recall/mrr masing-masing 40;
+      BLEU/ROUGE-L tidak missing.
+    Catatan: F1@k dihitung ulang dari Precision@k dan Recall@k agregat per
+    kombinasi metode-top-k; kolom F1 lama pada CSV final tidak dipakai sebagai
+    sumber utama artefak ini.
+    Posisi Bab 6: Top-1 sampai Top-10 adalah basis utama analisis; Top-11 sampai
+    Top-20 hanya validasi tambahan/lampiran bahwa pola umum tetap konsisten.
+
   RERATA LINTAS TOP-K 1–20 (artefak analisis Bab 6, 2026-06-15):
     Sumber: results/final/analysis/top1_20_metric_summary_by_method.csv
     Element-Based   Precision=0.1079  Recall=0.5112  MRR=0.3665  F1=0.1617  BLEU=0.1177  ROUGE-L=0.6948
@@ -437,6 +470,37 @@ Visualisasi Evaluasi — AKTIF (2026-06-12):
       export CSV/XLSX.
     - Artefak sintesis lintas Top-k 5–10 lama sudah tidak menjadi output aktif
       di results/final/figures/ setelah perluasan visualisasi Top-1 sampai Top-10.
+
+Analisis Utama Bab 6 Top-1 sampai Top-10 — AKTIF (2026-06-16):
+  Notebook:
+    - notebooks/eval_analysis_top1_10.ipynb
+  Output:
+    - results/final/analysis10/
+    - results/final/analysis10/figures/
+  File analisis utama:
+    - top1_10_metrics_by_k.csv                    30 baris (10 top-k × 3 metode)
+    - top1_10_metric_summary_by_method.csv        rerata per metode
+    - top1_10_metric_winners.csv                  metode tertinggi per metrik
+    - top1_10_overall_average.csv                 rata-rata deskriptif semua metrik
+    - top1_10_audit_notes.md                      audit kelengkapan file, QA, GT, dan missing
+    - bab6_tables_top1_10.md                      tabel siap tempel Bab 6
+    - bab6_data_notes_top1_10.md                  catatan narasi berbasis data
+  Grafik:
+    - precision_at_k_top1_10.png
+    - recall_at_k_top1_10.png
+    - mrr_top1_10.png
+    - f1_at_k_top1_10.png
+    - bleu_top1_10.png
+    - rouge_l_top1_10.png
+  Catatan visual:
+    - Style mengikuti eval_visualization.ipynb: figure lebar, legend kanan,
+      grid ringan, marker solid per metode, label angka manual agar tidak overlap.
+    - Chart MRR analysis10 memakai lowest y-axis 0.15 dan upper 0.47.
+    - Notebook ini membaca CSV final saja; tidak menjalankan ulang model,
+      retrieval, generation, embedding, preprocessing, atau chunking.
+  Posisi metodologis:
+    - Digunakan sebagai artefak analisis utama Bab 6.
+    - Top-11..Top-20 tetap diperlakukan sebagai validasi tambahan/lampiran.
 
 Visualisasi dan Analisis Top-1 sampai Top-20 — TAMBAHAN (2026-06-15):
   Notebook:
@@ -625,10 +689,31 @@ SELESAI ✓ (2026-06-13 s.d. 2026-06-15 — Batch Top-11..Top-20 dan artefak Bab
       → graphify-out/graph.json, graph.html, dan GRAPH_REPORT.md diperbarui
       → hasil update AST: 1136 nodes, 1673 edges, 123 communities.
 
+SELESAI ✓ (2026-06-16 — Artefak analisis utama Bab 6 Top-1..Top-10)
+  [x] Buat/refresh notebook analisis utama Bab 6:
+      → notebooks/eval_analysis_top1_10.ipynb
+      → membaca CSV final Top-1..Top-10 dari results/final/generation/
+      → tidak menjalankan ulang retrieval/generation/model.
+  [x] Buat artefak analysis10:
+      → results/final/analysis10/top1_10_metrics_by_k.csv
+      → results/final/analysis10/top1_10_metric_summary_by_method.csv
+      → results/final/analysis10/top1_10_metric_winners.csv
+      → results/final/analysis10/top1_10_overall_average.csv
+      → results/final/analysis10/top1_10_audit_notes.md
+      → results/final/analysis10/bab6_tables_top1_10.md
+      → results/final/analysis10/bab6_data_notes_top1_10.md
+      → results/final/analysis10/figures/*.png
+  [x] Tetapkan posisi analisis:
+      → Top-1..Top-10 = basis utama Bab 6.
+      → Top-11..Top-20 = validasi tambahan/lampiran.
+  [x] Update chart MRR analysis10:
+      → lowest y-axis 0.15 pada mrr_top1_10.png.
+
 PERLU DILAKUKAN ○
   [ ] Re-run evaluasi retrieval khusus di RTX 3090 (opsional — angka retrieval sudah
       ada dari run generasi; atau pakai run_retrieval_eval.py untuk sumber konsisten)
-  [ ] Tentukan & justifikasi nilai k pelaporan di skripsi (5 atau 8)
+  [ ] Susun narasi Bab 6 final berbasis analysis10 dan gunakan Top-20 hanya sebagai
+      validasi tambahan/lampiran.
   [ ] Perbaiki typo MRR (RR(q1)→RR(qi)) + tambah penegasan top-k di naskah
   [ ] Analisis mendalam perbandingan antar metode chunking
   [ ] Penulisan laporan skripsi
@@ -756,6 +841,7 @@ Hal penting yang JANGAN salah:
   - TIDAK ada radio "Mode Relevance Chat" di tab Chat — semua pakai binary
   - Tab Chat: input via selectbox QA Gold, bukan ketik bebas
   - Notebook visualisasi aktif Top-1..Top-10: notebooks/eval_visualization.ipynb
+  - Notebook analisis utama Bab 6 Top-1..Top-10: notebooks/eval_analysis_top1_10.ipynb
   - Notebook visualisasi tambahan Top-1..Top-20: notebooks/eval_visualization_top1-20.ipynb
   - Notebook audit analisis Top-1..Top-20: notebooks/eval_analysis_top1_20.ipynb
   - Output visualisasi aktif Top-1..Top-10: results/final/figures/chart1–chart8.
@@ -769,10 +855,17 @@ Hal penting yang JANGAN salah:
     table_6_2_generation_summary.csv/.xlsx.
     Versi results/final/figures/ memakai cakupan Top-1 sampai Top-10 (30 baris).
     Versi results/final/figures20/ memakai cakupan Top-1 sampai Top-20 (60 baris).
+  - Artefak analisis utama Bab 6 Top-1..Top-10:
+    results/final/analysis10/top1_10_metrics_by_k.csv,
+    top1_10_metric_summary_by_method.csv, top1_10_metric_winners.csv,
+    top1_10_overall_average.csv, top1_10_audit_notes.md,
+    bab6_tables_top1_10.md, bab6_data_notes_top1_10.md,
+    dan figures/*.png. Chart MRR memakai lowest y-axis 0.15.
   - Artefak analisis Bab 6 Top-1..Top-20:
     top1_20_metrics_by_k.csv, top1_20_metric_summary_by_method.csv,
     top1_20_metric_winners.csv, top1_20_query_examples.csv,
     top1_20_audit_notes.md, bab6_tables_top1_20.md, bab6_data_notes_top1_20.md.
+    Ini validasi tambahan/lampiran, bukan basis utama Bab 6.
   - Batch eval rag_chat.py punya opsi Top-11..Top-20 dan skip otomatis jika CSV output
     untuk Top-k tertentu sudah ada di results/final/generation/.
   - graphify-out/ aktif dan sudah di-update 2026-06-15 (1136 nodes, 1673 edges,

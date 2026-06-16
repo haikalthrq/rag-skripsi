@@ -1,0 +1,4 @@
+method,method_short,precision_at_k,recall_at_k,mrr,f1_at_k,bleu,rouge_l
+Element-Based,Element,0.141642,0.399285,0.348571,0.191202,0.118854,0.683187
+Max-Min Semantic,MaxMin,0.134217,0.412011,0.329098,0.183994,0.116745,0.646362
+Recursive,Recursive,0.169323,0.346494,0.419369,0.202140,0.140455,0.678738
