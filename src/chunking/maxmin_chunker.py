@@ -9,6 +9,10 @@ Supported Models:
 - Qwen3-Embedding-4B-GGUF (q4_K_M, q5_0, q5_K_M, q6_K, q8_0, f16)
 """
 
+# Catatan: algoritma MaxMin di file ini diimplementasikan secara lokal melalui
+# process_sentences(); keterangan lama tentang library eksternal tidak
+# menggambarkan implementasi yang sedang digunakan.
+
 import json
 import logging
 import numpy as np
@@ -77,6 +81,8 @@ def sigmoid(x: float) -> float:
     return 1 / (1 + np.exp(-x))
 
 
+# Catatan: nilai efektif fixed_threshold pada signature adalah 0.95. Beberapa
+# docstring lama di file ini masih menyebut 0.6 dan tidak boleh dijadikan acuan.
 def process_sentences(
     sentences: List[str],
     embeddings: np.ndarray,
@@ -444,6 +450,9 @@ def embed_sentences(
     embedding_model: Any,
     normalize: bool = True,
     show_progress: bool = True,
+# Catatan: baris parameter berikut kehilangan nama "batch_size" dan membuat
+# modul ini gagal diparse. Komentar ini hanya mendokumentasikan blocker; kode
+# sengaja tidak diperbaiki agar tidak mengubah implementasi asli.
 : int = 8,
     use_gguf: bool = False
 ) -> Optional[np.ndarray]:
@@ -807,6 +816,9 @@ def get_text_files(input_dir: str) -> List[Path]:
     return text_files
 
 
+# Catatan: input default yang benar di implementasi adalah data/cleaned dan
+# threshold efektifnya 0.95. Jalur data/cleaned_text serta threshold 0.6 yang
+# masih muncul pada dokumentasi lama bukan default fungsi ini.
 def run_maxmin_chunking(
     input_dir: str = "data/cleaned",
     output_dir: str = "data/chunked/maxmin_semantic",

@@ -802,6 +802,9 @@ with tab_eval:
         for path in matches:
             try:
                 df_existing = pd.read_csv(path)
+                # Catatan: "valid" di sini hanya berarti CSV dapat dibaca dan
+                # tidak kosong. Schema, jumlah query/metode, dan kelengkapan
+                # hasil belum diverifikasi sebelum file dianggap selesai.
                 if not df_existing.empty:
                     return df_existing, path
             except Exception as exc:
@@ -1194,7 +1197,6 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
-
 
 
 

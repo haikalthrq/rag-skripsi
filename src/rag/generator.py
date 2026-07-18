@@ -146,6 +146,8 @@ class RAGGenerator:
 
         messages = self.build_messages(query, contexts)
 
+        # Catatan: kegagalan backend dan jawaban kosong dikonversi menjadi
+        # RuntimeError; pemanggil harus menangani exception ini secara eksplisit.
         try:
             response = self.model.create_chat_completion(
                 messages=messages,

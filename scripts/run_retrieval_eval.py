@@ -57,6 +57,9 @@ logger = logging.getLogger(__name__)
 DEFAULT_GT = ROOT / "data/ground_truth/qa_pairs_binary.json"
 DEFAULT_OUTPUT = ROOT / "results/retrieval_eval.csv"
 DEFAULT_TOP_K = 8
+# Catatan: mode default HuggingFace membutuhkan direktori model lengkap di
+# DEFAULT_HF_MODEL. Downloader project hanya menyiapkan file GGUF, sehingga
+# instalasi tersebut perlu menjalankan script ini dengan --mode gguf.
 DEFAULT_MODE = "huggingface"
 DEFAULT_HF_MODEL = ROOT / "models/Qwen3-Embedding-4B"
 DEFAULT_GGUF_EMBEDDER = ROOT / "models/Qwen3-Embedding-4B-Q8_0.gguf"

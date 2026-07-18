@@ -2,6 +2,33 @@
 
 Modul untuk generate vector embeddings dari chunks hasil chunking menggunakan Qwen3-Embedding-4B model.
 
+## Catatan Implementasi Saat Ini
+
+Entry point berada di module, bukan `embed_chunks.py` pada root:
+
+```bash
+python -m src.embedding.embed_chunks --help
+```
+
+Sebelum embedding, pipeline melakukan transformasi tambahan:
+
+- Tabel element-based dapat diperkaya dari `text_as_html` dan mengubah teks
+  chunk yang kemudian disimpan.
+- MaxMin dan recursive mendapat prefix maksimal 200 karakter dari chunk
+  sebelumnya. Prefix hanya dipakai untuk embedding dan tidak disimpan sebagai
+  teks chunk.
+
+Akibatnya, teks chunk tersimpan tidak selalu identik dengan teks persis yang
+masuk ke model embedding.
+
+Parameter `batch_size` pada `QwenEmbedder.embed()` belum diteruskan ke backend.
+GGUF diproses satu per satu, sedangkan HuggingFace memakai batch size 1 dan
+memotong input di atas 4096 karakter untuk mengurangi risiko OOM. Opsi
+`--device` terutama relevan untuk mode HuggingFace.
+
+Mode GGUF tetap mengimpor `torch` melalui entry point. Pastikan dependency root
+terpasang meskipun model embedding yang dipilih adalah GGUF.
+
 ## Features
 
 - ✅ **Dual Mode**: Support GGUF (via llama-cpp) dan HuggingFace (via sentence-transformers)
@@ -43,25 +70,25 @@ Output: data/embeddings/{method}/*_embeddings.json
 
 ```bash
 # Default: GGUF mode (recommended, efficient)
-python embed_chunks.py
+python -m src.embedding.embed_chunks
 
 # HuggingFace mode
-python embed_chunks.py --mode huggingface
+python -m src.embedding.embed_chunks --mode huggingface
 
 # Custom paths
-python embed_chunks.py --input data/chunked --output data/embeddings
+python -m src.embedding.embed_chunks --input data/chunked --output data/embeddings
 
 # Process ulang file existing
-python embed_chunks.py --no-skip
+python -m src.embedding.embed_chunks --no-skip
 
 # Save juga dalam numpy format
-python embed_chunks.py --save-numpy
+python -m src.embedding.embed_chunks --save-numpy
 
 # Custom GGUF model
-python embed_chunks.py --gguf-model models/custom-model.gguf
+python -m src.embedding.embed_chunks --gguf-model models/custom-model.gguf
 
 # CPU only
-python embed_chunks.py --device cpu
+python -m src.embedding.embed_chunks --mode huggingface --device cpu
 ```
 
 ### 2. Python API
@@ -117,7 +144,7 @@ print(data['embeddings'])      # Numpy array (n_chunks, embedding_dim)
 print(data['chunks'])          # Original chunks dengan embedding_index
 
 # Access embeddings
-embeddings = data['embeddings']  # Shape: (n_chunks, 4096)
+embeddings = data['embeddings']  # Shape: (n_chunks, 2560)
 chunks = data['chunks']
 
 # Get embedding for specific chunk
@@ -138,13 +165,13 @@ chunk_embedding = embeddings[chunk_idx]
     "chunking_method": "maxmin_semantic",
     "embedding_model": "gguf",
     "normalized": true,
-    "embedding_dim": 4096,
+    "embedding_dim": 2560,
     "num_chunks": 143,
     "num_original_chunks": 150,
     "timestamp": "2025-12-15T10:30:00"
   },
   "embeddings": [
-    [0.123, -0.456, 0.789, ...],  // 4096 dimensions
+    [0.123, -0.456, 0.789, ...],  // 2560 dimensions
     [0.234, -0.567, 0.890, ...],
     ...
   ],
@@ -169,7 +196,7 @@ Binary numpy array format untuk loading cepat:
 import numpy as np
 
 embeddings = np.load("data/embeddings/maxmin_semantic/file_embeddings.npy")
-print(embeddings.shape)  # (143, 4096)
+print(embeddings.shape)  # (143, 2560)
 ```
 
 ## Supported Chunking Methods
@@ -194,13 +221,13 @@ pip install sentence-transformers transformers torch numpy
 - **Model**: Qwen3-Embedding-4B-Q8_0.gguf
 - **Location**: `models/Qwen3-Embedding-4B-Q8_0.gguf`
 - **Size**: ~4 GB
-- **Embedding Dim**: 4096
+- **Embedding Dim**: 2560
 - **Advantages**: Efficient memory usage, fast inference
 
 ### HuggingFace Model (Fallback)
 - **Model**: Qwen/Qwen3-Embedding-4B
 - **Size**: ~8 GB (full precision)
-- **Embedding Dim**: 4096
+- **Embedding Dim**: 2560
 - **Advantages**: Standard transformers API
 
 ## Performance Tips
@@ -227,7 +254,7 @@ Semua error di-log dengan detail untuk debugging.
 ### Example 1: Basic Usage
 
 ```bash
-python embed_chunks.py
+python -m src.embedding.embed_chunks
 ```
 
 Output:
@@ -245,7 +272,7 @@ Loading GGUF model: models/Qwen3-Embedding-4B-Q8_0.gguf
   - GPU Layers: -1 (-1 = all)
 ✓ GGUF model loaded successfully
   - File size: 4081.40 MB
-  - Embedding dimension: 4096
+  - Embedding dimension: 2560
 
 ======================================================================
 Processing method: MAXMIN_SEMANTIC
@@ -257,11 +284,11 @@ Loaded 143 chunks from benchmark-indeks-konstruksi--2016-100---2018---2023_chunk
 Cleaning and filtering chunks...
 Valid chunks: 143/143
 Generating embeddings for 143 chunks...
-✓ Generated 143 embeddings (dim: 4096)
+✓ Generated 143 embeddings (dim: 2560)
 Saving embeddings to: data/embeddings/maxmin_semantic/benchmark-indeks-konstruksi--2016-100---2018---2023_embeddings.json
 ✓ Embeddings saved to: benchmark-indeks-konstruksi--2016-100---2018---2023_embeddings.json
   - File size: 23.45 MB
-  - Embedding dimension: 4096
+  - Embedding dimension: 2560
   - Number of embeddings: 143
 ✓ Processing completed successfully
 ...
@@ -298,7 +325,7 @@ pip install llama-cpp-python
 ### Issue: `CUDA out of memory`
 ```bash
 # Use CPU
-python embed_chunks.py --device cpu
+python -m src.embedding.embed_chunks --mode huggingface --device cpu
 
 # Or reduce batch processing (edit embedder.py)
 ```
@@ -306,7 +333,7 @@ python embed_chunks.py --device cpu
 ### Issue: `Model file not found`
 ```bash
 # Specify custom path
-python embed_chunks.py --gguf-model path/to/your/model.gguf
+python -m src.embedding.embed_chunks --gguf-model path/to/your/model.gguf
 ```
 
 ### Issue: `Empty chunks`

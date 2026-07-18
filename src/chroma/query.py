@@ -256,6 +256,9 @@ def similarity_search_with_score(
                     'document': results['documents'][0][i],
                     'metadata': results['metadatas'][0][i] if 'metadatas' in results else {}
                 }
+                # Nilai ini berasal langsung dari field `distances` Chroma,
+                # bukan similarity terbalik. Umumnya nilai lebih kecil berarti
+                # hasil lebih dekat, bergantung pada metrik collection.
                 score = results['distances'][0][i] if 'distances' in results else 0.0
                 documents_with_scores.append((doc, score))
         

@@ -2,6 +2,38 @@
 
 Modul ini menyediakan berbagai metode chunking untuk dokumen RAG system.
 
+## Catatan Implementasi Saat Ini
+
+Project memiliki tiga metode aktif:
+
+1. Element-based dengan composite chunks, bukan satu elemen menjadi satu chunk.
+2. MaxMin semantic dengan algoritma lokal di `process_sentences()`.
+3. Recursive dengan `RecursiveCharacterTextSplitter`.
+
+MaxMin tidak memakai package `maxmin_chunker` eksternal. Default implementasi
+saat ini menggunakan Qwen3-Embedding-4B, input `data/cleaned`, dan
+`fixed_threshold=0.95`.
+
+File `maxmin_chunker.py` saat ini memiliki signature tidak valid pada
+`embed_sentences()`. Karena package melakukan import eager, import
+`src.chunking` ikut gagal. Dokumentasi ini mencatat blocker tersebut tanpa
+memperbaiki kode.
+
+Script root `chunk_element.py`, `chunk_maxmin.py`, dan `chunk_recursive.py`
+tidak tersedia. Entry point berada di file implementasi masing-masing. Selama
+blocker import package masih ada, lihat bantuan CLI dengan menjalankan file yang
+tidak bergantung pada import package:
+
+```bash
+python src/chunking/element_based.py --help
+python src/chunking/recursive_split.py --help
+```
+
+Metadata element-based saat ini berorientasi composite chunk, termasuk
+`chunk_type`, `element_types`, `section_title`, `page_numbers`, dan
+`source_file`. Bagian dokumentasi lama yang menggambarkan satu elemen sebagai
+satu chunk tidak mewakili output saat ini.
+
 ## 📁 Metode Chunking
 
 ### 1. **Element-Based Chunking** (`element_based.py`)
@@ -175,28 +207,28 @@ print(f"Total chunks: {stats['total_chunks']}")
 
 ```bash
 # Menggunakan default settings
-python chunk_maxmin.py
+python src/chunking/maxmin_chunker.py
 
 # Dengan custom directories
-python chunk_maxmin.py --input data/cleaned_text --output data/chunked/maxmin_semantic
+python src/chunking/maxmin_chunker.py --input data/cleaned --output data/chunked/maxmin_semantic
 
 # Dengan custom model (gunakan GPU)
-python chunk_maxmin.py --model Alibaba-NLP/gte-Qwen2-1.5B-instruct --device cuda
+python src/chunking/maxmin_chunker.py --no-gguf --model Qwen/Qwen3-Embedding-4B --device cuda
 
 # Tune parameters
-python chunk_maxmin.py --threshold 0.7 --c 0.85 --init 1.3
+python src/chunking/maxmin_chunker.py --threshold 0.95 --c 0.9 --init 1.5
 
 # Tanpa metadata
-python chunk_maxmin.py --no-metadata
+python src/chunking/maxmin_chunker.py --no-metadata
 
 # Force reprocess
-python chunk_maxmin.py --no-skip
+python src/chunking/maxmin_chunker.py --no-skip
 ```
 
 #### 2. Proses satu file .txt saja
 
 ```bash
-python chunk_maxmin.py --single "data/cleaned_text/dokumen.txt"
+python src/chunking/maxmin_chunker.py --single "data/cleaned/dokumen.txt"
 ```
 
 ### Sebagai Import dalam Python
@@ -579,25 +611,25 @@ print(f"Durasi: {stats['duration']:.2f} detik")
 
 ```bash
 # Menggunakan default (hi_res strategy)
-python chunk_element.py
+python src/chunking/element_based.py
 
 # Dengan custom directories
-python chunk_element.py --input data/raw --output data/chunked/element_based
+python src/chunking/element_based.py --input data/raw --output data/chunked/element_based
 
 # Dengan strategy berbeda
-python chunk_element.py --strategy fast
+python src/chunking/element_based.py --strategy fast
 
 # Tanpa metadata
-python chunk_element.py --no-metadata
+python src/chunking/element_based.py --no-metadata
 
 # Force reprocess file yang sudah ada
-python chunk_element.py --no-skip
+python src/chunking/element_based.py --no-skip
 ```
 
 #### 2. Proses satu file PDF saja
 
 ```bash
-python chunk_element.py --single "data/raw/dokumen.pdf"
+python src/chunking/element_based.py --single "data/raw/dokumen.pdf"
 ```
 
 #### 3. Jalankan langsung dari modul

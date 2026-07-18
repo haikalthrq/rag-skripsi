@@ -104,6 +104,8 @@ METHOD_LABELS = {
     "recursive": "Recursive",
 }
 
+# Catatan: schema script ini belum sama dengan output Streamlit karena tidak
+# menghitung atau menulis f1_at_k. Konsumen CSV harus membedakan kedua sumber.
 OUTPUT_COLUMNS = [
     "query_id",
     "method",
@@ -529,6 +531,8 @@ def main() -> None:
     if args.top_k is not None:
         args.top_k_min = args.top_k
         args.top_k_max = args.top_k
+    # Catatan: entry point standalone ini hanya mendukung Top-1 sampai Top-10.
+    # Artefak Top-11 sampai Top-20 yang ada dibuat melalui workflow Streamlit.
     if not 1 <= args.top_k_min <= args.top_k_max <= 10:
         raise ValueError("Top-k range must satisfy 1 <= min <= max <= 10")
 

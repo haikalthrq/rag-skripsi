@@ -81,6 +81,8 @@ jupyter     # notebook support (notebooks/)
 
 # Visualization (opsional — hanya dipakai di notebooks, bukan di src/scripts)
 # ---------------------------------------------------------------------------
+# Notebook visualisasi tetap membutuhkan instalasi manual `matplotlib` dan
+# `seaborn`; keduanya sengaja tidak diaktifkan sebagai dependency runtime utama.
 # matplotlib
 # seaborn
 

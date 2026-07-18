@@ -26,6 +26,12 @@ Atau import dalam kode Python:
     from src.chunking.recursive_split import run_recursive_chunking
 """
 
+# Catatan: package melakukan import eager terhadap seluruh metode di bawah.
+# Akibatnya, kesalahan parse pada maxmin_chunker.py juga menggagalkan import
+# element-based dan recursive melalui `from src.chunking import ...`.
+# Entry point yang tersedia berada di modul masing-masing, bukan pada script
+# root chunk_element.py, chunk_maxmin.py, atau chunk_recursive.py.
+
 # Element-based chunking
 from .element_based import (
     load_pdf,

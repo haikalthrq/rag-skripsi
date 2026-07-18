@@ -100,6 +100,10 @@ def process_single_pdf(
     try:
         logger.info(f"Memproses: {pdf_path.name}")
         
+        # Catatan: save_metadata bukan hanya opsi penyimpanan. Nilai True
+        # memilih extract_text_with_metadata(), sedangkan False memilih
+        # ekstraksi hybrid dengan tabel dan penanda halaman. Corpus teks yang
+        # dihasilkan kedua mode dapat berbeda secara material.
         # 1. Ekstrak teks dari PDF
         if save_metadata:
             result = extract_text_with_metadata(str(pdf_path))
@@ -150,6 +154,9 @@ def process_single_pdf(
         return False, None
 
 
+# Catatan: output default fungsi ini adalah data/cleaned_text, sementara MaxMin
+# dan recursive chunking membaca data/cleaned. Berikan output_dir="data/cleaned"
+# secara eksplisit jika hasil akan langsung diteruskan ke kedua chunker itu.
 def run_preprocessing(
     input_dir: str = "data/raw",
     output_dir: str = "data/cleaned_text",

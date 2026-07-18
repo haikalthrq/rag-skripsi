@@ -2,6 +2,71 @@
 
 Module untuk integrasi dengan ChromaDB vector database untuk sistem RAG.
 
+## Catatan Implementasi Saat Ini
+
+Bagian ini menjadi acuan ketika berbeda dengan contoh lama di bawahnya.
+
+- Parameter collection adalah `embedding_dim`, bukan `embedding_dimension`.
+- `load_to_chroma()` menerima `embedding_file`, bukan `embeddings_file`.
+- `load_all_embeddings_to_chroma()` menerima `methods`, bukan
+  `chunking_method`.
+- `ChromaRetriever` menerima object `collection`, bukan `client` dan nama
+  collection.
+- Method retriever memakai parameter `query` dan `k`.
+- Nilai score berasal dari distance Chroma; umumnya lebih kecil berarti lebih
+  dekat.
+- `filter_by_metadata` tidak diekspor dari `src.chroma`.
+
+Contoh API yang sesuai implementasi:
+
+```python
+from src.chroma import (
+    ChromaRetriever,
+    get_or_create_collection,
+    initialize_chroma_client,
+    load_to_chroma,
+)
+from src.embedding import initialize_gguf_embedder
+
+client = initialize_chroma_client(persist_directory="data/chroma")
+collection = get_or_create_collection(
+    client=client,
+    collection_name="collection_element_based",
+    embedding_dim=2560,
+)
+
+load_to_chroma(
+    client=client,
+    embedding_file="data/embeddings/element_based/doc_embeddings.json",
+    collection_name="collection_element_based",
+)
+
+embedder = initialize_gguf_embedder(
+    model_path="models/Qwen3-Embedding-4B-Q8_0.gguf"
+)
+if embedder is None:
+    raise RuntimeError("Model embedding gagal dimuat")
+
+retriever = ChromaRetriever(
+    collection=collection,
+    embedding_function=lambda query: embedder.embed(query)[0],
+)
+results = retriever.similarity_search(query="pertumbuhan ekonomi", k=5)
+```
+
+JSON input loader harus memiliki `metadata`, `embeddings`, dan `chunks` pada
+level teratas. ID Chroma dibentuk dari stem file embedding dan index chunk.
+
+Entry point yang tersedia adalah:
+
+```bash
+python scripts/load_embeddings_to_chroma.py
+```
+
+Script tersebut tidak memiliki opsi CLI dan meminta reset collection untuk
+setiap metode yang memiliki file embedding. Jangan menjalankannya jika
+collection aktif belum boleh dibangun ulang.
+
 ## Struktur
 
 ```
@@ -31,7 +96,7 @@ src/chroma/
 - **`load_all_embeddings_to_chroma()`**: Batch load semua embeddings
   - Otomatis scan directory untuk .json files
   - Progress tracking dengan tqdm
-  - Skip files yang sudah diload
+  - Memproses seluruh file JSON yang cocok; tidak memiliki pemeriksaan skip
 
 ### 3. Query Interface (`query.py`)
 - **`ChromaRetriever`**: High-level retriever class
@@ -136,50 +201,48 @@ results = filter_by_metadata(
 
 Script wrapper tersedia di root directory:
 
-### `load_to_chroma.py`
-Load embeddings dari JSON ke ChromaDB.
+### `scripts/load_embeddings_to_chroma.py`
+Load seluruh embedding JSON dengan konfigurasi tetap: direktori
+`data/embeddings`, batch size 1000, tiga metode, dan reset collection untuk
+metode yang memiliki file input.
 
 ```bash
-# Load semua embeddings dengan default settings
-python load_to_chroma.py
-
-# Custom batch size
-python load_to_chroma.py --batch-size 500
-
-# Reset collections (delete dulu sebelum load)
-python load_to_chroma.py --reset
-
-# List collections only (tidak load)
-python load_to_chroma.py --list-only
+python scripts/load_embeddings_to_chroma.py
 ```
 
-**Arguments:**
-- `--persist-dir`: ChromaDB persist directory (default: `data/chroma`)
-- `--embeddings-dir`: Directory dengan embeddings (default: `data/embeddings`)
-- `--batch-size`: Batch size untuk loading (default: 1000)
-- `--reset`: Delete existing collections sebelum load
-- `--list-only`: Hanya list collections, tidak load
+Script ini tidak menyediakan argument CLI. Gunakan API Python secara langsung
+jika memerlukan path, batch size, daftar metode, atau perilaku reset berbeda.
 
 ## Data Structure
 
 ### Embeddings JSON Format
 ```json
 {
-  "document_name": "doc.txt",
-  "chunking_method": "element_based",
+  "metadata": {
+    "source_file": "doc.txt",
+    "chunking_method": "element_based",
+    "embedding_dim": 3
+  },
+  "embeddings": [
+    [0.1, 0.2, 0.3]
+  ],
   "chunks": [
     {
-      "chunk_index": 0,
       "text": "chunk text...",
-      "embedding": [0.1, 0.2, ...],
       "metadata": {
         "source": "doc.txt",
         "chunk_index": 0
-      }
+      },
+      "embedding_index": 0,
+      "original_index": 0
     }
   ]
 }
 ```
+
+Contoh JSON memakai dimensi 3 agar ringkas. File produksi harus berisi jumlah
+nilai per vector yang sama dengan `embedding_dim`; artefak model project saat
+ini memakai dimensi 2560.
 
 ### ChromaDB Collections
 - **Collection per chunking method**: `collection_{method_name}`
@@ -250,7 +313,7 @@ load_to_chroma(..., batch_size=500)
 
 ## Next Steps
 
-1. **Load embeddings**: Run `python load_to_chroma.py`
+1. **Load embeddings**: Run `python scripts/load_embeddings_to_chroma.py`
 2. **Test retrieval**: Query collections untuk validasi
 3. **Evaluation**: Build retrieval metrics on top of ChromaDB
 4. **RAG Pipeline**: Integrate dengan generation module

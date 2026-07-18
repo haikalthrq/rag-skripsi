@@ -230,6 +230,9 @@ class RAGEvaluator:
 
             result.per_query.append(q_result)
 
+        # Catatan: denominator tiap metrik dapat berbeda. Retrieval hanya
+        # memasukkan query yang memiliki relevant_chunk_ids, sedangkan BLEU dan
+        # ROUGE hanya memasukkan query yang berhasil menghasilkan jawaban.
         # ── Aggregate (mean) ─────────────────────────────────────────────────
         for key in ["precision_at_k", "recall_at_k", "mrr", "f1_at_k", "bleu", "rouge_l"]:
             values = [q[key] for q in result.per_query if key in q]
@@ -260,6 +263,8 @@ class RAGEvaluator:
         Returns:
             List of MethodResult, satu per method
         """
+        # Catatan: mrr_at_k diterima untuk kompatibilitas API tetapi belum
+        # digunakan dalam perhitungan; MRR memakai seluruh retrieved_ids.
         methods = methods or list(COLLECTION_NAMES.keys())
         results = []
 

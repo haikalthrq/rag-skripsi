@@ -61,6 +61,8 @@ class QwenEmbedder:
         
         logger.info(f"QwenEmbedder initialized (mode: {mode}, normalize: {normalize})")
     
+    # Catatan: batch_size pada API ini belum diteruskan ke backend. GGUF diproses
+    # satu per satu dan HuggingFace memakai batch_size=1 secara hard-coded.
     def embed(self, texts: Union[str, List[str]], batch_size: int = 32) -> np.ndarray:
         """
         Generate embeddings untuk satu atau multiple texts.
@@ -104,6 +106,8 @@ class QwenEmbedder:
         
         return np.array(embeddings, dtype=np.float32)
     
+    # Catatan: pemotongan berikut mengubah konten yang di-embed dan dilakukan
+    # berdasarkan jumlah karakter, bukan token. Bagian setelah batas dibuang.
     # Maksimum karakter per teks sebelum encode. Qwen3-Embedding memiliki
     # max_seq_length 8192 token; 4096 chars ≈ 2048 token (rata-rata 2 char/token BPE).
     # Diturunkan dari 8192 → 4096 agar aman di RTX 3090 24GB tanpa OOM.

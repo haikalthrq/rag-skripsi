@@ -12,6 +12,10 @@ Pipeline:
 4. Save embeddings ke file
 """
 
+# Catatan: pipeline aktual juga memperkaya teks tabel dan menambahkan context
+# prefix untuk MaxMin/recursive sebelum embedding. Lihat embed_chunks.py untuk
+# membedakan teks chunk tersimpan dari teks persis yang masuk ke model.
+
 from .embedder import QwenEmbedder, initialize_gguf_embedder, initialize_hf_embedder
 from .io import load_chunks_from_json, save_embeddings, load_embeddings
 from .embed_chunks import embed_all_chunks, embed_single_file

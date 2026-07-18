@@ -14,6 +14,10 @@ Supports:
 - Multiple chunking methods dalam separate collections
 """
 
+# Catatan: surface API package hanya berisi nama dalam __all__ di bawah.
+# filter_by_metadata tidak diekspor dari package dan harus diimpor langsung
+# dari src.chroma.query jika memang diperlukan.
+
 from .client import (
     initialize_chroma_client,
     get_or_create_collection,

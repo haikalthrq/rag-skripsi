@@ -67,6 +67,9 @@ def _extract_page_hybrid(page) -> str:
         if not is_inside_table:
             narrative_blocks.append((x0, x1, y0, text.strip()))
 
+    # Catatan: heuristic ini menganggap layout dua kolom sebagai dokumen
+    # bilingual dan membuang seluruh kolom kanan. PDF dua kolom non-bilingual
+    # dapat kehilangan konten karena belum tersedia opsi untuk menonaktifkannya.
     # ── 2b. Deteksi layout dua kolom & filter kolom kanan (bilingual) ────────
     # Gunakan center blok (x0+x1)/2, bukan x0, agar kolom kanan yang dimulai
     # sebelum mid_x (misal x0≈299 < mid_x=327) tetap terdeteksi sebagai kanan.

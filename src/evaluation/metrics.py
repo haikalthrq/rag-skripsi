@@ -150,6 +150,9 @@ def compute_bleu(response: str, reference: str) -> float:
         result = corpus_bleu([response], [[reference]])
         return result.score / 100.0  # sacrebleu returns 0-100, convert to 0-1
     except ImportError:
+        # Catatan: fallback ini adalah overlap unigram sederhana dengan brevity
+        # factor, bukan BLEU SacreBLEU yang ekuivalen. Hasil antar-environment
+        # tidak boleh dibandingkan tanpa mencatat dependency yang tersedia.
         response_tokens = response.split()
         reference_tokens = reference.split()
         if not response_tokens or not reference_tokens:
@@ -210,6 +213,9 @@ def compute_rouge(
             logger.warning(f"Unknown mode: {mode}, defaulting to recall")
             return rouge_score.recall
     except ImportError:
+        # Catatan: fallback ini menghitung LCS berbasis whitespace dan bukan
+        # implementasi rouge-score yang ekuivalen. Catat backend metrik saat
+        # memakai hasil evaluasi untuk perbandingan eksperimen.
         response_tokens = response.split()
         reference_tokens = reference.split()
         if not response_tokens or not reference_tokens:
@@ -233,4 +239,3 @@ def compute_rouge(
     except Exception as e:
         logger.error(f"compute_rouge ({rouge_type}, {mode}) error: {e}")
         return 0.0
-

@@ -15,6 +15,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+# Catatan: clean_text tidak memanggil remove_headers_footers(). Header/footer
+# spesifik BPS hanya dihapus jika fungsi terpisah itu dipanggil eksplisit.
 def clean_text(text: str) -> str:
     """
     Membersihkan teks hasil ekstraksi PDF menggunakan regex.

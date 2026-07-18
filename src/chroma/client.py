@@ -112,6 +112,8 @@ def initialize_chroma_client(
         return None
 
 
+# Catatan: nama parameter publik fungsi ini adalah embedding_dim, bukan
+# embedding_dimension seperti yang masih terlihat pada contoh dokumentasi lama.
 def get_or_create_collection(
     client: Any,
     collection_name: str,

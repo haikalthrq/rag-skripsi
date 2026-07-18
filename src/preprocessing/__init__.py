@@ -32,6 +32,10 @@ Atau import dalam kode Python:
     cleaned = clean_text(text)
 """
 
+# Catatan: contoh di atas memakai data/cleaned_text sesuai default fungsi.
+# Gunakan output data/cleaned secara eksplisit untuk menyambungkan hasil ke
+# default MaxMin dan recursive chunking.
+
 from .pdf_extractor import extract_text, extract_text_with_metadata
 from .text_cleaner import clean_text, clean_text_advanced, remove_headers_footers
 from .pipeline import (

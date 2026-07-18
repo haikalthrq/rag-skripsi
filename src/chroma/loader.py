@@ -132,6 +132,9 @@ def load_to_chroma(
         logger.info(f"Loading: {file_path.name}")
         logger.info(f"{'='*70}")
         
+        # Kontrak input: JSON harus memiliki array top-level `embeddings` dan
+        # `chunks`, serta object `metadata`. Embedding di dalam setiap chunk
+        # saja tidak akan terbaca oleh loader ini.
         # Load embedding data
         import json
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -157,6 +160,8 @@ def load_to_chroma(
         documents = []
         metadatas = []
         
+        # ID Chroma dibentuk dari nama file embedding dan original_index atau
+        # embedding_index. Ground truth retrieval harus memakai ID persis ini.
         for chunk in chunks:
             # Generate ID (gunakan original_index jika ada, atau generate)
             chunk_id = f"{file_path.stem}_{chunk.get('original_index', chunk.get('embedding_index', 0))}"
@@ -172,6 +177,8 @@ def load_to_chroma(
             metadatas.append(chunk_metadata)
         
         # Get or create collection
+        # reset_collection=True menghapus collection lama sebelum data dimuat.
+        # Gunakan hanya saat rebuild penuh karena operasi ini destruktif.
         if reset_collection:
             from .client import reset_collection as reset_col
             collection = reset_col(client, collection_name)

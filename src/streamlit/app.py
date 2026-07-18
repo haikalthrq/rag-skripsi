@@ -34,6 +34,9 @@ st.set_page_config(
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent.parent
 
+# Catatan: aplikasi hanya mencoba path v3 di bawah. File tersebut dapat tidak
+# tersedia pada checkout baru karena hasil kandidat historis berada di archive;
+# bangun atau pulihkan file ini sebelum menjalankan aplikasi anotasi.
 # Kandidat aktif: v3 evidence-aware (fresh scan, kolom has_* lengkap)
 _CANDIDATE_PRIORITY = [
     ROOT / "data/ground_truth/retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx",

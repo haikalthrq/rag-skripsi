@@ -306,6 +306,9 @@ if __name__ == "__main__":
     loader  = unittest.TestLoader()
     suite   = unittest.TestSuite()
 
+    # Catatan: daftar manual ini tidak mencakup seluruh class yang ditemukan
+    # pytest. Gunakan `pytest tests/test_evaluation.py` untuk suite lengkap;
+    # eksekusi langsung hanya menjalankan class yang tercantum di bawah.
     test_classes = [
         TestComputeBleu,
         TestComputeRouge,

@@ -250,6 +250,9 @@ def main() -> None:
         default="data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx",
         help="Path ke QA gold file (.csv atau .xlsx). Untuk xlsx, baca sheet 'qa_gold'.",
     )
+    # Catatan: loader label membaca CSV dengan csv.DictReader, bukan XLSX.
+    # Default retrieval_labels_filled.csv adalah nama historis dan mungkin tidak
+    # tersedia; checkout saat ini memakai retrieval_labels_final.csv.
     parser.add_argument(
         "--labels_csv", type=str,
         default="data/ground_truth/retrieval_labels_filled.csv",

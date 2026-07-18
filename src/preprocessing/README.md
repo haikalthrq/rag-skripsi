@@ -2,6 +2,27 @@
 
 Modul ini menyediakan pipeline lengkap untuk preprocessing dokumen PDF, meliputi ekstraksi teks dan pembersihan teks menggunakan regex.
 
+## Catatan Implementasi Saat Ini
+
+- `save_metadata=False` memakai ekstraksi hybrid: tabel, blok narasi, dan
+  penanda halaman.
+- `save_metadata=True` memilih extractor lain berbasis `page.get_text()`.
+- Opsi metadata karena itu dapat menghasilkan corpus teks yang berbeda, bukan
+  hanya file metadata tambahan.
+- Extractor hybrid menganggap dua kolom sebagai layout bilingual dan membuang
+  kolom kanan. Gunakan dengan hati-hati untuk PDF dua kolom non-bilingual.
+- `clean_text()` tidak menjalankan `remove_headers_footers()` secara otomatis.
+
+Entry point yang tersedia adalah module berikut, bukan `preprocess.py` di root:
+
+```bash
+python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
+```
+
+Default bawaan masih menulis ke `data/cleaned_text`, sedangkan MaxMin dan
+recursive membaca `data/cleaned`. Gunakan `--output data/cleaned` agar pipeline
+tersambung tanpa memindahkan file manual.
+
 ## 📁 Struktur Modul
 
 ```
@@ -120,22 +141,22 @@ Memproses satu file PDF dan return status serta path output.
 
 ```bash
 # Menggunakan default directories (data/raw -> data/cleaned_text)
-python preprocess.py
+python -m src.preprocessing.pipeline
 
 # Dengan custom directories
-python preprocess.py --input data/raw --output data/cleaned_text
+python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
 
 # Dengan menyimpan metadata
-python preprocess.py --metadata
+python -m src.preprocessing.pipeline --metadata
 
 # Force reprocess file yang sudah ada
-python preprocess.py --no-skip
+python -m src.preprocessing.pipeline --no-skip
 ```
 
 #### 2. Proses satu file PDF saja
 
 ```bash
-python preprocess.py --single "data/raw/dokumen.pdf"
+python -m src.preprocessing.pipeline --single "data/raw/dokumen.pdf"
 ```
 
 #### 3. Jalankan langsung dari modul

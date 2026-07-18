@@ -279,6 +279,10 @@ class RAGPipeline:
         }
 
 
+# Catatan: pemanggilan tanpa argumen belum membentuk konfigurasi yang siap
+# pakai. Mode embedder default adalah GGUF tetapi DEFAULT_EMBEDDER_PATH dapat
+# menunjuk direktori HF, dan generator_path default kosong diteruskan secara
+# eksplisit ke initializer GGUF. Berikan path sesuai backend yang dipilih.
 def build_pipeline(
     chunking_method: str = "element_based",
     embedder_path: str = DEFAULT_EMBEDDER_PATH,
