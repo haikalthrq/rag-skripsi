@@ -461,6 +461,11 @@ Visualisasi Evaluasi — AKTIF (2026-06-12):
     - Header tabel dibuat human-readable.
     - Label angka pada chart Precision, Recall, MRR, F1@k, BLEU, dan ROUGE-L sudah
       dituning manual agar tidak overlap dengan garis/trend.
+    - Ukuran font chart diperbesar agar lebih terbaca untuk kebutuhan Bab 6.
+    - Legend chart metrik utama ditempatkan di dalam area plot:
+      Precision kanan atas, Recall kiri atas, MRR kanan bawah, F1@k kanan atas,
+      BLEU kanan atas, dan ROUGE-L kanan bawah.
+    - Chart MRR pada eval_visualization.ipynb memakai tick y-axis kelipatan 0.05.
     - Tabel 6.1 dibuat untuk ringkasan retrieval Top-1 sampai Top-10:
       Metode Chunking, Top-k, Precision@k, Recall@k, MRR, F1@k.
       Urutan: per metode, lalu Top-k 1–10; total 30 baris; export CSV/XLSX.
@@ -493,8 +498,9 @@ Analisis Utama Bab 6 Top-1 sampai Top-10 — AKTIF (2026-06-16):
     - bleu_top1_10.png
     - rouge_l_top1_10.png
   Catatan visual:
-    - Style mengikuti eval_visualization.ipynb: figure lebar, legend kanan,
-      grid ringan, marker solid per metode, label angka manual agar tidak overlap.
+    - Style mengikuti eval_visualization.ipynb: figure lebar, grid ringan,
+      marker solid per metode, font diperbesar, legend ditempatkan di dalam plot
+      sesuai metrik, dan label angka manual agar tidak overlap.
     - Chart MRR analysis10 memakai lowest y-axis 0.15 dan upper 0.47.
     - Notebook ini membaca CSV final saja; tidak menjalankan ulang model,
       retrieval, generation, embedding, preprocessing, atau chunking.

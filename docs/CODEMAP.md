@@ -1,6 +1,6 @@
 # CODEMAP - rag-skripsi
 
-Terakhir diperbarui: 2026-06-08 WIB
+Terakhir diperbarui: 2026-06-16 WIB
 
 Dokumen ini memetakan workspace `rag-skripsi` dari sudut pandang kode, data, entry point, dan artefak evaluasi. Gunakan ini sebagai peta cepat sebelum mengubah project.
 
@@ -17,7 +17,7 @@ Tujuan utama:
 - Menggunakan embedding Qwen3-Embedding-4B.
 - Menggunakan generator Qwen3-4B-Instruct-2507.
 - Menyimpan vektor di ChromaDB.
-- Mengevaluasi retrieval dengan `Precision@k`, `Recall@k`, dan `MRR`.
+- Mengevaluasi retrieval dengan `Precision@k`, `Recall@k`, `MRR`, dan `F1@k`.
 - Mengevaluasi generation dengan `BLEU` dan `ROUGE-L`.
 
 Skema evaluasi aktif:
@@ -44,8 +44,8 @@ data/raw/*.pdf
   -> src/rag/pipeline.py
   -> src/streamlit/rag_chat.py atau scripts/run_generation_eval.py
   -> results/final/generation/*.csv
-  -> notebooks/eval_visualization.ipynb
-  -> results/final/figures/*
+  -> notebooks/eval_visualization.ipynb atau notebooks/eval_analysis_top1_10.ipynb
+  -> results/final/figures/* dan results/final/analysis10/*
 ```
 
 Alur ground truth retrieval:
@@ -123,8 +123,11 @@ Output evaluasi, visualisasi, archive, dan chat history.
 
 Subfolder penting:
 
-- `results/final/generation/`: hasil evaluasi final Top-1 sampai Top-10.
-- `results/final/figures/`: chart dan tabel final untuk analisis Bab 6.
+- `results/final/generation/`: hasil evaluasi final Top-1 sampai Top-20.
+- `results/final/analysis10/`: artefak analisis utama Bab 6 Top-1 sampai Top-10.
+- `results/final/analysis/`: artefak audit/validasi tambahan Top-1 sampai Top-20.
+- `results/final/figures/`: chart dan tabel visualisasi aktif Top-1 sampai Top-10.
+- `results/final/figures20/`: chart dan tabel visualisasi tambahan Top-1 sampai Top-20.
 - `results/visualizations/bab6/`: artefak tambahan Bab 6.
 - `results/archive/`: hasil lama, strict lama, run GPU lama, dan baseline historis.
 - `results/chat_history/`: riwayat chat Streamlit persisten.
@@ -133,7 +136,10 @@ Subfolder penting:
 
 Notebook analisis dan visualisasi.
 
-- `eval_visualization.ipynb`: notebook visualisasi aktif.
+- `eval_visualization.ipynb`: notebook visualisasi aktif Top-1 sampai Top-10.
+- `eval_analysis_top1_10.ipynb`: notebook analisis utama Bab 6 Top-1 sampai Top-10.
+- `eval_visualization_top1-20.ipynb`: notebook visualisasi tambahan Top-1 sampai Top-20.
+- `eval_analysis_top1_20.ipynb`: notebook audit analisis tambahan Top-1 sampai Top-20.
 - `rag_inference.ipynb`: notebook inference manual.
 - `_cache/data_eval.pkl`: cache data evaluasi visualisasi.
 
@@ -161,6 +167,7 @@ Fokus test:
 - Precision@k
 - Recall@k
 - MRR
+- F1@k
 - summary aggregation
 - QA gold loading
 
@@ -458,6 +465,7 @@ Fungsi utama:
 - `compute_precision_at_k(...)`
 - `compute_recall_at_k(...)`
 - `compute_mrr(...)`
+- `compute_f1_at_k(...)`
 - `compute_bleu(...)`
 - `compute_rouge(...)`
 
@@ -465,6 +473,7 @@ Tanggung jawab:
 
 - Implementasi metrik final.
 - Retrieval metrics berbasis chunk ID.
+- F1@k dihitung dari Precision@k dan Recall@k.
 - BLEU memakai `sacrebleu.corpus_bleu([response], [[reference]]) / 100`.
 - ROUGE-L memakai `rouge_score.RougeScorer(..., use_stemmer=False)`.
 
@@ -532,8 +541,9 @@ Tanggung jawab:
 - Demo RAG interaktif.
 - Input query berupa pilihan QA Gold, bukan text bebas.
 - Mendukung single/compare mode.
-- Menampilkan BLEU, ROUGE-L, Precision@k, Recall@k, dan MRR.
+- Menampilkan BLEU, ROUGE-L, Precision@k, Recall@k, MRR, dan F1@k.
 - Menyimpan chat history ke `results/chat_history/chat_history.jsonl`.
+- Mendukung batch eval Top-1 sampai Top-20 dengan skip otomatis jika file output sudah ada.
 
 Default penting:
 
@@ -637,15 +647,15 @@ Tujuan:
 
 Output final:
 
-- `results/final/generation/eval_20260531_*_full_top{1..10}.csv`
+- `results/final/generation/eval_*_top{1..20}.csv`
 
 Catatan:
 
 - Script sekarang menulis schema CSV yang sama dengan batch eval `rag_chat.py`:
   `query_id`, `method`, `question`, `gold_answer`, `generated_answer`,
-  `precision_at_k`, `recall_at_k`, `mrr`, `bleu`, `rouge_l_recall`,
+  `precision_at_k`, `recall_at_k`, `mrr`, `f1_at_k`, `bleu`, `rouge_l_recall`,
   `error`, `hardware_info`.
-- Output final saat ini sudah valid dan tidak perlu direrun kecuali ada perubahan metodologis.
+- Output final Top-1 sampai Top-20 saat ini sudah valid dan tidak perlu direrun kecuali ada perubahan metodologis.
 
 ### `scripts/download_embedding_model.py`
 
@@ -774,6 +784,7 @@ Kolom final umum:
 - `precision_at_k`
 - `recall_at_k`
 - `mrr`
+- `f1_at_k`
 - `bleu`
 - `rouge_l_recall`
 - `error`
@@ -781,57 +792,101 @@ Kolom final umum:
 
 Catatan:
 
-- Ada 10 file final Top-1 sampai Top-10.
-- Untuk analisis final Bab 6, banyak tabel memakai Top-5 sampai Top-10.
+- Ada 20 file final Top-1 sampai Top-20.
+- Top-1 sampai Top-10 menjadi basis utama Bab 6.
+- Top-11 sampai Top-20 menjadi validasi tambahan/lampiran.
+- Nama file yang mengandung kata lama seperti `lenient` adalah legacy naming; isi final tetap binary.
 
 ## 7. Results dan Artefak Aktif
 
 ### `results/final/generation/`
 
-Berisi run final RTX 3090 2026-05-31.
+Berisi hasil definitif valid dalam folder flat.
 
-File:
+Isi:
 
-- `eval_20260531_181551_full_top1.csv`
-- `eval_20260531_182241_full_top2.csv`
-- `eval_20260531_183044_full_top3.csv`
-- `eval_20260531_183822_full_top4.csv`
-- `eval_20260531_184708_full_top5.csv`
-- `eval_20260531_185558_full_top6.csv`
-- `eval_20260531_190431_full_top7.csv`
-- `eval_20260531_191252_full_top8.csv`
-- `eval_20260531_192113_full_top9.csv`
-- `eval_20260531_192940_full_top10.csv`
+- 20 file CSV `eval_*_top{1..20}.csv`.
+- Top-1 sampai Top-10 berasal dari run RTX 3090 2026-05-31.
+- Top-11 sampai Top-20 berasal dari batch lanjut 2026-06-13 via `src/streamlit/rag_chat.py`.
+- Skema semua file final adalah binary relevance.
+
+### `results/final/analysis10/`
+
+Artefak analisis utama Bab 6 Top-1 sampai Top-10.
+
+File penting:
+
+- `top1_10_metrics_by_k.csv`
+- `top1_10_metric_summary_by_method.csv`
+- `top1_10_metric_winners.csv`
+- `top1_10_overall_average.csv`
+- `top1_10_audit_notes.md`
+- `bab6_tables_top1_10.md`
+- `bab6_data_notes_top1_10.md`
+- `figures/*.png`
+
+Catatan:
+
+- Ini sumber utama untuk narasi Bab 6.
+- Chart MRR analysis10 memakai lowest y-axis `0.15`.
+
+### `results/final/analysis/`
+
+Artefak audit/validasi tambahan Top-1 sampai Top-20.
+
+File penting:
+
+- `top1_20_metrics_by_k.csv`
+- `top1_20_metric_summary_by_method.csv`
+- `top1_20_metric_winners.csv`
+- `top1_20_query_examples.csv`
+- `top1_20_audit_notes.md`
+- `bab6_tables_top1_20.md`
+- `bab6_data_notes_top1_20.md`
+- `figures/*.png`
+
+Catatan:
+
+- Gunakan sebagai lampiran atau validasi tambahan, bukan basis utama Bab 6.
 
 ### `results/final/figures/`
 
-Chart aktif:
+Chart aktif Top-1 sampai Top-10:
 
 - `chart1_precision_trend.png`
 - `chart2_recall_trend.png`
 - `chart3_mrr_trend.png`
-- `chart4_bleu_topk.png`
-- `chart5_rouge_l_topk.png`
-- `chart6_ground_truth_evidence_types.png`
-- `chart7_ground_truth_label_distribution.png`
+- `chart4_f1_trend.png`
+- `chart5_bleu_topk.png`
+- `chart6_rouge_l_topk.png`
+- `chart7_ground_truth_evidence_types.png`
+- `chart8_ground_truth_label_distribution.png`
 
-Tabel aktif:
+Tabel aktif Top-1 sampai Top-10:
 
 - `table1_precision_trend.csv`
 - `table2_recall_trend.csv`
 - `table3_mrr_trend.csv`
-- `table4_bleu_topk.csv`
-- `table5_rouge_l_topk.csv`
-- `table6_ground_truth_evidence_types.csv`
-- `table7_ground_truth_label_distribution.csv`
+- `table4_f1_trend.csv`
+- `table5_bleu_topk.csv`
+- `table6_rouge_l_topk.csv`
+- `table7_ground_truth_evidence_types.csv`
+- `table8_ground_truth_label_distribution.csv`
 - `table_6_1_retrieval_summary.csv`
 - `table_6_1_retrieval_summary.xlsx`
 - `table_6_2_generation_summary.csv`
 - `table_6_2_generation_summary.xlsx`
-- `table_average_metrics_top5_top10.csv`
-- `table_average_metrics_top5_top10.xlsx`
-- `table_average_metrics_top5_top10.md`
-- `audit_average_metrics_top5_top10.csv`
+
+### `results/final/figures20/`
+
+Visualisasi dan tabel tambahan Top-1 sampai Top-20.
+
+Isi umum:
+
+- `chart1_precision_trend.png` sampai `chart8_ground_truth_label_distribution.png`
+- `table1_precision_trend.csv` sampai `table8_ground_truth_label_distribution.csv`
+- `table_6_1_retrieval_summary.csv/.xlsx`
+- `table_6_2_generation_summary.csv/.xlsx`
 
 ### `results/visualizations/bab6/`
 
@@ -858,25 +913,68 @@ Subfolder penting:
 
 ### `notebooks/eval_visualization.ipynb`
 
-Notebook visualisasi aktif.
+Notebook visualisasi aktif Top-1 sampai Top-10.
 
 Urutan chart saat ini:
 
 1. Precision@k trend.
 2. Recall@k trend.
 3. MRR trend.
-4. BLEU per method dan Top-k.
-5. ROUGE-L per method dan Top-k.
-6. Distribusi evidence type QA gold.
-7. Distribusi label relevansi retrieval.
+4. F1@k trend.
+5. BLEU per method dan Top-k.
+6. ROUGE-L per method dan Top-k.
+7. Distribusi evidence type QA gold.
+8. Distribusi label relevansi retrieval.
 
 Cell tambahan:
 
-- Tabel 6.1 Retrieval Summary Top-5 sampai Top-10.
-- Tabel 6.2 Generation Summary Top-5 sampai Top-10.
-- Tabel sintesis rerata lintas Top-k.
+- Tabel 6.1 Retrieval Summary Top-1 sampai Top-10.
+- Tabel 6.2 Generation Summary Top-1 sampai Top-10.
+- Tabel dan chart output ke `results/final/figures/`.
 
 Jangan mengubah chart/table lain jika hanya diminta memperbaiki satu chart tertentu.
+
+### `notebooks/eval_analysis_top1_10.ipynb`
+
+Notebook analisis utama Bab 6.
+
+Input:
+
+- CSV final Top-1 sampai Top-10 dari `results/final/generation/`.
+
+Output:
+
+- `results/final/analysis10/top1_10_metrics_by_k.csv`
+- `results/final/analysis10/top1_10_metric_summary_by_method.csv`
+- `results/final/analysis10/top1_10_metric_winners.csv`
+- `results/final/analysis10/top1_10_overall_average.csv`
+- `results/final/analysis10/top1_10_audit_notes.md`
+- `results/final/analysis10/bab6_tables_top1_10.md`
+- `results/final/analysis10/bab6_data_notes_top1_10.md`
+- `results/final/analysis10/figures/*.png`
+
+Gunakan ini sebagai sumber utama narasi Bab 6.
+
+### `notebooks/eval_visualization_top1-20.ipynb`
+
+Notebook visualisasi tambahan Top-1 sampai Top-20.
+
+Output:
+
+- `results/final/figures20/`
+
+Gunakan untuk validasi tambahan atau lampiran.
+
+### `notebooks/eval_analysis_top1_20.ipynb`
+
+Notebook audit analisis tambahan Top-1 sampai Top-20.
+
+Output:
+
+- `results/final/analysis/`
+- `results/final/analysis/figures/`
+
+Gunakan sebagai pembanding tambahan, bukan basis utama Bab 6.
 
 ### `notebooks/rag_inference.ipynb`
 
@@ -994,8 +1092,17 @@ Use these as active sources:
 - `data/ground_truth/retrieval_labels_final.csv/.xlsx`
 - `data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx`
 - `results/final/generation/`
+- `results/final/analysis10/`
 - `results/final/figures/`
 - `notebooks/eval_visualization.ipynb`
+- `notebooks/eval_analysis_top1_10.ipynb`
+
+Use these as additional validation sources:
+
+- `results/final/analysis/`
+- `results/final/figures20/`
+- `notebooks/eval_visualization_top1-20.ipynb`
+- `notebooks/eval_analysis_top1_20.ipynb`
 
 Treat these as historical/archive unless explicitly asked:
 
@@ -1009,7 +1116,7 @@ Do not use for final analysis:
 
 - strict archived result as final score
 - former RTX 5060 Ti final generation result
-- top-1 sampai top-4 when the request explicitly says Top-5 sampai Top-10
+- Top-11 sampai Top-20 as the main Bab 6 basis; use it only as validation/lampiran
 
 ## 12. Common Safe Change Points
 
@@ -1041,7 +1148,10 @@ If changing ground truth:
 
 If changing visualization:
 
-- Prefer editing only `notebooks/eval_visualization.ipynb`.
+- Prefer editing only the relevant notebook:
+  - `notebooks/eval_visualization.ipynb` for active Top-1 sampai Top-10 visualizations.
+  - `notebooks/eval_analysis_top1_10.ipynb` for main Bab 6 analysis artifacts.
+  - `notebooks/eval_visualization_top1-20.ipynb` or `notebooks/eval_analysis_top1_20.ipynb` for Top-1 sampai Top-20 validation artifacts.
 - Keep output filenames in `results/final/figures/` aligned with chart/table numbering.
 - Avoid touching unrelated chart cells.
 
@@ -1049,7 +1159,7 @@ If changing visualization:
 
 - Query ID in QA gold is not sequential. This is normal.
 - Missing retrieval metrics can occur when a query has no relevant GT chunk for a method.
-- `DEFAULT_TOP_K` in chat app is 8, while many report tables compare Top-5 to Top-10.
+- `DEFAULT_TOP_K` in chat app is 8, while Bab 6 active analysis compares Top-1 to Top-10.
 - `max_tokens` is intentionally high at 16384.
 - `components.html` should not be used in Streamlit; use `st.iframe(height=1)` pattern already present.
 - `suggested_label` from candidate builder is not final label.
@@ -1058,6 +1168,8 @@ If changing visualization:
 - OCR/table corruption in element-based chunks can be extraction limitation.
 - `results/final/generation/` is flat; there is no active strict/lenient subfolder.
 - File names containing old "lenient" in archive/final context may be legacy naming, not active strict-vs-lenient logic.
+- Top-1 sampai Top-10 is the main Bab 6 basis; Top-11 sampai Top-20 is validation/lampiran.
+- `results/final/analysis10/` is the main analysis output; `results/final/analysis/` is the Top-20 audit output.
 
 ## 14. Minimal Mental Model
 
@@ -1071,11 +1183,14 @@ Runtime:
   selected QA/query -> embed -> retrieve -> generate -> metrics
 
 Evaluation:
-  qa_pairs_binary.json + final generation CSV -> charts/tables Bab 6
+  qa_pairs_binary.json + final generation CSV -> analysis10 + charts/tables Bab 6
 
 Final outputs:
   results/final/generation/
+  results/final/analysis10/
   results/final/figures/
+  results/final/analysis/      (Top-20 validation)
+  results/final/figures20/     (Top-20 validation)
   results/visualizations/bab6/
 ```
 
