@@ -469,8 +469,7 @@ def embed_sentences(
         use_gguf (bool): True jika menggunakan model GGUF (default: False).
         
     Returns:
-        Optional[np.ndarray]: Array embeddings dengan shape (n_sentences, embedding_dim)
-                             atau None jika gagal.
+        Optional[np.ndarray]: Array embeddings dengan shape (n_sentences, embedding_dim)atau None jika gagal.
     """
     try:
         logger.info(f"Generating embeddings untuk {len(sentences)} kalimat...")
