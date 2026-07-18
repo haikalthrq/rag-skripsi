@@ -450,10 +450,7 @@ def embed_sentences(
     embedding_model: Any,
     normalize: bool = True,
     show_progress: bool = True,
-# Catatan: baris parameter berikut kehilangan nama "batch_size" dan membuat
-# modul ini gagal diparse. Komentar ini hanya mendokumentasikan blocker; kode
-# sengaja tidak diperbaiki agar tidak mengubah implementasi asli.
-: int = 8,
+    batch_size: int = 8,
     use_gguf: bool = False
 ) -> Optional[np.ndarray]:
     """
