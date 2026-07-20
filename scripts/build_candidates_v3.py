@@ -1,17 +1,15 @@
 """
-build_candidates_v3.py — Evidence-Aware Retrieval Candidate Generator v3
+build_candidates.py — Evidence-Aware Retrieval Candidate Generator
 =========================================================================
 Membangun kandidat chunk evidence-aware untuk anotasi manual retrieval
-ground truth. Lebih ketat dan lebih informatif dari v2.
-
-Perbedaan utama dari v2:
+ground truth.
   1. Word-boundary matching untuk row_label / col_label — cegah 'Riau' match
      'Kepulauan Riau' secara salah.
   2. Boolean flag kolom eksplisit: has_gold_value, has_row_label, ...
   3. Pre-filter top-10 per grup → simpan top-5 terbaik.
   4. evidence_type paragraph_table ditangani dengan hybrid scoring.
   5. evidence_anchor dihitung sebagai sinyal tersendiri.
-  6. Summary comparison otomatis vs v2 disimpan ke .txt.
+  6. Summary comparison otomatis disimpan ke .txt.
   7. Confidence lebih granular.
 
 Input:
@@ -33,19 +31,10 @@ match_type:
   not_relevant               chunk tidak membantu menjawab pertanyaan
   not_found                  tidak ada kandidat relevan ditemukan sama sekali
 
-suggested_label (SARAN AUDIT — bukan label final):
-  2  exact evidence
-  1  partial evidence / context
-  0  keyword_only, not_relevant, not_found
-
 confidence:
   high    exact evidence, semua sinyal utama hadir
   medium  partial evidence, sebagian sinyal hadir
   low     keyword_only atau ambigu / rawan false positive
-
-Penggunaan:
-  python scripts/build_candidates_v3.py
-  python scripts/build_candidates_v3.py --top_k 5 --pre_k 10
 """
 
 import argparse
@@ -121,8 +110,6 @@ def normalize(text: str) -> str:
 def label_match_strict(label: str, chunk_norm: str) -> bool:
     """
     True jika label ditemukan sebagai frasa utuh di chunk_norm.
-
-    Perbedaan dari v2:
     - Menggunakan word-boundary (?<!\w) / (?!\w) bukan string `in`.
     - Untuk label kata-tunggal, tolak match jika didahului compound prefix
       (contoh: 'Riau' tidak match 'Kepulauan Riau').
