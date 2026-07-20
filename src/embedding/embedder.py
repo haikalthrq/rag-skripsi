@@ -109,7 +109,7 @@ class QwenEmbedder:
     # Catatan: pemotongan berikut mengubah konten yang di-embed dan dilakukan
     # berdasarkan jumlah karakter, bukan token. Bagian setelah batas dibuang.
     # Maksimum karakter per teks sebelum encode. Qwen3-Embedding memiliki
-    # max_seq_length 8192 token; 4096 chars ≈ 2048 token (rata-rata 2 char/token BPE).
+    # max_seq_length 8192 token; 4096 chars ≈ 2048 token.
     # Diturunkan dari 8192 → 4096 agar aman di RTX 3090 24GB tanpa OOM.
     _MAX_CHARS_HF = 4096
 
@@ -201,7 +201,7 @@ def initialize_gguf_embedder(
         )
         
         file_size_mb = model_file.stat().st_size / (1024 * 1024)
-        logger.info(f"✓ GGUF model loaded successfully")
+        logger.info("✓ GGUF model loaded successfully")
         logger.info(f"  - File size: {file_size_mb:.2f} MB")
         
         embedder = QwenEmbedder(model=model, mode='gguf', normalize=normalize)
@@ -243,7 +243,7 @@ def initialize_hf_embedder(
         
         model = SentenceTransformer(model_name, device=device)
         
-        logger.info(f"✓ HuggingFace model loaded successfully")
+        logger.info("✓ HuggingFace model loaded successfully")
         
         embedder = QwenEmbedder(model=model, mode='huggingface', normalize=normalize)
         

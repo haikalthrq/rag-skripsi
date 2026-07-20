@@ -2,8 +2,8 @@
 Modul embedding untuk generate vector embeddings dari chunks.
 
 Mendukung:
-- Qwen3-Embedding-4B (GGUF format via llama-cpp-python - RECOMMENDED)
-- Qwen3-Embedding-4B (HuggingFace transformers - fallback)
+- Qwen3-Embedding-4B (GGUF format via llama-cpp-python)
+- Qwen3-Embedding-4B (HuggingFace transformers)
 
 Pipeline:
 1. Load chunks dari JSON (element_based, maxmin_semantic, recursive)
@@ -12,7 +12,7 @@ Pipeline:
 4. Save embeddings ke file
 """
 
-# Catatan: pipeline aktual juga memperkaya teks tabel dan menambahkan context
+# Catatan: pipeline memperkaya teks tabel dan menambahkan context
 # prefix untuk MaxMin/recursive sebelum embedding. Lihat embed_chunks.py untuk
 # membedakan teks chunk tersimpan dari teks persis yang masuk ke model.
 
