@@ -113,7 +113,6 @@ def embed_single_file(
         # dan tidak tersimpan pada chunk. JSON chunk saja tidak selalu cukup
         # untuk merekonstruksi teks persis yang masuk ke model embedding.
         # 2a. Enrich table chunks: ganti OCR text dengan HTML-parsed text
-        #     (hanya berlaku untuk element_based yang punya text_as_html)
         n_enriched = enrich_table_chunk_texts(chunks)
         if n_enriched:
             logger.info(f"  {n_enriched} table chunks enriched from HTML before embedding")
