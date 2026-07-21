@@ -10,6 +10,7 @@ Output: data/ground_truth/retrieval_labels_final.xlsx
 
 Jalankan:
     streamlit run src/streamlit/app.py
+    python -m streamlit run src/streamlit/app.py
 """
 
 import html as _html
