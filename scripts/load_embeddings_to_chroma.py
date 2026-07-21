@@ -35,8 +35,6 @@ def main():
     # Catatan: wrapper ini meminta pemuatan ketiga metode dengan
     # reset_collections=True. Collection suatu metode dihapus jika direktori
     # metode tersebut memiliki file embedding untuk diproses.
-    # Script ini bukan CLI configurable.
-    # Pastikan data/chroma memang boleh dibangun ulang sebelum menjalankannya.
     # Load all embeddings
     stats = load_all_embeddings_to_chroma(
         client=client,
