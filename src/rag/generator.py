@@ -171,11 +171,6 @@ class RAGGenerator:
 class HFRAGGenerator:
     """
     Generator untuk RAG menggunakan HuggingFace Transformers.
-
-    Dioptimalkan untuk Qwen3-4B-Thinking-2507-FP8 (thinking model):
-    - Output diawali dengan blok <think>...</think> berisi chain-of-thought.
-    - Jawaban akhir berada SETELAH token </think> (token ID 151668).
-    - Blok thinking otomatis di-strip; hanya jawaban final yang dikembalikan.
     """
 
     def __init__(
