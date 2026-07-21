@@ -259,7 +259,7 @@ class RAGPipeline:
         logger.info(f"Generating dari {len(contexts)} konteks...")
         raw = self.generator.generate(query, contexts)
 
-        # HFRAGGenerator dengan return_thinking=True mengembalikan (answer, thinking)
+        # HFRAGGenerator
         if isinstance(raw, tuple):
             answer, thinking = raw
         else:
