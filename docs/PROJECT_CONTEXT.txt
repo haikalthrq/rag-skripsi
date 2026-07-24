@@ -61,6 +61,8 @@ rag-skripsi/
 │   ├── load_embeddings_to_chroma.py    load embeddings JSON ke ChromaDB
 │   ├── run_generation_eval.py          BLEU + ROUGE-L
 │   └── run_retrieval_eval.py           P@k, R@k, MRR
+├── Dockerfile.vast                       runtime image Vast RTX 3090
+├── docker/vast/                          bootstrap dan instruksi template
 │   [DIHAPUS] check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
 │             inspect_qa.py, rank_results.py — tidak aktif, sudah dihapus dari repo
 ├── data/
@@ -796,6 +798,13 @@ python scripts/download_vast_assets.py --asset models
 python scripts/download_vast_assets.py --asset all --dry-run
 
 # Downloader laptop GGUF/FP8 disimpan sebagai referensi di scripts/backup/
+
+# Build Docker image (jalankan dari root repository)
+docker buildx build --platform linux/amd64 -f Dockerfile.vast \
+  -t ghcr.io/OWNER/rag-skripsi:vast-rtx3090 --push .
+
+# Setelah template Vast memasang persistent volume di /workspace:
+python scripts/download_vast_assets.py --asset all --workers 4
 
 # Git
 git add -A && git commit -m "..." && git push origin main

@@ -99,6 +99,7 @@ File aktif:
 - `build_candidates_v3.py`
 - `convert_ground_truth_to_json.py`
 - `download_vast_assets.py`
+- `Dockerfile.vast` dan `docker/vast/`: image runtime serta bootstrap Vast.ai
 - `load_embeddings_to_chroma.py`
 - `run_generation_eval.py`
 - `run_retrieval_eval.py`
@@ -671,6 +672,15 @@ Tujuan:
 - Hanya menggunakan standard library Python, tanpa `gdown` atau Drive API client.
 
 Downloader laptop GGUF/FP8 disimpan di `scripts/backup/`.
+
+### `Dockerfile.vast` dan `docker/vast/`
+
+Tujuan:
+
+- Build runtime Python/CUDA berbasis `vastai/pytorch` untuk RTX 3090.
+- Menyediakan dependency HF, ChromaDB, Streamlit, evaluasi, PDF, dan OCR.
+- Tidak memasukkan model weights, ChromaDB, atau embedding agar image tetap
+  dapat dipakai bersama persistent volume.
 
 ## 6. Data Contract
 

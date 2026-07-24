@@ -1,0 +1,37 @@
+# Runtime and evaluation dependencies for the Vast.ai RTX 3090 image.
+# torch is provided by the pinned Vast PyTorch base image.
+# llama-cpp-python is intentionally excluded; Vast uses HF models on CUDA.
+
+# PDF/OCR and chunking support
+PyMuPDF
+unstructured[pdf]
+pytesseract
+langchain-text-splitters
+nltk
+
+# HuggingFace embedding and generation
+sentence-transformers
+transformers
+accelerate
+huggingface_hub
+
+# Vector database and numerical dependencies
+chromadb
+numpy
+scikit-learn
+scipy
+tqdm
+
+# Data and evaluation
+psutil
+pandas
+openpyxl
+sacrebleu
+rouge-score
+
+# Runtime UI and lightweight validation
+streamlit
+altair
+gitpython
+watchdog
+pytest
