@@ -10,6 +10,10 @@ langchain-text-splitters
 nltk
 
 # HuggingFace embedding and generation
+# Keep the CUDA stack supplied by the Vast base image. Without these pins,
+# pip may resolve a newer PyTorch release and download a second CUDA stack.
+torch==2.6.0+cu126
+torchvision==0.21.0+cu126
 sentence-transformers
 transformers
 accelerate
