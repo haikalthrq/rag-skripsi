@@ -1,4 +1,6 @@
 """
+Legacy laptop downloader. Kept for reference only.
+
 Download generator model ke models/ lokal.
 
 Model : Qwen3-4B-Instruct-2507-FP8
@@ -9,7 +11,7 @@ Setelah download selesai, run_generation_eval.py akan otomatis
 menggunakan model lokal dari models/Qwen3-4B-Instruct-2507-FP8/.
 
 Usage:
-  python scripts/download_generator_model.py
+  python scripts/backup/download_generator_model_laptop.py
 """
 
 import os

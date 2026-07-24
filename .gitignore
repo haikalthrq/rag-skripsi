@@ -151,6 +151,9 @@ data/embeddings/
 # Backup folders (tidak perlu di-version control)
 # -------------------------------------------------
 backup/
+!scripts/backup/
+!scripts/backup/*.py
+!scripts/backup/*.md
 data/artifacts/
 data/cleaned/backup/
 data/ground_truth/audit/

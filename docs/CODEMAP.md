@@ -98,8 +98,7 @@ File aktif:
 
 - `build_candidates_v3.py`
 - `convert_ground_truth_to_json.py`
-- `download_embedding_model.py`
-- `download_generator_model.py`
+- `download_vast_assets.py`
 - `load_embeddings_to_chroma.py`
 - `run_generation_eval.py`
 - `run_retrieval_eval.py`
@@ -651,23 +650,27 @@ Output final:
 
 Catatan:
 
-- Script sekarang menulis schema CSV yang sama dengan batch eval `rag_chat.py`:
-  `query_id`, `method`, `question`, `gold_answer`, `generated_answer`,
+- Script sekarang menulis schema dasar batch eval `rag_chat.py` beserta tambahan
+  benchmark waktu:
+  `query_id`, `method`, `top_k`, `question`, `gold_answer`, `generated_answer`,
   `precision_at_k`, `recall_at_k`, `mrr`, `f1_at_k`, `bleu`, `rouge_l_recall`,
-  `error`, `hardware_info`.
+  `retrieval_seconds`, `generation_seconds`, `total_response_seconds`, `error`,
+  `hardware_info`. Kolom timing merupakan tambahan khusus benchmark CLI; query
+  embedding diprecompute dan tidak dimasukkan ke perbandingan antar-metode.
 - Output final Top-1 sampai Top-20 saat ini sudah valid dan tidak perlu direrun kecuali ada perubahan metodologis.
 
-### `scripts/download_embedding_model.py`
+### `scripts/download_vast_assets.py`
 
 Tujuan:
 
-- Download embedding model dari HuggingFace.
+- Download folder Google Drive publik ke `models/`, `data/chroma/`, dan
+  `data/embeddings/`.
+- Mendukung `--asset models|chroma|embeddings|all`.
+- Resume download terputus melalui file `.part` dan download paralel.
+- `--dry-run` memvalidasi akses folder dan target tanpa download data.
+- Hanya menggunakan standard library Python, tanpa `gdown` atau Drive API client.
 
-### `scripts/download_generator_model.py`
-
-Tujuan:
-
-- Download generator model dari HuggingFace.
+Downloader laptop GGUF/FP8 disimpan di `scripts/backup/`.
 
 ## 6. Data Contract
 

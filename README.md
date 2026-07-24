@@ -29,9 +29,18 @@ Notebook visualisasi juga memerlukan dependency opsional:
 pip install matplotlib seaborn
 ```
 
-Downloader embedding project menyiapkan model GGUF. Mode embedding HuggingFace
-memerlukan direktori model lengkap yang berbeda dari satu file GGUF. Downloader
-generator secara terpisah menyiapkan direktori model HuggingFace FP8.
+Untuk Vast.ai RTX 3090, gunakan downloader aktif berikut. Script ini menyiapkan
+model, ChromaDB, dan embedding dari folder Google Drive publik:
+
+```bash
+python scripts/download_vast_assets.py
+python scripts/download_vast_assets.py --asset models
+python scripts/download_vast_assets.py --asset all --dry-run
+```
+
+Downloader laptop GGUF/FP8 dipindahkan ke `scripts/backup/` dan bukan bagian
+dari workflow Vast. Downloader Drive hanya memakai standard library Python dan
+mendukung resume melalui file `.part`.
 
 ## Alur Data
 

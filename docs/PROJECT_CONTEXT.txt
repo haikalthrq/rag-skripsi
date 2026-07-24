@@ -56,8 +56,8 @@ rag-skripsi/
 ├── scripts/
 │   ├── build_candidates_v3.py          generate kandidat anotasi
 │   ├── convert_ground_truth_to_json.py labels → JSON evaluasi retrieval
-│   ├── download_embedding_model.py
-│   ├── download_generator_model.py
+│   ├── download_vast_assets.py          Drive assets untuk Vast RTX 3090
+│   ├── backup/                          downloader laptop GGUF/FP8 lama
 │   ├── load_embeddings_to_chroma.py    load embeddings JSON ke ChromaDB
 │   ├── run_generation_eval.py          BLEU + ROUGE-L
 │   └── run_retrieval_eval.py           P@k, R@k, MRR
@@ -790,9 +790,12 @@ python scripts/run_generation_eval.py
 python scripts/run_generation_eval.py --resume
 python scripts/run_generation_eval.py --methods element_based --top_k 5
 
-# Download model
-python scripts/download_embedding_model.py
-python scripts/download_generator_model.py
+# Download assets Vast.ai RTX 3090 dari Google Drive publik
+python scripts/download_vast_assets.py
+python scripts/download_vast_assets.py --asset models
+python scripts/download_vast_assets.py --asset all --dry-run
+
+# Downloader laptop GGUF/FP8 disimpan sebagai referensi di scripts/backup/
 
 # Git
 git add -A && git commit -m "..." && git push origin main
@@ -882,7 +885,7 @@ Hal penting yang JANGAN salah:
   - Riwayat chat Streamlit persisten di results/chat_history/chat_history.jsonl
   - Backward compat: record lama di JSONL mungkin punya retrieval_strict/lenient — OK
   - Scripts yang ADA: build_candidates_v3.py, convert_ground_truth_to_json.py,
-    download_embedding_model.py, download_generator_model.py, load_embeddings_to_chroma.py,
+    download_vast_assets.py, load_embeddings_to_chroma.py,
     run_generation_eval.py, run_retrieval_eval.py
     DIHAPUS: check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
              inspect_qa.py, rank_results.py

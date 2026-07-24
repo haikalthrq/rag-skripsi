@@ -5,8 +5,9 @@ The script mirrors the Streamlit "Evaluasi Batch" behavior:
   - QA source: qa_gold_standard_rag_bps_30qa_question_newest.xlsx
   - retrieval GT: qa_pairs_binary.json
   - methods: element_based, maxmin_semantic, recursive
-  - metrics: Precision@k, Recall@k, MRR, BLEU, ROUGE-L recall
-  - output schema: same columns as rag_chat.py batch CSV
+  - metrics: Precision@k, Recall@k, MRR, F1@k, BLEU, ROUGE-L recall
+  - timing: retrieval, generation, and total response latency
+  - output schema: rag_chat.py batch columns plus benchmark timing
   - output files: one CSV per top-k, eval_<timestamp>_<mode>_top{k}.csv
 
 Default run evaluates full 30 QA for Top-1 through Top-10.
@@ -20,6 +21,7 @@ import json
 import logging
 import os
 import platform
+import statistics
 import sys
 import time
 import zipfile
@@ -52,6 +54,7 @@ except ImportError:  # pragma: no cover - torch is in requirements, this is defe
 
 from src.evaluation.metrics import (
     compute_bleu,
+    compute_f1_at_k,
     compute_mrr,
     compute_precision_at_k,
     compute_recall_at_k,
@@ -104,19 +107,22 @@ METHOD_LABELS = {
     "recursive": "Recursive",
 }
 
-# Catatan: schema script ini belum sama dengan output Streamlit karena tidak
-# menghitung atau menulis f1_at_k. Konsumen CSV harus membedakan kedua sumber.
 OUTPUT_COLUMNS = [
     "query_id",
     "method",
+    "top_k",
     "question",
     "gold_answer",
     "generated_answer",
     "precision_at_k",
     "recall_at_k",
     "mrr",
+    "f1_at_k",
     "bleu",
     "rouge_l_recall",
+    "retrieval_seconds",
+    "generation_seconds",
+    "total_response_seconds",
     "error",
     "hardware_info",
 ]
@@ -182,6 +188,12 @@ def get_hardware_info() -> dict[str, Any]:
     else:
         info["gpu_available"] = False
     return info
+
+
+def _synchronize_cuda() -> None:
+    """Wait for queued CUDA work so latency measurements are accurate."""
+    if torch is not None and torch.cuda.is_available():
+        torch.cuda.synchronize()
 
 
 def load_qa_gold(path: Path) -> list[dict[str, Any]]:
@@ -290,37 +302,82 @@ def load_ground_truth(path: Path) -> dict[str, dict[str, Any]]:
 
 def build_summary(per_query: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Aggregate rows; keeps mean_bleu/mean_rouge_l compatibility for tests."""
+    def normalize_top_k(value: Any) -> int | None:
+        try:
+            return int(value) if value not in (None, "") else None
+        except (TypeError, ValueError):
+            return None
+
     summary = []
     for method in METHODS:
         labels = {method, METHOD_LABELS[method]}
-        rows = [row for row in per_query if row.get("method") in labels]
-        if not rows:
-            continue
-        bleu_vals = [
-            float(row["bleu"])
-            for row in rows
-            if isinstance(row.get("bleu"), (int, float)) or str(row.get("bleu", "")).replace(".", "", 1).isdigit()
-        ]
-        rouge_vals = []
-        for row in rows:
-            value = row.get("rouge_l_recall", row.get("rouge_l"))
-            if isinstance(value, (int, float)) or str(value).replace(".", "", 1).isdigit():
-                rouge_vals.append(float(value))
-        precision_vals = [float(row["precision_at_k"]) for row in rows if isinstance(row.get("precision_at_k"), (int, float))]
-        recall_vals = [float(row["recall_at_k"]) for row in rows if isinstance(row.get("recall_at_k"), (int, float))]
-        mrr_vals = [float(row["mrr"]) for row in rows if isinstance(row.get("mrr"), (int, float))]
-        summary.append({
-            "method": method,
-            "method_label": METHOD_LABELS[method],
-            "n_queries": len(rows),
-            "n_success": sum(1 for row in rows if row.get("generated_answer") or row.get("answer")),
-            "n_retrieval_evaluated": len(precision_vals),
-            "mean_precision_at_k": round(sum(precision_vals) / len(precision_vals), 6) if precision_vals else None,
-            "mean_recall_at_k": round(sum(recall_vals) / len(recall_vals), 6) if recall_vals else None,
-            "mean_mrr": round(sum(mrr_vals) / len(mrr_vals), 6) if mrr_vals else None,
-            "mean_bleu": round(sum(bleu_vals) / len(bleu_vals), 6) if bleu_vals else None,
-            "mean_rouge_l": round(sum(rouge_vals) / len(rouge_vals), 6) if rouge_vals else None,
-        })
+        method_rows = [row for row in per_query if row.get("method") in labels]
+        top_k_values = sorted(
+            {normalize_top_k(row.get("top_k")) for row in method_rows},
+            key=lambda value: (value is None, value or 0),
+        )
+        for top_k in top_k_values:
+            rows = [row for row in method_rows if normalize_top_k(row.get("top_k")) == top_k]
+
+            def numeric_values(key: str, fallback: str | None = None) -> list[float]:
+                values = []
+                for row in rows:
+                    value = row.get(key, row.get(fallback) if fallback else None)
+                    try:
+                        values.append(float(value))
+                    except (TypeError, ValueError):
+                        pass
+                return values
+
+            def latency_stats(
+                values: list[float],
+            ) -> tuple[float | None, float | None, float | None]:
+                if not values:
+                    return None, None, None
+                std = statistics.stdev(values) if len(values) > 1 else 0.0
+                return (
+                    round(statistics.mean(values), 6),
+                    round(statistics.median(values), 6),
+                    round(std, 6),
+                )
+
+            bleu_vals = numeric_values("bleu")
+            rouge_vals = numeric_values("rouge_l_recall", "rouge_l")
+            precision_vals = numeric_values("precision_at_k")
+            recall_vals = numeric_values("recall_at_k")
+            mrr_vals = numeric_values("mrr")
+            f1_vals = numeric_values("f1_at_k")
+            retrieval_vals = numeric_values("retrieval_seconds")
+            generation_vals = numeric_values("generation_seconds")
+            total_vals = numeric_values("total_response_seconds")
+            mean_retrieval, median_retrieval, std_retrieval = latency_stats(retrieval_vals)
+            mean_generation, median_generation, std_generation = latency_stats(generation_vals)
+            mean_total, median_total, std_total = latency_stats(total_vals)
+
+            summary.append({
+                "method": method,
+                "method_label": METHOD_LABELS[method],
+                "top_k": top_k,
+                "n_queries": len(rows),
+                "n_success": sum(1 for row in rows if row.get("generated_answer") or row.get("answer")),
+                "n_retrieval_evaluated": len(precision_vals),
+                "n_timed": len(total_vals),
+                "mean_precision_at_k": round(statistics.mean(precision_vals), 6) if precision_vals else None,
+                "mean_recall_at_k": round(statistics.mean(recall_vals), 6) if recall_vals else None,
+                "mean_mrr": round(statistics.mean(mrr_vals), 6) if mrr_vals else None,
+                "mean_f1_at_k": round(statistics.mean(f1_vals), 6) if f1_vals else None,
+                "mean_bleu": round(statistics.mean(bleu_vals), 6) if bleu_vals else None,
+                "mean_rouge_l": round(statistics.mean(rouge_vals), 6) if rouge_vals else None,
+                "mean_retrieval_seconds": mean_retrieval,
+                "median_retrieval_seconds": median_retrieval,
+                "std_retrieval_seconds": std_retrieval,
+                "mean_generation_seconds": mean_generation,
+                "median_generation_seconds": median_generation,
+                "std_generation_seconds": std_generation,
+                "mean_total_response_seconds": mean_total,
+                "median_total_response_seconds": median_total,
+                "std_total_response_seconds": std_total,
+            })
     return summary
 
 
@@ -343,7 +400,9 @@ def load_existing_done(path: Path) -> tuple[list[dict[str, Any]], set[tuple[str,
     done = {
         (str(row["query_id"]), str(row["method"]))
         for row in rows
-        if row.get("generated_answer") and not row.get("error")
+        if row.get("generated_answer")
+        and not row.get("error")
+        and row.get("total_response_seconds") not in (None, "")
     }
     return rows, done
 
@@ -420,14 +479,19 @@ def evaluate_top_k(
             row: dict[str, Any] = {
                 "query_id": q_id,
                 "method": method_label,
+                "top_k": current_k,
                 "question": question,
                 "gold_answer": gold_answer,
                 "generated_answer": None,
                 "precision_at_k": None,
                 "recall_at_k": None,
                 "mrr": None,
+                "f1_at_k": None,
                 "bleu": None,
                 "rouge_l_recall": None,
+                "retrieval_seconds": None,
+                "generation_seconds": None,
+                "total_response_seconds": None,
                 "error": "",
                 "hardware_info": hardware_info,
             }
@@ -444,28 +508,56 @@ def evaluate_top_k(
                     top_k=current_k,
                 )
 
-                retrieved = p.retrieve_by_vector(q_vec, k=current_k) if embed_ok else p.retrieve(question, k=current_k)
+                _synchronize_cuda()
+                response_started = time.perf_counter()
+                retrieved = (
+                    p.retrieve_by_vector(q_vec, k=current_k)
+                    if embed_ok
+                    else p.retrieve(question, k=current_k)
+                )
+                _synchronize_cuda()
+                row["retrieval_seconds"] = round(time.perf_counter() - response_started, 6)
                 retrieved_ids = [doc.get("id", "") for doc in retrieved]
+
+                contexts = [p._format_context(doc) for doc in retrieved]
+                _synchronize_cuda()
+                generation_started = time.perf_counter()
+                raw = pipeline.generator.generate(question, contexts)
+                _synchronize_cuda()
+                row["generation_seconds"] = round(time.perf_counter() - generation_started, 6)
+                row["total_response_seconds"] = round(time.perf_counter() - response_started, 6)
+                answer = raw[0] if isinstance(raw, tuple) else raw
+                row["generated_answer"] = answer
 
                 rel_ids: list[str] = []
                 if gt_item:
                     rel_all = gt_item.get("relevant_chunk_ids", {})
                     rel_ids = rel_all.get(method, []) if isinstance(rel_all, dict) else rel_all
                 if rel_ids:
-                    row["precision_at_k"] = round(compute_precision_at_k(retrieved_ids, rel_ids, current_k), 4)
-                    row["recall_at_k"] = round(compute_recall_at_k(retrieved_ids, rel_ids, current_k), 4)
+                    precision = compute_precision_at_k(retrieved_ids, rel_ids, current_k)
+                    recall = compute_recall_at_k(retrieved_ids, rel_ids, current_k)
+                    row["precision_at_k"] = round(precision, 4)
+                    row["recall_at_k"] = round(recall, 4)
                     row["mrr"] = round(compute_mrr(retrieved_ids, rel_ids), 4)
+                    row["f1_at_k"] = round(
+                        compute_f1_at_k(precision, recall),
+                        4,
+                    )
                 else:
                     row["precision_at_k"] = "N/A"
                     row["recall_at_k"] = "N/A"
                     row["mrr"] = "N/A"
-
-                contexts = [p._format_context(doc) for doc in retrieved]
-                raw = pipeline.generator.generate(question, contexts)
-                answer = raw[0] if isinstance(raw, tuple) else raw
-                row["generated_answer"] = answer
+                    row["f1_at_k"] = "N/A"
                 row["bleu"] = round(compute_bleu(answer, gold_answer), 4)
-                row["rouge_l_recall"] = round(compute_rouge(answer, gold_answer, rouge_type="rougeL", mode="recall"), 4)
+                row["rouge_l_recall"] = round(
+                    compute_rouge(
+                        answer,
+                        gold_answer,
+                        rouge_type="rougeL",
+                        mode="recall",
+                    ),
+                    4,
+                )
 
                 if torch is not None and torch.cuda.is_available():
                     torch.cuda.empty_cache()
@@ -484,18 +576,25 @@ def evaluate_top_k(
 
 def print_summary(summary: list[dict[str, Any]]) -> None:
     print("\nBatch evaluation summary")
-    print("-" * 112)
-    print(f"{'Method':<22} {'N':>4} {'Eval':>5} {'P@k':>9} {'R@k':>9} {'MRR':>9} {'BLEU':>9} {'ROUGE-L':>9}")
-    print("-" * 112)
+    print("-" * 143)
+    print(
+        f"{'Method':<22} {'K':>3} {'N':>4} {'Eval':>5} {'P@k':>9} "
+        f"{'R@k':>9} {'F1@k':>9} {'MRR':>9} {'BLEU':>9} {'ROUGE-L':>9} "
+        f"{'Retrieval(s)':>13} {'Generation(s)':>14} {'Total(s)':>10}"
+    )
+    print("-" * 143)
     for row in summary:
         def fmt(value: Any) -> str:
             return "-" if value is None else f"{float(value):.4f}"
         print(
-            f"{row['method_label']:<22} {row['n_queries']:>4} {row['n_retrieval_evaluated']:>5} "
+            f"{row['method_label']:<22} {str(row.get('top_k') or '-'):>3} "
+            f"{row['n_queries']:>4} {row['n_retrieval_evaluated']:>5} "
             f"{fmt(row['mean_precision_at_k']):>9} {fmt(row['mean_recall_at_k']):>9} "
-            f"{fmt(row['mean_mrr']):>9} {fmt(row['mean_bleu']):>9} {fmt(row['mean_rouge_l']):>9}"
+            f"{fmt(row['mean_f1_at_k']):>9} {fmt(row['mean_mrr']):>9} {fmt(row['mean_bleu']):>9} "
+            f"{fmt(row['mean_rouge_l']):>9} {fmt(row['mean_retrieval_seconds']):>13} "
+            f"{fmt(row['mean_generation_seconds']):>14} {fmt(row['mean_total_response_seconds']):>10}"
         )
-    print("-" * 112)
+    print("-" * 143)
 
 
 def parse_args() -> argparse.Namespace:

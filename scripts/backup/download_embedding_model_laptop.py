@@ -1,4 +1,6 @@
 """
+Legacy laptop downloader. Kept for reference only.
+
 Download embedding model ke models/ lokal.
 
 Model : Qwen3-Embedding-4B-Q8_0.gguf
@@ -6,7 +8,7 @@ Repo  : Qwen/Qwen3-Embedding-4B-GGUF (HuggingFace)
 Ukuran: ~4.3 GB
 
 Usage:
-  python scripts/download_embedding_model.py
+  python scripts/backup/download_embedding_model_laptop.py
 """
 
 import os
