@@ -1,0 +1,4 @@
+method,top_k,n,n_queries,n_success,n_retrieval_evaluated,n_timed,mean_precision,mean_recall,mean_mrr,mean_f1,mean_bleu,mean_rouge_l,mean_retrieval_seconds,median_retrieval_seconds,std_retrieval_seconds,mean_generation_seconds,median_generation_seconds,std_generation_seconds,mean_total_response_seconds,median_total_response_seconds,std_total_response_seconds
+Element-Based,2,27,27,27,26,27,0.1538,0.2436,0.2885,0.1821,0.111,0.7039,0.0038,0.0037,0.0006,6.2638,4.6378,4.9421,6.2683,4.6414,4.9418
+MaxMin Semantic,2,26,26,26,26,26,0.1731,0.2532,0.2692,0.1949,0.1077,0.622,0.0034,0.0034,0.0005,5.4146,4.0,7.5066,5.418,4.0039,7.5067
+Recursive,2,26,26,26,25,26,0.24,0.242,0.34,0.219,0.1598,0.6885,0.0034,0.0034,0.0004,4.636,4.3711,2.7909,4.6394,4.3746,2.7908
