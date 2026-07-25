@@ -227,6 +227,105 @@ def _compute_chat_retrieval_metrics(
     }
 
 
+def _synchronize_cuda() -> None:
+    """Wait for queued CUDA work so batch latency measurements are accurate."""
+    if torch.cuda.is_available():
+        torch.cuda.synchronize()
+
+
+def _build_batch_summary(df_res: pd.DataFrame) -> pd.DataFrame:
+    """Aggregate batch metrics and latency statistics by chunking method."""
+    latency_columns = [
+        "retrieval_seconds",
+        "generation_seconds",
+        "total_response_seconds",
+    ]
+    work = df_res.copy()
+    for column in latency_columns:
+        if column not in work:
+            work[column] = pd.NA
+
+    numeric_columns = [
+        "precision_at_k",
+        "recall_at_k",
+        "mrr",
+        "f1_at_k",
+        "bleu",
+        "rouge_l_recall",
+        *latency_columns,
+    ]
+    for column in numeric_columns:
+        work[column] = pd.to_numeric(work[column], errors="coerce")
+
+    if work.empty:
+        return pd.DataFrame()
+
+    summary = (
+        work.groupby("method")[numeric_columns]
+        .agg(
+            n=("bleu", "count"),
+            n_queries=("bleu", "size"),
+            n_success=(
+                "bleu",
+                lambda values: work.loc[values.index, "generated_answer"]
+                .fillna("")
+                .astype(str)
+                .str.len()
+                .gt(0)
+                .sum(),
+            ),
+            n_retrieval_evaluated=("precision_at_k", "count"),
+            n_timed=("total_response_seconds", "count"),
+            mean_precision=("precision_at_k", "mean"),
+            mean_recall=("recall_at_k", "mean"),
+            mean_mrr=("mrr", "mean"),
+            mean_f1=("f1_at_k", "mean"),
+            mean_bleu=("bleu", "mean"),
+            mean_rouge_l=("rouge_l_recall", "mean"),
+            mean_retrieval_seconds=("retrieval_seconds", "mean"),
+            median_retrieval_seconds=("retrieval_seconds", "median"),
+            std_retrieval_seconds=("retrieval_seconds", "std"),
+            mean_generation_seconds=("generation_seconds", "mean"),
+            median_generation_seconds=("generation_seconds", "median"),
+            std_generation_seconds=("generation_seconds", "std"),
+            mean_total_response_seconds=("total_response_seconds", "mean"),
+            median_total_response_seconds=("total_response_seconds", "median"),
+            std_total_response_seconds=("total_response_seconds", "std"),
+        )
+        .round(4)
+    )
+    return summary
+
+
+def _save_batch_summary(
+    all_results: list[tuple[pd.DataFrame, Path, str]],
+    mode_tag: str,
+    top_k_min: int,
+    top_k_max: int,
+) -> Path | None:
+    """Persist one summary CSV per method and top-k, matching standalone output."""
+    summary_frames = []
+    for df_result, _, _ in all_results:
+        if df_result.empty:
+            continue
+        summary = _build_batch_summary(df_result).reset_index()
+        if "top_k" in df_result:
+            top_k_values = pd.to_numeric(df_result["top_k"], errors="coerce").dropna().unique()
+            if len(top_k_values) == 1:
+                summary.insert(1, "top_k", int(top_k_values[0]))
+        summary_frames.append(summary)
+
+    if not summary_frames:
+        return None
+
+    ts_wib = (datetime.now() + timedelta(hours=7)).strftime("%Y%m%d_%H%M%S")
+    summary_path = EVAL_RESULTS_DIR / (
+        f"summary_{ts_wib}_{mode_tag}_top{top_k_min}-{top_k_max}.csv"
+    )
+    pd.concat(summary_frames, ignore_index=True).to_csv(summary_path, index=False)
+    return summary_path
+
+
 def _section_header(text: str) -> None:
     """Render section header konsisten (lebih besar dari isi, dark-mode safe)."""
     st.markdown(f"<div class='rag-section'>{html.escape(text)}</div>",
@@ -755,7 +854,10 @@ with tab_chat:
 # TAB 2 — Evaluasi Batch (Persistent + History)
 # ══════════════════════════════════════════════════════════════════════════════
 with tab_eval:
-    st.subheader("Evaluasi Batch — Retrieval (P@k, R@k, MRR, F1@k) + Generation (BLEU, ROUGE-L)")
+    st.subheader(
+        "Evaluasi Batch — Retrieval (P@k, R@k, MRR, F1@k) + "
+        "Generation (BLEU, ROUGE-L) + Latency"
+    )
     st.caption(
         "Hasil disimpan permanen ke disk dan tidak hilang saat app restart. "
         "Menggunakan ground truth binary (label 0/1). "
@@ -795,6 +897,12 @@ with tab_eval:
 
     def _get_existing_eval_file(mode_tag: str, top_k_value: int) -> tuple[pd.DataFrame, Path] | None:
         """Return CSV evaluasi yang sudah ada untuk mode/top-k jika valid."""
+        required_latency_columns = {
+            "top_k",
+            "retrieval_seconds",
+            "generation_seconds",
+            "total_response_seconds",
+        }
         matches = sorted(
             EVAL_RESULTS_DIR.glob(f"eval_*_{mode_tag}_top{top_k_value}.csv"),
             reverse=True,
@@ -802,10 +910,8 @@ with tab_eval:
         for path in matches:
             try:
                 df_existing = pd.read_csv(path)
-                # Catatan: "valid" di sini hanya berarti CSV dapat dibaca dan
-                # tidak kosong. Schema, jumlah query/metode, dan kelengkapan
-                # hasil belum diverifikasi sebelum file dianggap selesai.
-                if not df_existing.empty:
+                # Require latency columns so pre-timing CSVs are recalculated.
+                if not df_existing.empty and required_latency_columns.issubset(df_existing.columns):
                     return df_existing, path
             except Exception as exc:
                 logger.warning(f"Existing eval file ignored because it cannot be read: {path} ({exc})")
@@ -918,8 +1024,10 @@ with tab_eval:
                     # Initialize metrics
                     precision_val = recall_val = mrr_val = f1_val = None
                     gen_answer = bleu_val = rouge_val = None
+                    retrieval_seconds = generation_seconds = total_response_seconds = None
                     error_msg = ""
                     is_oom = False
+                    response_started = None
                     
                     try:
                         # Retrieve with OOM handling
@@ -931,10 +1039,14 @@ with tab_eval:
                             top_k=current_k,
                         )
                         
+                        _synchronize_cuda()
+                        response_started = time.perf_counter()
                         if embed_ok:
                             retrieved = p.retrieve_by_vector(q_vec, k=current_k)
                         else:
                             retrieved = p.retrieve(question, k=current_k)
+                        _synchronize_cuda()
+                        retrieval_seconds = round(time.perf_counter() - response_started, 6)
                         
                         # Get retrieved chunk IDs
                         retrieved_ids = [doc.get("id", "") for doc in retrieved]
@@ -951,7 +1063,12 @@ with tab_eval:
                         
                         # Generate answer
                         contexts = [p._format_context(doc) for doc in retrieved]
+                        _synchronize_cuda()
+                        generation_started = time.perf_counter()
                         raw = pipeline.generator.generate(question, contexts)
+                        _synchronize_cuda()
+                        generation_seconds = round(time.perf_counter() - generation_started, 6)
+                        total_response_seconds = round(time.perf_counter() - response_started, 6)
                         gen_answer = raw[0] if isinstance(raw, tuple) else raw
                         bleu_val = compute_bleu(gen_answer, gold_ans)
                         rouge_val = compute_rouge(gen_answer, gold_ans, rouge_type="rougeL", mode="recall")
@@ -974,10 +1091,15 @@ with tab_eval:
                         precision_val = recall_val = mrr_val = f1_val = None
                         bleu_val = rouge_val = None
                         error_msg = str(exc)
+                    finally:
+                        if response_started is not None and total_response_seconds is None:
+                            _synchronize_cuda()
+                            total_response_seconds = round(time.perf_counter() - response_started, 6)
                     
                     rows.append({
                         "query_id"         : q_id,
                         "method"           : METHOD_LABELS[method],
+                        "top_k"            : current_k,
                         "question"         : question,
                         "gold_answer"      : gold_ans,
                         "generated_answer" : gen_answer,
@@ -987,6 +1109,9 @@ with tab_eval:
                         "f1_at_k"          : round(f1_val, 4) if isinstance(f1_val, (int, float)) else f1_val,
                         "bleu"             : round(bleu_val, 4) if isinstance(bleu_val, (int, float)) else bleu_val,
                         "rouge_l_recall"   : round(rouge_val, 4) if isinstance(rouge_val, (int, float)) else rouge_val,
+                        "retrieval_seconds": retrieval_seconds,
+                        "generation_seconds": generation_seconds,
+                        "total_response_seconds": total_response_seconds,
                         "error"            : error_msg,
                         "hardware_info"    : hw_info_str,
                     })
@@ -1030,6 +1155,15 @@ with tab_eval:
                     f"{n_q} pertanyaan × {len(METHODS)} metode × {top_k_max - top_k_min + 1} top-k diminta)"
                 )
 
+                summary_path = _save_batch_summary(
+                    all_results,
+                    mode_tag,
+                    top_k_min,
+                    top_k_max,
+                )
+                if summary_path is not None:
+                    st.markdown(f"**Summary CSV:** `{summary_path.name}`")
+
                 # Show list of generated files
                 st.markdown("**File hasil evaluasi:**")
                 for df, path, status in all_results:
@@ -1045,6 +1179,18 @@ with tab_eval:
     # ── Helper: render DataFrame hasil ───────────────────────────────────
     def _render_results(df_res: pd.DataFrame) -> None:
         """Tampilkan ringkasan + detail + tombol export untuk DataFrame hasil eval."""
+        latency_columns = [
+            "top_k",
+            "retrieval_seconds",
+            "generation_seconds",
+            "total_response_seconds",
+        ]
+        missing_latency_columns = [column for column in latency_columns if column not in df_res]
+        if missing_latency_columns:
+            df_res = df_res.copy()
+            for column in missing_latency_columns:
+                df_res[column] = pd.NA
+
         # Ringkasan per metode (termasuk retrieval metrics)
         st.markdown("**Ringkasan per Metode**")
         
@@ -1057,7 +1203,10 @@ with tab_eval:
         
         if not valid_metrics.empty:
             # Convert to numeric for aggregation
-            numeric_cols = ["precision_at_k", "recall_at_k", "mrr", "f1_at_k", "bleu", "rouge_l_recall"]
+            numeric_cols = [
+                "precision_at_k", "recall_at_k", "mrr", "f1_at_k", "bleu", "rouge_l_recall",
+                "retrieval_seconds", "generation_seconds", "total_response_seconds",
+            ]
             for col in numeric_cols:
                 valid_metrics[col] = pd.to_numeric(valid_metrics[col], errors="coerce")
             
@@ -1069,8 +1218,28 @@ with tab_eval:
                      mean_mrr=("mrr", "mean"),
                      mean_f1=("f1_at_k", "mean"),
                      mean_bleu=("bleu", "mean"),
-                     mean_rouge_l=("rouge_l_recall", "mean"))
+                     mean_rouge_l=("rouge_l_recall", "mean"),
+                     mean_retrieval_seconds=("retrieval_seconds", "mean"),
+                     mean_generation_seconds=("generation_seconds", "mean"),
+                     mean_total_response_seconds=("total_response_seconds", "mean"))
                 .round(4)
+            )
+            extended_summary = _build_batch_summary(df_res)
+            extra_summary_columns = [
+                "n_queries",
+                "n_success",
+                "n_retrieval_evaluated",
+                "n_timed",
+                "median_retrieval_seconds",
+                "std_retrieval_seconds",
+                "median_generation_seconds",
+                "std_generation_seconds",
+                "median_total_response_seconds",
+                "std_total_response_seconds",
+            ]
+            summary = summary.join(
+                extended_summary[extra_summary_columns],
+                how="left",
             )
             st.dataframe(summary, width="stretch")
         else:
@@ -1079,9 +1248,10 @@ with tab_eval:
 
         # Detail per query
         st.markdown("**Detail Per Query**")
-        display_cols = ["query_id", "method", "question", "gold_answer",
+        display_cols = ["query_id", "method", "top_k", "question", "gold_answer",
                         "generated_answer", "precision_at_k", "recall_at_k",
-                        "mrr", "f1_at_k", "bleu", "rouge_l_recall", "error"]
+                        "mrr", "f1_at_k", "bleu", "rouge_l_recall",
+                        "retrieval_seconds", "generation_seconds", "total_response_seconds", "error"]
         st.dataframe(
             df_res[display_cols],
             width="stretch",
@@ -1096,6 +1266,9 @@ with tab_eval:
                 "f1_at_k"          : st.column_config.TextColumn(width="small"),
                 "bleu"             : st.column_config.NumberColumn(format="%.4f"),
                 "rouge_l_recall"   : st.column_config.NumberColumn(format="%.4f"),
+                "retrieval_seconds": st.column_config.NumberColumn(format="%.4f s"),
+                "generation_seconds": st.column_config.NumberColumn(format="%.4f s"),
+                "total_response_seconds": st.column_config.NumberColumn(format="%.4f s"),
             },
         )
 
@@ -1197,10 +1370,4 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
-
-
-
-
-
-
 
