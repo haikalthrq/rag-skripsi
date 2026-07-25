@@ -2,6 +2,9 @@
 # torch is provided by the pinned Vast PyTorch base image.
 # llama-cpp-python is intentionally excluded; Vast uses HF models on CUDA.
 
+# Required when installing this file directly outside the Docker build.
+--extra-index-url https://download.pytorch.org/whl/cu126
+
 # PDF/OCR and chunking support
 PyMuPDF
 unstructured[pdf]
