@@ -29,16 +29,16 @@ Configure the template with:
 - GPU: RTX 3090 with at least 24 GB VRAM.
 - Image: the published `rag-skripsi:vast-rtx3090` image.
 - Runtime: SSH direct.
-- Persistent volume mount: `/workspace`.
+- Persistent storage: preserve the direct project asset directories.
 - On-start command: `/usr/local/bin/rag-vast-bootstrap`.
 
-Vast SSH mode replaces the image entrypoint, so the bootstrap must be set as
-the template on-start command. It creates these links:
+Vast SSH mode replaces the image entrypoint, so the bootstrap should be set as
+the template on-start command. It creates the direct asset directories:
 
 ```text
-/opt/workspace-internal/rag-skripsi/models        -> /workspace/models
-/opt/workspace-internal/rag-skripsi/data/chroma   -> /workspace/chroma
-/opt/workspace-internal/rag-skripsi/data/embeddings -> /workspace/embeddings
+/workspace/rag-skripsi/models
+/workspace/rag-skripsi/data/chroma
+/workspace/rag-skripsi/data/embeddings
 ```
 
 ## First Run
@@ -46,7 +46,7 @@ the template on-start command. It creates these links:
 Run from the project directory after SSH connects:
 
 ```bash
-cd /opt/workspace-internal/rag-skripsi
+cd /workspace/rag-skripsi
 python scripts/download_vast_assets.py --asset all --workers 4
 python scripts/run_generation_eval.py --top_k 1
 ```
@@ -61,9 +61,9 @@ successfully because the persistent Chroma collections are already present.
 After the volume and image are reused, only run:
 
 ```bash
-cd /opt/workspace-internal/rag-skripsi
+cd /workspace/rag-skripsi
 python scripts/run_generation_eval.py
 ```
 
-The Docker image contains dependencies; the persistent volume contains models,
-ChromaDB, and embeddings.
+The Docker image contains dependencies; the direct project directories contain
+models, ChromaDB, and embeddings.

@@ -114,7 +114,7 @@ Subfolder penting:
 - `data/cleaned/`: teks hasil preprocessing.
 - `data/chunked/`: chunk JSON per metode.
 - `data/embeddings/`: embedding JSON.
-- `data/chroma/`: ChromaDB persistent storage, biasanya ignored/symlink di environment cloud.
+- `data/chroma/`: ChromaDB persistent storage, biasanya ignored di environment cloud.
 - `data/ground_truth/`: QA gold, label retrieval, dan JSON evaluasi aktif.
 
 ### `results/`

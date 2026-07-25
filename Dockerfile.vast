@@ -9,11 +9,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     HF_HUB_DISABLE_TELEMETRY=1 \
     TRANSFORMERS_NO_ADVISORY_WARNINGS=1 \
-    RAG_PROJECT_ROOT=/opt/workspace-internal/rag-skripsi \
-    RAG_ASSET_ROOT=/workspace \
+    RAG_PROJECT_ROOT=/workspace/rag-skripsi \
     PATH=/venv/main/bin:${PATH}
 
-WORKDIR /opt/workspace-internal/rag-skripsi
+WORKDIR /workspace/rag-skripsi
 
 # System packages are needed by PDF/OCR support. llama-cpp-python is omitted:
 # the Vast workflow uses the HuggingFace models on the RTX 3090 instead.
@@ -39,7 +38,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
         -r /tmp/requirements.vast.txt
 
 # Models, ChromaDB, and precomputed embeddings are intentionally excluded from
-# the image. They live on the persistent Vast volume mounted at /workspace.
+# the image. They are downloaded into the direct project directories at runtime.
 COPY . .
 COPY docker/vast/bootstrap.sh /usr/local/bin/rag-vast-bootstrap
 RUN chmod +x /usr/local/bin/rag-vast-bootstrap
