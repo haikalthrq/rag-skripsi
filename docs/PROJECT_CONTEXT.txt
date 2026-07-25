@@ -61,8 +61,6 @@ rag-skripsi/
 │   ├── load_embeddings_to_chroma.py    load embeddings JSON ke ChromaDB
 │   ├── run_generation_eval.py          BLEU + ROUGE-L
 │   └── run_retrieval_eval.py           P@k, R@k, MRR
-├── Dockerfile.vast                       runtime image Vast RTX 3090
-├── docker/vast/                          bootstrap dan instruksi template
 │   [DIHAPUS] check_nan_percentage.py, cleanup_nan_results.py, compare_results.py,
 │             inspect_qa.py, rank_results.py — tidak aktif, sudah dihapus dari repo
 ├── data/
@@ -70,7 +68,7 @@ rag-skripsi/
 │   ├── cleaned/          teks hasil preprocessing
 │   ├── chunked/          {element_based,maxmin_semantic,recursive}/*.json
 │   ├── embeddings/       JSON embeddings (tracked by git, ~540MB)
-│   ├── chroma/           ChromaDB (ignored by git, direct path di Vast AI)
+│   ├── chroma/           ChromaDB (ignored by git, symlink ke /workspace/chroma/ di Vast AI)
 │   └── ground_truth/     QA gold, anotasi label, JSON GT (lihat Section 3)
 │       ├── archive/          file lama & dokumentasi proses (qa_pairs_strict, kandidat v3, dll)
 │       ├── qa_gold_standard_rag_bps_30qa_question_newest.xlsx  ← QA gold aktif
@@ -147,7 +145,7 @@ rag-skripsi/
 │   CATATAN: results/final/generation/ = flat folder, berisi 20 file eval definitif.
 │            Nama file "lenient" adalah legacy — isi = binary (label >= 1 = relevan).
 │            Subfolder strict/ sudah dihapus dari final (dipindah ke RTX3090_strict_archived).
-├── models/               embedding + generator (ignored by git, direct path di Vast AI)
+├── models/               embedding + generator (ignored by git, symlink ke /workspace/models/ di Vast AI)
 ├── tests/                test_evaluation.py (20 unit test metrics)
 ├── notebooks/
 │   ├── rag_inference.ipynb
@@ -251,7 +249,7 @@ Embedding:
     → Hanya memengaruhi data/embeddings/ dan ChromaDB, TIDAK ubah data/chunked/
 
 ChromaDB:
-  Path: data/chroma/ (di Vast AI: direct path di project root)
+  Path: data/chroma/ (di Vast AI: symlink ke /workspace/chroma/)
   Collections: collection_element_based, collection_maxmin_semantic, collection_recursive
   ID chunk format: {file_stem}_{original_index} — terverifikasi cocok 100% dengan GT JSON
 
@@ -798,13 +796,6 @@ python scripts/download_vast_assets.py --asset models
 python scripts/download_vast_assets.py --asset all --dry-run
 
 # Downloader laptop GGUF/FP8 disimpan sebagai referensi di scripts/backup/
-
-# Build Docker image (jalankan dari root repository)
-docker buildx build --platform linux/amd64 -f Dockerfile.vast \
-  -t ghcr.io/OWNER/rag-skripsi:vast-rtx3090 --push .
-
-# Setelah template Vast menyiapkan storage project:
-python scripts/download_vast_assets.py --asset all --workers 4
 
 # Git
 git add -A && git commit -m "..." && git push origin main

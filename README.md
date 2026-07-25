@@ -42,13 +42,6 @@ Downloader laptop GGUF/FP8 dipindahkan ke `scripts/backup/` dan bukan bagian
 dari workflow Vast. Downloader Drive hanya memakai standard library Python dan
 mendukung resume melalui file `.part`.
 
-## Docker Vast.ai
-
-Build image runtime RTX 3090 dengan `Dockerfile.vast`. Image hanya berisi
-dependency dan source code; model, ChromaDB, dan embedding diunduh langsung ke
-`models/`, `data/chroma/`, dan `data/embeddings/`. Instruksi template tersedia di
-`docker/vast/README.md`.
-
 ## Alur Data
 
 1. PDF mentah: `data/raw/`
