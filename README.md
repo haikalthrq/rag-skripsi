@@ -1,111 +1,245 @@
 # RAG Skripsi
 
-Project ini membandingkan tiga metode chunking untuk sistem RAG: element-based,
-MaxMin semantic, dan recursive. Dokumen ini menjelaskan kondisi implementasi
-saat ini agar checkout baru tidak hanya bergantung pada contoh lama di README
-komponen.
+Sistem Retrieval-Augmented Generation untuk membandingkan tiga metode chunking
+dokumen statistik BPS:
 
-## Status Penting
+- `element_based`
+- `maxmin_semantic`
+- `recursive`
 
-- `src/chunking/maxmin_chunker.py` saat ini memiliki signature tidak valid pada
-  `embed_sentences()`. Karena `src.chunking` melakukan import eager, seluruh
-  import melalui package tersebut akan gagal sampai signature diperbaiki.
-- Dokumentasi ini hanya mencatat kondisi tersebut. Kode asli tidak diperbaiki
-  dalam perubahan dokumentasi ini.
-- Folder `graphify-out/`, cache, model, log, dan sebagian artefak data tidak
-  tersedia dari Git karena diabaikan atau harus dibangun lokal.
+Pipeline menggunakan Qwen3 untuk embedding dan generation, ChromaDB sebagai
+vector store, serta metrik retrieval dan generation untuk evaluasi 30 pasangan
+pertanyaan-jawaban.
 
-## Persiapan
+## Status Project
 
-Jalankan semua command dari root repository.
+- Workflow aktif dijalankan langsung dengan Python di laptop atau Vast.ai.
+- Docker bukan bagian dari workflow repository terbaru.
+- `src/streamlit/rag_chat.py` menyediakan chat, perbandingan tiga metode, dan
+  batch evaluation dengan metrik latency.
+- Hasil evaluasi terbaru yang tersimpan di repository mencakup full evaluation
+  Top-1 sampai Top-10 pada 30 QA dan tiga metode.
+- Model, embedding, dan ChromaDB merupakan asset runtime dan tidak disimpan di
+  Git.
+
+## Persiapan Environment
+
+Jalankan command dari root repository. Python yang digunakan untuk project ini
+adalah Python 3.11.9.
+
+```bash
+python -m venv .venv
+```
+
+Aktifkan virtual environment sesuai sistem operasi, lalu install dependency:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Notebook visualisasi juga memerlukan dependency opsional:
+Notebook visualisasi memerlukan dependency tambahan:
 
 ```bash
 pip install matplotlib seaborn
 ```
 
-Untuk Vast.ai RTX 3090, gunakan downloader aktif berikut. Script ini menyiapkan
-model, ChromaDB, dan embedding dari folder Google Drive publik:
+GPU NVIDIA direkomendasikan untuk embedding dan generation. `llama-cpp-python`
+digunakan untuk backend GGUF dan mungkin memerlukan instalasi dengan dukungan
+CUDA sesuai environment mesin.
+
+## Asset Runtime
+
+Asset besar disiapkan dengan downloader berikut. Downloader hanya menggunakan
+standard library Python, mendukung download paralel, resume melalui file
+`.part`, dan dapat dijalankan ulang pada volume persisten.
 
 ```bash
+# Semua asset: models/, data/chroma/, dan data/embeddings/
 python scripts/download_vast_assets.py
+
+# Satu kelompok asset
 python scripts/download_vast_assets.py --asset models
+python scripts/download_vast_assets.py --asset chroma
+python scripts/download_vast_assets.py --asset embeddings
+
+# Periksa rencana download tanpa menulis file
 python scripts/download_vast_assets.py --asset all --dry-run
 ```
 
-Downloader laptop GGUF/FP8 dipindahkan ke `scripts/backup/` dan bukan bagian
-dari workflow Vast. Downloader Drive hanya memakai standard library Python dan
-mendukung resume melalui file `.part`.
+Ground truth yang diperlukan untuk evaluasi berada di:
+
+- `data/ground_truth/qa_gold_standard_rag_bps_30qa_question_newest.xlsx`
+- `data/ground_truth/qa_pairs_binary.json`
+- `data/ground_truth/retrieval_labels_final.csv`
 
 ## Alur Data
 
-1. PDF mentah: `data/raw/`
-2. Teks bersih: `data/cleaned/`
-3. Chunk: `data/chunked/{method}/`
-4. Embedding: `data/embeddings/{method}/`
-5. Vector store: `data/chroma/`
-6. Evaluasi: `results/`
+```text
+data/raw/                 PDF mentah
+    -> data/cleaned/      teks hasil ekstraksi dan cleaning
+    -> data/chunked/      chunk per metode
+    -> data/embeddings/   embedding per metode
+    -> data/chroma/       collection ChromaDB
+    -> results/           hasil evaluasi dan log
+```
 
-Preprocessing masih memiliki default `data/cleaned_text`. Gunakan output
-`data/cleaned` secara eksplisit agar cocok dengan default MaxMin dan recursive.
+### 1. Preprocessing
+
+Gunakan `data/cleaned` secara eksplisit agar sesuai dengan input default
+chunker MaxMin dan recursive.
 
 ```bash
 python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
 ```
 
-Selama blocker parse MaxMin masih ada, jalankan file chunker secara langsung
-untuk menghindari import eager package:
+### 2. Chunking
 
 ```bash
-python src/chunking/element_based.py --help
-python src/chunking/recursive_split.py --help
+python src/chunking/element_based.py \
+  --input data/raw \
+  --output data/chunked/element_based
+
+python src/chunking/maxmin_chunker.py \
+  --input data/cleaned \
+  --output data/chunked/maxmin_semantic \
+  --gguf models/Qwen3-Embedding-4B-Q8_0.gguf
+
+python src/chunking/recursive_split.py \
+  --input data/cleaned \
+  --output data/chunked/recursive
 ```
 
-Embedding dijalankan melalui module entry point:
+### 3. Embedding dan ChromaDB
+
+Mode GGUF direkomendasikan untuk workflow Vast.ai dengan asset yang disiapkan
+downloader.
 
 ```bash
-python -m src.embedding.embed_chunks --help
-```
+python -m src.embedding.embed_chunks \
+  --mode gguf \
+  --gguf-model models/Qwen3-Embedding-4B-Q8_0.gguf \
+  --input data/chunked \
+  --output data/embeddings
 
-Loader berikut meminta reset untuk setiap metode yang memiliki file embedding.
-Metode tanpa file input dilewati dan collection lamanya tidak disentuh:
-
-```bash
 python scripts/load_embeddings_to_chroma.py
 ```
 
-Untuk model GGUF yang disiapkan downloader, retrieval evaluation perlu memilih
-mode GGUF secara eksplisit:
+`load_embeddings_to_chroma.py` me-reset collection yang memiliki file embedding
+untuk diproses, lalu memuat collection `element_based`, `maxmin_semantic`, dan
+`recursive` ke `data/chroma`.
+
+## Evaluasi
+
+### Retrieval
+
+Standalone retrieval evaluation menghitung Precision@k, Recall@k, dan MRR per
+query serta summary CSV.
 
 ```bash
-python scripts/run_retrieval_eval.py --mode gguf
+python scripts/run_retrieval_eval.py \
+  --mode gguf \
+  --embedder models/Qwen3-Embedding-4B-Q8_0.gguf \
+  --chroma_path data/chroma \
+  --top_k 8
 ```
 
-Standalone generation evaluation hanya mendukung Top-1 sampai Top-10 dan belum
-menulis kolom `f1_at_k`. Workflow Streamlit memiliki kontrak output berbeda.
+Output default:
 
-## Entry Point Streamlit
+- `results/retrieval_eval.csv`
+- `results/retrieval_eval_summary.csv`
+
+### Generation dan Latency
+
+Standalone batch evaluation membaca 30 QA, menjalankan tiga metode, dan
+membatasi rentang Top-k ke Top-1 sampai Top-10.
+
+```bash
+python scripts/run_generation_eval.py \
+  --mode_tag full \
+  --top_k_min 1 \
+  --top_k_max 10 \
+  --resume
+```
+
+Mode cepat hanya memakai lima QA stabil:
+
+```bash
+python scripts/run_generation_eval.py \
+  --mode_tag quick \
+  --top_k 1
+```
+
+Output disimpan di `results/final/generation/`, berupa CSV per Top-k, summary
+CSV, dan log run. Kolom utama meliputi:
+
+- Retrieval: `precision_at_k`, `recall_at_k`, `mrr`, `f1_at_k`
+- Generation: `bleu`, `rouge_l_recall`
+- Latency: `retrieval_seconds`, `generation_seconds`,
+  `total_response_seconds`
+- Metadata: `hardware_info`, `error`, dan jumlah query yang berhasil/timed
+
+Summary menghitung mean, median, dan standard deviation latency per metode dan
+Top-k. File Top-11 sampai Top-20 yang masih ada merupakan artefak historis dari
+workflow Streamlit; standalone script saat ini hanya menerima Top-1 sampai
+Top-10.
+
+## Streamlit
+
+### RAG Chat dan Batch Evaluation
 
 ```bash
 streamlit run src/streamlit/rag_chat.py
+```
+
+Fitur utama:
+
+- Chat dengan satu metode atau perbandingan tiga metode.
+- Retrieval Top-k 1 sampai 10 pada mode chat.
+- Full evaluation 30 QA atau quick evaluation 5 QA.
+- Batch evaluation interaktif dengan rentang Top-k 1 sampai 20.
+- Penyimpanan CSV persisten ke `results/final/generation/`.
+- Ringkasan metric dan mean, median, serta standard deviation latency.
+- Resume dan skip otomatis untuk CSV evaluasi yang sudah valid.
+
+### Retrieval Ground Truth Annotation
+
+```bash
 streamlit run src/streamlit/app.py
 ```
 
-`src/streamlit/app.py` membutuhkan file kandidat evidence-aware yang mungkin
-tidak tersedia pada checkout baru. Bangun atau pulihkan kandidat sebelum
-menjalankan aplikasi anotasi.
+Aplikasi anotasi membutuhkan kandidat aktif berikut di root data ground truth:
+`data/ground_truth/retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx`.
+File kandidat tersebut tidak tersedia pada checkout bersih saat ini, sehingga
+file harus dipulihkan atau dibangun terlebih dahulu sebelum aplikasi anotasi
+dijalankan.
 
-## Notebook
+## Struktur Repository
 
-Jalankan notebook dengan working directory `notebooks/` karena sebagian besar
-path relatif menggunakan awalan `../`. Catat file CSV sumber yang dipilih saat
-menjalankan visualisasi; beberapa notebook mencari beberapa run dengan pola
-nama yang sama.
+```text
+scripts/
+  download_vast_assets.py       asset runtime
+  run_retrieval_eval.py        evaluasi retrieval standalone
+  run_generation_eval.py       evaluasi generation dan latency
+  load_embeddings_to_chroma.py loader embedding ke ChromaDB
+src/
+  preprocessing/                ekstraksi dan cleaning PDF
+  chunking/                     tiga metode chunking
+  embedding/                    pembuatan embedding
+  chroma/                       client dan loader ChromaDB
+  rag/                          pipeline retrieval dan generation
+  streamlit/                    chat, batch evaluation, dan anotasi
+tests/                          unit test dan test timing
+results/final/generation/       output evaluasi yang di-version control
+```
+
+## Testing
+
+```bash
+python -m pytest tests/test_generation_eval_timing.py tests/test_evaluation.py
+```
+
+Test timing tidak memuat model RAG nyata; test tersebut memeriksa pencatatan
+latency retrieval, generation, total response, summary, dan resume behavior.
 
 ## Dokumentasi Komponen
 
@@ -115,5 +249,3 @@ nama yang sama.
 - `src/chroma/README.md`
 - `src/rag/README.md`
 - `src/evaluation/README.md`
-- `docs/CODEMAP.md`
-- `docs/PROJECT_CONTEXT.txt`
