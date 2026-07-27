@@ -183,6 +183,58 @@ Top-k. File Top-11 sampai Top-20 yang masih ada merupakan artefak historis dari
 workflow Streamlit; standalone script saat ini hanya menerima Top-1 sampai
 Top-10.
 
+## Visual Results
+
+Gambar berikut adalah output notebook
+`notebooks/eval_analysis_top1_10.ipynb`, menggunakan basis analisis Top-1 sampai
+Top-10. Ringkasan angka lengkap tersedia di
+`results/final/analysis10/top1_10_metric_summary_by_method.csv`.
+
+<table>
+  <tr>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/precision_at_k_top1_10.png">
+        <img src="results/final/analysis10/figures/precision_at_k_top1_10.png" alt="Tren Precision at k Top-1 sampai Top-10">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/recall_at_k_top1_10.png">
+        <img src="results/final/analysis10/figures/recall_at_k_top1_10.png" alt="Tren Recall at k Top-1 sampai Top-10">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/f1_at_k_top1_10.png">
+        <img src="results/final/analysis10/figures/f1_at_k_top1_10.png" alt="Tren F1 at k Top-1 sampai Top-10">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/mrr_top1_10.png">
+        <img src="results/final/analysis10/figures/mrr_top1_10.png" alt="Tren MRR Top-1 sampai Top-10">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/bleu_top1_10.png">
+        <img src="results/final/analysis10/figures/bleu_top1_10.png" alt="Tren BLEU Top-1 sampai Top-10">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="results/final/analysis10/figures/rouge_l_top1_10.png">
+        <img src="results/final/analysis10/figures/rouge_l_top1_10.png" alt="Tren ROUGE-L Top-1 sampai Top-10">
+      </a>
+    </td>
+  </tr>
+</table>
+
+Ringkasan deskriptifnya:
+
+- Recursive unggul pada Precision@k, MRR, F1@k, dan BLEU.
+- Max-Min Semantic unggul pada Recall@k.
+- Element-Based unggul pada ROUGE-L.
+
 ## Streamlit
 
 ### RAG Chat dan Batch Evaluation
@@ -230,6 +282,7 @@ src/
   streamlit/                    chat, batch evaluation, dan anotasi
 tests/                          unit test dan test timing
 results/final/generation/       output evaluasi yang di-version control
+results/final/analysis10/       tabel, catatan, dan figures Top-1 sampai Top-10
 ```
 
 ## Testing
