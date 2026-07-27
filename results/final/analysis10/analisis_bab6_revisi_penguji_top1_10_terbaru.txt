@@ -1,0 +1,722 @@
+ANALISIS BAB 6 - REVISI DOSEN PENGUJI
+EVALUASI TERBARU TOP-1 SAMPAI TOP-10 DAN PERBANDINGAN WAKTU
+======================================================================
+
+Tanggal audit       : 26 Juli 2026
+Lokasi data         : results/final/generation/
+Unit evaluasi       : 30 query x 3 metode x 10 nilai Top-k
+Total data kanonik  : 900 record
+Metode              : Element-Based, MaxMin Semantic, Recursive
+
+
+1. RUANG LINGKUP DAN SUMBER DATA
+======================================================================
+
+Analisis ini disusun ulang dari raw evaluation CSV terbaru tanggal 25 Juli
+2026. Ringkasan lama di results/final/analysis10 tidak dipakai sebagai sumber
+angka utama karena run terbaru memiliki hasil generation dan time comparison
+yang berbeda. Mean pada laporan ini dihitung langsung dari nilai per query.
+
+File kanonik yang digunakan adalah:
+
+Top-1  : eval_20260725_181240_full_top1.csv
+Top-2  : eval_20260725_200845_full_top2.csv
+Top-3  : eval_20260725_184957_full_top3.csv
+Top-4  : eval_20260725_185902_full_top4.csv
+Top-5  : eval_20260725_190751_full_top5.csv
+Top-6  : eval_20260725_191825_full_top6.csv
+Top-7  : eval_20260725_192743_full_top7.csv
+Top-8  : eval_20260725_193633_full_top8.csv
+Top-9  : eval_20260725_194612_full_top9.csv
+Top-10 : eval_20260725_195535_full_top10.csv
+
+Setiap file berisi 90 record, yaitu 30 query untuk tiga metode. Seluruh file
+memiliki question dan gold_answer yang konsisten, tidak memiliki duplicate key
+(query_id, method, top_k), tidak memiliki generation error, serta memiliki
+timing yang lengkap dan positif.
+
+
+2. AUDIT KHUSUS FILE TOP-2
+======================================================================
+
+Top-2 sempat dijalankan secara parsial. Artefak berikut tidak digunakan:
+
+- summary_20260725_200026_full_top2-2.csv
+- summary_20260725_200029_full_top2-2.csv
+- tiga baris Top-2 pada summary_20260725_195535_full_top1-10.csv
+
+Dua summary pukul 20:00 identik dan hanya mencakup:
+
+Metode              n parsial   n final
+Element-Based       27          30
+MaxMin Semantic     26          30
+Recursive           26          30
+
+Summary parsial berasal dari attempt generation yang berbeda. Nilai BLEU,
+ROUGE-L, dan waktunya tidak dapat direkonstruksi sebagai subset pasti dari raw
+Top-2 final. Oleh karena itu, data parsial tidak boleh digabungkan dengan data
+final. Satu-satunya sumber Top-2 yang digunakan adalah:
+
+eval_20260725_200845_full_top2.csv
+
+File tersebut lengkap: 90 record, 30 query per metode, tanpa duplicate key dan
+tanpa generation error. Keputusan ini mencegah pencampuran hasil dari attempt
+yang berbeda dan mencegah query dihitung dua kali.
+
+
+3. KELENGKAPAN METRIK DAN DENOMINATOR
+======================================================================
+
+BLEU, ROUGE-L, dan timing tersedia untuk seluruh 900 record. Empat kombinasi
+query-metode tidak memiliki relevant chunk pada ground truth, sehingga
+Precision, Recall, MRR, dan F1 tidak dihitung:
+
+- Q011 - Element-Based
+- Q049 - Element-Based
+- Q048 - MaxMin Semantic
+- Q040 - Recursive
+
+Akibatnya, pada setiap Top-k jumlah data retrieval yang dirata-ratakan adalah:
+
+Element-Based       : 28 query
+MaxMin Semantic     : 29 query
+Recursive           : 29 query
+
+Jumlah data generation dan timing tetap 30 query untuk setiap metode dan Top-k.
+Perbedaan denominator ini wajib dicantumkan dalam Bab 6. Mean retrieval tidak
+sepenuhnya memakai himpunan query yang identik antarmetode. F1 dalam laporan ini
+adalah mean dari F1 per query pada raw CSV, bukan F1 yang dihitung kembali dari
+mean Precision dan mean Recall.
+
+
+4. HASIL TERBARU PER TOP-K
+======================================================================
+
+Keterangan kolom:
+P = Precision@k; R = Recall@k; MRR = Mean Reciprocal Rank;
+F1 = F1@k; RL = ROUGE-L recall; Time = mean total_response_seconds.
+
+4.1 Element-Based
+
+k    P       R       MRR     F1      BLEU    RL      Time(s)
+1    0.2857  0.1994  0.2857  0.2226  0.1582  0.6327  4.0064
+2    0.1786  0.2440  0.3036  0.1929  0.1208  0.6989  5.9879
+3    0.1428  0.2976  0.3274  0.1823  0.1188  0.6784  6.5075
+4    0.1518  0.3744  0.3542  0.2005  0.1198  0.6980  6.5086
+5    0.1286  0.3923  0.3542  0.1814  0.1120  0.7008  6.7362
+6    0.1250  0.4518  0.3661  0.1845  0.1150  0.7161  8.7246
+7    0.1123  0.4696  0.3661  0.1719  0.1243  0.7037  6.5456
+8    0.1071  0.5173  0.3750  0.1691  0.1141  0.7036  5.9811
+9    0.0952  0.5173  0.3750  0.1537  0.1092  0.7128  7.0857
+10   0.0893  0.5292  0.3786  0.1464  0.1201  0.7125  6.6086
+
+4.2 MaxMin Semantic
+
+k    P       R       MRR     F1      BLEU    RL      Time(s)
+1    0.2069  0.1264  0.2069  0.1494  0.1298  0.6145  5.6172
+2    0.2069  0.2672  0.2931  0.2195  0.1125  0.6276  5.9211
+3    0.1609  0.3190  0.3161  0.2030  0.1176  0.6450  6.8701
+4    0.1466  0.3948  0.3420  0.2022  0.1195  0.6564  6.4735
+5    0.1310  0.4466  0.3488  0.1931  0.1138  0.6507  6.0978
+6    0.1207  0.4925  0.3546  0.1854  0.1067  0.6485  7.2294
+7    0.1035  0.4925  0.3546  0.1641  0.1233  0.6604  7.2712
+8    0.0948  0.5098  0.3546  0.1541  0.1088  0.6529  6.8944
+9    0.0881  0.5270  0.3584  0.1461  0.1128  0.6505  7.1644
+10   0.0828  0.5443  0.3619  0.1394  0.1149  0.6638  7.0049
+
+4.3 Recursive
+
+k    P       R       MRR     F1      BLEU    RL      Time(s)
+1    0.3448  0.1488  0.3448  0.1977  0.1529  0.6344  3.5534
+2    0.2759  0.2603  0.3966  0.2475  0.1461  0.6629  4.0408
+3    0.1839  0.2603  0.3966  0.1995  0.1336  0.7011  5.0376
+4    0.1638  0.3293  0.4224  0.2044  0.1379  0.7162  5.1924
+5    0.1448  0.3523  0.4293  0.1933  0.1467  0.6785  4.7772
+6    0.1437  0.4138  0.4408  0.2007  0.1370  0.6965  5.1446
+7    0.1281  0.4207  0.4408  0.1851  0.1516  0.6995  4.7728
+8    0.1121  0.4207  0.4408  0.1675  0.1446  0.6815  4.7790
+9    0.0996  0.4207  0.4408  0.1530  0.1488  0.6930  5.0265
+10   0.0966  0.4379  0.4408  0.1507  0.1309  0.6835  5.1383
+
+
+5. POLA PERUBAHAN SKOR TOP-1 SAMPAI TOP-10
+======================================================================
+
+5.1 Precision@k
+
+Precision cenderung turun ketika k meningkat. Korelasi antara k dan mean
+Precision adalah -0.8482 pada Element-Based, -0.9687 pada MaxMin, dan -0.8936
+pada Recursive. Pola ini wajar karena denominator Precision adalah k. Ketika
+lebih banyak chunk diambil, jumlah chunk nonrelevan cenderung bertambah lebih
+cepat daripada relevant chunk.
+
+Recursive memperoleh Precision tertinggi pada seluruh Top-1 sampai Top-10.
+Precision Top-1 Recursive mencapai 0.3448, dibandingkan 0.2857 pada
+Element-Based dan 0.2069 pada MaxMin. Keunggulan ini menunjukkan bahwa bagian
+awal ranking Recursive lebih bersih dari noise pada konfigurasi evaluasi ini.
+
+Terdapat kenaikan kecil Precision Element-Based dari Top-3 (0.1428) ke Top-4
+(0.1518). Hal tersebut bukan pelanggaran matematis karena Precision tidak harus
+monoton. Kenaikan terjadi ketika chunk tambahan pada posisi keempat lebih sering
+relevan daripada pola rata-rata sebelumnya.
+
+5.2 Recall@k
+
+Recall meningkat seiring pertambahan k. Korelasi dengan k adalah +0.9750 untuk
+Element-Based, +0.9288 untuk MaxMin, dan +0.9253 untuk Recursive. Tidak ditemukan
+penurunan Recall, baik pada mean maupun pada lintasan query individual.
+
+MaxMin unggul pada delapan dari sepuluh titik Top-k, sedangkan Element-Based
+unggul pada Top-1 dan Top-8. Pada Top-10, MaxMin mencapai Recall 0.5443,
+Element-Based 0.5292, dan Recursive 0.4379. MaxMin dengan demikian lebih kuat
+dalam coverage relevant chunk ketika ruang retrieval diperbesar.
+
+5.3 MRR
+
+MRR meningkat atau tetap ketika k bertambah karena relevant chunk pertama yang
+sudah ditemukan tidak dapat berpindah ke ranking yang lebih rendah saat daftar
+diperpanjang. Recursive unggul pada seluruh Top-1 sampai Top-10. MRR Recursive
+naik dari 0.3448 pada Top-1 menjadi 0.4408 pada Top-6, lalu plateau sampai
+Top-10. Ini adalah plateau pada mean MRR. Interpretasi bahwa tidak ada query
+tambahan yang menemukan relevant chunk pertamanya pada ranking 7 sampai 10
+hanya sah jika ranking Top-1 sampai Top-10 merupakan prefix yang nested dari
+retrieval yang sama. Raw CSV tidak menyimpan retrieved chunk IDs, sehingga
+kenaikan ranking tersebut belum dapat diverifikasi langsung.
+
+Element-Based meningkat bertahap dari 0.2857 menjadi 0.3786. MaxMin meningkat
+dari 0.2069 menjadi 0.3619, tetapi tetap lebih rendah daripada Recursive.
+Artinya, kemampuan MaxMin menjangkau relevant chunks tidak selalu disertai
+penempatan relevant chunk pertama pada ranking paling awal.
+
+5.4 F1@k
+
+F1 memperlihatkan titik kompromi antara Precision dan Recall. Element-Based
+memiliki F1 tertinggi pada Top-1 (0.2226), MaxMin pada Top-2 (0.2195), dan
+Recursive pada Top-2 (0.2475). Setelah titik optimum, kenaikan Recall tidak lagi
+mampu menutup penurunan Precision, sehingga F1 cenderung turun.
+
+Pemenang per titik adalah Element-Based pada Top-1, Top-8, dan Top-9; MaxMin
+pada Top-3; serta Recursive pada Top-2, Top-4, Top-5, Top-6, Top-7, dan Top-10.
+Secara agregat, Recursive tetap paling seimbang.
+
+5.5 BLEU
+
+BLEU tidak meningkat secara monoton terhadap k. Nilai tertinggi masing-masing
+metode justru terjadi pada Top-1: Element-Based 0.1582, MaxMin 0.1298, dan
+Recursive 0.1529. Penambahan context tidak otomatis meningkatkan kecocokan
+n-gram karena context tambahan dapat memasukkan noise, mengubah formulasi
+jawaban, atau tidak benar-benar masuk ke generator akibat batas context.
+
+Element-Based unggul pada Top-1, sedangkan Recursive unggul pada Top-2 sampai
+Top-10. Recursive memiliki kecenderungan paling konsisten menghasilkan jawaban
+dengan kecocokan n-gram yang lebih tinggi terhadap gold answer.
+
+5.6 ROUGE-L
+
+ROUGE-L juga berfluktuasi. Nilai optimum terjadi pada Top-6 untuk Element-Based
+(0.7161), Top-10 untuk MaxMin (0.6638), dan Top-4 untuk Recursive (0.7162).
+Recursive unggul pada Top-1, Top-3, dan Top-4. Element-Based unggul pada Top-2
+serta Top-5 sampai Top-10. MaxMin tidak menjadi pemenang pada titik Top-k mana
+pun. Pola ini menunjukkan bahwa urutan informasi jawaban lebih dipengaruhi oleh
+struktur context dan perilaku generator daripada sekadar banyaknya relevant
+chunk yang berhasil ditemukan.
+
+
+6. RINGKASAN AGREGAT TOP-1 SAMPAI TOP-10
+======================================================================
+
+Metode             Precision Recall  MRR     F1      BLEU    ROUGE-L Time(s)
+Element-Based      0.1416    0.3993  0.3486  0.1805  0.1212  0.6958  6.4692
+MaxMin Semantic    0.1342    0.4120  0.3291  0.1756  0.1160  0.6470  6.6544
+Recursive          0.1693    0.3465  0.4194  0.1900  0.1430  0.6847  4.7462
+
+Karakter hasil terbaru dapat diringkas sebagai berikut:
+
+- Recursive unggul pada Precision, MRR, F1, BLEU, dan waktu respons.
+- MaxMin unggul pada Recall.
+- Element-Based unggul pada ROUGE-L.
+- Tidak ada satu metode yang unggul pada seluruh metrik.
+- Keunggulan di retrieval tidak otomatis menghasilkan keunggulan di generation.
+
+Temuan ini bersifat deskriptif. Belum ada uji signifikansi, confidence interval,
+atau repeated run yang cukup untuk menyatakan bahwa perbedaan tersebut berlaku
+secara universal.
+
+
+7. KARAKTERISTIK CHUNK DAN HUBUNGANNYA DENGAN METRIK
+======================================================================
+
+7.1 Statistik chunk aktual
+
+Metode             Chunk  Median char  Mean char  Max char
+Element-Based      2497   802          1204.7     4068
+MaxMin Semantic    1912   361          1424.8     161583
+Recursive          3091   1930         1568.0     1999
+
+Element-Based memiliki 941 table chunk (37.69%) dan 1556 text chunk. Table
+chunk mewakili 59.42% total karakter. MaxMin sangat skewed: mayoritas chunk
+pendek, tetapi sedikit chunk tabel yang sangat panjang menaikkan mean secara
+drastis. Recursive paling terkonsentrasi di sekitar batas ukuran dan hampir
+seluruh pasangan chunk berurutan memiliki overlap.
+
+7.2 Element-Based
+
+Element-Based menggunakan Unstructured hi_res, mengenali title, narrative,
+list, table, dan page break. Text element dalam section yang sama digabung
+menjadi composite chunk, sedangkan table disimpan sebagai unit standalone.
+
+Hubungan yang mungkin dengan hasil evaluasi:
+
+- Table preservation dan enrichment HTML mempertahankan urutan label, baris,
+  kolom, dan nilai. Karakter ini dapat membantu generator membentuk jawaban
+  dengan urutan yang dekat dengan referensi dan konsisten dengan ROUGE-L
+  tertinggi (0.6958).
+- Table chunk relatif panjang dan kaya angka. Satu embedding dapat memuat banyak
+  topik, label, dan nilai sekaligus sehingga sinyal query tertentu berpotensi
+  terdilusi. Hal ini konsisten dengan Precision dan MRR yang tidak menjadi
+  pemenang.
+- Sebanyak 329 chunk melebihi 3000 karakter dan, setelah enrichment, 12 input
+  embedding melebihi batas implementasi 4096 karakter backend HuggingFace.
+  Batas ini bukan batas 4096 token: kode memotong string dengan `t[:4096]`
+  sebelum encoding (`src/embedding/embedder.py:109-129`). Bagian setelah
+  karakter ke-4096 tidak terwakili penuh pada embedding.
+- Tabel hasil enrichment dapat muncul kembali sebagai tabel terstruktur dan
+  sebagai teks chunk saat context dibangun. Duplikasi ini dapat menegaskan
+  bukti tabel, tetapi juga menghabiskan context budget.
+
+Interpretasi yang aman adalah bahwa Element-Based kuat pada pelestarian struktur
+dan urutan informasi, bukan bahwa metode ini paling tajam dalam ranking vector
+retrieval.
+
+7.3 MaxMin Semantic
+
+MaxMin memecah teks menjadi kalimat, membuat sentence embedding, lalu membentuk
+chunk berdasarkan maximum similarity kalimat baru dan minimum similarity dalam
+cluster aktif. Artefak aktual berisi 1912 chunk dan 6276 kalimat. Sebanyak 68.36%
+chunk berisi tepat dua kalimat, tetapi terdapat cluster ekstrem hingga 148
+kalimat dan 161583 karakter.
+
+Hubungan yang mungkin dengan hasil evaluasi:
+
+- Evidence yang semantically related dapat terkonsentrasi dalam satu chunk dan
+  jumlah chunk total lebih sedikit daripada Recursive. Hal ini konsisten dengan
+  Recall tertinggi (0.4120), karena top-k dapat menjangkau proporsi relevant
+  chunk yang lebih besar.
+- Ground truth MaxMin hanya memiliki 47 relevant IDs, sedangkan Recursive
+  memiliki 74. Denominator Recall yang lebih kecil dan evidence yang lebih
+  terkonsentrasi ikut memengaruhi keunggulan Recall. Karena itu, hasil Recall
+  tidak boleh dijelaskan hanya oleh kualitas algoritme.
+- Distribusi panjang sangat tidak stabil. Terdapat 93 chunk di atas 3000
+  karakter, 77 input embedding di atas 4096 karakter, dan 18 di atas 32000
+  karakter. Pada backend HuggingFace, input di atas 4096 karakter dipotong
+  oleh implementasi sebelum encoding; 32000 karakter adalah indikator panjang
+  chunk ekstrem, bukan bukti langsung bahwa input melampaui 32000 token.
+  Embedding chunk panjang dapat terdilusi atau terpotong.
+- MaxMin memiliki Precision dan MRR terendah. Coverage yang tinggi berarti
+  relevant chunk ditemukan di dalam daftar, tetapi tidak selalu berada di
+  ranking awal dan daftar dapat mengandung lebih banyak noise.
+- Generator hanya menerima context efektif maksimal 1500 token. Relevant chunk
+  di ranking belakang atau bagian akhir chunk raksasa mungkin tidak dibaca.
+  Ini membantu menjelaskan mengapa Recall tertinggi tidak berubah menjadi BLEU
+  atau ROUGE-L tertinggi.
+
+Interpretasi yang aman adalah bahwa MaxMin kuat pada coverage, tetapi variasi
+ukuran chunk, posisi relevant chunk, dan context truncation membatasi ketajaman
+ranking dan kualitas generation.
+
+7.4 Recursive
+
+Recursive membagi cleaned text memakai hierarki separator paragraf, baris,
+spasi, dan karakter. Overlap menjaga kontinuitas di batas chunk. Artefak aktual
+berisi 3091 chunk. Dari 3081 pasangan berurutan, 98.83% memiliki overlap positif
+dengan median overlap 349 karakter.
+
+Hubungan yang mungkin dengan hasil evaluasi:
+
+- Ukuran relatif stabil membuat representasi embedding lebih terfokus dan tidak
+  terkena pemotongan 4096 karakter pada artefak yang dianalisis. Hal ini
+  konsisten dengan Precision dan MRR tertinggi.
+- Overlap membuat evidence di boundary muncul pada lebih dari satu chunk dan
+  meningkatkan peluang relevant evidence muncul di ranking awal. Hal ini
+  konsisten dengan MRR tertinggi pada seluruh Top-k.
+- Context yang lebih teratur dan fokus dapat membantu jawaban mempertahankan
+  frasa gold answer, konsisten dengan BLEU tertinggi.
+- Overlap juga menambah redundansi. Ground truth Recursive memiliki 74 relevant
+  IDs, paling banyak di antara metode. Denominator yang lebih besar dapat
+  menekan Recall walaupun beberapa evidence utama sudah ditemukan.
+- Artefak Recursive menunjukkan dua pola yang konsisten dengan konfigurasi
+  sekitar 1000/200 pada tiga publikasi dan 2000/400 pada tujuh publikasi.
+  Source saat ini hanya mendefinisikan default 1000/200, tetapi CLI menerima
+  override (`--chunk-size` dan `--overlap`). Karena parameter run tidak dicatat,
+  pola artefak ini merupakan indikasi kuat, bukan bukti bahwa evaluasi 25 Juli
+  pasti memakai dua konfigurasi. Jika artefak tersebut adalah sumber
+  embedding/Chroma pada run final, perlakuan Recursive tidak terkendali dan
+  evaluasi perlu diulang dengan satu konfigurasi. Jika bukan, laporan harus
+  menyimpan bukti artefak yang benar-benar dipakai.
+
+Interpretasi yang aman adalah bahwa Recursive memiliki profil retrieval paling
+tajam dan seimbang pada data ini, tetapi keunggulannya bercampur dengan overlap,
+redundansi, dan konfigurasi artefak yang tidak seragam.
+
+
+8. PERBANDINGAN WAKTU RESPONS RAG
+======================================================================
+
+Mean total response seluruh Top-1 sampai Top-10:
+
+Element-Based       : 6.4692 detik
+MaxMin Semantic     : 6.6544 detik
+Recursive           : 4.7462 detik
+
+Recursive memiliki mean total waktu respons terendah pada seluruh nilai Top-k
+dalam run ini. Secara agregat,
+Recursive menghemat sekitar 26.63% dibandingkan Element-Based dan 28.67%
+dibandingkan MaxMin. Istilah yang tepat adalah waktu respons RAG, bukan waktu
+proses offline chunking.
+
+Mean total response per Top-k:
+
+k    Element-Based   MaxMin   Recursive
+1    4.0064          5.6172   3.5534
+2    5.9879          5.9211   4.0408
+3    6.5075          6.8701   5.0376
+4    6.5086          6.4735   5.1924
+5    6.7362          6.0978   4.7772
+6    8.7246          7.2294   5.1446
+7    6.5456          7.2712   4.7728
+8    5.9811          6.8944   4.7790
+9    7.0857          7.1644   5.0265
+10   6.6086          7.0049   5.1383
+
+Retrieval hanya memerlukan sekitar 0.003 sampai 0.005 detik per respons. Lebih
+dari 99% total waktu berasal dari generation. Karena itu, perbedaan total time
+tidak boleh dijelaskan sebagai kecepatan ChromaDB atau chunk retrieval. Faktor
+yang lebih mungkin adalah jumlah token context efektif, panjang jawaban yang
+dihasilkan, dan variasi proses decoding. CSV tidak menyimpan token count, jadi
+penyebab pasti perbedaan waktu tidak dapat diverifikasi.
+
+Statistik waktu agregat seluruh 300 record per metode:
+
+Metode             Mean(s)  Median(s)  Std dev(s)  Min(s)  Max(s)
+Element-Based      6.4692   5.0864     7.0401      0.2344  68.9159
+MaxMin Semantic    6.6544   4.8561     7.8787      0.2255  56.7285
+Recursive          4.7462   4.5836     2.6561      0.7565  13.7062
+
+Mean MaxMin lebih tinggi daripada Element-Based terutama karena outlier,
+sedangkan median MaxMin lebih rendah. Karena observasi Top-k mengulang query
+yang sama, tabel ini hanya merupakan ringkasan deskriptif satu rangkaian run.
+
+Waktu tidak meningkat secara monoton terhadap k. Generator membatasi context
+menjadi 1500 token, sehingga Top-k yang lebih besar tidak selalu berarti seluruh
+chunk tambahan diproses. Source/default generation menggunakan sampling
+(`temperature` 0.7, `top_p` 0.8, dan `do_sample=True`; `scripts/run_generation_eval.py:94-97`,
+`src/rag/generator.py:292-299`), sehingga waktu dan panjang jawaban dapat berubah
+antar-run.
+
+Outlier waktu yang perlu dilaporkan:
+
+- Q013 Element-Based Top-6 : 68.9159 detik total
+- Q006 MaxMin Top-3        : 56.7285 detik total
+- Q006 MaxMin Top-7        : 54.1368 detik total
+- Q006 MaxMin Top-10       : 53.6989 detik total
+- Q040 Element-Based Top-3 : 49.3827 detik total
+- Q027 Element-Based Top-10: 42.5045 detik total
+
+Lonjakan mean Element-Based pada Top-6 terutama disebabkan Q013, bukan kenaikan
+biaya retrieval secara umum. MaxMin lambat pada beberapa titik terutama karena
+Q006. Mean waktu perlu dibaca bersama median dan standard deviation agar tidak
+terlalu dipengaruhi outlier.
+
+
+9. ANOMALI DAN HASIL YANG TIDAK KONSISTEN
+======================================================================
+
+9.1 Top-2 parsial
+
+Dua summary Top-2 pukul 20:00 identik tetapi tidak lengkap. Summary tersebut
+tidak boleh dirata-ratakan atau digabungkan dengan Top-2 final. Raw Top-2 pukul
+20:08 menjadi satu-satunya sumber kanonik.
+
+9.2 Missing retrieval metrics
+
+Empat query-metode tidak memiliki relevant chunk ground truth. Retrieval metric
+menjadi kosong, tetapi BLEU, ROUGE-L, dan timing tetap dihitung. Ini bukan error
+generation, tetapi menyebabkan denominator mean retrieval berbeda antarmetode.
+
+9.3 Retrieval dan generation dapat berlawanan
+
+Pada Q005 Element-Based Top-1, F1 bernilai 0, tetapi BLEU mencapai 0.6998 dan
+ROUGE-L 0.8667. Q003 Recursive juga memiliki beberapa F1=0 tetapi BLEU 0.5556
+dan ROUGE-L 0.6667. Hal ini menunjukkan bahwa label relevant chunk dan overlap
+jawaban mengukur fenomena berbeda. Jawaban dapat kebetulan benar, menggunakan
+pengetahuan parametrik model, atau memperoleh informasi dari chunk yang belum
+dilabeli relevan.
+
+9.4 Lima query memiliki F1 nol pada seluruh metode dan Top-k
+
+Q001, Q003, Q005, Q021, dan Q027 memiliki F1 nol pada seluruh record yang dapat
+dievaluasi, tetapi beberapa tetap menghasilkan BLEU/ROUGE-L yang tidak nol.
+Ground truth dan candidate pool untuk query-query tersebut perlu ditinjau ulang.
+
+9.5 Chroma lokal hanya memuat sembilan publikasi
+
+Database Chroma lokal saat audit memiliki selisih tepat satu publikasi, yaitu
+Benchmark Indeks Konstruksi: 241 Element-Based, 302 MaxMin, dan 295 Recursive
+chunk tidak terdapat dalam collection lokal. Q001, Q003, dan Q005 berasal dari
+publikasi tersebut. Kondisi ini konsisten dengan F1 nol pada tiga query itu,
+tetapi belum membuktikan bahwa server yang menghasilkan CSV tanggal 25 Juli
+menggunakan database yang identik. Script evaluasi secara default mengarah ke
+`data/chroma` jika path tersebut tersedia (`scripts/run_generation_eval.py:616`),
+tetapi CSV tidak menyimpan path Chroma atau daftar retrieved IDs. Karena itu,
+ini bukan sekadar anomali biasa, melainkan ancaman validitas yang wajib
+diverifikasi sebelum hasil dianggap final:
+
+- Jika run 25 Juli memakai collection lokal yang sama, Q001/Q003/Q005 tidak
+  dapat mengambil evidence dari publikasinya dan run perlu diulang setelah
+  collection dilengkapi.
+- Jika run memakai database eksternal yang lengkap, simpan bukti path, jumlah
+  chunk per collection, dan metadata sumber yang dipakai pada run.
+
+9.6 MaxMin memiliki chunk ekstrem
+
+MaxMin memiliki beberapa chunk puluhan sampai ratusan ribu karakter. Guard
+32000 karakter hanya memeriksa panjang kalimat individual, tetapi tidak
+membatasi total panjang cluster. Chunk ekstrem berisiko mengalami truncation
+embedding dan memenuhi seluruh context generator.
+
+9.7 Indikasi konfigurasi Recursive campuran
+
+Artefak menunjukkan sebagian dokumen memiliki signature sekitar 1000/200,
+sedangkan sebagian lain sekitar 2000/400. Source `recursive_split.py` saat ini
+memiliki default 1000/200 dan CLI dapat menerima nilai lain, tetapi tidak ada
+log atau metadata yang mencatat command aktual. Karena itu, belum tepat menulis
+bahwa Recursive "pasti" memakai dua konfigurasi. Ini menjadi validity threat
+jika artefak dengan dua signature tersebut benar-benar menjadi sumber embedding
+dan collection untuk run final. Sebelum rerun, hubungan antara artefak chunk,
+embedding, collection, dan CSV 25 Juli harus dibuktikan.
+
+9.8 Preprocessing tidak sama
+
+Element-Based membaca PDF dengan Unstructured hi_res, sedangkan MaxMin dan
+Recursive membaca cleaned text hasil PyMuPDF dan regex cleaning. Perbedaan skor
+mencerminkan pipeline chunking beserta preprocessing yang dibutuhkannya, bukan
+efek murni algoritme pemotongan.
+
+9.9 Embedding tidak selalu identik dengan teks generator
+
+MaxMin dan Recursive menerima prefix 200 karakter dari chunk sebelumnya saat
+embedding, tetapi prefix tersebut tidak disimpan sebagai document text Chroma.
+Sebuah chunk dapat ter-retrieve karena informasi pada prefix yang kemudian tidak
+diterima generator. Element-Based mengalami enrichment tabel yang berbeda dari
+JSON mentah. Hal ini merupakan potensi mismatch retrieval-generation.
+
+9.10 Top-k retrieval bukan Top-k context efektif
+
+Generator HF membatasi gabungan context menjadi 1500 token. Chunk diproses
+sesuai ranking dan chunk awal dapat menghabiskan budget. Dengan demikian, nilai
+Top-10 berarti sepuluh chunk diambil dari Chroma, bukan jaminan seluruh sepuluh
+chunk dibaca generator.
+
+9.11 Generation tidak deterministik penuh
+
+Source/default generation menggunakan sampling, tetapi argumen aktual run 25
+Juli tidak disimpan di CSV. Tidak ada repeated run per kombinasi
+query-metode-top_k dan tidak ada seed yang tercatat. Fluktuasi BLEU, ROUGE-L,
+jawaban, dan waktu dapat sebagian berasal dari randomness generation, bukan
+hanya perubahan context.
+
+9.12 Nested ranking dan plateau MRR belum terverifikasi
+
+Raw evaluation CSV hanya menyimpan metrik, bukan daftar retrieved chunk IDs.
+Karena file Top-1 sampai Top-10 dibuat terpisah, belum dapat dibuktikan dari
+artefak yang tersedia bahwa hasil Top-k selalu merupakan prefix dari hasil Top-k
+berikutnya. Plateau MRR harus dilaporkan sebagai pola agregat, bukan sebagai
+bukti pasti bahwa tidak ada relevant chunk pertama pada rank 7 sampai 10.
+
+
+10. HUBUNGAN RETRIEVAL DAN GENERATION
+======================================================================
+
+Korelasi Pearson per record menunjukkan asosiasi deskriptif yang lemah sampai
+moderat antara retrieval dan generation:
+
+Metrik retrieval    Korelasi BLEU   Korelasi ROUGE-L
+Precision           +0.2903         +0.1603
+Recall              +0.1979         +0.0960
+MRR                 +0.3462         +0.1956
+F1                  +0.2903         +0.1591
+
+BLEU dan ROUGE-L sendiri memiliki korelasi +0.4425. Hasil ini menunjukkan bahwa:
+
+1. Relevant chunk yang ditemukan belum tentu seluruhnya masuk context efektif.
+2. MRR memiliki asosiasi numerik yang lebih tinggi daripada Recall pada tabel
+   ini, tetapi hal tersebut bukan bukti bahwa posisi relevant chunk secara
+   kausal menentukan kualitas generation.
+3. BLEU dan ROUGE-L menilai bentuk jawaban, bukan factual correctness secara
+   langsung.
+4. Pengetahuan parametrik generator dan variasi decoding dapat menghasilkan
+   jawaban yang baik walaupun retrieval metric rendah.
+
+Korelasi retrieval-vs-generation menggunakan 860 complete cases karena 40
+record retrieval tidak memiliki nilai metric. Korelasi BLEU-vs-ROUGE-L memakai
+900 record. Query dan Top-k berulang, sehingga observasi tidak independen dan
+korelasi ini tidak dipakai sebagai uji inferensial.
+
+Waktu generation juga tidak menunjukkan korelasi positif dengan kualitas.
+Respons yang lebih lama tidak otomatis menghasilkan BLEU atau ROUGE-L yang
+lebih tinggi.
+
+
+11. KARAKTERISTIK AKHIR MASING-MASING METODE
+======================================================================
+
+11.1 Element-Based: terstruktur dan kuat pada urutan jawaban
+
+Element-Based memiliki karakter utama berupa pemeliharaan layout, section, dan
+tabel. Metode ini memperoleh ROUGE-L tertinggi, Recall kedua, dan waktu rata-rata
+di posisi kedua. Kelemahannya adalah distribusi chunk campuran: banyak chunk
+pendek dan banyak tabel panjang. Struktur yang kaya membantu urutan jawaban,
+tetapi dapat mengurangi ketajaman satu embedding untuk query yang sangat spesifik.
+
+11.2 MaxMin: coverage tinggi, tetapi ukuran dan ranking tidak stabil
+
+MaxMin memperoleh Recall tertinggi, tetapi Precision, MRR, F1, BLEU, dan
+ROUGE-L agregat terendah serta waktu rata-rata paling lambat. Karakter ini
+menunjukkan kemampuan menjangkau evidence yang lebih luas, tetapi relevant
+evidence tidak selalu berada pada ranking awal atau tersaji secara efektif ke
+generator. Variasi panjang chunk ekstrem merupakan risiko utama metode ini pada
+artefak aktual.
+
+11.3 Recursive: fokus, ranking tajam, dan waktu respons terendah pada run
+
+Recursive memperoleh Precision, MRR, F1, dan BLEU tertinggi, serta memiliki
+mean waktu respons terendah pada seluruh Top-k. Ukuran chunk yang relatif
+terkendali dan overlap membantu evidence muncul pada ranking awal. Kelemahannya
+adalah Recall terendah dan redundansi tinggi akibat overlap. Artefak juga
+menunjukkan dua signature ukuran, tetapi parameter run tidak tersimpan sehingga
+ketidakseragaman konfigurasi masih berstatus dugaan yang perlu diverifikasi.
+
+
+12. NARASI INTI YANG DAPAT DIGUNAKAN PADA BAB 6
+======================================================================
+
+Berdasarkan evaluasi terbaru Top-1 sampai Top-10, pertambahan nilai k menghasilkan
+trade-off deskriptif antara ketepatan dan cakupan retrieval. Precision
+cenderung menurun karena semakin banyak chunk nonrelevan masuk ke daftar,
+sedangkan Recall meningkat karena peluang menemukan relevant chunk menjadi
+lebih besar. Mean MRR meningkat lalu menetap pada sebagian lintasan evaluasi;
+nested ranking antarfile belum dapat diverifikasi karena retrieved IDs tidak
+disimpan. F1 mencapai titik optimum pada Top-1 atau Top-2 sebelum menurun karena
+kenaikan Recall tidak lagi mampu mengimbangi penurunan Precision.
+
+Recursive menunjukkan profil retrieval paling tajam. Metode ini memiliki
+Precision, MRR, dan F1 agregat tertinggi serta menempatkan relevant chunk pertama
+lebih konsisten pada ranking atas. Ukuran chunk yang relatif stabil dan overlap
+merupakan penjelasan yang masuk akal karena keduanya menjaga kontinuitas evidence
+dan mengurangi dilusi embedding. Namun, overlap juga menghasilkan relevant ID
+yang lebih banyak dan dapat menekan Recall berbasis chunk ID.
+
+MaxMin Semantic menunjukkan profil coverage. Recall agregatnya paling tinggi,
+tetapi Precision dan MRR lebih rendah daripada Recursive. Artinya, MaxMin mampu
+menjangkau lebih banyak relevant chunks ketika k diperbesar, tetapi hasil
+tersebut tidak selalu muncul pada ranking awal dan disertai lebih banyak noise.
+Karakter chunk MaxMin yang sangat bervariasi, termasuk cluster ekstrem, dapat
+menyebabkan embedding terpotong atau context generator didominasi satu chunk.
+
+Element-Based menunjukkan profil pelestarian struktur. ROUGE-L agregatnya paling
+tinggi, yang konsisten dengan kemampuan mempertahankan urutan informasi tabel,
+judul, dan paragraf. Akan tetapi, tabel panjang dan padat dapat membuat embedding
+mewakili terlalu banyak nilai sekaligus, sehingga metode ini tidak dominan pada
+Precision atau MRR. Keunggulan ROUGE-L tidak berarti Element-Based menghasilkan
+jawaban paling faktual, karena ROUGE-L hanya mengukur longest common subsequence.
+
+Pada generation, BLEU dan ROUGE-L tidak mengikuti pola retrieval secara langsung.
+Recursive unggul pada BLEU, Element-Based unggul pada ROUGE-L, dan MaxMin yang
+unggul Recall tidak unggul pada kedua metrik generation. Perbedaan ini terjadi
+karena generation dipengaruhi oleh posisi ranking, noise context, batas 1500
+token, panjang chunk, pengetahuan parametrik model, serta randomness decoding.
+
+Time comparison menunjukkan Recursive memiliki mean total response terendah
+4.7462 detik, dibandingkan Element-Based 6.4692 detik dan MaxMin 6.6544 detik.
+Ini adalah waktu respons RAG pada satu rangkaian run, bukan benchmark efisiensi
+algoritme chunking offline. Perbedaannya hampir seluruhnya berasal dari
+generation, bukan retrieval. Oleh karena token count tidak dicatat, analisis
+waktu hanya dapat menyatakan pola observasional dan belum dapat memastikan
+mekanisme penyebabnya.
+
+Dengan demikian, hasil terbaru tidak mendukung satu metode terbaik secara
+mutlak. Recursive paling sesuai jika prioritas sistem adalah ketepatan ranking,
+keseimbangan retrieval, kecocokan n-gram, dan waktu respons. MaxMin relevan jika
+prioritasnya adalah coverage evidence. Element-Based relevan jika struktur dan
+urutan informasi, khususnya tabel, menjadi perhatian utama. Seluruh kesimpulan
+tersebut hanya berlaku untuk corpus, ground truth, konfigurasi, dan pipeline
+evaluasi penelitian ini.
+
+
+13. BATAS KLAIM DAN REKOMENDASI REVISI
+======================================================================
+
+Untuk menjaga validitas akademik, Bab 6 sebaiknya menggunakan kata "cenderung",
+"pada konfigurasi eksperimen ini", dan "berdasarkan mean deskriptif". Hindari
+kata "signifikan", "terbukti paling baik", atau klaim kausal murni sebelum ada
+uji statistik dan kontrol eksperimen tambahan.
+
+13.1 Sinkronisasi dengan naskah lama
+
+Angka terbaru berbeda dari angka yang masih tercantum pada sebagian naskah dan
+artefak analisis lama. Contoh perbedaan yang harus dilacak:
+
+Metode/metric              Naskah/analisis lama   Run terbaru
+Recursive F1               sekitar 0.202          0.1900
+Recursive BLEU             sekitar 0.140          0.1430
+Element-Based ROUGE-L      sekitar 0.683          0.6958
+
+Jika run 25 Juli disahkan sebagai hasil final, angka tersebut harus disinkronkan
+ke abstrak, abstract, tabel Bab 6, grafik, pembahasan, kesimpulan Bab 7, dan
+PPT. Jika database atau konfigurasi belum terverifikasi, angka terbaru harus
+diberi status sementara dan tidak boleh menggantikan angka final secara sepihak.
+
+Revisi yang disarankan:
+
+1. Nyatakan raw CSV kanonik dan keputusan penggantian Top-2 parsial.
+2. Laporkan denominator retrieval 28/29/29 dan 30 untuk generation.
+3. Pisahkan analisis retrieval, generation, dan waktu.
+4. Bedakan F1 mean per query dari F1 yang dihitung dari mean Precision/Recall.
+5. Laporkan distribusi ukuran chunk, bukan hanya mean.
+6. Verifikasi database Chroma yang dipakai pada run 25 Juli, terutama dokumen
+   Benchmark Indeks Konstruksi dan Q001/Q003/Q005.
+7. Audit ulang chunk MaxMin ekstrem dan konfigurasi Recursive campuran.
+8. Simpan path Chroma, jumlah chunk per collection, model, parameter generation,
+   seed, dan daftar retrieved chunk IDs pada setiap run.
+9. Ukur panjang input embedding dalam token jika ingin menganalisis kapasitas
+   model; jangan menyamakan 4096 karakter dengan 4096 token.
+10. Catat jumlah input/output token pada eksperimen berikutnya agar time
+   comparison dapat dijelaskan secara mekanistik.
+11. Jalankan repeated generation dengan seed atau decoding deterministik.
+12. Tambahkan uji statistik, confidence interval, dan ablation preprocessing
+     sebelum menarik kesimpulan kausal yang lebih kuat.
+
+
+14. KESIMPULAN AUDIT
+======================================================================
+
+Set data terbaru Top-1 sampai Top-10 lengkap setelah Top-2 final pukul 20:08
+digunakan untuk menggantikan attempt parsial. Total 900 record valid untuk
+generation dan timing, sedangkan 860 record memiliki retrieval metrics.
+
+Pola utama terbaru adalah:
+
+- Precision menurun saat k bertambah.
+- Recall meningkat saat k bertambah.
+- MRR meningkat lalu plateau.
+- F1 optimal pada k kecil, terutama Top-1 atau Top-2.
+- BLEU dan ROUGE-L berfluktuasi dan tidak identik dengan retrieval.
+- Recursive unggul pada Precision, MRR, F1, BLEU, dan waktu.
+- MaxMin unggul pada Recall.
+- Element-Based unggul pada ROUGE-L.
+
+Pola tersebut dapat dijelaskan secara masuk akal oleh granularitas chunk,
+overlap, pelestarian tabel, konsentrasi evidence, truncation embedding, batas
+context, serta ranking. Namun, penjelasan tersebut belum merupakan bukti kausal
+karena preprocessing, konfigurasi artefak, denominator ground truth, dan
+lingkungan retrieval belum sepenuhnya terkontrol.
