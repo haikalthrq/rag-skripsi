@@ -55,13 +55,7 @@ openpyxl  # diperlukan untuk pd.read_excel() membaca QA gold .xlsx
 sacrebleu     # BLEU (sacrebleu.corpus_bleu) — dependency LANGSUNG
 rouge-score   # ROUGE-L Recall (rouge_score.RougeScorer) — dependency LANGSUNG
 
-# GGUF Embedder/Generator (laptop only — CPU/GPU GGUF via llama.cpp)
-# ------------------------------------------------------------------
-# Install manual (butuh build flags):
-#   CPU : pip install llama-cpp-python
-#   GPU : CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python --force-reinstall
-llama-cpp-python
-diskcache  # dependency llama-cpp-python
+# GGUF backend is hardware-specific and lives in requirements-gguf.txt.
 
 # Streamlit
 # ---------
@@ -70,21 +64,8 @@ altair     # dependency streamlit charts
 gitpython  # dependency streamlit
 watchdog   # dependency streamlit file watching
 
-# Development Tools (opsional — hanya untuk dev, tidak untuk runtime eval)
-# -----------------------------------------------------------------------
-pytest      # unit testing (tests/test_evaluation.py)
-black       # code formatter
-flake8      # linter
-mypy        # type checker
-ipython     # enhanced REPL
-jupyter     # notebook support (notebooks/)
-
-# Visualization (opsional — hanya dipakai di notebooks, bukan di src/scripts)
-# ---------------------------------------------------------------------------
-# Notebook visualisasi tetap membutuhkan instalasi manual `matplotlib` dan
-# `seaborn`; keduanya sengaja tidak diaktifkan sebagai dependency runtime utama.
-# matplotlib
-# seaborn
+# Development tools live in requirements-dev.txt.
+# Notebook visualization dependencies live in requirements-visualization.txt.
 
 # GitHub CLI (opsional — install via apt/winget, bukan pip):
 #   https://github.com/cli/cli/blob/trunk/docs/install_linux.md

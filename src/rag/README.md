@@ -1,21 +1,25 @@
 # Modul RAG
 
-Modul ini menggabungkan embedding query, retrieval ChromaDB, dan generation.
+Modul ini menjalankan embedding query, retrieval dari ChromaDB, lalu generation
+dengan backend GGUF atau Hugging Face.
 
-## Konfigurasi Backend
+## Konfigurasi Eksplisit
 
-`build_pipeline()` menerima kombinasi berikut:
+Selalu berikan backend dan path yang sesuai. Pemanggilan `build_pipeline()` tanpa
+argumen tidak siap pakai: mode embedder default adalah GGUF, tetapi default
+`embedder_path` menunjuk direktori model HF, sedangkan `generator_path` kosong.
 
-- `embedder_mode="gguf"`: `embedder_path` harus menunjuk file `.gguf`.
-- `embedder_mode="huggingface"`: `embedder_path` harus menunjuk direktori atau
-  nama model HuggingFace lengkap.
-- `generator_type="gguf"`: `generator_path` harus menunjuk file model GGUF.
-- `generator_type="hf"`: `generator_path` harus menunjuk direktori atau nama
-  model HuggingFace.
+Path lokal relatif di bawah ini di-resolve dari working directory proses:
 
-Pemanggilan `build_pipeline()` tanpa argumen belum merupakan konfigurasi yang
-aman karena default path dan backend tidak seluruhnya saling cocok. Berikan
-path model secara eksplisit.
+| Komponen | Mode | Nilai path/model yang diharapkan |
+|---|---|---|
+| Embedder | `gguf` | File, mis. `models/Qwen3-Embedding-4B-Q8_0.gguf` |
+| Embedder | `huggingface` | Direktori, mis. `models/Qwen3-Embedding-4B`, atau ID `Qwen/Qwen3-Embedding-4B` |
+| Generator | `gguf` | File, mis. `models/Qwen3-4B-Instruct-Q8_0.gguf` |
+| Generator | `hf` | Direktori lokal atau ID model HF, mis. `Qwen/Qwen3-4B-Thinking-2507-FP8` |
+| ChromaDB | persistent | Direktori, biasanya `data/chroma` |
+
+Contoh GGUF lengkap:
 
 ```python
 from src.rag.pipeline import build_pipeline
@@ -25,17 +29,45 @@ pipeline = build_pipeline(
     embedder_mode="gguf",
     embedder_path="models/Qwen3-Embedding-4B-Q8_0.gguf",
     generator_type="gguf",
-    generator_path="path/ke/model-generator.gguf",
+    generator_path="models/Qwen3-4B-Instruct-Q8_0.gguf",
     chroma_path="data/chroma",
 )
-
 result = pipeline.run("Pertanyaan pengguna")
 ```
 
+Collection yang dipilih adalah `collection_element_based`,
+`collection_maxmin_semantic`, atau `collection_recursive`, sesuai
+`chunking_method`.
+
+## Batas Konteks HF
+
+`HFRAGGenerator` membatasi gabungan teks konteks retrieval hingga 1500 token,
+dihitung dengan tokenizer HF. Chunk dipakai sesuai urutan retrieval; chunk yang
+melewati sisa batas dipotong jika ruangnya lebih dari 50 token, lalu chunk
+berikutnya tidak disertakan. Batas ini hanya untuk teks konteks, bukan seluruh
+prompt atau token output. Backend GGUF tidak memakai batas 1500 ini dan mengikuti
+`n_ctx` yang diberikan ke llama.cpp.
+
+## ChromaDB Dan Retrieval
+
+`RAGPipeline` memakai `get_or_create_collection()`. Jika nama collection tidak
+ada, collection kosong akan dibuat. Constructor hanya menolak hasil `None`, bukan
+collection dengan `count() == 0`; karena itu path Chroma yang salah atau database
+yang belum diisi dapat terlihat berhasil diinisialisasi tetapi selalu memberi
+hasil kosong. Periksa path log dan jumlah dokumen collection sebelum menjalankan
+query.
+
+`similarity_search()` menangkap error query ChromaDB, menulisnya ke log, lalu
+mengembalikan `[]`. Nilai yang sama juga dipakai untuk retrieval yang benar-benar
+tidak menghasilkan dokumen. `RAGPipeline.run()` tidak dapat membedakan kedua
+kondisi itu dan mengembalikan jawaban "Tidak dapat menemukan informasi yang
+relevan dalam dokumen." Periksa log untuk membedakan error retrieval dari no-hit.
+Error embedding tidak ditangkap oleh fungsi retrieval dan dapat tetap diteruskan
+sebagai exception.
+
 ## Kontrak Hasil
 
-Pada jalur retrieval berhasil, `RAGPipeline.run()` mengembalikan dictionary
-dengan key:
+Jalur generation berhasil mengembalikan:
 
 - `query`
 - `answer`
@@ -45,12 +77,7 @@ dengan key:
 - `num_chunks`
 - `elapsed_seconds`
 
-Jalur tanpa hasil retrieval tidak menyertakan key `thinking`, sehingga konsumen
-sebaiknya membaca key opsional tersebut dengan `result.get("thinking")`.
-
-## Penanganan Error
-
-Initializer dan generator dapat menghasilkan `RuntimeError` ketika model gagal
-dimuat, backend gagal, atau jawaban kosong. Pemanggil library harus menangani
-exception tersebut. Aplikasi Streamlit dapat memiliki strategi penanganan yang
-berbeda dari pemakaian library langsung.
+Pada hasil retrieval kosong, key `thinking` tidak ada; gunakan
+`result.get("thinking")`. Initializer dan generator dapat melempar `RuntimeError`
+ketika model/backend gagal atau jawaban kosong, sehingga pemanggil library harus
+menanganinya.

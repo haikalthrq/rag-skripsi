@@ -17,7 +17,7 @@ from pathlib import Path
 
 os.environ["PYTHONUTF8"] = "1"
 
-ROOT           = Path(__file__).resolve().parent.parent
+ROOT           = Path(__file__).resolve().parent.parent.parent
 EMBEDDING_REPO = "Qwen/Qwen3-Embedding-4B-GGUF"
 EMBEDDING_FILE = "Qwen3-Embedding-4B-Q8_0.gguf"
 EMBEDDING_PATH = ROOT / "models" / EMBEDDING_FILE

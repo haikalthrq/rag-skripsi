@@ -20,7 +20,7 @@ from pathlib import Path
 
 os.environ["PYTHONUTF8"] = "1"
 
-ROOT          = Path(__file__).resolve().parent.parent
+ROOT           = Path(__file__).resolve().parent.parent.parent
 GENERATOR_REPO = "Qwen/Qwen3-4B-Instruct-2507-FP8"
 GENERATOR_DIR  = ROOT / "models/Qwen3-4B-Instruct-2507-FP8"
 

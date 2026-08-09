@@ -1,10 +1,9 @@
 """
-Retrieval Ground Truth Labeling App
-------------------------------------
-Streamlit app untuk anotasi manual kolom label pada kandidat
-retrieval ground truth.
+Evidence-Aware Retrieval Candidate Labeling App
+------------------------------------------------
+Streamlit app untuk anotasi manual kandidat retrieval evidence-aware.
 
-Input : data/ground_truth/retrieval_relevant_chunks_candidate_final_fixed.xlsx
+Input : data/ground_truth/retrieval_relevant_chunks_candidate_v3_evidence_aware.xlsx
 Output: data/ground_truth/retrieval_labels_final.xlsx
         data/ground_truth/retrieval_labels_final.csv
 

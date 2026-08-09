@@ -1,14 +1,8 @@
-"""
-Fungsi komputasi metrik evaluasi RAG.
+"""Metrik per-query untuk evaluasi retrieval dan generation RAG.
 
-Libraries:
-- ragas (collections-based API) : BLEU, ROUGE-L Recall
-  BleuScore   → sacrebleu.corpus_bleu internally
-  RougeScore  → rouge_type='rougeL', mode='recall'
-- pure Python: Precision@k, Recall@k, MRR
-
-Dependencies:
-  pip install ragas sacrebleu rouge-score
+Precision@k, Recall@k, MRR, dan F1@k dihitung langsung dengan Python. BLEU
+memakai ``sacrebleu`` dan ROUGE memakai ``rouge-score`` jika tersedia; keduanya
+memiliki fallback Python sederhana yang tidak ekuivalen dengan backend utama.
 """
 
 import logging

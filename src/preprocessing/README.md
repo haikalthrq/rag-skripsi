@@ -1,341 +1,96 @@
 # Modul Preprocessing
 
-Modul ini menyediakan pipeline lengkap untuk preprocessing dokumen PDF, meliputi ekstraksi teks dan pembersihan teks menggunakan regex.
+Pipeline ini mengekstrak PDF dan membersihkan teks sebelum chunking.
 
-## Catatan Implementasi Saat Ini
+## Penggunaan
 
-- `save_metadata=False` memakai ekstraksi hybrid: tabel, blok narasi, dan
-  penanda halaman.
-- `save_metadata=True` memilih extractor lain berbasis `page.get_text()`.
-- Opsi metadata karena itu dapat menghasilkan corpus teks yang berbeda, bukan
-  hanya file metadata tambahan.
-- Extractor hybrid menganggap dua kolom sebagai layout bilingual dan membuang
-  kolom kanan. Gunakan dengan hati-hati untuk PDF dua kolom non-bilingual.
-- `clean_text()` tidak menjalankan `remove_headers_footers()` secara otomatis.
-
-Entry point yang tersedia adalah module berikut, bukan `preprocess.py` di root:
+Jalankan dari root repository:
 
 ```bash
 python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
 ```
 
-Default bawaan masih menulis ke `data/cleaned_text`, sedangkan MaxMin dan
-recursive membaca `data/cleaned`. Gunakan `--output data/cleaned` agar pipeline
-tersambung tanpa memindahkan file manual.
+Default `output_dir` di API dan CLI adalah `data/cleaned`, sama dengan input
+default chunking MaxMin dan recursive.
 
-## 📁 Struktur Modul
-
-```
-src/preprocessing/
-├── __init__.py          # Export fungsi utama
-├── pdf_extractor.py     # Ekstraksi teks dari PDF
-├── text_cleaner.py      # Pembersihan teks dengan regex
-└── pipeline.py          # Pipeline preprocessing lengkap
-```
-
-## 🔧 Fungsi Utama
-
-### 1. Ekstraksi PDF (`pdf_extractor.py`)
-
-#### `extract_text(pdf_path: str) -> Optional[str]`
-Mengekstrak teks dari file PDF menggunakan PyMuPDF.
-
-**Parameter:**
-- `pdf_path`: Path ke file PDF yang akan diekstrak
-
-**Return:**
-- String berisi teks yang diekstrak, atau `None` jika gagal
-
-**Contoh:**
-```python
-from src.preprocessing import extract_text
-
-text = extract_text('data/raw/dokumen.pdf')
-print(f"Berhasil ekstrak {len(text)} karakter")
-```
-
-#### `extract_text_with_metadata(pdf_path: str) -> Optional[dict]`
-Mengekstrak teks beserta metadata dokumen PDF.
-
-**Return:**
-- Dictionary berisi `text`, `metadata`, dan `filename`
-
-### 2. Pembersihan Teks (`text_cleaner.py`)
-
-#### `clean_text(text: str) -> str`
-Membersihkan teks hasil ekstraksi PDF menggunakan berbagai pola regex.
-
-**Proses pembersihan meliputi:**
-- ✅ Menghapus nomor halaman (Page 1, Halaman 1, 1 of 10, dll)
-- ✅ Menghapus header dan footer umum
-- ✅ Menghapus URL dan email
-- ✅ Menghapus karakter kontrol dan tidak relevan
-- ✅ Menghapus whitespace berlebih
-- ✅ Normalisasi line breaks
-- ✅ Menghapus bullet points berlebih
-- ✅ Menghapus referensi footnote/endnote
-- ✅ Menghapus pola repetitif (... --- ___ ===)
-
-**Contoh:**
-```python
-from src.preprocessing import clean_text
-
-raw_text = """
-Page 1
-Ini adalah contoh     teks.
-
-
-Dengan whitespace    berlebih.
-"""
-
-cleaned = clean_text(raw_text)
-print(cleaned)
-# Output: "Ini adalah contoh teks.\nDengan whitespace berlebih."
-```
-
-#### `clean_text_advanced(text: str, remove_numbers: bool, remove_punctuation: bool) -> str`
-Pembersihan teks dengan opsi tambahan untuk menghapus angka dan tanda baca.
-
-#### `remove_headers_footers(text: str, pattern_list: list) -> str`
-Menghapus header/footer spesifik berdasarkan pola regex yang diberikan.
-
-### 3. Pipeline Lengkap (`pipeline.py`)
-
-#### `run_preprocessing(input_dir, output_dir, save_metadata, skip_existing) -> dict`
-Menjalankan pipeline preprocessing lengkap untuk semua PDF dalam direktori.
-
-**Parameter:**
-- `input_dir` (str): Direktori berisi file PDF (default: `'data/raw'`)
-- `output_dir` (str): Direktori output teks bersih (default: `'data/cleaned_text'`)
-- `save_metadata` (bool): Simpan metadata PDF (default: `False`)
-- `skip_existing` (bool): Skip file yang sudah diproses (default: `True`)
-
-**Return:**
-- Dictionary berisi statistik: `total_files`, `processed`, `skipped`, `failed`, `duration`
-
-**Contoh:**
-```python
-from src.preprocessing import run_preprocessing
-
-stats = run_preprocessing(
-    input_dir='data/raw',
-    output_dir='data/cleaned_text',
-    save_metadata=False,
-    skip_existing=True
-)
-
-print(f"Berhasil: {stats['processed']}, Gagal: {stats['failed']}")
-```
-
-#### `run_preprocessing_single(pdf_path, output_dir, save_metadata) -> bool`
-Memproses satu file PDF saja.
-
-#### `process_single_pdf(pdf_path, output_dir, save_metadata) -> Tuple[bool, Optional[str]]`
-Memproses satu file PDF dan return status serta path output.
-
-## 🚀 Cara Penggunaan
-
-### Sebagai Script (Command Line)
-
-#### 1. Proses semua PDF dalam folder (batch mode)
+Opsi CLI:
 
 ```bash
-# Menggunakan default directories (data/raw -> data/cleaned_text)
-python -m src.preprocessing.pipeline
-
-# Dengan custom directories
-python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
-
-# Dengan menyimpan metadata
 python -m src.preprocessing.pipeline --metadata
-
-# Force reprocess file yang sudah ada
 python -m src.preprocessing.pipeline --no-skip
+python -m src.preprocessing.pipeline --single data/raw/dokumen.pdf --output data/cleaned
 ```
 
-#### 2. Proses satu file PDF saja
-
-```bash
-python -m src.preprocessing.pipeline --single "data/raw/dokumen.pdf"
-```
-
-#### 3. Jalankan langsung dari modul
-
-```bash
-python -m src.preprocessing.pipeline --input data/raw --output data/cleaned_text
-```
-
-### Sebagai Import dalam Python
-
-#### 1. Import dan jalankan batch processing
+API utama:
 
 ```python
 from src.preprocessing import run_preprocessing
 
-# Proses semua PDF
 stats = run_preprocessing(
-    input_dir='data/raw',
-    output_dir='data/cleaned_text'
+    input_dir="data/raw",
+    output_dir="data/cleaned",
+    save_metadata=False,
+    skip_existing=True,
 )
-
-print(f"Total: {stats['total_files']}")
-print(f"Berhasil: {stats['processed']}")
-print(f"Gagal: {stats['failed']}")
-print(f"Durasi: {stats['duration']:.2f} detik")
 ```
 
-#### 2. Proses individual dengan kontrol penuh
+`stats` memuat `total_files`, `processed`, `skipped`, `failed`, `output_files`,
+dan `duration` ketika PDF ditemukan. Untuk input tanpa PDF, hasil tidak memuat
+`output_files`.
 
-```python
-from src.preprocessing import extract_text, clean_text
-from pathlib import Path
+## Mode Ekstraksi
 
-# Ekstrak teks
-pdf_path = 'data/raw/dokumen.pdf'
-raw_text = extract_text(pdf_path)
+`save_metadata` juga memilih extractor, bukan sekadar mengaktifkan file tambahan:
 
-# Bersihkan teks
-cleaned_text = clean_text(raw_text)
+- `False` memakai `extract_text()`: tabel diekstrak terstruktur, narasi diambil
+  dari blok di luar tabel, dan `<<<PAGE_N>>>` ditambahkan. Heuristik dua kolom
+  menganggap dokumen bilingual dan membuang kolom kanan.
+- `True` memakai `extract_text_with_metadata()`: setiap halaman dibaca dengan
+  `page.get_text()`, tanpa ekstraksi tabel hybrid dan tanpa penanda halaman,
+  lalu metadata dokumen disimpan terpisah.
 
-# Simpan hasil
-output_path = Path('data/cleaned_text') / (Path(pdf_path).stem + '.txt')
-output_path.parent.mkdir(parents=True, exist_ok=True)
-output_path.write_text(cleaned_text, encoding='utf-8')
+Kedua mode dapat menghasilkan corpus teks yang berbeda secara material.
 
-print(f"Hasil disimpan ke: {output_path}")
-```
+## Pembersihan Teks
 
-#### 3. Dengan custom text cleaning
+`clean_text()` menghapus atau menormalkan BOM/karakter zero-width, karakter
+kontrol, pola nomor halaman umum (`Page 1`, `Halaman 1`, `1 of 10`), URL, email,
+copyright, referensi `[1]`, bullet di awal baris, separator, spasi, tab, newline,
+dan pola repetitif tertentu.
 
-```python
-from src.preprocessing import extract_text, clean_text_advanced, remove_headers_footers
+Fungsi ini sengaja tidak:
 
-# Ekstrak
-text = extract_text('data/raw/dokumen.pdf')
+- menghapus penanda `<<<PAGE_N>>>`, karena dipakai chunker untuk metadata halaman;
+- menghapus semua angka atau tanda baca;
+- menghapus header/footer spesifik BPS seperti nama instansi, katalog, ISSN, atau
+  ISBN.
 
-# Custom header/footer patterns
-custom_patterns = [
-    r'^\s*Badan Pusat Statistik.*$',
-    r'^\s*www\.example\.com.*$',
-]
-text = remove_headers_footers(text, custom_patterns)
+Untuk header/footer spesifik, panggil `remove_headers_footers()` secara eksplisit.
+`clean_text_advanced()` menyediakan opsi terpisah untuk menghapus angka atau
+tanda baca.
 
-# Advanced cleaning (hapus angka dan tanda baca)
-text = clean_text_advanced(text, remove_numbers=True, remove_punctuation=False)
+## Output Dan Log
 
-print(f"Teks bersih: {len(text)} karakter")
-```
+Dengan `--output data/cleaned`, setiap PDF menghasilkan:
 
-## 📊 Output
+- `data/cleaned/<nama_pdf>.txt`
+- `data/cleaned/<nama_pdf>_metadata.txt` jika `--metadata` digunakan dan metadata
+  tersedia
 
-### File Output
-Setiap PDF yang diproses akan menghasilkan:
-- **File teks bersih**: `data/cleaned_text/<nama_pdf>.txt`
-- **File metadata** (opsional): `data/cleaned_text/<nama_pdf>_metadata.txt`
+Log dibuat di `logs/preprocessing_<timestamp>.log`, relatif terhadap working
+directory saat proses dimulai.
 
-### Log File
-Log preprocessing disimpan di: `preprocessing_<timestamp>.log`
+Saat ini `pipeline.py` memanggil `setup_logging()` pada level modul. Akibatnya,
+`import src.preprocessing` juga membuat direktori/file log dan memasang handler,
+meskipun pipeline belum dijalankan.
 
-### Contoh Output Log
-```
-INFO - Memulai Pipeline Preprocessing
-INFO - Input directory: data/raw
-INFO - Output directory: data/cleaned_text
-INFO - Ditemukan 10 file PDF di data/raw
+## Exit Code Dan Skip
 
-[1/10] Processing: dokumen1.pdf
-INFO - Berhasil mengekstrak 45 halaman dari dokumen1.pdf
-INFO - Total karakter yang diekstrak: 125340
-INFO - Pembersihan teks selesai:
-INFO -   - Karakter awal: 125340
-INFO -   - Karakter akhir: 118920
-INFO -   - Pengurangan: 5.12%
-INFO - ✓ Berhasil disimpan ke: data/cleaned_text/dokumen1.txt
+Batch CLI keluar dengan status 0 hanya jika sedikitnya satu PDF diproses berhasil.
+Jika semua output sudah ada dan seluruh PDF di-skip, statusnya 1 walaupun tidak
+ada kegagalan pemrosesan. Input tanpa PDF dan batch dengan semua proses gagal juga
+keluar dengan status 1. Gunakan isi `stats` saat memanggil API untuk membedakan
+kondisi tersebut.
 
-...
-
-INFO - Preprocessing Selesai
-INFO - Total file PDF: 10
-INFO - Berhasil diproses: 10
-INFO - Di-skip (sudah ada): 0
-INFO - Gagal: 0
-INFO - Durasi: 45.32 detik
-```
-
-## 🔍 Detail Regex Patterns
-
-Berikut adalah pattern regex yang digunakan untuk pembersihan:
-
-| Pattern | Deskripsi |
-|---------|-----------|
-| `\b[Pp]age\s+\d+\b` | Nomor halaman "Page 1" |
-| `\b[Hh]alaman\s+\d+\b` | Nomor halaman "Halaman 1" |
-| `\b\d+\s+of\s+\d+\b` | Format "1 of 10" |
-| `^[\s\-_=]{3,}$` | Garis horizontal separator |
-| `©\s*\d{4}.*$` | Copyright notices |
-| `http[s]?://...` | URL |
-| `[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z\|a-z]{2,}` | Email |
-| `\[\d+\]` | Referensi footnote [1] |
-| `[ \t]{2,}` | Multiple spaces |
-| `\n{3,}` | Multiple newlines |
-
-## 📦 Dependencies
-
-```
-PyMuPDF (fitz)  # Untuk ekstraksi PDF
-```
-
-## 🧪 Testing
-
-### Test individual functions
-
-```python
-# Test ekstraksi
-from src.preprocessing.pdf_extractor import extract_text
-text = extract_text('data/raw/test.pdf')
-print(f"Extracted {len(text)} characters")
-
-# Test pembersihan
-from src.preprocessing.text_cleaner import clean_text
-test_text = "Page 1\n\nIni teks     dengan    spasi.\n\n\n"
-cleaned = clean_text(test_text)
-print(cleaned)
-```
-
-### Test pipeline lengkap
-
-```python
-from src.preprocessing import run_preprocessing_single
-
-success = run_preprocessing_single(
-    'data/raw/test.pdf',
-    'data/cleaned_text'
-)
-print(f"Success: {success}")
-```
-
-## 💡 Tips
-
-1. **Batch Processing**: Untuk efisiensi, gunakan `run_preprocessing()` yang otomatis skip file yang sudah diproses
-2. **Custom Cleaning**: Jika perlu pattern khusus, gunakan `remove_headers_footers()` dengan custom patterns
-3. **Logging**: Check file log untuk detail setiap proses dan debugging
-4. **Memory**: Untuk PDF besar, proses dilakukan per-file untuk efisiensi memory
-
-## 🐛 Troubleshooting
-
-### Error: "File tidak ditemukan"
-- Pastikan path file benar
-- Gunakan absolute path atau relative path dari root project
-
-### Error: "File bukan PDF"
-- Pastikan ekstensi file adalah `.pdf`
-- Check file tidak corrupt
-
-### Hasil teks kosong
-- Check log untuk detail error
-- Pastikan PDF bukan hasil scan (gunakan OCR terlebih dahulu)
-- Beberapa PDF memiliki proteksi yang mencegah ekstraksi teks
-
-### Teks hasil tidak sempurna
-- Sesuaikan regex patterns di `text_cleaner.py`
-- Tambahkan custom patterns dengan `remove_headers_footers()`
+Dependency ekstraksi PDF: PyMuPDF (`fitz`). PDF hasil scan memerlukan OCR sebelum
+pipeline ini digunakan.

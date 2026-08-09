@@ -15,9 +15,8 @@ def load_chunks_from_json(json_path: str) -> Optional[List[Dict[str, Any]]]:
     """
     Load chunks dari file JSON hasil chunking.
     
-    Supports 3 formats:
-    1. Element-based: [{"text": "...", "metadata": {...}}]
-    2. MaxMin/Recursive: [{"text": "...", "id": "...", "metadata": {...}}]
+    Loader hanya memvalidasi bahwa nilai top-level adalah list. Tahap berikutnya
+    mengharapkan setiap elemen berupa mapping dengan field ``text`` opsional.
     
     Args:
         json_path: Path ke file JSON
@@ -97,15 +96,14 @@ def _html_table_to_text(html: str) -> str:
 def _is_noise_text(text: str) -> bool:
     """Deteksi apakah teks adalah noise OCR/header PDF, bukan judul bermakna.
 
-    Noise patterns:
-    - Baris pertama berisi "PROVINSI/PROVINCE" (header tabel berulang)
-    - Teks yang mayoritas adalah angka, simbol, atau karakter non-alfabet
-    - Teks yang dimulai dengan nomor halaman atau kode kolom ("(1)", "(2)", dll)
+    Hanya baris pertama yang diperiksa: minimal dua token, bukan header
+    PROVINSI/PROVINCE atau tepat ``INDONESIA``, dan menyisakan minimal tiga
+    karakter setelah angka serta tanda baca tabel dihapus.
     """
     if not text:
         return True
     first_line = text.split("\n")[0].strip()
-    # Terlalu pendek untuk jadi judul bermakna (< 3 kata)
+    # Terlalu pendek untuk jadi judul bermakna (< 2 token)
     words = first_line.split()
     if len(words) < 2:
         return True
@@ -248,12 +246,12 @@ def save_embeddings(
             "timestamp": "..."
         },
         "embeddings": [...],  # List of lists (untuk JSON serialization)
-        "chunks": [...]       # Original chunks dengan embeddings
+        "chunks": [...]       # Salinan chunk valid dengan indeks embedding
     }
     
     Args:
         embeddings: Numpy array dengan shape (n_chunks, embedding_dim)
-        chunks: Original chunk dictionaries
+        chunks: Chunk dictionaries; teks tabel mungkin sudah diperkaya in-place
         valid_indices: Indices of valid chunks yang di-embed
         output_path: Path untuk output file
         metadata: Optional metadata tambahan
@@ -351,7 +349,7 @@ def save_embeddings_numpy(
         output_path: Path untuk output file (.npy)
         
     Returns:
-        True jika berhasil
+        True jika berhasil, False jika gagal
     """
     try:
         output_file = Path(output_path)

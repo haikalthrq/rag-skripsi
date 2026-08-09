@@ -1,10 +1,4 @@
-"""
-Modul embedder untuk generate vector embeddings menggunakan Qwen3-Embedding model.
-
-Mendukung 2 mode:
-1. GGUF (recommended): llama-cpp-python dengan Qwen3-Embedding-4B-Q8_0.gguf
-2. HuggingFace (fallback): sentence-transformers dengan Qwen3-Embedding-4B
-"""
+"""Wrapper Qwen3-Embedding untuk llama-cpp-python dan sentence-transformers."""
 
 import logging
 import numpy as np
@@ -61,15 +55,14 @@ class QwenEmbedder:
         
         logger.info(f"QwenEmbedder initialized (mode: {mode}, normalize: {normalize})")
     
-    # Catatan: batch_size pada API ini belum diteruskan ke backend. GGUF diproses
-    # satu per satu dan HuggingFace memakai batch_size=1 secara hard-coded.
     def embed(self, texts: Union[str, List[str]], batch_size: int = 32) -> np.ndarray:
         """
         Generate embeddings untuk satu atau multiple texts.
         
         Args:
             texts: Single text atau list of texts
-            batch_size: Batch size untuk processing (GGUF only)
+            batch_size: Saat ini diabaikan. GGUF memproses satu per satu dan
+                HuggingFace menggunakan batch size 1.
             
         Returns:
             np.ndarray: Embeddings dengan shape (n_texts, embedding_dim)

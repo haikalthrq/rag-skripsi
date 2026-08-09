@@ -1,6 +1,4 @@
-"""
-Query interface untuk ChromaDB collections.
-"""
+"""Helper query ChromaDB untuk vector NumPy dan filter metadata opsional."""
 
 import logging
 import numpy as np
@@ -10,14 +8,11 @@ logger = logging.getLogger(__name__)
 
 
 class ChromaRetriever:
-    """
-    Retriever class untuk query ChromaDB collections.
-    
-    Provides methods untuk similarity search dengan berbagai options:
-    - Basic similarity search
-    - Similarity search with scores
-    - Search with metadata filters
-    - MMR (Maximal Marginal Relevance) search untuk diversity
+    """Retriever untuk pencarian teks atau vector pada satu collection.
+
+    Pencarian teks memerlukan ``embedding_function``. Semua metode mendukung
+    filter metadata, dan hasil dengan score mengembalikan distance mentah dari
+    Chroma, bukan similarity score atau MMR.
     """
     
     def __init__(

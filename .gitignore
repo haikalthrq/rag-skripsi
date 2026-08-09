@@ -169,16 +169,16 @@ data/ground_truth/qa_gold_standard_rag_bps_30qa_fixed_narrative_revised.xlsx
 logs/
 *.log
 
-# Figures dari Unstructured PDF extraction
-figures/
+# Runtime UI history
+results/chat_history/*.jsonl
 
-# Exception: hasil visualisasi evaluasi (PNG + summary CSV) tetap di-track
-!results/final/figures/
-!results/final/figures/**
+# Figures dari Unstructured PDF extraction
+/figures/
 
 # IDE cache & temp output
 # -----------------------
 .claude/
+.ua/
 out.txt
 
 graphify-out/

@@ -108,7 +108,7 @@ def normalize(text: str) -> str:
 
 
 def label_match_strict(label: str, chunk_norm: str) -> bool:
-    """
+    r"""
     True jika label ditemukan sebagai frasa utuh di chunk_norm.
     - Menggunakan word-boundary (?<!\w) / (?!\w) bukan string `in`.
     - Untuk label kata-tunggal, tolak match jika didahului compound prefix

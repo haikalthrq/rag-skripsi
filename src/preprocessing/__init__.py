@@ -16,7 +16,7 @@ Struktur Modul:
 Penggunaan:
 ----------
 Sebagai script langsung:
-    python -m src.preprocessing.pipeline --input data/raw --output data/cleaned_text
+    python -m src.preprocessing.pipeline --input data/raw --output data/cleaned
 
 Atau import dalam kode Python:
     from src.preprocessing import run_preprocessing, extract_text, clean_text
@@ -24,7 +24,7 @@ Atau import dalam kode Python:
     # Jalankan preprocessing batch
     stats = run_preprocessing(
         input_dir='data/raw',
-        output_dir='data/cleaned_text'
+        output_dir='data/cleaned'
     )
     
     # Atau proses individual
@@ -32,9 +32,7 @@ Atau import dalam kode Python:
     cleaned = clean_text(text)
 """
 
-# Catatan: contoh di atas memakai data/cleaned_text sesuai default fungsi.
-# Gunakan output data/cleaned secara eksplisit untuk menyambungkan hasil ke
-# default MaxMin dan recursive chunking.
+# Default output data/cleaned selaras dengan input MaxMin dan recursive.
 
 from .pdf_extractor import extract_text, extract_text_with_metadata
 from .text_cleaner import clean_text, clean_text_advanced, remove_headers_footers

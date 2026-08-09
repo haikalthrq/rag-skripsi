@@ -15,12 +15,12 @@ pertanyaan-jawaban.
 
 - Workflow aktif dijalankan langsung dengan Python di laptop atau Vast.ai.
 - Docker bukan bagian dari workflow repository terbaru.
-- `src/streamlit/rag_chat.py` menyediakan chat, perbandingan tiga metode, dan
-  batch evaluation dengan metrik latency.
+- `src/streamlit/rag_chat.py` menyediakan evaluasi interaktif berbasis 30 QA,
+  perbandingan tiga metode, dan batch evaluation dengan metrik latency.
 - Hasil evaluasi terbaru yang tersimpan di repository mencakup full evaluation
   Top-1 sampai Top-10 pada 30 QA dan tiga metode.
-- Model, embedding, dan ChromaDB merupakan asset runtime dan tidak disimpan di
-  Git.
+- Model dan ChromaDB merupakan asset runtime. Faculty source-code ZIP juga
+  mengecualikan embedding yang dihasilkan agar paket tetap kecil.
 
 ## Persiapan Environment
 
@@ -37,10 +37,13 @@ Aktifkan virtual environment sesuai sistem operasi, lalu install dependency:
 pip install -r requirements.txt
 ```
 
-Notebook visualisasi memerlukan dependency tambahan:
+Untuk development/test, GGUF, atau notebook visualisasi, gunakan profile
+tambahan yang sesuai:
 
 ```bash
-pip install matplotlib seaborn
+pip install -r requirements-dev.txt
+pip install -r requirements-gguf.txt
+pip install -r requirements-visualization.txt
 ```
 
 GPU NVIDIA direkomendasikan untuk embedding dan generation. `llama-cpp-python`
@@ -185,9 +188,11 @@ Top-10.
 
 ## Visual Results
 
-Gambar berikut adalah output notebook
-`notebooks/eval_analysis_top1_10.ipynb`, menggunakan basis analisis Top-1 sampai
-Top-10. Ringkasan angka lengkap tersedia di
+Gambar berikut adalah output tersimpan dari
+`notebooks/eval_analysis_top1_10.ipynb`, menggunakan cohort evaluasi 31 Mei 2026
+untuk Top-1 sampai Top-10. Cohort dan missing value dicatat secara eksplisit di
+`results/final/analysis10/top1_10_audit_notes.md`; hasil generation/latency yang
+lebih baru tetap tersedia terpisah. Ringkasan angka visual tersedia di
 `results/final/analysis10/top1_10_metric_summary_by_method.csv`.
 
 <table>
@@ -245,13 +250,15 @@ streamlit run src/streamlit/rag_chat.py
 
 Fitur utama:
 
-- Chat dengan satu metode atau perbandingan tiga metode.
+- Pemilihan pertanyaan dari workbook 30 QA dengan satu metode atau perbandingan
+  tiga metode; UI ini belum menyediakan input pertanyaan bebas.
 - Retrieval Top-k 1 sampai 10 pada mode chat.
 - Full evaluation 30 QA atau quick evaluation 5 QA.
 - Batch evaluation interaktif dengan rentang Top-k 1 sampai 20.
 - Penyimpanan CSV persisten ke `results/final/generation/`.
 - Ringkasan metric dan mean, median, serta standard deviation latency.
-- Resume dan skip otomatis untuk CSV evaluasi yang sudah valid.
+- Reuse otomatis untuk CSV nonempty yang memiliki kolom timing wajib. Validasi
+  ini tidak membuktikan kesamaan model/config atau kelengkapan seluruh QA.
 
 ### Retrieval Ground Truth Annotation
 
@@ -285,6 +292,23 @@ results/final/generation/       output evaluasi yang di-version control
 results/final/analysis10/       tabel, catatan, dan figures Top-1 sampai Top-10
 ```
 
+## Penyerahan Source Code
+
+Project ini disiapkan untuk penyerahan akademik, bukan sebagai rilis open-source.
+Ketentuan distribusi dan batas materi pihak ketiga dijelaskan di
+`DISTRIBUTION_NOTES.md`. Panduan developer lengkap tersedia di
+`docs/DEVELOPER_HANDOFF.md`.
+
+Jangan membuat ZIP langsung dari root repository karena direktori kerja dapat
+memuat model, database, embedding, cache, backup, dan Git history. Gunakan
+builder allowlist berikut:
+
+```bash
+python scripts/create_faculty_submission.py
+```
+
+ZIP dan file checksum SHA-256 akan dibuat di `dist/`.
+
 ## Testing
 
 ```bash
@@ -302,3 +326,5 @@ latency retrieval, generation, total response, summary, dan resume behavior.
 - `src/chroma/README.md`
 - `src/rag/README.md`
 - `src/evaluation/README.md`
+- `src/streamlit/README.md`
+- `docs/DEVELOPER_HANDOFF.md`

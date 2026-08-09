@@ -501,6 +501,7 @@ def load_pipeline() -> RAGPipeline:
         generator_path=DEFAULT_GEN_PATH,
         generator_type=DEFAULT_GEN_TYPE,
         embedder_mode=_EMBEDDER_MODE,
+        embedder_n_gpu_layers=0 if _EMBEDDER_MODE == "gguf" else None,
         chroma_path=str(ROOT / DEFAULT_CHROMA_PATH),
         top_k=DEFAULT_TOP_K,
         temperature=DEFAULT_TEMP,
@@ -1370,4 +1371,3 @@ with tab_history:
             label = f"#{len(chat_history) - idx + 1} · {record.get('timestamp', '-')} · {str(record.get('query',''))[:70]}"
             with st.expander(label, expanded=(idx == 1)):
                 _render_history_turn(record)
-

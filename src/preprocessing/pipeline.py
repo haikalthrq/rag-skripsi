@@ -154,12 +154,9 @@ def process_single_pdf(
         return False, None
 
 
-# Catatan: output default fungsi ini adalah data/cleaned_text, sementara MaxMin
-# dan recursive chunking membaca data/cleaned. Berikan output_dir="data/cleaned"
-# secara eksplisit jika hasil akan langsung diteruskan ke kedua chunker itu.
 def run_preprocessing(
     input_dir: str = "data/raw",
-    output_dir: str = "data/cleaned_text",
+    output_dir: str = "data/cleaned",
     save_metadata: bool = False,
     skip_existing: bool = True
 ) -> dict:
@@ -255,7 +252,7 @@ def run_preprocessing(
 
 def run_preprocessing_single(
     pdf_path: str,
-    output_dir: str = "data/cleaned_text",
+    output_dir: str = "data/cleaned",
     save_metadata: bool = False
 ) -> bool:
     """
@@ -302,8 +299,8 @@ if __name__ == "__main__":
     parser.add_argument(
         '--output', '-o',
         type=str,
-        default='data/cleaned_text',
-        help='Direktori output untuk hasil teks bersih (default: data/cleaned_text)'
+        default='data/cleaned',
+        help='Direktori output untuk hasil teks bersih (default: data/cleaned)'
     )
     
     parser.add_argument(

@@ -1,17 +1,9 @@
+"""MaxMin semantic chunking dengan algoritma lokal.
+
+Sentence embeddings dapat dibuat dengan model GGUF melalui llama-cpp-python
+atau model HuggingFace melalui SentenceTransformer. Mode default menggunakan
+``models/Qwen3-Embedding-4B-Q8_0.gguf``.
 """
-Modul MaxMin Semantic Chunking.
-
-Modul ini memanggil library maxmin_chunker untuk melakukan semantic chunking
-berdasarkan similarity threshold dinamis. Menggunakan Qwen3-Embedding model
-dalam format GGUF untuk generate sentence embeddings.
-
-Supported Models:
-- Qwen3-Embedding-4B-GGUF (q4_K_M, q5_0, q5_K_M, q6_K, q8_0, f16)
-"""
-
-# Catatan: algoritma MaxMin di file ini diimplementasikan secara lokal melalui
-# process_sentences(); keterangan lama tentang library eksternal tidak
-# menggambarkan implementasi yang sedang digunakan.
 
 import json
 import logging
@@ -41,7 +33,7 @@ except ImportError:
     Llama = None  # type: ignore[misc]
     _LLAMA_CPP_AVAILABLE = False
 
-# Fallback: SentenceTransformer (optional)
+# Alternative HuggingFace mode via SentenceTransformer (optional)
 try:
     from sentence_transformers import SentenceTransformer  # type: ignore[import-not-found, import-untyped]
     _SENTENCE_TRANSFORMER_AVAILABLE = True
@@ -81,8 +73,6 @@ def sigmoid(x: float) -> float:
     return 1 / (1 + np.exp(-x))
 
 
-# Catatan: nilai efektif fixed_threshold pada signature adalah 0.95. Beberapa
-# docstring lama di file ini masih menyebut 0.6 dan tidak boleh dijadikan acuan.
 def process_sentences(
     sentences: List[str],
     embeddings: np.ndarray,
@@ -107,7 +97,7 @@ def process_sentences(
     Args:
         sentences (List[str]): List kalimat yang sudah di-tokenize.
         embeddings (np.ndarray): Sentence embeddings shape (n_sentences, embedding_dim).
-        fixed_threshold (float): Threshold minimum untuk gabung (default: 0.6).
+        fixed_threshold (float): Threshold minimum untuk gabung (default: 0.95).
         c (float): Coefficient untuk adaptive threshold (default: 0.9).
         init_constant (float): Boost factor untuk sentence ke-2 (default: 1.5).
         
@@ -199,7 +189,7 @@ def initialize_embedding_model_gguf(
     model_path: str = DEFAULT_GGUF_MODEL_PATH,
     n_gpu_layers: int = -1,
     n_ctx: int = 8192,
-    n_batch: int = 64,  # Kecilkan dari 512 → 64 untuk hindari OOM
+    n_batch: int = 64,  # Batch kecil untuk mengurangi penggunaan memori.
     verbose: bool = False,
     suppress_output: bool = True
 ) -> Optional[Llama]:
@@ -213,7 +203,7 @@ def initialize_embedding_model_gguf(
         model_path (str): Path ke file GGUF model.
         n_gpu_layers (int): Jumlah layer di GPU (-1 = semua layer).
         n_ctx (int): Context length (default: 8192).
-        n_batch (int): Batch size untuk processing (default: 512).
+        n_batch (int): Batch size untuk processing (default: 64).
         verbose (bool): Tampilkan log detail dari llama.cpp.
         suppress_output (bool): Suppress stderr warnings dari llama.cpp (default: True).
         
@@ -277,18 +267,17 @@ def initialize_embedding_model(
     low_memory: bool = False
 ) -> Optional[Any]:
     """
-    Inisialisasi model embedding Qwen3 menggunakan SentenceTransformer.
-    
-    DEPRECATED: Gunakan initialize_embedding_model_gguf() untuk model GGUF.
-    Fungsi ini tetap tersedia untuk backward compatibility.
+    Inisialisasi model embedding HuggingFace menggunakan SentenceTransformer.
+
+    Fungsi ini menyediakan mode alternatif saat ``use_gguf=False``.
     
     Mengikuti best practices dari dokumentasi Qwen3:
     - Menggunakan SentenceTransformer API (lebih mudah dan stabil)
     - Normalisasi embeddings untuk cosine similarity
     
     Args:
-        model_name (str): Nama model HuggingFace. Default: Qwen3-Embedding-4B
-        device (str): Device untuk inference ('cpu' atau 'cuda')
+        model_name (str): Nama model HuggingFace. Default: Qwen/Qwen3-Embedding-4B.
+        device (str): Device untuk inference ('cpu' atau 'cuda'). Default: 'cuda'.
         low_memory (bool): Gunakan half precision (float16) untuk hemat VRAM. Default: False
         
     Returns:
@@ -311,7 +300,7 @@ def initialize_embedding_model(
         # Load model dengan SentenceTransformer
         # Sesuai dokumentasi Qwen3, ini adalah cara paling simple dan reliable
         if low_memory:
-            # Mode hemat VRAM: gunakan float16 dan 4-bit quantization
+            # Mode hemat VRAM menggunakan float16.
             import torch
             logger.info("  - Loading dengan half precision (float16) untuk hemat VRAM")
             model = SentenceTransformer(
@@ -355,7 +344,7 @@ def initialize_embedding_model(
 
 def load_text(text_path: str) -> Optional[str]:
     """
-    Memuat file teks dari data/cleaned_text/.
+    Memuat file teks, dengan input pipeline default di data/cleaned/.
     
     Args:
         text_path (str): Path ke file teks.
@@ -469,7 +458,8 @@ def embed_sentences(
         use_gguf (bool): True jika menggunakan model GGUF (default: False).
         
     Returns:
-        Optional[np.ndarray]: Array embeddings dengan shape (n_sentences, embedding_dim)atau None jika gagal.
+        Optional[np.ndarray]: Array embeddings dengan shape
+            (n_sentences, embedding_dim), atau None jika gagal.
     """
     try:
         logger.info(f"Generating embeddings untuk {len(sentences)} kalimat...")
@@ -559,7 +549,7 @@ def apply_maxmin_chunking(
     Args:
         sentences (List[str]): List kalimat.
         embeddings (np.ndarray): Array embeddings dengan shape (n_sentences, embedding_dim).
-        fixed_threshold (float): Fixed threshold untuk similarity (default: 0.6).
+        fixed_threshold (float): Fixed threshold untuk similarity (default: 0.95).
         c (float): Parameter untuk adaptive threshold (default: 0.9).
         init_constant (float): Initial constant untuk threshold (default: 1.5).
         
@@ -812,9 +802,6 @@ def get_text_files(input_dir: str) -> List[Path]:
     return text_files
 
 
-# Catatan: input default yang benar di implementasi adalah data/cleaned dan
-# threshold efektifnya 0.95. Jalur data/cleaned_text serta threshold 0.6 yang
-# masih muncul pada dokumentasi lama bukan default fungsi ini.
 def run_maxmin_chunking(
     input_dir: str = "data/cleaned",
     output_dir: str = "data/chunked/maxmin_semantic",
@@ -838,10 +825,10 @@ def run_maxmin_chunking(
         input_dir (str): Direktori berisi file teks input (default: data/cleaned).
         output_dir (str): Direktori output untuk hasil chunking (default: data/chunked/maxmin_semantic).
         model_path (str): Path ke file GGUF model (untuk use_gguf=True).
-        use_gguf (bool): Gunakan model GGUF (default: True, RECOMMENDED).
+        use_gguf (bool): Gunakan model GGUF (default: True).
         model_name (str): Nama model HuggingFace (untuk use_gguf=False).
         device (str): Device untuk inference (default: 'cuda').
-        fixed_threshold (float): Fixed threshold untuk MaxMin (default: 0.6).
+        fixed_threshold (float): Fixed threshold untuk MaxMin (default: 0.95).
         c (float): Parameter c untuk MaxMin (default: 0.9).
         init_constant (float): Parameter init_constant untuk MaxMin (default: 1.5).
         include_metadata (bool): Sertakan metadata (default: True).
@@ -875,8 +862,8 @@ def run_maxmin_chunking(
         embedding_model = initialize_embedding_model_gguf(
             model_path=model_path,
             n_gpu_layers=n_gpu_layers,
-            n_ctx=8192,   # Chunking: 8192 cukup untuk kalimat ≤4000 chars (~2000 token)
-            n_batch=64,   # Kurangi dari 512: forward pass 4B model butuh VRAM besar per batch
+            n_ctx=8192,   # Context yang digunakan untuk sentence embedding GGUF.
+            n_batch=64,   # Batch kecil untuk membatasi penggunaan memori.
         )
     else:
         embedding_model = initialize_embedding_model(

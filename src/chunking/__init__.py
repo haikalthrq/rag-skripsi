@@ -1,36 +1,20 @@
+"""Implementasi chunking untuk pipeline RAG.
+
+Package ini mengekspor tiga pendekatan:
+
+1. Composite element-based chunking dengan Unstructured.
+2. MaxMin semantic chunking dengan algoritma lokal dan sentence embeddings.
+3. Recursive character splitting dengan LangChain.
+
+Entry point CLI berada di modul implementasi masing-masing::
+
+    python src/chunking/element_based.py
+    python src/chunking/maxmin_chunker.py
+    python src/chunking/recursive_split.py
+
+MaxMin dan recursive menggunakan ``data/cleaned`` sebagai input default,
+sedangkan element-based menggunakan ``data/raw``.
 """
-Modul Chunking untuk RAG System
-================================
-
-Modul ini menyediakan berbagai metode chunking untuk dokumen:
-1. Element-based chunking menggunakan Unstructured
-2. MaxMin semantic chunking menggunakan maxmin_chunker library
-3. Recursive chunking menggunakan LangChain RecursiveCharacterTextSplitter
-
-Struktur Modul:
---------------
-- element_based.py: Element-based chunking dengan Unstructured
-- maxmin_chunker.py: MaxMin semantic chunking
-- recursive_split.py: Recursive character text splitting dengan LangChain
-
-Penggunaan:
-----------
-Sebagai script langsung:
-    python chunk_element.py --input data/raw --output data/chunked/element_based
-    python chunk_maxmin.py --input data/cleaned_text --output data/chunked/maxmin_semantic
-    python chunk_recursive.py --input data/cleaned_text --output data/chunked/recursive
-    
-Atau import dalam kode Python:
-    from src.chunking.element_based import run_element_based_chunking
-    from src.chunking.maxmin_chunker import run_maxmin_chunking
-    from src.chunking.recursive_split import run_recursive_chunking
-"""
-
-# Catatan: package melakukan import eager terhadap seluruh metode di bawah.
-# Akibatnya, kesalahan parse pada maxmin_chunker.py juga menggagalkan import
-# element-based dan recursive melalui `from src.chunking import ...`.
-# Entry point yang tersedia berada di modul masing-masing, bukan pada script
-# root chunk_element.py, chunk_maxmin.py, atau chunk_recursive.py.
 
 # Element-based chunking
 from .element_based import (

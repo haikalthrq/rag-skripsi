@@ -1,16 +1,8 @@
-"""
-Entrypoint untuk embedding chunks dari hasil chunking.
+"""CLI dan batch pipeline untuk embedding hasil chunking.
 
-Pipeline:
-1. Load chunks dari JSON file
-2. Clean whitespace dan filter empty chunks
-3. Generate embeddings menggunakan Qwen3 model
-4. Save embeddings ke output directory
-
-Supports 3 chunking methods:
-- element_based
-- maxmin_semantic
-- recursive
+Sebelum embedding, pipeline memperkaya tabel dari HTML dan membuang chunk
+kosong. Metode MaxMin/recursive juga mendapat context prefix sementara dari
+chunk valid sebelumnya. Hasil disimpan sebagai JSON dan, jika diminta, NumPy.
 """
 
 import logging
@@ -83,8 +75,10 @@ def embed_single_file(
     chunking_method: str,
     save_numpy: bool = False
 ) -> Optional[Dict[str, Any]]:
-    """
-    Embed chunks dari single JSON file.
+    """Embed seluruh chunk valid dari satu file JSON.
+
+    Chunk tabel diperkaya in-place sebelum disimpan. Context prefix untuk
+    ``maxmin_semantic`` dan ``recursive`` hanya diterapkan pada teks embedding.
     
     Args:
         json_path: Path ke JSON file chunks
@@ -210,8 +204,10 @@ def embed_all_chunks(
     skip_existing: bool = True,
     methods: Optional[List[str]] = None
 ) -> Dict[str, Any]:
-    """
-    Embed semua chunks dari 3 metode chunking.
+    """Embed file chunk dari metode yang dipilih.
+
+    Secara default memproses ``element_based``, ``maxmin_semantic``, dan
+    ``recursive``.
     
     Args:
         chunked_dir: Directory berisi hasil chunking (dengan subdirs: element_based, maxmin_semantic, recursive)
@@ -223,6 +219,7 @@ def embed_all_chunks(
         normalize: Normalize embeddings
         save_numpy: Juga save dalam format numpy
         skip_existing: Skip file yang sudah di-embed
+        methods: Daftar subdirektori metode. ``None`` memakai tiga metode default.
         
     Returns:
         Dictionary dengan statistics

@@ -1,0 +1,4 @@
+# Install this file only when the GGUF backend is required.
+# CUDA builds may need environment-specific CMAKE_ARGS; see docs/DEVELOPER_HANDOFF.md.
+llama-cpp-python
+diskcache
